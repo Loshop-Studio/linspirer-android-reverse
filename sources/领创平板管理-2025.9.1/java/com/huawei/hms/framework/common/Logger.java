@@ -3,7 +3,7 @@ package com.huawei.hms.framework.common;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.IllegalFormatException;
@@ -72,18 +72,18 @@ public class Logger {
             if (this.message == null) {
                 return name;
             }
-            String strM1760e = C0948f6.m1760e(name, ": ");
+            String strM1760e = CompilerOutline.m1760e(name, ": ");
             if (this.message.startsWith(strM1760e)) {
                 return this.message;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j(strM1760e);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(strM1760e);
             sbM1765j.append(this.message);
             return sbM1765j.toString();
         }
     }
 
     public static String complexAppTag(String str) {
-        return C0948f6.m1760e(TAG_NETWORK_SDK_PRE, str);
+        return CompilerOutline.m1760e(TAG_NETWORK_SDK_PRE, str);
     }
 
     public static String complexMsg(String str, int i) {
@@ -94,7 +94,7 @@ public class Logger {
     }
 
     public static String complexTag(String str) {
-        return C0948f6.m1760e("NetworkKit_", str);
+        return CompilerOutline.m1760e("NetworkKit_", str);
     }
 
     @SuppressLint({"LogTagMismatch"})

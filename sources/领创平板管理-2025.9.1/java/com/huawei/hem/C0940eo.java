@@ -4,12 +4,12 @@ import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.sdk.android.tbrest.request.BizRequest;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.huawei.hem.AbstractC0966fo;
+import com.huawei.hem.BaseNCodec;
 
 /* compiled from: Base64.java */
 /* renamed from: com.huawei.hem.eo */
 /* loaded from: classes.dex */
-public class C0940eo extends AbstractC0966fo {
+public class C0940eo extends BaseNCodec {
 
     /* renamed from: k */
     public static final byte[] f2568k = {StrictLineReader.f2110CR, 10};
@@ -141,7 +141,7 @@ public class C0940eo extends AbstractC0966fo {
         if (bArr == null || bArr.length == 0) {
             return bArr;
         }
-        AbstractC0966fo.a aVar = new AbstractC0966fo.a();
+        BaseNCodec.a aVar = new BaseNCodec.a();
         c0940eo.mo1691a(bArr, 0, bArr.length, aVar);
         c0940eo.mo1691a(bArr, 0, -1, aVar);
         int i = aVar.f2713c;
@@ -174,7 +174,7 @@ public class C0940eo extends AbstractC0966fo {
         if (bArr.length == 0) {
             return bArr;
         }
-        AbstractC0966fo.a aVar = new AbstractC0966fo.a();
+        BaseNCodec.a aVar = new BaseNCodec.a();
         c0940eo.mo1692b(bArr, 0, length2, aVar);
         c0940eo.mo1692b(bArr, 0, -1, aVar);
         int i3 = aVar.f2713c - aVar.f2714d;
@@ -185,7 +185,7 @@ public class C0940eo extends AbstractC0966fo {
 
     @Override // com.huawei.hem.AbstractC0966fo
     /* renamed from: a */
-    public void mo1691a(byte[] bArr, int i, int i2, AbstractC0966fo.a aVar) {
+    public void mo1691a(byte[] bArr, int i, int i2, BaseNCodec.a aVar) {
         byte b;
         if (aVar.f2715e) {
             return;
@@ -243,7 +243,7 @@ public class C0940eo extends AbstractC0966fo {
                 return;
             }
             if (i10 != 3) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Impossible modulus ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Impossible modulus ");
                 sbM1765j.append(aVar.f2717g);
                 throw new IllegalStateException(sbM1765j.toString());
             }
@@ -260,7 +260,7 @@ public class C0940eo extends AbstractC0966fo {
 
     @Override // com.huawei.hem.AbstractC0966fo
     /* renamed from: b */
-    public void mo1692b(byte[] bArr, int i, int i2, AbstractC0966fo.a aVar) {
+    public void mo1692b(byte[] bArr, int i, int i2, BaseNCodec.a aVar) {
         if (aVar.f2715e) {
             return;
         }
@@ -333,7 +333,7 @@ public class C0940eo extends AbstractC0966fo {
                 }
             } else {
                 if (i15 != 2) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Impossible modulus ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Impossible modulus ");
                     sbM1765j.append(aVar.f2717g);
                     throw new IllegalStateException(sbM1765j.toString());
                 }

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.alibaba.sdk.android.crashdefend.p010a.C0513a;
 import com.alibaba.sdk.android.crashdefend.p010a.C0514b;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.taobao.accs.common.Constants;
 import java.io.FileOutputStream;
@@ -203,7 +203,7 @@ public class C0516a {
                 return Application.getProcessName();
             }
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Application gerProcessName error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Application gerProcessName error: ");
             sbM1765j.append(Log.getStackTraceString(th));
             Log.e("CrashUtils", sbM1765j.toString());
         }

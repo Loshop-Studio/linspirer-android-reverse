@@ -2,9 +2,9 @@ package com.amap.api.location;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.loc.C1834ep;
-import com.loc.C1836er;
-import com.loc.C1839eu;
+import com.loc.CoreUtil;
+import com.loc.OffsetUtil;
+import com.loc.ReportUtil;
 import com.loc.C1841ew;
 import org.json.JSONObject;
 
@@ -123,7 +123,7 @@ public class CoordinateConverter {
     }
 
     public static boolean isAMapDataAvailable(double d, double d2) {
-        return C1834ep.m5015a(d, d2);
+        return CoreUtil.m5015a(d, d2);
     }
 
     public synchronized DPoint convert() {
@@ -146,7 +146,7 @@ public class CoordinateConverter {
         String str = null;
         switch (C06171.f1581a[this.f1579k.ordinal()]) {
             case 1:
-                this.f1577a = C1836er.m5036a(this.f1580l);
+                this.f1577a = OffsetUtil.m5036a(this.f1580l);
                 if ((f1569b & f1570c) == 0) {
                     str = "baidu";
                     i = f1569b;
@@ -157,7 +157,7 @@ public class CoordinateConverter {
                 }
                 break;
             case 2:
-                this.f1577a = C1836er.m5039b(this.f1578j, this.f1580l);
+                this.f1577a = OffsetUtil.m5039b(this.f1578j, this.f1580l);
                 if ((f1569b & f1571d) == 0) {
                     str = "mapbar";
                     i = f1569b;
@@ -209,7 +209,7 @@ public class CoordinateConverter {
                     f1569b |= f1576i;
                     z = true;
                 }
-                dPointM5035a = C1836er.m5035a(this.f1578j, this.f1580l);
+                dPointM5035a = OffsetUtil.m5035a(this.f1578j, this.f1580l);
                 this.f1577a = dPointM5035a;
                 break;
         }
@@ -218,7 +218,7 @@ public class CoordinateConverter {
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("amap_loc_coordinate", str);
             }
-            C1839eu.m5074a(this.f1578j, "O021", jSONObject);
+            ReportUtil.m5074a(this.f1578j, "O021", jSONObject);
         }
         return this.f1577a;
     }

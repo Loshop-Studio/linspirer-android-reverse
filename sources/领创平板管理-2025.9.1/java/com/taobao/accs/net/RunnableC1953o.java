@@ -2,7 +2,7 @@ package com.taobao.accs.net;
 
 import anet.channel.session.TnetSpdySession;
 import com.alibaba.sdk.android.logger.ILog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsState;
 import com.taobao.accs.common.Constants;
 import com.taobao.accs.p072ut.p073a.C1968d;
@@ -43,7 +43,7 @@ public class RunnableC1953o implements Runnable {
         AccsState.getInstance().m5450a(this.f6272e.f6221m, AccsState.LAST_MSG_RECEIVE_TIME, Integer.valueOf(this.f6269b));
         if (this.f6268a != 200) {
             ILog iLog = this.f6272e.f6250t;
-            StringBuilder sbM1765j = C0948f6.m1765j("drop frame len:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("drop frame len:");
             sbM1765j.append(this.f6270c.length);
             sbM1765j.append(" frameType");
             sbM1765j.append(this.f6268a);

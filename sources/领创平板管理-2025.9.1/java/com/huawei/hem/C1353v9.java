@@ -105,7 +105,7 @@ public class C1353v9 {
         if (c0926eaM2270K3 != null) {
             c0926eaM2270K3.f2536q = jCurrentTimeMillis;
         }
-        m2865e(str, str2, C1423y4.m2997r());
+        m2865e(str, str2, LauncherMenuHelper.m2997r());
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

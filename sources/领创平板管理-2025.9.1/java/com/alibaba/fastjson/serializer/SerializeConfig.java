@@ -10,7 +10,7 @@ import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.IdentityHashMap;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.File;
 import java.io.Serializable;
 import java.lang.ref.SoftReference;
@@ -215,7 +215,7 @@ public class SerializeConfig {
     public final ObjectSerializer createJavaBeanSerializer(Class<?> cls) {
         String name = cls.getName();
         if (Arrays.binarySearch(this.denyClasses, TypeUtils.fnv1a_64(name)) >= 0) {
-            throw new JSONException(C0948f6.m1760e("not support class : ", name));
+            throw new JSONException(CompilerOutline.m1760e("not support class : ", name));
         }
         SerializeBeanInfo serializeBeanInfoBuildBeanInfo = TypeUtils.buildBeanInfo(cls, null, this.propertyNamingStrategy, this.fieldBased);
         return (serializeBeanInfoBuildBeanInfo.fields.length == 0 && Iterable.class.isAssignableFrom(cls)) ? MiscCodec.instance : createJavaBeanSerializer(serializeBeanInfoBuildBeanInfo);

@@ -13,13 +13,13 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.network.LicenseHelper;
 import com.android.launcher3.view.DialogUtil;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0878ce;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DeviceTypeUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.C1095l2;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.CountDownTimerC1121m2;
 
 /* loaded from: classes.dex */
@@ -73,8 +73,8 @@ public class LicenseActivity extends BaseActivity {
             throw null;
         }
         DialogUtil.hideDialog();
-        C0850bc.m1413w(licenseActivity, licenseActivity.getResources().getString(R.string.license_check_error_note), 0);
-        C0850bc.m1403m(" checking license is failling , confirm it please ." + licenseActivity.f1748j);
+        LTKDateUtil.m1413w(licenseActivity, licenseActivity.getResources().getString(R.string.license_check_error_note), 0);
+        LTKDateUtil.m1403m(" checking license is failling , confirm it please ." + licenseActivity.f1748j);
         int i = licenseActivity.f1748j;
         if (i > 0) {
             licenseActivity.f1748j = i - 1;
@@ -94,16 +94,16 @@ public class LicenseActivity extends BaseActivity {
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: c */
     public void mo1171c() {
-        this.f1741c.setText(C0904de.m1589f());
-        this.f1743e.setText(C0904de.m1593j(this));
-        this.f1742d.setText(C0904de.m1592i());
+        this.f1741c.setText(LauncherDeviceUtils.m1589f());
+        this.f1743e.setText(LauncherDeviceUtils.m1593j(this));
+        this.f1742d.setText(LauncherDeviceUtils.m1592i());
         LicenseHelper licenseHelper = LicenseHelper.getInstance();
         this.f1747i = licenseHelper;
         licenseHelper.setCallBack(new C1095l2(this));
-        String strM3072u = C1424y5.b.f4202a.m3072u();
+        String strM3072u = UserInfoUtil.b.f4202a.m3072u();
         this.f1746h = strM3072u;
         if (TextUtils.isEmpty(strM3072u)) {
-            this.f1746h = C0878ce.m1521n() || C0878ce.m1519l() || C0878ce.m1510c() || C0878ce.m1514g(C0904de.m1589f()) ? "CC78E3BB-51E1-F252-BA5F-AC049BF4D862" : "7CF82AF3-2B31-775B-6A46-2C889C732300";
+            this.f1746h = DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1519l() || DeviceTypeUtil.m1510c() || DeviceTypeUtil.m1514g(LauncherDeviceUtils.m1589f()) ? "CC78E3BB-51E1-F252-BA5F-AC049BF4D862" : "7CF82AF3-2B31-775B-6A46-2C889C732300";
         }
         this.f1740b.setText(this.f1746h);
         Intent intent = getIntent();
@@ -132,7 +132,7 @@ public class LicenseActivity extends BaseActivity {
     /* renamed from: h */
     public final void m1199h() {
         if (TextUtils.isEmpty(this.f1746h)) {
-            C0850bc.m1413w(this, getString(R.string.input_license), 0);
+            LTKDateUtil.m1413w(this, getString(R.string.input_license), 0);
             this.f1744f.setText(getString(R.string.input_license));
             this.f1744f.setEnabled(true);
         } else {
@@ -143,7 +143,7 @@ public class LicenseActivity extends BaseActivity {
     }
 
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
         }
         switch (view.getId()) {
             case R.id.back_image /* 2131165237 */:
@@ -152,9 +152,9 @@ public class LicenseActivity extends BaseActivity {
                 break;
             case R.id.netset /* 2131165431 */:
                 if (!"admin".equals(this.f1745g)) {
-                    C0850bc.f2294f.enableBack();
+                    LTKDateUtil.f2294f.enableBack();
                 }
-                C1423y4.m2979Z(this);
+                LauncherMenuHelper.m2979Z(this);
                 break;
             case R.id.submit /* 2131165518 */:
                 m1199h();
@@ -168,9 +168,9 @@ public class LicenseActivity extends BaseActivity {
         if ("admin".equals(this.f1745g)) {
             return;
         }
-        C0850bc.f2294f.enableHome();
-        C0850bc.f2294f.enableBack();
-        C0850bc.f2294f.enableRecent();
+        LTKDateUtil.f2294f.enableHome();
+        LTKDateUtil.f2294f.enableBack();
+        LTKDateUtil.f2294f.enableRecent();
     }
 
     @Override // android.app.Activity
@@ -179,8 +179,8 @@ public class LicenseActivity extends BaseActivity {
         if ("admin".equals(this.f1745g)) {
             return;
         }
-        C0850bc.f2294f.disableRecent();
-        C0850bc.f2294f.disableHome();
-        C0850bc.f2294f.disableBack();
+        LTKDateUtil.f2294f.disableRecent();
+        LTKDateUtil.f2294f.disableHome();
+        LTKDateUtil.f2294f.disableBack();
     }
 }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.tbrest.request.BizRequest;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.client.GlobalClientInfo;
@@ -354,7 +354,7 @@ public class Message {
         boolean z = (System.currentTimeMillis() - this.f6097T) + this.f6094Q >= ((long) this.f6096S);
         if (z) {
             String strM5508j = m5508j();
-            StringBuilder sbM1765j = C0948f6.m1765j("delay time:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("delay time:");
             sbM1765j.append(this.f6094Q);
             sbM1765j.append(" beforeSendTime:");
             sbM1765j.append(System.currentTimeMillis() - this.f6097T);
@@ -780,7 +780,7 @@ public class Message {
 
     /* renamed from: a */
     public static Message m5489a(AbstractC1940b abstractC1940b, Intent intent) {
-        StringBuilder sbM1765j = C0948f6.m1765j("buildUnbindApp1");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("buildUnbindApp1");
         sbM1765j.append(UtilityImpl.m5740a(new Exception()));
         ALog.m5728e("Msg", sbM1765j.toString(), new Object[0]);
         Message messageM5490a = null;
@@ -897,7 +897,7 @@ public class Message {
         message.f6085H = accsRequest.serviceId;
         message.f6084G = accsRequest.userId;
         message.f6091N = accsRequest.data;
-        StringBuilder sbM1769n = C0948f6.m1769n(Constants.TARGET_SERVICE_PRE, TextUtils.isEmpty(accsRequest.targetServiceName) ? accsRequest.serviceId : accsRequest.targetServiceName, "|");
+        StringBuilder sbM1769n = CompilerOutline.m1769n(Constants.TARGET_SERVICE_PRE, TextUtils.isEmpty(accsRequest.targetServiceName) ? accsRequest.serviceId : accsRequest.targetServiceName, "|");
         String str2 = accsRequest.target;
         if (str2 == null) {
             str2 = "";
@@ -941,7 +941,7 @@ public class Message {
         message.f6085H = accsRequest.serviceId;
         message.f6084G = accsRequest.userId;
         message.f6091N = accsRequest.data;
-        StringBuilder sbM1769n = C0948f6.m1769n(str2, TextUtils.isEmpty(accsRequest.targetServiceName) ? accsRequest.serviceId : accsRequest.targetServiceName, "|");
+        StringBuilder sbM1769n = CompilerOutline.m1769n(str2, TextUtils.isEmpty(accsRequest.targetServiceName) ? accsRequest.serviceId : accsRequest.targetServiceName, "|");
         String str3 = accsRequest.target;
         if (str3 == null) {
             str3 = "";

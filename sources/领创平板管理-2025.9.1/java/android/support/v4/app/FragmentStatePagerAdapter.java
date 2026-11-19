@@ -8,7 +8,7 @@ import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -128,7 +128,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
-                this.mFragmentManager.putFragment(bundle, C0948f6.m1754L("f", i), fragment);
+                this.mFragmentManager.putFragment(bundle, CompilerOutline.m1754L("f", i), fragment);
             }
         }
         return bundle;

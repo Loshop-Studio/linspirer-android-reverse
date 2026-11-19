@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p035a.p040d;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -51,7 +51,7 @@ public abstract class AbstractC1590f {
                 return Class.forName(string.substring(iIndexOf, iIndexOf2));
             } catch (ClassNotFoundException e) {
                 String str = f4626a;
-                StringBuilder sbM1765j = C0948f6.m1765j("getType exception!");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("getType exception!");
                 sbM1765j.append(e.getMessage());
                 C1584a.m3516b(str, sbM1765j.toString());
             }

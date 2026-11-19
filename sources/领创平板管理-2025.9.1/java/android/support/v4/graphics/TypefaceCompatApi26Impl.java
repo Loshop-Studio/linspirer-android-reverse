@@ -15,7 +15,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.content.res.FontResourcesParserCompat;
 import android.support.v4.provider.FontsContractCompat;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -63,7 +63,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             methodObtainCreateFromFamiliesWithDefaultMethod = obtainCreateFromFamiliesWithDefaultMethod(clsObtainFontFamily);
             cls = clsObtainFontFamily;
         } catch (ClassNotFoundException | NoSuchMethodException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Unable to collect necessary methods for class ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Unable to collect necessary methods for class ");
             sbM1765j.append(e.getClass().getName());
             Log.e(TAG, sbM1765j.toString(), e);
             methodObtainCreateFromFamiliesWithDefaultMethod = null;

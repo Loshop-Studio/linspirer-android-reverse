@@ -1,7 +1,7 @@
 package com.p061ta.p062a.p064b;
 
 import android.content.Context;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.p061ta.p062a.C1866a;
 import com.p061ta.p062a.p065c.C1877a;
 import com.p061ta.p062a.p065c.C1882f;
@@ -24,7 +24,7 @@ public class C1873e {
         Context context = C1866a.m5365a().getContext();
         StringBuilder sb = new StringBuilder();
         sb.append(m5375a(context));
-        String strM1762g = C0948f6.m1762g(sb, File.separator, "4635b664f789000d");
+        String strM1762g = CompilerOutline.m1762g(sb, File.separator, "4635b664f789000d");
         C1882f.m5407b("", strM1762g);
         return strM1762g;
     }
@@ -34,7 +34,7 @@ public class C1873e {
         Context context = C1866a.m5365a().getContext();
         StringBuilder sb = new StringBuilder();
         sb.append(m5375a(context));
-        return C0948f6.m1762g(sb, File.separator, "9983c160aa044115");
+        return CompilerOutline.m1762g(sb, File.separator, "9983c160aa044115");
     }
 
     /* renamed from: d */
@@ -50,8 +50,8 @@ public class C1873e {
     public static String m5375a(Context context) {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getFilesDir().getAbsolutePath());
-        String strM1762g = C0948f6.m1762g(sb, File.separator, ".7934039a7252be16");
-        C1882f.m5407b("", C0948f6.m1760e("UtdidAppRoot dir:", strM1762g));
+        String strM1762g = CompilerOutline.m1762g(sb, File.separator, ".7934039a7252be16");
+        C1882f.m5407b("", CompilerOutline.m1760e("UtdidAppRoot dir:", strM1762g));
         C1877a.m5385b(strM1762g);
         return strM1762g;
     }

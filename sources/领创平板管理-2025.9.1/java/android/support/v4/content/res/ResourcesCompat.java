@@ -16,7 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.Preconditions;
 import android.util.TypedValue;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class ResourcesCompat {
@@ -89,7 +89,7 @@ public final class ResourcesCompat {
         if (typefaceLoadFont != null || fontCallback != null) {
             return typefaceLoadFont;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Font resource ID #0x");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Font resource ID #0x");
         sbM1765j.append(Integer.toHexString(i));
         sbM1765j.append(" could not be retrieved.");
         throw new Resources.NotFoundException(sbM1765j.toString());

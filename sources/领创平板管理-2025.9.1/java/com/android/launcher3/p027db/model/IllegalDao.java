@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -34,11 +34,11 @@ public class IllegalDao extends AbstractDao<Illegal, Long> {
         database.execSQL("CREATE TABLE " + str + "\"illegal_table\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"NAME\" TEXT,\"ENABLE\" INTEGER NOT NULL ,\"NOTIFY_ADMIN\" INTEGER NOT NULL ,\"ELIMINATE_DATA\" INTEGER NOT NULL ,\"LOCK_WORKSPACE\" INTEGER NOT NULL );");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_illegal_table__id ON \"illegal_table\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_illegal_table__id ON \"illegal_table\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"illegal_table\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"illegal_table\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

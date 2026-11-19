@@ -2,7 +2,7 @@ package org.android.spdy;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.android.spdy.ProtectedPointer;
 
@@ -242,7 +242,7 @@ public final class SpdySession {
         if (iSendCustomControlFrameN == 0) {
             return iSendCustomControlFrameN;
         }
-        throw new SpdyErrorException(C0948f6.m1754L("sendCustomControlFrame error: ", iSendCustomControlFrameN), iSendCustomControlFrameN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("sendCustomControlFrame error: ", iSendCustomControlFrameN), iSendCustomControlFrameN);
     }
 
     public void sessionIsOpen() {
@@ -263,7 +263,7 @@ public final class SpdySession {
         if (optionN == 0) {
             return optionN;
         }
-        throw new SpdyErrorException(C0948f6.m1754L("setOption error: ", optionN), optionN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("setOption error: ", optionN), optionN);
     }
 
     public void setSessionNativePtr(long j) {
@@ -283,7 +283,7 @@ public final class SpdySession {
         if (iStreamCloseN == 0) {
             return iStreamCloseN;
         }
-        throw new SpdyErrorException(C0948f6.m1754L("streamReset error: ", iStreamCloseN), iStreamCloseN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("streamReset error: ", iStreamCloseN), iStreamCloseN);
     }
 
     @Deprecated
@@ -299,7 +299,7 @@ public final class SpdySession {
         if (iSubmitBioPingN == 0) {
             return iSubmitBioPingN;
         }
-        throw new SpdyErrorException(C0948f6.m1754L("submitBioPing error: ", iSubmitBioPingN), iSubmitBioPingN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("submitBioPing error: ", iSubmitBioPingN), iSubmitBioPingN);
     }
 
     public int submitPing() {
@@ -314,7 +314,7 @@ public final class SpdySession {
         if (iSubmitPingN == 0) {
             return iSubmitPingN;
         }
-        throw new SpdyErrorException(C0948f6.m1754L("submitPing error: ", iSubmitPingN), iSubmitPingN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("submitPing error: ", iSubmitPingN), iSubmitPingN);
     }
 
     public int submitRequest(SpdyRequest spdyRequest, SpdyDataProvider spdyDataProvider, Object obj, Spdycb spdycb) {
@@ -351,6 +351,6 @@ public final class SpdySession {
             return iSubmitRequestN;
         }
         removeSpdyStream(iPutSpdyStreamCtx);
-        throw new SpdyErrorException(C0948f6.m1754L("submitRequest error: ", iSubmitRequestN), iSubmitRequestN);
+        throw new SpdyErrorException(CompilerOutline.m1754L("submitRequest error: ", iSubmitRequestN), iSubmitRequestN);
     }
 }

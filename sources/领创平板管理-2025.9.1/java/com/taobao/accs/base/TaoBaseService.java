@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.support.v4.app.NotificationCompat;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import java.io.Serializable;
 import java.util.Map;
@@ -198,7 +198,7 @@ public abstract class TaoBaseService extends Service implements AccsDataListener
         public String toString() {
             StringBuilder sb = new StringBuilder("ConnectInfo{");
             sb.append("host='");
-            C0948f6.m1781z(sb, this.host, '\'', ", isInapp=");
+            CompilerOutline.m1781z(sb, this.host, '\'', ", isInapp=");
             sb.append(this.isInapp);
             sb.append(", isCenterHost=");
             sb.append(this.isCenterHost);

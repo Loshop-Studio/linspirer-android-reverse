@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -77,7 +77,7 @@ public final class DisplayCutoutCompat {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("DisplayCutoutCompat{");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("DisplayCutoutCompat{");
         sbM1765j.append(this.mDisplayCutout);
         sbM1765j.append("}");
         return sbM1765j.toString();

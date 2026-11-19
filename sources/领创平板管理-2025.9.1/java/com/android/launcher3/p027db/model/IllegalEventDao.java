@@ -3,7 +3,7 @@ package com.android.launcher3.p027db.model;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
 import android.support.v4.app.NotificationCompat;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -37,11 +37,11 @@ public class IllegalEventDao extends AbstractDao<IllegalEvent, Long> {
         database.execSQL("CREATE TABLE " + str + "\"illegals_event_table\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"EVENT\" TEXT,\"EMAIL\" TEXT,\"NOTIFY\" INTEGER NOT NULL ,\"LOCK\" INTEGER NOT NULL ,\"RESET\" INTEGER NOT NULL ,\"DESCRIPTION\" TEXT,\"CLIENTTIME\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_illegals_event_table__id ON \"illegals_event_table\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_illegals_event_table__id ON \"illegals_event_table\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"illegals_event_table\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"illegals_event_table\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

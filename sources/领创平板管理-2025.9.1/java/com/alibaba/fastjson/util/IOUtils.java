@@ -2,7 +2,7 @@ package com.alibaba.fastjson.util;
 
 import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.fastjson.JSONException;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.taobao.accs.data.Message;
 import java.io.Closeable;
@@ -192,7 +192,7 @@ public class IOUtils {
             }
             coderResultFlush.throwException();
         } catch (CharacterCodingException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("utf8 decode error, ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("utf8 decode error, ");
             sbM1765j.append(e.getMessage());
             throw new JSONException(sbM1765j.toString(), e);
         }

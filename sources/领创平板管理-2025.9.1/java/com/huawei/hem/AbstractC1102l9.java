@@ -53,7 +53,7 @@ public abstract class AbstractC1102l9 {
 
     /* renamed from: A */
     public static String m2260A(String str, String str2) {
-        return "_default_config_tag".equals(str) ? str : C0948f6.m1761f(str, "-", str2);
+        return "_default_config_tag".equals(str) ? str : CompilerOutline.m1761f(str, "-", str2);
     }
 
     /* renamed from: B */
@@ -116,7 +116,7 @@ public abstract class AbstractC1102l9 {
         C0926ea c0926eaM2270K = m2270K("_hms_config_tag", "oper");
         String str2 = c0926eaM2270K != null ? c0926eaM2270K.f2535p : "";
         if (!TextUtils.isEmpty(str2)) {
-            StringBuilder sbM1770o = C0948f6.m1770o("hms_", str, "_", packageName, "_");
+            StringBuilder sbM1770o = CompilerOutline.m1770o("hms_", str, "_", packageName, "_");
             sbM1770o.append(str2);
             return sbM1770o.toString();
         }
@@ -232,7 +232,7 @@ public abstract class AbstractC1102l9 {
                 bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
             }
         } catch (UnsupportedEncodingException | NumberFormatException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("hex string 2 byte array exception : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("hex string 2 byte array exception : ");
             sbM1765j.append(e.getMessage());
             m2269J("HexUtil", sbM1765j.toString());
         }
@@ -305,7 +305,7 @@ public abstract class AbstractC1102l9 {
                 throw new C1253r9("paramsType or params should be same");
             }
             if (clsArr.length != objArr.length) {
-                StringBuilder sbM1765j = C0948f6.m1765j("paramsType len:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("paramsType len:");
                 sbM1765j.append(clsArr.length);
                 sbM1765j.append(" should equal params.len:");
                 sbM1765j.append(objArr.length);
@@ -376,7 +376,7 @@ public abstract class AbstractC1102l9 {
 
     /* renamed from: h */
     public static String m2285h(String str) {
-        return C0948f6.m1760e("SecurityComp10105306: ", str);
+        return CompilerOutline.m1760e("SecurityComp10105306: ", str);
     }
 
     /* renamed from: i */
@@ -580,7 +580,7 @@ public abstract class AbstractC1102l9 {
     @SuppressLint({"DefaultLocale"})
     /* renamed from: t */
     public static boolean m2297t(Context context, String str, int i) {
-        long length = new File(context.getFilesDir(), C0948f6.m1760e("../shared_prefs/", m2266G(context, str) + ActivityChooserModel.HISTORY_FILE_EXTENSION)).length();
+        long length = new File(context.getFilesDir(), CompilerOutline.m1760e("../shared_prefs/", m2266G(context, str) + ActivityChooserModel.HISTORY_FILE_EXTENSION)).length();
         if (length <= i) {
             return false;
         }
@@ -673,7 +673,7 @@ public abstract class AbstractC1102l9 {
     /* renamed from: y */
     public static String m2302y(String str, String str2, String str3) {
         if ("_default_config_tag".equals(str)) {
-            return C0948f6.m1760e("_default_config_tag#", str3);
+            return CompilerOutline.m1760e("_default_config_tag#", str3);
         }
         return str + "-" + str2 + "#" + str3;
     }

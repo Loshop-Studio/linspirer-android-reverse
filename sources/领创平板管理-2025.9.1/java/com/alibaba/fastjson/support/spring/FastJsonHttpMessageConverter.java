@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONPObject;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
@@ -125,7 +125,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
         try {
             return JSON.parseObject(httpInputMessage.getBody(), this.fastJsonConfig.getCharset(), type, this.fastJsonConfig.getParserConfig(), this.fastJsonConfig.getParseProcess(), JSON.DEFAULT_PARSER_FEATURE, this.fastJsonConfig.getFeatures());
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("JSON parse error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("JSON parse error: ");
             sbM1765j.append(e.getMessage());
             throw new HttpMessageNotReadableException(sbM1765j.toString(), e);
         } catch (IOException e2) {

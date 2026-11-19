@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONToken;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 
 /* loaded from: classes.dex */
@@ -21,7 +21,7 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
             return null;
         }
         if (jSONLexer.token() != 12 && jSONLexer.token() != 16) {
-            StringBuilder sbM1765j = C0948f6.m1765j("syntax error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error: ");
             sbM1765j.append(JSONToken.name(jSONLexer.token()));
             throw new JSONException(sbM1765j.toString());
         }
@@ -85,7 +85,7 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
                 if (jSONLexer.token() == 4) {
                     String strStringVal4 = jSONLexer.stringVal();
                     if (!strStringVal4.equals("java.lang.StackTraceElement")) {
-                        throw new JSONException(C0948f6.m1760e("syntax error : ", strStringVal4));
+                        throw new JSONException(CompilerOutline.m1760e("syntax error : ", strStringVal4));
                     }
                 } else if (jSONLexer.token() != 8) {
                     throw new JSONException("syntax error");
@@ -106,7 +106,7 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
                 }
             } else {
                 if (!"classLoaderName".equals(strScanSymbol)) {
-                    throw new JSONException(C0948f6.m1760e("syntax error : ", strScanSymbol));
+                    throw new JSONException(CompilerOutline.m1760e("syntax error : ", strScanSymbol));
                 }
                 if (jSONLexer.token() != 8) {
                     if (jSONLexer.token() != 4) {

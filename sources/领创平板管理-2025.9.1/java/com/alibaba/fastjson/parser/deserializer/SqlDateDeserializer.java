@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONScanner;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -41,7 +41,7 @@ public class SqlDateDeserializer extends AbstractDateDeserializer implements Obj
             return (T) new java.sql.Date(((Number) obj2).longValue());
         }
         if (!(obj2 instanceof String)) {
-            throw new JSONException(C0948f6.m1759d("parse error : ", obj2));
+            throw new JSONException(CompilerOutline.m1759d("parse error : ", obj2));
         }
         String str = (String) obj2;
         if (str.length() == 0) {

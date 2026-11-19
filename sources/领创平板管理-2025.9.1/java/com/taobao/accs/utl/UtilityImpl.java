@@ -11,7 +11,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import anet.channel.util.HMacUtil;
 import com.gyf.immersionbar.OSUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import com.taobao.accs.client.AdapterGlobalClientInfo;
 import com.taobao.accs.client.GlobalClientInfo;
@@ -598,7 +598,7 @@ public class UtilityImpl {
     public static String m5763f() {
         String str = m5757d() + ":" + m5760e();
         if (ALog.isPrintLog(ALog.Level.D)) {
-            ALog.m5726d("UtilityImpl", C0948f6.m1760e("getProxy:", str), new Object[0]);
+            ALog.m5726d("UtilityImpl", CompilerOutline.m1760e("getProxy:", str), new Object[0]);
         }
         return str;
     }

@@ -16,7 +16,7 @@ import com.alibaba.sdk.android.push.p016b.C0552c;
 import com.alibaba.sdk.android.push.p016b.C0553d;
 import com.alibaba.sdk.android.push.p021d.C0570a;
 import com.alibaba.sdk.android.push.p025g.C0581f;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -314,7 +314,7 @@ public class C0582g {
         f1248a.m498d("unbinding account");
         final long jCurrentTimeMillis = System.currentTimeMillis();
         Context context = f1250c;
-        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("https://");
         sbM1765j.append(C0494a.m472d());
         sbM1765j.append("/unbind-account");
         AsyncTaskC0583h asyncTaskC0583h = new AsyncTaskC0583h(context, sbM1765j.toString(), new CommonCallback() { // from class: com.alibaba.sdk.android.push.g.g.7
@@ -455,7 +455,7 @@ public class C0582g {
         }
         f1248a.m498d("onAppStart");
         Context context2 = f1250c;
-        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("https://");
         sbM1765j.append(C0494a.m472d());
         sbM1765j.append("/active");
         AsyncTaskC0583h asyncTaskC0583h = new AsyncTaskC0583h(context2, sbM1765j.toString(), new CommonCallback() { // from class: com.alibaba.sdk.android.push.g.g.6
@@ -735,7 +735,7 @@ public class C0582g {
         final long jCurrentTimeMillis = System.currentTimeMillis();
         f1248a.m498d("unbinding phone number");
         Context context = f1250c;
-        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("https://");
         sbM1765j.append(C0494a.m472d());
         sbM1765j.append("/unset-phone");
         AsyncTaskC0583h asyncTaskC0583h = new AsyncTaskC0583h(context, sbM1765j.toString(), new CommonCallback() { // from class: com.alibaba.sdk.android.push.g.g.5

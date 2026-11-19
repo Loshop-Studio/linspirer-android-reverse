@@ -1,6 +1,6 @@
 package com.android.launcher3.model;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -25,8 +25,8 @@ public class ComponentInfo implements Serializable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("ComponentInfo{package_name='");
-        C0948f6.m1781z(sbM1765j, this.package_name, '\'', ", component='");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ComponentInfo{package_name='");
+        CompilerOutline.m1781z(sbM1765j, this.package_name, '\'', ", component='");
         sbM1765j.append(this.component);
         sbM1765j.append('\'');
         sbM1765j.append('}');

@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.Window;
 import android.widget.OverScroller;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -160,7 +160,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         if (view instanceof Toolbar) {
             return ((Toolbar) view).getWrapper();
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Can't make a decor toolbar out of ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Can't make a decor toolbar out of ");
         sbM1765j.append(view.getClass().getSimpleName());
         throw new IllegalStateException(sbM1765j.toString());
     }

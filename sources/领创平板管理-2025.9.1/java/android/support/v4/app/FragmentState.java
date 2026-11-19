@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1293t;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.ViewModelStore;
 
 /* loaded from: classes.dex */
 public final class FragmentState implements Parcelable {
@@ -54,7 +54,7 @@ public final class FragmentState implements Parcelable {
         return 0;
     }
 
-    public Fragment instantiate(FragmentHostCallback fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment, FragmentManagerNonConfig fragmentManagerNonConfig, C1293t c1293t) {
+    public Fragment instantiate(FragmentHostCallback fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment, FragmentManagerNonConfig fragmentManagerNonConfig, ViewModelStore c1293t) {
         if (this.mInstance == null) {
             Context context = fragmentHostCallback.getContext();
             Bundle bundle = this.mArguments;
@@ -83,7 +83,7 @@ public final class FragmentState implements Parcelable {
             fragment2.mHidden = this.mHidden;
             fragment2.mFragmentManager = fragmentHostCallback.mFragmentManager;
             if (FragmentManagerImpl.DEBUG) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Instantiated fragment ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Instantiated fragment ");
                 sbM1765j.append(this.mInstance);
                 Log.v("FragmentManager", sbM1765j.toString());
             }

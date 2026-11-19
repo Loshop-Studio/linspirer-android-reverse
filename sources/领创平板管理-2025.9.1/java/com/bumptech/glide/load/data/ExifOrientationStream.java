@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.data;
 
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public class ExifOrientationStream extends FilterInputStream {
     public ExifOrientationStream(InputStream inputStream, int i) {
         super(inputStream);
         if (i < -1 || i > 8) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Cannot add invalid orientation: ", i));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Cannot add invalid orientation: ", i));
         }
         this.orientation = (byte) i;
     }

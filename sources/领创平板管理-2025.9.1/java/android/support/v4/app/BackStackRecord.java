@@ -9,7 +9,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.View;
 import com.bumptech.glide.disklrucache.DiskLruCache;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
@@ -78,7 +78,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Class<?> cls = fragment.getClass();
         int modifiers = cls.getModifiers();
         if (cls.isAnonymousClass() || !Modifier.isPublic(modifiers) || (cls.isMemberClass() && !Modifier.isStatic(modifiers))) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Fragment ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Fragment ");
             sbM1765j.append(cls.getCanonicalName());
             sbM1765j.append(" must be a public static class to be  properly recreated from");
             sbM1765j.append(" instance state.");
@@ -92,7 +92,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 sb.append("Can't change tag of fragment ");
                 sb.append(fragment);
                 sb.append(": was ");
-                throw new IllegalStateException(C0948f6.m1763h(sb, fragment.mTag, " now ", str));
+                throw new IllegalStateException(CompilerOutline.m1763h(sb, fragment.mTag, " now ", str));
             }
             fragment.mTag = str;
         }
@@ -141,10 +141,10 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 this.mSharedElementTargetNames = new ArrayList<>();
             } else {
                 if (this.mSharedElementTargetNames.contains(str)) {
-                    throw new IllegalArgumentException(C0948f6.m1761f("A shared element with the target name '", str, "' has already been added to the transaction."));
+                    throw new IllegalArgumentException(CompilerOutline.m1761f("A shared element with the target name '", str, "' has already been added to the transaction."));
                 }
                 if (this.mSharedElementSourceNames.contains(transitionName)) {
-                    throw new IllegalArgumentException(C0948f6.m1761f("A shared element with the source name '", transitionName, " has already been added to the transaction."));
+                    throw new IllegalArgumentException(CompilerOutline.m1761f("A shared element with the source name '", transitionName, " has already been added to the transaction."));
                 }
             }
             this.mSharedElementSourceNames.add(transitionName);
@@ -181,7 +181,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 if (fragment != null) {
                     fragment.mBackStackNesting += i;
                     if (FragmentManagerImpl.DEBUG) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Bump nesting of ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Bump nesting of ");
                         sbM1765j.append(c0035Op.fragment);
                         sbM1765j.append(" to ");
                         sbM1765j.append(c0035Op.fragment.mBackStackNesting);
@@ -268,7 +268,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                     break;
                 case 2:
                 default:
-                    StringBuilder sbM1765j = C0948f6.m1765j("Unknown cmd: ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Unknown cmd: ");
                     sbM1765j.append(c0035Op.cmd);
                     throw new IllegalArgumentException(sbM1765j.toString());
                 case 3:
@@ -323,7 +323,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                     break;
                 case 2:
                 default:
-                    StringBuilder sbM1765j = C0948f6.m1765j("Unknown cmd: ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Unknown cmd: ");
                     sbM1765j.append(c0035Op.cmd);
                     throw new IllegalArgumentException(sbM1765j.toString());
                 case 3:
@@ -833,7 +833,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                     string = "UNSET_PRIMARY_NAV";
                     break;
                 default:
-                    StringBuilder sbM1765j = C0948f6.m1765j("cmd=");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("cmd=");
                     sbM1765j.append(c0035Op.cmd);
                     string = sbM1765j.toString();
                     break;

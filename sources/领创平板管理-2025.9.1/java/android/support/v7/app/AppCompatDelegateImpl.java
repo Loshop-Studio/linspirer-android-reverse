@@ -81,7 +81,7 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.alibaba.sdk.android.push.notification.CustomNotificationBuilder;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.Thread;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -808,7 +808,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             viewGroup = null;
         }
         if (viewGroup == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("AppCompat does not support the current theme features: { windowActionBar: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("AppCompat does not support the current theme features: { windowActionBar: ");
             sbM1765j.append(this.mHasActionBar);
             sbM1765j.append(", windowActionBarOverlay: ");
             sbM1765j.append(this.mOverlayActionBar);

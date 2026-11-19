@@ -27,9 +27,9 @@ public abstract class AbstractC1139mk implements Closeable {
     public final byte[] m2394c() throws Exception {
         long jMo2324d = mo2324d();
         if (jMo2324d > 2147483647L) {
-            throw new IOException(C0948f6.m1755M("Cannot buffer entire body for content length: ", jMo2324d));
+            throw new IOException(CompilerOutline.m1755M("Cannot buffer entire body for content length: ", jMo2324d));
         }
-        InterfaceC1066jn interfaceC1066jnMo2326g = mo2326g();
+        BufferedSource interfaceC1066jnMo2326g = mo2326g();
         try {
             byte[] bArrMo2014v = interfaceC1066jnMo2326g.mo2014v();
             m2393a(null, interfaceC1066jnMo2326g);
@@ -51,16 +51,16 @@ public abstract class AbstractC1139mk implements Closeable {
 
     @Nullable
     /* renamed from: f */
-    public abstract C0858bk mo2325f();
+    public abstract OkHttpMediaType mo2325f();
 
     /* renamed from: g */
-    public abstract InterfaceC1066jn mo2326g();
+    public abstract BufferedSource mo2326g();
 
     /* renamed from: h */
     public final String m2395h() throws Exception {
-        InterfaceC1066jn interfaceC1066jnMo2326g = mo2326g();
+        BufferedSource interfaceC1066jnMo2326g = mo2326g();
         try {
-            C0858bk c0858bkMo2325f = mo2325f();
+            OkHttpMediaType c0858bkMo2325f = mo2325f();
             Charset charsetForName = StandardCharsets.UTF_8;
             if (c0858bkMo2325f != null) {
                 try {

@@ -14,22 +14,22 @@ import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.view.DialogUtil;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.C1095l2;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC1021i3;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.LicenseCallBack;
 
 /* loaded from: classes.dex */
 public class LicenseHelper {
     public static final String TAG = "LicenseHelper ";
     public Context mContext;
-    public C1255rb mHttpCore;
-    public InterfaceC1021i3 mLicenseCallBack;
-    public C1424y5 userInfoUtil;
+    public HttpCore mHttpCore;
+    public LicenseCallBack mLicenseCallBack;
+    public UserInfoUtil userInfoUtil;
 
     public static final class LicenseHelperHolder {
         public static final LicenseHelper instance = new LicenseHelper();
@@ -39,15 +39,15 @@ public class LicenseHelper {
         return LicenseHelperHolder.instance;
     }
 
-    public void setCallBack(InterfaceC1021i3 interfaceC1021i3) {
+    public void setCallBack(LicenseCallBack interfaceC1021i3) {
         this.mLicenseCallBack = interfaceC1021i3;
     }
 
     public boolean startCheck(Context context, boolean z, boolean z2) {
         String strM3072u = this.userInfoUtil.m3072u();
         if (TextUtils.isEmpty(strM3072u) && !z) {
-            C0850bc.m1403m("LicenseHelper not from login but license is empty need check");
-            C1423y4.m2974U(context, LicenseActivity.class);
+            LTKDateUtil.m1403m("LicenseHelper not from login but license is empty need check");
+            LauncherMenuHelper.m2974U(context, LicenseActivity.class);
             return false;
         }
         if (!z2) {
@@ -58,24 +58,24 @@ public class LicenseHelper {
     }
 
     public void startRegisterLicense(final String str) {
-        if (C1424y5.b.f4202a.m3023R() || TextUtils.isEmpty(str)) {
-            C0850bc.m1403m("LicenseHelper license is empty or release control no need check");
+        if (UserInfoUtil.b.f4202a.m3023R() || TextUtils.isEmpty(str)) {
+            LTKDateUtil.m1403m("LicenseHelper license is empty or release control no need check");
             return;
         }
         try {
-            C0850bc.m1403m("LicenseHelper begin to checkLicense from server");
+            LTKDateUtil.m1403m("LicenseHelper begin to checkLicense from server");
             LicenseParmas licenseParmas = new LicenseParmas(this.mContext);
             licenseParmas.setLicenseserial(str);
-            licenseParmas.setDeviceid(C0904de.m1592i());
-            licenseParmas.setDevicesn(C0904de.m1592i());
+            licenseParmas.setDeviceid(LauncherDeviceUtils.m1592i());
+            licenseParmas.setDevicesn(LauncherDeviceUtils.m1592i());
             V2Params v2Params = new V2Params();
             v2Params.setMethod(RequestUrl.LICENSE_METHOD);
             v2Params.setParams(JSON.toJSONString(licenseParmas));
-            C1255rb c1255rb = this.mHttpCore;
+            HttpCore c1255rb = this.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.LICENSE_URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new LTKResponseListener<Boolean>(Boolean.class) { // from class: com.android.launcher3.network.LicenseHelper.1
@@ -103,7 +103,7 @@ public class LicenseHelper {
                     } else if (LicenseHelper.this.mLicenseCallBack != null) {
                         ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2259b();
                     }
-                    C0850bc.m1414x(LicenseHelper.this.mContext, i);
+                    LTKDateUtil.m1414x(LicenseHelper.this.mContext, i);
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
@@ -116,7 +116,7 @@ public class LicenseHelper {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(Boolean bool) {
-                    C0850bc.m1403m("LicenseHelper  license.register , Request Successfully");
+                    LTKDateUtil.m1403m("LicenseHelper  license.register , Request Successfully");
                     LicenseHelper.this.userInfoUtil.m3045g0(str);
                     if (LicenseHelper.this.mLicenseCallBack != null) {
                         C1095l2 c1095l2 = (C1095l2) LicenseHelper.this.mLicenseCallBack;
@@ -136,7 +136,7 @@ public class LicenseHelper {
             });
         } catch (Exception e) {
             e.printStackTrace();
-            InterfaceC1021i3 interfaceC1021i3 = this.mLicenseCallBack;
+            LicenseCallBack interfaceC1021i3 = this.mLicenseCallBack;
             if (interfaceC1021i3 != null) {
                 ((C1095l2) interfaceC1021i3).m2259b();
             }
@@ -145,7 +145,7 @@ public class LicenseHelper {
 
     public LicenseHelper() {
         this.mContext = GuardSecureApplication.f1640b;
-        this.userInfoUtil = C1424y5.b.f4202a;
-        this.mHttpCore = new C1255rb();
+        this.userInfoUtil = UserInfoUtil.b.f4202a;
+        this.mHttpCore = new HttpCore();
     }
 }

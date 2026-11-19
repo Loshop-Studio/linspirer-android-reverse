@@ -3,7 +3,7 @@ package com.p061ta.p062a.p064b;
 import android.net.SSLCertificateSocketFactory;
 import android.os.Build;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.p061ta.p062a.p065c.C1882f;
 import com.taobao.accs.common.Constants;
 import java.lang.reflect.Method;
@@ -75,7 +75,7 @@ public class C1874f extends SSLSocketFactory {
             C1882f.m5407b("", "SSLSession PeerHost", session.getPeerHost());
             return sSLSocket;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Cannot verify hostname: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Cannot verify hostname: ");
         sbM1765j.append(this.f5993c);
         throw new SSLPeerUnverifiedException(sbM1765j.toString());
     }

@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.test.AndroidTestCase;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -273,7 +273,7 @@ public abstract class AbstractDaoTestSinglePk<D extends AbstractDao<T, K>, T, K>
         this.dao.insert(createEntityWithRandomPk());
         StringBuilder sb = new StringBuilder();
         sb.append("WHERE ");
-        List<T> listQueryRaw = this.dao.queryRaw(C0948f6.m1762g(sb, this.dao.getPkColumns()[0], "=?"), kNextPk.toString());
+        List<T> listQueryRaw = this.dao.queryRaw(CompilerOutline.m1762g(sb, this.dao.getPkColumns()[0], "=?"), kNextPk.toString());
         AndroidTestCase.assertEquals(1, listQueryRaw.size());
         AndroidTestCase.assertEquals(kNextPk, this.daoAccess.getKey(listQueryRaw.get(0)));
     }

@@ -3,7 +3,7 @@ package anetwork.channel.aidl;
 import android.os.Parcel;
 import android.os.Parcelable;
 import anetwork.channel.NetworkEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
@@ -84,7 +84,7 @@ public class DefaultProgressEvent implements Parcelable, NetworkEvent.ProgressEv
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("DefaultProgressEvent [index=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("DefaultProgressEvent [index=");
         sbM1765j.append(this.f610a);
         sbM1765j.append(", size=");
         sbM1765j.append(this.f611b);

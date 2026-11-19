@@ -10,7 +10,7 @@ import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
 import com.alibaba.sdk.android.ams.common.util.StringUtil;
 import com.alibaba.sdk.android.push.common.p018a.C0558b;
 import com.alibaba.sdk.android.push.common.util.JSONUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.util.Map;
 import org.json.JSONException;
@@ -34,12 +34,12 @@ public class C0589d {
                 uri = Uri.parse(strM884a);
             } else {
                 if (strM884a.startsWith("/raw/")) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("android.resource://");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("android.resource://");
                     sbM1765j.append(context.getPackageName());
                     sbM1765j.append(strM884a);
                     string = sbM1765j.toString();
                 } else {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("android.resource://");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("android.resource://");
                     sbM1765j2.append(context.getPackageName());
                     sbM1765j2.append("/raw/");
                     sbM1765j2.append(strM884a);
@@ -54,13 +54,13 @@ public class C0589d {
             int identifier = context.getResources().getIdentifier("alicloud_notification_sound", "raw", context.getPackageName());
             f1338a.m498d("sound resId:" + identifier);
             if (identifier != 0) {
-                StringBuilder sbM1765j3 = C0948f6.m1765j("android.resource://");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j("android.resource://");
                 sbM1765j3.append(context.getPackageName());
                 sbM1765j3.append(GrsManager.SEPARATOR);
                 sbM1765j3.append(identifier);
                 defaultUri = Uri.parse(sbM1765j3.toString());
                 AmsLogger amsLogger = f1338a;
-                StringBuilder sbM1766k = C0948f6.m1766k("sound resId:", identifier, "  ;uri:");
+                StringBuilder sbM1766k = CompilerOutline.m1766k("sound resId:", identifier, "  ;uri:");
                 sbM1766k.append(defaultUri.toString());
                 amsLogger.m498d(sbM1766k.toString());
             }
@@ -69,7 +69,7 @@ public class C0589d {
             defaultUri = RingtoneManager.getDefaultUri(2);
         }
         AmsLogger amsLogger2 = f1338a;
-        StringBuilder sbM1765j4 = C0948f6.m1765j("soundUri:");
+        StringBuilder sbM1765j4 = CompilerOutline.m1765j("soundUri:");
         sbM1765j4.append(defaultUri.toString());
         amsLogger2.m498d(sbM1765j4.toString());
         return defaultUri;
@@ -100,7 +100,7 @@ public class C0589d {
             } else {
                 int identifier = context.getResources().getIdentifier("alicloud_notification_sound", "raw", context.getPackageName());
                 if (identifier != 0) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("android.resource://");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("android.resource://");
                     sbM1765j.append(context.getPackageName());
                     sbM1765j.append(GrsManager.SEPARATOR);
                     sbM1765j.append(identifier);
@@ -114,12 +114,12 @@ public class C0589d {
                 uri = Uri.parse(strM884a);
             } else {
                 if (strM884a.startsWith("/raw/")) {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("android.resource://");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("android.resource://");
                     sbM1765j2.append(context.getPackageName());
                     sbM1765j2.append(strM884a);
                     string2 = sbM1765j2.toString();
                 } else {
-                    StringBuilder sbM1765j3 = C0948f6.m1765j("android.resource://");
+                    StringBuilder sbM1765j3 = CompilerOutline.m1765j("android.resource://");
                     sbM1765j3.append(context.getPackageName());
                     sbM1765j3.append("/raw/");
                     sbM1765j3.append(strM884a);

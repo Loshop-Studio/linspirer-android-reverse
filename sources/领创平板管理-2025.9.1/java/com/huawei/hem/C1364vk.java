@@ -6,21 +6,21 @@ import java.util.concurrent.TimeUnit;
 /* compiled from: CacheInterceptor.java */
 /* renamed from: com.huawei.hem.vk */
 /* loaded from: classes.dex */
-public class C1364vk implements InterfaceC0836ao {
+public class C1364vk implements Source {
 
     /* renamed from: a */
     public boolean f3970a;
 
     /* renamed from: b */
-    public final /* synthetic */ InterfaceC1066jn f3971b;
+    public final /* synthetic */ BufferedSource f3971b;
 
     /* renamed from: c */
-    public final /* synthetic */ InterfaceC1414xk f3972c;
+    public final /* synthetic */ CacheRequest f3972c;
 
     /* renamed from: d */
-    public final /* synthetic */ InterfaceC1041in f3973d;
+    public final /* synthetic */ BufferedSink f3973d;
 
-    public C1364vk(C1389wk c1389wk, InterfaceC1066jn interfaceC1066jn, InterfaceC1414xk interfaceC1414xk, InterfaceC1041in interfaceC1041in) {
+    public C1364vk(C1389wk c1389wk, BufferedSource interfaceC1066jn, CacheRequest interfaceC1414xk, BufferedSink interfaceC1041in) {
         this.f3971b = interfaceC1066jn;
         this.f3972c = interfaceC1414xk;
         this.f3973d = interfaceC1041in;
@@ -37,7 +37,7 @@ public class C1364vk implements InterfaceC0836ao {
 
     @Override // com.huawei.hem.InterfaceC0836ao
     /* renamed from: e */
-    public long mo1380e(C1016hn c1016hn, long j) throws IOException {
+    public long mo1380e(OkioBuffer c1016hn, long j) throws IOException {
         try {
             long jMo1380e = this.f3971b.mo1380e(c1016hn, j);
             if (jMo1380e != -1) {
@@ -61,7 +61,7 @@ public class C1364vk implements InterfaceC0836ao {
 
     @Override // com.huawei.hem.InterfaceC0836ao
     /* renamed from: n */
-    public C0862bo mo1381n() {
+    public Timeout mo1381n() {
         return this.f3971b.mo1381n();
     }
 }

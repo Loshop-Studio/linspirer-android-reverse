@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class RawDocumentFile extends DocumentFile {
     public DocumentFile createFile(String str, String str2) throws IOException {
         String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str);
         if (extensionFromMimeType != null) {
-            str2 = C0948f6.m1761f(str2, ".", extensionFromMimeType);
+            str2 = CompilerOutline.m1761f(str2, ".", extensionFromMimeType);
         }
         File file = new File(this.mFile, str2);
         try {

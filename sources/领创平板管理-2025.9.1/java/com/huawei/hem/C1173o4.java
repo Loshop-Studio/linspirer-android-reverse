@@ -35,19 +35,19 @@ public class C1173o4 implements CommonDialog.DialogButtonOnClickListener {
         C1198p4 c1198p4 = this.f3372b;
         ArrayList arrayList = this.f3371a;
         DialogUtil.showDialog(C1198p4.f3427c, c1198p4.mContext.getString(R.string.text_downloading));
-        C1423y4.m3001v(C1198p4.f3427c, true);
+        LauncherMenuHelper.m3001v(C1198p4.f3427c, true);
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ItemApp itemApp = (ItemApp) it.next();
             File file = new File(C1395x1.f4038a + itemApp.getPackagename() + ".apk");
             StringBuilder sb = new StringBuilder();
             sb.append(itemApp.getPath());
-            sb.append(C0904de.m1593j(c1198p4.mContext));
+            sb.append(LauncherDeviceUtils.m1593j(c1198p4.mContext));
             String string = sb.toString();
             if (!file.exists()) {
                 c1198p4.m2459a(itemApp, string);
-            } else if (C0850bc.m1416z(file.getAbsolutePath(), itemApp.getMd5sum())) {
-                InterfaceC0945f3 interfaceC0945f3 = c1198p4.f3429a;
+            } else if (LTKDateUtil.m1416z(file.getAbsolutePath(), itemApp.getMd5sum())) {
+                AppUpdateSccessListener interfaceC0945f3 = c1198p4.f3429a;
                 if (interfaceC0945f3 != null) {
                     ((AdminLoginActivity) interfaceC0945f3).m1176g(file.getAbsolutePath());
                 }

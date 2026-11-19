@@ -9,7 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.view.ViewCompat;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Objects;
 
 /* loaded from: classes.dex */
@@ -194,7 +194,7 @@ public final class ColorUtils {
 
     public static double calculateContrast(@ColorInt int i, @ColorInt int i2) {
         if (Color.alpha(i2) != 255) {
-            StringBuilder sbM1765j = C0948f6.m1765j("background can not be translucent: #");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("background can not be translucent: #");
             sbM1765j.append(Integer.toHexString(i2));
             throw new IllegalArgumentException(sbM1765j.toString());
         }
@@ -216,7 +216,7 @@ public final class ColorUtils {
     public static int calculateMinimumAlpha(@ColorInt int i, @ColorInt int i2, float f) {
         int i3 = 255;
         if (Color.alpha(i2) != 255) {
-            StringBuilder sbM1765j = C0948f6.m1765j("background can not be translucent: #");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("background can not be translucent: #");
             sbM1765j.append(Integer.toHexString(i2));
             throw new IllegalArgumentException(sbM1765j.toString());
         }
@@ -334,7 +334,7 @@ public final class ColorUtils {
             }
             return Color.valueOf(components2, color2.getColorSpace());
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Color models must match (");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Color models must match (");
         sbM1765j.append(color.getModel());
         sbM1765j.append(" vs. ");
         sbM1765j.append(color2.getModel());

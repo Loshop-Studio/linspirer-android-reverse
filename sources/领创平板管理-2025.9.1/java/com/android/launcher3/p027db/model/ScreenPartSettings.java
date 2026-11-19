@@ -1,6 +1,6 @@
 package com.android.launcher3.p027db.model;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class ScreenPartSettings {
@@ -108,16 +108,16 @@ public class ScreenPartSettings {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("ScreenPartSettings{ position=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ScreenPartSettings{ position=");
         sbM1765j.append(this.position);
         sbM1765j.append(", title='");
-        C0948f6.m1781z(sbM1765j, this.title, '\'', ", type=");
+        CompilerOutline.m1781z(sbM1765j, this.title, '\'', ", type=");
         sbM1765j.append(this.type);
         sbM1765j.append(", url='");
-        C0948f6.m1781z(sbM1765j, this.url, '\'', ", component='");
-        C0948f6.m1781z(sbM1765j, this.component, '\'', ", package_name='");
-        C0948f6.m1781z(sbM1765j, this.package_name, '\'', ", b_img_path='");
-        C0948f6.m1781z(sbM1765j, this.b_img_path, '\'', ", description='");
+        CompilerOutline.m1781z(sbM1765j, this.url, '\'', ", component='");
+        CompilerOutline.m1781z(sbM1765j, this.component, '\'', ", package_name='");
+        CompilerOutline.m1781z(sbM1765j, this.package_name, '\'', ", b_img_path='");
+        CompilerOutline.m1781z(sbM1765j, this.b_img_path, '\'', ", description='");
         sbM1765j.append(this.description);
         sbM1765j.append('\'');
         sbM1765j.append('}');

@@ -11,17 +11,17 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import com.huawei.hem.BinderC1260rg;
-import com.huawei.hem.BinderC1285sg;
-import com.huawei.hem.C0905df;
-import com.huawei.hem.C0985gh;
-import com.huawei.hem.C1010hh;
-import com.huawei.hem.C1184of;
-import com.huawei.hem.C1209pf;
-import com.huawei.hem.C1310tg;
-import com.huawei.hem.C1360vg;
-import com.huawei.hem.InterfaceC0984gg;
-import com.huawei.hem.InterfaceC1385wg;
+import com.huawei.hem.FDServiceSeparateHandler;
+import com.huawei.hem.FDServiceSharedHandler;
+import com.huawei.hem.PauseAllMarker;
+import com.huawei.hem.FileDownloadProperties;
+import com.huawei.hem.FileDownloadUtils;
+import com.huawei.hem.ConnectionProfile;
+import com.huawei.hem.CustomComponentHolder;
+import com.huawei.hem.FileDownloadManager;
+import com.huawei.hem.ForegroundServiceConfig;
+import com.huawei.hem.IFileDownloadIPCService;
+import com.huawei.hem.IFileDownloadServiceHandler;
 import com.liulishuo.filedownloader.R$string;
 import java.lang.ref.WeakReference;
 
@@ -30,10 +30,10 @@ import java.lang.ref.WeakReference;
 public class FileDownloadService extends Service {
 
     /* renamed from: a */
-    public InterfaceC1385wg f4849a;
+    public IFileDownloadServiceHandler f4849a;
 
     /* renamed from: b */
-    public C0905df f4850b;
+    public PauseAllMarker f4850b;
 
     public static class SeparateProcessService extends FileDownloadService {
     }
@@ -50,41 +50,41 @@ public class FileDownloadService extends Service {
     public void onCreate() throws IllegalAccessException {
         int i;
         super.onCreate();
-        C1184of.b.f3400a = this;
+        ConnectionProfile.b.f3400a = this;
         try {
-            i = C0985gh.b.f2783a.f2775a;
+            i = FileDownloadProperties.b.f2783a.f2775a;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        if (!C1010hh.m1965o(C1184of.b.f3400a)) {
+        if (!FileDownloadUtils.m1965o(ConnectionProfile.b.f3400a)) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-step'.");
         }
-        C1010hh.f2867a = i;
-        long j = C0985gh.b.f2783a.f2776b;
-        if (!C1010hh.m1965o(C1184of.b.f3400a)) {
+        FileDownloadUtils.f2867a = i;
+        long j = FileDownloadProperties.b.f2783a.f2776b;
+        if (!FileDownloadUtils.m1965o(ConnectionProfile.b.f3400a)) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
         }
-        C1010hh.f2868b = j;
-        C1310tg c1310tg = new C1310tg();
-        if (C0985gh.b.f2783a.f2778d) {
-            this.f4849a = new BinderC1285sg(new WeakReference(this), c1310tg);
+        FileDownloadUtils.f2868b = j;
+        FileDownloadManager c1310tg = new FileDownloadManager();
+        if (FileDownloadProperties.b.f2783a.f2778d) {
+            this.f4849a = new FDServiceSharedHandler(new WeakReference(this), c1310tg);
         } else {
-            this.f4849a = new BinderC1260rg(new WeakReference(this), c1310tg);
+            this.f4849a = new FDServiceSeparateHandler(new WeakReference(this), c1310tg);
         }
-        C0905df.m1609a();
-        C0905df c0905df = new C0905df((InterfaceC0984gg) this.f4849a);
+        PauseAllMarker.m1609a();
+        PauseAllMarker c0905df = new PauseAllMarker((IFileDownloadIPCService) this.f4849a);
         this.f4850b = c0905df;
         HandlerThread handlerThread = new HandlerThread("PauseAllChecker");
         c0905df.f2408a = handlerThread;
         handlerThread.start();
         Handler handler = new Handler(c0905df.f2408a.getLooper(), c0905df);
         c0905df.f2409b = handler;
-        handler.sendEmptyMessageDelayed(0, C0905df.f2407e.longValue());
+        handler.sendEmptyMessageDelayed(0, PauseAllMarker.f2407e.longValue());
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        C0905df c0905df = this.f4850b;
+        PauseAllMarker c0905df = this.f4850b;
         c0905df.f2409b.removeMessages(0);
         c0905df.f2408a.quit();
         stopForeground(true);
@@ -97,8 +97,8 @@ public class FileDownloadService extends Service {
         if (intent == null || !intent.getBooleanExtra("is_foreground", false)) {
             return 1;
         }
-        C1209pf c1209pf = C1209pf.a.f3463a;
-        C1360vg c1360vg = c1209pf.f3462g;
+        CustomComponentHolder c1209pf = CustomComponentHolder.a.f3463a;
+        ForegroundServiceConfig c1360vg = c1209pf.f3462g;
         if (c1360vg == null) {
             synchronized (c1209pf) {
                 if (c1209pf.f3462g == null) {

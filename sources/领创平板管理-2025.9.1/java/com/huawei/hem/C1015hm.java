@@ -7,19 +7,19 @@ import java.util.Arrays;
 /* compiled from: Http2Connection.java */
 /* renamed from: com.huawei.hem.hm */
 /* loaded from: classes.dex */
-public class C1015hm extends AbstractRunnableC1289sk {
+public class C1015hm extends NamedRunnable {
 
     /* renamed from: b */
     public final /* synthetic */ boolean f2879b;
 
     /* renamed from: c */
-    public final /* synthetic */ C1216pm f2880c;
+    public final /* synthetic */ Http2Settings f2880c;
 
     /* renamed from: d */
     public final /* synthetic */ C0834am.g f2881d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public C1015hm(C0834am.g gVar, String str, Object[] objArr, boolean z, C1216pm c1216pm) {
+    public C1015hm(C0834am.g gVar, String str, Object[] objArr, boolean z, Http2Settings c1216pm) {
         super(str, objArr);
         this.f2881d = gVar;
         this.f2879b = z;
@@ -29,20 +29,20 @@ public class C1015hm extends AbstractRunnableC1289sk {
     @Override // com.huawei.hem.AbstractRunnableC1289sk
     /* renamed from: a */
     public void mo1376a() {
-        C1116lm[] c1116lmArr;
+        Http2Stream[] c1116lmArr;
         long j;
         C0834am.g gVar = this.f2881d;
         boolean z = this.f2879b;
-        C1216pm c1216pm = this.f2880c;
+        Http2Settings c1216pm = this.f2880c;
         synchronized (C0834am.this.f2238v) {
             synchronized (C0834am.this) {
                 int iM2496a = C0834am.this.f2236t.m2496a();
                 if (z) {
-                    C1216pm c1216pm2 = C0834am.this.f2236t;
+                    Http2Settings c1216pm2 = C0834am.this.f2236t;
                     c1216pm2.f3479a = 0;
                     Arrays.fill(c1216pm2.f3480b, 0);
                 }
-                C1216pm c1216pm3 = C0834am.this.f2236t;
+                Http2Settings c1216pm3 = C0834am.this.f2236t;
                 c1116lmArr = null;
                 if (c1216pm3 == null) {
                     throw null;
@@ -67,7 +67,7 @@ public class C1015hm extends AbstractRunnableC1289sk {
                 } else {
                     j = iM2496a2 - iM2496a;
                     if (!C0834am.this.f2219c.isEmpty()) {
-                        c1116lmArr = (C1116lm[]) C0834am.this.f2219c.values().toArray(new C1116lm[C0834am.this.f2219c.size()]);
+                        c1116lmArr = (Http2Stream[]) C0834am.this.f2219c.values().toArray(new Http2Stream[C0834am.this.f2219c.size()]);
                     }
                 }
             }
@@ -75,12 +75,12 @@ public class C1015hm extends AbstractRunnableC1289sk {
                 C0834am.this.f2238v.m2396a(C0834am.this.f2236t);
             } catch (IOException e) {
                 C0834am c0834am = C0834am.this;
-                EnumC1390wl enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
+                Http2ErrorCode enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
                 c0834am.m1366a(enumC1390wl, enumC1390wl, e);
             }
         }
         if (c1116lmArr != null) {
-            for (C1116lm c1116lm : c1116lmArr) {
+            for (Http2Stream c1116lm : c1116lmArr) {
                 synchronized (c1116lm) {
                     c1116lm.f3202b += j;
                     if (j > 0) {

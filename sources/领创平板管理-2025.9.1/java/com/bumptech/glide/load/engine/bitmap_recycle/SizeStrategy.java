@@ -3,7 +3,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import com.bumptech.glide.util.Util;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.TreeMap;
 
 @TargetApi(19)
@@ -115,7 +115,7 @@ public class SizeStrategy implements LruPoolStrategy {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("SizeStrategy:\n  ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("SizeStrategy:\n  ");
         sbM1765j.append(this.groupedMap);
         sbM1765j.append("\n");
         sbM1765j.append("  SortedSizes");

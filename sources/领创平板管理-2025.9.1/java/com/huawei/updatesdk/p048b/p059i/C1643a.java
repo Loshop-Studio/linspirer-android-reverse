@@ -9,7 +9,7 @@ import android.os.Build;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
 import com.huawei.updatesdk.p048b.p058h.C1639a;
@@ -224,7 +224,7 @@ public class C1643a {
             return;
         }
         if (m3793b()) {
-            sbM1765j = C0948f6.m1765j("show dlg error, mContext = ");
+            sbM1765j = CompilerOutline.m1765j("show dlg error, mContext = ");
             sbM1765j.append(this.f4729b);
             sbM1765j.append(", mContext.isFinishing is ");
             Context context2 = this.f4729b;
@@ -243,7 +243,7 @@ public class C1643a {
                 if (dVar != null) {
                     dVar.mo3795a();
                 }
-                sbM1765j = C0948f6.m1765j("show dlg error, e: ");
+                sbM1765j = CompilerOutline.m1765j("show dlg error, e: ");
                 sbM1765j.append(e.toString());
             }
         }

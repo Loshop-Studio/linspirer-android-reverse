@@ -42,7 +42,7 @@ public final class C1823ee {
                     return m4871a("MD5", m4871a("SHA1", str) + str);
                 }
             } catch (Throwable th) {
-                C1834ep.m5014a(th, "Encrypt", "generatorKey");
+                CoreUtil.m5014a(th, "Encrypt", "generatorKey");
             }
         }
         return null;
@@ -56,7 +56,7 @@ public final class C1823ee {
         try {
             return m4878c(C1219q0.m2516l(str2.getBytes("UTF-8"), str));
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Encrypt", "encode");
+            CoreUtil.m5014a(th, "Encrypt", "encode");
             return null;
         }
     }
@@ -83,7 +83,7 @@ public final class C1823ee {
             cipher.init(1, secretKeySpecM4875b, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Encrypt", "aesEncrypt");
+            CoreUtil.m5014a(th, "Encrypt", "aesEncrypt");
             return null;
         }
     }
@@ -108,7 +108,7 @@ public final class C1823ee {
         try {
             bytes = stringBuffer.toString().getBytes("UTF-8");
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Encrypt", "createKey");
+            CoreUtil.m5014a(th, "Encrypt", "createKey");
             bytes = null;
         }
         return new SecretKeySpec(bytes, "AES");
@@ -126,7 +126,7 @@ public final class C1823ee {
             cipher.init(2, secretKeySpec, new IvParameterSpec(C1094l1.m2252u()));
             return cipher.doFinal(bArr3);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Encrypt", "decryptRsponse length = ".concat(String.valueOf(bArr != null ? bArr.length : 0)));
+            CoreUtil.m5014a(th, "Encrypt", "decryptRsponse length = ".concat(String.valueOf(bArr != null ? bArr.length : 0)));
             return null;
         }
     }
@@ -140,7 +140,7 @@ public final class C1823ee {
             cipher.init(2, secretKeySpecM4875b, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Encrypt", "aesDecrypt");
+            CoreUtil.m5014a(th, "Encrypt", "aesDecrypt");
             return null;
         }
     }

@@ -16,7 +16,7 @@ public class C1229qa {
     public boolean f3514a = false;
 
     /* renamed from: b */
-    public Context f3515b = C1423y4.m2998s();
+    public Context f3515b = LauncherMenuHelper.m2998s();
 
     @TargetApi(24)
     /* renamed from: a */

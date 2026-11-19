@@ -3,7 +3,7 @@ package com.loc;
 import android.content.Context;
 import android.os.Build;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C1069k1;
+import com.huawei.hem.SDKInfo;
 import com.huawei.hem.C1094l1;
 import com.loc.C1720aj;
 import java.io.InputStream;
@@ -14,9 +14,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public final class C1736az {
     /* renamed from: a */
-    public static C1730at m4191a(WeakReference<C1730at> weakReference) {
+    public static LogConfig m4191a(WeakReference<LogConfig> weakReference) {
         if (weakReference == null || weakReference.get() == null) {
-            weakReference = new WeakReference<>(new C1730at());
+            weakReference = new WeakReference<>(new LogConfig());
         }
         return weakReference.get();
     }
@@ -44,8 +44,8 @@ public final class C1736az {
     }
 
     /* renamed from: a */
-    public static void m4195a(Context context, C1730at c1730at, String str, int i, int i2, String str2) {
-        c1730at.f5054a = C1860u.m5325c(context, str);
+    public static void m4195a(Context context, LogConfig c1730at, String str, int i, int i2, String str2) {
+        c1730at.f5054a = AMapLog.m5325c(context, str);
         c1730at.f5057d = i;
         c1730at.f5055b = i2;
         c1730at.f5056c = str2;
@@ -101,7 +101,7 @@ public final class C1736az {
             } catch (Throwable th6) {
                 th = th6;
                 try {
-                    C1862w.m5333b(th, "sui", "rdS");
+                    SDKLogHandler.m5333b(th, "sui", "rdS");
                     if (0 != 0) {
                         try {
                             inputStream.close();
@@ -127,7 +127,7 @@ public final class C1736az {
     }
 
     /* renamed from: a */
-    public static String m4193a(Context context, C1069k1 c1069k1) {
+    public static String m4193a(Context context, SDKInfo c1069k1) {
         String strM1071e;
         int iM1074h;
         String strM1072f;

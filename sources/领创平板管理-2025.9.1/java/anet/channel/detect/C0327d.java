@@ -21,7 +21,7 @@ import anet.channel.util.C0429j;
 import anet.channel.util.ErrorConstant;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpUrl;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import java.io.IOException;
 import java.net.Socket;
@@ -46,7 +46,7 @@ public class C0327d {
 
     /* renamed from: c */
     private void m99c(String str, C0407l.e eVar) throws IOException {
-        StringBuilder sbM1765j = C0948f6.m1765j("HR");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("HR");
         sbM1765j.append(this.f204b.getAndIncrement());
         String string = sbM1765j.toString();
         ALog.m340i("anet.HorseRaceDetector", "startTcpTask", string, "ip", eVar.f551a, "port", Integer.valueOf(eVar.f552b.f521a));
@@ -103,7 +103,7 @@ public class C0327d {
         }
         ALog.m340i("anet.HorseRaceDetector", "startLongLinkTask", null, Constants.KEY_HOST, str, "ip", eVar.f551a, "port", Integer.valueOf(eVar.f552b.f521a), "protocol", connProtocolValueOf);
         String str2 = "HR" + this.f204b.getAndIncrement();
-        TnetSpdySession tnetSpdySession = new TnetSpdySession(GlobalAppRuntimeInfo.getContext(), new C0346a(C0948f6.m1762g(new StringBuilder(), connTypeValueOf.isSSL() ? "https://" : "http://", str), str2, m94a(connProtocolValueOf, eVar)));
+        TnetSpdySession tnetSpdySession = new TnetSpdySession(GlobalAppRuntimeInfo.getContext(), new C0346a(CompilerOutline.m1762g(new StringBuilder(), connTypeValueOf.isSSL() ? "https://" : "http://", str), str2, m94a(connProtocolValueOf, eVar)));
         HorseRaceStat horseRaceStat = new HorseRaceStat(str, eVar);
         long jCurrentTimeMillis = System.currentTimeMillis();
         tnetSpdySession.registerEventcb(257, new C0331h(this, horseRaceStat, jCurrentTimeMillis, str2, eVar, tnetSpdySession));
@@ -160,7 +160,7 @@ public class C0327d {
         }
         ALog.m340i("anet.HorseRaceDetector", "startShortLinkTask", null, AgooConstants.OPEN_URL, httpUrl);
         Request.Builder sslSocketFactory = new Request.Builder().setUrl(httpUrl).addHeader("Connection", "close").setConnectTimeout(eVar.f552b.f523c).setReadTimeout(eVar.f552b.f524d).setRedirectEnable(false).setSslSocketFactory(new C0429j(str));
-        StringBuilder sbM1765j = C0948f6.m1765j("HR");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("HR");
         sbM1765j.append(this.f204b.getAndIncrement());
         Request requestBuild = sslSocketFactory.setSeq(sbM1765j.toString()).build();
         requestBuild.setDnsOptimize(eVar.f551a, eVar.f552b.f521a);

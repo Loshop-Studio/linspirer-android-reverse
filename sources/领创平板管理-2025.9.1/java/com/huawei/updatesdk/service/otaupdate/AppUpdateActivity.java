@@ -27,7 +27,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
@@ -428,7 +428,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                     intent.setPackage(AppUpdateActivity.this.f4745a);
                     AppUpdateActivity.this.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("goHiappUpgrade error: ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("goHiappUpgrade error: ");
                     sbM1765j.append(e.toString());
                     C1584a.m3516b("AppUpdateActivity", sbM1765j.toString());
                 }
@@ -614,7 +614,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
             this.f4752h = false;
             startActivityForResult(intent, 1002);
         } catch (ActivityNotFoundException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("goHiappUpgrade error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("goHiappUpgrade error: ");
             sbM1765j.append(e.toString());
             C1584a.m3516b("AppUpdateActivity", sbM1765j.toString());
             this.f4752h = true;
@@ -645,7 +645,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
             }
             finish();
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("openMarketUpdateDetail error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("openMarketUpdateDetail error: ");
             sbM1765j.append(e.toString());
             C1581a.m3500a("AppUpdateActivity", sbM1765j.toString());
             C1627f.m3724a(this);
@@ -935,7 +935,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 serializable = bundleM3601b.getSerializable("app_update_parm");
                 this.f4762r = bundleM3601b.getBoolean("is_apptouch", false);
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Type Conversion Error: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Type Conversion Error: ");
                 sbM1765j.append(e.toString());
                 C1581a.m3500a("AppUpdateActivity", sbM1765j.toString());
                 super.finish();
@@ -947,7 +947,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         String strMo3731b = C1632e.m3738a(this.f4762r ? "apptouch" : AccsClientConfig.DEFAULT_CONFIGTAG).mo3731b();
         this.f4745a = strMo3731b;
         if (TextUtils.isEmpty(strMo3731b)) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("finish activity and appStorePkgName is: ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("finish activity and appStorePkgName is: ");
             sbM1765j2.append(this.f4745a);
             C1581a.m3500a("AppUpdateActivity", sbM1765j2.toString());
             super.finish();

@@ -39,7 +39,7 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingParent2, NestedScrollingChild2, ScrollingView {
@@ -161,7 +161,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("HorizontalScrollView.SavedState{");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("HorizontalScrollView.SavedState{");
             sbM1765j.append(Integer.toHexString(System.identityHashCode(this)));
             sbM1765j.append(" scrollPosition=");
             sbM1765j.append(this.scrollPosition);
@@ -1129,7 +1129,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
             } else if (actionMasked == 2) {
                 int iFindPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (iFindPointerIndex == -1) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Invalid pointerId=");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Invalid pointerId=");
                     sbM1765j.append(this.mActivePointerId);
                     sbM1765j.append(" in onTouchEvent");
                     Log.e(TAG, sbM1765j.toString());

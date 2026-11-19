@@ -1,7 +1,7 @@
 package com.bumptech.glide.signature;
 
 import com.bumptech.glide.load.Key;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.security.MessageDigest;
 
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class StringSignature implements Key {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("StringSignature{signature='");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("StringSignature{signature='");
         sbM1765j.append(this.signature);
         sbM1765j.append('\'');
         sbM1765j.append('}');

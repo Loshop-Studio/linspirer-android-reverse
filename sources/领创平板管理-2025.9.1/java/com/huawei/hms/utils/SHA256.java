@@ -1,6 +1,6 @@
 package com.huawei.hms.utils;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.log.HMSLog;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -16,7 +16,7 @@ public abstract class SHA256 {
         try {
             return MessageDigest.getInstance("SHA-256").digest(bArr);
         } catch (NoSuchAlgorithmException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("NoSuchAlgorithmException");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("NoSuchAlgorithmException");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("SHA256", sbM1765j.toString());
             return new byte[0];

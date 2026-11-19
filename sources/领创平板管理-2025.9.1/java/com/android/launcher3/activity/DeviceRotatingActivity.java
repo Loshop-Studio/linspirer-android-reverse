@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.android.launcher3.R;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1055jc;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.AndroidImpl;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class DeviceRotatingActivity extends Activity implements View.OnClickListener {
@@ -21,7 +21,7 @@ public class DeviceRotatingActivity extends Activity implements View.OnClickList
     public RadioGroup f1729a;
 
     /* renamed from: b */
-    public C1424y5 f1730b;
+    public UserInfoUtil f1730b;
 
     /* renamed from: c */
     public RadioButton f1731c;
@@ -51,24 +51,24 @@ public class DeviceRotatingActivity extends Activity implements View.OnClickList
 
     /* renamed from: b */
     public final void m1192b() {
-        C0850bc.m1403m("DeviceRotatingActivity====saveData");
+        LTKDateUtil.m1403m("DeviceRotatingActivity====saveData");
         if (this.f1733e.isChecked()) {
             this.f1730b.m3059n0(1);
-            ((C1055jc) C0850bc.f2294f).m2127R0(this);
+            ((AndroidImpl) LTKDateUtil.f2294f).m2127R0(this);
         } else if (this.f1732d.isChecked()) {
             this.f1730b.m3059n0(2);
-            ((C1055jc) C0850bc.f2294f).m2131b(this);
-            ((C1055jc) C0850bc.f2294f).m2130U0(this, 1);
+            ((AndroidImpl) LTKDateUtil.f2294f).m2131b(this);
+            ((AndroidImpl) LTKDateUtil.f2294f).m2130U0(this, 1);
         } else if (this.f1731c.isChecked()) {
-            ((C1055jc) C0850bc.f2294f).m2131b(this);
+            ((AndroidImpl) LTKDateUtil.f2294f).m2131b(this);
             this.f1730b.m3059n0(3);
-            ((C1055jc) C0850bc.f2294f).m2130U0(this, 0);
+            ((AndroidImpl) LTKDateUtil.f2294f).m2130U0(this, 0);
         }
     }
 
     /* renamed from: c */
     public final void m1193c(int i) {
-        C0850bc.m1403m("DeviceRotatingActivity status :  " + i);
+        LTKDateUtil.m1403m("DeviceRotatingActivity status :  " + i);
         m1192b();
         if (i == 1) {
             this.f1733e.setChecked(true);
@@ -108,7 +108,7 @@ public class DeviceRotatingActivity extends Activity implements View.OnClickList
         radioButton.setOnClickListener(this);
         this.f1732d.setOnClickListener(this);
         this.f1731c.setOnClickListener(this);
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         this.f1730b = c1424y5;
         int i = c1424y5.f4130D.f2199a.getInt("rotating_status", 1);
         ImageView imageView = (ImageView) findViewById(R.id.closed);
@@ -126,14 +126,14 @@ public class DeviceRotatingActivity extends Activity implements View.OnClickList
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        C0850bc.m1403m("DeviceRotatingActivity==== onPause");
+        LTKDateUtil.m1403m("DeviceRotatingActivity==== onPause");
         m1192b();
     }
 
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        C0850bc.m1403m("DeviceRotatingActivity==== onStop");
+        LTKDateUtil.m1403m("DeviceRotatingActivity==== onStop");
         m1192b();
     }
 }

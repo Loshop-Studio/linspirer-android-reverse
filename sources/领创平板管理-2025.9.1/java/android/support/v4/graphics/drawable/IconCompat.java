@@ -34,7 +34,7 @@ import android.support.v4.widget.CircleImageView;
 import android.util.Log;
 import androidx.versionedparcelable.CustomVersionedParcelable;
 import anet.channel.strategy.dispatch.DispatchConstants;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.io.ByteArrayOutputStream;
@@ -282,7 +282,7 @@ public class IconCompat extends CustomVersionedParcelable {
                 drawable2.setBounds(0, 0, bitmapCopy.getWidth(), bitmapCopy.getHeight());
                 drawable2.draw(new Canvas(bitmapCopy));
             } catch (PackageManager.NameNotFoundException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Can't find package ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Can't find package ");
                 sbM1765j.append(this.mObj1);
                 throw new IllegalArgumentException(sbM1765j.toString(), e);
             }

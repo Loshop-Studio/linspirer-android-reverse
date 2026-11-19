@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import anet.channel.GlobalAppRuntimeInfo;
 import anet.channel.appmonitor.AppMonitor;
 import com.alibaba.sdk.android.error.ErrorCode;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.AccsState;
 import com.taobao.accs.base.TaoBaseService;
@@ -661,10 +661,10 @@ public class C1921d {
                     C1924g.m5571a(this.f6148h, this.f6151k, intentM5545c);
                     if (!TextUtils.isEmpty(message.f6085H)) {
                         UTMini uTMini = UTMini.getInstance();
-                        StringBuilder sbM1765j = C0948f6.m1765j("commandId=");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("commandId=");
                         sbM1765j.append(message.f6120t);
                         String string = sbM1765j.toString();
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("serviceId=");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("serviceId=");
                         sbM1765j2.append(message.f6085H);
                         sbM1765j2.append(" errorCode=");
                         sbM1765j2.append(errorCode2);
@@ -817,7 +817,7 @@ public class C1921d {
         C1969e c1969e = new C1969e();
         c1969e.f6356a = UtilityImpl.getDeviceId(this.f6148h);
         c1969e.f6358c = str;
-        StringBuilder sbM1765j = C0948f6.m1765j("");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("");
         sbM1765j.append(System.currentTimeMillis());
         c1969e.f6359d = sbM1765j.toString();
         c1969e.f6361f = "";

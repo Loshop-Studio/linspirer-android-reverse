@@ -1,6 +1,6 @@
 package com.android.launcher3.p027db.model;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class LocationInfo {
@@ -74,12 +74,12 @@ public class LocationInfo {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("LocationInfo{email='");
-        C0948f6.m1781z(sbM1765j, this.email, '\'', ", username='");
-        C0948f6.m1781z(sbM1765j, this.username, '\'', ", lat='");
-        C0948f6.m1781z(sbM1765j, this.lat, '\'', ", lng='");
-        C0948f6.m1781z(sbM1765j, this.lng, '\'', ", address='");
-        C0948f6.m1781z(sbM1765j, this.address, '\'', ", location_time='");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("LocationInfo{email='");
+        CompilerOutline.m1781z(sbM1765j, this.email, '\'', ", username='");
+        CompilerOutline.m1781z(sbM1765j, this.username, '\'', ", lat='");
+        CompilerOutline.m1781z(sbM1765j, this.lat, '\'', ", lng='");
+        CompilerOutline.m1781z(sbM1765j, this.lng, '\'', ", address='");
+        CompilerOutline.m1781z(sbM1765j, this.address, '\'', ", location_time='");
         sbM1765j.append(this.location_time);
         sbM1765j.append('\'');
         sbM1765j.append('}');

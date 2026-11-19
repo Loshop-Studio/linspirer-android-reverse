@@ -11,7 +11,7 @@ import anet.channel.strategy.StrategyCenter;
 import anet.channel.strategy.dispatch.DispatchConstants;
 import anet.channel.thread.ThreadPoolExecutorFactory;
 import anet.channel.util.ALog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -292,7 +292,7 @@ public class ExceptionDetector {
         jSONObject.put("errCode", pingResponse.getErrcode());
         JSONArray jSONArray = new JSONArray();
         for (PingEntry pingEntry : pingResponse.getResults()) {
-            StringBuilder sbM1765j = C0948f6.m1765j("seq=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("seq=");
             sbM1765j.append(pingEntry.seq);
             sbM1765j.append(",hop=");
             sbM1765j.append(pingEntry.hop);

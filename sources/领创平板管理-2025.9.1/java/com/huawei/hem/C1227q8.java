@@ -62,10 +62,10 @@ public class C1227q8 implements InterfaceC1051j8 {
         Context context = c1152n8.f3290b;
         this.f3494b = context;
         this.f3495c = c0820a8;
-        synchronized (C1423y4.class) {
-            C1177o8 c1177o82 = C1423y4.f4126d;
+        synchronized (LauncherMenuHelper.class) {
+            C1177o8 c1177o82 = LauncherMenuHelper.f4126d;
             if (c1177o82 == null) {
-                String strM2981b = C1423y4.m2981b("grs_sdk_server_config.json", context);
+                String strM2981b = LauncherMenuHelper.m2981b("grs_sdk_server_config.json", context);
                 ArrayList arrayList = null;
                 c1177o8 = null;
                 arrayList = null;
@@ -80,15 +80,15 @@ public class C1227q8 implements InterfaceC1051j8 {
                             }
                         }
                         C1177o8 c1177o83 = new C1177o8();
-                        C1423y4.f4126d = c1177o83;
+                        LauncherMenuHelper.f4126d = c1177o83;
                         c1177o83.f3374a = arrayList;
-                        C1423y4.f4126d.f3375b = jSONObject.getString("grs_query_endpoint_1.0");
-                        C1423y4.f4126d.f3376c = jSONObject.getString("grs_query_endpoint_2.0");
-                        C1423y4.f4126d.f3377d = jSONObject.getInt("grs_query_timeout");
+                        LauncherMenuHelper.f4126d.f3375b = jSONObject.getString("grs_query_endpoint_1.0");
+                        LauncherMenuHelper.f4126d.f3376c = jSONObject.getString("grs_query_endpoint_2.0");
+                        LauncherMenuHelper.f4126d.f3377d = jSONObject.getInt("grs_query_timeout");
                     } catch (JSONException e) {
                         Logger.m3439w("a", "getGrsServerBean catch JSONException", e);
                     }
-                    c1177o82 = C1423y4.f4126d;
+                    c1177o82 = LauncherMenuHelper.f4126d;
                 }
             }
             c1177o8 = c1177o82;
@@ -111,7 +111,7 @@ public class C1227q8 implements InterfaceC1051j8 {
         if (list.size() > 0) {
             for (String str3 : list) {
                 if (str3.startsWith("https://")) {
-                    StringBuilder sbM1765j = C0948f6.m1765j(str3);
+                    StringBuilder sbM1765j = CompilerOutline.m1765j(str3);
                     Locale locale = Locale.ROOT;
                     Object[] objArr = new Object[1];
                     objArr[0] = TextUtils.isEmpty(m2583c()) ? this.f3493a.getAppName() : m2583c();

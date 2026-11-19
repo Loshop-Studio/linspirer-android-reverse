@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -110,7 +110,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("AnchorInfo{mPosition=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("AnchorInfo{mPosition=");
             sbM1765j.append(this.mPosition);
             sbM1765j.append(", mCoordinate=");
             sbM1765j.append(this.mCoordinate);
@@ -181,7 +181,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
 
         public void log() {
-            StringBuilder sbM1765j = C0948f6.m1765j("avail:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("avail:");
             sbM1765j.append(this.mAvailable);
             sbM1765j.append(", ind:");
             sbM1765j.append(this.mCurrentPosition);
@@ -436,7 +436,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         Log.d(TAG, "internal representation of views on the screen");
         for (int i = 0; i < getChildCount(); i++) {
             View childAt = getChildAt(i);
-            StringBuilder sbM1765j = C0948f6.m1765j("item ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("item ");
             sbM1765j.append(getPosition(childAt));
             sbM1765j.append(", coord:");
             sbM1765j.append(this.mOrientationHelper.getDecoratedStart(childAt));
@@ -1369,7 +1369,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
 
     public void setOrientation(int i) {
         if (i != 0 && i != 1) {
-            throw new IllegalArgumentException(C0948f6.m1754L("invalid orientation:", i));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("invalid orientation:", i));
         }
         assertNotInLayoutOrScroll(null);
         if (i != this.mOrientation || this.mOrientationHelper == null) {
@@ -1425,7 +1425,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     public void validateChildOrder() {
-        StringBuilder sbM1765j = C0948f6.m1765j("validating child count ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("validating child count ");
         sbM1765j.append(getChildCount());
         Log.d(TAG, sbM1765j.toString());
         if (getChildCount() < 1) {
@@ -1440,7 +1440,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
                 int decoratedStart2 = this.mOrientationHelper.getDecoratedStart(childAt);
                 if (position2 < position) {
                     logChildren();
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("detected invalid position. loc invalid? ");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("detected invalid position. loc invalid? ");
                     sbM1765j2.append(decoratedStart2 < decoratedStart);
                     throw new RuntimeException(sbM1765j2.toString());
                 }
@@ -1457,7 +1457,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             int decoratedStart3 = this.mOrientationHelper.getDecoratedStart(childAt2);
             if (position3 < position) {
                 logChildren();
-                StringBuilder sbM1765j3 = C0948f6.m1765j("detected invalid position. loc invalid? ");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j("detected invalid position. loc invalid? ");
                 sbM1765j3.append(decoratedStart3 < decoratedStart);
                 throw new RuntimeException(sbM1765j3.toString());
             }

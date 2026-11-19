@@ -2,7 +2,7 @@ package anetwork.channel.statist;
 
 import anet.channel.statist.RequestStatistic;
 import anet.channel.util.StringUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* compiled from: Taobao */
@@ -149,6 +149,6 @@ public class StatisticData implements Serializable, Cloneable {
         if (StringUtils.isBlank(this.netStatSum)) {
             this.netStatSum = sumNetStat();
         }
-        return C0948f6.m1762g(new StringBuilder("StatisticData ["), this.netStatSum, "]");
+        return CompilerOutline.m1762g(new StringBuilder("StatisticData ["), this.netStatSum, "]");
     }
 }

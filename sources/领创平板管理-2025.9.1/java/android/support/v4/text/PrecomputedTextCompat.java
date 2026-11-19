@@ -22,7 +22,7 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.MetricAffectingSpan;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
@@ -113,7 +113,7 @@ public class PrecomputedTextCompat implements Spannable {
         while (true) {
             int[] iArr = this.mParagraphEnds;
             if (i2 >= iArr.length) {
-                StringBuilder sbM1765j = C0948f6.m1765j("pos must be less than ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("pos must be less than ");
                 sbM1765j.append(this.mParagraphEnds[r2.length - 1]);
                 sbM1765j.append(", gave ");
                 sbM1765j.append(i);
@@ -375,7 +375,7 @@ public class PrecomputedTextCompat implements Spannable {
 
         public String toString() {
             StringBuilder sb = new StringBuilder("{");
-            StringBuilder sbM1765j = C0948f6.m1765j("textSize=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("textSize=");
             sbM1765j.append(this.mPaint.getTextSize());
             sb.append(sbM1765j.toString());
             sb.append(", textScaleX=" + this.mPaint.getTextScaleX());
@@ -383,23 +383,23 @@ public class PrecomputedTextCompat implements Spannable {
             sb.append(", letterSpacing=" + this.mPaint.getLetterSpacing());
             sb.append(", elegantTextHeight=" + this.mPaint.isElegantTextHeight());
             if (Build.VERSION.SDK_INT >= 24) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j(", textLocale=");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j(", textLocale=");
                 sbM1765j2.append(this.mPaint.getTextLocales());
                 sb.append(sbM1765j2.toString());
             } else {
-                StringBuilder sbM1765j3 = C0948f6.m1765j(", textLocale=");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j(", textLocale=");
                 sbM1765j3.append(this.mPaint.getTextLocale());
                 sb.append(sbM1765j3.toString());
             }
-            StringBuilder sbM1765j4 = C0948f6.m1765j(", typeface=");
+            StringBuilder sbM1765j4 = CompilerOutline.m1765j(", typeface=");
             sbM1765j4.append(this.mPaint.getTypeface());
             sb.append(sbM1765j4.toString());
             if (Build.VERSION.SDK_INT >= 26) {
-                StringBuilder sbM1765j5 = C0948f6.m1765j(", variationSettings=");
+                StringBuilder sbM1765j5 = CompilerOutline.m1765j(", variationSettings=");
                 sbM1765j5.append(this.mPaint.getFontVariationSettings());
                 sb.append(sbM1765j5.toString());
             }
-            StringBuilder sbM1765j6 = C0948f6.m1765j(", textDir=");
+            StringBuilder sbM1765j6 = CompilerOutline.m1765j(", textDir=");
             sbM1765j6.append(this.mTextDir);
             sb.append(sbM1765j6.toString());
             sb.append(", breakStrategy=" + this.mBreakStrategy);

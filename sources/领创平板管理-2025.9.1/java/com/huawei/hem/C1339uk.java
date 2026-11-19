@@ -12,7 +12,7 @@ public final class C1339uk {
     }
 
     /* renamed from: b */
-    public static String m2816b(C1463zj c1463zj) {
+    public static String m2816b(OkHttpUrl c1463zj) {
         String strM3158e = c1463zj.m3158e();
         String strM3160g = c1463zj.m3160g();
         if (strM3160g == null) {

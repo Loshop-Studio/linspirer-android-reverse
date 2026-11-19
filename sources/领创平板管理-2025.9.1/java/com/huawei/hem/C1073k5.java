@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.android.launcher3.GuardSecureApplication;
 import com.android.launcher3.network.RequestUrl;
 import com.android.launcher3.network.params.V2Params;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.UserInfoUtil;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,10 +36,10 @@ public class C1073k5 {
     public int f3025b = 86400000;
 
     /* renamed from: c */
-    public C1424y5 f3026c;
+    public UserInfoUtil f3026c;
 
     /* renamed from: d */
-    public C1255rb f3027d;
+    public HttpCore f3027d;
 
     /* renamed from: e */
     public UsageStatsManager f3028e;
@@ -54,19 +54,19 @@ public class C1073k5 {
     public Context f3031h;
 
     /* renamed from: i */
-    public List<List<C1098l5>> f3032i;
+    public List<List<UsageAppData>> f3032i;
 
     /* compiled from: AppUsageHelper.java */
     /* renamed from: com.huawei.hem.k5$a */
-    public class a extends AsyncTask<String, Void, List<C1098l5>> {
+    public class a extends AsyncTask<String, Void, List<UsageAppData>> {
         public a() {
         }
 
         @Override // android.os.AsyncTask
-        public List<C1098l5> doInBackground(String[] strArr) {
+        public List<UsageAppData> doInBackground(String[] strArr) {
             int i;
             C1073k5 c1073k5 = C1073k5.this;
-            C1424y5 c1424y5 = c1073k5.f3026c;
+            UserInfoUtil c1424y5 = c1073k5.f3026c;
             if (c1424y5.f4138L == 0) {
                 c1424y5.f4138L = c1424y5.f4130D.f2199a.getLong("next_query_event_stamp", 0L);
             }
@@ -75,11 +75,11 @@ public class C1073k5 {
             if (j <= 0) {
                 j = jCurrentTimeMillis - (c1073k5.f3025b * 7);
             }
-            C0850bc.m1403m("AppUsageHelper -- queryEventsBelowAndroid_8 , startTime = " + j + " , endTime = " + jCurrentTimeMillis);
+            LTKDateUtil.m1403m("AppUsageHelper -- queryEventsBelowAndroid_8 , startTime = " + j + " , endTime = " + jCurrentTimeMillis);
             UsageEvents usageEventsQueryEvents = c1073k5.f3028e.queryEvents(j, jCurrentTimeMillis);
             ArrayList arrayList = new ArrayList();
             if (usageEventsQueryEvents == null) {
-                C0850bc.m1393c("AppUsageHelper -- queryEventsBelowAndroid_8 , usageEvents = null 用户没有权限或者没有使用记录");
+                LTKDateUtil.m1393c("AppUsageHelper -- queryEventsBelowAndroid_8 , usageEvents = null 用户没有权限或者没有使用记录");
                 return null;
             }
             while (true) {
@@ -97,7 +97,7 @@ public class C1073k5 {
             ArrayList arrayList2 = new ArrayList();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Iterator it = arrayList.iterator();
-            C1098l5 c1098l5 = null;
+            UsageAppData c1098l5 = null;
             String str = "";
             String str2 = str;
             while (it.hasNext()) {
@@ -107,7 +107,7 @@ public class C1073k5 {
                 long timeStamp = event2.getTimeStamp();
                 String str3 = simpleDateFormat.format(new Date(timeStamp));
                 if (eventType2 == i) {
-                    c1098l5 = new C1098l5();
+                    c1098l5 = new UsageAppData();
                     c1098l5.setmPackageName(packageName);
                     c1098l5.setmAppName(c1073k5.m2163b(packageName));
                     c1098l5.setmBeginTimeStamp(timeStamp);
@@ -127,10 +127,10 @@ public class C1073k5 {
                     calendar.set(12, 0);
                     calendar.set(13, 0);
                     long timeInMillis = calendar.getTimeInMillis();
-                    C0850bc.m1403m("AppUsageHelper -- getTodayStartStamp()  获取当日的时间戳 = " + timeInMillis);
+                    LTKDateUtil.m1403m("AppUsageHelper -- getTodayStartStamp()  获取当日的时间戳 = " + timeInMillis);
                     c1098l5.setmEndTimeStamp(timeInMillis - 1);
                     arrayList2.add(c1098l5);
-                    C1098l5 c1098l52 = new C1098l5();
+                    UsageAppData c1098l52 = new UsageAppData();
                     c1098l52.setmPackageName(str2);
                     c1098l52.setmAppName(c1073k5.m2163b(str2));
                     c1098l52.setmBeginTimeStamp(timeInMillis);
@@ -144,10 +144,10 @@ public class C1073k5 {
             }
             Iterator it2 = arrayList2.iterator();
             while (it2.hasNext()) {
-                C1098l5 c1098l53 = (C1098l5) it2.next();
-                ArrayList arrayListM1772q = C0948f6.m1772q("com.android.documentsui", "com.android.systemui", "com.android.launcher3", "com.huawei.hwstartupguide", "com.android.packageinstaller");
-                C0948f6.m1749G(arrayListM1772q, "com.android.permissioncontroller", "com.android.providers.contacts", "com.lenovo.mia.setupwizard", "com.tbsmart.levision");
-                C0948f6.m1749G(arrayListM1772q, "com.huawei.android.launcher", "com.android.provision", "com.huawei.android.hwouc", "com.google.android.inputmethod.pinyin");
+                UsageAppData c1098l53 = (UsageAppData) it2.next();
+                ArrayList arrayListM1772q = CompilerOutline.m1772q("com.android.documentsui", "com.android.systemui", "com.android.launcher3", "com.huawei.hwstartupguide", "com.android.packageinstaller");
+                CompilerOutline.m1749G(arrayListM1772q, "com.android.permissioncontroller", "com.android.providers.contacts", "com.lenovo.mia.setupwizard", "com.tbsmart.levision");
+                CompilerOutline.m1749G(arrayListM1772q, "com.huawei.android.launcher", "com.android.provision", "com.huawei.android.hwouc", "com.google.android.inputmethod.pinyin");
                 arrayListM1772q.add(DispatchConstants.ANDROID);
                 if (arrayListM1772q.contains(c1098l53.getmPackageName())) {
                     it2.remove();
@@ -157,20 +157,20 @@ public class C1073k5 {
         }
 
         @Override // android.os.AsyncTask
-        public void onPostExecute(List<C1098l5> list) {
-            List<C1098l5> list2 = list;
+        public void onPostExecute(List<UsageAppData> list) {
+            List<UsageAppData> list2 = list;
             if (AbstractC1102l9.m2273N(list2)) {
-                C0850bc.m1393c("AppUsageHelper -- queryEvents , usageAppDataList data is null.");
+                LTKDateUtil.m1393c("AppUsageHelper -- queryEvents , usageAppDataList data is null.");
                 return;
             }
             int size = list2.size();
-            C0850bc.m1403m("AppUsageHelper -- queryEvents , 应用使用：usageAppDataList size = " + size);
+            LTKDateUtil.m1403m("AppUsageHelper -- queryEvents , 应用使用：usageAppDataList size = " + size);
             if (size <= 500) {
                 C1073k5.m2162a(C1073k5.this, list2, 0);
                 C1073k5.this.f3032i = null;
                 return;
             }
-            C0850bc.m1390A("AppUsageHelper -- queryEvents , 应用使用：usageAppDataList size > 500 . ");
+            LTKDateUtil.m1390A("AppUsageHelper -- queryEvents , 应用使用：usageAppDataList size > 500 . ");
             C1073k5.this.f3032i = new ArrayList();
             int i = size / 500;
             int i2 = size % 500;
@@ -195,11 +195,11 @@ public class C1073k5 {
     public C1073k5() {
         GuardSecureApplication guardSecureApplication = GuardSecureApplication.f1640b;
         this.f3031h = guardSecureApplication;
-        this.f3026c = C1424y5.b.f4202a;
+        this.f3026c = UserInfoUtil.b.f4202a;
         this.f3028e = (UsageStatsManager) guardSecureApplication.getSystemService("usagestats");
         this.f3029f = (AppOpsManager) this.f3031h.getSystemService("appops");
         this.f3030g = this.f3031h.getPackageManager();
-        this.f3027d = new C1255rb();
+        this.f3027d = new HttpCore();
     }
 
     /* renamed from: a */
@@ -207,22 +207,22 @@ public class C1073k5 {
         if (c1073k5 == null) {
             throw null;
         }
-        if (!C1423y4.m3005z()) {
-            C0850bc.m1403m("AppUsageHelperno need upload");
+        if (!LauncherMenuHelper.m3005z()) {
+            LTKDateUtil.m1403m("AppUsageHelperno need upload");
             return;
         }
         try {
             V2Params v2Params = new V2Params();
-            C1124m5 c1124m5 = new C1124m5(c1073k5.f3031h);
+            UsageParams c1124m5 = new UsageParams(c1073k5.f3031h);
             c1124m5.setEmail(c1073k5.f3026c.m3052k());
             c1124m5.setLogs(list);
             v2Params.setParams(JSON.toJSONString(c1124m5));
             v2Params.setMethod(RequestUrl.APP_USAGE_TIME);
-            C1255rb c1255rb = c1073k5.f3027d;
+            HttpCore c1255rb = c1073k5.f3027d;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.UPLOAD_EVENT_URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new C1048j5(c1073k5, Boolean.class, list, i));
@@ -238,7 +238,7 @@ public class C1073k5 {
             return this.f3030g.getApplicationLabel(this.f3030g.getApplicationInfo(str, 128)).toString();
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-            C0850bc.m1393c("AppUsageHelper -- error msg = " + e.getMessage());
+            LTKDateUtil.m1393c("AppUsageHelper -- error msg = " + e.getMessage());
             return "";
         }
     }

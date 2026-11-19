@@ -43,7 +43,7 @@ public class C0839b1 {
         if (c1419y0.f4104a != null) {
             intent.putExtra(AgooMessageReceiver.EXTRA_MAP, new JSONObject(c1419y0.f4104a).toString());
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("delete content messageId:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("delete content messageId:");
         sbM1765j.append(c1419y0.f4105b);
         ALog.m5726d("MPS:MessageNotification", sbM1765j.toString(), new Object[0]);
         intent.putExtra("appId", c1419y0.f4106c);
@@ -72,7 +72,7 @@ public class C0839b1 {
         if (c1419y0.f4104a != null) {
             intent.putExtra(AgooMessageReceiver.EXTRA_MAP, new JSONObject(c1419y0.f4104a).toString());
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("build content messageId:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("build content messageId:");
         sbM1765j.append(c1419y0.f4105b);
         ALog.m5726d("MPS:MessageNotification", sbM1765j.toString(), new Object[0]);
         intent2.putExtra(AgooConstants.KEY_REAL_INTENT, intent);
@@ -85,7 +85,7 @@ public class C0839b1 {
         String str4 = map.get("content");
         String str5 = map.get(AgooConstants.MESSAGE_EXT);
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Message title or content is empty:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Message title or content is empty:");
             sbM1765j.append(map.toString());
             ALog.m5728e("MPS:MessageNotification", sbM1765j.toString(), new Object[0]);
             return null;

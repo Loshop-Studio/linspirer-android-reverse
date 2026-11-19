@@ -7,9 +7,9 @@ import android.content.ComponentCallbacks2;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import com.huawei.hem.AbstractC0992h;
-import com.huawei.hem.C1067k;
-import com.huawei.hem.InterfaceC1042j;
-import com.huawei.hem.InterfaceC1092l;
+import com.huawei.hem.LifecycleRegistry;
+import com.huawei.hem.LifecycleOwner;
+import com.huawei.hem.LifecycleRegistryOwner;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
@@ -40,12 +40,12 @@ public class ReportFragment extends Fragment {
     /* renamed from: a */
     public final void m12a(AbstractC0992h.a aVar) {
         ComponentCallbacks2 activity = getActivity();
-        if (activity instanceof InterfaceC1092l) {
-            ((InterfaceC1092l) activity).getLifecycle().m2151c(aVar);
-        } else if (activity instanceof InterfaceC1042j) {
-            AbstractC0992h lifecycle = ((InterfaceC1042j) activity).getLifecycle();
-            if (lifecycle instanceof C1067k) {
-                ((C1067k) lifecycle).m2151c(aVar);
+        if (activity instanceof LifecycleRegistryOwner) {
+            ((LifecycleRegistryOwner) activity).getLifecycle().m2151c(aVar);
+        } else if (activity instanceof LifecycleOwner) {
+            AbstractC0992h lifecycle = ((LifecycleOwner) activity).getLifecycle();
+            if (lifecycle instanceof LifecycleRegistry) {
+                ((LifecycleRegistry) lifecycle).m2151c(aVar);
             }
         }
     }

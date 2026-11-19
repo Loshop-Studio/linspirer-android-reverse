@@ -4,7 +4,7 @@ import android.app.Application;
 import android.app.Instrumentation;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Random;
 import org.greenrobot.greendao.DaoLog;
 import org.greenrobot.greendao.DbUtils;
@@ -59,7 +59,7 @@ public abstract class DbTest extends AndroidTestCase {
             DbUtils.logTableDump(((StandardDatabase) database).getSQLiteDatabase(), str);
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Table dump unsupported for ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Table dump unsupported for ");
         sbM1765j.append(this.f6510db);
         DaoLog.m5867w(sbM1765j.toString());
     }

@@ -2,7 +2,7 @@ package com.huawei.hms.support.hianalytics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.android.SystemUtils;
 import com.huawei.hms.common.internal.RequestHeader;
 import com.huawei.hms.common.internal.ResponseHeader;
@@ -27,7 +27,7 @@ public class HiAnalyticsUtil {
 
     /* renamed from: a */
     private String m3454a(Context context, String str) {
-        StringBuilder sbM1770o = C0948f6.m1770o("01|", "", "|", context.getPackageName(), "|");
+        StringBuilder sbM1770o = CompilerOutline.m1770o("01|", "", "|", context.getPackageName(), "|");
         sbM1770o.append(Util.getAppId(context));
         sbM1770o.append("|");
         sbM1770o.append(50200300);

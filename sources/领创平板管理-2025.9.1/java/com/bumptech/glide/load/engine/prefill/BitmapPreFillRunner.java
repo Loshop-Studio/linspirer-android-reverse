@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.Util;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
@@ -71,7 +71,7 @@ public final class BitmapPreFillRunner implements Runnable {
                 addToBitmapPool(preFillTypeRemove, bitmapCreateBitmap);
             }
             if (Log.isLoggable(TAG, 3)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("allocated [");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("allocated [");
                 sbM1765j.append(preFillTypeRemove.getWidth());
                 sbM1765j.append("x");
                 sbM1765j.append(preFillTypeRemove.getHeight());

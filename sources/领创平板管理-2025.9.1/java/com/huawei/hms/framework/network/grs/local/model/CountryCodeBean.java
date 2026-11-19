@@ -3,7 +3,7 @@ package com.huawei.hms.framework.network.grs.local.model;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.EmuiUtil;
 import com.huawei.hms.framework.common.Logger;
 import com.huawei.hms.framework.common.SystemPropUtils;
@@ -53,7 +53,7 @@ public class CountryCodeBean {
         int iLastIndexOf;
         this.countryCode = SystemPropUtils.getProperty("get", LOCALE_REGION_COUNTRYSYSTEMPROP, "android.os.SystemProperties", GrsBaseInfo.CountryCodeSource.UNKNOWN);
         String str = TAG;
-        StringBuilder sbM1765j = C0948f6.m1765j("countryCode by ro.product.locale.region is:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("countryCode by ro.product.locale.region is:");
         sbM1765j.append(this.countryCode);
         Logger.m3434i(str, sbM1765j.toString());
         if (TextUtils.isEmpty(this.countryCode) || GrsBaseInfo.CountryCodeSource.UNKNOWN.equals(this.countryCode)) {
@@ -61,7 +61,7 @@ public class CountryCodeBean {
             if (!TextUtils.isEmpty(property) && (iLastIndexOf = property.lastIndexOf("-")) != -1) {
                 this.countryCode = property.substring(iLastIndexOf + 1);
                 String str2 = TAG;
-                StringBuilder sbM1765j2 = C0948f6.m1765j("countryCode by ro.product.locale is:");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("countryCode by ro.product.locale is:");
                 sbM1765j2.append(this.countryCode);
                 Logger.m3434i(str2, sbM1765j2.toString());
             }
@@ -75,7 +75,7 @@ public class CountryCodeBean {
     private void getRegionSettingCountryCode() {
         this.countryCode = Locale.getDefault().getCountry();
         String str = TAG;
-        StringBuilder sbM1765j = C0948f6.m1765j("countryCode by system's region setting is: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("countryCode by system's region setting is: ");
         sbM1765j.append(this.countryCode);
         Logger.m3434i(str, sbM1765j.toString());
         if (TextUtils.isEmpty(this.countryCode)) {
@@ -117,7 +117,7 @@ public class CountryCodeBean {
         this.countrySource = GrsBaseInfo.CountryCodeSource.VENDOR_COUNTRY;
         this.countryCode = SystemPropUtils.getProperty("get", VENDORCOUNTRY_SYSTEMPROP, "android.os.SystemProperties", GrsBaseInfo.CountryCodeSource.UNKNOWN);
         String str = TAG;
-        StringBuilder sbM1765j = C0948f6.m1765j("countryCode by ro.hw.country is: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("countryCode by ro.hw.country is: ");
         sbM1765j.append(this.countryCode);
         Logger.m3434i(str, sbM1765j.toString());
         if (SPECIAL_COUNTRYCODE_EU.equalsIgnoreCase(this.countryCode) || SPECIAL_COUNTRYCODE_LA.equalsIgnoreCase(this.countryCode)) {

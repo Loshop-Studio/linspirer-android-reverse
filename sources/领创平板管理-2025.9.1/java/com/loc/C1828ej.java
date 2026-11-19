@@ -1,13 +1,13 @@
 package com.loc;
 
 import android.text.TextUtils;
-import com.huawei.hem.AbstractC1044j1;
+import com.huawei.hem.IPV6Request;
 import java.util.Map;
 
 /* compiled from: HttpRequest.java */
 /* renamed from: com.loc.ej */
 /* loaded from: classes.dex */
-public final class C1828ej extends AbstractC1044j1 {
+public final class C1828ej extends IPV6Request {
 
     /* renamed from: a */
     public Map<String, String> f5644a = null;

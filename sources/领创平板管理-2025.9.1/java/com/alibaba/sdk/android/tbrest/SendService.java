@@ -2,10 +2,10 @@ package com.alibaba.sdk.android.tbrest;
 
 import android.content.Context;
 import android.util.Log;
-import com.alibaba.sdk.android.tbrest.rest.C0605f;
+import com.alibaba.sdk.android.tbrest.rest.RestReqSend;
 import com.alibaba.sdk.android.tbrest.rest.RestConstants;
 import com.alibaba.sdk.android.tbrest.utils.LogUtil;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Map;
 
 /* loaded from: classes.dex */
@@ -21,13 +21,13 @@ public class SendService {
     public String host = null;
     public Boolean openHttp = Boolean.FALSE;
     public String country = null;
-    public C0597a sendAsyncExecutor = new C0597a();
+    public SendAsyncExecutor sendAsyncExecutor = new SendAsyncExecutor();
 
     private Boolean canSend() {
         if (this.appId != null && this.appVersion != null && this.appKey != null && this.context != null) {
             return Boolean.TRUE;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("have send args is null，you must init first. appId ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("have send args is null，you must init first. appId ");
         sbM1765j.append(this.appId);
         sbM1765j.append(" appVersion ");
         sbM1765j.append(this.appVersion);
@@ -78,7 +78,7 @@ public class SendService {
         } else {
             str3 = str;
         }
-        return Boolean.valueOf(C0605f.m992a(this, this.appKey, this.context, str3, j, str2, i, obj, obj2, obj3, map));
+        return Boolean.valueOf(RestReqSend.m992a(this, this.appKey, this.context, str3, j, str2, i, obj, obj2, obj3, map));
     }
 
     public void sendRequestAsyn(String str, long j, String str2, int i, Object obj, Object obj2, Object obj3, Map<String, String> map) {
@@ -110,7 +110,7 @@ public class SendService {
     @Deprecated
     public String sendRequestByUrl(String str, long j, String str2, int i, Object obj, Object obj2, Object obj3, Map<String, String> map) {
         if (canSend().booleanValue()) {
-            return C0605f.m991a(this, str, this.appKey, this.context, j, str2, i, obj, obj2, obj3, map);
+            return RestReqSend.m991a(this, str, this.appKey, this.context, j, str2, i, obj, obj2, obj3, map);
         }
         return null;
     }
@@ -155,9 +155,9 @@ public class SendService {
         public void run() {
             try {
                 if (this.isUrl.booleanValue()) {
-                    C0605f.m993b(this.mSendService, this.appKey, this.context, this.adashxServerHost, this.aTimestamp, this.aPage, this.aEventId, this.aArg1, this.aArg2, this.aArg3, this.aExtData);
+                    RestReqSend.m993b(this.mSendService, this.appKey, this.context, this.adashxServerHost, this.aTimestamp, this.aPage, this.aEventId, this.aArg1, this.aArg2, this.aArg3, this.aExtData);
                 } else {
-                    C0605f.m992a(this.mSendService, this.appKey, this.context, this.adashxServerHost, this.aTimestamp, this.aPage, this.aEventId, this.aArg1, this.aArg2, this.aArg3, this.aExtData);
+                    RestReqSend.m992a(this.mSendService, this.appKey, this.context, this.adashxServerHost, this.aTimestamp, this.aPage, this.aEventId, this.aArg1, this.aArg2, this.aArg3, this.aExtData);
                 }
             } catch (Exception e) {
                 LogUtil.m998e("send log asyn error ", e);

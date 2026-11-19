@@ -1,6 +1,6 @@
 package com.android.launcher3.p027db.model;
 
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.UserInfoUtil;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -111,7 +111,7 @@ public class ItemApp implements Serializable {
     }
 
     public String getUserName() {
-        return C1424y5.b.f4202a.m3052k();
+        return UserInfoUtil.b.f4202a.m3052k();
     }
 
     public int getVersioncode() {

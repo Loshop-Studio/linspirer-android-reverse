@@ -6,7 +6,7 @@ import android.content.Context;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class MemorySizeCalculator {
@@ -85,7 +85,7 @@ public class MemorySizeCalculator {
             this.bitmapPoolSize = iRound * 4;
         }
         if (Log.isLoggable(TAG, 3)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Calculated memory cache size: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Calculated memory cache size: ");
             sbM1765j.append(toMb(this.memoryCacheSize));
             sbM1765j.append(" pool size: ");
             sbM1765j.append(toMb(this.bitmapPoolSize));

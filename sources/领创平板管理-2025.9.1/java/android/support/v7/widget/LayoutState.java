@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class LayoutState {
@@ -34,7 +34,7 @@ public class LayoutState {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("LayoutState{mAvailable=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("LayoutState{mAvailable=");
         sbM1765j.append(this.mAvailable);
         sbM1765j.append(", mCurrentPosition=");
         sbM1765j.append(this.mCurrentPosition);

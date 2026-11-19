@@ -13,7 +13,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.UnitTransformation;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.LogTime;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -117,7 +117,7 @@ public class GifResourceEncoder implements ResourceEncoder<GifDrawable> {
         }
         boolean zFinish = animatedGifEncoderBuildEncoder.finish();
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Encoded gif with ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Encoded gif with ");
             sbM1765j.append(gifDecoderDecodeHeaders.getFrameCount());
             sbM1765j.append(" frames and ");
             sbM1765j.append(gifDrawable.getData().length);

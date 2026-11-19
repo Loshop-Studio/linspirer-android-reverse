@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -1076,7 +1076,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         if (iArr == null) {
             iArr = new int[this.mSpanCount];
         } else if (iArr.length < this.mSpanCount) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
             sbM1765j.append(this.mSpanCount);
             sbM1765j.append(", array size:");
             sbM1765j.append(iArr.length);
@@ -1140,7 +1140,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         if (iArr == null) {
             iArr = new int[this.mSpanCount];
         } else if (iArr.length < this.mSpanCount) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
             sbM1765j.append(this.mSpanCount);
             sbM1765j.append(", array size:");
             sbM1765j.append(iArr.length);
@@ -1156,7 +1156,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         if (iArr == null) {
             iArr = new int[this.mSpanCount];
         } else if (iArr.length < this.mSpanCount) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
             sbM1765j.append(this.mSpanCount);
             sbM1765j.append(", array size:");
             sbM1765j.append(iArr.length);
@@ -1172,7 +1172,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         if (iArr == null) {
             iArr = new int[this.mSpanCount];
         } else if (iArr.length < this.mSpanCount) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Provided int[]'s size must be more than or equal to span count. Expected:");
             sbM1765j.append(this.mSpanCount);
             sbM1765j.append(", array size:");
             sbM1765j.append(iArr.length);
@@ -2433,7 +2433,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             }
 
             public String toString() {
-                StringBuilder sbM1765j = C0948f6.m1765j("FullSpanItem{mPosition=");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("FullSpanItem{mPosition=");
                 sbM1765j.append(this.mPosition);
                 sbM1765j.append(", mGapDir=");
                 sbM1765j.append(this.mGapDir);

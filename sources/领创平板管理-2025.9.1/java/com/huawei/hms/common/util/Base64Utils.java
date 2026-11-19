@@ -1,7 +1,7 @@
 package com.huawei.hms.common.util;
 
 import android.util.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.log.HMSLog;
 
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public final class Base64Utils {
             try {
                 return Base64.decode(str, 0);
             } catch (IllegalArgumentException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("decode failed : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("decode failed : ");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e(TAG, sbM1765j.toString());
             }
@@ -31,7 +31,7 @@ public final class Base64Utils {
             try {
                 return Base64.decode(str, 10);
             } catch (IllegalArgumentException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("decodeUrlSafe failed : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("decodeUrlSafe failed : ");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e(TAG, sbM1765j.toString());
             }
@@ -45,7 +45,7 @@ public final class Base64Utils {
             try {
                 return Base64.decode(str, 11);
             } catch (IllegalArgumentException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("decodeUrlSafeNoPadding failed : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("decodeUrlSafeNoPadding failed : ");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e(TAG, sbM1765j.toString());
             }

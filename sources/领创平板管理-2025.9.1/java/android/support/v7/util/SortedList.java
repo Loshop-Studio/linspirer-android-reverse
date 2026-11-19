@@ -2,7 +2,7 @@ package android.support.v7.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
@@ -127,7 +127,7 @@ public class SortedList<T> {
     private void addToData(int i, T t) {
         int i2 = this.mSize;
         if (i > i2) {
-            StringBuilder sbM1766k = C0948f6.m1766k("cannot add item to ", i, " because size is ");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("cannot add item to ", i, " because size is ");
             sbM1766k.append(this.mSize);
             throw new IndexOutOfBoundsException(sbM1766k.toString());
         }
@@ -462,7 +462,7 @@ public class SortedList<T> {
             T[] tArr = this.mOldData;
             return (tArr == null || i < (i2 = this.mNewDataStart)) ? this.mData[i] : tArr[(i - i2) + this.mOldDataStart];
         }
-        StringBuilder sbM1766k = C0948f6.m1766k("Asked to get item at ", i, " but size is ");
+        StringBuilder sbM1766k = CompilerOutline.m1766k("Asked to get item at ", i, " but size is ");
         sbM1766k.append(this.mSize);
         throw new IndexOutOfBoundsException(sbM1766k.toString());
     }

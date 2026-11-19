@@ -3,7 +3,7 @@ package android.support.v4.graphics;
 import android.graphics.Path;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -79,7 +79,7 @@ public class PathParser {
             PathDataNode.nodesToPath(pathDataNodeArrCreateNodesFromPathData, path);
             return path;
         } catch (RuntimeException e) {
-            throw new RuntimeException(C0948f6.m1760e("Error in parsing ", str), e);
+            throw new RuntimeException(CompilerOutline.m1760e("Error in parsing ", str), e);
         }
     }
 
@@ -185,7 +185,7 @@ public class PathParser {
             }
             return copyOfRange(fArr, 0, i2);
         } catch (NumberFormatException e) {
-            throw new RuntimeException(C0948f6.m1761f("error in parsing \"", str, "\""), e);
+            throw new RuntimeException(CompilerOutline.m1761f("error in parsing \"", str, "\""), e);
         }
     }
 

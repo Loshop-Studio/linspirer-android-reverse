@@ -6,7 +6,7 @@ import anet.channel.appmonitor.AppMonitor;
 import anet.channel.statist.Dimension;
 import anet.channel.statist.Measure;
 import anet.channel.statist.Monitor;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.p070a.C1899a;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.BaseMonitor;
@@ -214,7 +214,7 @@ public class TrafficsMonitor {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            StringBuilder sbM1765j = C0948f6.m1765j("date:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("date:");
             sbM1765j.append(this.f6372a);
             sb.append(sbM1765j.toString());
             sb.append(" ");

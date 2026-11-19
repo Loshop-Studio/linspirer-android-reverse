@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -110,7 +110,7 @@ public final class JSONScanner extends JSONLexerBase {
         int i = this.f833np + 1;
         int i2 = this.f834sp;
         if (i2 % 2 != 0) {
-            throw new JSONException(C0948f6.m1754L("illegal state. ", i2));
+            throw new JSONException(CompilerOutline.m1754L("illegal state. ", i2));
         }
         int i3 = i2 / 2;
         byte[] bArr = new byte[i3];
@@ -1533,7 +1533,7 @@ public final class JSONScanner extends JSONLexerBase {
                         if (cCharAt2 == '\\') {
                             i5++;
                             if (i5 == this.text.length()) {
-                                StringBuilder sbM1765j = C0948f6.m1765j("unclosed str, ");
+                                StringBuilder sbM1765j = CompilerOutline.m1765j("unclosed str, ");
                                 sbM1765j.append(info());
                                 throw new JSONException(sbM1765j.toString());
                             }
@@ -1596,7 +1596,7 @@ public final class JSONScanner extends JSONLexerBase {
                         skipWhitespace();
                     }
                     if (this.f832ch != ':') {
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("illegal json, ");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal json, ");
                         sbM1765j2.append(info());
                         throw new JSONException(sbM1765j2.toString());
                     }
@@ -1867,7 +1867,7 @@ public final class JSONScanner extends JSONLexerBase {
                 if (i >= this.len - 1) {
                     this.f832ch = cCharAt;
                     this.f831bp = i;
-                    StringBuilder sbM1765j = C0948f6.m1765j("illegal str, ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("illegal str, ");
                     sbM1765j.append(info());
                     throw new JSONException(sbM1765j.toString());
                 }
@@ -1905,7 +1905,7 @@ public final class JSONScanner extends JSONLexerBase {
         if (i != this.text.length()) {
             return;
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("illegal str, ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal str, ");
         sbM1765j2.append(info());
         throw new JSONException(sbM1765j2.toString());
     }
@@ -1921,7 +1921,7 @@ public final class JSONScanner extends JSONLexerBase {
                 if (i >= this.len - 1) {
                     this.f832ch = cCharAt;
                     this.f831bp = i;
-                    StringBuilder sbM1765j = C0948f6.m1765j("illegal str, ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("illegal str, ");
                     sbM1765j.append(info());
                     throw new JSONException(sbM1765j.toString());
                 }
@@ -1977,7 +1977,7 @@ public final class JSONScanner extends JSONLexerBase {
         if (i != this.text.length()) {
             return;
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("illegal str, ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal str, ");
         sbM1765j2.append(info());
         throw new JSONException(sbM1765j2.toString());
     }
@@ -2143,7 +2143,7 @@ public final class JSONScanner extends JSONLexerBase {
                         if (i2 != this.text.length()) {
                             cCharAt2 = this.text.charAt(i2);
                         } else {
-                            StringBuilder sbM1765j = C0948f6.m1765j("unclosed str, ");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("unclosed str, ");
                             sbM1765j.append(info());
                             throw new JSONException(sbM1765j.toString());
                         }
@@ -2290,7 +2290,7 @@ public final class JSONScanner extends JSONLexerBase {
                         }
                     }
                 } else {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("illegal json, ");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal json, ");
                     sbM1765j2.append(info());
                     throw new JSONException(sbM1765j2.toString());
                 }

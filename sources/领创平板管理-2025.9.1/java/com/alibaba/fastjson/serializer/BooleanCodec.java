@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -38,7 +38,7 @@ public class BooleanCodec implements ObjectSerializer, ObjectDeserializer {
             }
             return type == AtomicBoolean.class ? (T) new AtomicBoolean(((Boolean) obj2).booleanValue()) : (T) obj2;
         } catch (Exception e) {
-            throw new JSONException(C0948f6.m1759d("parseBoolean error, field : ", obj), e);
+            throw new JSONException(CompilerOutline.m1759d("parseBoolean error, field : ", obj), e);
         }
     }
 

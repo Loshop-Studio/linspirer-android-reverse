@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1588d;
 import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
@@ -216,7 +216,7 @@ public class AsyncTaskC1624c extends AsyncTask<Void, Void, Void> {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("downloadUrlToStream(String urlString,OutputStream outputStream) ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("downloadUrlToStream(String urlString,OutputStream outputStream) ");
                 sbM1765j.append(e.toString());
                 C1584a.m3516b("DownloadMarketTask", sbM1765j.toString());
             }
@@ -225,7 +225,7 @@ public class AsyncTaskC1624c extends AsyncTask<Void, Void, Void> {
             try {
                 outputStream.close();
             } catch (IOException e2) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("downloadUrlToStream(String urlString,OutputStream outputStream) ");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("downloadUrlToStream(String urlString,OutputStream outputStream) ");
                 sbM1765j2.append(e2.toString());
                 C1584a.m3516b("DownloadMarketTask", sbM1765j2.toString());
             }
@@ -265,7 +265,7 @@ public class AsyncTaskC1624c extends AsyncTask<Void, Void, Void> {
         if (TextUtils.isEmpty(strM3593b)) {
             return "";
         }
-        String strM1760e = C0948f6.m1760e(strM3593b, "/updatesdk");
+        String strM1760e = CompilerOutline.m1760e(strM3593b, "/updatesdk");
         File file = new File(strM1760e);
         return (file.exists() || file.mkdirs()) ? strM1760e : "";
     }

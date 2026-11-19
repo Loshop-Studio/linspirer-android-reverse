@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.android.HwBuildEx;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.huawei.hms.support.log.HMSLog;
@@ -64,7 +64,7 @@ public class SystemUtils {
     }
 
     public static boolean isEMUI() {
-        StringBuilder sbM1765j = C0948f6.m1765j("is Emui :");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("is Emui :");
         sbM1765j.append(HwBuildEx.VERSION.EMUI_SDK_INT);
         HMSLog.m3463i("SystemUtils", sbM1765j.toString());
         return HwBuildEx.VERSION.EMUI_SDK_INT > 0;

@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -193,7 +193,7 @@ public final class RemoteInput {
     }
 
     public static String getExtraResultsKeyForData(String str) {
-        return C0948f6.m1760e(EXTRA_DATA_TYPE_RESULTS_DATA, str);
+        return CompilerOutline.m1760e(EXTRA_DATA_TYPE_RESULTS_DATA, str);
     }
 
     public static Bundle getResultsFromIntent(Intent intent) {

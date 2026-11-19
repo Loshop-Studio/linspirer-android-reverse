@@ -3,7 +3,7 @@ package com.liulishuo.filedownloader.model;
 import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.huawei.hem.C1010hh;
+import com.huawei.hem.FileDownloadUtils;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.android.agoo.common.AgooConstants;
@@ -78,7 +78,7 @@ public class FileDownloadModel implements Parcelable {
 
     /* renamed from: c */
     public String m3928c() {
-        return C1010hh.m1961k(this.f4836c, this.f4837d, this.f4838e);
+        return FileDownloadUtils.m1961k(this.f4836c, this.f4837d, this.f4838e);
     }
 
     /* renamed from: d */
@@ -86,7 +86,7 @@ public class FileDownloadModel implements Parcelable {
         if (m3928c() == null) {
             return null;
         }
-        return C1010hh.m1955e("%s.temp", m3928c());
+        return FileDownloadUtils.m1955e("%s.temp", m3928c());
     }
 
     @Override // android.os.Parcelable
@@ -126,7 +126,7 @@ public class FileDownloadModel implements Parcelable {
     }
 
     public String toString() {
-        return C1010hh.m1955e("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f4834a), this.f4835b, this.f4836c, Integer.valueOf(this.f4839f.get()), this.f4840g, Long.valueOf(this.f4841h), this.f4843j, super.toString());
+        return FileDownloadUtils.m1955e("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f4834a), this.f4835b, this.f4836c, Integer.valueOf(this.f4839f.get()), this.f4840g, Long.valueOf(this.f4841h), this.f4843j, super.toString());
     }
 
     @Override // android.os.Parcelable

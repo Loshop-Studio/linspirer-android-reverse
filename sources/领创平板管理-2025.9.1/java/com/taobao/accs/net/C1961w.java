@@ -8,7 +8,7 @@ import anet.channel.strategy.IConnStrategy;
 import anet.channel.util.HttpConstant;
 import com.alibaba.sdk.android.error.ErrorCode;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.taobao.accs.AccsClientConfig;
@@ -325,7 +325,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
 
     @Override // org.android.spdy.SessionCb
     public void bioPingRecvCallback(SpdySession spdySession, int i) {
-        ALog.m5732w(mo5641d(), C0948f6.m1754L("bioPingRecvCallback uniId:", i), new Object[0]);
+        ALog.m5732w(mo5641d(), CompilerOutline.m1754L("bioPingRecvCallback uniId:", i), new Object[0]);
     }
 
     @Override // org.android.spdy.SessionCb
@@ -479,7 +479,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
 
     @Override // org.android.spdy.SessionCb
     public void spdyPingRecvCallback(SpdySession spdySession, long j, Object obj) {
-        ALog.m5726d(mo5641d(), C0948f6.m1755M("spdyPingRecvCallback uniId:", j), new Object[0]);
+        ALog.m5726d(mo5641d(), CompilerOutline.m1755M("spdyPingRecvCallback uniId:", j), new Object[0]);
         if (j < 0) {
             return;
         }
@@ -526,12 +526,12 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
         }
         String str = this.f6211c == 0 ? "service" : "inapp";
         String strMo5641d = mo5641d();
-        StringBuilder sbM1765j = C0948f6.m1765j("spdySessionCloseCallback, conKeepTime:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("spdySessionCloseCallback, conKeepTime:");
         sbM1765j.append(this.f6291H.live_time);
         sbM1765j.append(" connectType:");
         sbM1765j.append(str);
         ALog.m5726d(strMo5641d, sbM1765j.toString(), new Object[0]);
-        UTMini.getInstance().commitEvent(66001, C0948f6.m1760e("DISCONNECT CLOSE ", str), (Object) Integer.valueOf(i), (Object) Long.valueOf(this.f6291H.live_time), (Object) 221, this.f6308x, this.f6294K);
+        UTMini.getInstance().commitEvent(66001, CompilerOutline.m1760e("DISCONNECT CLOSE ", str), (Object) Integer.valueOf(i), (Object) Long.valueOf(this.f6291H.live_time), (Object) 221, this.f6308x, this.f6294K);
     }
 
     @Override // org.android.spdy.SessionCb
@@ -547,7 +547,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
         sessionMonitor.ssl_time = i;
         String str = this.f6211c == 0 ? "service" : "inapp";
         UTMini uTMini = UTMini.getInstance();
-        StringBuilder sbM1769n = C0948f6.m1769n("CONNECTED ", str, " ");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("CONNECTED ", str, " ");
         sbM1769n.append(superviseConnectInfo.sessionTicketReused);
         uTMini.commitEvent(66001, sbM1769n.toString(), (Object) String.valueOf(this.f6289F), (Object) String.valueOf(i), (Object) 221, String.valueOf(superviseConnectInfo.sessionTicketReused), this.f6308x, this.f6294K);
         AppMonitorAdapter.commitAlarmSuccess("accs", "connect", "");
@@ -570,8 +570,8 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
         m5695c(3);
         this.f6291H.setFailReason(i);
         this.f6291H.onConnectStop();
-        UTMini.getInstance().commitEvent(66001, C0948f6.m1760e("DISCONNECT ", this.f6211c == 0 ? "service" : "inapp"), (Object) Integer.valueOf(i), (Object) Integer.valueOf(i2), (Object) 221, this.f6308x, this.f6294K);
-        AppMonitorAdapter.commitAlarmFail("accs", "connect", C0948f6.m1754L("retrytimes:", i2), i + "", "");
+        UTMini.getInstance().commitEvent(66001, CompilerOutline.m1760e("DISCONNECT ", this.f6211c == 0 ? "service" : "inapp"), (Object) Integer.valueOf(i), (Object) Integer.valueOf(i2), (Object) 221, this.f6308x, this.f6294K);
+        AppMonitorAdapter.commitAlarmFail("accs", "connect", CompilerOutline.m1754L("retrytimes:", i2), i + "", "");
     }
 
     @Override // org.android.spdy.Spdycb
@@ -621,14 +621,14 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
             ALog.m5729i(mo5641d(), "connect from amdc succ", "ip", this.f6299o, "port", Integer.valueOf(this.f6300p), "originPos", Integer.valueOf(this.f6296M.m5668c()));
         }
         if (Utils.isIPV6Address(this.f6299o)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("https://[");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("https://[");
             sbM1765j.append(this.f6299o);
             sbM1765j.append("]:");
             sbM1765j.append(this.f6300p);
             sbM1765j.append("/accs/");
             this.f6307w = sbM1765j.toString();
         } else {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("https://");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("https://");
             sbM1765j2.append(this.f6299o);
             sbM1765j2.append(":");
             sbM1765j2.append(this.f6300p);
@@ -729,7 +729,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
         mo5626a(this.f6212d);
         if (this.f6305u == null) {
             ALog.m5729i(mo5641d(), "start thread", new Object[0]);
-            StringBuilder sbM1765j = C0948f6.m1765j("NetworkThread_");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("NetworkThread_");
             sbM1765j.append(this.f6221m);
             a aVar = new a(sbM1765j.toString());
             this.f6305u = aVar;
@@ -742,7 +742,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
     @Override // com.taobao.accs.net.AbstractC1940b
     /* renamed from: b */
     public String mo5634b(String str) {
-        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("https://");
         sbM1765j.append(this.f6217i.getChannelHost());
         return sbM1765j.toString();
     }
@@ -821,7 +821,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
             } catch (RejectedExecutionException unused) {
                 int size = ThreadPoolExecutorFactory.getScheduledExecutor().getQueue().size();
                 this.f6213e.m5554a(message, AccsErrorCode.MESSAGE_QUEUE_FULL.copy().detail("channel " + size).build());
-                ALog.m5728e(mo5641d(), C0948f6.m1754L("send queue full count:", size), new Object[0]);
+                ALog.m5728e(mo5641d(), CompilerOutline.m1754L("send queue full count:", size), new Object[0]);
                 return;
             } catch (Throwable th) {
                 ALog.m5727e(mo5641d(), "send error", th, new Object[0]);
@@ -830,7 +830,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
             }
         }
         String strMo5641d = mo5641d();
-        StringBuilder sbM1765j = C0948f6.m1765j("not running or msg null! ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("not running or msg null! ");
         sbM1765j.append(this.f6306v);
         ALog.m5728e(strMo5641d, sbM1765j.toString(), new Object[0]);
     }
@@ -879,7 +879,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
                         break;
                 }
                 String strMo5641d = mo5641d();
-                StringBuilder sbM1765j = C0948f6.m1765j("clearRepeatControlCommand message:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("clearRepeatControlCommand message:");
                 sbM1765j.append(message2.f6120t);
                 sbM1765j.append(GrsManager.SEPARATOR);
                 sbM1765j.append(message2.m5517f());
@@ -986,7 +986,7 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
     @Override // com.taobao.accs.net.AbstractC1940b
     /* renamed from: d */
     public String mo5641d() {
-        StringBuilder sbM1765j = C0948f6.m1765j("SilenceConn_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("SilenceConn_");
         sbM1765j.append(this.f6221m);
         return sbM1765j.toString();
     }
@@ -998,11 +998,11 @@ public class C1961w extends AbstractC1940b implements SessionCb, Spdycb {
         a aVar = this.f6305u;
         int i = aVar != null ? aVar.f6311a : 0;
         SessionMonitor sessionMonitor = this.f6291H;
-        StringBuilder sbM1765j = C0948f6.m1765j("code not 200 is");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("code not 200 is");
         sbM1765j.append(errorCode.getCodeInt());
         sessionMonitor.setCloseReason(sbM1765j.toString());
         this.f6295L = true;
-        UTMini.getInstance().commitEvent(66001, C0948f6.m1760e("CONNECTED NO 200 ", this.f6211c == 0 ? "service" : "inapp"), (Object) errorCode, (Object) Integer.valueOf(i), (Object) 221, this.f6308x, this.f6294K);
+        UTMini.getInstance().commitEvent(66001, CompilerOutline.m1760e("CONNECTED NO 200 ", this.f6211c == 0 ? "service" : "inapp"), (Object) errorCode, (Object) Integer.valueOf(i), (Object) 221, this.f6308x, this.f6294K);
         AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_AUTH, "", errorCode + "", "");
     }
 

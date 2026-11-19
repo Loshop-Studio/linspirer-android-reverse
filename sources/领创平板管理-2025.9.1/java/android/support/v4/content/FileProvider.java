@@ -16,7 +16,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.alibaba.fastjson.asm.Label;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +102,7 @@ public class FileProvider extends ContentProvider {
                     }
                 }
                 if (entry == null) {
-                    throw new IllegalArgumentException(C0948f6.m1760e("Failed to find configured root that contains ", canonicalPath));
+                    throw new IllegalArgumentException(CompilerOutline.m1760e("Failed to find configured root that contains ", canonicalPath));
                 }
                 String path2 = entry.getValue().getPath();
                 return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(path2.endsWith(GrsManager.SEPARATOR) ? canonicalPath.substring(path2.length()) : canonicalPath.substring(path2.length() + 1), GrsManager.SEPARATOR)).build();
@@ -165,7 +165,7 @@ public class FileProvider extends ContentProvider {
         if ("rwt".equals(str)) {
             return 1006632960;
         }
-        throw new IllegalArgumentException(C0948f6.m1760e("Invalid mode: ", str));
+        throw new IllegalArgumentException(CompilerOutline.m1760e("Invalid mode: ", str));
     }
 
     public static PathStrategy parsePathStrategy(Context context, String str) throws IOException {

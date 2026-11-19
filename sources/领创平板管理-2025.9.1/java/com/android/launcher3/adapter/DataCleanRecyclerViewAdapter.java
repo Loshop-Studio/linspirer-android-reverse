@@ -14,9 +14,9 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.model.DataCleanCategoryInfo;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C1396x2;
-import com.huawei.hem.InterfaceC1071k3;
-import com.huawei.hem.ViewOnClickListenerC1421y2;
+import com.huawei.hem.DataCleanRecyclerViewAdapterCheckedChangeListener;
+import com.huawei.hem.LauncherOnClickListener;
+import com.huawei.hem.DataCleanRecyclerViewAdapterClickListener;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
     public LayoutInflater f1850c;
 
     /* renamed from: d */
-    public InterfaceC1071k3 f1851d;
+    public LauncherOnClickListener f1851d;
 
     /* renamed from: com.android.launcher3.adapter.DataCleanRecyclerViewAdapter$a */
     public class C0646a extends RecyclerView.ViewHolder {
@@ -90,8 +90,8 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
         c0646a.f1854c.setText(number + this.f1848a.getString(R.string.individual));
         c0646a.f1852a.setOnCheckedChangeListener(null);
         c0646a.f1852a.setChecked(dataCleanCategoryInfo.isSelect());
-        c0646a.f1852a.setOnCheckedChangeListener(new C1396x2(this, c0646a, i));
-        c0646a.f1855d.setOnClickListener(new ViewOnClickListenerC1421y2(this, i));
+        c0646a.f1852a.setOnCheckedChangeListener(new DataCleanRecyclerViewAdapterCheckedChangeListener(this, c0646a, i));
+        c0646a.f1855d.setOnClickListener(new DataCleanRecyclerViewAdapterClickListener(this, i));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter

@@ -33,7 +33,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -1270,7 +1270,7 @@ public class MediaSessionCompat {
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("MediaSession.QueueItem {Description=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("MediaSession.QueueItem {Description=");
             sbM1765j.append(this.mDescription);
             sbM1765j.append(", Id=");
             sbM1765j.append(this.mId);

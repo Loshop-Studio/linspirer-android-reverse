@@ -11,7 +11,7 @@ import anet.channel.util.StringUtils;
 import anetwork.channel.Header;
 import anetwork.channel.aidl.Connection;
 import anetwork.channel.http.NetworkSdkSetting;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -76,7 +76,7 @@ public class DownloadManager {
         sb.append(this.f691d.getExternalFilesDir(null));
         sb.append(GrsManager.SEPARATOR);
         sb.append("downloads");
-        return C0948f6.m1762g(sb, GrsManager.SEPARATOR, str);
+        return CompilerOutline.m1762g(sb, GrsManager.SEPARATOR, str);
     }
 
     public static DownloadManager getInstance() {
@@ -137,7 +137,7 @@ public class DownloadManager {
                 this.f696d = DownloadManager.this.m404b(str2);
             } else {
                 if (str.endsWith(GrsManager.SEPARATOR)) {
-                    this.f696d = C0948f6.m1760e(str, str2);
+                    this.f696d = CompilerOutline.m1760e(str, str2);
                 } else {
                     this.f696d = str + '/' + str2;
                 }

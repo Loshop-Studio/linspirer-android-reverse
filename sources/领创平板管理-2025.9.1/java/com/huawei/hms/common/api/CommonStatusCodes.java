@@ -2,7 +2,7 @@ package com.huawei.hms.common.api;
 
 import anet.channel.util.HttpConstant;
 import com.google.zxing.client.android.Intents;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class CommonStatusCodes {
@@ -67,7 +67,7 @@ public class CommonStatusCodes {
                     case 17:
                         return "API_NOT_CONNECTED";
                     default:
-                        return C0948f6.m1754L("unknown status code: ", i);
+                        return CompilerOutline.m1754L("unknown status code: ", i);
                 }
         }
     }

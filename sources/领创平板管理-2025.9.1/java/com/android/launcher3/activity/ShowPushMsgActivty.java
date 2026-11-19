@@ -8,7 +8,7 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.p027db.model.PushMsg;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.ViewControlUtil;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -79,7 +79,7 @@ public class ShowPushMsgActivty extends BaseActivity implements View.OnClickList
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!C0902dc.m1583a(view) && view.getId() == R.id.msg_ok_btn) {
+        if (!ViewControlUtil.m1583a(view) && view.getId() == R.id.msg_ok_btn) {
             int i = this.f1798f + 1;
             this.f1798f = i;
             if (i < this.f1797e.size()) {

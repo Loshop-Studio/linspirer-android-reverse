@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p048b.p053c;
 
 import android.app.UiModeManager;
 import android.content.Context;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class C1617b {
         if (f4686c < 0) {
             f4686c = m3689a(contextM3592a);
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("deviceType: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("deviceType: ");
         sbM1765j.append(f4686c);
         C1581a.m3501b("DeviceImplFactory", sbM1765j.toString());
         Class<? extends AbstractC1618c> cls = f4684a.get(Integer.valueOf(f4686c));
@@ -78,7 +78,7 @@ public class C1617b {
     /* renamed from: c */
     public static boolean m3692c(Context context) {
         UiModeManager uiModeManager = (UiModeManager) context.getSystemService("uimode");
-        StringBuilder sbM1765j = C0948f6.m1765j("UI mode: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("UI mode: ");
         sbM1765j.append(uiModeManager.getCurrentModeType());
         C1581a.m3501b("DeviceImplFactory", sbM1765j.toString());
         return uiModeManager.getCurrentModeType() == 4;

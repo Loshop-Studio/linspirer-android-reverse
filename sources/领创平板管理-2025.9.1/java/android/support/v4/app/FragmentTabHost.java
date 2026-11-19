@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -65,10 +65,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("FragmentTabHost.SavedState{");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("FragmentTabHost.SavedState{");
             sbM1765j.append(Integer.toHexString(System.identityHashCode(this)));
             sbM1765j.append(" curTab=");
-            return C0948f6.m1762g(sbM1765j, this.curTab, "}");
+            return CompilerOutline.m1762g(sbM1765j, this.curTab, "}");
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
@@ -142,7 +142,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             if (frameLayout != null) {
                 return;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("No tab content FrameLayout found for id ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("No tab content FrameLayout found for id ");
             sbM1765j.append(this.mContainerId);
             throw new IllegalStateException(sbM1765j.toString());
         }

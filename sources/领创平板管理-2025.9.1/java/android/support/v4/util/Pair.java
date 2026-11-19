@@ -2,7 +2,7 @@ package android.support.v4.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class Pair<F, S> {
@@ -39,7 +39,7 @@ public class Pair<F, S> {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("Pair{");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Pair{");
         sbM1765j.append(String.valueOf(this.first));
         sbM1765j.append(" ");
         sbM1765j.append(String.valueOf(this.second));

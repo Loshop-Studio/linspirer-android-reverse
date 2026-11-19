@@ -8,7 +8,7 @@ import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONToken;
 import com.alibaba.fastjson.parser.ParseContext;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collections;
@@ -153,7 +153,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
         Object objDeserialze;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() != 12 && jSONLexer.token() != 16) {
-            StringBuilder sbM1765j = C0948f6.m1765j("syntax error, expect {, actual ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, expect {, actual ");
             sbM1765j.append(jSONLexer.tokenName());
             throw new JSONException(sbM1765j.toString());
         }

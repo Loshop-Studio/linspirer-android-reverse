@@ -34,7 +34,7 @@ import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.Scroller;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -266,7 +266,7 @@ public class ViewPager extends ViewGroup {
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("FragmentPager.SavedState{");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("FragmentPager.SavedState{");
             sbM1765j.append(Integer.toHexString(System.identityHashCode(this)));
             sbM1765j.append(" position=");
             sbM1765j.append(this.position);
@@ -928,7 +928,7 @@ public class ViewPager extends ViewGroup {
                     sb.append(" => ");
                     sb.append(parent2.getClass().getSimpleName());
                 }
-                StringBuilder sbM1765j = C0948f6.m1765j("arrowScroll tried to find focus based on non-child current focused view ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("arrowScroll tried to find focus based on non-child current focused view ");
                 sbM1765j.append(sb.toString());
                 Log.e(TAG, sbM1765j.toString());
                 viewFindFocus = null;

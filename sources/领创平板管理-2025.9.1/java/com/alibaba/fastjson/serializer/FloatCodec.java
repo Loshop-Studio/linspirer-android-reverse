@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
@@ -24,7 +24,7 @@ public class FloatCodec implements ObjectSerializer, ObjectDeserializer {
         try {
             return (T) deserialze(defaultJSONParser);
         } catch (Exception e) {
-            throw new JSONException(C0948f6.m1759d("parseLong error, field : ", obj), e);
+            throw new JSONException(CompilerOutline.m1759d("parseLong error, field : ", obj), e);
         }
     }
 

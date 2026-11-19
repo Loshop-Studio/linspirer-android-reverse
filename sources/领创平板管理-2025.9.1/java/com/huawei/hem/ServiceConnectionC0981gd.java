@@ -3,7 +3,7 @@ package com.huawei.hem;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import com.huawei.hem.InterfaceC1337ui;
+import com.huawei.hem.ISupiSafeCtrl;
 
 /* compiled from: SupiImpl.java */
 /* renamed from: com.huawei.hem.gd */
@@ -19,13 +19,13 @@ public class ServiceConnectionC0981gd implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        C0850bc.m1403m("SupiImpl on service connect");
-        this.f2767a.f2844b = InterfaceC1337ui.a.m2814J(iBinder);
+        LTKDateUtil.m1403m("SupiImpl on service connect");
+        this.f2767a.f2844b = ISupiSafeCtrl.a.m2814J(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        C0850bc.m1403m("SupiImpl on service disconnect");
+        LTKDateUtil.m1403m("SupiImpl on service disconnect");
         this.f2767a.f2844b = null;
     }
 }

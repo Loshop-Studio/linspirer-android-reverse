@@ -28,11 +28,11 @@ public class C1427y8 {
 
     /* renamed from: a */
     public static a m3083a(String str) {
-        StringBuilder sbM1765j = C0948f6.m1765j("map size of get is before:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("map size of get is before:");
         sbM1765j.append(f4208a.size());
         Logger.m3436v("RequestUtil", sbM1765j.toString());
         a aVar = f4208a.get(str);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("map size of get is after:");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("map size of get is after:");
         sbM1765j2.append(f4208a.size());
         Logger.m3436v("RequestUtil", sbM1765j2.toString());
         return aVar;
@@ -40,7 +40,7 @@ public class C1427y8 {
 
     /* renamed from: b */
     public static void m3084b(String str, a aVar) {
-        StringBuilder sbM1765j = C0948f6.m1765j("map size of put is before:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("map size of put is before:");
         sbM1765j.append(f4208a.size());
         Logger.m3436v("RequestUtil", sbM1765j.toString());
         f4208a.put(str, aVar);

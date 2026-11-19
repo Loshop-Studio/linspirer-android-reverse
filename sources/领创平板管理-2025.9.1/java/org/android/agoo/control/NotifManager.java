@@ -3,7 +3,7 @@ package org.android.agoo.control;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.incar.mdm.MdmPolicyManager;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.base.TaoBaseService;
@@ -125,7 +125,7 @@ public class NotifManager {
         if (TextUtils.isEmpty(msgDO.msgIds) && TextUtils.isEmpty(msgDO.removePacks) && TextUtils.isEmpty(msgDO.errorCode)) {
             UTMini uTMini = UTMini.getInstance();
             String deviceId = AdapterUtilityImpl.getDeviceId(mContext);
-            StringBuilder sbM1765j = C0948f6.m1765j("msgids=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("msgids=");
             sbM1765j.append(msgDO.msgIds);
             sbM1765j.append(",removePacks=");
             sbM1765j.append(msgDO.removePacks);
@@ -160,7 +160,7 @@ public class NotifManager {
             ALog.m5729i(TAG, "handlerACKMessage,endRequest,dataId=" + ACCSManager.getAccsInstance(mContext, Config.m5830b(mContext), Config.m5832c(mContext)).sendPushResponse(mContext, accsRequest, extraInfo), new Object[0]);
         } catch (Throwable th) {
             if (ALog.isPrintLog(ALog.Level.E)) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("handlerACKMessage Throwable,msgIds=");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("handlerACKMessage Throwable,msgIds=");
                 sbM1765j2.append(msgDO.msgIds);
                 sbM1765j2.append(",type=");
                 sbM1765j2.append(msgDO.type);

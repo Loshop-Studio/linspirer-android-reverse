@@ -1,7 +1,7 @@
 package org.greenrobot.greendao.query;
 
 import android.database.Cursor;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -222,13 +222,13 @@ public class LazyList<E> implements List<E>, Closeable {
 
     public E loadEntity(int i) {
         if (!this.cursor.moveToPosition(i)) {
-            throw new DaoException(C0948f6.m1754L("Could not move to cursor location ", i));
+            throw new DaoException(CompilerOutline.m1754L("Could not move to cursor location ", i));
         }
         E eLoadCurrent = this.daoAccess.loadCurrent(this.cursor, 0, true);
         if (eLoadCurrent != null) {
             return eLoadCurrent;
         }
-        throw new DaoException(C0948f6.m1754L("Loading of entity failed (null) at position ", i));
+        throw new DaoException(CompilerOutline.m1754L("Loading of entity failed (null) at position ", i));
     }
 
     public void loadRemaining() {

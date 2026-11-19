@@ -15,10 +15,10 @@ import com.android.launcher3.p027db.model.PushMsgDao;
 import com.android.launcher3.view.SwipeSideslipListView;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0815a3;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.MesssageCenterAdapter;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.DBController;
+import com.huawei.hem.UserInfoUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.greenrobot.greendao.query.WhereCondition;
@@ -45,7 +45,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
     public LinearLayout f1766g;
 
     /* renamed from: h */
-    public C0815a3 f1767h;
+    public MesssageCenterAdapter f1767h;
 
     /* renamed from: i */
     public Handler f1768i = new HandlerC0639a();
@@ -71,9 +71,9 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: c */
     public void mo1171c() {
-        PushMsgDao pushMsgDao = C1297t3.m2715a().f3751c.getPushMsgDao();
+        PushMsgDao pushMsgDao = DBController.m2715a().f3751c.getPushMsgDao();
         this.f1763d = pushMsgDao;
-        List<PushMsg> list = pushMsgDao.queryBuilder().where(PushMsgDao.Properties.UserId.m5870eq(C1424y5.b.f4202a.m3052k()), new WhereCondition[0]).list();
+        List<PushMsg> list = pushMsgDao.queryBuilder().where(PushMsgDao.Properties.UserId.m5870eq(UserInfoUtil.b.f4202a.m3052k()), new WhereCondition[0]).list();
         this.f1762c = list;
         if (AbstractC1102l9.m2273N(list)) {
             m1205g();
@@ -94,7 +94,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
         this.f1764e.setVisibility(8);
         this.f1765f.setVisibility(8);
         this.f1761b.setVisibility(0);
-        C0815a3 c0815a3 = this.f1767h;
+        MesssageCenterAdapter c0815a3 = this.f1767h;
         if (c0815a3 != null) {
             c0815a3.f2164a = this.f1762c;
         }
@@ -120,7 +120,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
                 this.f2510a.onClick(view);
             }
         });
-        C0815a3 c0815a3 = new C0815a3(this, this);
+        MesssageCenterAdapter c0815a3 = new MesssageCenterAdapter(this, this);
         this.f1767h = c0815a3;
         this.f1761b.setAdapter((ListAdapter) c0815a3);
     }
@@ -134,7 +134,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();

@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexerBase;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class JSONPatch {
@@ -104,7 +104,7 @@ public class JSONPatch {
                 JSONPath jSONPathCompile2 = JSONPath.compile(operation.from);
                 Object objEval = jSONPathCompile2.eval(obj);
                 if (operation.type == OperationType.move && !jSONPathCompile2.remove(obj)) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("json patch move error : ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("json patch move error : ");
                     sbM1765j.append(operation.from);
                     sbM1765j.append(" -> ");
                     sbM1765j.append(operation.path);

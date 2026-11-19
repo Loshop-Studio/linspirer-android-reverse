@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 /* compiled from: AsyncTimeout.java */
 /* renamed from: com.huawei.hem.fn */
 /* loaded from: classes.dex */
-public class C0965fn extends C0862bo {
+public class C0965fn extends Timeout {
 
     /* renamed from: h */
     public static final long f2700h = TimeUnit.SECONDS.toMillis(60);

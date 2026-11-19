@@ -5,7 +5,7 @@ package com.huawei.hem;
 /* loaded from: classes.dex */
 public final /* synthetic */ class C0987gj {
     /* renamed from: a */
-    public static /* synthetic */ C0988gk m1875a(C1164nk c1164nk, C1088kk c1088kk) {
+    public static /* synthetic */ OkHttpRequest m1875a(Route c1164nk, OkHttpResponse c1088kk) {
         return null;
     }
 }

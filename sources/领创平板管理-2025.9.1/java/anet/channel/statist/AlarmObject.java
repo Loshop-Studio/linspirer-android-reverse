@@ -1,6 +1,6 @@
 package anet.channel.statist;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
@@ -23,6 +23,6 @@ public class AlarmObject {
         sb.append(" isSuccess:");
         sb.append(this.isSuccess);
         sb.append(" errorCode:");
-        return C0948f6.m1762g(sb, this.errorCode, "]");
+        return CompilerOutline.m1762g(sb, this.errorCode, "]");
     }
 }

@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p034a.p035a.p040d;
 
 import android.support.v4.graphics.PaintCompat;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import com.loc.C1860u;
+import com.loc.AMapLog;
 import java.util.HashMap;
 import java.util.Map;
 import org.android.agoo.message.MessageService;
@@ -58,10 +58,10 @@ public class C1587c {
         f4625a.put("android.hardware.touchscreen.multitouch.jazzhand", "d");
         f4625a.put("android.hardware.usb.accessory", "e");
         f4625a.put("android.hardware.usb.host", "f");
-        f4625a.put("android.hardware.vulkan.compute", C1860u.f5946f);
-        f4625a.put("android.hardware.vulkan.level", C1860u.f5947g);
+        f4625a.put("android.hardware.vulkan.compute", AMapLog.f5946f);
+        f4625a.put("android.hardware.vulkan.level", AMapLog.f5947g);
         f4625a.put("android.hardware.vulkan.version", "i");
-        f4625a.put("android.hardware.wifi", C1860u.f5950j);
+        f4625a.put("android.hardware.wifi", AMapLog.f5950j);
         f4625a.put("android.hardware.wifi.direct", "k");
         f4625a.put("android.hardware.wifi.passpoint", "l");
         f4625a.put("android.software.activities_on_secondary_displays", PaintCompat.EM_STRING);

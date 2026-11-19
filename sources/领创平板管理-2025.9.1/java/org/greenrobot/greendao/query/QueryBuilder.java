@@ -1,7 +1,7 @@
 package org.greenrobot.greendao.query;
 
 import android.database.sqlite.SQLiteDatabase;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.List;
 import org.greenrobot.greendao.AbstractDao;
@@ -32,7 +32,7 @@ public class QueryBuilder<T> {
     }
 
     private <J> Join<T, J> addJoin(String str, Property property, AbstractDao<J, ?> abstractDao, Property property2) {
-        StringBuilder sbM1765j = C0948f6.m1765j("J");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("J");
         sbM1765j.append(this.joins.size() + 1);
         Join<T, J> join = new Join<>(str, property, abstractDao, property2, sbM1765j.toString());
         this.joins.add(join);
@@ -96,7 +96,7 @@ public class QueryBuilder<T> {
             DaoLog.m5859d("Built SQL for query: " + str);
         }
         if (LOG_VALUES) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Values for query: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Values for query: ");
             sbM1765j.append(this.values);
             DaoLog.m5859d(sbM1765j.toString());
         }
@@ -185,7 +185,7 @@ public class QueryBuilder<T> {
         String tablename = this.dao.getTablename();
         StringBuilder sb = new StringBuilder(SqlUtils.createSqlDelete(tablename, null));
         appendJoinsAndWheres(sb, this.tablePrefix);
-        String strReplace = sb.toString().replace(C0948f6.m1762g(new StringBuilder(), this.tablePrefix, ".\""), '\"' + tablename + "\".\"");
+        String strReplace = sb.toString().replace(CompilerOutline.m1762g(new StringBuilder(), this.tablePrefix, ".\""), '\"' + tablename + "\".\"");
         checkLog(strReplace);
         return DeleteQuery.create(this.dao, strReplace, this.values.toArray());
     }
@@ -277,7 +277,7 @@ public class QueryBuilder<T> {
 
     public QueryBuilder<T> stringOrderCollation(String str) {
         if (str != null && !str.startsWith(" ")) {
-            str = C0948f6.m1760e(" ", str);
+            str = CompilerOutline.m1760e(" ", str);
         }
         this.stringOrderCollation = str;
         return this;

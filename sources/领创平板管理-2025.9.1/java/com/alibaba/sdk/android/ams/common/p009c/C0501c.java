@@ -1,6 +1,6 @@
 package com.alibaba.sdk.android.ams.common.p009c;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* renamed from: com.alibaba.sdk.android.ams.common.c.c */
 /* loaded from: classes.dex */
@@ -11,7 +11,7 @@ public final class C0501c {
         if (interfaceC0499a != null) {
             return cls.cast(interfaceC0499a.mo495b());
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("No factory was registered for ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("No factory was registered for ");
         sbM1765j.append(cls.getCanonicalName());
         throw new IllegalArgumentException(sbM1765j.toString());
     }

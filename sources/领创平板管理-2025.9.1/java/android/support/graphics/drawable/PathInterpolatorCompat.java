@@ -11,7 +11,7 @@ import android.support.v4.graphics.PathParser;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.animation.Interpolator;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.xmlpull.v1.XmlPullParser;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -77,7 +77,7 @@ public class PathInterpolatorCompat implements Interpolator {
                 return;
             }
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("The Path must start at (0,0) and end at (1,1) start: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("The Path must start at (0,0) and end at (1,1) start: ");
         sbM1765j.append(this.f17mX[0]);
         sbM1765j.append(",");
         sbM1765j.append(this.f18mY[0]);
@@ -101,7 +101,7 @@ public class PathInterpolatorCompat implements Interpolator {
             String namedString = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "pathData", 4);
             Path pathCreatePathFromPathData = PathParser.createPathFromPathData(namedString);
             if (pathCreatePathFromPathData == null) {
-                throw new InflateException(C0948f6.m1760e("The path is null, which is created from ", namedString));
+                throw new InflateException(CompilerOutline.m1760e("The path is null, which is created from ", namedString));
             }
             initPath(pathCreatePathFromPathData);
             return;

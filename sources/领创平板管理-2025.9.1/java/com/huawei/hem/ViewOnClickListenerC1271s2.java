@@ -18,11 +18,11 @@ public class ViewOnClickListenerC1271s2 implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         if (this.f3655a.f1826o.m3032a() == 2) {
-            C0850bc.m1415y(this.f3655a.f1814c, R.string.sn_login_no_function);
+            LTKDateUtil.m1415y(this.f3655a.f1814c, R.string.sn_login_no_function);
             return;
         }
         if (!this.f3655a.f1819h.getText().equals(this.f3655a.getString(R.string.text_gesture_password_login))) {

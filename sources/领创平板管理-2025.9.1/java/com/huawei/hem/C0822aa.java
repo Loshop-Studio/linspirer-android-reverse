@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class C0822aa implements InterfaceRunnableC1003ha {
 
     /* renamed from: a */
-    public Context f2191a = C1423y4.m2998s();
+    public Context f2191a = LauncherMenuHelper.m2998s();
 
     /* renamed from: b */
     public String f2192b;

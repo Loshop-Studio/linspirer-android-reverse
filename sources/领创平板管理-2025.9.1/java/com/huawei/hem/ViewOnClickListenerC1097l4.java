@@ -23,7 +23,7 @@ public class ViewOnClickListenerC1097l4 implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         BaseLoginFragment.m1261j(this.f3151b);

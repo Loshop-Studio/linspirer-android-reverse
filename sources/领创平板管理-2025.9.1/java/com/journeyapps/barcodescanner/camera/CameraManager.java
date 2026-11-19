@@ -8,7 +8,7 @@ import android.view.SurfaceHolder;
 import com.google.zxing.client.android.AmbientLightManager;
 import com.google.zxing.client.android.camera.CameraConfigurationUtils;
 import com.google.zxing.client.android.camera.open.OpenCameraInterface;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.journeyapps.barcodescanner.Size;
 import com.journeyapps.barcodescanner.SourceData;
 import java.io.IOException;
@@ -131,7 +131,7 @@ public final class CameraManager {
             return;
         }
         String str = TAG;
-        StringBuilder sbM1765j = C0948f6.m1765j("Initial camera parameters: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Initial camera parameters: ");
         sbM1765j.append(defaultCameraParameters.flatten());
         Log.i(str, sbM1765j.toString());
         if (z) {
@@ -164,7 +164,7 @@ public final class CameraManager {
             CameraConfigurationUtils.setBestPreviewFPS(defaultCameraParameters);
         }
         String str2 = TAG;
-        StringBuilder sbM1765j2 = C0948f6.m1765j("Final camera parameters: ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("Final camera parameters: ");
         sbM1765j2.append(defaultCameraParameters.flatten());
         Log.i(str2, sbM1765j2.toString());
         this.camera.setParameters(defaultCameraParameters);

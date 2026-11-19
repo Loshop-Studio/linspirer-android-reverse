@@ -10,8 +10,8 @@ import com.android.launcher3.network.GreenBrowWebHelper;
 import com.android.launcher3.network.HiScreenHelper;
 import com.android.launcher3.network.TacticsHelper;
 import com.android.launcher3.network.UrlWhiteHelper;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1249r5;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ComponentHelper;
 import com.huawei.hem.C1323u4;
 import java.security.NoSuchAlgorithmException;
 
@@ -30,22 +30,22 @@ public class PullNewsActivity extends Activity {
             f1778a = jCurrentTimeMillis;
         }
         if (z) {
-            if (!C0850bc.f2294f.mo2066k()) {
-                C0850bc.m1403m("PullNewsActivity has no cer");
-                C0850bc.m1413w(this, getResources().getString(R.string.hw_pull_tactics_failed), 0);
+            if (!LTKDateUtil.f2294f.mo2066k()) {
+                LTKDateUtil.m1403m("PullNewsActivity has no cer");
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.hw_pull_tactics_failed), 0);
             }
-            C0850bc.m1403m("PullNewsActivity on refresh all tactics");
+            LTKDateUtil.m1403m("PullNewsActivity on refresh all tactics");
             TacticsHelper.getInstance().request();
             AppTimeLimitHelper.getInstance().request();
             ControlAppHelper.getInstance(this).request();
             UrlWhiteHelper.getInstance().request();
             HiScreenHelper.getInstance().updateScreenSettings();
             GreenBrowWebHelper.getInstances().getBrowUrlFromServer();
-            C1249r5.m2652a().m2653b();
+            ComponentHelper.m2652a().m2653b();
             C1323u4.m2784c(this).m2785d();
-            C0850bc.m1413w(this, getResources().getString(R.string.tactics_sucess), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.tactics_sucess), 0);
         } else {
-            C0850bc.m1413w(this, getResources().getString(R.string.tactics_update_to_fast), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.tactics_update_to_fast), 0);
         }
         finish();
     }

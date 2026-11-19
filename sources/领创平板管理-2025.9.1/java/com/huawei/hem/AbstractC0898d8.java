@@ -43,7 +43,7 @@ public abstract class AbstractC0898d8 {
     public int m1569b(String str, Context context, boolean z) throws IOException {
         int iMo1568a;
         boolean z2;
-        String strM2981b = C1423y4.m2981b(str, context);
+        String strM2981b = LauncherMenuHelper.m2981b(str, context);
         if (TextUtils.isEmpty(strM2981b)) {
             iMo1568a = -1;
         } else if ((!this.f2391e || (iMo1568a = mo1572e(strM2981b)) == 0) && (iMo1568a = mo1568a(strM2981b)) == 0) {
@@ -62,7 +62,7 @@ public abstract class AbstractC0898d8 {
             String[] list = context.getAssets().list("");
             if (list != null && list.length > 0) {
                 for (String str2 : list) {
-                    if (Pattern.matches("^grs_sdk_global_route_config_[a-zA-Z]+\\.json$", str2) && m1576i(C1423y4.m2981b(str2, context)) == 0) {
+                    if (Pattern.matches("^grs_sdk_global_route_config_[a-zA-Z]+\\.json$", str2) && m1576i(LauncherMenuHelper.m2981b(str2, context)) == 0) {
                         Logger.m3434i("AbstractLocalManager", "load SDK_CONFIG_FILE sucess.");
                     }
                 }

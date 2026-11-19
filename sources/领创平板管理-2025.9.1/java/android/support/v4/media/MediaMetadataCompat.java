@@ -10,7 +10,7 @@ import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
@@ -317,7 +317,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder putBitmap(String str, Bitmap bitmap) {
             if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
-                throw new IllegalArgumentException(C0948f6.m1761f("The ", str, " key cannot be used to put a Bitmap"));
+                throw new IllegalArgumentException(CompilerOutline.m1761f("The ", str, " key cannot be used to put a Bitmap"));
             }
             this.mBundle.putParcelable(str, bitmap);
             return this;
@@ -325,7 +325,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder putLong(String str, long j) {
             if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
-                throw new IllegalArgumentException(C0948f6.m1761f("The ", str, " key cannot be used to put a long"));
+                throw new IllegalArgumentException(CompilerOutline.m1761f("The ", str, " key cannot be used to put a long"));
             }
             this.mBundle.putLong(str, j);
             return this;
@@ -333,7 +333,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder putRating(String str, RatingCompat ratingCompat) {
             if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
-                throw new IllegalArgumentException(C0948f6.m1761f("The ", str, " key cannot be used to put a Rating"));
+                throw new IllegalArgumentException(CompilerOutline.m1761f("The ", str, " key cannot be used to put a Rating"));
             }
             this.mBundle.putParcelable(str, (Parcelable) ratingCompat.getRating());
             return this;
@@ -341,7 +341,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder putString(String str, String str2) {
             if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                throw new IllegalArgumentException(C0948f6.m1761f("The ", str, " key cannot be used to put a String"));
+                throw new IllegalArgumentException(CompilerOutline.m1761f("The ", str, " key cannot be used to put a String"));
             }
             this.mBundle.putCharSequence(str, str2);
             return this;
@@ -349,7 +349,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder putText(String str, CharSequence charSequence) {
             if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                throw new IllegalArgumentException(C0948f6.m1761f("The ", str, " key cannot be used to put a CharSequence"));
+                throw new IllegalArgumentException(CompilerOutline.m1761f("The ", str, " key cannot be used to put a CharSequence"));
             }
             this.mBundle.putCharSequence(str, charSequence);
             return this;

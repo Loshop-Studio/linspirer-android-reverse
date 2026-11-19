@@ -14,8 +14,8 @@ import anet.channel.request.Request;
 import anet.channel.session.TnetSpdySession;
 import com.alibaba.sdk.android.error.ErrorCode;
 import com.alibaba.sdk.android.logger.ILog;
-import com.huawei.hem.C0948f6;
-import com.loc.C1860u;
+import com.huawei.hem.CompilerOutline;
+import com.loc.AMapLog;
 import com.taobao.accs.ACCSClient;
 import com.taobao.accs.AccsClientConfig;
 import com.taobao.accs.AccsErrorCode;
@@ -250,9 +250,9 @@ public class C1948j extends AbstractC1940b implements DataFrameCb, ISessionListe
         this.f6248r = booleanExtra;
         this.f6249s = errorCode;
         if (errorCode == null || errorCode.getCodeInt() == AccsErrorCode.SUCCESS.getCodeInt()) {
-            AccsState.getInstance().m5451b(AccsState.CONNECTION_CHANGE, C1860u.f5947g + stringExtra + "a" + booleanExtra);
+            AccsState.getInstance().m5451b(AccsState.CONNECTION_CHANGE, AMapLog.f5947g + stringExtra + "a" + booleanExtra);
         } else {
-            AccsState.getInstance().m5451b(AccsState.CONNECTION_CHANGE, C1860u.f5947g + stringExtra + "a" + booleanExtra + "c" + errorCode.getCodeInt());
+            AccsState.getInstance().m5451b(AccsState.CONNECTION_CHANGE, AMapLog.f5947g + stringExtra + "a" + booleanExtra + "c" + errorCode.getCodeInt());
             AccsState.getInstance().m5451b(AccsState.RECENT_ERRORS, Integer.valueOf(errorCode.getCodeInt()));
         }
         m5670a(booleanExtra, errorCode);
@@ -286,7 +286,7 @@ public class C1948j extends AbstractC1940b implements DataFrameCb, ISessionListe
     @Override // com.taobao.accs.net.AbstractC1940b
     /* renamed from: d */
     public String mo5641d() {
-        StringBuilder sbM1765j = C0948f6.m1765j("InAppConn_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("InAppConn_");
         sbM1765j.append(this.f6221m);
         return sbM1765j.toString();
     }
@@ -331,7 +331,7 @@ public class C1948j extends AbstractC1940b implements DataFrameCb, ISessionListe
             }
         }
         ILog iLog = this.f6250t;
-        StringBuilder sbM1765j = C0948f6.m1765j("not running or msg null! ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("not running or msg null! ");
         sbM1765j.append(this.f6244n);
         iLog.mo671w(sbM1765j.toString());
     }

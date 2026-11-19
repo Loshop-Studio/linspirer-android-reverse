@@ -13,7 +13,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Arrays;
 
 /* loaded from: classes.dex */
@@ -426,7 +426,7 @@ public class ViewDragHelper {
 
     public void captureChildView(@NonNull View view, int i) {
         if (view.getParent() != this.mParentView) {
-            StringBuilder sbM1765j = C0948f6.m1765j("captureChildView: parameter must be a descendant of the ViewDragHelper's tracked parent view (");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("captureChildView: parameter must be a descendant of the ViewDragHelper's tracked parent view (");
             sbM1765j.append(this.mParentView);
             sbM1765j.append(")");
             throw new IllegalArgumentException(sbM1765j.toString());

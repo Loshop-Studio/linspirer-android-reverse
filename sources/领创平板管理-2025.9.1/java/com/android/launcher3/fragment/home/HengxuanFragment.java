@@ -14,8 +14,8 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.adapter.MainFragmentPagerAdapter;
 import com.android.launcher3.model.AppItem;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1222q3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.HengxuanAppList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class HengxuanFragment extends BaseHomeFragment {
     public ArrayList<List<AppItem>> f1955G;
 
     /* renamed from: I */
-    public C1222q3 f1957I;
+    public HengxuanAppList f1957I;
 
     /* renamed from: v */
     public List<AppItem> f1958v;
@@ -139,7 +139,7 @@ public class HengxuanFragment extends BaseHomeFragment {
         this.f1950B = strM3074v;
         this.f1949A.setText(strM3074v);
         this.f1949A.setOnClickListener(new ViewOnClickListenerC0658a());
-        this.f1957I = C1222q3.b.f3490a;
+        this.f1957I = HengxuanAppList.b.f3490a;
     }
 
     @Override // com.android.launcher3.fragment.home.BaseHomeFragment
@@ -161,11 +161,11 @@ public class HengxuanFragment extends BaseHomeFragment {
         long[] jArr2 = this.f1956H;
         jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
         if (SystemClock.uptimeMillis() - this.f1956H[0] <= TooltipCompatHandler.HOVER_HIDE_TIMEOUT_SHORT_MS) {
-            C0850bc.m1403m("click time enough");
+            LTKDateUtil.m1403m("click time enough");
             z = true;
         } else {
-            C0850bc.m1403m("click time not enough");
-            C0850bc.m1415y(this.f1800a, R.string.click_five_exit);
+            LTKDateUtil.m1403m("click time not enough");
+            LTKDateUtil.m1415y(this.f1800a, R.string.click_five_exit);
         }
         if (z) {
             if (this.f1802c.m3036c() == 1) {

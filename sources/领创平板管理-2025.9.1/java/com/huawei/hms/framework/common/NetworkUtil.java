@@ -18,7 +18,7 @@ import android.text.TextUtils;
 import anet.channel.strategy.dispatch.DispatchConstants;
 import com.huawei.android.os.BuildEx;
 import com.huawei.android.telephony.ServiceStateEx;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.UtilityImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -73,12 +73,12 @@ public class NetworkUtil {
                 }
             } catch (SecurityException e) {
                 String str = TAG;
-                StringBuilder sbM1765j = C0948f6.m1765j("getActiveNetworkInfo failed, exception:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("getActiveNetworkInfo failed, exception:");
                 sbM1765j.append(e.getClass().getSimpleName());
                 Logger.m3434i(str, sbM1765j.toString());
             } catch (RuntimeException e2) {
                 String str2 = TAG;
-                StringBuilder sbM1765j2 = C0948f6.m1765j("getActiveNetworkInfo failed, exception:");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("getActiveNetworkInfo failed, exception:");
                 sbM1765j2.append(e2.getClass().getSimpleName());
                 Logger.m3434i(str2, sbM1765j2.toString());
             }
@@ -204,7 +204,7 @@ public class NetworkUtil {
             return connectivityManager.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             String str = TAG;
-            StringBuilder sbM1765j = C0948f6.m1765j("getActiveNetworkInfo failed, exception:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getActiveNetworkInfo failed, exception:");
             sbM1765j.append(e.getClass().getSimpleName());
             sbM1765j.append(e.getMessage());
             Logger.m3434i(str, sbM1765j.toString());
@@ -227,7 +227,7 @@ public class NetworkUtil {
                     }
                 } catch (RuntimeException e) {
                     String str = TAG;
-                    StringBuilder sbM1765j = C0948f6.m1765j("getNetworkStatus exception");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("getNetworkStatus exception");
                     sbM1765j.append(e.getClass().getSimpleName());
                     sbM1765j.append(e.getMessage());
                     Logger.m3434i(str, sbM1765j.toString());
@@ -270,7 +270,7 @@ public class NetworkUtil {
             return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)}).getHostAddress();
         } catch (RuntimeException | UnknownHostException e) {
             String str = TAG;
-            StringBuilder sbM1765j = C0948f6.m1765j("getWifiGatewayIp error!");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getWifiGatewayIp error!");
             sbM1765j.append(e.getClass().getSimpleName());
             sbM1765j.append(e.getMessage());
             Logger.m3434i(str, sbM1765j.toString());
@@ -291,7 +291,7 @@ public class NetworkUtil {
             return (connectionInfo == null || connectionInfo.getBSSID() == null) ? INVALID_RSSI : connectionInfo.getRssi();
         } catch (RuntimeException e) {
             String str = TAG;
-            StringBuilder sbM1765j = C0948f6.m1765j("getWifiRssiLevel did not has permission!");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getWifiRssiLevel did not has permission!");
             sbM1765j.append(e.getClass().getSimpleName());
             sbM1765j.append(e.getMessage());
             Logger.m3434i(str, sbM1765j.toString());

@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -96,14 +96,14 @@ public class TypefaceCompatUtil {
 
     @Nullable
     public static File getTempFile(Context context) {
-        StringBuilder sbM1765j = C0948f6.m1765j(CACHE_FILE_PREFIX);
+        StringBuilder sbM1765j = CompilerOutline.m1765j(CACHE_FILE_PREFIX);
         sbM1765j.append(Process.myPid());
         sbM1765j.append("-");
         sbM1765j.append(Process.myTid());
         sbM1765j.append("-");
         String string = sbM1765j.toString();
         for (int i = 0; i < 100; i++) {
-            File file = new File(context.getCacheDir(), C0948f6.m1754L(string, i));
+            File file = new File(context.getCacheDir(), CompilerOutline.m1754L(string, i));
             if (file.createNewFile()) {
                 return file;
             }

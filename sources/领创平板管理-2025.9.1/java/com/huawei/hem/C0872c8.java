@@ -16,7 +16,7 @@ public class C0872c8 {
         this.f2329a = null;
         String packageName = context.getPackageName();
         Logger.m3430d("c", "get pkgname from context is{%s}", packageName);
-        this.f2329a = new PLSharedPreferences(context, C0948f6.m1760e(str, packageName));
+        this.f2329a = new PLSharedPreferences(context, CompilerOutline.m1760e(str, packageName));
         try {
             String string = Long.toString(context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionCode);
             String string2 = this.f2329a.getString("version", "");

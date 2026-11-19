@@ -80,7 +80,7 @@ public abstract class HuaweiApiAvailability {
     }
 
     public static HuaweiApiAvailability getInstance() {
-        return C1489b.getInstance();
+        return HuaweiApiAvailabilityImpl.getInstance();
     }
 
     public static int getServicesVersionCode() {

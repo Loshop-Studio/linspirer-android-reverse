@@ -4,7 +4,7 @@ import com.alibaba.sdk.android.error.CodeGenerator;
 import com.alibaba.sdk.android.error.ErrorBuilder;
 import com.alibaba.sdk.android.error.ErrorCode;
 import com.alibaba.sdk.android.error.ErrorDefine;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.agoo.p074a.p075a.AbstractC2002b;
 
 /* renamed from: com.alibaba.sdk.android.push.common.a.d */
@@ -99,7 +99,7 @@ public class C0560d {
 
         @Override // com.alibaba.sdk.android.error.CodeGenerator
         public String generateCodeStr(String str, String str2, String str3) {
-            return C0948f6.m1761f(str, "_", str3);
+            return CompilerOutline.m1761f(str, "_", str3);
         }
     }
 
@@ -114,22 +114,22 @@ public class C0560d {
         f1131f = f1125A.defineServerError("10105").msg("Alias相关错误").solution("请根据具体错误信息排查，如果不能解决，请联系阿里云技术支持").build();
         f1132g = f1125A.defineServerError("10106").msg("服务端内部错误").solution("请根据具体错误信息联系阿里云技术支持").build();
         f1133h = f1125A.defineAndroidError("10107").msg("网络IO错误").solution("请检查网络是否可用").solution("请根据具体错误信息排查，如果不能解决，请联系阿里云技术支持").build();
-        f1134i = C0948f6.m1752J(f1125A, "10108", "返回结果解析错误", "请保留具体错误信息，联系阿里云技术支持排查");
-        f1135j = C0948f6.m1752J(f1125A, "10109", "网络连接失败,请检查网络配置", "请检查网络是否可用");
-        f1136k = C0948f6.m1752J(f1125A, "10114", "内部错误", "请保留具体错误信息，联系阿里云技术支持排查");
-        f1137l = C0948f6.m1752J(f1125A, "10115", "通道注册状态异常", "请保留具体错误信息，联系阿里云技术支持排查");
+        f1134i = CompilerOutline.m1752J(f1125A, "10108", "返回结果解析错误", "请保留具体错误信息，联系阿里云技术支持排查");
+        f1135j = CompilerOutline.m1752J(f1125A, "10109", "网络连接失败,请检查网络配置", "请检查网络是否可用");
+        f1136k = CompilerOutline.m1752J(f1125A, "10114", "内部错误", "请保留具体错误信息，联系阿里云技术支持排查");
+        f1137l = CompilerOutline.m1752J(f1125A, "10115", "通道注册状态异常", "请保留具体错误信息，联系阿里云技术支持排查");
         f1138m = f1125A.defineServerError("10118").msg("其它接口错误").solution("请根据具体错误信息联系阿里云技术支持").build();
-        f1139n = C0948f6.m1752J(f1125A, "10119", "非主进程不用初始化", "在非主进程执行初始化时触发，可以忽略");
-        f1140o = C0948f6.m1752J(f1125A, "10120", "推送注册超时", "请保留具体错误信息，联系阿里云技术支持排查");
+        f1139n = CompilerOutline.m1752J(f1125A, "10119", "非主进程不用初始化", "在非主进程执行初始化时触发，可以忽略");
+        f1140o = CompilerOutline.m1752J(f1125A, "10120", "推送注册超时", "请保留具体错误信息，联系阿里云技术支持排查");
         f1141p = f1125A.defineAndroidError("10121").msg("网络请求失败，请检查网络是否可用").solution("请检查网络是否可用").solution("请根据具体错误信息排查，如果不能解决，请联系阿里云技术支持").build();
-        f1142q = C0948f6.m1752J(f1125A, "20101", "参数输入非法", "请检查请求的输入参数是否正确");
-        f1143r = C0948f6.m1752J(f1125A, "20102", "静默连接进程名设置错误,进程名不能为空且必须与manifest文件配置相符。系统自动设置为manifest所配置进程名", "开启debug会检查此错误，目前进程名不支持修改，请不要修改组件进程配置");
-        f1144s = C0948f6.m1752J(f1125A, "20103", "appversion参数错误,请检查您的版本号,版本号不能为null或长度不能超过32位", "开启debug会检查此错误，请检查应用版本号是否过长");
-        f1145t = C0948f6.m1752J(f1125A, "20105", "ChannelService未设置辅助进程", "开启debug会检查此错误，如果不是特殊场景，请检查是否修改了推送组件的进程配置");
-        f1146u = C0948f6.m1752J(f1125A, "20106", "核心组件未配置", "开启debug会检查此错误，请检查是否删除了推送组件的声明");
+        f1142q = CompilerOutline.m1752J(f1125A, "20101", "参数输入非法", "请检查请求的输入参数是否正确");
+        f1143r = CompilerOutline.m1752J(f1125A, "20102", "静默连接进程名设置错误,进程名不能为空且必须与manifest文件配置相符。系统自动设置为manifest所配置进程名", "开启debug会检查此错误，目前进程名不支持修改，请不要修改组件进程配置");
+        f1144s = CompilerOutline.m1752J(f1125A, "20103", "appversion参数错误,请检查您的版本号,版本号不能为null或长度不能超过32位", "开启debug会检查此错误，请检查应用版本号是否过长");
+        f1145t = CompilerOutline.m1752J(f1125A, "20105", "ChannelService未设置辅助进程", "开启debug会检查此错误，如果不是特殊场景，请检查是否修改了推送组件的进程配置");
+        f1146u = CompilerOutline.m1752J(f1125A, "20106", "核心组件未配置", "开启debug会检查此错误，请检查是否删除了推送组件的声明");
         f1147v = f1125A.defineSdkError("20107").msg("连续crash，推送服务关闭").solution("应用初始化推送后崩溃，会在下次启动关闭推送服务。请检查应用的崩溃记录").solution("开发测试场景下，人为触发的，请清除应用数据恢复").solution("线上场景会尝试自动恢复，如果仍然崩溃，需要升级应用版本才会恢复").build();
-        f1148w = C0948f6.m1752J(f1125A, "20108", "未初始化，请先调用 PushServiceFactory的init方法", "请确认是否正常初始化");
-        f1149x = C0948f6.m1752J(f1125A, "20109", "废弃接口", "请查看文档，使用合适的api");
+        f1148w = CompilerOutline.m1752J(f1125A, "20108", "未初始化，请先调用 PushServiceFactory的init方法", "请确认是否正常初始化");
+        f1149x = CompilerOutline.m1752J(f1125A, "20109", "废弃接口", "请查看文档，使用合适的api");
         ErrorCode errorCodeBuild = f1125A.defineSdkError("20110").msg("已经调用注册，重复调用无效").solution("register方法如果失败了，会自动重试，一般情况下不需要重复调用").solution("如果希望内部重试失败的情况，由外部重新调用register，请至少在上一次register失败回调两次（确认内部重试还是失败）的情况下，先调用PushControlService的reset方法，然后再调用下一次register方法").build();
         f1150y = errorCodeBuild;
         f1151z = new ErrorCode[]{f1126a, f1127b, f1128c, f1129d, f1130e, f1131f, f1132g, f1133h, f1134i, f1135j, f1136k, f1137l, f1138m, f1139n, f1140o, f1141p, f1142q, f1143r, f1144s, f1145t, f1146u, f1147v, f1148w, f1149x, errorCodeBuild, m761a(123, "accs错误信息").solution("格式ACCS_123, 123为accs错误码，请结合accs错误码排查").build(), m762a("xxx", "agoo错误信息").solution("格式AGOO_xxx, xxx为agoo错误码，请结合agoo错误码排查").build()};

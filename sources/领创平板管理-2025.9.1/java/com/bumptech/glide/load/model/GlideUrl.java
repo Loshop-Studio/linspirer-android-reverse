@@ -2,7 +2,7 @@ package com.bumptech.glide.load.model;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.net.URL;
 import java.util.Map;
 
@@ -89,7 +89,7 @@ public class GlideUrl {
 
     public GlideUrl(String str, Headers headers) {
         if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException(C0948f6.m1760e("String url must not be empty or null: ", str));
+            throw new IllegalArgumentException(CompilerOutline.m1760e("String url must not be empty or null: ", str));
         }
         if (headers != null) {
             this.stringUrl = str;

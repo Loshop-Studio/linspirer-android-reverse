@@ -22,16 +22,16 @@ import com.android.launcher3.receiver.LinspirerLauncherReceiver;
 import com.android.launcher3.view.CommonDialog;
 import com.bumptech.glide.Glide;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1172o3;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.InterfaceC1122m3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ISVCustomer;
+import com.huawei.hem.DBController;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.OnMainScreenChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public abstract class BaseHomeFragment extends BaseFragment implements InterfaceC1122m3 {
+public abstract class BaseHomeFragment extends BaseFragment implements OnMainScreenChangeListener {
 
     /* renamed from: u */
     public static int f1906u = 24;
@@ -49,7 +49,7 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
     public LinearLayout f1910l;
 
     /* renamed from: o */
-    public C1172o3 f1913o;
+    public ISVCustomer f1913o;
 
     /* renamed from: p */
     public HiScreenHelper f1914p;
@@ -85,18 +85,18 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
             String action = intent.getAction();
             if (!"com.linspirer.launcher3.refresh_desktop".equals(action)) {
                 if ("com.linspirer.launcher3.changewallpaper".equals(action)) {
-                    C0850bc.m1403m("BaseHomeFragment  -- update the launcher backgroud wallpaper .");
+                    LTKDateUtil.m1403m("BaseHomeFragment  -- update the launcher backgroud wallpaper .");
                     BaseHomeFragment.this.mo1241o();
                     return;
                 }
                 return;
             }
             if (BaseHomeFragment.this.f1803d) {
-                C0850bc.m1403m("BaseHomeFragment  -- isVisibledFragment , start to refresh desktop data .");
+                LTKDateUtil.m1403m("BaseHomeFragment  -- isVisibledFragment , start to refresh desktop data .");
                 BaseHomeFragment.this.mo1240n();
             } else {
                 BaseHomeFragment.this.f1912n = true;
-                C0850bc.m1390A("BaseHomeFragment  --  is not visibled , wating for refreshing desktop data .");
+                LTKDateUtil.m1390A("BaseHomeFragment  --  is not visibled , wating for refreshing desktop data .");
             }
         }
     }
@@ -113,11 +113,11 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
         @Override // com.android.launcher3.view.CommonDialog.DialogButtonOnClickListener
         public void clickConfirmButton(View view, String str) {
             if (TextUtils.isEmpty(str)) {
-                C0850bc.m1415y(BaseHomeFragment.this.f1800a, R.string.please_enter_dynamic_password);
-            } else if (C1423y4.m2957D().equals(str)) {
+                LTKDateUtil.m1415y(BaseHomeFragment.this.f1800a, R.string.please_enter_dynamic_password);
+            } else if (LauncherMenuHelper.m2957D().equals(str)) {
                 BaseHomeFragment.this.m1239m(true);
             } else {
-                C0850bc.m1415y(BaseHomeFragment.this.f1800a, R.string.input_pwd_error);
+                LTKDateUtil.m1415y(BaseHomeFragment.this.f1800a, R.string.input_pwd_error);
             }
         }
     }
@@ -143,14 +143,14 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
         IntentFilter intentFilter = new IntentFilter("com.linspirer.launcher3.refresh_desktop");
         intentFilter.addAction("com.linspirer.launcher3.changewallpaper");
         this.f1800a.registerReceiver(this.f1918t, intentFilter);
-        this.f1913o = C1172o3.b.f3370a;
+        this.f1913o = ISVCustomer.b.f3370a;
         this.f1916r = new ArrayList();
         HiScreenHelper hiScreenHelper = HiScreenHelper.getInstance();
         this.f1914p = hiScreenHelper;
         hiScreenHelper.setOnMainScreenChangeListener(this);
-        List<ScreenPartSettings> listLoadAll = C1297t3.m2715a().f3750b.getScreenPartSettingsDao().loadAll();
+        List<ScreenPartSettings> listLoadAll = DBController.m2715a().f3750b.getScreenPartSettingsDao().loadAll();
         if (AbstractC1102l9.m2273N(listLoadAll)) {
-            C0850bc.m1403m("BaseHomeFragment has no hiboard cache");
+            LTKDateUtil.m1403m("BaseHomeFragment has no hiboard cache");
             return;
         }
         for (ScreenPartSettings screenPartSettings : listLoadAll) {
@@ -184,11 +184,11 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
 
     /* renamed from: m */
     public void m1239m(boolean z) {
-        C0850bc.m1403m("BaseHomeFragment  logout launcher and start login");
+        LTKDateUtil.m1403m("BaseHomeFragment  logout launcher and start login");
         if (z) {
             new LinspirerLauncherReceiver().m1281b(this.f1800a);
         }
-        C1423y4.m2978Y(this.f1800a, LoginActivity.class);
+        LauncherMenuHelper.m2978Y(this.f1800a, LoginActivity.class);
         ((LauncherNew) this.f1800a).finish();
     }
 
@@ -207,7 +207,7 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        C0850bc.m1403m("BaseHomeFragment ==onDestroy==");
+        LTKDateUtil.m1403m("BaseHomeFragment ==onDestroy==");
         this.f1803d = false;
         BroadcastReceiver broadcastReceiver = this.f1918t;
         if (broadcastReceiver != null) {
@@ -280,7 +280,7 @@ public abstract class BaseHomeFragment extends BaseFragment implements Interface
             return;
         }
         if (!m1238l() || !z) {
-            C0850bc.m1403m("BaseHomeFragment no need show logo");
+            LTKDateUtil.m1403m("BaseHomeFragment no need show logo");
             this.f1910l.setVisibility(8);
             return;
         }

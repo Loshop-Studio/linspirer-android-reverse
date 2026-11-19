@@ -12,7 +12,7 @@ import android.content.pm.ServiceInfo;
 import android.support.v4.media.MediaBrowserServiceCompat;
 import android.util.Log;
 import android.view.KeyEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -70,7 +70,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
             intent.setComponent(new ComponentName(serviceInfo.packageName, serviceInfo.name));
             context.startService(intent);
         } else {
-            StringBuilder sbM1765j = C0948f6.m1765j("Expected 1 Service that handles ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Expected 1 Service that handles ");
             sbM1765j.append(intent2.getAction());
             sbM1765j.append(", found ");
             sbM1765j.append(listQueryIntentServices.size());

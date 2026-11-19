@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Locale;
@@ -21,17 +21,17 @@ public class Preconditions {
 
     public static float checkArgumentFinite(float f, String str) {
         if (Float.isNaN(f)) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " must not be NaN"));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " must not be NaN"));
         }
         if (Float.isInfinite(f)) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " must not be infinite"));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " must not be infinite"));
         }
         return f;
     }
 
     public static float checkArgumentInRange(float f, float f2, float f3, String str) {
         if (Float.isNaN(f)) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " must not be NaN"));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " must not be NaN"));
         }
         if (f < f2) {
             throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%f, %f] (too low)", str, Float.valueOf(f2), Float.valueOf(f3)));
@@ -76,7 +76,7 @@ public class Preconditions {
 
     public static <T> T[] checkArrayElementsNotNull(T[] tArr, String str) {
         if (tArr == null) {
-            throw new NullPointerException(C0948f6.m1760e(str, " must not be null"));
+            throw new NullPointerException(CompilerOutline.m1760e(str, " must not be null"));
         }
         for (int i = 0; i < tArr.length; i++) {
             if (tArr[i] == null) {
@@ -89,7 +89,7 @@ public class Preconditions {
     @NonNull
     public static <C extends Collection<T>, T> C checkCollectionElementsNotNull(C c, String str) {
         if (c == null) {
-            throw new NullPointerException(C0948f6.m1760e(str, " must not be null"));
+            throw new NullPointerException(CompilerOutline.m1760e(str, " must not be null"));
         }
         long j = 0;
         Iterator it = c.iterator();
@@ -104,10 +104,10 @@ public class Preconditions {
 
     public static <T> Collection<T> checkCollectionNotEmpty(Collection<T> collection, String str) {
         if (collection == null) {
-            throw new NullPointerException(C0948f6.m1760e(str, " must not be null"));
+            throw new NullPointerException(CompilerOutline.m1760e(str, " must not be null"));
         }
         if (collection.isEmpty()) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " is empty"));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " is empty"));
         }
         return collection;
     }
@@ -116,7 +116,7 @@ public class Preconditions {
         if ((i & i2) == i) {
             return i;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Requested flags 0x");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Requested flags 0x");
         sbM1765j.append(Integer.toHexString(i));
         sbM1765j.append(", but only 0x");
         sbM1765j.append(Integer.toHexString(i2));

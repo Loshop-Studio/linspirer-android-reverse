@@ -7,7 +7,7 @@ import anet.channel.appmonitor.AppMonitor;
 import anet.channel.statist.NetTypeStat;
 import anet.channel.status.NetworkStatusHelper;
 import anet.channel.thread.ThreadPoolExecutorFactory;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -132,7 +132,7 @@ public class C0422c {
             NetworkInterface networkInterface = (NetworkInterface) it.next();
             if (!networkInterface.getInterfaceAddresses().isEmpty()) {
                 String displayName = networkInterface.getDisplayName();
-                ALog.m340i("awcn.Inet64Util", C0948f6.m1760e("find NetworkInterface:", displayName), null, new Object[0]);
+                ALog.m340i("awcn.Inet64Util", CompilerOutline.m1760e("find NetworkInterface:", displayName), null, new Object[0]);
                 Iterator<InterfaceAddress> it2 = networkInterface.getInterfaceAddresses().iterator();
                 int i = 0;
                 while (it2.hasNext()) {
@@ -140,7 +140,7 @@ public class C0422c {
                     if (address instanceof Inet6Address) {
                         Inet6Address inet6Address = (Inet6Address) address;
                         if (!m348a(inet6Address)) {
-                            StringBuilder sbM1765j = C0948f6.m1765j("Found IPv6 address:");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("Found IPv6 address:");
                             sbM1765j.append(inet6Address.toString());
                             ALog.m339e("awcn.Inet64Util", sbM1765j.toString(), null, new Object[0]);
                             i |= 2;
@@ -148,7 +148,7 @@ public class C0422c {
                     } else if (address instanceof Inet4Address) {
                         Inet4Address inet4Address = (Inet4Address) address;
                         if (!m348a((InetAddress) inet4Address) && !inet4Address.getHostAddress().startsWith("192.168.43.")) {
-                            StringBuilder sbM1765j2 = C0948f6.m1765j("Found IPv4 address:");
+                            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Found IPv4 address:");
                             sbM1765j2.append(inet4Address.toString());
                             ALog.m339e("awcn.Inet64Util", sbM1765j2.toString(), null, new Object[0]);
                             i |= 1;
@@ -245,7 +245,7 @@ public class C0422c {
             byName = null;
         }
         if (byName instanceof Inet6Address) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Resolved AAAA: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Resolved AAAA: ");
             sbM1765j.append(byName.toString());
             ALog.m340i("awcn.Inet64Util", sbM1765j.toString(), null, new Object[0]);
             byte[] address = byName.getAddress();
@@ -277,7 +277,7 @@ public class C0422c {
                 return new C0425f(Inet6Address.getByAddress("ipv4only.arpa", address, 0), i * 8);
             }
         } else if (byName instanceof Inet4Address) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("Resolved A: ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Resolved A: ");
             sbM1765j2.append(byName.toString());
             ALog.m340i("awcn.Inet64Util", sbM1765j2.toString(), null, new Object[0]);
         }

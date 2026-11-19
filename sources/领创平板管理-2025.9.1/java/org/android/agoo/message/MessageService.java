@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.AdapterUtilityImpl;
 import com.taobao.accs.utl.UTMini;
@@ -202,7 +202,7 @@ public class MessageService {
     public void m5849a(String str, String str2, String str3) {
         Cursor cursor;
         if (ALog.isPrintLog(ALog.Level.I)) {
-            ALog.m5729i("MessageService", C0948f6.m1762g(C0948f6.m1770o("addAccsMessage sqlite3--->[", str, ",message=", str2, ",state="), str3, "]"), new Object[0]);
+            ALog.m5729i("MessageService", CompilerOutline.m1762g(CompilerOutline.m1770o("addAccsMessage sqlite3--->[", str, ",message=", str2, ",state="), str3, "]"), new Object[0]);
         }
         SQLiteDatabase sQLiteDatabase = null;
         try {
@@ -274,7 +274,7 @@ public class MessageService {
         String str4 = "ext";
         int i2 = 0;
         if (ALog.isPrintLog(ALog.Level.I)) {
-            StringBuilder sbM1769n = C0948f6.m1769n("msgRecevie,message--->[", str, "],utdid=");
+            StringBuilder sbM1769n = CompilerOutline.m1769n("msgRecevie,message--->[", str, "],utdid=");
             sbM1769n.append(AdapterUtilityImpl.getDeviceId(f6496a));
             ALog.m5729i("MessageService", sbM1769n.toString(), new Object[0]);
         }
@@ -282,7 +282,7 @@ public class MessageService {
         if (TextUtils.isEmpty(str)) {
             UTMini.getInstance().commitEvent(AgooConstants.AGOO_EVENT_ID, "accs.dealMessage", AdapterUtilityImpl.getDeviceId(f6496a), "message==null");
             if (ALog.isPrintLog(ALog.Level.I)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("handleMessage message==null,utdid=");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("handleMessage message==null,utdid=");
                 sbM1765j.append(AdapterUtilityImpl.getDeviceId(f6496a));
                 ALog.m5729i("MessageService", sbM1765j.toString(), new Object[0]);
             }
@@ -377,7 +377,7 @@ public class MessageService {
         Throwable th;
         int iHashCode;
         String str4;
-        ALog.m5726d("MessageService", C0948f6.m1761f("add sqlite3--->[", str, "]"), new Object[0]);
+        ALog.m5726d("MessageService", CompilerOutline.m1761f("add sqlite3--->[", str, "]"), new Object[0]);
         SQLiteDatabase sQLiteDatabase = null;
         try {
             String str5 = "";

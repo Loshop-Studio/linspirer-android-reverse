@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 
@@ -27,7 +27,7 @@ public class NumberDeserializer implements ObjectDeserializer {
             jSONLexer.nextToken(16);
             if (type == Short.TYPE || type == Short.class) {
                 if (jLongValue > 32767 || jLongValue < -32768) {
-                    throw new JSONException(C0948f6.m1755M("short overflow : ", jLongValue));
+                    throw new JSONException(CompilerOutline.m1755M("short overflow : ", jLongValue));
                 }
                 return (T) Short.valueOf((short) jLongValue);
             }
@@ -35,7 +35,7 @@ public class NumberDeserializer implements ObjectDeserializer {
                 return (jLongValue < -2147483648L || jLongValue > 2147483647L) ? (T) Long.valueOf(jLongValue) : (T) Integer.valueOf((int) jLongValue);
             }
             if (jLongValue > 127 || jLongValue < -128) {
-                throw new JSONException(C0948f6.m1755M("short overflow : ", jLongValue));
+                throw new JSONException(CompilerOutline.m1755M("short overflow : ", jLongValue));
             }
             return (T) Byte.valueOf((byte) jLongValue);
         }
@@ -77,14 +77,14 @@ public class NumberDeserializer implements ObjectDeserializer {
             try {
                 return (T) TypeUtils.castToDouble(obj2);
             } catch (Exception e) {
-                throw new JSONException(C0948f6.m1759d("parseDouble error, field : ", obj), e);
+                throw new JSONException(CompilerOutline.m1759d("parseDouble error, field : ", obj), e);
             }
         }
         if (type == Short.TYPE || type == Short.class) {
             try {
                 return (T) TypeUtils.castToShort(obj2);
             } catch (Exception e2) {
-                throw new JSONException(C0948f6.m1759d("parseShort error, field : ", obj), e2);
+                throw new JSONException(CompilerOutline.m1759d("parseShort error, field : ", obj), e2);
             }
         }
         if (type != Byte.TYPE && type != Byte.class) {
@@ -93,7 +93,7 @@ public class NumberDeserializer implements ObjectDeserializer {
         try {
             return (T) TypeUtils.castToByte(obj2);
         } catch (Exception e3) {
-            throw new JSONException(C0948f6.m1759d("parseByte error, field : ", obj), e3);
+            throw new JSONException(CompilerOutline.m1759d("parseByte error, field : ", obj), e3);
         }
     }
 

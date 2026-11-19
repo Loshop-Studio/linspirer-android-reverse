@@ -1,6 +1,6 @@
 package com.bumptech.glide.util;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class MultiClassKey {
@@ -31,7 +31,7 @@ public class MultiClassKey {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("MultiClassKey{first=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("MultiClassKey{first=");
         sbM1765j.append(this.first);
         sbM1765j.append(", second=");
         sbM1765j.append(this.second);

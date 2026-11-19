@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import com.alibaba.sdk.android.tbrest.utils.DeviceUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class SoInstallMgrSdk {
         if (context == null) {
             return "";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("/data/data/");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("/data/data/");
         sbM1765j.append(context.getPackageName());
         sbM1765j.append("/files");
         String string = sbM1765j.toString();
@@ -106,7 +106,7 @@ public class SoInstallMgrSdk {
         Context context;
         FileChannel fileChannel;
         FileOutputStream fileOutputStreamOpenFileOutput;
-        String strM1761f = C0948f6.m1761f("lib/armeabi/lib", str, ".so");
+        String strM1761f = CompilerOutline.m1761f("lib/armeabi/lib", str, ".so");
         try {
             context = mContext;
         } catch (IOException e) {

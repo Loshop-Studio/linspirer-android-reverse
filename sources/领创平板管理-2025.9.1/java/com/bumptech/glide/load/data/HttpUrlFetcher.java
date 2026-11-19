@@ -6,7 +6,7 @@ import anet.channel.util.HttpConstant;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.util.ContentLengthInputStream;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -48,7 +48,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
             this.stream = ContentLengthInputStream.obtain(httpURLConnection.getInputStream(), httpURLConnection.getContentLength());
         } else {
             if (Log.isLoggable(TAG, 3)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Got non empty content encoding: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Got non empty content encoding: ");
                 sbM1765j.append(httpURLConnection.getContentEncoding());
                 Log.d(TAG, sbM1765j.toString());
             }
@@ -96,7 +96,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         if (responseCode == -1) {
             throw new IOException("Unable to retrieve response code from HttpUrlConnection.");
         }
-        StringBuilder sbM1766k = C0948f6.m1766k("Request failed ", responseCode, ": ");
+        StringBuilder sbM1766k = CompilerOutline.m1766k("Request failed ", responseCode, ": ");
         sbM1766k.append(this.urlConnection.getResponseMessage());
         throw new IOException(sbM1766k.toString());
     }

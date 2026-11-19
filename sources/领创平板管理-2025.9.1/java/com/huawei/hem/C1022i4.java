@@ -20,6 +20,6 @@ public class C1022i4 extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(@NonNull View view) {
-        C1423y4.m2974U(this.f2891a.f1800a, PrivacyAgreementActivity.class);
+        LauncherMenuHelper.m2974U(this.f2891a.f1800a, PrivacyAgreementActivity.class);
     }
 }

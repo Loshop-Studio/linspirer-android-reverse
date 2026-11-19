@@ -24,11 +24,11 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.AdminLoginActivity;
 import com.android.launcher3.activity.CheckNetWorkActivity;
 import com.android.launcher3.activity.base.BaseFragment;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.C1022i4;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.ViewOnClickListenerC1047j4;
 import com.huawei.hem.ViewOnClickListenerC1072k4;
 import com.huawei.hem.ViewOnClickListenerC1097l4;
@@ -71,7 +71,7 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            C0850bc.m1403m("BaseLoginFragment onReceive loginApkCheckUpdateButtonPressedReceiver ");
+            LTKDateUtil.m1403m("BaseLoginFragment onReceive loginApkCheckUpdateButtonPressedReceiver ");
             if (intent == null || !intent.getAction().equals("com.android.laucher3.mdm.CHECK_UPDATE")) {
                 return;
             }
@@ -87,14 +87,14 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
         if (baseLoginFragment == null) {
             throw null;
         }
-        if (C0850bc.f2294f.mo2066k()) {
+        if (LTKDateUtil.f2294f.mo2066k()) {
             return;
         }
         HemLicenseManager hemLicenseManager = HemLicenseManager.getInstance(baseLoginFragment.f1800a);
         hemLicenseManager.setStatusListener(new HemLicenseStatusListener() { // from class: com.huawei.hem.g4
             @Override // com.huawei.hem.license.HemLicenseStatusListener
             public final void onStatus(int i, String str) {
-                C0850bc.m1403m("BaseLoginFragment -- hem msg = " + str + " -- msgCode = " + i);
+                LTKDateUtil.m1403m("BaseLoginFragment -- hem msg = " + str + " -- msgCode = " + i);
             }
         });
         hemLicenseManager.activeLicense();
@@ -103,7 +103,7 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
     @Override // com.android.launcher3.activity.base.BaseFragment
     /* renamed from: f */
     public void mo1220f() {
-        this.f2006l.setText(C0850bc.m1398h("com.android.launcher3", this.f1800a));
+        this.f2006l.setText(LTKDateUtil.m1398h("com.android.launcher3", this.f1800a));
         CheckBox checkBox = this.f2008n;
         Resources resources = getResources();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -118,7 +118,7 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
         spannableStringBuilder.append((CharSequence) "》");
         checkBox.setText(spannableStringBuilder);
         checkBox.setMovementMethod(LinkMovementMethod.getInstance());
-        C1424y5 c1424y5 = this.f1802c;
+        UserInfoUtil c1424y5 = this.f1802c;
         if (!c1424y5.f4140N) {
             c1424y5.f4140N = c1424y5.f4130D.f2199a.getBoolean("agreed_privacy", false);
         }
@@ -155,20 +155,20 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
     public void onClick(View view) throws Resources.NotFoundException {
         switch (view.getId()) {
             case R.id.app_version /* 2131165230 */:
-                if (!C0902dc.m1583a(view)) {
-                    C1423y4.m2974U(this.f1800a, CheckNetWorkActivity.class);
+                if (!ViewControlUtil.m1583a(view)) {
+                    LauncherMenuHelper.m2974U(this.f1800a, CheckNetWorkActivity.class);
                     break;
                 }
                 break;
             case R.id.btn_login /* 2131165251 */:
             case R.id.sn_btn_login /* 2131165504 */:
-                if (!C0902dc.m1583a(view)) {
+                if (!ViewControlUtil.m1583a(view)) {
                     mo1265n();
                     break;
                 }
                 break;
             case R.id.function_items /* 2131165338 */:
-                if (!C0902dc.m1583a(view)) {
+                if (!ViewControlUtil.m1583a(view)) {
                     ImageView imageView = this.f2005k;
                     View viewInflate = LayoutInflater.from(this.f1800a).inflate(R.layout.activity_login_popwindow, (ViewGroup) null);
                     PopupWindow popupWindow = new PopupWindow(this.f1800a);
@@ -204,8 +204,8 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
                     this.f2004j = 1;
                 }
                 if (this.f2004j == 7) {
-                    C0850bc.f2294f.enableBack();
-                    C1423y4.m2974U(this.f1800a, AdminLoginActivity.class);
+                    LTKDateUtil.f2294f.enableBack();
+                    LauncherMenuHelper.m2974U(this.f1800a, AdminLoginActivity.class);
                     break;
                 }
                 break;

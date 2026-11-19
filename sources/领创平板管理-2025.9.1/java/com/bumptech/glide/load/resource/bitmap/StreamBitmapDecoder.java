@@ -7,7 +7,7 @@ import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.InputStream;
 
 /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
     @Override // com.bumptech.glide.load.ResourceDecoder
     public String getId() {
         if (this.f2126id == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j(f2125ID);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(f2125ID);
             sbM1765j.append(this.downsampler.getId());
             sbM1765j.append(this.decodeFormat.name());
             this.f2126id = sbM1765j.toString();

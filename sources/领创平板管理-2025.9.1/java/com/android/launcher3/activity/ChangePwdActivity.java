@@ -23,15 +23,15 @@ import com.android.launcher3.network.params.ChangePwdParams;
 import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.view.DialogUtil;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1020i2;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.ChangePwdActivityResponseListener;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class ChangePwdActivity extends BaseActivity implements View.OnClickListener {
@@ -46,7 +46,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
     public Context f1662d;
 
     /* renamed from: e */
-    public C1424y5 f1663e;
+    public UserInfoUtil f1663e;
 
     /* renamed from: f */
     public EditText f1664f;
@@ -58,7 +58,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
     public RelativeLayout f1666h;
 
     /* renamed from: i */
-    public C1255rb f1667i;
+    public HttpCore f1667i;
 
     /* renamed from: com.android.launcher3.activity.ChangePwdActivity$a */
     public class ViewOnTouchListenerC0628a implements View.OnTouchListener {
@@ -114,13 +114,13 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
         this.f1665g = (EditText) findViewById(R.id.confirm_pwd);
         this.f1661c = (Button) findViewById(R.id.bt_confirm_pwd);
         this.f1666h = (RelativeLayout) findViewById(R.id.rv_back);
-        this.f1663e = C1424y5.b.f4202a;
+        this.f1663e = UserInfoUtil.b.f4202a;
         this.f1661c.setOnClickListener(this);
         this.f1666h.setOnClickListener(this);
         m1177f(this.f1660b);
         m1177f(this.f1664f);
         m1177f(this.f1665g);
-        this.f1667i = new C1255rb();
+        this.f1667i = new HttpCore();
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -142,7 +142,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();
@@ -160,7 +160,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
             m1178g(getString(R.string.input_old_pwd));
             return;
         }
-        if (!C0850bc.m1401k(strTrim).equals(this.f1663e.m3013H())) {
+        if (!LTKDateUtil.m1401k(strTrim).equals(this.f1663e.m3013H())) {
             m1178g(getString(R.string.old_pwd_error));
             return;
         }
@@ -180,7 +180,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
             m1178g(getString(R.string.network_unable_note));
             return;
         }
-        if (C1423y4.m3004y()) {
+        if (LauncherMenuHelper.m3004y()) {
             DialogUtil.showDialog(this.f1662d, getString(R.string.update_pwd_now));
             try {
                 V2Params v2Params = new V2Params();
@@ -190,20 +190,20 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
                 changePwdParams.setPassword(strTrim2);
                 v2Params.setMethod(RequestUrl.UPDATE_PWD_METHOD);
                 v2Params.setParams(JSON.toJSONString(changePwdParams));
-                C1255rb c1255rb = this.f1667i;
+                HttpCore c1255rb = this.f1667i;
                 if (c1255rb == null) {
                     throw null;
                 }
-                C1355vb c1355vb = new C1355vb(c1255rb);
+                PostBuilder c1355vb = new PostBuilder(c1255rb);
                 c1355vb.f3777a = RequestUrl.URL;
                 c1355vb.f3947e = JSON.toJSONString(v2Params);
-                c1355vb.m2869b(new C1020i2(this, Boolean.class));
+                c1355vb.m2869b(new ChangePwdActivityResponseListener(this, Boolean.class));
             } catch (Throwable th) {
                 DialogUtil.hideDialog();
                 Toast.makeText(this.f1662d, getString(R.string.pwd_modify_fail), 0).show();
                 StringBuilder sb = new StringBuilder();
                 sb.append("ChangePwdActivity ---request url change_pwd error:");
-                C0948f6.m1745C(th, sb);
+                CompilerOutline.m1745C(th, sb);
             }
         }
     }

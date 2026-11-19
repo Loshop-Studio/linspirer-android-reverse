@@ -30,7 +30,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -251,7 +251,7 @@ public class ListPopupWindow implements ShowableListMenu {
                     linearLayout.addView(view2);
                     linearLayout.addView(view, layoutParams);
                 } else if (i3 != 1) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Invalid hint position ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Invalid hint position ");
                     sbM1765j.append(this.mPromptPosition);
                     Log.e(TAG, sbM1765j.toString());
                 } else {

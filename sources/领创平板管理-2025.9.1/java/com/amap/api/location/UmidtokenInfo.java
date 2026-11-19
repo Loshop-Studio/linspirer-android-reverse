@@ -3,7 +3,7 @@ package com.amap.api.location;
 import android.content.Context;
 import android.os.Handler;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.loc.C1834ep;
+import com.loc.CoreUtil;
 
 /* loaded from: classes.dex */
 public class UmidtokenInfo {
@@ -33,7 +33,7 @@ public class UmidtokenInfo {
                     UmidtokenInfo.f1588d.onDestroy();
                 }
             } catch (Throwable th) {
-                C1834ep.m5014a(th, "UmidListener", "onLocationChanged");
+                CoreUtil.m5014a(th, "UmidListener", "onLocationChanged");
             }
         }
     }
@@ -67,13 +67,13 @@ public class UmidtokenInfo {
                                 UmidtokenInfo.f1588d.onDestroy();
                             }
                         } catch (Throwable th) {
-                            C1834ep.m5014a(th, "UmidListener", "postDelayed");
+                            CoreUtil.m5014a(th, "UmidListener", "postDelayed");
                         }
                     }
                 }, 30000L);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "UmidListener", "setUmidtoken");
+            CoreUtil.m5014a(th, "UmidListener", "setUmidtoken");
         }
     }
 }

@@ -4,18 +4,18 @@ import android.content.res.ColorStateList;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.IconCompat;
-import com.huawei.hem.AbstractC1393x;
-import com.huawei.hem.C1418y;
+import com.huawei.hem.VersionedParcel;
+import com.huawei.hem.VersionedParcelParcel;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class IconCompatParcelizer {
-    public static IconCompat read(AbstractC1393x abstractC1393x) {
+    public static IconCompat read(VersionedParcel abstractC1393x) {
         IconCompat iconCompat = new IconCompat();
         iconCompat.mType = abstractC1393x.m2923d(iconCompat.mType, 1);
         byte[] bArr = iconCompat.mData;
         if (abstractC1393x.mo2922c(2)) {
-            C1418y c1418y = (C1418y) abstractC1393x;
+            VersionedParcelParcel c1418y = (VersionedParcelParcel) abstractC1393x;
             int i = c1418y.f4097b.readInt();
             if (i < 0) {
                 bArr = null;
@@ -32,14 +32,14 @@ public class IconCompatParcelizer {
         iconCompat.mTintList = (ColorStateList) abstractC1393x.m2924e(iconCompat.mTintList, 6);
         String string = iconCompat.mTintModeStr;
         if (abstractC1393x.mo2922c(7)) {
-            string = ((C1418y) abstractC1393x).f4097b.readString();
+            string = ((VersionedParcelParcel) abstractC1393x).f4097b.readString();
         }
         iconCompat.mTintModeStr = string;
         iconCompat.onPostParceling();
         return iconCompat;
     }
 
-    public static void write(IconCompat iconCompat, AbstractC1393x abstractC1393x) {
+    public static void write(IconCompat iconCompat, VersionedParcel abstractC1393x) {
         if (abstractC1393x == null) {
             throw null;
         }
@@ -47,7 +47,7 @@ public class IconCompatParcelizer {
         abstractC1393x.m2926g(iconCompat.mType, 1);
         byte[] bArr = iconCompat.mData;
         abstractC1393x.mo2925f(2);
-        C1418y c1418y = (C1418y) abstractC1393x;
+        VersionedParcelParcel c1418y = (VersionedParcelParcel) abstractC1393x;
         if (bArr != null) {
             c1418y.f4097b.writeInt(bArr.length);
             c1418y.f4097b.writeByteArray(bArr);

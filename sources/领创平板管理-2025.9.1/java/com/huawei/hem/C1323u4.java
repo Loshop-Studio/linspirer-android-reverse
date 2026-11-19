@@ -8,7 +8,7 @@ import com.android.launcher3.network.RequestUrl;
 import com.android.launcher3.network.params.SougouInputParams;
 import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.p027db.model.SougouSetting;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.UserInfoUtil;
 
 /* compiled from: SouGouControlHelper.java */
 /* renamed from: com.huawei.hem.u4 */
@@ -22,7 +22,7 @@ public class C1323u4 {
     public Context f3841a;
 
     /* renamed from: b */
-    public C1255rb f3842b = new C1255rb();
+    public HttpCore f3842b = new HttpCore();
 
     public C1323u4(Context context) {
         this.f3841a = context;
@@ -41,7 +41,7 @@ public class C1323u4 {
                 Settings.Secure.putString(c1323u4.f3841a.getContentResolver(), str, RequestConstant.TRUE);
             }
         } catch (Throwable th) {
-            C0948f6.m1745C(th, C0948f6.m1765j("SouGouControlHelper--set fuzzyAssociative error:"));
+            CompilerOutline.m1745C(th, CompilerOutline.m1765j("SouGouControlHelper--set fuzzyAssociative error:"));
         }
     }
 
@@ -60,7 +60,7 @@ public class C1323u4 {
                 Settings.Secure.putString(c1323u4.f3841a.getContentResolver(), str, "FUNCTION_SWITCH_CLOSE_DISABLE");
             }
         } catch (Throwable th) {
-            C0948f6.m1745C(th, C0948f6.m1765j("SouGouControlHelper--set fuzzyAssociative error:"));
+            CompilerOutline.m1745C(th, CompilerOutline.m1765j("SouGouControlHelper--set fuzzyAssociative error:"));
         }
     }
 
@@ -74,24 +74,24 @@ public class C1323u4 {
 
     /* renamed from: d */
     public void m2785d() {
-        if (C1423y4.m3004y()) {
-            C0850bc.m1403m("SouGouControlHelper----getSougouSetting from server----");
+        if (LauncherMenuHelper.m3004y()) {
+            LTKDateUtil.m1403m("SouGouControlHelper----getSougouSetting from server----");
             try {
                 V2Params v2Params = new V2Params();
                 SougouInputParams sougouInputParams = new SougouInputParams(this.f3841a);
-                sougouInputParams.setEmail(C1424y5.b.f4202a.m3052k());
+                sougouInputParams.setEmail(UserInfoUtil.b.f4202a.m3052k());
                 v2Params.setMethod(RequestUrl.SOUGOU_SETTING);
                 v2Params.setParams(JSON.toJSONString(sougouInputParams));
-                C1255rb c1255rb = this.f3842b;
+                HttpCore c1255rb = this.f3842b;
                 if (c1255rb == null) {
                     throw null;
                 }
-                C1355vb c1355vb = new C1355vb(c1255rb);
+                PostBuilder c1355vb = new PostBuilder(c1255rb);
                 c1355vb.f3777a = RequestUrl.URL;
                 c1355vb.f3947e = JSON.toJSONString(v2Params);
                 c1355vb.m2869b(new C1298t4(this, SougouSetting.class));
             } catch (Throwable th) {
-                C0948f6.m1745C(th, C0948f6.m1765j("SouGouControlHelper---get sougou setting error:"));
+                CompilerOutline.m1745C(th, CompilerOutline.m1765j("SouGouControlHelper---get sougou setting error:"));
             }
         }
     }

@@ -45,7 +45,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.SpinnerAdapter;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -491,7 +491,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         if (view instanceof Toolbar) {
             return ((Toolbar) view).getWrapper();
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Can't make a decor toolbar out of ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Can't make a decor toolbar out of ");
         sbM1765j.append(view != 0 ? view.getClass().getSimpleName() : "null");
         throw new IllegalStateException(sbM1765j.toString());
     }

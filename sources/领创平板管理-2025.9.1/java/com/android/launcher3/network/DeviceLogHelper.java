@@ -15,12 +15,12 @@ import com.android.launcher3.network.response.Response;
 import com.android.launcher3.p027db.model.UserEvent;
 import com.android.launcher3.p027db.model.UserEventDao;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.DBController;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
@@ -29,9 +29,9 @@ import java.util.List;
 public class DeviceLogHelper {
     public static final String TAG = "DeviceLogHelper ";
     public Context mContext;
-    public C1255rb mHttpCore;
+    public HttpCore mHttpCore;
     public UserEventDao mUserEventDao;
-    public C1424y5 mUserInfoUtil;
+    public UserInfoUtil mUserInfoUtil;
 
     public static class DeviceLogHolder {
         public static final DeviceLogHelper instance = new DeviceLogHelper();
@@ -60,17 +60,17 @@ public class DeviceLogHelper {
 
     private void createUserEvent(String str, String str2) {
         if (this.mUserInfoUtil.m3023R() || TextUtils.isEmpty(this.mUserInfoUtil.m3052k())) {
-            C0850bc.m1403m("DeviceLogHelper device is release or has no email no need record");
+            LTKDateUtil.m1403m("DeviceLogHelper device is release or has no email no need record");
             return;
         }
         UserEvent userEvent = new UserEvent();
         userEvent.setEventName(str);
         userEvent.setDescription(str2);
         userEvent.setUserName(this.mUserInfoUtil.m3052k());
-        userEvent.setEventTime(C0850bc.m1399i());
+        userEvent.setEventTime(LTKDateUtil.m1399i());
         List<UserEvent> listLoadAll = this.mUserEventDao.loadAll();
         if (!AbstractC1102l9.m2273N(listLoadAll) && listLoadAll.size() >= 500) {
-            C0850bc.m1403m("DeviceLogHelper  db cache is too large");
+            LTKDateUtil.m1403m("DeviceLogHelper  db cache is too large");
             this.mUserEventDao.deleteAll();
         }
         this.mUserEventDao.insert(userEvent);
@@ -114,9 +114,9 @@ public class DeviceLogHelper {
     }
 
     public void recordFirstUesed(String str) {
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         String strM3052k = c1424y5.m3052k();
-        C0850bc.m1403m("DeviceLogHelper ===cache email:" + strM3052k);
+        LTKDateUtil.m1403m("DeviceLogHelper ===cache email:" + strM3052k);
         if (TextUtils.isEmpty(strM3052k)) {
             c1424y5.m3030Y(str);
             createUserEvent(EventConfig.FIRST_USED, " first logined in this device");
@@ -137,7 +137,7 @@ public class DeviceLogHelper {
 
     public void recordPermissionEvent(String str) {
         if (TextUtils.isEmpty(this.mUserInfoUtil.m3052k())) {
-            C0850bc.m1403m("DeviceLogHelper no permission event no need reocrd by email is empty");
+            LTKDateUtil.m1403m("DeviceLogHelper no permission event no need reocrd by email is empty");
         } else {
             createUserEvent("not_granted_permission", str);
         }
@@ -178,13 +178,13 @@ public class DeviceLogHelper {
     }
 
     public void uploadEvent() {
-        if (!C1423y4.m3005z()) {
-            C0850bc.m1403m("DeviceLogHelper device is release no need upload");
+        if (!LauncherMenuHelper.m3005z()) {
+            LTKDateUtil.m1403m("DeviceLogHelper device is release no need upload");
             return;
         }
         List<UserEvent> listLoadAll = this.mUserEventDao.loadAll();
         if (AbstractC1102l9.m2273N(listLoadAll)) {
-            C0850bc.m1403m("DeviceLogHelper logs empty no need upload");
+            LTKDateUtil.m1403m("DeviceLogHelper logs empty no need upload");
             return;
         }
         try {
@@ -194,28 +194,28 @@ public class DeviceLogHelper {
             listParams.setEmail(this.mUserInfoUtil.m3052k());
             v2Params.setMethod(RequestUrl.DEVICE_LOG_REPORT_PARAM);
             v2Params.setParams(JSON.toJSONString(listParams));
-            C1255rb c1255rb = this.mHttpCore;
+            HttpCore c1255rb = this.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.UPLOAD_EVENT_URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new LTKResponseListener<Boolean>(Boolean.class) { // from class: com.android.launcher3.network.DeviceLogHelper.1
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailed(Response response) {
-                    C0850bc.m1403m("DeviceLogHelper upload device failed");
+                    LTKDateUtil.m1403m("DeviceLogHelper upload device failed");
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) {
-                    C0850bc.m1403m("DeviceLogHelper  upload device failure");
+                    LTKDateUtil.m1403m("DeviceLogHelper  upload device failure");
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(Boolean bool) {
-                    C0850bc.m1403m("DeviceLogHelper  device logs upload sucess");
+                    LTKDateUtil.m1403m("DeviceLogHelper  device logs upload sucess");
                     DeviceLogHelper.this.mUserEventDao.deleteAll();
                 }
             });
@@ -226,8 +226,8 @@ public class DeviceLogHelper {
 
     public DeviceLogHelper() {
         this.mContext = GuardSecureApplication.f1640b;
-        this.mUserInfoUtil = C1424y5.b.f4202a;
-        this.mUserEventDao = C1297t3.m2715a().f3751c.getUserEventDao();
-        this.mHttpCore = new C1255rb();
+        this.mUserInfoUtil = UserInfoUtil.b.f4202a;
+        this.mUserEventDao = DBController.m2715a().f3751c.getUserEventDao();
+        this.mHttpCore = new HttpCore();
     }
 }

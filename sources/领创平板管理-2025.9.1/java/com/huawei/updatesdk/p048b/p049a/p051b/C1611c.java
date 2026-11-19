@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p048b.p049a.p051b;
 
 import android.util.ArrayMap;
 import android.util.ArraySet;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -90,7 +90,7 @@ public class C1611c {
             C1584a.m3517c("KeySetsUtils", string);
             return null;
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("can not get PackageParser,");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("can not get PackageParser,");
             sbM1765j.append(e.getMessage());
             string = sbM1765j.toString();
             C1584a.m3517c("KeySetsUtils", string);

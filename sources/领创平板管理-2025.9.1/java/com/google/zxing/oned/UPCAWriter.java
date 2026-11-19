@@ -4,7 +4,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.common.BitMatrix;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Map;
 import org.android.agoo.message.MessageService;
 
@@ -19,7 +19,7 @@ public final class UPCAWriter implements Writer {
             for (int i = 0; i < 11; i++) {
                 iCharAt += (str.charAt(i) - '0') * (i % 2 == 0 ? 3 : 1);
             }
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append((1000 - iCharAt) % 10);
             str = sbM1765j.toString();
         } else if (length != 12) {

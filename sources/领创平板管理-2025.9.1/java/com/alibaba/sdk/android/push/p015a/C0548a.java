@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
 import com.alibaba.sdk.android.beacon.Beacon;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
@@ -42,7 +42,7 @@ public class C0548a {
         @Override // com.alibaba.sdk.android.beacon.Beacon.OnServiceErrListener
         public void onErr(Beacon.Error error) {
             AmsLogger amsLogger = C0548a.f993a;
-            StringBuilder sbM1765j = C0948f6.m1765j("beacon error. errorCode:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("beacon error. errorCode:");
             sbM1765j.append(error.errCode);
             sbM1765j.append(", errorMsg:");
             sbM1765j.append(error.errMsg);
@@ -71,7 +71,7 @@ public class C0548a {
         }
         for (Beacon.Config config : list) {
             AmsLogger amsLogger = f993a;
-            StringBuilder sbM1765j = C0948f6.m1765j("beacon key:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("beacon key:");
             sbM1765j.append(config.key);
             sbM1765j.append("; beacon value:");
             sbM1765j.append(config.value);

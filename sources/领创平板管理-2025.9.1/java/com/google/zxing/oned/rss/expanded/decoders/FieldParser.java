@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.NotFoundException;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.android.agoo.common.AgooConstants;
 
@@ -64,7 +64,7 @@ public final class FieldParser {
         String strSubstring2 = str.substring(i, i3);
         String str2 = "(" + strSubstring + ')' + strSubstring2;
         String fieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(i3));
-        return fieldsInGeneralPurpose == null ? str2 : C0948f6.m1760e(str2, fieldsInGeneralPurpose);
+        return fieldsInGeneralPurpose == null ? str2 : CompilerOutline.m1760e(str2, fieldsInGeneralPurpose);
     }
 
     public static String processVariableAI(int i, int i2, String str) throws NotFoundException {
@@ -76,6 +76,6 @@ public final class FieldParser {
         String strSubstring2 = str.substring(i, length);
         String str2 = "(" + strSubstring + ')' + strSubstring2;
         String fieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(length));
-        return fieldsInGeneralPurpose == null ? str2 : C0948f6.m1760e(str2, fieldsInGeneralPurpose);
+        return fieldsInGeneralPurpose == null ? str2 : CompilerOutline.m1760e(str2, fieldsInGeneralPurpose);
     }
 }

@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.android.launcher3.R;
 import com.android.launcher3.network.InitLoginHelper;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C1172o3;
-import com.huawei.hem.C1423y4;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.ISVCustomer;
+import com.huawei.hem.LauncherMenuHelper;
 
 /* loaded from: classes.dex */
 public class InitUserLoginFragment extends BaseLoginFragment {
@@ -21,7 +21,7 @@ public class InitUserLoginFragment extends BaseLoginFragment {
     public RelativeLayout f2026q;
 
     /* renamed from: r */
-    public C1172o3 f2027r;
+    public ISVCustomer f2027r;
 
     /* renamed from: s */
     public BroadcastReceiver f2028s = new C0665a();
@@ -38,7 +38,7 @@ public class InitUserLoginFragment extends BaseLoginFragment {
             }
             String action = intent.getAction();
             if ("com.android.laucher3.mdm.LOGIN_APK_FINISH".equals(action) || "com.linspirer.edu.loginapkfinish".equals(action)) {
-                C0850bc.m1403m("InitUserLoginFragment receiver ISV login ok .");
+                LTKDateUtil.m1403m("InitUserLoginFragment receiver ISV login ok .");
                 InitLoginHelper.getInstance().startInitLogin(InitUserLoginFragment.this.f1800a, intent);
             }
         }
@@ -54,11 +54,11 @@ public class InitUserLoginFragment extends BaseLoginFragment {
     /* renamed from: f */
     public void mo1220f() {
         super.mo1220f();
-        if (C0850bc.f2294f.mo2071p(false) == 2) {
-            C0850bc.m1414x(this.f1800a, R.string.disallowed_logined_by_release_control);
+        if (LTKDateUtil.f2294f.mo2071p(false) == 2) {
+            LTKDateUtil.m1414x(this.f1800a, R.string.disallowed_logined_by_release_control);
             return;
         }
-        C1172o3 c1172o3 = C1172o3.b.f3370a;
+        ISVCustomer c1172o3 = ISVCustomer.b.f3370a;
         this.f2027r = c1172o3;
         if (c1172o3 == null) {
             throw null;
@@ -83,8 +83,8 @@ public class InitUserLoginFragment extends BaseLoginFragment {
     @Override // com.android.launcher3.fragment.login.BaseLoginFragment
     /* renamed from: n */
     public void mo1265n() {
-        if (C0850bc.f2294f.mo2071p(false) == 2) {
-            C0850bc.m1414x(this.f1800a, R.string.disallowed_logined_by_release_control);
+        if (LTKDateUtil.f2294f.mo2071p(false) == 2) {
+            LTKDateUtil.m1414x(this.f1800a, R.string.disallowed_logined_by_release_control);
         } else {
             this.f1802c.m3041e0(false);
             m1268o();
@@ -96,18 +96,18 @@ public class InitUserLoginFragment extends BaseLoginFragment {
         if (this.f2027r == null) {
             throw null;
         }
-        C0850bc.m1403m("login package:com.zykj.manage activity:com.zykj.launcher.login");
+        LTKDateUtil.m1403m("login package:com.zykj.manage activity:com.zykj.launcher.login");
         if (this.f2027r == null) {
             throw null;
         }
-        C0850bc.m1409s(this.f1800a, "com.zykj.launcher.login", true);
+        LTKDateUtil.m1409s(this.f1800a, "com.zykj.launcher.login", true);
     }
 
     @Override // com.android.launcher3.fragment.login.BaseLoginFragment, android.view.View.OnClickListener
     public void onClick(View view) throws Resources.NotFoundException {
         super.onClick(view);
-        if (view.getId() == R.id.wifi_setting && !C0902dc.m1583a(view)) {
-            C1423y4.m2979Z(this.f1800a);
+        if (view.getId() == R.id.wifi_setting && !ViewControlUtil.m1583a(view)) {
+            LauncherMenuHelper.m2979Z(this.f1800a);
         }
     }
 

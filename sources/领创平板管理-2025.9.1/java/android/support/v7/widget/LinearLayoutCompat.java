@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -501,7 +501,7 @@ public class LinearLayoutCompat extends ViewGroup {
             this.mBaselineAlignedChildIndex = i;
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("base aligned child index out of range (0, ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("base aligned child index out of range (0, ");
         sbM1765j.append(getChildCount());
         sbM1765j.append(")");
         throw new IllegalArgumentException(sbM1765j.toString());

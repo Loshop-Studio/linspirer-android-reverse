@@ -18,15 +18,15 @@ public final class C1267rn {
 
     /* compiled from: Okio.java */
     /* renamed from: com.huawei.hem.rn$a */
-    public class a implements InterfaceC0836ao {
+    public class a implements Source {
 
         /* renamed from: a */
-        public final /* synthetic */ C0862bo f3650a;
+        public final /* synthetic */ Timeout f3650a;
 
         /* renamed from: b */
         public final /* synthetic */ InputStream f3651b;
 
-        public a(C0862bo c0862bo, InputStream inputStream) {
+        public a(Timeout c0862bo, InputStream inputStream) {
             this.f3650a = c0862bo;
             this.f3651b = inputStream;
         }
@@ -38,16 +38,16 @@ public final class C1267rn {
 
         @Override // com.huawei.hem.InterfaceC0836ao
         /* renamed from: e */
-        public long mo1380e(C1016hn c1016hn, long j) {
+        public long mo1380e(OkioBuffer c1016hn, long j) {
             if (j < 0) {
-                throw new IllegalArgumentException(C0948f6.m1755M("byteCount < 0: ", j));
+                throw new IllegalArgumentException(CompilerOutline.m1755M("byteCount < 0: ", j));
             }
             if (j == 0) {
                 return 0L;
             }
             try {
                 this.f3650a.mo1431f();
-                C1392wn c1392wnM1984N = c1016hn.m1984N(1);
+                OkioSegment c1392wnM1984N = c1016hn.m1984N(1);
                 int i = this.f3651b.read(c1392wnM1984N.f4031a, c1392wnM1984N.f4033c, (int) Math.min(j, 8192 - c1392wnM1984N.f4033c));
                 if (i == -1) {
                     return -1L;
@@ -66,12 +66,12 @@ public final class C1267rn {
 
         @Override // com.huawei.hem.InterfaceC0836ao
         /* renamed from: n */
-        public C0862bo mo1381n() {
+        public Timeout mo1381n() {
             return this.f3650a;
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("source(");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("source(");
             sbM1765j.append(this.f3651b);
             sbM1765j.append(")");
             return sbM1765j.toString();
@@ -79,13 +79,13 @@ public final class C1267rn {
     }
 
     /* renamed from: a */
-    public static InterfaceC1041in m2669a(InterfaceC1467zn interfaceC1467zn) {
-        return new C1342un(interfaceC1467zn);
+    public static BufferedSink m2669a(Sink interfaceC1467zn) {
+        return new RealBufferedSink(interfaceC1467zn);
     }
 
     /* renamed from: b */
-    public static InterfaceC1066jn m2670b(InterfaceC0836ao interfaceC0836ao) {
-        return new C1367vn(interfaceC0836ao);
+    public static BufferedSource m2670b(Source interfaceC0836ao) {
+        return new RealBufferedSource(interfaceC0836ao);
     }
 
     /* renamed from: c */
@@ -94,7 +94,7 @@ public final class C1267rn {
     }
 
     /* renamed from: d */
-    public static InterfaceC1467zn m2672d(Socket socket) throws IOException {
+    public static Sink m2672d(Socket socket) throws IOException {
         if (socket == null) {
             throw new IllegalArgumentException("socket == null");
         }
@@ -110,15 +110,15 @@ public final class C1267rn {
     }
 
     /* renamed from: e */
-    public static InterfaceC0836ao m2673e(File file) {
+    public static Source m2673e(File file) {
         if (file != null) {
-            return m2674f(new FileInputStream(file), new C0862bo());
+            return m2674f(new FileInputStream(file), new Timeout());
         }
         throw new IllegalArgumentException("file == null");
     }
 
     /* renamed from: f */
-    public static InterfaceC0836ao m2674f(InputStream inputStream, C0862bo c0862bo) {
+    public static Source m2674f(InputStream inputStream, Timeout c0862bo) {
         if (inputStream != null) {
             return new a(c0862bo, inputStream);
         }
@@ -126,7 +126,7 @@ public final class C1267rn {
     }
 
     /* renamed from: g */
-    public static InterfaceC0836ao m2675g(Socket socket) throws IOException {
+    public static Source m2675g(Socket socket) throws IOException {
         if (socket == null) {
             throw new IllegalArgumentException("socket == null");
         }

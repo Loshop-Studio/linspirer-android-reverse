@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -34,11 +34,11 @@ public class ManageDeviceDao extends AbstractDao<ManageDevice, Long> {
         database.execSQL("CREATE TABLE " + str + "\"device_tactic_info\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"COMMAND_CAMERA\" INTEGER NOT NULL ,\"COMMAND_BLUETOOTH\" INTEGER NOT NULL ,\"COMMAND_CONNECT_USB\" INTEGER NOT NULL ,\"COMMAND_RECORDING\" INTEGER NOT NULL ,\"COMMAND_WIFI_SWITCH\" INTEGER NOT NULL );");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_device_tactic_info__id ON \"device_tactic_info\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_device_tactic_info__id ON \"device_tactic_info\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"device_tactic_info\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"device_tactic_info\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

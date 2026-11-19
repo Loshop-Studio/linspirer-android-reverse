@@ -3,7 +3,7 @@ package com.aliyun.ams.emas.push;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1344v0;
 import com.taobao.accs.dispatch.IntentDispatch;
 import com.taobao.accs.utl.ALog;
@@ -64,13 +64,13 @@ public class AgooInnerService extends TaobaoBaseIntentService {
 
     @Override // com.taobao.agoo.TaobaoBaseIntentService, org.android.agoo.control.BaseIntentService
     public void onError(Context context, String str) {
-        ALog.m5729i("AgooInnerService", C0948f6.m1760e("onError:", str), new Object[0]);
+        ALog.m5729i("AgooInnerService", CompilerOutline.m1760e("onError:", str), new Object[0]);
     }
 
     @Override // com.taobao.agoo.TaobaoBaseIntentService, org.android.agoo.control.BaseIntentService
     public void onMessage(Context context, Intent intent) {
         String stringExtra = intent.getStringExtra(AgooConstants.MESSAGE_BODY);
-        StringBuilder sbM1770o = C0948f6.m1770o("onMessage:id:", intent.getStringExtra(AgooConstants.MESSAGE_ID), ", task_id:", intent.getStringExtra(AgooConstants.MESSAGE_TASK_ID), ", body:");
+        StringBuilder sbM1770o = CompilerOutline.m1770o("onMessage:id:", intent.getStringExtra(AgooConstants.MESSAGE_ID), ", task_id:", intent.getStringExtra(AgooConstants.MESSAGE_TASK_ID), ", body:");
         sbM1770o.append(stringExtra);
         ALog.m5729i("AgooInnerService", sbM1770o.toString(), new Object[0]);
         ALog.m5729i("AgooInnerService", m1023a(intent.getExtras(), 1), new Object[0]);
@@ -95,11 +95,11 @@ public class AgooInnerService extends TaobaoBaseIntentService {
 
     @Override // com.taobao.agoo.TaobaoBaseIntentService, org.android.agoo.control.BaseIntentService
     public void onRegistered(Context context, String str) {
-        ALog.m5729i("AgooInnerService", C0948f6.m1760e("onRegistered:", str), new Object[0]);
+        ALog.m5729i("AgooInnerService", CompilerOutline.m1760e("onRegistered:", str), new Object[0]);
     }
 
     @Override // com.taobao.agoo.TaobaoBaseIntentService
     public void onUnregistered(Context context, String str) {
-        ALog.m5729i("AgooInnerService", C0948f6.m1760e("onUnregistered:", str), new Object[0]);
+        ALog.m5729i("AgooInnerService", CompilerOutline.m1760e("onUnregistered:", str), new Object[0]);
     }
 }

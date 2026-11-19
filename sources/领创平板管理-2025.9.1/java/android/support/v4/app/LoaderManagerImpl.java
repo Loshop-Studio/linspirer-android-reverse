@@ -10,13 +10,13 @@ import android.support.v4.content.Loader;
 import android.support.v4.util.DebugUtils;
 import android.support.v4.util.SparseArrayCompat;
 import android.util.Log;
-import com.huawei.hem.AbstractC1243r;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1168o;
-import com.huawei.hem.C1293t;
-import com.huawei.hem.InterfaceC1042j;
-import com.huawei.hem.InterfaceC1193p;
-import com.huawei.hem.InterfaceC1268s;
+import com.huawei.hem.ViewModel;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.MutableLiveData;
+import com.huawei.hem.ViewModelStore;
+import com.huawei.hem.LifecycleOwner;
+import com.huawei.hem.Observer;
+import com.huawei.hem.ViewModelProviderFactory;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
@@ -27,17 +27,17 @@ public class LoaderManagerImpl extends LoaderManager {
     public static final String TAG = "LoaderManager";
 
     @NonNull
-    public final InterfaceC1042j mLifecycleOwner;
+    public final LifecycleOwner mLifecycleOwner;
 
     @NonNull
     public final LoaderViewModel mLoaderViewModel;
 
-    public static class LoaderInfo<D> extends C1168o<D> implements Loader.OnLoadCompleteListener<D> {
+    public static class LoaderInfo<D> extends MutableLiveData<D> implements Loader.OnLoadCompleteListener<D> {
 
         @Nullable
         public final Bundle mArgs;
         public final int mId;
-        public InterfaceC1042j mLifecycleOwner;
+        public LifecycleOwner mLifecycleOwner;
 
         @NonNull
         public final Loader<D> mLoader;
@@ -83,7 +83,7 @@ public class LoaderManagerImpl extends LoaderManager {
             printWriter.print(str);
             printWriter.print("mLoader=");
             printWriter.println(this.mLoader);
-            this.mLoader.dump(C0948f6.m1760e(str, "  "), fileDescriptor, printWriter, strArr);
+            this.mLoader.dump(CompilerOutline.m1760e(str, "  "), fileDescriptor, printWriter, strArr);
             if (this.mObserver != null) {
                 printWriter.print(str);
                 printWriter.print("mCallbacks=");
@@ -109,7 +109,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         public void markForRedelivery() {
-            InterfaceC1042j interfaceC1042j = this.mLifecycleOwner;
+            LifecycleOwner interfaceC1042j = this.mLifecycleOwner;
             LoaderObserver<D> loaderObserver = this.mObserver;
             if (interfaceC1042j == null || loaderObserver == null) {
                 return;
@@ -151,7 +151,7 @@ public class LoaderManagerImpl extends LoaderManager {
 
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.arch.lifecycle.LiveData
-        public void removeObserver(@NonNull InterfaceC1193p<? super D> interfaceC1193p) {
+        public void removeObserver(@NonNull Observer<? super D> interfaceC1193p) {
             super.removeObserver(interfaceC1193p);
             this.mLifecycleOwner = null;
             this.mObserver = null;
@@ -159,7 +159,7 @@ public class LoaderManagerImpl extends LoaderManager {
 
         @NonNull
         @MainThread
-        public Loader<D> setCallback(@NonNull InterfaceC1042j interfaceC1042j, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+        public Loader<D> setCallback(@NonNull LifecycleOwner interfaceC1042j, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
             LoaderObserver<D> loaderObserver = new LoaderObserver<>(this.mLoader, loaderCallbacks);
             observe(interfaceC1042j, loaderObserver);
             LoaderObserver<D> loaderObserver2 = this.mObserver;
@@ -194,7 +194,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    public static class LoaderObserver<D> implements InterfaceC1193p<D> {
+    public static class LoaderObserver<D> implements Observer<D> {
 
         @NonNull
         public final LoaderManager.LoaderCallbacks<D> mCallback;
@@ -221,7 +221,7 @@ public class LoaderManagerImpl extends LoaderManager {
         @Override // com.huawei.hem.InterfaceC1193p
         public void onChanged(@Nullable D d) {
             if (LoaderManagerImpl.DEBUG) {
-                StringBuilder sbM1765j = C0948f6.m1765j("  onLoadFinished in ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("  onLoadFinished in ");
                 sbM1765j.append(this.mLoader);
                 sbM1765j.append(": ");
                 sbM1765j.append(this.mLoader.dataToString(d));
@@ -235,7 +235,7 @@ public class LoaderManagerImpl extends LoaderManager {
         public void reset() {
             if (this.mDeliveredData) {
                 if (LoaderManagerImpl.DEBUG) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("  Resetting: ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("  Resetting: ");
                     sbM1765j.append(this.mLoader);
                     Log.v(LoaderManagerImpl.TAG, sbM1765j.toString());
                 }
@@ -248,11 +248,11 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    public static class LoaderViewModel extends AbstractC1243r {
-        public static final InterfaceC1268s FACTORY = new InterfaceC1268s() { // from class: android.support.v4.app.LoaderManagerImpl.LoaderViewModel.1
+    public static class LoaderViewModel extends ViewModel {
+        public static final ViewModelProviderFactory FACTORY = new ViewModelProviderFactory() { // from class: android.support.v4.app.LoaderManagerImpl.LoaderViewModel.1
             @Override // com.huawei.hem.InterfaceC1268s
             @NonNull
-            public <T extends AbstractC1243r> T create(@NonNull Class<T> cls) {
+            public <T extends ViewModel> T create(@NonNull Class<T> cls) {
                 return new LoaderViewModel();
             }
         };
@@ -260,15 +260,15 @@ public class LoaderManagerImpl extends LoaderManager {
         public boolean mCreatingLoader = false;
 
         @NonNull
-        public static LoaderViewModel getInstance(C1293t c1293t) {
-            AbstractC1243r abstractC1243rPut;
-            InterfaceC1268s interfaceC1268s = FACTORY;
+        public static LoaderViewModel getInstance(ViewModelStore c1293t) {
+            ViewModel abstractC1243rPut;
+            ViewModelProviderFactory interfaceC1268s = FACTORY;
             String canonicalName = LoaderViewModel.class.getCanonicalName();
             if (canonicalName == null) {
                 throw new IllegalArgumentException("Local and anonymous classes can not be ViewModels");
             }
-            String strM1760e = C0948f6.m1760e("android.arch.lifecycle.ViewModelProvider.DefaultKey:", canonicalName);
-            AbstractC1243r abstractC1243rCreate = c1293t.f3737a.get(strM1760e);
+            String strM1760e = CompilerOutline.m1760e("android.arch.lifecycle.ViewModelProvider.DefaultKey:", canonicalName);
+            ViewModel abstractC1243rCreate = c1293t.f3737a.get(strM1760e);
             if (!LoaderViewModel.class.isInstance(abstractC1243rCreate) && (abstractC1243rPut = c1293t.f3737a.put(strM1760e, (abstractC1243rCreate = interfaceC1268s.create(LoaderViewModel.class)))) != null) {
                 abstractC1243rPut.onCleared();
             }
@@ -344,7 +344,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    public LoaderManagerImpl(@NonNull InterfaceC1042j interfaceC1042j, @NonNull C1293t c1293t) {
+    public LoaderManagerImpl(@NonNull LifecycleOwner interfaceC1042j, @NonNull ViewModelStore c1293t) {
         this.mLifecycleOwner = interfaceC1042j;
         this.mLoaderViewModel = LoaderViewModel.getInstance(c1293t);
     }

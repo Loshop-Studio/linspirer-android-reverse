@@ -1,6 +1,6 @@
 package com.liulishuo.filedownloader.message;
 
-import com.huawei.hem.C1010hh;
+import com.huawei.hem.FileDownloadUtils;
 
 /* loaded from: classes.dex */
 public interface BlockCompleteMessage {
@@ -13,7 +13,7 @@ public interface BlockCompleteMessage {
         public BlockCompleteMessageImpl(MessageSnapshot messageSnapshot) {
             super(messageSnapshot.f4819a);
             if (messageSnapshot.mo2112a() != -3) {
-                throw new IllegalArgumentException(C1010hh.m1955e("can't create the block complete message for id[%d], status[%d]", Integer.valueOf(messageSnapshot.f4819a), Byte.valueOf(messageSnapshot.mo2112a())));
+                throw new IllegalArgumentException(FileDownloadUtils.m1955e("can't create the block complete message for id[%d], status[%d]", Integer.valueOf(messageSnapshot.f4819a), Byte.valueOf(messageSnapshot.mo2112a())));
             }
             this.f4806c = messageSnapshot;
         }

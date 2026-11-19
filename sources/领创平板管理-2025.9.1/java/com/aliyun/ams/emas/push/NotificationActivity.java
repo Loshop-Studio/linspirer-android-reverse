@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.huawei.hem.C0813a1;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1344v0;
 import com.taobao.accs.utl.ALog;
 
@@ -23,7 +23,7 @@ public class NotificationActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             String action = intent.getAction();
-            ALog.m5726d("MPS:NotificationActivity", C0948f6.m1760e("MsgService onStartCommand begin...action=", action), new Object[0]);
+            ALog.m5726d("MPS:NotificationActivity", CompilerOutline.m1760e("MsgService onStartCommand begin...action=", action), new Object[0]);
             if (TextUtils.equals(action, C1344v0.f3911b)) {
                 this.f1446a.m1295a(intent, getApplicationContext(), 1);
             }

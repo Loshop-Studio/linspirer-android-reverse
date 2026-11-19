@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.encoder;
 
 import com.google.zxing.WriterException;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ExceptionCode;
 import com.taobao.accs.ErrorCode;
 import java.nio.charset.Charset;
@@ -201,7 +201,7 @@ public final class PDF417 {
         String string = sb.toString();
         String strGenerateErrorCorrection = PDF417ErrorCorrection.generateErrorCorrection(string, i);
         this.barcodeMatrix = new BarcodeMatrix(i3, i2);
-        encodeLowLevel(C0948f6.m1760e(string, strGenerateErrorCorrection), i2, i3, i, this.barcodeMatrix);
+        encodeLowLevel(CompilerOutline.m1760e(string, strGenerateErrorCorrection), i2, i3, i, this.barcodeMatrix);
     }
 
     public BarcodeMatrix getBarcodeMatrix() {

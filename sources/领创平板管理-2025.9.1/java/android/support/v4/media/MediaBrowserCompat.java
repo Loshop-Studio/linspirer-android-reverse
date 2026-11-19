@@ -27,7 +27,7 @@ import android.support.v4.os.ResultReceiver;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -533,7 +533,7 @@ public final class MediaBrowserCompat {
                 if (mediaBrowserImplBase.mState == 0) {
                     return false;
                 }
-                StringBuilder sbM1767l = C0948f6.m1767l(str, " for ");
+                StringBuilder sbM1767l = CompilerOutline.m1767l(str, " for ");
                 sbM1767l.append(MediaBrowserImplBase.this.mServiceComponent);
                 sbM1767l.append(" with mServiceConnection=");
                 sbM1767l.append(MediaBrowserImplBase.this.mServiceConnection);
@@ -549,7 +549,7 @@ public final class MediaBrowserCompat {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (MediaBrowserCompat.DEBUG) {
-                            StringBuilder sbM1765j = C0948f6.m1765j("MediaServiceConnection.onServiceConnected name=");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("MediaServiceConnection.onServiceConnected name=");
                             sbM1765j.append(componentName);
                             sbM1765j.append(" binder=");
                             sbM1765j.append(iBinder);
@@ -570,7 +570,7 @@ public final class MediaBrowserCompat {
                                 }
                                 MediaBrowserImplBase.this.mServiceBinderWrapper.connect(MediaBrowserImplBase.this.mContext, MediaBrowserImplBase.this.mCallbacksMessenger);
                             } catch (RemoteException unused) {
-                                StringBuilder sbM1765j2 = C0948f6.m1765j("RemoteException during connect for ");
+                                StringBuilder sbM1765j2 = CompilerOutline.m1765j("RemoteException during connect for ");
                                 sbM1765j2.append(MediaBrowserImplBase.this.mServiceComponent);
                                 Log.w(MediaBrowserCompat.TAG, sbM1765j2.toString());
                                 if (MediaBrowserCompat.DEBUG) {
@@ -589,7 +589,7 @@ public final class MediaBrowserCompat {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (MediaBrowserCompat.DEBUG) {
-                            StringBuilder sbM1765j = C0948f6.m1765j("MediaServiceConnection.onServiceDisconnected name=");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("MediaServiceConnection.onServiceDisconnected name=");
                             sbM1765j.append(componentName);
                             sbM1765j.append(" this=");
                             sbM1765j.append(this);
@@ -629,7 +629,7 @@ public final class MediaBrowserCompat {
         }
 
         public static String getStateLabel(int i) {
-            return i != 0 ? i != 1 ? i != 2 ? i != 3 ? C0948f6.m1754L("UNKNOWN/", i) : "CONNECT_STATE_SUSPENDED" : "CONNECT_STATE_CONNECTED" : "CONNECT_STATE_CONNECTING" : "CONNECT_STATE_DISCONNECTED";
+            return i != 0 ? i != 1 ? i != 2 ? i != 3 ? CompilerOutline.m1754L("UNKNOWN/", i) : "CONNECT_STATE_SUSPENDED" : "CONNECT_STATE_CONNECTED" : "CONNECT_STATE_CONNECTING" : "CONNECT_STATE_DISCONNECTED";
         }
 
         private boolean isCurrent(Messenger messenger, String str) {
@@ -639,7 +639,7 @@ public final class MediaBrowserCompat {
             if (this.mState == 0) {
                 return false;
             }
-            StringBuilder sbM1767l = C0948f6.m1767l(str, " for ");
+            StringBuilder sbM1767l = CompilerOutline.m1767l(str, " for ");
             sbM1767l.append(this.mServiceComponent);
             sbM1767l.append(" with mCallbacksMessenger=");
             sbM1767l.append(this.mCallbacksMessenger);
@@ -652,23 +652,23 @@ public final class MediaBrowserCompat {
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
         public void connect() {
             if (this.mState != 0) {
-                StringBuilder sbM1765j = C0948f6.m1765j("connect() called while not disconnected (state=");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("connect() called while not disconnected (state=");
                 sbM1765j.append(getStateLabel(this.mState));
                 sbM1765j.append(")");
                 throw new IllegalStateException(sbM1765j.toString());
             }
             if (MediaBrowserCompat.DEBUG && this.mServiceConnection != null) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("mServiceConnection should be null. Instead it is ");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("mServiceConnection should be null. Instead it is ");
                 sbM1765j2.append(this.mServiceConnection);
                 throw new RuntimeException(sbM1765j2.toString());
             }
             if (this.mServiceBinderWrapper != null) {
-                StringBuilder sbM1765j3 = C0948f6.m1765j("mServiceBinderWrapper should be null. Instead it is ");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j("mServiceBinderWrapper should be null. Instead it is ");
                 sbM1765j3.append(this.mServiceBinderWrapper);
                 throw new RuntimeException(sbM1765j3.toString());
             }
             if (this.mCallbacksMessenger != null) {
-                StringBuilder sbM1765j4 = C0948f6.m1765j("mCallbacksMessenger should be null. Instead it is ");
+                StringBuilder sbM1765j4 = CompilerOutline.m1765j("mCallbacksMessenger should be null. Instead it is ");
                 sbM1765j4.append(this.mCallbacksMessenger);
                 throw new RuntimeException(sbM1765j4.toString());
             }
@@ -681,7 +681,7 @@ public final class MediaBrowserCompat {
             try {
                 zBindService = this.mContext.bindService(intent, mediaServiceConnection, 1);
             } catch (Exception unused) {
-                StringBuilder sbM1765j5 = C0948f6.m1765j("Failed binding to service ");
+                StringBuilder sbM1765j5 = CompilerOutline.m1765j("Failed binding to service ");
                 sbM1765j5.append(this.mServiceComponent);
                 Log.e(MediaBrowserCompat.TAG, sbM1765j5.toString());
             }
@@ -711,7 +711,7 @@ public final class MediaBrowserCompat {
                 try {
                     this.mServiceBinderWrapper.disconnect(messenger);
                 } catch (RemoteException unused) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("RemoteException during connect for ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("RemoteException during connect for ");
                     sbM1765j.append(this.mServiceComponent);
                     Log.w(MediaBrowserCompat.TAG, sbM1765j.toString());
                 }
@@ -756,7 +756,7 @@ public final class MediaBrowserCompat {
             if (isConnected()) {
                 return this.mExtras;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("getExtras() called while not connected (state=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getExtras() called while not connected (state=");
             sbM1765j.append(getStateLabel(this.mState));
             sbM1765j.append(")");
             throw new IllegalStateException(sbM1765j.toString());
@@ -799,7 +799,7 @@ public final class MediaBrowserCompat {
             if (isConnected()) {
                 return this.mRootId;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("getRoot() called while not connected(state=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getRoot() called while not connected(state=");
             sbM1765j.append(getStateLabel(this.mState));
             sbM1765j.append(")");
             throw new IllegalStateException(sbM1765j.toString());
@@ -811,7 +811,7 @@ public final class MediaBrowserCompat {
             if (isConnected()) {
                 return this.mServiceComponent;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("getServiceComponent() called while not connected (state=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getServiceComponent() called while not connected (state=");
             sbM1765j.append(this.mState);
             sbM1765j.append(")");
             throw new IllegalStateException(sbM1765j.toString());
@@ -823,7 +823,7 @@ public final class MediaBrowserCompat {
             if (isConnected()) {
                 return this.mMediaSessionToken;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("getSessionToken() called while not connected(state=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getSessionToken() called while not connected(state=");
             sbM1765j.append(this.mState);
             sbM1765j.append(")");
             throw new IllegalStateException(sbM1765j.toString());
@@ -836,7 +836,7 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserServiceCallbackImpl
         public void onConnectionFailed(Messenger messenger) {
-            StringBuilder sbM1765j = C0948f6.m1765j("onConnectFailed for ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("onConnectFailed for ");
             sbM1765j.append(this.mServiceComponent);
             Log.e(MediaBrowserCompat.TAG, sbM1765j.toString());
             if (isCurrent(messenger, "onConnectFailed")) {
@@ -844,7 +844,7 @@ public final class MediaBrowserCompat {
                     forceCloseConnection();
                     this.mCallback.onConnectionFailed();
                 } else {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("onConnect from service while mState=");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("onConnect from service while mState=");
                     sbM1765j2.append(getStateLabel(this.mState));
                     sbM1765j2.append("... ignoring");
                     Log.w(MediaBrowserCompat.TAG, sbM1765j2.toString());
@@ -856,7 +856,7 @@ public final class MediaBrowserCompat {
         public void onLoadChildren(Messenger messenger, String str, List list, Bundle bundle) {
             if (isCurrent(messenger, "onLoadChildren")) {
                 if (MediaBrowserCompat.DEBUG) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("onLoadChildren for ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("onLoadChildren for ");
                     sbM1765j.append(this.mServiceComponent);
                     sbM1765j.append(" id=");
                     sbM1765j.append(str);
@@ -885,7 +885,7 @@ public final class MediaBrowserCompat {
         public void onServiceConnected(Messenger messenger, String str, MediaSessionCompat.Token token, Bundle bundle) {
             if (isCurrent(messenger, "onConnect")) {
                 if (this.mState != 1) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("onConnect from service while mState=");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("onConnect from service while mState=");
                     sbM1765j.append(getStateLabel(this.mState));
                     sbM1765j.append("... ignoring");
                     Log.w(MediaBrowserCompat.TAG, sbM1765j.toString());

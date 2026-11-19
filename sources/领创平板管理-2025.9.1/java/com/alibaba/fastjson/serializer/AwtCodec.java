@@ -6,9 +6,9 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
-import com.loc.C1860u;
+import com.loc.AMapLog;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
@@ -90,13 +90,13 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
             jSONLexer.nextToken();
             if (strStringVal.equalsIgnoreCase("r")) {
                 i = iIntValue;
-            } else if (strStringVal.equalsIgnoreCase(C1860u.f5946f)) {
+            } else if (strStringVal.equalsIgnoreCase(AMapLog.f5946f)) {
                 i2 = iIntValue;
             } else if (strStringVal.equalsIgnoreCase("b")) {
                 i3 = iIntValue;
             } else {
                 if (!strStringVal.equalsIgnoreCase("alpha")) {
-                    throw new JSONException(C0948f6.m1760e("syntax error, ", strStringVal));
+                    throw new JSONException(CompilerOutline.m1760e("syntax error, ", strStringVal));
                 }
                 i4 = iIntValue;
             }
@@ -133,7 +133,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                 jSONLexer.nextToken();
             } else {
                 if (!strStringVal2.equalsIgnoreCase("size")) {
-                    throw new JSONException(C0948f6.m1760e("syntax error, ", strStringVal2));
+                    throw new JSONException(CompilerOutline.m1760e("syntax error, ", strStringVal2));
                 }
                 if (jSONLexer.token() != 2) {
                     throw new JSONException("syntax error");
@@ -172,7 +172,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     jSONLexer.nextToken();
                 } else {
                     if (i3 != 3) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("syntax error : ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error : ");
                         sbM1765j.append(jSONLexer.tokenName());
                         throw new JSONException(sbM1765j.toString());
                     }
@@ -183,7 +183,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     i = iFloatValue;
                 } else {
                     if (!strStringVal.equalsIgnoreCase("y")) {
-                        throw new JSONException(C0948f6.m1760e("syntax error, ", strStringVal));
+                        throw new JSONException(CompilerOutline.m1760e("syntax error, ", strStringVal));
                     }
                     i2 = iFloatValue;
                 }
@@ -228,7 +228,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                 i3 = iFloatValue;
             } else {
                 if (!strStringVal.equalsIgnoreCase("height")) {
-                    throw new JSONException(C0948f6.m1760e("syntax error, ", strStringVal));
+                    throw new JSONException(CompilerOutline.m1760e("syntax error, ", strStringVal));
                 }
                 i4 = iFloatValue;
             }
@@ -264,13 +264,13 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
             serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "height", rectangle.height);
         } else {
             if (!(obj instanceof Color)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("not support awt class : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("not support awt class : ");
                 sbM1765j.append(obj.getClass().getName());
                 throw new JSONException(sbM1765j.toString());
             }
             Color color = (Color) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), "r", color.getRed());
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, C1860u.f5946f, color.getGreen());
+            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, AMapLog.f5946f, color.getGreen());
             serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "b", color.getBlue());
             if (color.getAlpha() > 0) {
                 serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "alpha", color.getAlpha());

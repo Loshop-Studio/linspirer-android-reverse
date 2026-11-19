@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.serializer.BeanContext;
 import com.alibaba.fastjson.util.FieldInfo;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -91,7 +91,7 @@ public abstract class FieldDeserializer {
         try {
             method = this.fieldInfo.method;
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("set property error, ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("set property error, ");
             sbM1765j.append(this.clazz.getName());
             sbM1765j.append("#");
             sbM1765j.append(this.fieldInfo.name);
@@ -190,7 +190,7 @@ public abstract class FieldDeserializer {
                     degradeValueAssignment(this.fieldInfo.field, method, obj, obj2);
                     return;
                 }
-                StringBuilder sbM1765j2 = C0948f6.m1765j("set property error, ");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("set property error, ");
                 sbM1765j2.append(this.clazz.getName());
                 sbM1765j2.append("#");
                 sbM1765j2.append(this.fieldInfo.name);

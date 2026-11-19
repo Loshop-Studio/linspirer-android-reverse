@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.ObjectSerializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.util.Optional;
 import java.util.OptionalDouble;
@@ -71,7 +71,7 @@ public class OptionalCodec implements ObjectSerializer, ObjectDeserializer {
             }
         }
         if (!(obj instanceof OptionalLong)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("not support optional : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("not support optional : ");
             sbM1765j.append(obj.getClass());
             throw new JSONException(sbM1765j.toString());
         }

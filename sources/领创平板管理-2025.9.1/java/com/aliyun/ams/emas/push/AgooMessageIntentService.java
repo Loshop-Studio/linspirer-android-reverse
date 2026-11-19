@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Messenger;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1219q0;
 import com.huawei.hem.HandlerC1194p0;
 import com.huawei.hem.InterfaceC1093l0;
@@ -29,7 +29,7 @@ public abstract class AgooMessageIntentService extends Service implements Interf
             ALog.m5728e(TAG, "Action is null, return.", new Object[0]);
             return;
         }
-        ALog.m5726d(TAG, C0948f6.m1760e("check_notif action: ", action), new Object[0]);
+        ALog.m5726d(TAG, CompilerOutline.m1760e("check_notif action: ", action), new Object[0]);
         if ("com.alibaba.sdk.android.push.RECEIVE".equals(action)) {
             C1219q0.m2511g(getApplicationContext(), intent, this, this);
             return;

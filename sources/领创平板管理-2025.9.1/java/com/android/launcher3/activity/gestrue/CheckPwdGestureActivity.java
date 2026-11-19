@@ -19,15 +19,15 @@ import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.view.DialogUtil;
 import com.android.launcher3.view.GestureLockLayout;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0904de;
-import com.huawei.hem.C1221q2;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1321u2;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherDeviceUtils;
+import com.huawei.hem.CheckPwdGestureActivityGestureCallback;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.CheckPwdGestureActivityResponseListener;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.ViewOnClickListenerC1246r2;
 import com.huawei.hem.ViewOnClickListenerC1271s2;
 import com.huawei.hem.ViewOnClickListenerC1296t2;
@@ -60,7 +60,7 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
     public View f1825n;
 
     /* renamed from: o */
-    public C1424y5 f1826o;
+    public UserInfoUtil f1826o;
 
     /* renamed from: p */
     public boolean f1827p = true;
@@ -81,7 +81,7 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
     public String f1832u;
 
     /* renamed from: v */
-    public C1255rb f1833v;
+    public HttpCore f1833v;
 
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: b */
@@ -112,10 +112,10 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
             return super.dispatchKeyEvent(keyEvent);
         }
         if (this.f1827p) {
-            C0850bc.m1413w(this, getResources().getString(R.string.text_gesture_draw_password), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.text_gesture_draw_password), 0);
             return true;
         }
-        C0850bc.m1413w(this, getResources().getString(R.string.please_enter_dynamic_password), 0);
+        LTKDateUtil.m1413w(this, getResources().getString(R.string.please_enter_dynamic_password), 0);
         return true;
     }
 
@@ -123,8 +123,8 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
     /* renamed from: e */
     public void mo1172e() {
         super.mo1172e();
-        this.f1833v = new C1255rb();
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        this.f1833v = new HttpCore();
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         this.f1826o = c1424y5;
         this.f1831t = c1424y5.m3074v();
         this.f1832u = this.f1826o.m3052k();
@@ -140,7 +140,7 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
         this.f1824m = (Button) findViewById(R.id.check_login_pwd);
         this.f1825n = findViewById(R.id.divider);
         this.f1829r.setText(this.f1831t);
-        C1221q2 c1221q2 = new C1221q2(this);
+        CheckPwdGestureActivityGestureCallback c1221q2 = new CheckPwdGestureActivityGestureCallback(this);
         this.f1824m.setOnClickListener(new ViewOnClickListenerC1246r2(this));
         this.f1819h.setOnClickListener(new ViewOnClickListenerC1271s2(this));
         this.f1830s.setOnClickListener(new ViewOnClickListenerC1296t2(this));
@@ -161,45 +161,45 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
     public final void m1229l() {
         String string = this.f1821j.getText().toString();
         if (TextUtils.isEmpty(string)) {
-            C0850bc.m1413w(this, getString(R.string.text_gesture_input_password_for_null), 0);
+            LTKDateUtil.m1413w(this, getString(R.string.text_gesture_input_password_for_null), 0);
             return;
         }
         if (this.f1828q) {
-            if (!C1423y4.m2957D().equals(string)) {
-                C0850bc.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
+            if (!LauncherMenuHelper.m2957D().equals(string)) {
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
                 return;
             }
             this.f1826o.m3026U(false);
-            C0850bc.f2294f.enableRecent();
-            C0850bc.f2294f.enableHome();
+            LTKDateUtil.f2294f.enableRecent();
+            LTKDateUtil.f2294f.enableHome();
             finish();
             return;
         }
         if (!TextUtils.isEmpty("com.zykj.manage")) {
-            if (!C1423y4.m2957D().equals(string)) {
-                C0850bc.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
+            if (!LauncherMenuHelper.m2957D().equals(string)) {
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
                 return;
             }
             this.f1826o.m3026U(false);
-            C0850bc.f2294f.enableRecent();
-            C0850bc.f2294f.enableHome();
+            LTKDateUtil.f2294f.enableRecent();
+            LTKDateUtil.f2294f.enableHome();
             finish();
             return;
         }
         if (!new C0876cc(this).m1505a()) {
-            C0850bc.m1403m("CheckPwdGestureActivity -- check local StuLoginPassword .");
-            if (!C0850bc.m1401k(string).equals(this.f1826o.m3013H())) {
-                C0850bc.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
+            LTKDateUtil.m1403m("CheckPwdGestureActivity -- check local StuLoginPassword .");
+            if (!LTKDateUtil.m1401k(string).equals(this.f1826o.m3013H())) {
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);
                 return;
             }
             this.f1826o.m3026U(false);
-            C0850bc.f2294f.enableRecent();
-            C0850bc.f2294f.enableHome();
+            LTKDateUtil.f2294f.enableRecent();
+            LTKDateUtil.f2294f.enableHome();
             finish();
             return;
         }
         String str = this.f1832u;
-        if (C1424y5.b.f4202a.m3023R()) {
+        if (UserInfoUtil.b.f4202a.m3023R()) {
             return;
         }
         DialogUtil.showDialog(this, getString(R.string.waiting_for_checking));
@@ -208,34 +208,34 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
             LoginParams loginParams = new LoginParams(this);
             loginParams.setEmail(str);
             loginParams.setPassword(string);
-            loginParams.setAppstore_version(C0850bc.m1398h("com.ndwill.swd.appstore", this));
-            loginParams.setLauncher_version(C0850bc.m1398h("com.android.launcher3", this));
+            loginParams.setAppstore_version(LTKDateUtil.m1398h("com.ndwill.swd.appstore", this));
+            loginParams.setLauncher_version(LTKDateUtil.m1398h("com.android.launcher3", this));
             loginParams.setRom_version(Build.DISPLAY);
-            loginParams.setSn(C0904de.m1592i());
-            loginParams.setAndroid_id(C0904de.m1586c(this));
+            loginParams.setSn(LauncherDeviceUtils.m1592i());
+            loginParams.setAndroid_id(LauncherDeviceUtils.m1586c(this));
             loginParams.setRom_version(Build.DISPLAY);
             v2Params.setMethod(RequestUrl.LOGIN_METHOD);
             v2Params.setParams(JSON.toJSONString(loginParams));
-            C1255rb c1255rb = this.f1833v;
+            HttpCore c1255rb = this.f1833v;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
-            c1355vb.m2869b(new C1321u2(this, UserInfo.class));
+            c1355vb.m2869b(new CheckPwdGestureActivityResponseListener(this, UserInfo.class));
         } catch (Exception e) {
             DialogUtil.hideDialog();
             e.printStackTrace();
-            C0850bc.m1413w(this, getString(R.string.check_password_failed), 0);
+            LTKDateUtil.m1413w(this, getString(R.string.check_password_failed), 0);
         }
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        C0850bc.f2294f.disableHome();
-        C0850bc.f2294f.disableRecent();
+        LTKDateUtil.f2294f.disableHome();
+        LTKDateUtil.f2294f.disableRecent();
         this.f1820i.requestLayout();
         this.f1827p = true;
         this.f1828q = false;

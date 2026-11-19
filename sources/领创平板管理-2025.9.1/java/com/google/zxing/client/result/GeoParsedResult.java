@@ -1,6 +1,6 @@
 package com.google.zxing.client.result;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 
 /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public final class GeoParsedResult extends ParsedResult {
     }
 
     public String getGeoURI() {
-        StringBuilder sbM1765j = C0948f6.m1765j("geo:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("geo:");
         sbM1765j.append(this.latitude);
         sbM1765j.append(AbstractC1604b.COMMA);
         sbM1765j.append(this.longitude);

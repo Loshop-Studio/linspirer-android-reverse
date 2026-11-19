@@ -3,7 +3,7 @@ package com.taobao.accs.internal;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.base.IBaseReceiver;
 import com.taobao.accs.client.AdapterGlobalClientInfo;
 import com.taobao.accs.dispatch.IntentDispatch;
@@ -40,7 +40,7 @@ public class ReceiverImpl implements IBaseReceiver {
                 IntentDispatch.dispatchIntent(context.getApplicationContext(), intent, agooCustomServiceName);
             }
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("ReceiverImpl onReceive,exception,e=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("ReceiverImpl onReceive,exception,e=");
             sbM1765j.append(th.getMessage());
             ALog.m5728e("ReceiverImpl", sbM1765j.toString(), new Object[0]);
         }

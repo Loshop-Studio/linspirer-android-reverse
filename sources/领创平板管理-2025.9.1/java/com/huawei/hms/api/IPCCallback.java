@@ -2,18 +2,18 @@ package com.huawei.hms.api;
 
 import android.os.RemoteException;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
-import com.huawei.hms.core.aidl.C1540a;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hms.core.aidl.CodecLookup;
 import com.huawei.hms.core.aidl.C1541b;
-import com.huawei.hms.core.aidl.C1544e;
+import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
-import com.huawei.hms.core.aidl.InterfaceC1542c;
+import com.huawei.hms.core.aidl.IAIDLCallback;
 import com.huawei.hms.core.aidl.ResponseHeader;
 import com.huawei.hms.support.api.transport.DatagramTransport;
 import com.huawei.hms.support.log.HMSLog;
 
 /* loaded from: classes.dex */
-public class IPCCallback extends InterfaceC1542c.a {
+public class IPCCallback extends IAIDLCallback.a {
 
     /* renamed from: a */
     public final Class<? extends IMessageEntity> f4420a;
@@ -32,7 +32,7 @@ public class IPCCallback extends InterfaceC1542c.a {
             HMSLog.m3461e("IPCCallback", "In call, URI cannot be empty.");
             throw new RemoteException();
         }
-        C1544e c1544eM3386a = C1540a.m3386a(c1541b.m3392c());
+        MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b.m3392c());
         IMessageEntity iMessageEntityNewResponseInstance = null;
         if (c1541b.m3391b() > 0 && (iMessageEntityNewResponseInstance = newResponseInstance()) != null) {
             c1544eM3386a.m3402a(c1541b.m3389a(), iMessageEntityNewResponseInstance);
@@ -54,7 +54,7 @@ public class IPCCallback extends InterfaceC1542c.a {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException | InstantiationException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("In newResponseInstance, instancing exception.");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("In newResponseInstance, instancing exception.");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("IPCCallback", sbM1765j.toString());
             return null;

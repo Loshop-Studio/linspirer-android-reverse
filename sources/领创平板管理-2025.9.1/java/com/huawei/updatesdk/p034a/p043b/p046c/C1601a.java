@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p043b.p046c;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.C1606d;
 import com.huawei.updatesdk.service.appmgr.bean.C1648a;
 import com.huawei.updatesdk.service.appmgr.bean.C1649b;
@@ -29,6 +29,6 @@ public class C1601a {
         if (cls != null) {
             return (C1606d) cls.newInstance();
         }
-        throw new InstantiationException(C0948f6.m1760e("ResponseBean class not found, method:", str));
+        throw new InstantiationException(CompilerOutline.m1760e("ResponseBean class not found, method:", str));
     }
 }

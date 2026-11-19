@@ -1,14 +1,14 @@
 package com.huawei.hms.support.hianalytics;
 
 import android.content.Context;
-import com.huawei.hem.C1454za;
+import com.huawei.hem.HiAnalyticsBase;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.huawei.hms.utils.Util;
 import java.util.Map;
 
 /* loaded from: classes.dex */
-public class HiAnalyticsClient extends C1454za {
+public class HiAnalyticsClient extends HiAnalyticsBase {
     @Deprecated
     public static String reportEntry(Context context, String str) {
         return reportEntry(context, str, Util.getAppId(context), 0);
@@ -28,7 +28,7 @@ public class HiAnalyticsClient extends C1454za {
 
     public static String reportEntry(Context context, String str, String str2, int i) {
         String id = TransactionIdCreater.getId(str2, str);
-        Map<String, String> mapForBi = C1454za.getMapForBi(context, str);
+        Map<String, String> mapForBi = HiAnalyticsBase.getMapForBi(context, str);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_APPID, str2);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_TRANSID, id);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, HiAnalyticsConstant.Direction.REQUEST);
@@ -39,7 +39,7 @@ public class HiAnalyticsClient extends C1454za {
     }
 
     public static void reportExit(Context context, String str, String str2, String str3, int i, int i2, int i3) {
-        Map<String, String> mapForBi = C1454za.getMapForBi(context, str);
+        Map<String, String> mapForBi = HiAnalyticsBase.getMapForBi(context, str);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_APPID, str3);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_TRANSID, str2);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, HiAnalyticsConstant.Direction.RESPONSE);

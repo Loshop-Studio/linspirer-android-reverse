@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.CursorWindow;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -249,7 +249,7 @@ public abstract class AbstractDao<T, K> {
         StringBuilder sb = new StringBuilder();
         sb.append(this);
         sb.append(" (");
-        throw new DaoException(C0948f6.m1762g(sb, this.config.tablename, ") does not have a single-column primary key"));
+        throw new DaoException(CompilerOutline.m1762g(sb, this.config.tablename, ") does not have a single-column primary key"));
     }
 
     public void attachEntity(T t) {
@@ -282,7 +282,7 @@ public abstract class AbstractDao<T, K> {
     }
 
     public void deleteAll() {
-        C0948f6.m1743A(C0948f6.m1765j("DELETE FROM '"), this.config.tablename, "'", this.f6503db);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DELETE FROM '"), this.config.tablename, "'", this.f6503db);
         IdentityScope<K, T> identityScope = this.identityScope;
         if (identityScope != null) {
             identityScope.clear();
@@ -568,7 +568,7 @@ public abstract class AbstractDao<T, K> {
         if (cursor.isLast()) {
             return loadCurrent(cursor, 0, true);
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Expected unique result, but count was ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Expected unique result, but count was ");
         sbM1765j.append(cursor.getCount());
         throw new DaoException(sbM1765j.toString());
     }

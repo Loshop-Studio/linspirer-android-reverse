@@ -1,7 +1,7 @@
 package com.taobao.accs.net;
 
 import android.support.v7.widget.RecyclerView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.AccsState;
 import com.taobao.accs.data.Message;
@@ -43,7 +43,7 @@ public class RunnableC1954p implements Runnable {
         Message messageM5560b;
         AccsState accsState = AccsState.getInstance();
         String str = this.f6277e.f6221m;
-        StringBuilder sbM1765j = C0948f6.m1765j("oe ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("oe ");
         sbM1765j.append(this.f6273a);
         sbM1765j.append(" ");
         sbM1765j.append(this.f6274b);

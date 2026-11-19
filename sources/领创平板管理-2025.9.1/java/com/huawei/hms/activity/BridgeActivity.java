@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.p032ui.SafeIntent;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.ResourceLoaderUtil;
@@ -57,7 +57,7 @@ public class BridgeActivity extends Activity {
                     }
                 }
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("An exception occurred while reading: onApplyWindowInsets");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("An exception occurred while reading: onApplyWindowInsets");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e("BridgeActivity", sbM1765j.toString());
             }
@@ -70,7 +70,7 @@ public class BridgeActivity extends Activity {
         try {
             window.getClass().getMethod("setHwFloating", Boolean.TYPE).invoke(window, Boolean.valueOf(z));
         } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("In setHwFloating, Failed to call Window.setHwFloating().");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("In setHwFloating, Failed to call Window.setHwFloating().");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("BridgeActivity", sbM1765j.toString());
         }
@@ -105,13 +105,13 @@ public class BridgeActivity extends Activity {
                 iBridgeActivityDelegate.onBridgeActivityCreate(this);
                 return true;
             } catch (RuntimeException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Run time Exception.");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Run time Exception.");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e("BridgeActivity", sbM1765j.toString());
                 return false;
             }
         } catch (ClassCastException | ClassNotFoundException | IllegalAccessException | InstantiationException e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("In initialize, Failed to create 'IUpdateWizard' instance.");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("In initialize, Failed to create 'IUpdateWizard' instance.");
             sbM1765j2.append(e2.getMessage());
             HMSLog.m3461e("BridgeActivity", sbM1765j2.toString());
             return false;
@@ -217,7 +217,7 @@ public class BridgeActivity extends Activity {
             Class<?> cls = Class.forName("com.huawei.android.view.WindowManagerEx$LayoutParamsEx");
             cls.getMethod("setDisplaySideMode", Integer.TYPE).invoke(cls.getDeclaredConstructor(WindowManager.LayoutParams.class).newInstance(attributes), 1);
         } catch (ClassCastException | ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("An exception occurred while reading: setDisplaySideMode");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("An exception occurred while reading: setDisplaySideMode");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("BridgeActivity", sbM1765j.toString());
         }

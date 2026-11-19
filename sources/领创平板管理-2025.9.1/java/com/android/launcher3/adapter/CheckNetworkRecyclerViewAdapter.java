@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.model.NetworkInfo;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -71,9 +71,9 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         C0645a c0645a = (C0645a) viewHolder;
-        StringBuilder sbM1765j = C0948f6.m1765j("CheckNetworkRecyclerViewAdapter--size:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("CheckNetworkRecyclerViewAdapter--size:");
         sbM1765j.append(this.f1843b.size());
-        C0850bc.m1403m(sbM1765j.toString());
+        LTKDateUtil.m1403m(sbM1765j.toString());
         NetworkInfo networkInfo = this.f1843b.get(i);
         String domain = networkInfo.getDomain();
         List<Integer> portList = networkInfo.getPortList();
@@ -84,7 +84,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
         if (!AbstractC1102l9.m2273N(portList)) {
             if (portList.size() == 1) {
                 TextView textView = c0645a.f1846b;
-                StringBuilder sbM1765j2 = C0948f6.m1765j("Port:");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("Port:");
                 sbM1765j2.append(portList.get(0));
                 textView.setText(sbM1765j2.toString());
             } else {

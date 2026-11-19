@@ -2,11 +2,11 @@ package com.liulishuo.filedownloader.message;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.huawei.hem.C1010hh;
-import com.huawei.hem.InterfaceC1034ig;
+import com.huawei.hem.FileDownloadUtils;
+import com.huawei.hem.IMessageSnapshot;
 
 /* loaded from: classes.dex */
-public abstract class MessageSnapshot implements InterfaceC1034ig, Parcelable {
+public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
     public static final Parcelable.Creator<MessageSnapshot> CREATOR = new C1704a();
 
     /* renamed from: a */
@@ -166,7 +166,7 @@ public abstract class MessageSnapshot implements InterfaceC1034ig, Parcelable {
     /* renamed from: com.liulishuo.filedownloader.message.MessageSnapshot$c */
     public static class C1706c extends IllegalStateException {
         public C1706c(String str, MessageSnapshot messageSnapshot) {
-            super(C1010hh.m1955e("There isn't a field for '%s' in this message %d %d %s", str, Integer.valueOf(messageSnapshot.f4819a), Byte.valueOf(messageSnapshot.mo2112a()), messageSnapshot.getClass().getName()));
+            super(FileDownloadUtils.m1955e("There isn't a field for '%s' in this message %d %d %s", str, Integer.valueOf(messageSnapshot.f4819a), Byte.valueOf(messageSnapshot.mo2112a()), messageSnapshot.getClass().getName()));
         }
     }
 

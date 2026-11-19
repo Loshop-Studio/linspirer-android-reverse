@@ -15,7 +15,7 @@ public abstract class AbstractC1510o {
     public AlertDialog f4497a;
 
     /* renamed from: b */
-    public AbstractC1509n f4498b;
+    public AbsUpdateWizard f4498b;
 
     /* compiled from: AbstractDialog.java */
     /* renamed from: com.huawei.hms.availableupdate.o$a */
@@ -47,7 +47,7 @@ public abstract class AbstractC1510o {
 
     /* renamed from: c */
     public void m3345c() {
-        AbstractC1509n abstractC1509n = this.f4498b;
+        AbsUpdateWizard abstractC1509n = this.f4498b;
         if (abstractC1509n != null) {
             abstractC1509n.mo3307a(this);
         }
@@ -55,7 +55,7 @@ public abstract class AbstractC1510o {
 
     /* renamed from: d */
     public void m3346d() {
-        AbstractC1509n abstractC1509n = this.f4498b;
+        AbsUpdateWizard abstractC1509n = this.f4498b;
         if (abstractC1509n != null) {
             abstractC1509n.mo3310b(this);
         }
@@ -63,7 +63,7 @@ public abstract class AbstractC1510o {
 
     /* renamed from: e */
     public Activity m3347e() {
-        AbstractC1509n abstractC1509n = this.f4498b;
+        AbsUpdateWizard abstractC1509n = this.f4498b;
         if (abstractC1509n != null) {
             return abstractC1509n.m3338b();
         }
@@ -79,7 +79,7 @@ public abstract class AbstractC1510o {
     public abstract AlertDialog mo3269g();
 
     /* renamed from: a */
-    public void m3343a(AbstractC1509n abstractC1509n) {
+    public void m3343a(AbsUpdateWizard abstractC1509n) {
         this.f4498b = abstractC1509n;
         if (m3347e() == null || m3347e().isFinishing()) {
             HMSLog.m3461e("AbstractDialog", "In show, The activity is null or finishing.");

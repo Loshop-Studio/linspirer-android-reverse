@@ -21,7 +21,7 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.StringCodec;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -109,7 +109,7 @@ public class DefaultJSONParser implements Closeable {
             jSONLexer.nextToken();
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("syntax error, expect ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, expect ");
         sbM1765j.append(JSONToken.name(i));
         sbM1765j.append(", actual ");
         sbM1765j.append(JSONToken.name(jSONLexer.token()));
@@ -657,7 +657,7 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public void throwException(int i) {
-        StringBuilder sbM1765j = C0948f6.m1765j("syntax error, expect ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, expect ");
         sbM1765j.append(JSONToken.name(i));
         sbM1765j.append(", actual ");
         sbM1765j.append(JSONToken.name(this.lexer.token()));
@@ -709,7 +709,7 @@ public class DefaultJSONParser implements Closeable {
                 jSONLexer.nextToken();
                 return null;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("syntax error, ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, ");
             sbM1765j.append(jSONLexer.info());
             throw new JSONException(sbM1765j.toString());
         }
@@ -745,7 +745,7 @@ public class DefaultJSONParser implements Closeable {
                         if (jSONLexer.isBlankInput()) {
                             return null;
                         }
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("unterminated json string, ");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("unterminated json string, ");
                         sbM1765j2.append(jSONLexer.info());
                         throw new JSONException(sbM1765j2.toString());
                     case 21:
@@ -762,7 +762,7 @@ public class DefaultJSONParser implements Closeable {
                         jSONLexer.nextToken();
                         return null;
                     default:
-                        StringBuilder sbM1765j3 = C0948f6.m1765j("syntax error, ");
+                        StringBuilder sbM1765j3 = CompilerOutline.m1765j("syntax error, ");
                         sbM1765j3.append(jSONLexer.info());
                         throw new JSONException(sbM1765j3.toString());
                 }
@@ -980,7 +980,7 @@ public class DefaultJSONParser implements Closeable {
                                         this.lexer.nextToken(fastMatchToken);
                                     }
                                     if (this.lexer.token() != 15) {
-                                        StringBuilder sbM1765j = C0948f6.m1765j("syntax error :");
+                                        StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error :");
                                         sbM1765j.append(JSONToken.name(this.lexer.token()));
                                         throw new JSONException(sbM1765j.toString());
                                     }
@@ -1011,7 +1011,7 @@ public class DefaultJSONParser implements Closeable {
                     i = 8;
                     i2 = 14;
                 } else {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("syntax error :");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("syntax error :");
                     sbM1765j2.append(JSONToken.name(this.lexer.token()));
                     throw new JSONException(sbM1765j2.toString());
                 }
@@ -1022,7 +1022,7 @@ public class DefaultJSONParser implements Closeable {
             }
             throw new JSONException("syntax error");
         }
-        StringBuilder sbM1765j3 = C0948f6.m1765j("syntax error : ");
+        StringBuilder sbM1765j3 = CompilerOutline.m1765j("syntax error : ");
         sbM1765j3.append(this.lexer.tokenName());
         throw new JSONException(sbM1765j3.toString());
     }
@@ -1144,7 +1144,7 @@ public class DefaultJSONParser implements Closeable {
                 }
             }
         } else {
-            StringBuilder sbM1765j = C0948f6.m1765j("syntax error, expect [, actual ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, expect [, actual ");
             sbM1765j.append(JSONToken.name(jSONLexer.token()));
             sbM1765j.append(", pos ");
             sbM1765j.append(jSONLexer.pos());
@@ -1203,7 +1203,7 @@ public class DefaultJSONParser implements Closeable {
         ObjectDeserializer deserializer = this.config.getDeserializer(cls);
         JavaBeanDeserializer javaBeanDeserializer = deserializer instanceof JavaBeanDeserializer ? (JavaBeanDeserializer) deserializer : null;
         if (this.lexer.token() != 12 && this.lexer.token() != 16) {
-            StringBuilder sbM1765j = C0948f6.m1765j("syntax error, expect {, actual ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error, expect {, actual ");
             sbM1765j.append(this.lexer.tokenName());
             throw new JSONException(sbM1765j.toString());
         }
@@ -1226,7 +1226,7 @@ public class DefaultJSONParser implements Closeable {
                         return;
                     }
                 } else {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("setter not found, class ");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("setter not found, class ");
                     sbM1765j2.append(cls.getName());
                     sbM1765j2.append(", property ");
                     sbM1765j2.append(strScanSymbol);

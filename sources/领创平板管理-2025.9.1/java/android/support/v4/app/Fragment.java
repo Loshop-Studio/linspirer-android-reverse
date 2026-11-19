@@ -33,18 +33,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import com.huawei.hem.AbstractC0992h;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1067k;
-import com.huawei.hem.C1168o;
-import com.huawei.hem.C1293t;
-import com.huawei.hem.InterfaceC1042j;
-import com.huawei.hem.InterfaceC1318u;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.LifecycleRegistry;
+import com.huawei.hem.MutableLiveData;
+import com.huawei.hem.ViewModelStore;
+import com.huawei.hem.LifecycleOwner;
+import com.huawei.hem.ViewModelStoreOwner;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 
 /* loaded from: classes.dex */
-public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener, InterfaceC1042j, InterfaceC1318u {
+public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener, LifecycleOwner, ViewModelStoreOwner {
     public static final int ACTIVITY_CREATED = 2;
     public static final int CREATED = 1;
     public static final int INITIALIZING = 0;
@@ -89,9 +89,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public Fragment mTarget;
     public int mTargetRequestCode;
     public View mView;
-    public InterfaceC1042j mViewLifecycleOwner;
-    public C1067k mViewLifecycleRegistry;
-    public C1293t mViewModelStore;
+    public LifecycleOwner mViewLifecycleOwner;
+    public LifecycleRegistry mViewLifecycleRegistry;
+    public ViewModelStore mViewModelStore;
     public String mWho;
     public static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     public static final Object USE_DEFAULT_TRANSITION = new Object();
@@ -100,8 +100,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public int mTargetIndex = -1;
     public boolean mMenuVisible = true;
     public boolean mUserVisibleHint = true;
-    public C1067k mLifecycleRegistry = new C1067k(this);
-    public C1168o<InterfaceC1042j> mViewLifecycleOwnerLiveData = new C1168o<>();
+    public LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
+    public MutableLiveData<LifecycleOwner> mViewLifecycleOwnerLiveData = new MutableLiveData<>();
 
     public static class AnimationInfo {
         public Boolean mAllowEnterTransitionOverlap;
@@ -299,7 +299,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (this.mChildFragmentManager != null) {
             printWriter.print(str);
             printWriter.println("Child " + this.mChildFragmentManager + ":");
-            this.mChildFragmentManager.dump(C0948f6.m1760e(str, "  "), fileDescriptor, printWriter, strArr);
+            this.mChildFragmentManager.dump(CompilerOutline.m1760e(str, "  "), fileDescriptor, printWriter, strArr);
         }
     }
 
@@ -579,8 +579,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     @NonNull
     @MainThread
-    public InterfaceC1042j getViewLifecycleOwner() {
-        InterfaceC1042j interfaceC1042j = this.mViewLifecycleOwner;
+    public LifecycleOwner getViewLifecycleOwner() {
+        LifecycleOwner interfaceC1042j = this.mViewLifecycleOwner;
         if (interfaceC1042j != null) {
             return interfaceC1042j;
         }
@@ -588,18 +588,18 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @NonNull
-    public LiveData<InterfaceC1042j> getViewLifecycleOwnerLiveData() {
+    public LiveData<LifecycleOwner> getViewLifecycleOwnerLiveData() {
         return this.mViewLifecycleOwnerLiveData;
     }
 
     @Override // com.huawei.hem.InterfaceC1318u
     @NonNull
-    public C1293t getViewModelStore() {
+    public ViewModelStore getViewModelStore() {
         if (getContext() == null) {
             throw new IllegalStateException("Can't access ViewModels from detached fragment");
         }
         if (this.mViewModelStore == null) {
-            this.mViewModelStore = new C1293t();
+            this.mViewModelStore = new ViewModelStore();
         }
         return this.mViewModelStore;
     }
@@ -800,7 +800,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = true;
         FragmentActivity activity = getActivity();
         boolean z = activity != null && activity.isChangingConfigurations();
-        C1293t c1293t = this.mViewModelStore;
+        ViewModelStore c1293t = this.mViewModelStore;
         if (c1293t == null || z) {
             return;
         }
@@ -909,7 +909,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onActivityCreated(bundle);
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onActivityCreated()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onActivityCreated()"));
         }
         FragmentManagerImpl fragmentManagerImpl2 = this.mChildFragmentManager;
         if (fragmentManagerImpl2 != null) {
@@ -946,7 +946,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         onCreate(bundle);
         this.mIsCreated = true;
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onCreate()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onCreate()"));
         }
         this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_CREATE);
     }
@@ -970,12 +970,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             fragmentManagerImpl.noteStateNotSaved();
         }
         this.mPerformedCreateView = true;
-        this.mViewLifecycleOwner = new InterfaceC1042j() { // from class: android.support.v4.app.Fragment.3
+        this.mViewLifecycleOwner = new LifecycleOwner() { // from class: android.support.v4.app.Fragment.3
             @Override // com.huawei.hem.InterfaceC1042j
             public AbstractC0992h getLifecycle() {
                 Fragment fragment = Fragment.this;
                 if (fragment.mViewLifecycleRegistry == null) {
-                    fragment.mViewLifecycleRegistry = new C1067k(fragment.mViewLifecycleOwner);
+                    fragment.mViewLifecycleRegistry = new LifecycleRegistry(fragment.mViewLifecycleOwner);
                 }
                 return Fragment.this.mViewLifecycleRegistry;
             }
@@ -1005,7 +1005,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mIsCreated = false;
         onDestroy();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onDestroy()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onDestroy()"));
         }
         this.mChildFragmentManager = null;
     }
@@ -1022,7 +1022,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onDestroyView();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onDestroyView()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onDestroyView()"));
         }
         LoaderManager.getInstance(this).markForRedelivery();
         this.mPerformedCreateView = false;
@@ -1033,7 +1033,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         onDetach();
         this.mLayoutInflater = null;
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onDetach()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onDetach()"));
         }
         FragmentManagerImpl fragmentManagerImpl = this.mChildFragmentManager;
         if (fragmentManagerImpl != null) {
@@ -1106,7 +1106,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onPause();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onPause()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onPause()"));
         }
     }
 
@@ -1141,7 +1141,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onResume();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onResume()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onResume()"));
         }
         FragmentManagerImpl fragmentManagerImpl2 = this.mChildFragmentManager;
         if (fragmentManagerImpl2 != null) {
@@ -1174,7 +1174,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onStart();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onStart()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onStart()"));
         }
         FragmentManagerImpl fragmentManagerImpl2 = this.mChildFragmentManager;
         if (fragmentManagerImpl2 != null) {
@@ -1199,7 +1199,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onStop();
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onStop()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onStop()"));
         }
     }
 
@@ -1214,7 +1214,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final void requestPermissions(@NonNull String[] strArr, int i) {
         FragmentHostCallback fragmentHostCallback = this.mHost;
         if (fragmentHostCallback == null) {
-            throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to Activity"));
+            throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to Activity"));
         }
         fragmentHostCallback.onRequestPermissionsFromFragment(this, strArr, i);
     }
@@ -1225,7 +1225,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (activity != null) {
             return activity;
         }
-        throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to an activity."));
+        throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to an activity."));
     }
 
     @NonNull
@@ -1234,7 +1234,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (context != null) {
             return context;
         }
-        throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to a context."));
+        throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to a context."));
     }
 
     @NonNull
@@ -1243,7 +1243,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (fragmentManager != null) {
             return fragmentManager;
         }
-        throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not associated with a fragment manager."));
+        throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not associated with a fragment manager."));
     }
 
     @NonNull
@@ -1252,7 +1252,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (host != null) {
             return host;
         }
-        throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to a host."));
+        throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to a host."));
     }
 
     public void restoreChildFragmentState(@Nullable Bundle bundle) {
@@ -1277,7 +1277,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCalled = false;
         onViewStateRestored(bundle);
         if (!this.mCalled) {
-            throw new SuperNotCalledException(C0948f6.m1758c("Fragment ", this, " did not call through to super.onViewStateRestored()"));
+            throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onViewStateRestored()"));
         }
         if (this.mView != null) {
             this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_CREATE);
@@ -1340,7 +1340,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final void setIndex(int i, Fragment fragment) {
         this.mIndex = i;
         if (fragment == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("android:fragment:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("android:fragment:");
             sbM1765j.append(this.mIndex);
             this.mWho = sbM1765j.toString();
         } else {
@@ -1431,7 +1431,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         FragmentManager fragmentManager = getFragmentManager();
         FragmentManager fragmentManager2 = fragment != null ? fragment.getFragmentManager() : null;
         if (fragmentManager != null && fragmentManager2 != null && fragmentManager != fragmentManager2) {
-            throw new IllegalArgumentException(C0948f6.m1758c("Fragment ", fragment, " must share the same FragmentManager to be set as a target fragment"));
+            throw new IllegalArgumentException(CompilerOutline.m1758c("Fragment ", fragment, " must share the same FragmentManager to be set as a target fragment"));
         }
         for (Fragment targetFragment = fragment; targetFragment != null; targetFragment = targetFragment.getTargetFragment()) {
             if (targetFragment == this) {
@@ -1472,7 +1472,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) {
         FragmentHostCallback fragmentHostCallback = this.mHost;
         if (fragmentHostCallback == null) {
-            throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to Activity"));
+            throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to Activity"));
         }
         fragmentHostCallback.onStartIntentSenderFromFragment(this, intentSender, i, intent, i2, i3, i4, bundle);
     }
@@ -1580,9 +1580,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         } catch (java.lang.InstantiationException e3) {
             throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
         } catch (NoSuchMethodException e4) {
-            throw new InstantiationException(C0948f6.m1761f("Unable to instantiate fragment ", str, ": could not find Fragment constructor"), e4);
+            throw new InstantiationException(CompilerOutline.m1761f("Unable to instantiate fragment ", str, ": could not find Fragment constructor"), e4);
         } catch (InvocationTargetException e5) {
-            throw new InstantiationException(C0948f6.m1761f("Unable to instantiate fragment ", str, ": calling Fragment constructor caused an exception"), e5);
+            throw new InstantiationException(CompilerOutline.m1761f("Unable to instantiate fragment ", str, ": calling Fragment constructor caused an exception"), e5);
         }
     }
 
@@ -1594,7 +1594,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void startActivity(Intent intent, @Nullable Bundle bundle) {
         FragmentHostCallback fragmentHostCallback = this.mHost;
         if (fragmentHostCallback == null) {
-            throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to Activity"));
+            throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to Activity"));
         }
         fragmentHostCallback.onStartActivityFromFragment(this, intent, -1, bundle);
     }
@@ -1602,7 +1602,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void startActivityForResult(Intent intent, int i, @Nullable Bundle bundle) {
         FragmentHostCallback fragmentHostCallback = this.mHost;
         if (fragmentHostCallback == null) {
-            throw new IllegalStateException(C0948f6.m1758c("Fragment ", this, " not attached to Activity"));
+            throw new IllegalStateException(CompilerOutline.m1758c("Fragment ", this, " not attached to Activity"));
         }
         fragmentHostCallback.onStartActivityFromFragment(this, intent, i, bundle);
     }

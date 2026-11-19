@@ -12,7 +12,7 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import com.taobao.accs.utl.BaseMonitor;
 import java.lang.reflect.Constructor;
@@ -183,7 +183,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         try {
                             fieldInfo.set(objNewInstance, "");
                         } catch (Exception e) {
-                            StringBuilder sbM1765j = C0948f6.m1765j("create instance error, class ");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("create instance error, class ");
                             sbM1765j.append(this.clazz.getName());
                             throw new JSONException(sbM1765j.toString(), e);
                         }
@@ -194,7 +194,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         } catch (JSONException e2) {
             throw e2;
         } catch (Exception e3) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("create instance error, class ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("create instance error, class ");
             sbM1765j2.append(this.clazz.getName());
             throw new JSONException(sbM1765j2.toString(), e3);
         }
@@ -286,7 +286,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     }
 
     public Enum<?> scanEnum(JSONLexer jSONLexer, char c) {
-        StringBuilder sbM1765j = C0948f6.m1765j("illegal enum. ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("illegal enum. ");
         sbM1765j.append(jSONLexer.info());
         throw new JSONException(sbM1765j.toString());
     }
@@ -375,7 +375,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 return null;
             }
             if (jSONLexerBase.isEnabled(Feature.ErrorOnEnumNotMatch)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("not match enum value, ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("not match enum value, ");
                 sbM1765j.append(enumDeserializer.enumClass);
                 throw new JSONException(sbM1765j.toString());
             }

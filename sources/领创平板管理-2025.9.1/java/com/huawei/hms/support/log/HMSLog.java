@@ -3,13 +3,13 @@ package com.huawei.hms.support.log;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import com.huawei.hms.base.log.C1524a;
+import com.huawei.hms.base.log.HmsLogAdaptor;
 
 /* loaded from: classes.dex */
 public class HMSLog {
 
     /* renamed from: a */
-    public static final C1524a f4569a = new C1524a();
+    public static final HmsLogAdaptor f4569a = new HmsLogAdaptor();
 
     /* renamed from: a */
     public static String m3457a(Context context) throws PackageManager.NameNotFoundException {

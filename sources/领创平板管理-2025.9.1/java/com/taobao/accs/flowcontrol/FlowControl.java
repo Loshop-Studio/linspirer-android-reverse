@@ -2,7 +2,7 @@ package com.taobao.accs.flowcontrol;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -81,14 +81,14 @@ public class FlowControl {
                 return null;
             }
             if (!TextUtils.isEmpty(str2)) {
-                str = C0948f6.m1761f(str, "_", str2);
+                str = CompilerOutline.m1761f(str, "_", str2);
             }
             return this.flowCtrlMap.get(str);
         }
 
         public void put(String str, String str2, FlowControlInfo flowControlInfo) {
             if (!TextUtils.isEmpty(str2)) {
-                str = C0948f6.m1761f(str, "_", str2);
+                str = CompilerOutline.m1761f(str, "_", str2);
             }
             if (this.flowCtrlMap == null) {
                 this.flowCtrlMap = new HashMap();
@@ -162,7 +162,7 @@ public class FlowControl {
                 m5582a();
             }
         }
-        StringBuilder sbM1770o = C0948f6.m1770o("getFlowCtrlDelay service ", str, " biz ", str2, " result:");
+        StringBuilder sbM1770o = CompilerOutline.m1770o("getFlowCtrlDelay service ", str, " biz ", str2, " result:");
         sbM1770o.append(j3);
         sbM1770o.append(" global:");
         sbM1770o.append(j);

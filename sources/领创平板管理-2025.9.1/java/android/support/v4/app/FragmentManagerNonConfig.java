@@ -1,15 +1,15 @@
 package android.support.v4.app;
 
-import com.huawei.hem.C1293t;
+import com.huawei.hem.ViewModelStore;
 import java.util.List;
 
 /* loaded from: classes.dex */
 public class FragmentManagerNonConfig {
     public final List<FragmentManagerNonConfig> mChildNonConfigs;
     public final List<Fragment> mFragments;
-    public final List<C1293t> mViewModelStores;
+    public final List<ViewModelStore> mViewModelStores;
 
-    public FragmentManagerNonConfig(List<Fragment> list, List<FragmentManagerNonConfig> list2, List<C1293t> list3) {
+    public FragmentManagerNonConfig(List<Fragment> list, List<FragmentManagerNonConfig> list2, List<ViewModelStore> list3) {
         this.mFragments = list;
         this.mChildNonConfigs = list2;
         this.mViewModelStores = list3;
@@ -23,7 +23,7 @@ public class FragmentManagerNonConfig {
         return this.mFragments;
     }
 
-    public List<C1293t> getViewModelStores() {
+    public List<ViewModelStore> getViewModelStores() {
         return this.mViewModelStores;
     }
 }

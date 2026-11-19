@@ -9,7 +9,7 @@ import anet.channel.entity.ENV;
 import anet.channel.util.ALog;
 import anetwork.channel.util.RequestConstant;
 import com.alibaba.sdk.android.logger.ILog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsClientConfig;
 import com.taobao.accs.ChannelService;
@@ -46,7 +46,7 @@ public class ACCSClient {
 
     public ACCSClient(AccsClientConfig accsClientConfig) {
         this.mConfig = accsClientConfig;
-        StringBuilder sbM1765j = C0948f6.m1765j("ACCSClient");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ACCSClient");
         sbM1765j.append(accsClientConfig.getTag());
         this.log = AccsLogger.getLogger(sbM1765j.toString());
         this.mAccsManager = ACCSManager.getAccsInstance(mContext, accsClientConfig.getAppKey(), accsClientConfig.getTag());

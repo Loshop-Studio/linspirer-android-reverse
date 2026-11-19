@@ -24,7 +24,7 @@ import com.alibaba.sdk.android.tbrest.utils.DeviceUtils;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.DPoint;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C0917e1;
+import com.huawei.hem.AppInfo;
 import com.huawei.hem.C0994h1;
 import com.huawei.hem.C1094l1;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
@@ -113,7 +113,7 @@ public final class C1841ew {
         try {
             return context.getApplicationContext().getSystemService(str);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, Utils.TAG, "getServ");
+            CoreUtil.m5014a(th, Utils.TAG, "getServ");
             return null;
         }
     }
@@ -351,7 +351,7 @@ public final class C1841ew {
     public static boolean m5115a(Location location, int i) {
         Boolean bool = Boolean.FALSE;
         try {
-            bool = (Boolean) C1837es.m5052a(location, "isFromMockProvider", new Object[0]);
+            bool = (Boolean) Reflect.m5052a(location, "isFromMockProvider", new Object[0]);
         } catch (Throwable unused) {
         }
         if (bool.booleanValue()) {
@@ -373,7 +373,7 @@ public final class C1841ew {
     }
 
     /* renamed from: a */
-    public static boolean m5117a(C1812du c1812du) {
+    public static boolean m5117a(AMapLocationServer c1812du) {
         if (c1812du == null || MessageService.MSG_ACCS_NOTIFY_CLICK.equals(c1812du.m4688d()) || "5".equals(c1812du.m4688d()) || "6".equals(c1812du.m4688d())) {
             return false;
         }
@@ -454,7 +454,7 @@ public final class C1841ew {
         try {
             i = Integer.parseInt(strArr2[0]);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, Utils.TAG, "getMccMnc");
+            CoreUtil.m5014a(th, Utils.TAG, "getMccMnc");
             i = 0;
         }
         if (i == 0) {
@@ -503,24 +503,24 @@ public final class C1841ew {
     /* renamed from: b */
     public static String m5129b(Context context) {
         PackageInfo packageInfo;
-        if (!TextUtils.isEmpty(C1834ep.f5763j)) {
-            return C1834ep.f5763j;
+        if (!TextUtils.isEmpty(CoreUtil.f5763j)) {
+            return CoreUtil.f5763j;
         }
         if (context == null) {
             return null;
         }
         try {
-            packageInfo = context.getPackageManager().getPackageInfo(C0917e1.m1638d(context), 64);
+            packageInfo = context.getPackageManager().getPackageInfo(AppInfo.m1638d(context), 64);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, Utils.TAG, "getAppName part");
+            CoreUtil.m5014a(th, Utils.TAG, "getAppName part");
             packageInfo = null;
         }
         try {
-            if (TextUtils.isEmpty(C1834ep.f5764k)) {
-                C1834ep.f5764k = null;
+            if (TextUtils.isEmpty(CoreUtil.f5764k)) {
+                CoreUtil.f5764k = null;
             }
         } catch (Throwable th2) {
-            C1834ep.m5014a(th2, Utils.TAG, "getAppName");
+            CoreUtil.m5014a(th2, Utils.TAG, "getAppName");
         }
         StringBuilder sb = new StringBuilder();
         if (packageInfo != null) {
@@ -533,17 +533,17 @@ public final class C1841ew {
                 sb.append(packageInfo.versionName);
             }
         }
-        String strM1638d = C0917e1.m1638d(context);
+        String strM1638d = AppInfo.m1638d(context);
         if (!TextUtils.isEmpty(strM1638d)) {
             sb.append(",");
             sb.append(strM1638d);
         }
-        if (!TextUtils.isEmpty(C1834ep.f5764k)) {
+        if (!TextUtils.isEmpty(CoreUtil.f5764k)) {
             sb.append(",");
-            sb.append(C1834ep.f5764k);
+            sb.append(CoreUtil.f5764k);
         }
         String string = sb.toString();
-        C1834ep.f5763j = string;
+        CoreUtil.f5763j = string;
         return string;
     }
 
@@ -653,12 +653,12 @@ public final class C1841ew {
         }
         try {
             try {
-                return C1837es.m5056b("android.os.Build$VERSION", "SDK_INT");
+                return Reflect.m5056b("android.os.Build$VERSION", "SDK_INT");
             } catch (Throwable unused) {
                 return 0;
             }
         } catch (Throwable unused2) {
-            return Integer.parseInt(C1837es.m5053a("android.os.Build$VERSION", "SDK").toString());
+            return Integer.parseInt(Reflect.m5053a("android.os.Build$VERSION", "SDK").toString());
         }
     }
 
@@ -667,7 +667,7 @@ public final class C1841ew {
         try {
             return DeviceInfo.m1088v(context);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, Utils.TAG, "getNetWorkInfo");
+            CoreUtil.m5014a(th, Utils.TAG, "getNetWorkInfo");
             return null;
         }
     }
@@ -695,7 +695,7 @@ public final class C1841ew {
 
     /* renamed from: c */
     public static boolean m5140c(Context context, String str) {
-        return ((Integer) C1837es.m5054a(str, "getInt", new Object[]{context.getContentResolver(), ((String) C1837es.m5053a(str, "AIRPLANE_MODE_ON")).toString()}, (Class<?>[]) new Class[]{ContentResolver.class, String.class})).intValue() == 1;
+        return ((Integer) Reflect.m5054a(str, "getInt", new Object[]{context.getContentResolver(), ((String) Reflect.m5053a(str, "AIRPLANE_MODE_ON")).toString()}, (Class<?>[]) new Class[]{ContentResolver.class, String.class})).intValue() == 1;
     }
 
     /* renamed from: d */
@@ -792,16 +792,16 @@ public final class C1841ew {
     public static boolean m5148f(Context context) {
         int iM5055b;
         if (context.getApplicationInfo().targetSdkVersion < 23) {
-            for (String str : C1807dp.f5353F) {
+            for (String str : Aps.f5353F) {
                 if (context.checkCallingOrSelfPermission(str) == 0) {
                 }
             }
             return true;
         }
         Application application = (Application) context;
-        for (String str2 : C1807dp.f5353F) {
+        for (String str2 : Aps.f5353F) {
             try {
-                iM5055b = C1837es.m5055b(application.getBaseContext(), "checkSelfPermission", str2);
+                iM5055b = Reflect.m5055b(application.getBaseContext(), "checkSelfPermission", str2);
             } catch (Throwable unused) {
                 iM5055b = 0;
             }
@@ -824,7 +824,7 @@ public final class C1841ew {
             return true;
         }
         try {
-            iM5055b = C1837es.m5055b(((Application) context).getBaseContext(), "checkSelfPermission", C1807dp.f5354G);
+            iM5055b = Reflect.m5055b(((Application) context).getBaseContext(), "checkSelfPermission", Aps.f5354G);
         } catch (Throwable unused) {
             iM5055b = 0;
         }
@@ -850,7 +850,7 @@ public final class C1841ew {
             return zIsWifiEnabled;
         }
         try {
-            return RequestConstant.TRUE.equals(String.valueOf(C1837es.m5052a(f5795a, "isScanAlwaysAvailable", new Object[0])));
+            return RequestConstant.TRUE.equals(String.valueOf(Reflect.m5052a(f5795a, "isScanAlwaysAvailable", new Object[0])));
         } catch (Throwable unused2) {
             return zIsWifiEnabled;
         }
@@ -933,7 +933,7 @@ public final class C1841ew {
     /* renamed from: m */
     public static String m5156m(Context context) {
         if (f5799e == null) {
-            f5799e = C1823ee.m4871a("MD5", C0917e1.m1638d(context));
+            f5799e = C1823ee.m4871a("MD5", AppInfo.m1638d(context));
         }
         return f5799e;
     }

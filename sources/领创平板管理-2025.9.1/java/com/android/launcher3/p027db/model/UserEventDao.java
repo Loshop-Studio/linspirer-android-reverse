@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -35,11 +35,11 @@ public class UserEventDao extends AbstractDao<UserEvent, Long> {
         database.execSQL("CREATE TABLE " + str + "\"user_events_table\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"EVENT_NAME\" TEXT,\"EVENT_TIME\" TEXT,\"EVENT_RESULT\" TEXT,\"IS_ILLEGAL\" INTEGER NOT NULL ,\"USER_NAME\" TEXT,\"DESCRIPTION\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_user_events_table__id ON \"user_events_table\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_user_events_table__id ON \"user_events_table\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"user_events_table\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"user_events_table\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

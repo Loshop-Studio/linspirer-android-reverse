@@ -3,18 +3,18 @@ package com.android.hccontrol.custom.lingc;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import com.huawei.hem.InterfaceC1270s1;
-import com.huawei.hem.InterfaceC1320u1;
+import com.huawei.hem.HemBinderCallback;
+import com.huawei.hem.IHCAPI;
 import java.util.List;
 
 /* loaded from: classes.dex */
 public class HCService extends Service {
 
     /* renamed from: a */
-    public InterfaceC1320u1.a f1639a = new BinderC0626a(this);
+    public IHCAPI.a f1639a = new BinderC0626a(this);
 
     /* renamed from: com.android.hccontrol.custom.lingc.HCService$a */
-    public class BinderC0626a extends InterfaceC1320u1.a {
+    public class BinderC0626a extends IHCAPI.a {
         public BinderC0626a(HCService hCService) {
         }
 
@@ -146,7 +146,7 @@ public class HCService extends Service {
 
         @Override // com.huawei.hem.InterfaceC1320u1
         /* renamed from: X */
-        public void mo1124X(String str, InterfaceC1270s1 interfaceC1270s1) {
+        public void mo1124X(String str, HemBinderCallback interfaceC1270s1) {
         }
 
         @Override // com.huawei.hem.InterfaceC1320u1
@@ -329,7 +329,7 @@ public class HCService extends Service {
 
         @Override // com.huawei.hem.InterfaceC1320u1
         /* renamed from: t3 */
-        public void mo1154t3(String str, InterfaceC1270s1 interfaceC1270s1, boolean z) {
+        public void mo1154t3(String str, HemBinderCallback interfaceC1270s1, boolean z) {
         }
 
         @Override // com.huawei.hem.InterfaceC1320u1

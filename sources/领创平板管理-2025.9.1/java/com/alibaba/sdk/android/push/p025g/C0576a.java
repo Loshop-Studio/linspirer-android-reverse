@@ -40,7 +40,7 @@ import com.alibaba.sdk.android.push.p016b.C0555f;
 import com.alibaba.sdk.android.push.p017c.C0556a;
 import com.alibaba.sdk.android.push.p021d.C0570a;
 import com.alibaba.sdk.android.push.p024f.C0575b;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.InterfaceC1144n0;
 import com.p076ut.device.UTDevice;
 import com.taobao.accs.ACCSClient;
@@ -217,7 +217,7 @@ public class C0576a {
         /* renamed from: a */
         private void m816a(Context context) throws C0555f {
             AmsLogger amsLogger = C0576a.f1211e;
-            StringBuilder sbM1765j = C0948f6.m1765j("load utdid: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("load utdid: ");
             sbM1765j.append(UTDevice.getUtdid(context));
             amsLogger.m498d(sbM1765j.toString());
             InterfaceC0497b interfaceC0497bM492a = C0498c.m492a();
@@ -285,7 +285,7 @@ public class C0576a {
                 return new C0580e(C0560d.f1139n);
             }
             AmsLogger amsLogger = C0576a.f1211e;
-            StringBuilder sbM1765j = C0948f6.m1765j("lock");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("lock");
             sbM1765j.append(c0575b.toString());
             amsLogger.m498d(sbM1765j.toString());
             c0575b.m796a(150);
@@ -296,12 +296,12 @@ public class C0576a {
                     stateByKey = "accs time out";
                 }
                 ErrorBuilder errorBuilderMsg = C0560d.f1140o.copy().msg(stateByKey);
-                StringBuilder sbM1765j2 = C0948f6.m1765j("connected:");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("connected:");
                 sbM1765j2.append(C0576a.this.m809c());
                 c0580eArr[0] = new C0580e(errorBuilderMsg.detail(sbM1765j2.toString()).build());
             }
             AmsLogger importantLogger = AmsLogger.getImportantLogger();
-            StringBuilder sbM1765j3 = C0948f6.m1765j("register agoo result ");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("register agoo result ");
             sbM1765j3.append(c0580eArr[0].m825a());
             importantLogger.m498d(sbM1765j3.toString());
             return c0580eArr[0];
@@ -390,7 +390,7 @@ public class C0576a {
                     if (i == 1 || i == 2) {
                         final Object obj = message.obj;
                         AmsLogger amsLogger = C0576a.f1211e;
-                        StringBuilder sbM1765j = C0948f6.m1765j("Looping handleMessage: ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Looping handleMessage: ");
                         sbM1765j.append(message.what);
                         amsLogger.m498d(sbM1765j.toString());
                         if (message.what == 1) {
@@ -535,7 +535,7 @@ public class C0576a {
                     throw new C0555f(C0560d.f1146u.copy().msg(enumC0557a.m749a() + "未配置").build());
                 }
                 AmsLogger amsLogger = f1211e;
-                StringBuilder sbM1765j = C0948f6.m1765j("未配置");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("未配置");
                 sbM1765j.append(enumC0557a.m749a());
                 sbM1765j.append("; 建议配置,可有效提高推送到达率");
                 amsLogger.m507w(sbM1765j.toString());

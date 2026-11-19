@@ -14,7 +14,7 @@ import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.webkit.WebView;
 import android.widget.TextView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -174,7 +174,7 @@ public final class LinkifyCompat {
                 i++;
             }
         }
-        return (z || strArr.length <= 0) ? str : C0948f6.m1762g(new StringBuilder(), strArr[0], str);
+        return (z || strArr.length <= 0) ? str : CompilerOutline.m1762g(new StringBuilder(), strArr[0], str);
     }
 
     public static void pruneOverlaps(ArrayList<LinkSpec> arrayList, Spannable spannable) {

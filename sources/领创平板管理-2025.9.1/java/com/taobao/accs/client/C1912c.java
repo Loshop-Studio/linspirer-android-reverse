@@ -1,7 +1,7 @@
 package com.taobao.accs.client;
 
 import android.content.Context;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -25,7 +25,7 @@ public class C1912c {
         if (context == null) {
             throw new RuntimeException("Context is null!!");
         }
-        this.f6073c = C0948f6.m1762g(new StringBuilder(), this.f6073c, str);
+        this.f6073c = CompilerOutline.m1762g(new StringBuilder(), this.f6073c, str);
         this.f6071a = context.getApplicationContext();
     }
 

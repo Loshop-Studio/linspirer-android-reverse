@@ -9,7 +9,7 @@ import android.webkit.WebViewClient;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.ViewControlUtil;
 
 /* loaded from: classes.dex */
 public class PrivacyAgreementActivity extends BaseActivity {
@@ -55,7 +55,7 @@ public class PrivacyAgreementActivity extends BaseActivity {
     }
 
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         finish();

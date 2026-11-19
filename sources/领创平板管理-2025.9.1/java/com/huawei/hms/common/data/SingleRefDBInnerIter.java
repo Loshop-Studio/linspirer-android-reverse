@@ -1,6 +1,6 @@
 package com.huawei.hms.common.data;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.Preconditions;
 
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class SingleRefDBInnerIter<T> extends DBInnerIter<T> {
         this.index = i;
         if (i == 0) {
             boolean z = this.dataBuffer.get(0) instanceof DataBufferRef;
-            StringBuilder sbM1765j = C0948f6.m1765j("DataBuffer reference of type ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("DataBuffer reference of type ");
             sbM1765j.append(this.dataBuffer.get(0).getClass());
             sbM1765j.append(" is not movable");
             Preconditions.checkState(z, sbM1765j.toString());

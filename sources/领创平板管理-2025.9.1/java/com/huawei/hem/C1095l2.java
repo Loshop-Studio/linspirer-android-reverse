@@ -7,7 +7,7 @@ import com.android.launcher3.view.DialogUtil;
 /* compiled from: LicenseActivity.java */
 /* renamed from: com.huawei.hem.l2 */
 /* loaded from: classes.dex */
-public class C1095l2 implements InterfaceC1021i3 {
+public class C1095l2 implements LicenseCallBack {
 
     /* renamed from: a */
     public final /* synthetic */ LicenseActivity f3149a;
@@ -18,7 +18,7 @@ public class C1095l2 implements InterfaceC1021i3 {
 
     /* renamed from: a */
     public void m2258a() {
-        C0850bc.m1403m("license onCallBackFailed");
+        LTKDateUtil.m1403m("license onCallBackFailed");
         DialogUtil.hideDialog();
         this.f3149a.f1744f.setText(R.string.submit);
         this.f3149a.f1744f.setEnabled(true);
@@ -26,7 +26,7 @@ public class C1095l2 implements InterfaceC1021i3 {
 
     /* renamed from: b */
     public void m2259b() {
-        C0850bc.m1403m("license onFailed");
+        LTKDateUtil.m1403m("license onFailed");
         LicenseActivity.m1198g(this.f3149a);
     }
 }

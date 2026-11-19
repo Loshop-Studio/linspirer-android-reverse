@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.FastScroller;
-import com.huawei.hem.C0948f6;
-import com.loc.C1834ep;
+import com.huawei.hem.CompilerOutline;
+import com.loc.CoreUtil;
 
 /* loaded from: classes.dex */
 public class AMapLocationClientOption implements Parcelable, Cloneable {
@@ -192,7 +192,7 @@ public class AMapLocationClientOption implements Parcelable, Cloneable {
 
     public AMapLocationClientOption() {
         this.f1532h = 2000L;
-        this.f1533i = C1834ep.f5762i;
+        this.f1533i = CoreUtil.f5762i;
         this.f1534j = false;
         this.f1535k = true;
         this.f1536l = true;
@@ -220,7 +220,7 @@ public class AMapLocationClientOption implements Parcelable, Cloneable {
 
     public AMapLocationClientOption(Parcel parcel) {
         this.f1532h = 2000L;
-        this.f1533i = C1834ep.f5762i;
+        this.f1533i = CoreUtil.f5762i;
         this.f1534j = false;
         this.f1535k = true;
         this.f1536l = true;
@@ -609,7 +609,7 @@ public class AMapLocationClientOption implements Parcelable, Cloneable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("interval:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("interval:");
         sbM1765j.append(String.valueOf(this.f1532h));
         sbM1765j.append("#");
         sbM1765j.append("isOnceLocation:");

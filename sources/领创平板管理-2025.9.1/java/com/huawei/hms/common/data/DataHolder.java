@@ -7,7 +7,7 @@ import android.database.CursorWindow;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.Preconditions;
 import com.huawei.hms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.huawei.hms.common.internal.safeparcel.SafeParcelWriter;
@@ -120,7 +120,7 @@ public final class DataHolder extends AbstractSafeParcelable implements Closeabl
 
     private void checkAvailable(String str, int i) {
         Bundle bundle = this.columnsBundle;
-        String strM1760e = (bundle == null || !bundle.containsKey(str)) ? C0948f6.m1760e("cannot find column: ", str) : isClosed() ? "buffer has been closed" : (i < 0 || i >= this.dataCount) ? C0948f6.m1754L("row is out of index:", i) : "";
+        String strM1760e = (bundle == null || !bundle.containsKey(str)) ? CompilerOutline.m1760e("cannot find column: ", str) : isClosed() ? "buffer has been closed" : (i < 0 || i >= this.dataCount) ? CompilerOutline.m1754L("row is out of index:", i) : "";
         Preconditions.checkArgument(strM1760e.isEmpty(), strM1760e);
     }
 
@@ -247,7 +247,7 @@ public final class DataHolder extends AbstractSafeParcelable implements Closeabl
         if (obj instanceof byte[]) {
             return cursorWindow.putBlob((byte[]) obj, i, i2);
         }
-        throw new IllegalArgumentException(C0948f6.m1759d("unsupported type for column: ", obj));
+        throw new IllegalArgumentException(CompilerOutline.m1759d("unsupported type for column: ", obj));
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable

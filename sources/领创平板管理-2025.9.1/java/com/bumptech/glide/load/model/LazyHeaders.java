@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -124,7 +124,7 @@ public final class LazyHeaders implements Headers {
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("StringHeaderFactory{value='");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("StringHeaderFactory{value='");
             sbM1765j.append(this.value);
             sbM1765j.append('\'');
             sbM1765j.append('}');
@@ -176,7 +176,7 @@ public final class LazyHeaders implements Headers {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("LazyHeaders{headers=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("LazyHeaders{headers=");
         sbM1765j.append(this.headers);
         sbM1765j.append('}');
         return sbM1765j.toString();

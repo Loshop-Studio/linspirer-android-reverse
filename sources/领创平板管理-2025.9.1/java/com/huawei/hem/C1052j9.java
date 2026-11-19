@@ -11,7 +11,7 @@ import java.io.IOException;
 public class C1052j9 {
 
     /* renamed from: a */
-    public String f2939a = C1423y4.m2998s().getFilesDir().getPath();
+    public String f2939a = LauncherMenuHelper.m2998s().getFilesDir().getPath();
 
     /* renamed from: e */
     public static boolean m2120e(File file) {
@@ -22,7 +22,7 @@ public class C1052j9 {
         for (File file2 : fileArrListFiles) {
             if (file2.isFile()) {
                 if (!file2.delete()) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("delete file failed : ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("delete file failed : ");
                     sbM1765j.append(file2.getName());
                     C1404xa.m2937d("hmsSdk", sbM1765j.toString());
                 }
@@ -35,7 +35,7 @@ public class C1052j9 {
 
     /* renamed from: f */
     public static boolean m2121f() {
-        return m2120e(new File(C1423y4.m2998s().getFilesDir().getPath() + GrsManager.SEPARATOR + "hms"));
+        return m2120e(new File(LauncherMenuHelper.m2998s().getFilesDir().getPath() + GrsManager.SEPARATOR + "hms"));
     }
 
     /* renamed from: a */
@@ -46,7 +46,7 @@ public class C1052j9 {
     /* renamed from: b */
     public final void m2123b(String str, String str2) throws Throwable {
         File file = new File(m2122a(str));
-        File file2 = new File(m2122a(str), C0948f6.m1760e("hianalytics_", str));
+        File file2 = new File(m2122a(str), CompilerOutline.m1760e("hianalytics_", str));
         if (!file.exists() && file.mkdirs()) {
             C1404xa.m2937d("hmsSdk", "file directory is mkdirs");
         }
@@ -85,7 +85,7 @@ public class C1052j9 {
         ?? r1;
         int i;
         byte[] bArr;
-        File file = new File(m2122a(str), C0948f6.m1760e("hianalytics_", str));
+        File file = new File(m2122a(str), CompilerOutline.m1760e("hianalytics_", str));
         if (!m2124c(file)) {
             String strM1674b = C0927eb.m1674b(128);
             AbstractC1102l9.m2293p(file, strM1674b);

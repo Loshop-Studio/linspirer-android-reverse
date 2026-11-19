@@ -16,14 +16,14 @@ import com.android.launcher3.view.CircleProgressView;
 import com.android.launcher3.view.CommonDialog;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.C0930ee;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1045j2;
-import com.huawei.hem.C1299t5;
-import com.huawei.hem.InterfaceC1071k3;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.CheckGrantedPermission;
+import com.huawei.hem.DataCleanUtil;
+import com.huawei.hem.LauncherOnClickListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -72,7 +72,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     public int[] f1709n = {-16345601, -1445385, -1445385, -1445385, -16345601};
 
     /* renamed from: com.android.launcher3.activity.DataCleanActivity$a */
-    public class C0632a implements InterfaceC1071k3 {
+    public class C0632a implements LauncherOnClickListener {
         public C0632a() {
         }
 
@@ -134,14 +134,14 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
                 return null;
             }
             if (DataCleanActivity.this.f1707l.get(0).isSelect()) {
-                for (int i = 0; i < C1299t5.f3763j.length; i++) {
-                    C0930ee.m1677b(new File(C1299t5.f3763j[i]));
+                for (int i = 0; i < DataCleanUtil.f3763j.length; i++) {
+                    C0930ee.m1677b(new File(DataCleanUtil.f3763j[i]));
                 }
-                C1299t5.f3755b.clear();
+                DataCleanUtil.f3755b.clear();
             }
             if (DataCleanActivity.this.f1707l.get(1).isSelect()) {
-                for (int i2 = 0; i2 < C1299t5.f3765l.length; i2++) {
-                    File file = new File(C1299t5.f3765l[i2]);
+                for (int i2 = 0; i2 < DataCleanUtil.f3765l.length; i2++) {
+                    File file = new File(DataCleanUtil.f3765l[i2]);
                     DataCleanActivity dataCleanActivity = DataCleanActivity.this;
                     if (file.exists() && (fileArrListFiles = file.listFiles()) != null) {
                         for (int i3 = 0; i3 < fileArrListFiles.length; i3++) {
@@ -151,41 +151,41 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
                         }
                     }
                 }
-                C1299t5.f3760g.clear();
+                DataCleanUtil.f3760g.clear();
             }
             if (DataCleanActivity.this.f1707l.get(2).isSelect()) {
-                for (int i4 = 0; i4 < C1299t5.f3759f.size(); i4++) {
-                    File file2 = new File(C1299t5.f3759f.get(i4).getFilePath());
+                for (int i4 = 0; i4 < DataCleanUtil.f3759f.size(); i4++) {
+                    File file2 = new File(DataCleanUtil.f3759f.get(i4).getFilePath());
                     C0930ee.m1678c(file2);
                     C0930ee.m1682g(DataCleanActivity.this, file2.getAbsolutePath(), file2.getName());
                 }
-                C1299t5.f3759f.clear();
+                DataCleanUtil.f3759f.clear();
             }
             if (DataCleanActivity.this.f1707l.get(3).isSelect()) {
-                for (int i5 = 0; i5 < C1299t5.f3756c.size(); i5++) {
-                    C0930ee.m1678c(new File(C1299t5.f3756c.get(i5).getFilePath()));
+                for (int i5 = 0; i5 < DataCleanUtil.f3756c.size(); i5++) {
+                    C0930ee.m1678c(new File(DataCleanUtil.f3756c.get(i5).getFilePath()));
                 }
-                C1299t5.f3756c.clear();
+                DataCleanUtil.f3756c.clear();
             }
             if (DataCleanActivity.this.f1707l.get(4).isSelect()) {
-                for (int i6 = 0; i6 < C1299t5.f3757d.size(); i6++) {
-                    C0930ee.m1678c(new File(C1299t5.f3757d.get(i6).getFilePath()));
+                for (int i6 = 0; i6 < DataCleanUtil.f3757d.size(); i6++) {
+                    C0930ee.m1678c(new File(DataCleanUtil.f3757d.get(i6).getFilePath()));
                 }
-                C1299t5.f3757d.clear();
+                DataCleanUtil.f3757d.clear();
             }
             if (DataCleanActivity.this.f1707l.get(5).isSelect()) {
-                for (int i7 = 0; i7 < C1299t5.f3758e.size(); i7++) {
-                    C0930ee.m1678c(new File(C1299t5.f3758e.get(i7).getFilePath()));
+                for (int i7 = 0; i7 < DataCleanUtil.f3758e.size(); i7++) {
+                    C0930ee.m1678c(new File(DataCleanUtil.f3758e.get(i7).getFilePath()));
                 }
-                C1299t5.f3758e.clear();
+                DataCleanUtil.f3758e.clear();
             }
             if (DataCleanActivity.this.f1707l.get(6).isSelect()) {
-                for (int i8 = 0; i8 < C1299t5.f3761h.size(); i8++) {
-                    File file3 = new File(C1299t5.f3761h.get(i8).getFilePath());
+                for (int i8 = 0; i8 < DataCleanUtil.f3761h.size(); i8++) {
+                    File file3 = new File(DataCleanUtil.f3761h.get(i8).getFilePath());
                     C0930ee.m1678c(file3);
                     C0930ee.m1682g(DataCleanActivity.this, file3.getAbsolutePath(), file3.getName());
                 }
-                C1299t5.f3761h.clear();
+                DataCleanUtil.f3761h.clear();
             }
             for (int i9 = 1; i9 <= 100; i9++) {
                 publishProgress(Integer.valueOf(i9));
@@ -225,7 +225,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
             DataCleanActivity.this.f1706k.setProgress(numArr2[0].intValue());
             if (numArr2[0].intValue() == 100) {
                 DataCleanActivity dataCleanActivity = DataCleanActivity.this;
-                dataCleanActivity.f1697b = C0904de.m1584a(dataCleanActivity);
+                dataCleanActivity.f1697b = LauncherDeviceUtils.m1584a(dataCleanActivity);
                 DataCleanActivity dataCleanActivity2 = DataCleanActivity.this;
                 dataCleanActivity2.f1706k.setProgress(dataCleanActivity2.f1697b);
             }
@@ -240,7 +240,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
 
         @Override // android.os.AsyncTask
         public String doInBackground(String[] strArr) throws InterruptedException {
-            C1299t5.m2722c(new File(C1299t5.f3754a), DataCleanActivity.this);
+            DataCleanUtil.m2722c(new File(DataCleanUtil.f3754a), DataCleanActivity.this);
             for (int i = 1; i <= 100; i++) {
                 publishProgress(Integer.valueOf(i));
                 if (isCancelled()) {
@@ -270,13 +270,13 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
             DataCleanActivity dataCleanActivity = DataCleanActivity.this;
             dataCleanActivity.f1702g = false;
             dataCleanActivity.m1189h(false);
-            C1299t5.f3755b.clear();
-            C1299t5.f3760g.clear();
-            C1299t5.f3759f.clear();
-            C1299t5.f3756c.clear();
-            C1299t5.f3757d.clear();
-            C1299t5.f3758e.clear();
-            C1299t5.f3761h.clear();
+            DataCleanUtil.f3755b.clear();
+            DataCleanUtil.f3760g.clear();
+            DataCleanUtil.f3759f.clear();
+            DataCleanUtil.f3756c.clear();
+            DataCleanUtil.f3757d.clear();
+            DataCleanUtil.f3758e.clear();
+            DataCleanUtil.f3761h.clear();
         }
 
         @Override // android.os.AsyncTask
@@ -286,7 +286,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
             DataCleanActivity.this.f1706k.setProgress(numArr2[0].intValue());
             if (numArr2[0].intValue() == 100) {
                 DataCleanActivity dataCleanActivity = DataCleanActivity.this;
-                dataCleanActivity.f1697b = C0904de.m1584a(dataCleanActivity);
+                dataCleanActivity.f1697b = LauncherDeviceUtils.m1584a(dataCleanActivity);
                 DataCleanActivity dataCleanActivity2 = DataCleanActivity.this;
                 dataCleanActivity2.f1706k.setProgress(dataCleanActivity2.f1697b);
             }
@@ -299,17 +299,17 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         if (dataCleanActivity == null) {
             throw null;
         }
-        C0850bc.m1403m("DataCleanActivity-- finishScan");
+        LTKDateUtil.m1403m("DataCleanActivity-- finishScan");
         dataCleanActivity.f1705j = null;
-        int size = C1299t5.f3755b.size();
-        int size2 = C1299t5.f3760g.size();
-        int size3 = C1299t5.f3759f.size();
-        int size4 = C1299t5.f3756c.size();
-        int size5 = C1299t5.f3757d.size();
-        int size6 = C1299t5.f3758e.size();
-        int size7 = C1299t5.f3761h.size();
+        int size = DataCleanUtil.f3755b.size();
+        int size2 = DataCleanUtil.f3760g.size();
+        int size3 = DataCleanUtil.f3759f.size();
+        int size4 = DataCleanUtil.f3756c.size();
+        int size5 = DataCleanUtil.f3757d.size();
+        int size6 = DataCleanUtil.f3758e.size();
+        int size7 = DataCleanUtil.f3761h.size();
         if (AbstractC1102l9.m2273N(dataCleanActivity.f1707l)) {
-            C0850bc.m1403m("DataCleanActivity-- scan categorys are empty");
+            LTKDateUtil.m1403m("DataCleanActivity-- scan categorys are empty");
         } else {
             for (int i = 0; i < dataCleanActivity.f1707l.size(); i++) {
                 DataCleanCategoryInfo dataCleanCategoryInfo = dataCleanActivity.f1707l.get(i);
@@ -329,13 +329,13 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
                     dataCleanCategoryInfo.setNumber(size7);
                 }
             }
-            C0850bc.m1403m("DataCleanActivity-- destDownloadPathListSize:" + size);
-            C0850bc.m1403m("DataCleanActivity-- imageVideoPathSize:" + size2);
-            C0850bc.m1403m("DataCleanActivity-- bigFilePathListSize:" + size3);
-            C0850bc.m1403m("DataCleanActivity-- appCachePathListSize:" + size4);
-            C0850bc.m1403m("DataCleanActivity-- noneUsedApkPathListSize:" + size5);
-            C0850bc.m1403m("DataCleanActivity-- appLogPathListSize:" + size6);
-            C0850bc.m1403m("DataCleanActivity-- imageVideoPathCacheSize:" + size7);
+            LTKDateUtil.m1403m("DataCleanActivity-- destDownloadPathListSize:" + size);
+            LTKDateUtil.m1403m("DataCleanActivity-- imageVideoPathSize:" + size2);
+            LTKDateUtil.m1403m("DataCleanActivity-- bigFilePathListSize:" + size3);
+            LTKDateUtil.m1403m("DataCleanActivity-- appCachePathListSize:" + size4);
+            LTKDateUtil.m1403m("DataCleanActivity-- noneUsedApkPathListSize:" + size5);
+            LTKDateUtil.m1403m("DataCleanActivity-- appLogPathListSize:" + size6);
+            LTKDateUtil.m1403m("DataCleanActivity-- imageVideoPathCacheSize:" + size7);
         }
         dataCleanActivity.f1708m.notifyDataSetChanged();
     }
@@ -349,7 +349,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: c */
     public void mo1171c() {
-        for (int i : C1299t5.f3762i) {
+        for (int i : DataCleanUtil.f3762i) {
             DataCleanCategoryInfo dataCleanCategoryInfo = new DataCleanCategoryInfo();
             dataCleanCategoryInfo.setDesc(getString(i));
             this.f1707l.add(dataCleanCategoryInfo);
@@ -358,7 +358,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         if (dataCleanRecyclerViewAdapter != null) {
             dataCleanRecyclerViewAdapter.f1851d = new C0632a();
         }
-        new C1045j2(this, true);
+        new CheckGrantedPermission(this, true);
         m1214a();
     }
 
@@ -420,11 +420,11 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
 
     /* renamed from: i */
     public final void m1190i() {
-        StringBuilder sbM1765j = C0948f6.m1765j("DataCleanActivity-- scanFiles init scanState:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("DataCleanActivity-- scanFiles init scanState:");
         sbM1765j.append(this.f1702g);
         sbM1765j.append(" cleanState:");
         sbM1765j.append(this.f1703h);
-        C0850bc.m1403m(sbM1765j.toString());
+        LTKDateUtil.m1403m(sbM1765j.toString());
         if (this.f1702g && this.f1703h) {
             AsyncTaskC0635d asyncTaskC0635d = new AsyncTaskC0635d();
             this.f1705j = asyncTaskC0635d;
@@ -435,7 +435,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        C0850bc.m1403m("DataCleanActivity-- onActivityResult");
+        LTKDateUtil.m1403m("DataCleanActivity-- onActivityResult");
         if (i == 1 && i2 == -1) {
             m1190i();
         }
@@ -443,7 +443,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();
@@ -479,19 +479,19 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     @Override // com.android.launcher3.activity.base.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        C0850bc.m1403m("DataCleanActivity-- onDestroy");
+        LTKDateUtil.m1403m("DataCleanActivity-- onDestroy");
         m1189h(true);
         AsyncTaskC0635d asyncTaskC0635d = this.f1705j;
         if (asyncTaskC0635d != null && !asyncTaskC0635d.isCancelled() && this.f1705j.getStatus() == AsyncTask.Status.RUNNING) {
             this.f1705j.cancel(true);
             this.f1705j = null;
-            C0850bc.m1403m("DataCleanActivity-- fileScanTask cancel");
+            LTKDateUtil.m1403m("DataCleanActivity-- fileScanTask cancel");
         }
         AsyncTaskC0634c asyncTaskC0634c = this.f1704i;
         if (asyncTaskC0634c != null && !asyncTaskC0634c.isCancelled() && this.f1704i.getStatus() == AsyncTask.Status.RUNNING) {
             this.f1704i.cancel(true);
             this.f1704i = null;
-            C0850bc.m1403m("DataCleanActivity-- fileCleanTask cancel");
+            LTKDateUtil.m1403m("DataCleanActivity-- fileCleanTask cancel");
         }
         this.f1702g = true;
         this.f1703h = true;

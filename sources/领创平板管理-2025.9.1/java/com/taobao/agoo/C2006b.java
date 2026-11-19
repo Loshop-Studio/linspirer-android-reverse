@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import java.util.ArrayList;
 
@@ -42,12 +42,12 @@ public class C2006b {
 
     /* renamed from: b */
     public static String m5822b(String str) {
-        return C0948f6.m1760e("alicloud-third-push-pat-", str);
+        return CompilerOutline.m1760e("alicloud-third-push-pat-", str);
     }
 
     /* renamed from: a */
     public static String m5819a(String str) {
-        return (str == null || str.isEmpty()) ? "" : C0948f6.m1761f("#&#", str, "#&#");
+        return (str == null || str.isEmpty()) ? "" : CompilerOutline.m1761f("#&#", str, "#&#");
     }
 
     /* renamed from: a */

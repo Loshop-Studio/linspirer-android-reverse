@@ -14,11 +14,11 @@ import com.android.launcher3.network.response.ExceptionHandler;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.view.DialogUtil;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.UserInfoUtil;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,16 +36,16 @@ public class SynchronizeTimeUtil {
             return;
         }
         lastOperateTime = jCurrentTimeMillis;
-        if (C1424y5.b.f4202a.m3023R()) {
+        if (UserInfoUtil.b.f4202a.m3023R()) {
             return;
         }
         try {
             if (!TIMEZONE.equals(TimeZone.getDefault().getID())) {
                 ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).setTimeZone(TIMEZONE);
-                C0850bc.m1403m("sync time zone Asia/Shanghai");
+                LTKDateUtil.m1403m("sync time zone Asia/Shanghai");
             }
         } catch (Throwable th) {
-            C0850bc.m1393c(TAG + "---set time zone error:" + th.getMessage());
+            LTKDateUtil.m1393c(TAG + "---set time zone error:" + th.getMessage());
         }
         if (z) {
             DialogUtil.showDialog(context, context.getResources().getString(R.string.sync_timeing));
@@ -55,7 +55,7 @@ public class SynchronizeTimeUtil {
             SynchronizeTimeParams synchronizeTimeParams = new SynchronizeTimeParams(context);
             v2Params.setMethod(RequestUrl.DEVICE_UPDATE_ONLINE_TIME);
             v2Params.setParams(JSON.toJSONString(synchronizeTimeParams));
-            C1355vb c1355vb = new C1355vb(new C1255rb());
+            PostBuilder c1355vb = new PostBuilder(new HttpCore());
             c1355vb.f3777a = RequestUrl.HTTP_URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new LTKResponseListener<String>(String.class) { // from class: com.android.launcher3.network.SynchronizeTimeUtil.1
@@ -73,27 +73,27 @@ public class SynchronizeTimeUtil {
 
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(String str) {
-                    C0850bc.m1403m(SynchronizeTimeUtil.TAG + " -- pullSynchronizeTime successfully .");
+                    LTKDateUtil.m1403m(SynchronizeTimeUtil.TAG + " -- pullSynchronizeTime successfully .");
                     DialogUtil.hideDialog();
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
                     try {
                         Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str);
-                        C0850bc.m1403m(SynchronizeTimeUtil.TAG + " -- 写入设备时间: " + date.getTime());
-                        boolean zMo1312N = C0850bc.f2294f.mo1312N(date.getTime());
-                        C1424y5 c1424y5 = C1424y5.b.f4202a;
+                        LTKDateUtil.m1403m(SynchronizeTimeUtil.TAG + " -- 写入设备时间: " + date.getTime());
+                        boolean zMo1312N = LTKDateUtil.f2294f.mo1312N(date.getTime());
+                        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
                         if (c1424y5.f4136J != 1) {
                             c1424y5.f4136J = 1;
-                            C0824ac c0824ac = c1424y5.f4130D;
+                            DeskSPF c0824ac = c1424y5.f4130D;
                             c0824ac.f2200b.putInt("synchronize_time", 1);
                             c0824ac.f2200b.commit();
                         }
                         if (z) {
                             if (zMo1312N) {
-                                C0850bc.m1415y(context, R.string.sync_time_finish);
+                                LTKDateUtil.m1415y(context, R.string.sync_time_finish);
                             } else {
-                                C0850bc.m1415y(context, R.string.hw_sync_time_finish);
+                                LTKDateUtil.m1415y(context, R.string.hw_sync_time_finish);
                             }
                         }
                     } catch (ParseException e) {
@@ -103,13 +103,13 @@ public class SynchronizeTimeUtil {
             });
         } catch (Exception e) {
             DialogUtil.hideDialog();
-            C0850bc.m1413w(context, context.getString(R.string.network_error_note), 0);
-            C0850bc.m1393c(TAG + " -- pullSynchronizeTime error: " + e.getMessage());
+            LTKDateUtil.m1413w(context, context.getString(R.string.network_error_note), 0);
+            LTKDateUtil.m1393c(TAG + " -- pullSynchronizeTime error: " + e.getMessage());
         }
     }
 
     public static void pullSynchronizeTimeBoolean(Context context) {
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         if (c1424y5.f4136J == 0) {
             c1424y5.f4136J = c1424y5.f4130D.f2199a.getInt("synchronize_time", 0);
         }

@@ -37,7 +37,7 @@ import anet.channel.util.HttpHelper;
 import anet.channel.util.Utils;
 import anetwork.channel.util.RequestConstant;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.taobao.accs.common.Constants;
 import java.lang.reflect.InvocationTargetException;
@@ -576,7 +576,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         if (ALog.isPrintLog(1) && i4 < 512) {
             String string = "";
             for (byte b : bArr) {
-                StringBuilder sbM1765j = C0948f6.m1765j(string);
+                StringBuilder sbM1765j = CompilerOutline.m1765j(string);
                 sbM1765j.append(Integer.toHexString(b & Base64.EQUALS_SIGN_ENC));
                 sbM1765j.append(" ");
                 string = sbM1765j.toString();

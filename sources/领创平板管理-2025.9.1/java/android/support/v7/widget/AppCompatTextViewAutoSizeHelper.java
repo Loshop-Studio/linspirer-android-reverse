@@ -21,7 +21,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -385,7 +385,7 @@ public class AppCompatTextViewAutoSizeHelper {
                 }
                 this.mAutoSizeTextSizesInPx = cleanupAutoSizePresetSizes(iArrCopyOf);
                 if (!setupAutoSizeUniformPresetSizesConfiguration()) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("None of the preset sizes is valid: ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("None of the preset sizes is valid: ");
                     sbM1765j.append(Arrays.toString(iArr));
                     throw new IllegalArgumentException(sbM1765j.toString());
                 }
@@ -406,7 +406,7 @@ public class AppCompatTextViewAutoSizeHelper {
                 return;
             }
             if (i != 1) {
-                throw new IllegalArgumentException(C0948f6.m1754L("Unknown auto-size text type: ", i));
+                throw new IllegalArgumentException(CompilerOutline.m1754L("Unknown auto-size text type: ", i));
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             validateAndSetAutoSizeTextTypeUniformConfiguration(TypedValue.applyDimension(2, 12.0f, displayMetrics), TypedValue.applyDimension(2, 112.0f, displayMetrics), 1.0f);

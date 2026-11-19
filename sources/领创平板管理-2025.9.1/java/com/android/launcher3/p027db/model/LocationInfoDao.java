@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
 import android.support.v4.app.NotificationCompat;
 import anet.channel.strategy.dispatch.DispatchConstants;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -37,11 +37,11 @@ public class LocationInfoDao extends AbstractDao<LocationInfo, Long> {
         database.execSQL("CREATE TABLE " + str + "\"locations_table\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"EMAIL\" TEXT,\"USERNAME\" TEXT,\"LAT\" TEXT,\"LNG\" TEXT,\"ADDRESS\" TEXT,\"LOCATION_TIME\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_locations_table__id ON \"locations_table\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_locations_table__id ON \"locations_table\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"locations_table\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"locations_table\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

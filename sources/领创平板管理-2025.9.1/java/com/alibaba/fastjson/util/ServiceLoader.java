@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.util;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -21,7 +21,7 @@ public class ServiceLoader {
             return Collections.emptySet();
         }
         HashSet hashSet = new HashSet();
-        String strM1760e = C0948f6.m1760e(PREFIX, cls.getName());
+        String strM1760e = CompilerOutline.m1760e(PREFIX, cls.getName());
         HashSet hashSet2 = new HashSet();
         try {
             Enumeration<URL> resources = classLoader.getResources(strM1760e);

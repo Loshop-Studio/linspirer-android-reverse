@@ -5,8 +5,8 @@ import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.Loader;
-import com.huawei.hem.InterfaceC1042j;
-import com.huawei.hem.InterfaceC1318u;
+import com.huawei.hem.LifecycleOwner;
+import com.huawei.hem.ViewModelStoreOwner;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
@@ -30,7 +30,7 @@ public abstract class LoaderManager {
     }
 
     @NonNull
-    public static <T extends InterfaceC1042j & InterfaceC1318u> LoaderManager getInstance(@NonNull T t) {
+    public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(@NonNull T t) {
         return new LoaderManagerImpl(t, t.getViewModelStore());
     }
 

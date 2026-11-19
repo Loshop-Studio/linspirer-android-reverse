@@ -68,13 +68,13 @@ public class C1001h8 {
                                 Logger.m3439w("GeoipCountry", "convert urlParamKey from String to Long catch NumberFormatException.", e);
                             }
                         }
-                        if (TextUtils.isEmpty(strM3138c) || C1423y4.m2986g(Long.valueOf(j))) {
+                        if (TextUtils.isEmpty(strM3138c) || LauncherMenuHelper.m2986g(Long.valueOf(j))) {
                             C1152n8 c1152n8 = new C1152n8(grsBaseInfo2, context);
                             c1152n8.f3291c.add("geoip.countrycode");
                             C0872c8 c0872c8 = c0820a8.f2189d;
                             if (c0872c8 != null) {
                                 try {
-                                    strM2991l = C1423y4.m2991l(c0872c8.f2329a.getString("services", ""), c1152n8.m2407a());
+                                    strM2991l = LauncherMenuHelper.m2991l(c0872c8.f2329a.getString("services", ""), c1152n8.m2407a());
                                 } catch (JSONException e2) {
                                     Logger.m3439w("GeoipCountry", "getGeoipCountry merge services occure jsonException.", e2);
                                     strM2991l = null;

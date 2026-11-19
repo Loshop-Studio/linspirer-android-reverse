@@ -13,7 +13,7 @@ import android.os.Process;
 import android.os.StatFs;
 import android.support.v4.app.NotificationManagerCompat;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.p061ta.utdid2.device.UTDevice;
 import com.taobao.accs.ChannelService;
 import com.taobao.accs.client.AdapterGlobalClientInfo;
@@ -41,7 +41,7 @@ public class AdapterUtilityImpl {
         int blockSize = statFs.getBlockSize();
         boolean z = statFs.getAvailableBlocks() > 10 && ((long) statFs.getAvailableBlocks()) * ((long) blockSize) > ((long) i);
         if (!z) {
-            StringBuilder sbM1766k = C0948f6.m1766k("target : ", i, " st.getAvailableBlocks()=");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("target : ", i, " st.getAvailableBlocks()=");
             sbM1766k.append(statFs.getAvailableBlocks());
             sbM1766k.append(",st.getAvailableBlocks() * blockSize=");
             sbM1766k.append(statFs.getAvailableBlocks() * blockSize);

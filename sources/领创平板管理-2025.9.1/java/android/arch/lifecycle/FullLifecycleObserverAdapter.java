@@ -1,7 +1,7 @@
 package android.arch.lifecycle;
 
 import com.huawei.hem.AbstractC0992h;
-import com.huawei.hem.InterfaceC1042j;
+import com.huawei.hem.LifecycleOwner;
 
 /* loaded from: classes.dex */
 public class FullLifecycleObserverAdapter implements GenericLifecycleObserver {
@@ -15,7 +15,7 @@ public class FullLifecycleObserverAdapter implements GenericLifecycleObserver {
 
     @Override // android.arch.lifecycle.GenericLifecycleObserver
     /* renamed from: d */
-    public void mo0d(InterfaceC1042j interfaceC1042j, AbstractC0992h.a aVar) {
+    public void mo0d(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) {
         switch (aVar) {
             case ON_CREATE:
                 this.f2a.m5f(interfaceC1042j);

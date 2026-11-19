@@ -36,14 +36,14 @@ public class C0952fa implements InterfaceRunnableC1003ha {
             C1404xa.m2938e("hmsSdk", "failed events is empty");
             return;
         }
-        if (AbstractC1102l9.m2297t(C1423y4.m2998s(), "cached_v2_1", C1453z9.m3144b().f4293a.f2753g * 2 * 1048576)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("The cacheFile is full,Can not writing data! reqID:");
+        if (AbstractC1102l9.m2297t(LauncherMenuHelper.m2998s(), "cached_v2_1", C1453z9.m3144b().f4293a.f2753g * 2 * 1048576)) {
+            StringBuilder sbM1765j = CompilerOutline.m1765j("The cacheFile is full,Can not writing data! reqID:");
             sbM1765j.append(this.f2640b);
             C1404xa.m2939f("hmsSdk", sbM1765j.toString());
             return;
         }
         String strM2260A = AbstractC1102l9.m2260A(this.f2639a, this.f2641c);
-        List list2 = (List) ((HashMap) C1304ta.m2728d(C1423y4.m2998s(), "cached_v2_1", strM2260A)).get(strM2260A);
+        List list2 = (List) ((HashMap) C1304ta.m2728d(LauncherMenuHelper.m2998s(), "cached_v2_1", strM2260A)).get(strM2260A);
         if (list2 != null && list2.size() != 0) {
             this.f2642d.addAll(list2);
         }
@@ -62,10 +62,10 @@ public class C0952fa implements InterfaceRunnableC1003ha {
             this.f2642d = null;
             return;
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("data send failed, write to cache file...reqID:");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("data send failed, write to cache file...reqID:");
         sbM1765j2.append(this.f2640b);
         C1404xa.m2938e("hmsSdk", sbM1765j2.toString());
-        AbstractC1102l9.m2263D(C1423y4.m2998s(), "cached_v2_1", strM2260A, string);
-        AbstractC1102l9.m2291n(C1423y4.m2998s(), "backup_event", AbstractC1102l9.m2302y(this.f2639a, this.f2641c, this.f2640b));
+        AbstractC1102l9.m2263D(LauncherMenuHelper.m2998s(), "cached_v2_1", strM2260A, string);
+        AbstractC1102l9.m2291n(LauncherMenuHelper.m2998s(), "backup_event", AbstractC1102l9.m2302y(this.f2639a, this.f2641c, this.f2640b));
     }
 }

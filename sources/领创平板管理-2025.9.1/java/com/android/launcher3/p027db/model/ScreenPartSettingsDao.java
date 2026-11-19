@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -37,11 +37,11 @@ public class ScreenPartSettingsDao extends AbstractDao<ScreenPartSettings, Long>
         database.execSQL("CREATE TABLE " + str + "\"screen_setting_info\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"POSITION\" INTEGER NOT NULL ,\"TITLE\" TEXT,\"TYPE\" INTEGER NOT NULL ,\"URL\" TEXT,\"COMPONENT\" TEXT,\"PACKAGE_NAME\" TEXT,\"B_IMG_PATH\" TEXT,\"DESCRIPTION\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_screen_setting_info__id ON \"screen_setting_info\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_screen_setting_info__id ON \"screen_setting_info\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"screen_setting_info\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"screen_setting_info\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

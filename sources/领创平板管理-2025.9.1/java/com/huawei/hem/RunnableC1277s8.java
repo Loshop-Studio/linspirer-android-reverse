@@ -46,7 +46,7 @@ public final class RunnableC1277s8 implements Runnable {
             }
             C1252r8 c1252r8 = (C1252r8) it.next();
             if (c1252r8.m2659d()) {
-                c1101l8.put(C1423y4.m2983d(c1252r8));
+                c1101l8.put(LauncherMenuHelper.m2983d(c1252r8));
                 it.remove();
                 z = true;
                 break;
@@ -55,13 +55,13 @@ public final class RunnableC1277s8 implements Runnable {
         if (!z && this.f3672c.size() > 0) {
             ArrayList arrayList = this.f3672c;
             C1252r8 c1252r82 = (C1252r8) arrayList.get(arrayList.size() - 1);
-            c1101l8.put(C1423y4.m2983d(c1252r82));
+            c1101l8.put(LauncherMenuHelper.m2983d(c1252r82));
             this.f3672c.remove(c1252r82);
         }
         if (this.f3672c.size() > 0) {
             Iterator it2 = this.f3672c.iterator();
             while (it2.hasNext()) {
-                this.f3673d.put(new JSONObject(C1423y4.m2983d((C1252r8) it2.next())));
+                this.f3673d.put(new JSONObject(LauncherMenuHelper.m2983d((C1252r8) it2.next())));
             }
         }
         if (this.f3673d.length() > 0) {

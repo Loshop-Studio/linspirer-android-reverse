@@ -3,7 +3,7 @@ package com.huawei.updatesdk.p048b.p058h;
 import android.text.TextUtils;
 import anet.channel.strategy.dispatch.DispatchConstants;
 import com.gyf.immersionbar.OSUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public final class C1639a {
         if (iM3755c == 0) {
             this.f4717a = m3754b();
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("emuiVersion:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("emuiVersion:");
         sbM1765j.append(this.f4717a);
         C1584a.m3514a("EMUISupportUtil", sbM1765j.toString());
     }

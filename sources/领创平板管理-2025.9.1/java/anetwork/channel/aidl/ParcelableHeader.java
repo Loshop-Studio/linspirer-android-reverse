@@ -3,7 +3,7 @@ package anetwork.channel.aidl;
 import android.os.Parcel;
 import android.os.Parcelable;
 import anet.channel.util.ALog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +47,7 @@ public class ParcelableHeader implements Parcelable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("ParcelableResponseHeader [responseCode=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ParcelableResponseHeader [responseCode=");
         sbM1765j.append(this.responseCode);
         sbM1765j.append(", header=");
         sbM1765j.append(this.header);

@@ -1,6 +1,6 @@
 package com.alibaba.sdk.android.error;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class ErrorCode implements Serializable {
     }
 
     public static String docContent(ErrorCode[] errorCodeArr) {
-        StringBuilder sbM1765j = C0948f6.m1765j("\n");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("\n");
         for (ErrorCode errorCode : errorCodeArr) {
             sbM1765j.append("|");
             sbM1765j.append(errorCode.code);
@@ -56,7 +56,7 @@ public class ErrorCode implements Serializable {
     }
 
     public static String toStringWithAllInfo(ErrorCode errorCode) {
-        StringBuilder sbM1765j = C0948f6.m1765j("错误码：");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("错误码：");
         sbM1765j.append(errorCode.code);
         sbM1765j.append(", ");
         sbM1765j.append("错误：");
@@ -138,12 +138,12 @@ public class ErrorCode implements Serializable {
     }
 
     public String toShortString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("(");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(");
         sbM1765j.append(this.code);
         sbM1765j.append(",");
         sbM1765j.append(this.msg);
         sbM1765j.append(",");
-        return C0948f6.m1762g(sbM1765j, this.detail, ")");
+        return CompilerOutline.m1762g(sbM1765j, this.detail, ")");
     }
 
     public String toString() {

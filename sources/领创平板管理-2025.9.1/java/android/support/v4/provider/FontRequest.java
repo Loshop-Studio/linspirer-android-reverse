@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.Preconditions;
 import android.util.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -59,7 +59,7 @@ public final class FontRequest {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        StringBuilder sbM1765j = C0948f6.m1765j("FontRequest {mProviderAuthority: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("FontRequest {mProviderAuthority: ");
         sbM1765j.append(this.mProviderAuthority);
         sbM1765j.append(", mProviderPackage: ");
         sbM1765j.append(this.mProviderPackage);

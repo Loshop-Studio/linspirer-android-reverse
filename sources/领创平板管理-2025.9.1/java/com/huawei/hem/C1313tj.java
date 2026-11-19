@@ -17,7 +17,7 @@ public final /* synthetic */ class C1313tj {
         try {
             return Arrays.asList(InetAddress.getAllByName(str));
         } catch (NullPointerException e) {
-            UnknownHostException unknownHostException = new UnknownHostException(C0948f6.m1760e("Broken system behaviour for dns lookup of ", str));
+            UnknownHostException unknownHostException = new UnknownHostException(CompilerOutline.m1760e("Broken system behaviour for dns lookup of ", str));
             unknownHostException.initCause(e);
             throw unknownHostException;
         }

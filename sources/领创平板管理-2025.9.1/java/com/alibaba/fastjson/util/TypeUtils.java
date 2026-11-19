@@ -20,7 +20,7 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.serializer.CalendarCodec;
 import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
@@ -198,7 +198,7 @@ public class TypeUtils {
                     } else {
                         JSONScanner jSONScanner = new JSONScanner(str);
                         if (!jSONScanner.scanISO8601DateIfMatch(false)) {
-                            throw new JSONException(C0948f6.m1760e("can not cast to Timestamp, value : ", str));
+                            throw new JSONException(CompilerOutline.m1760e("can not cast to Timestamp, value : ", str));
                         }
                         jLongValue = jSONScanner.getCalendar().getTime().getTime();
                     }
@@ -206,7 +206,7 @@ public class TypeUtils {
                 if (jLongValue > 0) {
                     return new Date(jLongValue);
                 }
-                throw new JSONException(C0948f6.m1759d("can not cast to Date, value : ", obj));
+                throw new JSONException(CompilerOutline.m1759d("can not cast to Date, value : ", obj));
             }
         };
         castToSqlTimeFunction = new Function<Object, Object>() { // from class: com.alibaba.fastjson.util.TypeUtils.3
@@ -238,7 +238,7 @@ public class TypeUtils {
                         }
                         JSONScanner jSONScanner = new JSONScanner(str);
                         if (!jSONScanner.scanISO8601DateIfMatch(false)) {
-                            throw new JSONException(C0948f6.m1760e("can not cast to Timestamp, value : ", str));
+                            throw new JSONException(CompilerOutline.m1760e("can not cast to Timestamp, value : ", str));
                         }
                         jLongValue = jSONScanner.getCalendar().getTime().getTime();
                     }
@@ -246,7 +246,7 @@ public class TypeUtils {
                 if (jLongValue > 0) {
                     return new Time(jLongValue);
                 }
-                throw new JSONException(C0948f6.m1759d("can not cast to Date, value : ", obj));
+                throw new JSONException(CompilerOutline.m1759d("can not cast to Date, value : ", obj));
             }
         };
         castToTimestampFunction = new Function<Object, Object>() { // from class: com.alibaba.fastjson.util.TypeUtils.4
@@ -288,7 +288,7 @@ public class TypeUtils {
                     } else {
                         JSONScanner jSONScanner = new JSONScanner(strSubstring);
                         if (!jSONScanner.scanISO8601DateIfMatch(false)) {
-                            throw new JSONException(C0948f6.m1760e("can not cast to Timestamp, value : ", strSubstring));
+                            throw new JSONException(CompilerOutline.m1760e("can not cast to Timestamp, value : ", strSubstring));
                         }
                         jLongValue = jSONScanner.getCalendar().getTime().getTime();
                     }
@@ -511,7 +511,7 @@ public class TypeUtils {
                 try {
                     obj2 = (T) ((Calendar) cls.newInstance());
                 } catch (Exception e) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("can not cast to : ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("can not cast to : ");
                     sbM1765j.append(cls.getName());
                     throw new JSONException(sbM1765j.toString(), e);
                 }
@@ -544,7 +544,7 @@ public class TypeUtils {
         if (parserConfig.get(cls) != null) {
             return (T) JSON.parseObject(JSON.toJSONString(obj), cls);
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("can not cast to : ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("can not cast to : ");
         sbM1765j2.append(cls.getName());
         throw new JSONException(sbM1765j2.toString());
     }
@@ -651,7 +651,7 @@ public class TypeUtils {
                 return Boolean.FALSE;
             }
         }
-        throw new JSONException(C0948f6.m1759d("can not cast to boolean, value : ", obj));
+        throw new JSONException(CompilerOutline.m1759d("can not cast to boolean, value : ", obj));
     }
 
     public static Byte castToByte(Object obj) {
@@ -668,7 +668,7 @@ public class TypeUtils {
             if (obj instanceof Boolean) {
                 return Byte.valueOf(((Boolean) obj).booleanValue() ? (byte) 1 : (byte) 0);
             }
-            throw new JSONException(C0948f6.m1759d("can not cast to byte, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to byte, value : ", obj));
         }
         String str = (String) obj;
         if (str.length() == 0 || "null".equals(str) || "NULL".equals(str)) {
@@ -684,7 +684,7 @@ public class TypeUtils {
         if (obj instanceof String) {
             return IOUtils.decodeBase64((String) obj);
         }
-        throw new JSONException(C0948f6.m1759d("can not cast to byte[], value : ", obj));
+        throw new JSONException(CompilerOutline.m1759d("can not cast to byte[], value : ", obj));
     }
 
     public static Character castToChar(Object obj) {
@@ -695,7 +695,7 @@ public class TypeUtils {
             return (Character) obj;
         }
         if (!(obj instanceof String)) {
-            throw new JSONException(C0948f6.m1759d("can not cast to char, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to char, value : ", obj));
         }
         String str = (String) obj;
         if (str.length() == 0) {
@@ -704,7 +704,7 @@ public class TypeUtils {
         if (str.length() == 1) {
             return Character.valueOf(str.charAt(0));
         }
-        throw new JSONException(C0948f6.m1759d("can not cast to char, value : ", obj));
+        throw new JSONException(CompilerOutline.m1759d("can not cast to char, value : ", obj));
     }
 
     public static java.util.Date castToDate(Object obj) {
@@ -722,7 +722,7 @@ public class TypeUtils {
             if (obj instanceof Boolean) {
                 return Double.valueOf(((Boolean) obj).booleanValue() ? 1.0d : 0.0d);
             }
-            throw new JSONException(C0948f6.m1759d("can not cast to double, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to double, value : ", obj));
         }
         String string = obj.toString();
         if (string.length() == 0 || "null".equals(string) || "NULL".equals(string)) {
@@ -761,11 +761,11 @@ public class TypeUtils {
                     return enumConstants2[iIntValue2];
                 }
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("can not cast to : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("can not cast to : ");
             sbM1765j.append(cls.getName());
             throw new JSONException(sbM1765j.toString());
         } catch (Exception e) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("can not cast to : ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("can not cast to : ");
             sbM1765j2.append(cls.getName());
             throw new JSONException(sbM1765j2.toString(), e);
         }
@@ -782,7 +782,7 @@ public class TypeUtils {
             if (obj instanceof Boolean) {
                 return Float.valueOf(((Boolean) obj).booleanValue() ? 1.0f : 0.0f);
             }
-            throw new JSONException(C0948f6.m1759d("can not cast to float, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to float, value : ", obj));
         }
         String string = obj.toString();
         if (string.length() == 0 || "null".equals(string) || "NULL".equals(string)) {
@@ -832,7 +832,7 @@ public class TypeUtils {
                 return castToInt(it.next());
             }
         }
-        throw new JSONException(C0948f6.m1759d("can not cast to int, value : ", obj));
+        throw new JSONException(CompilerOutline.m1759d("can not cast to int, value : ", obj));
     }
 
     public static <T> T castToJavaBean(Object obj, Class<T> cls) {
@@ -879,7 +879,7 @@ public class TypeUtils {
         if (obj instanceof Boolean) {
             return Long.valueOf(((Boolean) obj).booleanValue() ? 1L : 0L);
         }
-        throw new JSONException(C0948f6.m1759d("can not cast to long, value : ", obj));
+        throw new JSONException(CompilerOutline.m1759d("can not cast to long, value : ", obj));
     }
 
     public static Short castToShort(Object obj) {
@@ -896,7 +896,7 @@ public class TypeUtils {
             if (obj instanceof Boolean) {
                 return Short.valueOf(((Boolean) obj).booleanValue() ? (short) 1 : (short) 0);
             }
-            throw new JSONException(C0948f6.m1759d("can not cast to short, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to short, value : ", obj));
         }
         String str = (String) obj;
         if (str.length() == 0 || "null".equals(str) || "NULL".equals(str)) {
@@ -929,7 +929,7 @@ public class TypeUtils {
         String strM1760e = "[";
         while (genericComponentType instanceof GenericArrayType) {
             genericComponentType = ((GenericArrayType) genericComponentType).getGenericComponentType();
-            strM1760e = C0948f6.m1760e(strM1760e, strM1760e);
+            strM1760e = CompilerOutline.m1760e(strM1760e, strM1760e);
         }
         if (!(genericComponentType instanceof Class)) {
             return genericArrayType;
@@ -1041,7 +1041,7 @@ public class TypeUtils {
         try {
             return (Collection) rawClass.newInstance();
         } catch (Exception unused) {
-            StringBuilder sbM1765j = C0948f6.m1765j("create instance error, class ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("create instance error, class ");
             sbM1765j.append(rawClass.getName());
             throw new JSONException(sbM1765j.toString());
         }
@@ -1067,7 +1067,7 @@ public class TypeUtils {
         try {
             return (Set) rawClass.newInstance();
         } catch (Exception unused) {
-            StringBuilder sbM1765j = C0948f6.m1765j("create instance error, class ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("create instance error, class ");
             sbM1765j.append(rawClass.getName());
             throw new JSONException(sbM1765j.toString());
         }
@@ -2097,7 +2097,7 @@ public class TypeUtils {
                     try {
                         return simpleDateFormat.parse(strSubstring);
                     } catch (ParseException unused) {
-                        throw new JSONException(C0948f6.m1760e("can not cast to Date, value : ", strSubstring));
+                        throw new JSONException(CompilerOutline.m1760e("can not cast to Date, value : ", strSubstring));
                     }
                 }
                 if (strSubstring.length() == 0) {
@@ -2132,7 +2132,7 @@ public class TypeUtils {
             }
         }
         if (!"oracle.sql.DATE".equals(cls.getName())) {
-            throw new JSONException(C0948f6.m1759d("can not cast to Date, value : ", obj));
+            throw new JSONException(CompilerOutline.m1759d("can not cast to Date, value : ", obj));
         }
         if (oracleDateMethod == null && !oracleDateMethodInited) {
             try {
@@ -2299,7 +2299,7 @@ public class TypeUtils {
             }
             return clsLoadClass;
         }
-        throw new JSONException(C0948f6.m1760e("illegal className : ", str));
+        throw new JSONException(CompilerOutline.m1760e("illegal className : ", str));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:140:0x02a8, code lost:

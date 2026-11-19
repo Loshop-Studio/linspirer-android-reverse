@@ -6,7 +6,7 @@ import android.hardware.Camera;
 import android.os.Build;
 import android.util.Log;
 import anet.channel.entity.ConnType;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.journeyapps.barcodescanner.camera.CameraSettings;
 import java.util.Arrays;
 import java.util.Collection;
@@ -36,7 +36,7 @@ public final class CameraConfigurationUtils {
     }
 
     public static String findSettableValue(String str, Collection<String> collection, String... strArr) {
-        StringBuilder sbM1769n = C0948f6.m1769n("Requesting ", str, " value from among: ");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("Requesting ", str, " value from among: ");
         sbM1769n.append(Arrays.toString(strArr));
         Log.i(TAG, sbM1769n.toString());
         Log.i(TAG, "Supported " + str + " values: " + collection);
@@ -70,7 +70,7 @@ public final class CameraConfigurationUtils {
                 d3 = dAbs;
             }
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Chose zoom ratio of ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Chose zoom ratio of ");
         sbM1765j.append(zoomRatios.get(i).intValue() / 100.0d);
         Log.i(TAG, sbM1765j.toString());
         return Integer.valueOf(i);
@@ -133,11 +133,11 @@ public final class CameraConfigurationUtils {
             Log.i(TAG, "Device does not support focus areas");
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Old focus areas: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Old focus areas: ");
         sbM1765j.append(toString((Iterable<Camera.Area>) parameters.getFocusAreas()));
         Log.i(TAG, sbM1765j.toString());
         List<Camera.Area> listBuildMiddleArea = buildMiddleArea(400);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("Setting focus area to : ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("Setting focus area to : ");
         sbM1765j2.append(toString((Iterable<Camera.Area>) listBuildMiddleArea));
         Log.i(TAG, sbM1765j2.toString());
         parameters.setFocusAreas(listBuildMiddleArea);
@@ -160,11 +160,11 @@ public final class CameraConfigurationUtils {
             Log.i(TAG, "Device does not support metering areas");
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Old metering areas: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Old metering areas: ");
         sbM1765j.append(parameters.getMeteringAreas());
         Log.i(TAG, sbM1765j.toString());
         List<Camera.Area> listBuildMiddleArea = buildMiddleArea(400);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("Setting metering area to : ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("Setting metering area to : ");
         sbM1765j2.append(toString((Iterable<Camera.Area>) listBuildMiddleArea));
         Log.i(TAG, sbM1765j2.toString());
         parameters.setMeteringAreas(listBuildMiddleArea);
@@ -232,26 +232,26 @@ public final class CameraConfigurationUtils {
     public static String collectStats(CharSequence charSequence) {
         StringBuilder sb = new StringBuilder(1000);
         sb.append("BOARD=");
-        C0948f6.m1781z(sb, Build.BOARD, '\n', "BRAND=");
-        C0948f6.m1781z(sb, Build.BRAND, '\n', "CPU_ABI=");
-        C0948f6.m1781z(sb, Build.CPU_ABI, '\n', "DEVICE=");
-        C0948f6.m1781z(sb, Build.DEVICE, '\n', "DISPLAY=");
-        C0948f6.m1781z(sb, Build.DISPLAY, '\n', "FINGERPRINT=");
-        C0948f6.m1781z(sb, Build.FINGERPRINT, '\n', "HOST=");
-        C0948f6.m1781z(sb, Build.HOST, '\n', "ID=");
-        C0948f6.m1781z(sb, Build.ID, '\n', "MANUFACTURER=");
-        C0948f6.m1781z(sb, Build.MANUFACTURER, '\n', "MODEL=");
-        C0948f6.m1781z(sb, Build.MODEL, '\n', "PRODUCT=");
-        C0948f6.m1781z(sb, Build.PRODUCT, '\n', "TAGS=");
-        C0948f6.m1781z(sb, Build.TAGS, '\n', "TIME=");
+        CompilerOutline.m1781z(sb, Build.BOARD, '\n', "BRAND=");
+        CompilerOutline.m1781z(sb, Build.BRAND, '\n', "CPU_ABI=");
+        CompilerOutline.m1781z(sb, Build.CPU_ABI, '\n', "DEVICE=");
+        CompilerOutline.m1781z(sb, Build.DEVICE, '\n', "DISPLAY=");
+        CompilerOutline.m1781z(sb, Build.DISPLAY, '\n', "FINGERPRINT=");
+        CompilerOutline.m1781z(sb, Build.FINGERPRINT, '\n', "HOST=");
+        CompilerOutline.m1781z(sb, Build.HOST, '\n', "ID=");
+        CompilerOutline.m1781z(sb, Build.ID, '\n', "MANUFACTURER=");
+        CompilerOutline.m1781z(sb, Build.MANUFACTURER, '\n', "MODEL=");
+        CompilerOutline.m1781z(sb, Build.MODEL, '\n', "PRODUCT=");
+        CompilerOutline.m1781z(sb, Build.PRODUCT, '\n', "TAGS=");
+        CompilerOutline.m1781z(sb, Build.TAGS, '\n', "TIME=");
         sb.append(Build.TIME);
         sb.append('\n');
         sb.append("TYPE=");
-        C0948f6.m1781z(sb, Build.TYPE, '\n', "USER=");
-        C0948f6.m1781z(sb, Build.USER, '\n', "VERSION.CODENAME=");
-        C0948f6.m1781z(sb, Build.VERSION.CODENAME, '\n', "VERSION.INCREMENTAL=");
-        C0948f6.m1781z(sb, Build.VERSION.INCREMENTAL, '\n', "VERSION.RELEASE=");
-        C0948f6.m1781z(sb, Build.VERSION.RELEASE, '\n', "VERSION.SDK_INT=");
+        CompilerOutline.m1781z(sb, Build.TYPE, '\n', "USER=");
+        CompilerOutline.m1781z(sb, Build.USER, '\n', "VERSION.CODENAME=");
+        CompilerOutline.m1781z(sb, Build.VERSION.CODENAME, '\n', "VERSION.INCREMENTAL=");
+        CompilerOutline.m1781z(sb, Build.VERSION.INCREMENTAL, '\n', "VERSION.RELEASE=");
+        CompilerOutline.m1781z(sb, Build.VERSION.RELEASE, '\n', "VERSION.SDK_INT=");
         sb.append(Build.VERSION.SDK_INT);
         sb.append('\n');
         if (charSequence != null) {
@@ -267,7 +267,7 @@ public final class CameraConfigurationUtils {
 
     public static void setBestPreviewFPS(Camera.Parameters parameters, int i, int i2) {
         List<int[]> supportedPreviewFpsRange = parameters.getSupportedPreviewFpsRange();
-        StringBuilder sbM1765j = C0948f6.m1765j("Supported FPS ranges: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Supported FPS ranges: ");
         sbM1765j.append(toString((Collection<int[]>) supportedPreviewFpsRange));
         Log.i(TAG, sbM1765j.toString());
         if (supportedPreviewFpsRange == null || supportedPreviewFpsRange.isEmpty()) {
@@ -294,11 +294,11 @@ public final class CameraConfigurationUtils {
         int[] iArr2 = new int[2];
         parameters.getPreviewFpsRange(iArr2);
         if (Arrays.equals(iArr2, iArr)) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("FPS range already set to ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("FPS range already set to ");
             sbM1765j2.append(Arrays.toString(iArr));
             Log.i(TAG, sbM1765j2.toString());
         } else {
-            StringBuilder sbM1765j3 = C0948f6.m1765j("Setting FPS range to ");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("Setting FPS range to ");
             sbM1765j3.append(Arrays.toString(iArr));
             Log.i(TAG, sbM1765j3.toString());
             parameters.setPreviewFpsRange(iArr[0], iArr[1]);

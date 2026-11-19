@@ -28,20 +28,20 @@ public class C1048j5 extends LTKResponseListener<Boolean> {
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailed(Response response) {
-        C0850bc.m1393c("AppUsageHelper -- usage app data is failed .");
+        LTKDateUtil.m1393c("AppUsageHelper -- usage app data is failed .");
     }
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailureByNet(Object obj) {
-        C0850bc.m1393c("AppUsageHelper -- usage app data is onFailureByNet .");
+        LTKDateUtil.m1393c("AppUsageHelper -- usage app data is onFailureByNet .");
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.android.launcher3.network.response.LTKResponseListener
     public void handleResult(Boolean bool) {
         if (bool.booleanValue()) {
-            C0850bc.m1403m("AppUsageHelper -- usage app data is uploaded successfully ");
-            C1098l5 c1098l5 = (C1098l5) this.f2934a.get(this.f2934a.size() - 1);
+            LTKDateUtil.m1403m("AppUsageHelper -- usage app data is uploaded successfully ");
+            UsageAppData c1098l5 = (UsageAppData) this.f2934a.get(this.f2934a.size() - 1);
             long j = c1098l5.getmEndTimeStamp();
             if (j > 0) {
                 this.f2936c.f3026c.m3049i0(j);

@@ -13,7 +13,7 @@ import anet.channel.strategy.utils.SerialLruCache;
 import anet.channel.util.ALog;
 import anet.channel.util.AppLifecycle;
 import anet.channel.util.HttpConstant;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import java.io.Serializable;
 import java.util.Collections;
@@ -196,7 +196,7 @@ public class StrategyTable implements Serializable {
         this.f477d = true;
         if (ALog.isPrintLog(1)) {
             StringBuilder sb = new StringBuilder("uniqueId : ");
-            ALog.m337d("awcn.StrategyTable", C0948f6.m1762g(sb, this.f474a, "\n-------------------------domains:------------------------------------"), null, new Object[0]);
+            ALog.m337d("awcn.StrategyTable", CompilerOutline.m1762g(sb, this.f474a, "\n-------------------------domains:------------------------------------"), null, new Object[0]);
             synchronized (this.f478f) {
                 for (Map.Entry<String, StrategyCollection> entry : this.f478f.entrySet()) {
                     sb.setLength(0);

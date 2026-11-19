@@ -3,7 +3,7 @@ package com.huawei.hms.common.internal;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.tbrest.rest.RestUrlWrapper;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
@@ -63,7 +63,7 @@ public class RequestHeader implements IMessageEntity {
             this.transaction_id = JsonUtil.getStringValue(jSONObject, CommonCode.MapKey.TRANSACTION_ID);
             return true;
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("fromJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("fromJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
             return false;
@@ -182,7 +182,7 @@ public class RequestHeader implements IMessageEntity {
             }
             jSONObject.put(CommonCode.MapKey.TRANSACTION_ID, this.transaction_id);
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("toJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("toJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -190,7 +190,7 @@ public class RequestHeader implements IMessageEntity {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("api_name:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("api_name:");
         sbM1765j.append(this.api_name);
         sbM1765j.append(", app_id:");
         sbM1765j.append(this.app_id);

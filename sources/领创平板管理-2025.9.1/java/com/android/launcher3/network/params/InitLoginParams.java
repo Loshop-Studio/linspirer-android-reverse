@@ -2,8 +2,8 @@ package com.android.launcher3.network.params;
 
 import android.content.Context;
 import android.os.Build;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.LauncherDeviceUtils;
 
 /* loaded from: classes.dex */
 public class InitLoginParams extends Params {
@@ -21,9 +21,9 @@ public class InitLoginParams extends Params {
 
     public InitLoginParams(Context context) {
         super(context);
-        setSn(C0904de.m1592i());
-        setLauncher_version(C0850bc.m1398h("com.android.launcher3", context));
-        setAppstore_version(C0850bc.m1398h("com.ndwill.swd.appstore", context));
+        setSn(LauncherDeviceUtils.m1592i());
+        setLauncher_version(LTKDateUtil.m1398h("com.android.launcher3", context));
+        setAppstore_version(LTKDateUtil.m1398h("com.ndwill.swd.appstore", context));
         setRom_version(Build.DISPLAY);
     }
 

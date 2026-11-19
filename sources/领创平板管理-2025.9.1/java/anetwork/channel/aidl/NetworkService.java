@@ -9,7 +9,7 @@ import anetwork.channel.aidl.IRemoteNetworkGetter;
 import anetwork.channel.aidl.RemoteNetwork;
 import anetwork.channel.degrade.DegradableNetworkDelegate;
 import anetwork.channel.http.HttpNetworkDelegate;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class NetworkService extends Service {
     public IBinder onBind(Intent intent) {
         this.f623b = getApplicationContext();
         if (ALog.isPrintLog(2)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("onBind:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("onBind:");
             sbM1765j.append(intent.getAction());
             ALog.m340i("anet.NetworkService", sbM1765j.toString(), null, new Object[0]);
         }

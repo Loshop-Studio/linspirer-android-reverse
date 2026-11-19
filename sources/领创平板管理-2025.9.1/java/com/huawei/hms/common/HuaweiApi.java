@@ -5,10 +5,10 @@ import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.huawei.hem.AbstractC1376w7;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1401x7;
 import com.huawei.hem.C1426y7;
-import com.huawei.hem.C1454za;
+import com.huawei.hem.HiAnalyticsBase;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.Api.ApiOptions;
 import com.huawei.hms.common.internal.AbstractClientBuilder;
@@ -122,7 +122,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
         String uri = taskApiCall.getUri();
         String transactionId = taskApiCall.getTransactionId();
         String strValueOf = String.valueOf(getKitSdkVersion());
-        Map<String, String> mapForBi = C1454za.getMapForBi(context, uri);
+        Map<String, String> mapForBi = HiAnalyticsBase.getMapForBi(context, uri);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_APPID, subAppID);
         if (TextUtils.isEmpty(transactionId)) {
             transactionId = TransactionIdCreater.getId(subAppID, uri);
@@ -162,7 +162,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
         clientSettings.setCpID(this.mCpID);
         if (TextUtils.isEmpty(this.innerHmsPkg)) {
             this.innerHmsPkg = HMSPackageManager.getInstance(this.mContext).getHMSPackageName();
-            StringBuilder sbM1765j = C0948f6.m1765j("inner hms is empty,hms pkg name is ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("inner hms is empty,hms pkg name is ");
             sbM1765j.append(this.innerHmsPkg);
             HMSLog.m3463i(TAG, sbM1765j.toString());
         }
@@ -204,7 +204,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
 
     public void setInnerHms() {
         this.innerHmsPkg = this.mContext.getPackageName();
-        StringBuilder sbM1765j = C0948f6.m1765j("init inner hms pkg info:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("init inner hms pkg info:");
         sbM1765j.append(this.innerHmsPkg);
         HMSLog.m3463i(TAG, sbM1765j.toString());
     }

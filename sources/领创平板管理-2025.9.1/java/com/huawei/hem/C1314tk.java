@@ -46,7 +46,7 @@ public final class C1314tk {
     public static final AbstractC1139mk f3818d;
 
     /* renamed from: e */
-    public static final C1317tn f3819e;
+    public static final OkioOptions f3819e;
 
     /* renamed from: f */
     public static final Charset f3820f;
@@ -68,12 +68,12 @@ public final class C1314tk {
 
     static {
         byte[] bArr = f3815a;
-        C1016hn c1016hn = new C1016hn();
+        OkioBuffer c1016hn = new OkioBuffer();
         c1016hn.m1986P(bArr);
         Method declaredMethod = null;
         f3818d = new C1114lk(null, bArr.length, c1016hn);
         AbstractC1063jk.m2135d(null, f3815a);
-        f3819e = C1317tn.m2777e(C1091kn.decodeHex("efbbbf"), C1091kn.decodeHex("feff"), C1091kn.decodeHex("fffe"), C1091kn.decodeHex("0000ffff"), C1091kn.decodeHex("ffff0000"));
+        f3819e = OkioOptions.m2777e(ByteString.decodeHex("efbbbf"), ByteString.decodeHex("feff"), ByteString.decodeHex("fffe"), ByteString.decodeHex("0000ffff"), ByteString.decodeHex("ffff0000"));
         f3820f = Charset.forName("UTF-32BE");
         f3821g = Charset.forName("UTF-32LE");
         f3822h = TimeZone.getTimeZone("GMT");
@@ -97,9 +97,9 @@ public final class C1314tk {
     }
 
     /* renamed from: B */
-    public static C1438yj m2744B(List<C1415xl> list) {
+    public static C1438yj m2744B(List<Http2Header> list) {
         C1438yj.a aVar = new C1438yj.a();
-        for (C1415xl c1415xl : list) {
+        for (Http2Header c1415xl : list) {
             AbstractC1264rk.f3645a.mo1612a(aVar, c1415xl.f4091a.utf8(), c1415xl.f4092b.utf8());
         }
         return new C1438yj(aVar);
@@ -144,7 +144,7 @@ public final class C1314tk {
             if (address.length == 4) {
                 return inetAddressM2752g.getHostAddress();
             }
-            throw new AssertionError(C0948f6.m1761f("Invalid IPv6 address: '", str, "'"));
+            throw new AssertionError(CompilerOutline.m1761f("Invalid IPv6 address: '", str, "'"));
         }
         int i4 = 0;
         int i5 = 0;
@@ -160,7 +160,7 @@ public final class C1314tk {
             }
             i4 = i6 + 2;
         }
-        C1016hn c1016hn = new C1016hn();
+        OkioBuffer c1016hn = new OkioBuffer();
         while (i2 < address.length) {
             if (i2 == i) {
                 c1016hn.m1988R(58);
@@ -182,19 +182,19 @@ public final class C1314tk {
     /* renamed from: b */
     public static int m2747b(String str, long j, TimeUnit timeUnit) {
         if (j < 0) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " < 0"));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " < 0"));
         }
         if (timeUnit == null) {
             throw new NullPointerException("unit == null");
         }
         long millis = timeUnit.toMillis(j);
         if (millis > 2147483647L) {
-            throw new IllegalArgumentException(C0948f6.m1760e(str, " too large."));
+            throw new IllegalArgumentException(CompilerOutline.m1760e(str, " too large."));
         }
         if (millis != 0 || j <= 0) {
             return (int) millis;
         }
-        throw new IllegalArgumentException(C0948f6.m1760e(str, " too small."));
+        throw new IllegalArgumentException(CompilerOutline.m1760e(str, " too small."));
     }
 
     /* renamed from: c */
@@ -293,7 +293,7 @@ public final class C1314tk {
     }
 
     /* renamed from: j */
-    public static boolean m2755j(InterfaceC0836ao interfaceC0836ao, int i, TimeUnit timeUnit) {
+    public static boolean m2755j(Source interfaceC0836ao, int i, TimeUnit timeUnit) {
         try {
             return m2769x(interfaceC0836ao, i, timeUnit);
         } catch (IOException unused) {
@@ -320,12 +320,12 @@ public final class C1314tk {
     }
 
     /* renamed from: m */
-    public static String m2758m(C1463zj c1463zj, boolean z) {
-        String strM1762g = c1463zj.f4314d.contains(":") ? C0948f6.m1762g(C0948f6.m1765j("["), c1463zj.f4314d, "]") : c1463zj.f4314d;
-        if (!z && c1463zj.f4315e == C1463zj.m3151c(c1463zj.f4311a)) {
+    public static String m2758m(OkHttpUrl c1463zj, boolean z) {
+        String strM1762g = c1463zj.f4314d.contains(":") ? CompilerOutline.m1762g(CompilerOutline.m1765j("["), c1463zj.f4314d, "]") : c1463zj.f4314d;
+        if (!z && c1463zj.f4315e == OkHttpUrl.m3151c(c1463zj.f4311a)) {
             return strM1762g;
         }
-        StringBuilder sbM1767l = C0948f6.m1767l(strM1762g, ":");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(strM1762g, ":");
         sbM1767l.append(c1463zj.f4315e);
         return sbM1767l.toString();
     }
@@ -416,17 +416,17 @@ public final class C1314tk {
     }
 
     /* renamed from: w */
-    public static boolean m2768w(C1463zj c1463zj, C1463zj c1463zj2) {
+    public static boolean m2768w(OkHttpUrl c1463zj, OkHttpUrl c1463zj2) {
         return c1463zj.f4314d.equals(c1463zj2.f4314d) && c1463zj.f4315e == c1463zj2.f4315e && c1463zj.f4311a.equals(c1463zj2.f4311a);
     }
 
     /* renamed from: x */
-    public static boolean m2769x(InterfaceC0836ao interfaceC0836ao, int i, TimeUnit timeUnit) {
+    public static boolean m2769x(Source interfaceC0836ao, int i, TimeUnit timeUnit) {
         long jNanoTime = System.nanoTime();
         long jMo1428c = interfaceC0836ao.mo1381n().mo1430e() ? interfaceC0836ao.mo1381n().mo1428c() - jNanoTime : Long.MAX_VALUE;
         interfaceC0836ao.mo1381n().mo1429d(Math.min(jMo1428c, timeUnit.toNanos(i)) + jNanoTime);
         try {
-            C1016hn c1016hn = new C1016hn();
+            OkioBuffer c1016hn = new OkioBuffer();
             while (interfaceC0836ao.mo1380e(c1016hn, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1) {
                 c1016hn.m1996a();
             }

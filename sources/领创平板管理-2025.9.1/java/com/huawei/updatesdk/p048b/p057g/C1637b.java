@@ -1,7 +1,7 @@
 package com.huawei.updatesdk.p048b.p057g;
 
 import android.os.AsyncTask;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p043b.p046c.AsyncTaskC1602b;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.InterfaceC1603a;
@@ -43,7 +43,7 @@ public class C1637b {
 
     /* renamed from: a */
     public static void m3752a(AsyncTaskC1602b asyncTaskC1602b, C1614c c1614c) {
-        StringBuilder sbM1765j = C0948f6.m1765j("executeTask, ActiveCount:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("executeTask, ActiveCount:");
         sbM1765j.append(C1638c.f4711a.getActiveCount());
         sbM1765j.append(", TaskCount:");
         sbM1765j.append(C1638c.f4711a.getTaskCount());

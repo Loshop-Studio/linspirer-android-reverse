@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONReaderScanner;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.io.Reader;
 import java.lang.reflect.Type;
@@ -69,7 +69,7 @@ public class JSONReader implements Closeable {
                 i2 = -1;
                 break;
             default:
-                throw new JSONException(C0948f6.m1754L("illegal state : ", i));
+                throw new JSONException(CompilerOutline.m1754L("illegal state : ", i));
         }
         if (i2 != -1) {
             this.context.state = i2;
@@ -92,7 +92,7 @@ public class JSONReader implements Closeable {
                 this.parser.accept(16);
                 return;
             default:
-                throw new JSONException(C0948f6.m1754L("illegal state : ", i));
+                throw new JSONException(CompilerOutline.m1754L("illegal state : ", i));
         }
     }
 
@@ -109,7 +109,7 @@ public class JSONReader implements Closeable {
                 this.parser.accept(16);
                 return;
             default:
-                StringBuilder sbM1765j = C0948f6.m1765j("illegal state : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("illegal state : ");
                 sbM1765j.append(this.context.state);
                 throw new JSONException(sbM1765j.toString());
         }
@@ -154,7 +154,7 @@ public class JSONReader implements Closeable {
                 return i != 13;
             case 1002:
             default:
-                throw new JSONException(C0948f6.m1754L("illegal state : ", i2));
+                throw new JSONException(CompilerOutline.m1754L("illegal state : ", i2));
             case 1004:
             case JSONStreamContext.ArrayValue /* 1005 */:
                 return i != 15;

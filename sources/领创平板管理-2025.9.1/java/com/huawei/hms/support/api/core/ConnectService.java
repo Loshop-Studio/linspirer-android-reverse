@@ -1,7 +1,7 @@
 package com.huawei.hms.support.api.core;
 
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.support.api.PendingResultImpl;
 import com.huawei.hms.support.api.ResolvePendingResult;
@@ -78,7 +78,7 @@ public final class ConnectService {
                 HMSLog.m3461e("connectservice", "JosNoticeResp is null");
                 return null;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("josNoticeResp status code :");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("josNoticeResp status code :");
             sbM1765j.append(josGetNoticeResp.getStatusCode());
             HMSLog.m3463i("connectservice", sbM1765j.toString());
             ResolveResult resolveResult = new ResolveResult(josGetNoticeResp);

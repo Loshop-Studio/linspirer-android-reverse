@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p043b.p046c.p047c;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1590f;
@@ -47,7 +47,7 @@ public abstract class AbstractC1604b {
         if (length <= 0) {
             return "[]";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("[");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         for (int i = 0; i < length; i++) {
             String strValueToJson = valueToJson(Array.get(obj, i));
             if (strValueToJson != null) {
@@ -84,7 +84,7 @@ public abstract class AbstractC1604b {
         if (map.size() <= 0) {
             return "{}";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("{");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("{");
         Iterator it = map.entrySet().iterator();
         while (true) {
             Map.Entry entry = (Map.Entry) it.next();
@@ -138,7 +138,7 @@ public abstract class AbstractC1604b {
             }
         } catch (IllegalAccessException e) {
             String str = TAG;
-            StringBuilder sbM1765j = C0948f6.m1765j("processValueError Throwable:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("processValueError Throwable:");
             sbM1765j.append(e.getMessage());
             C1584a.m3516b(str, sbM1765j.toString());
         }
@@ -219,7 +219,7 @@ public abstract class AbstractC1604b {
             throw new IllegalArgumentException("generic type is null");
         }
         if (!(obj instanceof JSONArray)) {
-            throw new IllegalArgumentException(C0948f6.m1759d("jsonobject is not JSONArray, jsonValue:", obj));
+            throw new IllegalArgumentException(CompilerOutline.m1759d("jsonobject is not JSONArray, jsonValue:", obj));
         }
         ArrayList arrayList = new ArrayList();
         JSONArray jSONArray = (JSONArray) obj;
@@ -240,7 +240,7 @@ public abstract class AbstractC1604b {
         if (list.size() <= 0) {
             return "[]";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("[");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         for (int i = 0; i < list.size(); i++) {
             String strValueToJson = valueToJson(list.get(i));
             if (strValueToJson != null) {
@@ -258,7 +258,7 @@ public abstract class AbstractC1604b {
             throw new IllegalArgumentException("generic type is null");
         }
         if (!(obj instanceof JSONObject)) {
-            throw new IllegalArgumentException(C0948f6.m1759d("jsonobject is not JSONObject, jsonValue:", obj));
+            throw new IllegalArgumentException(CompilerOutline.m1759d("jsonobject is not JSONObject, jsonValue:", obj));
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         JSONObject jSONObject = (JSONObject) obj;
@@ -282,7 +282,7 @@ public abstract class AbstractC1604b {
         if (fieldArrM3535a.length <= 0) {
             return "";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("{");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("{");
         for (int i = 0; i < fieldArrM3535a.length; i++) {
             AccessController.doPrivileged(new a(fieldArrM3535a[i]));
             String name = fieldArrM3535a[i].getName();

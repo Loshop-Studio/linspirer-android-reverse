@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.android.launcher3.R;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
 
 /* loaded from: classes.dex */
 public class CommonDialog {
@@ -24,7 +24,7 @@ public class CommonDialog {
     }
 
     public void initDialog(Context context, int i, int i2, int i3, double d, double d2, boolean z) {
-        C0850bc.m1403m("CommonDialog -- initDialog -- ");
+        LTKDateUtil.m1403m("CommonDialog -- initDialog -- ");
         View viewInflate = LayoutInflater.from(context).inflate(R.layout.layout_dialog, (ViewGroup) null);
         Button button = (Button) viewInflate.findViewById(R.id.btn_positive);
         Button button2 = (Button) viewInflate.findViewById(R.id.btn_negative);
@@ -41,7 +41,7 @@ public class CommonDialog {
         button.setOnClickListener(new View.OnClickListener() { // from class: com.android.launcher3.view.CommonDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (C0902dc.m1583a(view)) {
+                if (ViewControlUtil.m1583a(view)) {
                     return;
                 }
                 dialog.dismiss();
@@ -53,7 +53,7 @@ public class CommonDialog {
         button2.setOnClickListener(new View.OnClickListener() { // from class: com.android.launcher3.view.CommonDialog.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (C0902dc.m1583a(view)) {
+                if (ViewControlUtil.m1583a(view)) {
                     return;
                 }
                 dialog.dismiss();

@@ -4,7 +4,7 @@ import anet.channel.IAuth;
 import anet.channel.heartbeat.IHeartbeat;
 import anet.channel.statist.SessionStatistic;
 import anet.channel.util.ALog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* renamed from: anet.channel.session.i */
@@ -23,7 +23,7 @@ public class C0383i implements IAuth.AuthCallback {
         this.f408a.notifyStatus(5, null);
         SessionStatistic sessionStatistic = this.f408a.f111q;
         if (sessionStatistic != null) {
-            sessionStatistic.closeReason = C0948f6.m1754L("Accs_Auth_Fail:", i);
+            sessionStatistic.closeReason = CompilerOutline.m1754L("Accs_Auth_Fail:", i);
             this.f408a.f111q.errorCode = i;
         }
         this.f408a.close();

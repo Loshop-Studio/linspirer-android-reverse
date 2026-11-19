@@ -1,7 +1,7 @@
 package org.greenrobot.greendao.internal;
 
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Arrays;
 import org.greenrobot.greendao.DaoLog;
 
@@ -61,7 +61,7 @@ public final class LongHashMap<T> {
                 }
             }
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("load: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("load: ");
         sbM1765j.append(this.size / this.capacity);
         sbM1765j.append(", size: ");
         sbM1765j.append(this.size);

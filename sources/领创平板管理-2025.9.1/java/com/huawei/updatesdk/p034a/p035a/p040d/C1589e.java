@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p035a.p040d;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* renamed from: com.huawei.updatesdk.a.a.d.e */
@@ -34,7 +34,7 @@ public class C1589e {
         String strM3528a = m3528a(str);
         String strM3528a2 = m3528a(str2);
         String strM3528a3 = m3528a(str3);
-        StringBuilder sbM1765j = C0948f6.m1765j(strM3528a2);
+        StringBuilder sbM1765j = CompilerOutline.m1765j(strM3528a2);
         sbM1765j.append(strArr[0]);
         sbM1765j.append(strM3528a3);
         for (int i = 1; i < strArr.length; i++) {

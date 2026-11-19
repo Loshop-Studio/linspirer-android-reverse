@@ -1,6 +1,6 @@
 package com.bumptech.glide.disklrucache;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -163,7 +163,7 @@ public final class DiskLruCache implements Closeable {
         public long sequenceNumber;
 
         private IOException invalidLengths(String[] strArr) throws IOException {
-            StringBuilder sbM1765j = C0948f6.m1765j("unexpected journal line: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("unexpected journal line: ");
             sbM1765j.append(Arrays.toString(strArr));
             throw new IOException(sbM1765j.toString());
         }
@@ -430,7 +430,7 @@ public final class DiskLruCache implements Closeable {
         String strSubstring;
         int iIndexOf = str.indexOf(32);
         if (iIndexOf == -1) {
-            throw new IOException(C0948f6.m1760e("unexpected journal line: ", str));
+            throw new IOException(CompilerOutline.m1760e("unexpected journal line: ", str));
         }
         int i = iIndexOf + 1;
         int iIndexOf2 = str.indexOf(32, i);
@@ -458,7 +458,7 @@ public final class DiskLruCache implements Closeable {
         if (iIndexOf2 == -1 && iIndexOf == 5 && str.startsWith(DIRTY)) {
             entry.currentEditor = new Editor(entry);
         } else if (iIndexOf2 != -1 || iIndexOf != 4 || !str.startsWith(READ)) {
-            throw new IOException(C0948f6.m1760e("unexpected journal line: ", str));
+            throw new IOException(CompilerOutline.m1760e("unexpected journal line: ", str));
         }
     }
 

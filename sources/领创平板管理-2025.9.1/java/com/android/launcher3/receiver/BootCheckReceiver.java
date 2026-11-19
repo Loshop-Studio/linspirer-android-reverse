@@ -9,12 +9,12 @@ import android.util.Log;
 import com.alibaba.fastjson.asm.Label;
 import com.android.launcher3.LauncherNew;
 import com.android.launcher3.network.AppTimeLimitHelper;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0878ce;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DeviceTypeUtil;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1395x1;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class BootCheckReceiver extends BroadcastReceiver {
@@ -26,49 +26,49 @@ public class BootCheckReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         String str = "=====BootCheckReceiver===" + action;
         Log.i("BootCheckReceiver", str);
-        C0850bc.m1411u("BootCheckReceiver", str);
+        LTKDateUtil.m1411u("BootCheckReceiver", str);
         if ("android.intent.action.BOOT_COMPLETED".equals(action)) {
-            if (C0878ce.m1521n() || C0878ce.m1519l() || C0878ce.m1510c()) {
-                C0850bc.m1403m("=====BootCheckReceiver=== empty");
+            if (DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1519l() || DeviceTypeUtil.m1510c()) {
+                LTKDateUtil.m1403m("=====BootCheckReceiver=== empty");
             } else if (TextUtils.isEmpty(C1395x1.f4039b)) {
-                C1423y4.m2978Y(context, LauncherNew.class);
+                LauncherMenuHelper.m2978Y(context, LauncherNew.class);
             }
-            C1424y5 c1424y5 = C1424y5.b.f4202a;
+            UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
             if (c1424y5.m3019N() != 0) {
                 if (c1424y5.m3050j() == 1) {
-                    C0850bc.f2294f.disableRecent();
+                    LTKDateUtil.f2294f.disableRecent();
                 } else {
-                    C0850bc.f2294f.enableRecent();
+                    LTKDateUtil.f2294f.enableRecent();
                 }
                 if (c1424y5.m3048i() == 1) {
-                    C0850bc.f2294f.disableHome();
+                    LTKDateUtil.f2294f.disableHome();
                 } else {
-                    C0850bc.f2294f.enableHome();
+                    LTKDateUtil.f2294f.enableHome();
                 }
-                C0850bc.f2294f.enableBack();
+                LTKDateUtil.f2294f.enableBack();
                 AppTimeLimitHelper.getInstance().checkTimeLimitByScreenOn();
                 try {
                     Log.i("BootCheckReceiver", "=====to keepAliveStore===");
-                    C0850bc.m1411u("BootCheckReceiver", "=====to keepAliveStore===");
+                    LTKDateUtil.m1411u("BootCheckReceiver", "=====to keepAliveStore===");
                     Intent intent2 = new Intent();
                     intent2.setComponent(new ComponentName("com.ndwill.swd.appstore", "com.ndwill.swd.appstore.activity.EmptyActivity"));
                     intent2.putExtra("keepalive", true);
                     intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     Log.i("BootCheckReceiver", "=====keepalive===");
-                    C0850bc.m1411u("BootCheckReceiver", "=====keepalive===");
+                    LTKDateUtil.m1411u("BootCheckReceiver", "=====keepalive===");
                     context.startActivity(intent2);
                 } catch (Throwable th) {
-                    C0948f6.m1746D(th, C0948f6.m1765j("start appstore failed"));
+                    CompilerOutline.m1746D(th, CompilerOutline.m1765j("start appstore failed"));
                 }
             }
-            C0850bc.m1403m("BootCheckReceivercheck firewall status on boot check");
-            if (C0850bc.f2294f == null) {
+            LTKDateUtil.m1403m("BootCheckReceivercheck firewall status on boot check");
+            if (LTKDateUtil.f2294f == null) {
                 return;
             }
             if (c1424y5.m3056m() == 0) {
-                C0850bc.f2294f.enableFireWall();
+                LTKDateUtil.f2294f.enableFireWall();
             } else if (c1424y5.m3023R()) {
-                C0850bc.f2294f.disableFireWall();
+                LTKDateUtil.f2294f.disableFireWall();
             }
         }
     }

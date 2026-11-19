@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p043b.p046c.p047c;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1590f;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1591g;
@@ -104,7 +104,7 @@ public class C1605c {
 
     /* renamed from: d */
     public String m3630d() {
-        return C0948f6.m1762g(new StringBuilder(), url, CLIENT_API);
+        return CompilerOutline.m1762g(new StringBuilder(), url, CLIENT_API);
     }
 
     /* renamed from: e */

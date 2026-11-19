@@ -1,6 +1,6 @@
 package com.google.zxing.client.result;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 
 /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public final class SMSParsedResult extends ParsedResult {
     }
 
     public String getSMSURI() {
-        StringBuilder sbM1765j = C0948f6.m1765j("sms:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("sms:");
         boolean z = true;
         for (int i = 0; i < this.numbers.length; i++) {
             if (z) {

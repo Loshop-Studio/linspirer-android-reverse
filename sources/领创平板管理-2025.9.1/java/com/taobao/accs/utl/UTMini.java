@@ -3,7 +3,7 @@ package com.taobao.accs.utl;
 import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import com.p061ta.utdid2.device.UTDevice;
 import java.util.Map;
@@ -44,34 +44,34 @@ public final class UTMini {
             return (String) obj;
         }
         if (obj instanceof Integer) {
-            StringBuilder sbM1765j = C0948f6.m1765j("");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("");
             sbM1765j.append(((Integer) obj).intValue());
             return sbM1765j.toString();
         }
         if (obj instanceof Long) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("");
             sbM1765j2.append(((Long) obj).longValue());
             return sbM1765j2.toString();
         }
         if (obj instanceof Double) {
-            StringBuilder sbM1765j3 = C0948f6.m1765j("");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("");
             sbM1765j3.append(((Double) obj).doubleValue());
             return sbM1765j3.toString();
         }
         if (obj instanceof Float) {
-            StringBuilder sbM1765j4 = C0948f6.m1765j("");
+            StringBuilder sbM1765j4 = CompilerOutline.m1765j("");
             sbM1765j4.append(((Float) obj).floatValue());
             return sbM1765j4.toString();
         }
         if (obj instanceof Short) {
-            StringBuilder sbM1765j5 = C0948f6.m1765j("");
+            StringBuilder sbM1765j5 = CompilerOutline.m1765j("");
             sbM1765j5.append((int) ((Short) obj).shortValue());
             return sbM1765j5.toString();
         }
         if (!(obj instanceof Byte)) {
             return obj instanceof Boolean ? ((Boolean) obj).toString() : obj instanceof Character ? ((Character) obj).toString() : obj.toString();
         }
-        StringBuilder sbM1765j6 = C0948f6.m1765j("");
+        StringBuilder sbM1765j6 = CompilerOutline.m1765j("");
         sbM1765j6.append((int) ((Byte) obj).byteValue());
         return sbM1765j6.toString();
     }
@@ -110,7 +110,7 @@ public final class UTMini {
             if (key == null) {
                 strArr[i] = "";
             } else {
-                strArr[i] = C0948f6.m1761f(key, ContainerUtils.KEY_VALUE_DELIMITER, value);
+                strArr[i] = CompilerOutline.m1761f(key, ContainerUtils.KEY_VALUE_DELIMITER, value);
             }
             i++;
         }

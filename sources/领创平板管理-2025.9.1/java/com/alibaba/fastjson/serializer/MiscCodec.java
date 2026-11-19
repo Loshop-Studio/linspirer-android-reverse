@@ -11,7 +11,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import java.io.File;
 import java.io.StringWriter;
@@ -168,7 +168,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                 return (T) new JSONPath(str);
             }
             if (!(type instanceof Class)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("MiscCodec not support ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("MiscCodec not support ");
                 sbM1765j.append(type.toString());
                 throw new JSONException(sbM1765j.toString());
             }
@@ -190,7 +190,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                     throw new JSONException("Path deserialize erorr", e4);
                 }
             }
-            throw new JSONException(C0948f6.m1760e("MiscCodec not support ", name));
+            throw new JSONException(CompilerOutline.m1760e("MiscCodec not support ", name));
         }
         if (jSONLexer.token() == 8) {
             jSONLexer.nextToken();

@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 import com.alibaba.fastjson.asm.Label;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1592a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p042i.C1597a;
 import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
@@ -89,12 +89,12 @@ public final class C1677g {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            sbM1765j = C0948f6.m1765j("go AppUpdateActivity error: ");
+            sbM1765j = CompilerOutline.m1765j("go AppUpdateActivity error: ");
             string = e.toString();
             sbM1765j.append(string);
             Log.e("UpdateSdk", sbM1765j.toString());
         } catch (SecurityException e2) {
-            sbM1765j = C0948f6.m1765j("go AppUpdateActivity security error: ");
+            sbM1765j = CompilerOutline.m1765j("go AppUpdateActivity security error: ");
             string = e2.toString();
             sbM1765j.append(string);
             Log.e("UpdateSdk", sbM1765j.toString());

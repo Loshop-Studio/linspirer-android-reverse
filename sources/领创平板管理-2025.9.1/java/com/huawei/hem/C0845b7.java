@@ -45,7 +45,7 @@ public class C0845b7 extends C0819a7 {
             if (strMo1299a == null || strMo1299a2 == null || strMo1299a3 == null || strMo1299a4 == null) {
                 this.f2282f = false;
             } else {
-                this.f2281e = C1423y4.m2984e(C1425y6.m3081b(strMo1299a), C1425y6.m3081b(strMo1299a2), C1425y6.m3081b(strMo1299a3), C1425y6.m3081b(strMo1299a4));
+                this.f2281e = LauncherMenuHelper.m2984e(C1425y6.m3081b(strMo1299a), C1425y6.m3081b(strMo1299a2), C1425y6.m3081b(strMo1299a3), C1425y6.m3081b(strMo1299a4));
             }
         } catch (NoSuchAlgorithmException | InvalidKeySpecException unused) {
             Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");

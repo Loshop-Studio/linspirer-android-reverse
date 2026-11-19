@@ -3,7 +3,7 @@ package com.google.zxing.oned;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.common.BitMatrix;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Map;
 
 /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public class Code93Writer extends OneDimensionalCodeWriter {
             int iComputeChecksumIndex = computeChecksumIndex(str, 20);
             toIntArray(Code93Reader.CHARACTER_ENCODINGS[iComputeChecksumIndex], iArr);
             int iAppendPattern2 = appendPattern(zArr, iAppendPattern, iArr, true) + iAppendPattern;
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append(Code93Reader.ALPHABET_STRING.charAt(iComputeChecksumIndex));
             toIntArray(Code93Reader.CHARACTER_ENCODINGS[computeChecksumIndex(sbM1765j.toString(), 15)], iArr);
             int iAppendPattern3 = appendPattern(zArr, iAppendPattern2, iArr, true) + iAppendPattern2;

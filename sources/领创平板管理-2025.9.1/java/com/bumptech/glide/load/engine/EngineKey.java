@@ -6,7 +6,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.ResourceEncoder;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.resource.transcode.ResourceTranscoder;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 
@@ -143,7 +143,7 @@ public class EngineKey implements Key {
 
     public String toString() {
         if (this.stringKey == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("EngineKey{");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("EngineKey{");
             sbM1765j.append(this.f2120id);
             sbM1765j.append('+');
             sbM1765j.append(this.signature);

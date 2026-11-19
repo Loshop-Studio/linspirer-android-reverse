@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.media.session.PlaybackStateCompatApi21;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -418,7 +418,7 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("Action:mName='");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Action:mName='");
             sbM1765j.append((Object) this.mName);
             sbM1765j.append(", mIcon=");
             sbM1765j.append(this.mIcon);

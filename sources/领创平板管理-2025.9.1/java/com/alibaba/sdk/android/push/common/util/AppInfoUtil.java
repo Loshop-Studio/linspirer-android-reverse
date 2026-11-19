@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
 import com.alibaba.sdk.android.push.common.p018a.C0558b;
 import com.alibaba.sdk.android.push.common.p018a.EnumC0557a;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class AppInfoUtil {
             return serviceInfo.processName;
         } catch (PackageManager.NameNotFoundException unused) {
             AmsLogger amsLogger = sLogger;
-            StringBuilder sbM1765j = C0948f6.m1765j("Meta data name ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Meta data name ");
             sbM1765j.append(EnumC0557a.CHANNEL_SERVICE.m749a());
             sbM1765j.append(" not found!");
             amsLogger.m501e(sbM1765j.toString());

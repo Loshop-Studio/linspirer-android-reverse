@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import com.alibaba.sdk.android.emas.C0530i;
-import com.alibaba.sdk.android.tbrest.rest.C0604e;
+import com.alibaba.sdk.android.emas.ForBackgroundCallback;
+import com.alibaba.sdk.android.tbrest.rest.RestReqDataBuilder;
 import com.alibaba.sdk.android.tbrest.utils.LogUtil;
 import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
@@ -21,10 +21,10 @@ public class EmasSender {
     public static final String TAG = "EmasSender";
     public static Handler sHandler;
     public boolean mBackground;
-    public C0524c mCacheManager;
-    public C0526e mDiskCacheManager;
+    public EmasCacheManager mCacheManager;
+    public DiskCacheManager mDiskCacheManager;
     public final ExecutorService mPackDataExecutor;
-    public final C0531j mSendManager;
+    public final SendManager mSendManager;
     public final int mSingleLogLimitCapacity;
 
     public static final class Builder {
@@ -164,7 +164,7 @@ public class EmasSender {
                 return;
             }
             try {
-                C0528g c0528g = (C0528g) message.obj;
+                EmasSingleLog c0528g = (EmasSingleLog) message.obj;
                 if (c0528g == null) {
                     LogUtil.m996d("EmasSender EmasHandler singleLog is null");
                     return;
@@ -219,14 +219,14 @@ public class EmasSender {
 
         @Override // java.lang.Runnable
         public void run() {
-            String strM988a = C0604e.m988a(EmasSender.this.mSendManager.m650a(), EmasSender.this.mSendManager.m650a().getAppKey(), this.f917b, this.f919d, this.f918d, this.f920e, this.f921f, this.f922g, this.f916a);
+            String strM988a = RestReqDataBuilder.m988a(EmasSender.this.mSendManager.m650a(), EmasSender.this.mSendManager.m650a().getAppKey(), this.f917b, this.f919d, this.f918d, this.f920e, this.f921f, this.f922g, this.f916a);
             if (TextUtils.isEmpty(strM988a)) {
                 LogUtil.m996d("EmasSender send failed. build data is null.");
                 return;
             }
             int length = strM988a.getBytes(Charset.forName("UTF-8")).length;
             if (length <= EmasSender.this.mSingleLogLimitCapacity) {
-                EmasSender.sHandler.obtainMessage(1, new C0528g(String.valueOf(this.f918d), strM988a, this.f917b)).sendToTarget();
+                EmasSender.sHandler.obtainMessage(1, new EmasSingleLog(String.valueOf(this.f918d), strM988a, this.f917b)).sendToTarget();
             } else {
                 LogUtil.m996d("EmasSender send failed. build data is exceed limit. current length: " + length);
             }
@@ -238,7 +238,7 @@ public class EmasSender {
     }
 
     public void flush() {
-        C0524c c0524c = this.mCacheManager;
+        EmasCacheManager c0524c = this.mCacheManager;
         if (c0524c != null) {
             c0524c.flush();
         }
@@ -274,11 +274,11 @@ public class EmasSender {
         });
         this.mSingleLogLimitCapacity = builder.singleLogLimitCapacity;
         if (builder.diskCache) {
-            C0526e c0526e = new C0526e(builder.context, builder.host, builder.appKey, builder.businessKey);
+            DiskCacheManager c0526e = new DiskCacheManager(builder.context, builder.host, builder.appKey, builder.businessKey);
             this.mDiskCacheManager = c0526e;
             c0526e.m629a(builder.diskCacheLimitCount, builder.diskCacheLimitCapacity, builder.diskCacheLimitDay);
         }
-        C0531j c0531j = new C0531j(this, this.mDiskCacheManager);
+        SendManager c0531j = new SendManager(this, this.mDiskCacheManager);
         this.mSendManager = c0531j;
         c0531j.init(builder.context, builder.appId, builder.appKey, builder.appVersion, builder.channel, builder.userNick);
         this.mSendManager.setHost(builder.host);
@@ -289,9 +289,9 @@ public class EmasSender {
         this.mSendManager.m652a(builder.preSendHandler);
         this.mSendManager.m657e();
         if (builder.cache && builder.cacheLimitCount > 1) {
-            this.mCacheManager = new C0524c(this.mSendManager, builder.cacheLimitCount, builder.cacheLimitCapacity);
-            C0530i c0530i = new C0530i();
-            c0530i.m641a(new C0530i.a() { // from class: com.alibaba.sdk.android.emas.EmasSender.2
+            this.mCacheManager = new EmasCacheManager(this.mSendManager, builder.cacheLimitCount, builder.cacheLimitCapacity);
+            ForBackgroundCallback c0530i = new ForBackgroundCallback();
+            c0530i.m641a(new ForBackgroundCallback.a() { // from class: com.alibaba.sdk.android.emas.EmasSender.2
                 @Override // com.alibaba.sdk.android.emas.C0530i.a
                 /* renamed from: c */
                 public void mo608c() {

@@ -19,7 +19,7 @@ public class C1450z6 implements InterfaceC1400x6 {
         JSONObject jSONObject;
         if (inputStream != null) {
             try {
-                jSONObject = new JSONObject(C1423y4.m2980a(inputStream, "UTF-8"));
+                jSONObject = new JSONObject(LauncherMenuHelper.m2980a(inputStream, "UTF-8"));
             } catch (IOException unused) {
                 str = "IOException when reading the 'Config' from InputStream.";
                 Log.e("InputStreamReader", str);

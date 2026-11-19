@@ -1,7 +1,7 @@
 package android.support.v4.os;
 
 import android.support.annotation.RestrictTo;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Locale;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -34,7 +34,7 @@ public final class LocaleHelper {
                 return new Locale(strArrSplit2[0]);
             }
         }
-        throw new IllegalArgumentException(C0948f6.m1761f("Can not parse language tag: [", str, "]"));
+        throw new IllegalArgumentException(CompilerOutline.m1761f("Can not parse language tag: [", str, "]"));
     }
 
     public static String toLanguageTag(Locale locale) {

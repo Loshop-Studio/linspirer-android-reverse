@@ -8,8 +8,8 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.huawei.hem.AbstractC1063jk;
 import com.huawei.hem.AbstractC1139mk;
-import com.huawei.hem.C0858bk;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.OkHttpMediaType;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -34,7 +34,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
 
     @Deprecated
     public SerializerFeature[] serializerFeatures;
-    public static final C0858bk MEDIA_TYPE = C0858bk.m1422b("application/json; charset=UTF-8");
+    public static final OkHttpMediaType MEDIA_TYPE = OkHttpMediaType.m1422b("application/json; charset=UTF-8");
 
     @Deprecated
     public static final Feature[] EMPTY_SERIALIZER_FEATURES = new Feature[0];
@@ -53,7 +53,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
             try {
                 return AbstractC1063jk.m2135d(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytesWithFastJsonConfig(Retrofit2ConverterFactory.this.fastJsonConfig.getCharset(), t, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeConfig(), Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeFilters(), Retrofit2ConverterFactory.this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializerFeatures()));
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Could not write JSON: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Could not write JSON: ");
                 sbM1765j.append(e.getMessage());
                 throw new IOException(sbM1765j.toString(), e);
             }

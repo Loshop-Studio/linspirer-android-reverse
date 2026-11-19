@@ -1,7 +1,7 @@
 package com.taobao.accs.net;
 
 import com.alibaba.sdk.android.error.ErrorBuilder;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.data.C1921d;
 import com.taobao.accs.data.Message;
@@ -36,7 +36,7 @@ public class RunnableC1952n implements Runnable {
         if (messageM5550a != null) {
             C1921d c1921d = this.f6267d.f6213e;
             ErrorBuilder errorBuilderCopy = AccsErrorCode.REQ_TIME_OUT.copy();
-            StringBuilder sbM1765j = C0948f6.m1765j("发送超过");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("发送超过");
             sbM1765j.append(this.f6265b);
             sbM1765j.append("未收到回执");
             c1921d.m5554a(messageM5550a, errorBuilderCopy.msg(sbM1765j.toString()).detail(AccsErrorCode.getAllDetails(null)).build());

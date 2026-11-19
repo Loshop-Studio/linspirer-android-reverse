@@ -3,7 +3,7 @@ package com.huawei.updatesdk.p048b.p055e;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1025i7;
 import com.huawei.hem.C1126m7;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
@@ -49,7 +49,7 @@ public class C1630c extends AbstractC1628a {
             C1581a.m3501b("DefaultTaskInit", "UpdateSDK get market packagename from verify kit is: " + strM2039b);
             return strM2039b;
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("UpdateSDK genVerifiedPackageName error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("UpdateSDK genVerifiedPackageName error: ");
             sbM1765j.append(th.toString());
             C1581a.m3502c("DefaultTaskInit", sbM1765j.toString());
             return strM2039b;
@@ -65,11 +65,11 @@ public class C1630c extends AbstractC1628a {
             C1649b c1649b = (C1649b) c1606dM3620c;
             if (c1649b.m3801g() != null) {
                 f4702a = c1649b.m3801g().m3805d();
-                StringBuilder sbM1765j = C0948f6.m1765j("getPackageName from store: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("getPackageName from store: ");
                 sbM1765j.append(f4702a);
                 string = sbM1765j.toString();
             } else {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("getPackageName from store: error");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("getPackageName from store: error");
                 sbM1765j2.append(c1649b.toString());
                 string = sbM1765j2.toString();
             }
@@ -104,7 +104,7 @@ public class C1630c extends AbstractC1628a {
             if (TextUtils.isEmpty(strM3735e)) {
                 m3736f();
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("UpdateSDK genVerifiedPackageName is: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("UpdateSDK genVerifiedPackageName is: ");
             sbM1765j.append(f4702a);
             C1581a.m3501b("DefaultTaskInit", sbM1765j.toString());
         }

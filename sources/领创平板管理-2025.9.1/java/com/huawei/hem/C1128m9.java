@@ -31,7 +31,7 @@ public class C1128m9 {
     public String m2353a() {
         String strM2430a;
         if (TextUtils.isEmpty(this.f3246a)) {
-            String strM2283f = AbstractC1102l9.m2283f(C1423y4.m2998s(), "Privacy_MY", "PrivacyData", "");
+            String strM2283f = AbstractC1102l9.m2283f(LauncherMenuHelper.m2998s(), "Privacy_MY", "PrivacyData", "");
             if (TextUtils.isEmpty(strM2283f)) {
                 strM2430a = C0927eb.m1674b(16);
                 m2355c(m2354b(strM2430a));
@@ -66,8 +66,8 @@ public class C1128m9 {
             C1404xa.m2937d("hmsSdk", "refreshLocalKey(): encrypted key is empty");
             return false;
         }
-        AbstractC1102l9.m2263D(C1423y4.m2998s(), "Privacy_MY", "PrivacyData", str);
-        AbstractC1102l9.m2262C(C1423y4.m2998s(), "Privacy_MY", "flashKeyTime", System.currentTimeMillis());
+        AbstractC1102l9.m2263D(LauncherMenuHelper.m2998s(), "Privacy_MY", "PrivacyData", str);
+        AbstractC1102l9.m2262C(LauncherMenuHelper.m2998s(), "Privacy_MY", "flashKeyTime", System.currentTimeMillis());
         return true;
     }
 

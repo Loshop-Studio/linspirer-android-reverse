@@ -2,7 +2,7 @@ package com.bumptech.glide.util;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +23,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
         if (i >= 0) {
             this.readSoFar += i;
         } else if (this.contentLength - this.readSoFar > 0) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Failed to read all expected data, expected: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Failed to read all expected data, expected: ");
             sbM1765j.append(this.contentLength);
             sbM1765j.append(", but read: ");
             sbM1765j.append(this.readSoFar);

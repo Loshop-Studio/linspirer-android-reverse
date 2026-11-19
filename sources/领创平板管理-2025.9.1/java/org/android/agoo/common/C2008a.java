@@ -1,6 +1,6 @@
 package org.android.agoo.common;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -33,11 +33,11 @@ public final class C2008a {
         try {
             return m5837a(secretKeySpec, bArr2, 2).doFinal(bArr);
         } catch (BadPaddingException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("AES decrypt error:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("AES decrypt error:");
             sbM1765j.append(e.getMessage());
             throw new IllegalArgumentException(sbM1765j.toString(), e);
         } catch (IllegalBlockSizeException e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("AES decrypt error:");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("AES decrypt error:");
             sbM1765j2.append(e2.getMessage());
             throw new IllegalArgumentException(sbM1765j2.toString(), e2);
         }
@@ -50,15 +50,15 @@ public final class C2008a {
             cipherM5836a.init(i, secretKeySpec, new IvParameterSpec(bArr));
             return cipherM5836a;
         } catch (IllegalArgumentException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("init Chipher error:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("init Chipher error:");
             sbM1765j.append(e.getMessage());
             throw new RuntimeException(sbM1765j.toString(), e);
         } catch (InvalidAlgorithmParameterException e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("init Chipher error:");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("init Chipher error:");
             sbM1765j2.append(e2.getMessage());
             throw new RuntimeException(sbM1765j2.toString(), e2);
         } catch (InvalidKeyException e3) {
-            StringBuilder sbM1765j3 = C0948f6.m1765j("init Chipher error:");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("init Chipher error:");
             sbM1765j3.append(e3.getMessage());
             throw new RuntimeException(sbM1765j3.toString(), e3);
         }
@@ -72,11 +72,11 @@ public final class C2008a {
                 cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 f6461b.set(cipher);
             } catch (NoSuchAlgorithmException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("get Chipher error:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("get Chipher error:");
                 sbM1765j.append(e.getMessage());
                 throw new RuntimeException(sbM1765j.toString(), e);
             } catch (NoSuchPaddingException e2) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("get Chipher error:");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("get Chipher error:");
                 sbM1765j2.append(e2.getMessage());
                 throw new RuntimeException(sbM1765j2.toString(), e2);
             }

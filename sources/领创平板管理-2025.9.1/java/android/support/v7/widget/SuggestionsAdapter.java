@@ -25,7 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -124,7 +124,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             if (drawable != null) {
                 return drawable;
             }
-            StringBuilder sbM1766k = C0948f6.m1766k("Invalid icon resource ", iconResource, " for ");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("Invalid icon resource ", iconResource, " for ");
             sbM1766k.append(componentName.flattenToShortString());
             Log.w(LOG_TAG, sbM1766k.toString());
             return null;

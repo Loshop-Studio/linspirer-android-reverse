@@ -7,7 +7,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* renamed from: com.alibaba.sdk.android.ams.common.a.a */
 /* loaded from: classes.dex */
@@ -58,7 +58,7 @@ public class C0494a {
 
     /* renamed from: e */
     public static String m473e() {
-        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("https://");
         sbM1765j.append(m472d());
         sbM1765j.append("/config");
         return sbM1765j.toString();

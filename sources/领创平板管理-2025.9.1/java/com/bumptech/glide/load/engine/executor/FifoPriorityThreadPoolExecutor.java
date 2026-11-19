@@ -2,7 +2,7 @@ package com.bumptech.glide.load.engine.executor;
 
 import android.os.Process;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
@@ -24,7 +24,7 @@ public class FifoPriorityThreadPoolExecutor extends ThreadPoolExecutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            StringBuilder sbM1765j = C0948f6.m1765j("fifo-pool-thread-");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("fifo-pool-thread-");
             sbM1765j.append(this.threadNum);
             Thread thread = new Thread(runnable, sbM1765j.toString()) { // from class: com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor.DefaultThreadFactory.1
                 @Override // java.lang.Thread, java.lang.Runnable

@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseFragment;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -107,7 +107,7 @@ public class KeyInfoFragment extends BaseFragment {
                             e = e3;
                             String str = "getNetExtraNetIpAddress error:" + e.getMessage();
                             Log.e("NetWorkUtil", str);
-                            C0850bc.m1411u("NetWorkUtil", str);
+                            LTKDateUtil.m1411u("NetWorkUtil", str);
                             try {
                                 inputStream.close();
                                 httpURLConnection.disconnect();
@@ -118,7 +118,7 @@ public class KeyInfoFragment extends BaseFragment {
                                 sb.append(e.getMessage());
                                 String string = sb.toString();
                                 Log.e("NetWorkUtil", string);
-                                C0850bc.m1411u("NetWorkUtil", string);
+                                LTKDateUtil.m1411u("NetWorkUtil", string);
                                 keyInfoFragment.f1986q = strGroup;
                                 return null;
                             }
@@ -132,11 +132,11 @@ public class KeyInfoFragment extends BaseFragment {
                             inputStream2.close();
                             httpURLConnection.disconnect();
                         } catch (Exception e5) {
-                            StringBuilder sbM1765j = C0948f6.m1765j("getNetExtraNetIpAddress finally error:");
+                            StringBuilder sbM1765j = CompilerOutline.m1765j("getNetExtraNetIpAddress finally error:");
                             sbM1765j.append(e5.getMessage());
                             String string2 = sbM1765j.toString();
                             Log.e("NetWorkUtil", string2);
-                            C0850bc.m1411u("NetWorkUtil", string2);
+                            LTKDateUtil.m1411u("NetWorkUtil", string2);
                         }
                         throw th;
                     }
@@ -153,7 +153,7 @@ public class KeyInfoFragment extends BaseFragment {
                     sb.append(e.getMessage());
                     String string3 = sb.toString();
                     Log.e("NetWorkUtil", string3);
-                    C0850bc.m1411u("NetWorkUtil", string3);
+                    LTKDateUtil.m1411u("NetWorkUtil", string3);
                     keyInfoFragment.f1986q = strGroup;
                     return null;
                 }

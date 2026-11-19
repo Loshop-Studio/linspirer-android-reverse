@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.resource.transcode.ResourceTranscoder;
 import com.bumptech.glide.provider.DataLoadProvider;
 import com.bumptech.glide.util.LogTime;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -157,7 +157,7 @@ public class DecodeJob<A, T, Z> {
     }
 
     private void logWithTimeAndKey(String str, long j) {
-        StringBuilder sbM1767l = C0948f6.m1767l(str, " in ");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str, " in ");
         sbM1767l.append(LogTime.getElapsedMillis(j));
         sbM1767l.append(", key: ");
         sbM1767l.append(this.resultKey);

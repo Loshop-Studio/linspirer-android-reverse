@@ -11,7 +11,7 @@ import com.bumptech.glide.util.ByteArrayPool;
 import com.bumptech.glide.util.ExceptionCatchingInputStream;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
 import com.bumptech.glide.util.Util;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.EnumSet;
@@ -88,7 +88,7 @@ public abstract class Downsampler implements BitmapDecoder<InputStream> {
             }
         } catch (IOException e) {
             if (Log.isLoggable(TAG, 6)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Exception loading inDecodeBounds=");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Exception loading inDecodeBounds=");
                 sbM1765j.append(options.inJustDecodeBounds);
                 sbM1765j.append(" sample=");
                 sbM1765j.append(options.inSampleSize);

@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class AI01AndOtherAIs extends AI01decoder {
@@ -13,7 +13,7 @@ public final class AI01AndOtherAIs extends AI01decoder {
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder
     public String parseInformation() {
-        StringBuilder sbM1765j = C0948f6.m1765j("(01)");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(01)");
         int length = sbM1765j.length();
         sbM1765j.append(getGeneralDecoder().extractNumericValueFromBitArray(4, 4));
         encodeCompressedGtinWithoutAI(sbM1765j, 8, length);

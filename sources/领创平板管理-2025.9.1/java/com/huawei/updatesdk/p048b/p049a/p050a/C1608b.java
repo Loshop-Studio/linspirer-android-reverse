@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p048b.p049a.p050a;
 
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1588d;
 import com.huawei.updatesdk.p048b.p052b.C1612a;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ public class C1608b {
         sb.append(packageInfo.versionCode);
         sb.append(packageInfo.packageName);
         String str = "packagekey" + packageInfo.packageName;
-        StringBuilder sbM1765j = C0948f6.m1765j("fileshakey");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("fileshakey");
         sbM1765j.append(packageInfo.packageName);
         String string = sbM1765j.toString();
         boolean z = !TextUtils.equals(sb.toString(), C1612a.m3665d().m3674c(str));

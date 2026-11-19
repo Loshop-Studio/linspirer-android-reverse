@@ -17,10 +17,10 @@ import com.android.launcher3.R;
 import com.android.launcher3.model.RubbishFileInfo;
 import com.bumptech.glide.Glide;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0867c3;
-import com.huawei.hem.C1299t5;
-import com.huawei.hem.InterfaceC1071k3;
-import com.huawei.hem.ViewOnClickListenerC0841b3;
+import com.huawei.hem.RubbishRecyclerViewAdapterCheckedChangeListener;
+import com.huawei.hem.DataCleanUtil;
+import com.huawei.hem.LauncherOnClickListener;
+import com.huawei.hem.RubbishRecyclerViewAdapterClickListener;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +38,7 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
     public LayoutInflater f1872c;
 
     /* renamed from: d */
-    public InterfaceC1071k3 f1873d;
+    public LauncherOnClickListener f1873d;
 
     /* renamed from: com.android.launcher3.adapter.RubbishRecyclerViewAdapter$a */
     public class C0649a extends RecyclerView.ViewHolder {
@@ -105,9 +105,9 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
             layoutParams.height = 70;
             layoutParams.width = 120;
             c0649a.f1876c.setLayoutParams(layoutParams);
-            if (C1299t5.m2721b(strSubstring)) {
+            if (DataCleanUtil.m2721b(strSubstring)) {
                 Glide.with(this.f1870a).load(rubbishFileInfo.getFilePath()).into(c0649a.f1876c);
-            } else if (Arrays.asList(C1299t5.f3768o).contains(strSubstring)) {
+            } else if (Arrays.asList(DataCleanUtil.f3768o).contains(strSubstring)) {
                 Glide.with(this.f1870a).load(Uri.fromFile(new File(rubbishFileInfo.getFilePath()))).into(c0649a.f1876c);
             } else {
                 layoutParams.height = 40;
@@ -116,10 +116,10 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
                 c0649a.f1876c.setImageResource(R.drawable.file_memory);
             }
         }
-        c0649a.f1877d.setOnClickListener(new ViewOnClickListenerC0841b3(this, i, rubbishFileInfo, c0649a));
+        c0649a.f1877d.setOnClickListener(new RubbishRecyclerViewAdapterClickListener(this, i, rubbishFileInfo, c0649a));
         c0649a.f1874a.setOnCheckedChangeListener(null);
         c0649a.f1874a.setChecked(rubbishFileInfo.isSelected());
-        c0649a.f1874a.setOnCheckedChangeListener(new C0867c3(this, c0649a, i));
+        c0649a.f1874a.setOnCheckedChangeListener(new RubbishRecyclerViewAdapterCheckedChangeListener(this, c0649a, i));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter

@@ -10,8 +10,8 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.android.launcher3.p027db.model.ItemAppDao;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1297t3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DBController;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.HashMap;
 import org.android.agoo.common.AgooConstants;
@@ -59,8 +59,8 @@ public class WhiteAppContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        C1297t3.f3748d = getContext();
-        this.f1905a = C1297t3.b.f3752a.f3749a.getReadableDatabase();
+        DBController.f3748d = getContext();
+        this.f1905a = DBController.b.f3752a.f3749a.getReadableDatabase();
         return false;
     }
 
@@ -69,7 +69,7 @@ public class WhiteAppContentProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         SQLiteQueryBuilder sQLiteQueryBuilder = new SQLiteQueryBuilder();
         if (f1903b.match(uri) == 1) {
-            C0850bc.m1403m("query app ids from table");
+            LTKDateUtil.m1403m("query app ids from table");
             sQLiteQueryBuilder.setTables(ItemAppDao.TABLENAME);
             sQLiteQueryBuilder.setProjectionMap(f1904c);
         }

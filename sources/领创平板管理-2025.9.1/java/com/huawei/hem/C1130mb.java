@@ -35,11 +35,11 @@ public class C1130mb {
         if (Build.VERSION.SDK_INT >= 24) {
             StringBuilder sb = new StringBuilder();
             sb.append(context.createDeviceProtectedStorageContext().getFilesDir());
-            return C0948f6.m1762g(sb, File.separator, "aegis");
+            return CompilerOutline.m1762g(sb, File.separator, "aegis");
         }
         StringBuilder sb2 = new StringBuilder();
         sb2.append(context.getApplicationContext().getFilesDir());
-        return C0948f6.m1762g(sb2, File.separator, "aegis");
+        return CompilerOutline.m1762g(sb2, File.separator, "aegis");
     }
 
     /* renamed from: b */
@@ -129,11 +129,11 @@ public class C1130mb {
                 return packageInfo.signatures[0].toByteArray();
             }
         } catch (PackageManager.NameNotFoundException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("PackageManager.NameNotFoundException : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("PackageManager.NameNotFoundException : ");
             sbM1765j.append(e.getMessage());
             Log.e("BksUtil", sbM1765j.toString());
         } catch (Exception e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("get pm exception : ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("get pm exception : ");
             sbM1765j2.append(e2.getMessage());
             Log.e("BksUtil", sbM1765j2.toString());
         }
@@ -173,7 +173,7 @@ public class C1130mb {
                 try {
                     i = Integer.parseInt(strArrSplit[i2]);
                 } catch (Exception e) {
-                    StringBuilder sbM1765j = C0948f6.m1765j(" exception : ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j(" exception : ");
                     sbM1765j.append(e.getMessage());
                     AbstractC1102l9.m2264E("BksUtil", sbM1765j.toString());
                     return i2 >= length2;
@@ -201,7 +201,7 @@ public class C1130mb {
         try {
             return m2358b(MessageDigest.getInstance("SHA-256").digest(bArr));
         } catch (NoSuchAlgorithmException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("NoSuchAlgorithmException");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("NoSuchAlgorithmException");
             sbM1765j.append(e.getMessage());
             Log.e("BksUtil", sbM1765j.toString());
             return "";
@@ -212,7 +212,7 @@ public class C1130mb {
     public static boolean m2364h(Context context) {
         StringBuilder sb = new StringBuilder();
         sb.append(m2357a(context));
-        return new File(C0948f6.m1762g(sb, File.separator, "hmsrootcas.bks")).exists();
+        return new File(CompilerOutline.m1762g(sb, File.separator, "hmsrootcas.bks")).exists();
     }
 
     /* renamed from: i */

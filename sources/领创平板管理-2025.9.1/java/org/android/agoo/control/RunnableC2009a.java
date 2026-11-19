@@ -1,7 +1,7 @@
 package org.android.agoo.control;
 
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import org.android.agoo.common.Config;
 import org.android.agoo.message.MessageService;
@@ -57,7 +57,7 @@ public class RunnableC2009a implements Runnable {
                 }
             }
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("saveMsg fail:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("saveMsg fail:");
             sbM1765j.append(th.toString());
             ALog.m5728e(AgooFactory.TAG, sbM1765j.toString(), new Object[0]);
         }

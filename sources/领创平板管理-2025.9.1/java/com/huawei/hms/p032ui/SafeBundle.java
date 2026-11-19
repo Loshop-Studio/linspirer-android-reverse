@@ -1,7 +1,7 @@
 package com.huawei.hms.p032ui;
 
 import android.os.Bundle;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.base.p031ui.C1529a;
 
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class SafeBundle {
         try {
             return this.f4579a.get(str);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("get exception: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("get exception: ");
             sbM1765j.append(e.getMessage());
             C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
             return null;
@@ -46,7 +46,7 @@ public class SafeBundle {
         try {
             return this.f4579a.getString(str);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("getString exception: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getString exception: ");
             sbM1765j.append(e.getMessage());
             C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
             return "";
@@ -83,7 +83,7 @@ public class SafeBundle {
         try {
             return this.f4579a.getInt(str, i);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("getInt exception: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getInt exception: ");
             sbM1765j.append(e.getMessage());
             C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
             return i;
@@ -94,7 +94,7 @@ public class SafeBundle {
         try {
             return this.f4579a.getString(str, str2);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("getString exception: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getString exception: ");
             sbM1765j.append(e.getMessage());
             C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
             return str2;

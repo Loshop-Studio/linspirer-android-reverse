@@ -15,7 +15,7 @@ import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -398,7 +398,7 @@ public final class ShareCompat {
             if (i == 0) {
                 return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("Stream items available: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Stream items available: ");
             sbM1765j.append(getStreamCount());
             sbM1765j.append(" index requested: ");
             sbM1765j.append(i);
@@ -409,7 +409,7 @@ public final class ShareCompat {
     public static void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
         ActionProvider actionProvider = menuItem.getActionProvider();
         ShareActionProvider shareActionProvider = !(actionProvider instanceof ShareActionProvider) ? new ShareActionProvider(intentBuilder.getActivity()) : (ShareActionProvider) actionProvider;
-        StringBuilder sbM1765j = C0948f6.m1765j(HISTORY_FILENAME_PREFIX);
+        StringBuilder sbM1765j = CompilerOutline.m1765j(HISTORY_FILENAME_PREFIX);
         sbM1765j.append(intentBuilder.getActivity().getClass().getName());
         shareActionProvider.setShareHistoryFileName(sbM1765j.toString());
         shareActionProvider.setShareIntent(intentBuilder.getIntent());

@@ -34,14 +34,14 @@ public class C0930ee {
             return str;
         }
         if (!str.endsWith(File.separator)) {
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append(File.separator);
             str = sbM1765j.toString();
         }
         if (file.mkdirs() || file.isDirectory()) {
-            C0850bc.m1403m(" -- 创建目录 = " + str + " -- 成功！");
+            LTKDateUtil.m1403m(" -- 创建目录 = " + str + " -- 成功！");
         } else {
-            C0850bc.m1393c(" -- 创建目录 = " + str + " -- 失败！");
+            LTKDateUtil.m1393c(" -- 创建目录 = " + str + " -- 失败！");
         }
         return str;
     }
@@ -63,10 +63,10 @@ public class C0930ee {
         if (file == null || !file.exists() || file.delete()) {
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("-=-=-=>");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("-=-=-=>");
         sbM1765j.append(file.getPath());
         sbM1765j.append(" clean fail");
-        C0850bc.m1393c(sbM1765j.toString());
+        LTKDateUtil.m1393c(sbM1765j.toString());
     }
 
     /* renamed from: d */
@@ -75,11 +75,11 @@ public class C0930ee {
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
-                C0850bc.m1403m("delete path:" + str);
+                LTKDateUtil.m1403m("delete path:" + str);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            C0850bc.m1403m("delete path error :" + str + " " + e.getMessage());
+            LTKDateUtil.m1403m("delete path error :" + str + " " + e.getMessage());
         }
     }
 

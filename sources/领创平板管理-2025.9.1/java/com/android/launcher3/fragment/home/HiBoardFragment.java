@@ -33,20 +33,20 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0904de;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.LauncherDeviceUtils;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1395x1;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.InterfaceC1096l3;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.OnHiBoardChangeListener;
 import com.linspirer.mdm.R$string;
 import com.taobao.accs.utl.UtilityImpl;
 import java.io.File;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class HiBoardFragment extends BaseFragment implements View.OnClickListener, InterfaceC1096l3 {
+public class HiBoardFragment extends BaseFragment implements View.OnClickListener, OnHiBoardChangeListener {
 
     /* renamed from: i */
     public WifiInfo f1965i;
@@ -178,7 +178,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
         }
         switch (view.getId()) {
             case R.id.layout_model_five /* 2131165377 */:
@@ -187,7 +187,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
             case R.id.layout_model_three /* 2131165380 */:
             case R.id.layout_model_two /* 2131165381 */:
                 if (!(view.getTag() instanceof ScreenPartSettings)) {
-                    C0850bc.m1415y(this.f1800a, R.string.text_model_cannot_settings);
+                    LTKDateUtil.m1415y(this.f1800a, R.string.text_model_cannot_settings);
                     break;
                 } else {
                     ScreenPartSettings screenPartSettings = (ScreenPartSettings) view.getTag();
@@ -195,7 +195,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
                     boolean z = false;
                     if (type != 1) {
                         if (type != 2) {
-                            C0850bc.m1415y(this.f1800a, R.string.text_model_no_settings);
+                            LTKDateUtil.m1415y(this.f1800a, R.string.text_model_no_settings);
                             break;
                         } else {
                             String component = screenPartSettings.getComponent();
@@ -213,11 +213,11 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
                                     Toast.makeText(context, context.getString(R$string.cannot_open_app), 0).show();
                                     StringBuilder sb = new StringBuilder();
                                     sb.append(" -- APKUtil openApk error : ");
-                                    C0948f6.m1744B(th, sb);
+                                    CompilerOutline.m1744B(th, sb);
                                     return;
                                 }
                             } else if (!TextUtils.isEmpty(package_name)) {
-                                C0850bc.m1410t(this.f1800a, package_name, true);
+                                LTKDateUtil.m1410t(this.f1800a, package_name, true);
                                 break;
                             }
                         }
@@ -228,18 +228,18 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
                         } catch (Throwable unused) {
                         }
                         if (!z) {
-                            C0850bc.m1415y(this.f1800a, R.string.text_loading_browser_component);
-                            C1423y4.m3001v(getActivity(), true);
-                            File file = new File(C0948f6.m1763h(new StringBuilder(), C1395x1.f4038a, "com.linspirer.exclusivebrowser", ".apk"));
+                            LTKDateUtil.m1415y(this.f1800a, R.string.text_loading_browser_component);
+                            LauncherMenuHelper.m3001v(getActivity(), true);
+                            File file = new File(CompilerOutline.m1763h(new StringBuilder(), C1395x1.f4038a, "com.linspirer.exclusivebrowser", ".apk"));
                             if (!file.exists()) {
-                                C0850bc.m1403m("HiBoardFragmentno download apk  need download");
+                                LTKDateUtil.m1403m("HiBoardFragmentno download apk  need download");
                                 ItemApp itemApp = new ItemApp();
                                 itemApp.setPackagename("com.linspirer.exclusivebrowser");
                                 itemApp.setPath(RequestUrl.BROWSER_DOWNLOAD_PATH);
                                 m1218d(itemApp, RequestUrl.BROWSER_DOWNLOAD_PATH);
                                 break;
                             } else {
-                                C0850bc.m1403m("HiBoardFragmentdownload apk exist need install");
+                                LTKDateUtil.m1403m("HiBoardFragmentdownload apk exist need install");
                                 m1222h(file.getAbsolutePath());
                                 break;
                             }
@@ -268,7 +268,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
         this.f1969m.setOnClickListener(this);
         this.f1970n.setOnClickListener(this);
         this.f1971o.setOnClickListener(this);
-        C0850bc.m1403m("HiBoardFragment -- initData HiBoardFragment");
+        LTKDateUtil.m1403m("HiBoardFragment -- initData HiBoardFragment");
         this.f1973q = this.f1800a.getResources().getConfiguration().orientation;
         this.f1965i = ((WifiManager) this.f1800a.getSystemService(UtilityImpl.NET_TYPE_WIFI)).getConnectionInfo();
         HiScreenHelper hiScreenHelper = HiScreenHelper.getInstance();
@@ -276,8 +276,8 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
         hiScreenHelper.setOnHiBoardChangeListener(this);
         String ssid = this.f1965i.getSSID();
         String strReplace = !TextUtils.isEmpty(ssid) ? ssid.replace("\"", "") : DeviceUtils.NETWORK_CLASS_UNKNOWN;
-        String strM1593j = C0904de.m1593j(this.f1800a);
-        String strM1398h = C0850bc.m1398h("com.android.launcher3", this.f1800a);
+        String strM1593j = LauncherDeviceUtils.m1593j(this.f1800a);
+        String strM1398h = LTKDateUtil.m1398h("com.android.launcher3", this.f1800a);
         StringBuilder sb = new StringBuilder();
         if (2 == this.f1973q) {
             sb.append(getString(R.string.text_wifi_name));

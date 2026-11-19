@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.activity.IBridgeActivityDelegate;
 import com.huawei.hms.adapter.internal.CommonCode;
@@ -92,7 +92,7 @@ public class UpdateAdapter implements IBridgeActivityDelegate {
         this.f4354d = HMSPackageManager.getInstance(activity.getApplicationContext()).getHMSPackageName();
         UpdateBean updateBean = new UpdateBean();
         updateBean.setHmsOrApkUpgrade(true);
-        StringBuilder sbM1765j = C0948f6.m1765j("target HMS Core packageName is ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("target HMS Core packageName is ");
         sbM1765j.append(this.f4354d);
         HMSLog.m3463i("UpdateAdapter", sbM1765j.toString());
         updateBean.setClientPackageName(this.f4354d);

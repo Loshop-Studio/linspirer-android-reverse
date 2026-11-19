@@ -19,9 +19,9 @@ import com.android.launcher3.fragment.home.CheckNetWorkFragment;
 import com.android.launcher3.fragment.home.CheckNetWorkFragment.AsyncTaskC0657d;
 import com.android.launcher3.fragment.home.KeyInfoFragment;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C1070k2;
-import com.huawei.hem.InterfaceC1046j3;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CheckNetWorkActivityRadioChangeListener;
+import com.huawei.hem.OnClickByNetworkListener;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -58,7 +58,7 @@ public class CheckNetWorkActivity extends BaseFragmentActivity implements View.O
     public FragmentManager f1679k;
 
     /* renamed from: l */
-    public InterfaceC1046j3 f1680l;
+    public OnClickByNetworkListener f1680l;
 
     public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public MyOnPageChangeListener() {
@@ -110,7 +110,7 @@ public class CheckNetWorkActivity extends BaseFragmentActivity implements View.O
     public void mo1166d(Bundle bundle) throws Resources.NotFoundException {
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.tab_group);
         this.f1670b = radioGroup;
-        radioGroup.setOnCheckedChangeListener(new C1070k2(this));
+        radioGroup.setOnCheckedChangeListener(new CheckNetWorkActivityRadioChangeListener(this));
         this.f1671c = (RadioButton) findViewById(R.id.key_info);
         this.f1672d = (RadioButton) findViewById(R.id.network_test);
         this.f1674f = findViewById(R.id.network_test_line);
@@ -168,7 +168,7 @@ public class CheckNetWorkActivity extends BaseFragmentActivity implements View.O
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         if (view == this.f1673e) {
@@ -177,7 +177,7 @@ public class CheckNetWorkActivity extends BaseFragmentActivity implements View.O
         }
         if (view == this.f1676h) {
             m1181f(false);
-            InterfaceC1046j3 interfaceC1046j3 = this.f1680l;
+            OnClickByNetworkListener interfaceC1046j3 = this.f1680l;
             if (interfaceC1046j3 != null) {
                 CheckNetWorkFragment checkNetWorkFragment = CheckNetWorkFragment.this;
                 if (checkNetWorkFragment == null) {

@@ -1,7 +1,7 @@
 package com.huawei.hms.common.internal;
 
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.huawei.hms.support.log.HMSLog;
@@ -36,7 +36,7 @@ public class ResponseWrap {
             this.body = JsonUtil.getStringValue(jSONObject, AgooConstants.MESSAGE_BODY);
             return true;
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("fromJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("fromJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
             return false;
@@ -82,7 +82,7 @@ public class ResponseWrap {
                 jSONObject.put(AgooConstants.MESSAGE_BODY, this.body);
             }
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("toJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("toJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -90,8 +90,8 @@ public class ResponseWrap {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("ResponseWrap{body='");
-        C0948f6.m1781z(sbM1765j, this.body, '\'', ", responseHeader=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ResponseWrap{body='");
+        CompilerOutline.m1781z(sbM1765j, this.body, '\'', ", responseHeader=");
         sbM1765j.append(this.responseHeader);
         sbM1765j.append('}');
         return sbM1765j.toString();

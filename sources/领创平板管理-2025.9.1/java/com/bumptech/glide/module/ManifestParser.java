@@ -3,7 +3,7 @@ package com.bumptech.glide.module;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +24,7 @@ public final class ManifestParser {
                 if (objNewInstance instanceof GlideModule) {
                     return (GlideModule) objNewInstance;
                 }
-                throw new RuntimeException(C0948f6.m1759d("Expected instanceof GlideModule, but found: ", objNewInstance));
+                throw new RuntimeException(CompilerOutline.m1759d("Expected instanceof GlideModule, but found: ", objNewInstance));
             } catch (IllegalAccessException e) {
                 throw new RuntimeException("Unable to instantiate GlideModule implementation for " + cls, e);
             } catch (InstantiationException e2) {

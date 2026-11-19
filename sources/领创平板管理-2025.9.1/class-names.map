@@ -1,0 +1,1116 @@
+# Linspirer 6.10.004.6, original DEX to semantic Java names (ProGuard format).
+# Each jadx comment records the previous fully qualified Java alias and its naming evidence.
+# jadx com.alibaba.sdk.android.emas.C0522a | DEX SourceFile AESCrypt.java
+com.alibaba.sdk.android.emas.AESCrypt -> com.alibaba.sdk.android.emas.a:
+# jadx com.alibaba.sdk.android.emas.C0523b | DEX SourceFile AesGcmCipher.java
+com.alibaba.sdk.android.emas.AesGcmCipher -> com.alibaba.sdk.android.emas.b:
+# jadx com.alibaba.sdk.android.emas.C0524c | DEX SourceFile CacheManager.java
+com.alibaba.sdk.android.emas.EmasCacheManager -> com.alibaba.sdk.android.emas.c:
+# jadx com.alibaba.sdk.android.emas.EnumC0525d | DEX SourceFile CacheType.java
+com.alibaba.sdk.android.emas.CacheType -> com.alibaba.sdk.android.emas.d:
+# jadx com.alibaba.sdk.android.emas.C0526e | DEX SourceFile DiskCacheManager.java
+com.alibaba.sdk.android.emas.DiskCacheManager -> com.alibaba.sdk.android.emas.e:
+# jadx com.alibaba.sdk.android.emas.C0527f | DEX SourceFile EmasLog.java
+com.alibaba.sdk.android.emas.EmasLog -> com.alibaba.sdk.android.emas.f:
+# jadx com.alibaba.sdk.android.emas.C0528g | DEX SourceFile EmasSingleLog.java
+com.alibaba.sdk.android.emas.EmasSingleLog -> com.alibaba.sdk.android.emas.g:
+# jadx com.alibaba.sdk.android.emas.C0529h | DEX SourceFile EncrytUtils.java
+com.alibaba.sdk.android.emas.EncrytUtils -> com.alibaba.sdk.android.emas.h:
+# jadx com.alibaba.sdk.android.emas.C0530i | DEX SourceFile ForBackgroundCallback.java
+com.alibaba.sdk.android.emas.ForBackgroundCallback -> com.alibaba.sdk.android.emas.i:
+# jadx com.alibaba.sdk.android.emas.C0531j | DEX SourceFile SendManager.java
+com.alibaba.sdk.android.emas.SendManager -> com.alibaba.sdk.android.emas.j:
+# jadx com.alibaba.sdk.android.tbrest.C0597a | DEX SourceFile SendAsyncExecutor.java
+com.alibaba.sdk.android.tbrest.SendAsyncExecutor -> com.alibaba.sdk.android.tbrest.a:
+# jadx com.alibaba.sdk.android.tbrest.p026a.C0598a | DEX SourceFile RestBaseRequestAuthentication.java
+com.alibaba.sdk.android.tbrest.p026a.RestBaseRequestAuthentication -> com.alibaba.sdk.android.tbrest.a.a:
+# jadx com.alibaba.sdk.android.tbrest.request.C0599a | DEX SourceFile RestSslSocketFactory.java
+com.alibaba.sdk.android.tbrest.request.RestSslSocketFactory -> com.alibaba.sdk.android.tbrest.request.a:
+# jadx com.alibaba.sdk.android.tbrest.rest.EnumC0600a | DEX SourceFile RestFieldsScheme.java
+com.alibaba.sdk.android.tbrest.rest.RestFieldsScheme -> com.alibaba.sdk.android.tbrest.rest.a:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0601b | DEX SourceFile RestHttpUtils.java
+com.alibaba.sdk.android.tbrest.rest.RestHttpUtils -> com.alibaba.sdk.android.tbrest.rest.b:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0602c | DEX SourceFile RestKeyArraySorter.java
+com.alibaba.sdk.android.tbrest.rest.RestKeyArraySorter -> com.alibaba.sdk.android.tbrest.rest.c:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0603d | DEX SourceFile RestReqDataBuildResult.java
+com.alibaba.sdk.android.tbrest.rest.RestReqDataBuildResult -> com.alibaba.sdk.android.tbrest.rest.d:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0604e | DEX SourceFile RestReqDataBuilder.java
+com.alibaba.sdk.android.tbrest.rest.RestReqDataBuilder -> com.alibaba.sdk.android.tbrest.rest.e:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0605f | DEX SourceFile RestReqSend.java
+com.alibaba.sdk.android.tbrest.rest.RestReqSend -> com.alibaba.sdk.android.tbrest.rest.f:
+# jadx com.alibaba.sdk.android.tbrest.rest.C0606g | DEX SourceFile RestSecuritySDKRequestAuthentication.java
+com.alibaba.sdk.android.tbrest.rest.RestSecuritySDKRequestAuthentication -> com.alibaba.sdk.android.tbrest.rest.g:
+# jadx com.huawei.hem.C0811a | DEX SourceFile ArchTaskExecutor.java
+com.huawei.hem.ArchTaskExecutor -> com.huawei.hem.a:
+# jadx com.huawei.hem.C0812a0 | DEX SourceFile HRA_API.java
+com.huawei.hem.HRA_API -> com.huawei.hem.a0:
+# jadx com.huawei.hem.C0815a3 | DEX SourceFile MesssageCenterAdapter.java
+com.huawei.hem.MesssageCenterAdapter -> com.huawei.hem.a3:
+# jadx com.huawei.hem.ViewOnClickListenerC0816a4 | MainFragment.java; registered by the R.id.settings_gestrue_pwd menu item
+com.huawei.hem.MainMenuGestureSettingsClickListener -> com.huawei.hem.a4:
+# jadx com.huawei.hem.C0817a5 | DEX SourceFile SupperAppHelper.java
+com.huawei.hem.SupperAppHelper -> com.huawei.hem.a5:
+# jadx com.huawei.hem.C0818a6 | DEX SourceFile IconCache.java
+com.huawei.hem.IconCache -> com.huawei.hem.a6:
+# jadx com.huawei.hem.C0824ac | DEX SourceFile DeskSPF.java
+com.huawei.hem.DeskSPF -> com.huawei.hem.ac:
+# jadx com.huawei.hem.C0825ad | DEX SourceFile JingdongfangImpl.java
+com.huawei.hem.JingdongfangImpl -> com.huawei.hem.ad:
+# jadx com.huawei.hem.C0826ae | DEX SourceFile LenovoCSDKImpl.java
+com.huawei.hem.LenovoCSDKImpl -> com.huawei.hem.ae:
+# jadx com.huawei.hem.InterfaceC0827af | DEX SourceFile IThreadPoolMonitor.java
+com.huawei.hem.IThreadPoolMonitor -> com.huawei.hem.af:
+# jadx com.huawei.hem.C0828ag | DEX SourceFile FileDownloadHttpException.java
+com.huawei.hem.FileDownloadHttpException -> com.huawei.hem.ag:
+# jadx com.huawei.hem.ThreadFactoryC0829ah | DEX SourceFile FileDownloadExecutors.java; implements ThreadFactory and defines newThread(Runnable)
+com.huawei.hem.FileDownloadThreadFactory -> com.huawei.hem.ah:
+# jadx com.huawei.hem.InterfaceC0832ak | DEX SourceFile Interceptor.java
+com.huawei.hem.OkHttpInterceptor -> com.huawei.hem.ak:
+# jadx com.huawei.hem.AbstractC0835an | DEX SourceFile CertificateChainCleaner.java
+com.huawei.hem.CertificateChainCleaner -> com.huawei.hem.an:
+# jadx com.huawei.hem.InterfaceC0836ao | DEX SourceFile Source.java
+com.huawei.hem.Source -> com.huawei.hem.ao:
+# jadx com.huawei.hem.C0837b | DEX SourceFile DefaultTaskExecutor.java
+com.huawei.hem.DefaultTaskExecutor -> com.huawei.hem.b:
+# jadx com.huawei.hem.C0838b0 | DEX SourceFile AFWUtils.java
+com.huawei.hem.AFWUtils -> com.huawei.hem.b0:
+# jadx com.huawei.hem.ViewOnClickListenerC0841b3 | RubbishRecyclerViewAdapter.java; captures RubbishRecyclerViewAdapter and implements or extends ViewOnClickListener
+com.huawei.hem.RubbishRecyclerViewAdapterClickListener -> com.huawei.hem.b3:
+# jadx com.huawei.hem.ViewOnClickListenerC0842b4 | MainFragment.java; registered by the R.id.privacy_agreement menu item
+com.huawei.hem.MainMenuPrivacyAgreementClickListener -> com.huawei.hem.b4:
+# jadx com.huawei.hem.AsyncTaskC0844b6 | DEX SourceFile ImageLoadAsyncTask.java
+com.huawei.hem.ImageLoadAsyncTask -> com.huawei.hem.b6:
+# jadx com.huawei.hem.C0850bc | DEX SourceFile LTKDateUtil.java
+com.huawei.hem.LTKDateUtil -> com.huawei.hem.bc:
+# jadx com.huawei.hem.C0851bd | DEX SourceFile KaishuodaKImpl.java
+com.huawei.hem.KaishuodaKImpl -> com.huawei.hem.bd:
+# jadx com.huawei.hem.C0852be | DEX SourceFile LenovoImpl.java
+com.huawei.hem.LenovoImpl -> com.huawei.hem.be:
+# jadx com.huawei.hem.C0853bf | DEX SourceFile LostServiceConnectedHandler.java
+com.huawei.hem.LostServiceConnectedHandler -> com.huawei.hem.bf:
+# jadx com.huawei.hem.C0854bg | DEX SourceFile FileDownloadNetworkPolicyException.java
+com.huawei.hem.FileDownloadNetworkPolicyException -> com.huawei.hem.bg:
+# jadx com.huawei.hem.C0858bk | DEX SourceFile MediaType.java
+com.huawei.hem.OkHttpMediaType -> com.huawei.hem.bk:
+# jadx com.huawei.hem.C0859bl | DEX SourceFile ConnectInterceptor.java
+com.huawei.hem.ConnectInterceptor -> com.huawei.hem.bl:
+# jadx com.huawei.hem.C0861bn | DEX SourceFile OkHostnameVerifier.java
+com.huawei.hem.OkHostnameVerifier -> com.huawei.hem.bn:
+# jadx com.huawei.hem.C0862bo | DEX SourceFile Timeout.java
+com.huawei.hem.Timeout -> com.huawei.hem.bo:
+# jadx com.huawei.hem.AbstractC0863c | DEX SourceFile TaskExecutor.java
+com.huawei.hem.TaskExecutor -> com.huawei.hem.c:
+# jadx com.huawei.hem.InterfaceC0864c0 | DEX SourceFile IAFWService.java
+com.huawei.hem.IAFWService -> com.huawei.hem.c0:
+# jadx com.huawei.hem.C0867c3 | RubbishRecyclerViewAdapter.java; captures RubbishRecyclerViewAdapter and implements or extends CompoundButtonOnCheckedChangeListener
+com.huawei.hem.RubbishRecyclerViewAdapterCheckedChangeListener -> com.huawei.hem.c3:
+# jadx com.huawei.hem.ViewOnClickListenerC0868c4 | MainFragment.java; registered by the R.id.logout menu item
+com.huawei.hem.MainMenuLogoutClickListener -> com.huawei.hem.c4:
+# jadx com.huawei.hem.C0877cd | DEX SourceFile PeiShengImpl.java
+com.huawei.hem.PeiShengImpl -> com.huawei.hem.cd:
+# jadx com.huawei.hem.C0878ce | DEX SourceFile DeviceTypeUtil.java
+com.huawei.hem.DeviceTypeUtil -> com.huawei.hem.ce:
+# jadx com.huawei.hem.C0879cf | DEX SourceFile MessageSnapshotGate.java
+com.huawei.hem.MessageSnapshotGate -> com.huawei.hem.cf:
+# jadx com.huawei.hem.C0880cg | DEX SourceFile FileDownloadOutOfSpaceException.java
+com.huawei.hem.FileDownloadOutOfSpaceException -> com.huawei.hem.cg:
+# jadx com.huawei.hem.C0884ck | DEX SourceFile MultipartBody.java
+com.huawei.hem.MultipartBody -> com.huawei.hem.ck:
+# jadx com.huawei.hem.C0885cl | DEX SourceFile ConnectionSpecSelector.java
+com.huawei.hem.ConnectionSpecSelector -> com.huawei.hem.cl:
+# jadx com.huawei.hem.InterfaceC0887cn | DEX SourceFile TrustRootIndex.java
+com.huawei.hem.TrustRootIndex -> com.huawei.hem.cn:
+# jadx com.huawei.hem.C0889d | DEX SourceFile FastSafeIterableMap.java
+com.huawei.hem.FastSafeIterableMap -> com.huawei.hem.d:
+# jadx com.huawei.hem.InterfaceC0890d0 | DEX SourceFile IHRAAidlInterface.java
+com.huawei.hem.IHRAAidlInterface -> com.huawei.hem.d0:
+# jadx com.huawei.hem.C0891d1 | DEX SourceFile AMapCoreException.java
+com.huawei.hem.AMapCoreException -> com.huawei.hem.d1:
+# jadx com.huawei.hem.C0893d3 | DEX SourceFile TopAdapter.java
+com.huawei.hem.TopAdapter -> com.huawei.hem.d3:
+# jadx com.huawei.hem.ViewOnClickListenerC0894d4 | MainFragment.java; registered by the R.id.check_update menu item
+com.huawei.hem.MainMenuCheckUpdateClickListener -> com.huawei.hem.d4:
+# jadx com.huawei.hem.C0902dc | DEX SourceFile ViewControlUtil.java
+com.huawei.hem.ViewControlUtil -> com.huawei.hem.dc:
+# jadx com.huawei.hem.C0903dd | DEX SourceFile SamsungImpl.java
+com.huawei.hem.SamsungImpl -> com.huawei.hem.dd:
+# jadx com.huawei.hem.C0904de | DeviceUtils.java; device-information methods in launcher namespace
+com.huawei.hem.LauncherDeviceUtils -> com.huawei.hem.de:
+# jadx com.huawei.hem.C0905df | DEX SourceFile PauseAllMarker.java
+com.huawei.hem.PauseAllMarker -> com.huawei.hem.df:
+# jadx com.huawei.hem.C0906dg | DEX SourceFile FileDownloadSecurityException.java
+com.huawei.hem.FileDownloadSecurityException -> com.huawei.hem.dg:
+# jadx com.huawei.hem.C0910dk | DEX SourceFile OkHttpClient.java
+com.huawei.hem.OkHttpClient -> com.huawei.hem.dk:
+# jadx com.huawei.hem.C0911dl | DEX SourceFile Exchange.java
+com.huawei.hem.Exchange -> com.huawei.hem.dl:
+# jadx com.huawei.hem.C0914do | DEX SourceFile Charsets.java
+com.huawei.hem.Charsets -> com.huawei.hem.do:
+# jadx com.huawei.hem.C0915e | DEX SourceFile SafeIterableMap.java
+com.huawei.hem.SafeIterableMap -> com.huawei.hem.e:
+# jadx com.huawei.hem.C0917e1 | DEX SourceFile AppInfo.java
+com.huawei.hem.AppInfo -> com.huawei.hem.e1:
+# jadx com.huawei.hem.InterfaceC0919e3 | DEX SourceFile AppStoreInstalledCheckListener.java
+com.huawei.hem.AppStoreInstalledCheckListener -> com.huawei.hem.e3:
+# jadx com.huawei.hem.ViewOnClickListenerC0920e4 | MainFragment.java; registered by the R.id.scan menu item
+com.huawei.hem.MainMenuScanClickListener -> com.huawei.hem.e4:
+# jadx com.huawei.hem.C0928ec | DEX SourceFile WifiUtil.java
+com.huawei.hem.WifiUtil -> com.huawei.hem.ec:
+# jadx com.huawei.hem.C0929ed | DEX SourceFile SeewoImpl.java
+com.huawei.hem.SeewoImpl -> com.huawei.hem.ed:
+# jadx com.huawei.hem.C0931ef | DEX SourceFile QueuesHandler.java
+com.huawei.hem.QueuesHandler -> com.huawei.hem.ef:
+# jadx com.huawei.hem.C0932eg | DEX SourceFile PathConflictException.java
+com.huawei.hem.PathConflictException -> com.huawei.hem.eg:
+# jadx com.huawei.hem.EnumC0936ek | DEX SourceFile Protocol.java
+com.huawei.hem.Protocol -> com.huawei.hem.ek:
+# jadx com.huawei.hem.C0937el | DEX SourceFile ExchangeFinder.java
+com.huawei.hem.ExchangeFinder -> com.huawei.hem.el:
+# jadx com.huawei.hem.C0941f | DEX SourceFile ClassesInfoCache.java
+com.huawei.hem.ClassesInfoCache -> com.huawei.hem.f:
+# jadx com.huawei.hem.C0943f1 | DEX SourceFile AuthConfigManager.java
+com.huawei.hem.AuthConfigManager -> com.huawei.hem.f1:
+# jadx com.huawei.hem.InterfaceC0945f3 | DEX SourceFile AppUpdateSccessListener.java
+com.huawei.hem.AppUpdateSccessListener -> com.huawei.hem.f3:
+# jadx com.huawei.hem.C0946f4 | MainFragment.java; captures MainFragment and implements or extends CommonDialogDialogButtonOnClickListener
+com.huawei.hem.MainFragmentDialogButtonListener -> com.huawei.hem.f4:
+# jadx com.huawei.hem.C0947f5 | DEX SourceFile GuideSetUpObserver.java
+com.huawei.hem.GuideSetUpObserver -> com.huawei.hem.f5:
+# jadx com.huawei.hem.C0948f6 | DEX SourceFile outline; static generated instruction helpers
+com.huawei.hem.CompilerOutline -> com.huawei.hem.f6:
+# jadx com.huawei.hem.C0951f9 | DEX SourceFile HmsHiAnalyticsUtils.java
+com.huawei.hem.HmsHiAnalyticsUtils -> com.huawei.hem.f9:
+# jadx com.huawei.hem.C0954fc | DEX SourceFile FileConfig.java
+com.huawei.hem.FileConfig -> com.huawei.hem.fc:
+# jadx com.huawei.hem.C0955fd | DEX SourceFile SprdImpl.java
+com.huawei.hem.SprdImpl -> com.huawei.hem.fd:
+# jadx com.huawei.hem.InterfaceC0956fe | DEX SourceFile BaseDownloadTask.java
+com.huawei.hem.BaseDownloadTask -> com.huawei.hem.fe:
+# jadx com.huawei.hem.C0957ff | DEX SourceFile DefaultConnectionCountAdapter.java
+com.huawei.hem.DefaultConnectionCountAdapter -> com.huawei.hem.ff:
+# jadx com.huawei.hem.InterfaceC0958fg | DEX SourceFile IFileDownloadIPCCallback.java
+com.huawei.hem.IFileDownloadIPCCallback -> com.huawei.hem.fg:
+# jadx com.huawei.hem.C0959fh | DEX SourceFile FileDownloadLog.java
+com.huawei.hem.FileDownloadLog -> com.huawei.hem.fh:
+# jadx com.huawei.hem.C0961fj | DEX SourceFile Address.java
+com.huawei.hem.OkHttpAddress -> com.huawei.hem.fj:
+# jadx com.huawei.hem.C0962fk | DEX SourceFile RealCall.java
+com.huawei.hem.RealCall -> com.huawei.hem.fk:
+# jadx com.huawei.hem.C0963fl | DEX SourceFile RealConnection.java
+com.huawei.hem.RealConnection -> com.huawei.hem.fl:
+# jadx com.huawei.hem.AbstractC0966fo | DEX SourceFile BaseNCodec.java
+com.huawei.hem.BaseNCodec -> com.huawei.hem.fo:
+# jadx com.huawei.hem.InterfaceC0967g | DEX SourceFile GeneratedAdapter.java
+com.huawei.hem.GeneratedAdapter -> com.huawei.hem.g:
+# jadx com.huawei.hem.C0969g1 | DEX SourceFile ClientInfo.java
+com.huawei.hem.HemClientInfo -> com.huawei.hem.g1:
+# jadx com.huawei.hem.InterfaceC0971g3 | DEX SourceFile DownLoadBrowserListener.java
+com.huawei.hem.DownLoadBrowserListener -> com.huawei.hem.g3:
+# jadx com.huawei.hem.InterfaceC0974g6 | DEX SourceFile IUrlCtrlTools.java
+com.huawei.hem.IUrlCtrlTools -> com.huawei.hem.g6:
+# jadx com.huawei.hem.InterfaceC0980gc | DEX SourceFile FileFormatter.java
+com.huawei.hem.FileFormatter -> com.huawei.hem.gc:
+# jadx com.huawei.hem.C0982ge | DEX SourceFile DownloadSpeedMonitor.java
+com.huawei.hem.DownloadSpeedMonitor -> com.huawei.hem.ge:
+# jadx com.huawei.hem.InterfaceC0983gf | DEX SourceFile FileDownloadConnection.java
+com.huawei.hem.FileDownloadConnection -> com.huawei.hem.gf:
+# jadx com.huawei.hem.InterfaceC0984gg | DEX SourceFile IFileDownloadIPCService.java
+com.huawei.hem.IFileDownloadIPCService -> com.huawei.hem.gg:
+# jadx com.huawei.hem.C0985gh | DEX SourceFile FileDownloadProperties.java
+com.huawei.hem.FileDownloadProperties -> com.huawei.hem.gh:
+# jadx com.huawei.hem.C0988gk | Request.java; request builder, headers and HTTP request formatting
+com.huawei.hem.OkHttpRequest -> com.huawei.hem.gk:
+# jadx com.huawei.hem.C0989gl | DEX SourceFile RealConnectionPool.java
+com.huawei.hem.RealConnectionPool -> com.huawei.hem.gl:
+# jadx com.huawei.hem.InterfaceC0996h3 | DEX SourceFile IllegalCallBack.java
+com.huawei.hem.IllegalCallBack -> com.huawei.hem.h3:
+# jadx com.huawei.hem.C0999h6 | DEX SourceFile IMDMImpl.java
+com.huawei.hem.IMDMImpl -> com.huawei.hem.h6:
+# jadx com.huawei.hem.C1005hc | DEX SourceFile FileLoggerService.java
+com.huawei.hem.FileLoggerService -> com.huawei.hem.hc:
+# jadx com.huawei.hem.C1007he | DEX SourceFile DownloadTask.java
+com.huawei.hem.DownloadTask -> com.huawei.hem.he:
+# jadx com.huawei.hem.C1008hf | DEX SourceFile FileDownloadUrlConnection.java
+com.huawei.hem.FileDownloadUrlConnection -> com.huawei.hem.hf:
+# jadx com.huawei.hem.InterfaceC1009hg | DEX SourceFile IFlowDirectly.java
+com.huawei.hem.IFlowDirectly -> com.huawei.hem.hg:
+# jadx com.huawei.hem.C1010hh | DEX SourceFile FileDownloadUtils.java
+com.huawei.hem.FileDownloadUtils -> com.huawei.hem.hh:
+# jadx com.huawei.hem.C1014hl | DEX SourceFile RouteDatabase.java
+com.huawei.hem.RouteDatabase -> com.huawei.hem.hl:
+# jadx com.huawei.hem.C1016hn | DEX SourceFile Buffer.java
+com.huawei.hem.OkioBuffer -> com.huawei.hem.hn:
+# jadx com.huawei.hem.InterfaceC1017i | DEX SourceFile LifecycleObserver.java
+com.huawei.hem.LifecycleObserver -> com.huawei.hem.i:
+# jadx com.huawei.hem.C1019i1 | DEX SourceFile HttpsDecisionUtil.java
+com.huawei.hem.HttpsDecisionUtil -> com.huawei.hem.i1:
+# jadx com.huawei.hem.C1020i2 | ChangePwdActivity.java; captures ChangePwdActivity and implements or extends LTKResponseListener
+com.huawei.hem.ChangePwdActivityResponseListener -> com.huawei.hem.i2:
+# jadx com.huawei.hem.InterfaceC1021i3 | DEX SourceFile LicenseCallBack.java
+com.huawei.hem.LicenseCallBack -> com.huawei.hem.i3:
+# jadx com.huawei.hem.InterfaceC1030ic | IMDM.java; shared interface implemented by manufacturer adapters
+com.huawei.hem.DeviceManagementInterface -> com.huawei.hem.ic:
+# jadx com.huawei.hem.C1031id | DEX SourceFile TCLImpl.java
+com.huawei.hem.TCLImpl -> com.huawei.hem.id:
+# jadx com.huawei.hem.C1032ie | DEX SourceFile DownloadTaskHunter.java
+com.huawei.hem.DownloadTaskHunter -> com.huawei.hem.ie:
+# jadx com.huawei.hem.InterfaceC1033if | DEX SourceFile FileDownloadDatabase.java
+com.huawei.hem.FileDownloadDatabase -> com.huawei.hem.if:
+# jadx com.huawei.hem.InterfaceC1034ig | DEX SourceFile IMessageSnapshot.java
+com.huawei.hem.IMessageSnapshot -> com.huawei.hem.ig:
+# jadx com.huawei.hem.C1039il | DEX SourceFile RouteException.java
+com.huawei.hem.RouteException -> com.huawei.hem.il:
+# jadx com.huawei.hem.InterfaceC1041in | DEX SourceFile BufferedSink.java
+com.huawei.hem.BufferedSink -> com.huawei.hem.in:
+# jadx com.huawei.hem.InterfaceC1042j | DEX SourceFile LifecycleOwner.java
+com.huawei.hem.LifecycleOwner -> com.huawei.hem.j:
+# jadx com.huawei.hem.AbstractC1044j1 | DEX SourceFile IPV6Request.java
+com.huawei.hem.IPV6Request -> com.huawei.hem.j1:
+# jadx com.huawei.hem.C1045j2 | DEX SourceFile CheckGrantedPermission.java
+com.huawei.hem.CheckGrantedPermission -> com.huawei.hem.j2:
+# jadx com.huawei.hem.InterfaceC1046j3 | DEX SourceFile OnClickByNetworkListener.java
+com.huawei.hem.OnClickByNetworkListener -> com.huawei.hem.j3:
+# jadx com.huawei.hem.InterfaceC1049j6 | DEX SourceFile IMyAidlInterface.java
+com.huawei.hem.IMyAidlInterface -> com.huawei.hem.j6:
+# jadx com.huawei.hem.C1055jc | DEX SourceFile AndroidImpl.java
+com.huawei.hem.AndroidImpl -> com.huawei.hem.jc:
+# jadx com.huawei.hem.C1056jd | DEX SourceFile TaidianImpl.java
+com.huawei.hem.TaidianImpl -> com.huawei.hem.jd:
+# jadx com.huawei.hem.AbstractC1057je | DEX SourceFile FileDownloadConnectListener.java
+com.huawei.hem.FileDownloadConnectListener -> com.huawei.hem.je:
+# jadx com.huawei.hem.C1058jf | DEX SourceFile NoDatabaseImpl.java
+com.huawei.hem.NoDatabaseImpl -> com.huawei.hem.jf:
+# jadx com.huawei.hem.C1059jg | DEX SourceFile MessageSnapshotFlow.java
+com.huawei.hem.MessageSnapshotFlow -> com.huawei.hem.jg:
+# jadx com.huawei.hem.C1062jj | DEX SourceFile CacheControl.java
+com.huawei.hem.CacheControl -> com.huawei.hem.jj:
+# jadx com.huawei.hem.C1064jl | DEX SourceFile RouteSelector.java
+com.huawei.hem.RouteSelector -> com.huawei.hem.jl:
+# jadx com.huawei.hem.C1065jm | DEX SourceFile Http2ExchangeCodec.java
+com.huawei.hem.Http2ExchangeCodec -> com.huawei.hem.jm:
+# jadx com.huawei.hem.InterfaceC1066jn | DEX SourceFile BufferedSource.java
+com.huawei.hem.BufferedSource -> com.huawei.hem.jn:
+# jadx com.huawei.hem.C1067k | DEX SourceFile LifecycleRegistry.java
+com.huawei.hem.LifecycleRegistry -> com.huawei.hem.k:
+# jadx com.huawei.hem.C1069k1 | DEX SourceFile SDKInfo.java
+com.huawei.hem.SDKInfo -> com.huawei.hem.k1:
+# jadx com.huawei.hem.C1070k2 | CheckNetWorkActivity.java; captures CheckNetWorkActivity and implements or extends RadioGroupOnCheckedChangeListener
+com.huawei.hem.CheckNetWorkActivityRadioChangeListener -> com.huawei.hem.k2:
+# jadx com.huawei.hem.InterfaceC1071k3 | DEX SourceFile OnClickListener.java
+com.huawei.hem.LauncherOnClickListener -> com.huawei.hem.k3:
+# jadx com.huawei.hem.C1074k6 | DEX SourceFile FnfSDK.java
+com.huawei.hem.FnfSDK -> com.huawei.hem.k6:
+# jadx com.huawei.hem.C1080kc | DEX SourceFile AngdaImpl.java
+com.huawei.hem.AngdaImpl -> com.huawei.hem.kc:
+# jadx com.huawei.hem.C1081kd | DEX SourceFile TianZhiWYImp.java
+com.huawei.hem.TianZhiWYImp -> com.huawei.hem.kd:
+# jadx com.huawei.hem.C1082ke | DEX SourceFile FileDownloadEventPool.java
+com.huawei.hem.FileDownloadEventPool -> com.huawei.hem.ke:
+# jadx com.huawei.hem.C1083kf | DEX SourceFile RemitDatabase.java
+com.huawei.hem.RemitDatabase -> com.huawei.hem.kf:
+# jadx com.huawei.hem.C1084kg | DEX SourceFile MessageSnapshotTaker.java
+com.huawei.hem.MessageSnapshotTaker -> com.huawei.hem.kg:
+# jadx com.huawei.hem.InterfaceC1087kj | DEX SourceFile Call.java
+com.huawei.hem.Call -> com.huawei.hem.kj:
+# jadx com.huawei.hem.C1088kk | Response.java; response builder and Closeable HTTP body
+com.huawei.hem.OkHttpResponse -> com.huawei.hem.kk:
+# jadx com.huawei.hem.C1089kl | DEX SourceFile Transmitter.java
+com.huawei.hem.Transmitter -> com.huawei.hem.kl:
+# jadx com.huawei.hem.C1090km | DEX SourceFile Http2Reader.java
+com.huawei.hem.Http2Reader -> com.huawei.hem.km:
+# jadx com.huawei.hem.C1091kn | DEX SourceFile ByteString.java
+com.huawei.hem.ByteString -> com.huawei.hem.kn:
+# jadx com.huawei.hem.InterfaceC1092l | DEX SourceFile LifecycleRegistryOwner.java
+com.huawei.hem.LifecycleRegistryOwner -> com.huawei.hem.l:
+# jadx com.huawei.hem.InterfaceC1096l3 | DEX SourceFile OnHiBoardChangeListener.java
+com.huawei.hem.OnHiBoardChangeListener -> com.huawei.hem.l3:
+# jadx com.huawei.hem.C1098l5 | DEX SourceFile UsageAppData.java
+com.huawei.hem.UsageAppData -> com.huawei.hem.l5:
+# jadx com.huawei.hem.C1099l6 | DEX SourceFile FnfSDKProxy.java
+com.huawei.hem.FnfSDKProxy -> com.huawei.hem.l6:
+# jadx com.huawei.hem.C1105lc | DEX SourceFile BoyueImpl.java
+com.huawei.hem.BoyueImpl -> com.huawei.hem.lc:
+# jadx com.huawei.hem.C1106ld | DEX SourceFile ZXKImpl.java
+com.huawei.hem.ZXKImpl -> com.huawei.hem.ld:
+# jadx com.huawei.hem.AbstractC1107le | DEX SourceFile FileDownloadLargeFileListener.java
+com.huawei.hem.FileDownloadLargeFileListener -> com.huawei.hem.le:
+# jadx com.huawei.hem.C1108lf | DEX SourceFile SqliteDatabaseImpl.java
+com.huawei.hem.SqliteDatabaseImpl -> com.huawei.hem.lf:
+# jadx com.huawei.hem.InterfaceC1113lj | DEX SourceFile Callback.java
+com.huawei.hem.OkHttpCallback -> com.huawei.hem.lj:
+# jadx com.huawei.hem.C1115ll | DEX SourceFile BridgeInterceptor.java
+com.huawei.hem.BridgeInterceptor -> com.huawei.hem.ll:
+# jadx com.huawei.hem.C1116lm | DEX SourceFile Http2Stream.java
+com.huawei.hem.Http2Stream -> com.huawei.hem.lm:
+# jadx com.huawei.hem.AbstractC1117ln | DEX SourceFile ForwardingSink.java
+com.huawei.hem.ForwardingSink -> com.huawei.hem.ln:
+# jadx com.huawei.hem.C1118m | DEX SourceFile Lifecycling.java
+com.huawei.hem.Lifecycling -> com.huawei.hem.m:
+# jadx com.huawei.hem.C1120m1 | DEX SourceFile ConstConfig.java
+com.huawei.hem.ConstConfig -> com.huawei.hem.m1:
+# jadx com.huawei.hem.InterfaceC1122m3 | DEX SourceFile OnMainScreenChangeListener.java
+com.huawei.hem.OnMainScreenChangeListener -> com.huawei.hem.m3:
+# jadx com.huawei.hem.C1124m5 | DEX SourceFile UsageParams.java
+com.huawei.hem.UsageParams -> com.huawei.hem.m5:
+# jadx com.huawei.hem.InterfaceC1125m6 | DEX SourceFile OnGetIPTablesMessage.java
+com.huawei.hem.OnGetIPTablesMessage -> com.huawei.hem.m6:
+# jadx com.huawei.hem.C1131mc | DEX SourceFile ChuangQiImpl.java
+com.huawei.hem.ChuangQiImpl -> com.huawei.hem.mc:
+# jadx com.huawei.hem.C1132md | DEX SourceFile ZeDiImpl.java
+com.huawei.hem.ZeDiImpl -> com.huawei.hem.md:
+# jadx com.huawei.hem.C1133me | DEX SourceFile FileDownloadList.java
+com.huawei.hem.FileDownloadList -> com.huawei.hem.me:
+# jadx com.huawei.hem.C1134mf | DEX SourceFile SqliteDatabaseOpenHelper.java
+com.huawei.hem.SqliteDatabaseOpenHelper -> com.huawei.hem.mf:
+# jadx com.huawei.hem.InterfaceC1136mh | DEX SourceFile IControlBinder.java
+com.huawei.hem.IControlBinder -> com.huawei.hem.mh:
+# jadx com.huawei.hem.C1138mj | DEX SourceFile CertificatePinner.java
+com.huawei.hem.CertificatePinner -> com.huawei.hem.mj:
+# jadx com.huawei.hem.C1140ml | DEX SourceFile CallServerInterceptor.java
+com.huawei.hem.CallServerInterceptor -> com.huawei.hem.ml:
+# jadx com.huawei.hem.C1141mm | DEX SourceFile Http2Writer.java
+com.huawei.hem.Http2Writer -> com.huawei.hem.mm:
+# jadx com.huawei.hem.AbstractC1142mn | DEX SourceFile ForwardingSource.java
+com.huawei.hem.ForwardingSource -> com.huawei.hem.mn:
+# jadx com.huawei.hem.C1143n | DEX SourceFile MethodCallsLogger.java
+com.huawei.hem.MethodCallsLogger -> com.huawei.hem.n:
+# jadx com.huawei.hem.C1145n1 | DEX SourceFile MccUtil.java
+com.huawei.hem.MccUtil -> com.huawei.hem.n1:
+# jadx com.huawei.hem.C1146n2 | PromptDiaLogActivity.java; captures PromptDiaLogActivity and implements or extends LTKResponseListener
+com.huawei.hem.PromptDiaLogActivityResponseListener -> com.huawei.hem.n2:
+# jadx com.huawei.hem.C1147n3 | DEX SourceFile PushCallBack.java
+com.huawei.hem.PushCallBack -> com.huawei.hem.n3:
+# jadx com.huawei.hem.C1149n5 | DEX SourceFile ActivityController.java
+com.huawei.hem.ActivityController -> com.huawei.hem.n5:
+# jadx com.huawei.hem.InterfaceC1150n6 | DEX SourceFile OnGetMessage.java
+com.huawei.hem.OnGetMessage -> com.huawei.hem.n6:
+# jadx com.huawei.hem.C1156nc | DEX SourceFile CubeImpl.java
+com.huawei.hem.CubeImpl -> com.huawei.hem.nc:
+# jadx com.huawei.hem.C1157nd | DEX SourceFile HonorImpl.java
+com.huawei.hem.HonorImpl -> com.huawei.hem.nd:
+# jadx com.huawei.hem.AbstractC1158ne | DEX SourceFile FileDownloadListener.java
+com.huawei.hem.FileDownloadListener -> com.huawei.hem.ne:
+# jadx com.huawei.hem.C1159nf | DEX SourceFile ConnectTask.java
+com.huawei.hem.ConnectTask -> com.huawei.hem.nf:
+# jadx com.huawei.hem.C1160ng | DEX SourceFile ConnectionModel.java
+com.huawei.hem.ConnectionModel -> com.huawei.hem.ng:
+# jadx com.huawei.hem.C1163nj | DEX SourceFile CipherSuite.java
+com.huawei.hem.CipherSuite -> com.huawei.hem.nj:
+# jadx com.huawei.hem.C1164nk | DEX SourceFile Route.java
+com.huawei.hem.Route -> com.huawei.hem.nk:
+# jadx com.huawei.hem.InterfaceC1165nl | DEX SourceFile ExchangeCodec.java
+com.huawei.hem.ExchangeCodec -> com.huawei.hem.nl:
+# jadx com.huawei.hem.C1166nm | DEX SourceFile Huffman.java
+com.huawei.hem.Huffman -> com.huawei.hem.nm:
+# jadx com.huawei.hem.C1167nn | DEX SourceFile ForwardingTimeout.java
+com.huawei.hem.ForwardingTimeout -> com.huawei.hem.nn:
+# jadx com.huawei.hem.C1168o | DEX SourceFile MutableLiveData.java
+com.huawei.hem.MutableLiveData -> com.huawei.hem.o:
+# jadx com.huawei.hem.C1171o2 | BaseFragment.java; captures BaseFragment and implements or extends CommonDialogDialogButtonOnClickListener
+com.huawei.hem.BaseFragmentDialogButtonListener -> com.huawei.hem.o2:
+# jadx com.huawei.hem.C1172o3 | DEX SourceFile ISVCustomer.java
+com.huawei.hem.ISVCustomer -> com.huawei.hem.o3:
+# jadx com.huawei.hem.C1174o5 | DEX SourceFile AppUpdateCheckHelper.java
+com.huawei.hem.AppUpdateCheckHelper -> com.huawei.hem.o5:
+# jadx com.huawei.hem.InterfaceC1175o6 | DEX SourceFile OnGetinstallfilter.java
+com.huawei.hem.OnGetinstallfilter -> com.huawei.hem.o6:
+# jadx com.huawei.hem.C1181oc | DEX SourceFile DongfangImpl.java
+com.huawei.hem.DongfangImpl -> com.huawei.hem.oc:
+# jadx com.huawei.hem.C1182od | DEX SourceFile Harmony3Imp.java
+com.huawei.hem.Harmony3Imp -> com.huawei.hem.od:
+# jadx com.huawei.hem.C1183oe | DEX SourceFile FileDownloadMessageStation.java
+com.huawei.hem.FileDownloadMessageStation -> com.huawei.hem.oe:
+# jadx com.huawei.hem.C1184of | DEX SourceFile ConnectionProfile.java
+com.huawei.hem.ConnectionProfile -> com.huawei.hem.of:
+# jadx com.huawei.hem.AbstractServiceConnectionC1185og | DEX SourceFile BaseFileServiceUIGuard.java
+com.huawei.hem.BaseFileServiceUIGuard -> com.huawei.hem.og:
+# jadx com.huawei.hem.C1188oj | DEX SourceFile ConnectionPool.java
+com.huawei.hem.ConnectionPool -> com.huawei.hem.oj:
+# jadx com.huawei.hem.EnumC1189ok | DEX SourceFile TlsVersion.java
+com.huawei.hem.TlsVersion -> com.huawei.hem.ok:
+# jadx com.huawei.hem.C1190ol | DEX SourceFile HttpDate.java
+com.huawei.hem.HttpDate -> com.huawei.hem.ol:
+# jadx com.huawei.hem.InterfaceC1191om | DEX SourceFile PushObserver.java
+com.huawei.hem.PushObserver -> com.huawei.hem.om:
+# jadx com.huawei.hem.C1192on | DEX SourceFile GzipSource.java
+com.huawei.hem.GzipSource -> com.huawei.hem.on:
+# jadx com.huawei.hem.InterfaceC1193p | DEX SourceFile Observer.java
+com.huawei.hem.Observer -> com.huawei.hem.p:
+# jadx com.huawei.hem.C1195p1 | DEX SourceFile XXTEA.java
+com.huawei.hem.XXTEA -> com.huawei.hem.p1:
+# jadx com.huawei.hem.C1197p3 | DEX SourceFile BasicAppList.java
+com.huawei.hem.BasicAppList -> com.huawei.hem.p3:
+# jadx com.huawei.hem.C1199p5 | DEX SourceFile AppUploadSPHelper.java
+com.huawei.hem.AppUploadSPHelper -> com.huawei.hem.p5:
+# jadx com.huawei.hem.C1206pc | DEX SourceFile EbenImpl.java
+com.huawei.hem.EbenImpl -> com.huawei.hem.pc:
+# jadx com.huawei.hem.C1207pd | DEX SourceFile HuaweiBaseChildImpl.java
+com.huawei.hem.HuaweiBaseChildImpl -> com.huawei.hem.pd:
+# jadx com.huawei.hem.C1208pe | DEX SourceFile FileDownloadMessenger.java
+com.huawei.hem.FileDownloadMessenger -> com.huawei.hem.pe:
+# jadx com.huawei.hem.C1209pf | DEX SourceFile CustomComponentHolder.java
+com.huawei.hem.CustomComponentHolder -> com.huawei.hem.pf:
+# jadx com.huawei.hem.C1210pg | DEX SourceFile DefaultIdGenerator.java
+com.huawei.hem.DefaultIdGenerator -> com.huawei.hem.pg:
+# jadx com.huawei.hem.C1213pj | DEX SourceFile ConnectionSpec.java
+com.huawei.hem.ConnectionSpec -> com.huawei.hem.pj:
+# jadx com.huawei.hem.C1215pl | DEX SourceFile HttpHeaders.java
+com.huawei.hem.OkHttpHeaders -> com.huawei.hem.pl:
+# jadx com.huawei.hem.C1216pm | DEX SourceFile Settings.java
+com.huawei.hem.Http2Settings -> com.huawei.hem.pm:
+# jadx com.huawei.hem.C1217pn | DEX SourceFile InflaterSource.java
+com.huawei.hem.InflaterSource -> com.huawei.hem.pn:
+# jadx com.huawei.hem.InterfaceC1218q | DEX SourceFile OnLifecycleEvent.java
+com.huawei.hem.OnLifecycleEvent -> com.huawei.hem.q:
+# jadx com.huawei.hem.InterfaceC1220q1 | DEX SourceFile ZxkExecutorInterface.java
+com.huawei.hem.ZxkExecutorInterface -> com.huawei.hem.q1:
+# jadx com.huawei.hem.C1221q2 | CheckPwdGestureActivity.java; captures CheckPwdGestureActivity and implements or extends GestureLockLayoutGestureEventCallbackAdapter
+com.huawei.hem.CheckPwdGestureActivityGestureCallback -> com.huawei.hem.q2:
+# jadx com.huawei.hem.C1222q3 | DEX SourceFile HengxuanAppList.java
+com.huawei.hem.HengxuanAppList -> com.huawei.hem.q3:
+# jadx com.huawei.hem.C1223q4 | DEX SourceFile BaseLoginRequestHelper.java
+com.huawei.hem.BaseLoginRequestHelper -> com.huawei.hem.q4:
+# jadx com.huawei.hem.AbstractC1224q5 | DEX SourceFile BaseISVCustomer.java
+com.huawei.hem.BaseISVCustomer -> com.huawei.hem.q5:
+# jadx com.huawei.hem.InterfaceC1230qb | DEX SourceFile ITools.java
+com.huawei.hem.ITools -> com.huawei.hem.qb:
+# jadx com.huawei.hem.C1231qc | DEX SourceFile ElinktekImpl.java
+com.huawei.hem.ElinktekImpl -> com.huawei.hem.qc:
+# jadx com.huawei.hem.C1232qd | DEX SourceFile HuaweiBaseImpl.java
+com.huawei.hem.HuaweiBaseImpl -> com.huawei.hem.qd:
+# jadx com.huawei.hem.C1233qe | DEX SourceFile FileDownloadServiceProxy.java
+com.huawei.hem.FileDownloadServiceProxy -> com.huawei.hem.qe:
+# jadx com.huawei.hem.RunnableC1234qf | DEX SourceFile DownloadLaunchRunnable.java
+com.huawei.hem.DownloadLaunchRunnable -> com.huawei.hem.qf:
+# jadx com.huawei.hem.C1235qg | DEX SourceFile DownloadMgrInitialParams.java
+com.huawei.hem.DownloadMgrInitialParams -> com.huawei.hem.qg:
+# jadx com.huawei.hem.C1238qj | DEX SourceFile Cookie.java
+com.huawei.hem.Cookie -> com.huawei.hem.qj:
+# jadx com.huawei.hem.C1240ql | DEX SourceFile RealInterceptorChain.java
+com.huawei.hem.RealInterceptorChain -> com.huawei.hem.ql:
+# jadx com.huawei.hem.C1241qm | DEX SourceFile StreamResetException.java
+com.huawei.hem.StreamResetException -> com.huawei.hem.qm:
+# jadx com.huawei.hem.AbstractC1243r | DEX SourceFile ViewModel.java
+com.huawei.hem.ViewModel -> com.huawei.hem.r:
+# jadx com.huawei.hem.C1245r1 | DEX SourceFile BOE_API.java
+com.huawei.hem.BOE_API -> com.huawei.hem.r1:
+# jadx com.huawei.hem.C1247r3 | DEX SourceFile ReleaseControlAppList.java
+com.huawei.hem.ReleaseControlAppList -> com.huawei.hem.r3:
+# jadx com.huawei.hem.C1248r4 | DEX SourceFile BaseRequestHelper.java
+com.huawei.hem.BaseRequestHelper -> com.huawei.hem.r4:
+# jadx com.huawei.hem.C1249r5 | DEX SourceFile ComponentHelper.java
+com.huawei.hem.ComponentHelper -> com.huawei.hem.r5:
+# jadx com.huawei.hem.C1255rb | DEX SourceFile HttpCore.java
+com.huawei.hem.HttpCore -> com.huawei.hem.rb:
+# jadx com.huawei.hem.C1256rc | DEX SourceFile FiveElementsImpl.java
+com.huawei.hem.FiveElementsImpl -> com.huawei.hem.rc:
+# jadx com.huawei.hem.C1257rd | DEX SourceFile HuaweiEmui10Impl.java
+com.huawei.hem.HuaweiEmui10Impl -> com.huawei.hem.rd:
+# jadx com.huawei.hem.C1258re | DEX SourceFile FileDownloadServiceSharedTransmit.java
+com.huawei.hem.FileDownloadServiceSharedTransmit -> com.huawei.hem.re:
+# jadx com.huawei.hem.RunnableC1259rf | DEX SourceFile DownloadRunnable.java
+com.huawei.hem.DownloadRunnable -> com.huawei.hem.rf:
+# jadx com.huawei.hem.BinderC1260rg | DEX SourceFile FDServiceSeparateHandler.java
+com.huawei.hem.FDServiceSeparateHandler -> com.huawei.hem.rg:
+# jadx com.huawei.hem.InterfaceC1263rj | DEX SourceFile CookieJar.java
+com.huawei.hem.CookieJar -> com.huawei.hem.rj:
+# jadx com.huawei.hem.C1265rl | DEX SourceFile RealResponseBody.java
+com.huawei.hem.RealResponseBody -> com.huawei.hem.rl:
+# jadx com.huawei.hem.C1266rm | DEX SourceFile Android10Platform.java
+com.huawei.hem.Android10Platform -> com.huawei.hem.rm:
+# jadx com.huawei.hem.InterfaceC1268s | DEX SourceFile ViewModelProvider.java; create(Class) matches support ViewModelProvider.Factory
+com.huawei.hem.ViewModelProviderFactory -> com.huawei.hem.s:
+# jadx com.huawei.hem.InterfaceC1270s1 | DEX SourceFile ICallback.java
+com.huawei.hem.HemBinderCallback -> com.huawei.hem.s1:
+# jadx com.huawei.hem.C1272s3 | DEX SourceFile ZhongYuKeJiaoAppList.java
+com.huawei.hem.ZhongYuKeJiaoAppList -> com.huawei.hem.s3:
+# jadx com.huawei.hem.C1273s4 | DEX SourceFile EyeProtectedHelper.java
+com.huawei.hem.EyeProtectedHelper -> com.huawei.hem.s4:
+# jadx com.huawei.hem.C1274s5 | DEX SourceFile CounterUtil.java
+com.huawei.hem.CounterUtil -> com.huawei.hem.s5:
+# jadx com.huawei.hem.C1280sb | DEX SourceFile OkHttpException.java
+com.huawei.hem.OkHttpException -> com.huawei.hem.sb:
+# jadx com.huawei.hem.C1281sc | DEX SourceFile HaierImpl.java
+com.huawei.hem.HaierImpl -> com.huawei.hem.sc:
+# jadx com.huawei.hem.C1282sd | DEX SourceFile HuaweiEmui11Impl.java
+com.huawei.hem.HuaweiEmui11Impl -> com.huawei.hem.sd:
+# jadx com.huawei.hem.C1283se | DEX SourceFile FileDownloadServiceUIGuard.java
+com.huawei.hem.FileDownloadServiceUIGuard -> com.huawei.hem.se:
+# jadx com.huawei.hem.C1284sf | DEX SourceFile DownloadStatusCallback.java
+com.huawei.hem.DownloadStatusCallback -> com.huawei.hem.sf:
+# jadx com.huawei.hem.BinderC1285sg | DEX SourceFile FDServiceSharedHandler.java
+com.huawei.hem.FDServiceSharedHandler -> com.huawei.hem.sg:
+# jadx com.huawei.hem.C1288sj | DEX SourceFile Dispatcher.java
+com.huawei.hem.Dispatcher -> com.huawei.hem.sj:
+# jadx com.huawei.hem.AbstractRunnableC1289sk | DEX SourceFile NamedRunnable.java
+com.huawei.hem.NamedRunnable -> com.huawei.hem.sk:
+# jadx com.huawei.hem.C1290sl | DEX SourceFile RetryAndFollowUpInterceptor.java
+com.huawei.hem.RetryAndFollowUpInterceptor -> com.huawei.hem.sl:
+# jadx com.huawei.hem.C1291sm | DEX SourceFile AndroidPlatform.java
+com.huawei.hem.AndroidPlatform -> com.huawei.hem.sm:
+# jadx com.huawei.hem.C1293t | DEX SourceFile ViewModelStore.java
+com.huawei.hem.ViewModelStore -> com.huawei.hem.t:
+# jadx com.huawei.hem.C1295t1 | DEX SourceFile HCHelper.java
+com.huawei.hem.HCHelper -> com.huawei.hem.t1:
+# jadx com.huawei.hem.C1297t3 | DEX SourceFile DBController.java
+com.huawei.hem.DBController -> com.huawei.hem.t3:
+# jadx com.huawei.hem.C1299t5 | DEX SourceFile DataCleanUtil.java
+com.huawei.hem.DataCleanUtil -> com.huawei.hem.t5:
+# jadx com.huawei.hem.AbstractC1305tb | DEX SourceFile OkHttpRequestBuilder.java
+com.huawei.hem.OkHttpRequestBuilder -> com.huawei.hem.tb:
+# jadx com.huawei.hem.C1306tc | DEX SourceFile HaoChenImpl.java
+com.huawei.hem.HaoChenImpl -> com.huawei.hem.tc:
+# jadx com.huawei.hem.C1307td | DEX SourceFile HuaweiEmui3Impl.java
+com.huawei.hem.HuaweiEmui3Impl -> com.huawei.hem.td:
+# jadx com.huawei.hem.C1308te | DEX SourceFile FileDownloadTaskLauncher.java
+com.huawei.hem.FileDownloadTaskLauncher -> com.huawei.hem.te:
+# jadx com.huawei.hem.C1309tf | DEX SourceFile FetchDataTask.java
+com.huawei.hem.FetchDataTask -> com.huawei.hem.tf:
+# jadx com.huawei.hem.C1310tg | DEX SourceFile FileDownloadManager.java
+com.huawei.hem.FileDownloadManager -> com.huawei.hem.tg:
+# jadx com.huawei.hem.C1315tl | DEX SourceFile StatusLine.java
+com.huawei.hem.StatusLine -> com.huawei.hem.tl:
+# jadx com.huawei.hem.C1316tm | DEX SourceFile ConscryptPlatform.java
+com.huawei.hem.ConscryptPlatform -> com.huawei.hem.tm:
+# jadx com.huawei.hem.C1317tn | DEX SourceFile Options.java
+com.huawei.hem.OkioOptions -> com.huawei.hem.tn:
+# jadx com.huawei.hem.InterfaceC1318u | DEX SourceFile ViewModelStoreOwner.java
+com.huawei.hem.ViewModelStoreOwner -> com.huawei.hem.u:
+# jadx com.huawei.hem.InterfaceC1320u1 | DEX SourceFile IHCAPI.java
+com.huawei.hem.IHCAPI -> com.huawei.hem.u1:
+# jadx com.huawei.hem.C1321u2 | CheckPwdGestureActivity.java; captures CheckPwdGestureActivity and implements or extends LTKResponseListener
+com.huawei.hem.CheckPwdGestureActivityResponseListener -> com.huawei.hem.u2:
+# jadx com.huawei.hem.C1322u3 | DEX SourceFile Tactics3DBHelper.java
+com.huawei.hem.Tactics3DBHelper -> com.huawei.hem.u3:
+# jadx com.huawei.hem.AbstractC1330ub | DEX SourceFile OkHttpRequestBuilderHasParam.java
+com.huawei.hem.OkHttpRequestBuilderHasParam -> com.huawei.hem.ub:
+# jadx com.huawei.hem.C1331uc | DEX SourceFile HisenseE12Impl.java
+com.huawei.hem.HisenseE12Impl -> com.huawei.hem.uc:
+# jadx com.huawei.hem.C1332ud | DEX SourceFile HuaweiEmui5Impl.java
+com.huawei.hem.HuaweiEmui5Impl -> com.huawei.hem.ud:
+# jadx com.huawei.hem.C1333ue | DEX SourceFile FileDownloader.java
+com.huawei.hem.FileDownloader -> com.huawei.hem.ue:
+# jadx com.huawei.hem.InterfaceC1334uf | DEX SourceFile ProcessCallback.java
+com.huawei.hem.FileDownloadProcessCallback -> com.huawei.hem.uf:
+# jadx com.huawei.hem.C1335ug | DEX SourceFile FileDownloadThreadPool.java
+com.huawei.hem.FileDownloadThreadPool -> com.huawei.hem.ug:
+# jadx com.huawei.hem.InterfaceC1337ui | DEX SourceFile ISupiSafeCtrl.java
+com.huawei.hem.ISupiSafeCtrl -> com.huawei.hem.ui:
+# jadx com.huawei.hem.C1340ul | DEX SourceFile Http1ExchangeCodec.java
+com.huawei.hem.Http1ExchangeCodec -> com.huawei.hem.ul:
+# jadx com.huawei.hem.C1341um | DEX SourceFile Jdk8WithJettyBootPlatform.java
+com.huawei.hem.Jdk8WithJettyBootPlatform -> com.huawei.hem.um:
+# jadx com.huawei.hem.C1342un | DEX SourceFile RealBufferedSink.java
+com.huawei.hem.RealBufferedSink -> com.huawei.hem.un:
+# jadx com.huawei.hem.C1343v | DEX SourceFile AllDevicePolicyManager.java
+com.huawei.hem.AllDevicePolicyManager -> com.huawei.hem.v:
+# jadx com.huawei.hem.C1346v2 | SettingPwdGestureActivity.java; captures SettingPwdGestureActivity and implements or extends GestureLockLayoutGestureEventCallbackAdapter
+com.huawei.hem.SettingPwdGestureActivityGestureCallback -> com.huawei.hem.v2:
+# jadx com.huawei.hem.C1347v3 | DEX SourceFile UserInfoDBHelper.java
+com.huawei.hem.UserInfoDBHelper -> com.huawei.hem.v3:
+# jadx com.huawei.hem.C1348v4 | DEX SourceFile WorkspaceTacticsHelper.java
+com.huawei.hem.WorkspaceTacticsHelper -> com.huawei.hem.v4:
+# jadx com.huawei.hem.C1355vb | DEX SourceFile PostBuilder.java
+com.huawei.hem.PostBuilder -> com.huawei.hem.vb:
+# jadx com.huawei.hem.C1356vc | DEX SourceFile HisenseImpl.java
+com.huawei.hem.HisenseImpl -> com.huawei.hem.vc:
+# jadx com.huawei.hem.C1357vd | DEX SourceFile HuaweiEmui8Impl.java
+com.huawei.hem.HuaweiEmui8Impl -> com.huawei.hem.vd:
+# jadx com.huawei.hem.InterfaceC1358ve | DEX SourceFile IFileDownloadMessenger.java
+com.huawei.hem.IFileDownloadMessenger -> com.huawei.hem.ve:
+# jadx com.huawei.hem.C1359vf | DEX SourceFile DownloadEventPoolImpl.java
+com.huawei.hem.DownloadEventPoolImpl -> com.huawei.hem.vf:
+# jadx com.huawei.hem.C1360vg | DEX SourceFile ForegroundServiceConfig.java
+com.huawei.hem.ForegroundServiceConfig -> com.huawei.hem.vg:
+# jadx com.huawei.hem.AbstractC1363vj | DEX SourceFile EventListener.java
+com.huawei.hem.EventListener -> com.huawei.hem.vj:
+# jadx com.huawei.hem.C1365vl | DEX SourceFile ConnectionShutdownException.java
+com.huawei.hem.ConnectionShutdownException -> com.huawei.hem.vl:
+# jadx com.huawei.hem.C1366vm | DEX SourceFile Jdk9Platform.java
+com.huawei.hem.Jdk9Platform -> com.huawei.hem.vm:
+# jadx com.huawei.hem.C1367vn | DEX SourceFile RealBufferedSource.java
+com.huawei.hem.RealBufferedSource -> com.huawei.hem.vn:
+# jadx com.huawei.hem.InterfaceC1368w | DEX SourceFile IMDMPolicyServer.java
+com.huawei.hem.IMDMPolicyServer -> com.huawei.hem.w:
+# jadx com.huawei.hem.C1373w4 | DEX SourceFile AppWhiteExceptionHelper.java
+com.huawei.hem.AppWhiteExceptionHelper -> com.huawei.hem.w4:
+# jadx com.huawei.hem.C1374w5 | DEX SourceFile ImageCompressUtil.java
+com.huawei.hem.ImageCompressUtil -> com.huawei.hem.w5:
+# jadx com.huawei.hem.C1380wb | DEX SourceFile UploadBuilder.java
+com.huawei.hem.UploadBuilder -> com.huawei.hem.wb:
+# jadx com.huawei.hem.C1381wc | DEX SourceFile HongQiImpl.java
+com.huawei.hem.HongQiImpl -> com.huawei.hem.wc:
+# jadx com.huawei.hem.C1382wd | DEX SourceFile HuaweiEmui9Impl.java
+com.huawei.hem.HuaweiEmui9Impl -> com.huawei.hem.wd:
+# jadx com.huawei.hem.InterfaceC1383we | DEX SourceFile IFileDownloadServiceProxy.java
+com.huawei.hem.IFileDownloadServiceProxy -> com.huawei.hem.we:
+# jadx com.huawei.hem.C1384wf | DEX SourceFile DownloadServiceConnectChangedEvent.java
+com.huawei.hem.DownloadServiceConnectChangedEvent -> com.huawei.hem.wf:
+# jadx com.huawei.hem.InterfaceC1385wg | DEX SourceFile IFileDownloadServiceHandler.java
+com.huawei.hem.IFileDownloadServiceHandler -> com.huawei.hem.wg:
+# jadx com.huawei.hem.C1388wj | DEX SourceFile FormBody.java
+com.huawei.hem.FormBody -> com.huawei.hem.wj:
+# jadx com.huawei.hem.EnumC1390wl | DEX SourceFile ErrorCode.java
+com.huawei.hem.Http2ErrorCode -> com.huawei.hem.wl:
+# jadx com.huawei.hem.C1391wm | DEX SourceFile Platform.java
+com.huawei.hem.Platform -> com.huawei.hem.wm:
+# jadx com.huawei.hem.C1392wn | DEX SourceFile Segment.java
+com.huawei.hem.OkioSegment -> com.huawei.hem.wn:
+# jadx com.huawei.hem.AbstractC1393x | DEX SourceFile VersionedParcel.java
+com.huawei.hem.VersionedParcel -> com.huawei.hem.x:
+# jadx com.huawei.hem.C1396x2 | DataCleanRecyclerViewAdapter.java; captures DataCleanRecyclerViewAdapter and implements or extends CompoundButtonOnCheckedChangeListener
+com.huawei.hem.DataCleanRecyclerViewAdapterCheckedChangeListener -> com.huawei.hem.x2:
+# jadx com.huawei.hem.ViewOnClickListenerC1397x3 | MainFragment.java; registered by the R.id.message_center menu item
+com.huawei.hem.MainMenuMessageCenterClickListener -> com.huawei.hem.x3:
+# jadx com.huawei.hem.C1398x4 | DEX SourceFile AppWhiteHelper.java
+com.huawei.hem.AppWhiteHelper -> com.huawei.hem.x4:
+# jadx com.huawei.hem.C1399x5 | DEX SourceFile ScreenHelper.java
+com.huawei.hem.ScreenHelper -> com.huawei.hem.x5:
+# jadx com.huawei.hem.C1405xb | DEX SourceFile CommonCallBack.java
+com.huawei.hem.CommonCallBack -> com.huawei.hem.xb:
+# jadx com.huawei.hem.C1406xc | DEX SourceFile HuaruianImpl.java
+com.huawei.hem.HuaruianImpl -> com.huawei.hem.xc:
+# jadx com.huawei.hem.InterfaceC1408xe | DEX SourceFile ILostServiceConnectedHandler.java
+com.huawei.hem.ILostServiceConnectedHandler -> com.huawei.hem.xe:
+# jadx com.huawei.hem.AbstractC1409xf | DEX SourceFile IDownloadEvent.java
+com.huawei.hem.IDownloadEvent -> com.huawei.hem.xf:
+# jadx com.huawei.hem.InterfaceC1410xg | DEX SourceFile FileDownloadOutputStream.java
+com.huawei.hem.FileDownloadOutputStream -> com.huawei.hem.xg:
+# jadx com.huawei.hem.C1413xj | DEX SourceFile Handshake.java
+com.huawei.hem.Handshake -> com.huawei.hem.xj:
+# jadx com.huawei.hem.InterfaceC1414xk | DEX SourceFile CacheRequest.java
+com.huawei.hem.CacheRequest -> com.huawei.hem.xk:
+# jadx com.huawei.hem.C1415xl | DEX SourceFile Header.java
+com.huawei.hem.Http2Header -> com.huawei.hem.xl:
+# jadx com.huawei.hem.C1416xm | DEX SourceFile NullProxySelector.java
+com.huawei.hem.NullProxySelector -> com.huawei.hem.xm:
+# jadx com.huawei.hem.C1417xn | DEX SourceFile SegmentPool.java
+com.huawei.hem.SegmentPool -> com.huawei.hem.xn:
+# jadx com.huawei.hem.C1418y | DEX SourceFile VersionedParcelParcel.java
+com.huawei.hem.VersionedParcelParcel -> com.huawei.hem.y:
+# jadx com.huawei.hem.ViewOnClickListenerC1421y2 | DataCleanRecyclerViewAdapter.java; captures DataCleanRecyclerViewAdapter and implements or extends ViewOnClickListener
+com.huawei.hem.DataCleanRecyclerViewAdapterClickListener -> com.huawei.hem.y2:
+# jadx com.huawei.hem.ViewOnClickListenerC1422y3 | MainFragment.java; registered by the R.id.change_password menu item
+com.huawei.hem.MainMenuChangePasswordClickListener -> com.huawei.hem.y3:
+# jadx com.huawei.hem.C1423y4 | MenuHelper.java; launcher callers and menu utility methods
+com.huawei.hem.LauncherMenuHelper -> com.huawei.hem.y4:
+# jadx com.huawei.hem.C1424y5 | DEX SourceFile UserInfoUtil.java
+com.huawei.hem.UserInfoUtil -> com.huawei.hem.y5:
+# jadx com.huawei.hem.InterfaceC1430yb | DEX SourceFile IResponseHandler.java
+com.huawei.hem.IResponseHandler -> com.huawei.hem.yb:
+# jadx com.huawei.hem.C1431yc | DEX SourceFile JichengshixunImpl.java
+com.huawei.hem.JichengshixunImpl -> com.huawei.hem.yc:
+# jadx com.huawei.hem.InterfaceC1433ye | DEX SourceFile IQueuesHandler.java
+com.huawei.hem.IQueuesHandler -> com.huawei.hem.ye:
+# jadx com.huawei.hem.AbstractC1434yf | DEX SourceFile IDownloadListener.java
+com.huawei.hem.IDownloadListener -> com.huawei.hem.yf:
+# jadx com.huawei.hem.C1435yg | DEX SourceFile FileDownloadRandomAccessFile.java
+com.huawei.hem.FileDownloadRandomAccessFile -> com.huawei.hem.yg:
+# jadx com.huawei.hem.C1437yi | DEX SourceFile ZxkSDK.java
+com.huawei.hem.ZxkSDK -> com.huawei.hem.yi:
+# jadx com.huawei.hem.C1439yk | DEX SourceFile CacheStrategy.java
+com.huawei.hem.CacheStrategy -> com.huawei.hem.yk:
+# jadx com.huawei.hem.C1440yl | DEX SourceFile Hpack.java
+com.huawei.hem.Hpack -> com.huawei.hem.yl:
+# jadx com.huawei.hem.C1441ym | DEX SourceFile BasicCertificateChainCleaner.java
+com.huawei.hem.BasicCertificateChainCleaner -> com.huawei.hem.ym:
+# jadx com.huawei.hem.C1442yn | DEX SourceFile SegmentedByteString.java
+com.huawei.hem.SegmentedByteString -> com.huawei.hem.yn:
+# jadx com.huawei.hem.InterfaceC1443z | DEX SourceFile VersionedParcelable.java
+com.huawei.hem.VersionedParcelable -> com.huawei.hem.z:
+# jadx com.huawei.hem.C1446z2 | DEX SourceFile HengxuanAppAdapter.java
+com.huawei.hem.HengxuanAppAdapter -> com.huawei.hem.z2:
+# jadx com.huawei.hem.ViewOnClickListenerC1447z3 | MainFragment.java; registered by the R.id.device_info menu item
+com.huawei.hem.MainMenuDeviceInfoClickListener -> com.huawei.hem.z3:
+# jadx com.huawei.hem.C1448z4 | DEX SourceFile PersistentAppHelper.java
+com.huawei.hem.PersistentAppHelper -> com.huawei.hem.z4:
+# jadx com.huawei.hem.C1449z5 | DEX SourceFile BitmapUtils.java
+com.huawei.hem.BitmapUtils -> com.huawei.hem.z5:
+# jadx com.huawei.hem.C1454za | DEX SourceFile HiAnalyticsBase.java
+com.huawei.hem.HiAnalyticsBase -> com.huawei.hem.za:
+# jadx com.huawei.hem.C1455zb | DEX SourceFile ProgressRequestBody.java
+com.huawei.hem.ProgressRequestBody -> com.huawei.hem.zb:
+# jadx com.huawei.hem.C1456zc | DEX SourceFile JinTaiYiImpl.java
+com.huawei.hem.JinTaiYiImpl -> com.huawei.hem.zc:
+# jadx com.huawei.hem.C1457zd | DEX SourceFile LenovoCSDK5Impl.java
+com.huawei.hem.LenovoCSDK5Impl -> com.huawei.hem.zd:
+# jadx com.huawei.hem.InterfaceC1458ze | DEX SourceFile ITaskHunter.java
+com.huawei.hem.ITaskHunter -> com.huawei.hem.ze:
+# jadx com.huawei.hem.C1459zf | DEX SourceFile FileDownloadGiveUpRetryException.java
+com.huawei.hem.FileDownloadGiveUpRetryException -> com.huawei.hem.zf:
+# jadx com.huawei.hem.C1460zg | DEX SourceFile DownloadServiceNotConnectedHelper.java
+com.huawei.hem.DownloadServiceNotConnectedHelper -> com.huawei.hem.zg:
+# jadx com.huawei.hem.C1462zi | DEX SourceFile ZxkSDKProxy.java
+com.huawei.hem.ZxkSDKProxy -> com.huawei.hem.zi:
+# jadx com.huawei.hem.C1463zj | DEX SourceFile HttpUrl.java
+com.huawei.hem.OkHttpUrl -> com.huawei.hem.zj:
+# jadx com.huawei.hem.InterfaceC1464zk | DEX SourceFile InternalCache.java
+com.huawei.hem.InternalCache -> com.huawei.hem.zk:
+# jadx com.huawei.hem.C1465zl | DEX SourceFile Http2.java
+com.huawei.hem.Http2 -> com.huawei.hem.zl:
+# jadx com.huawei.hem.C1466zm | DEX SourceFile BasicTrustRootIndex.java
+com.huawei.hem.BasicTrustRootIndex -> com.huawei.hem.zm:
+# jadx com.huawei.hem.InterfaceC1467zn | DEX SourceFile Sink.java
+com.huawei.hem.Sink -> com.huawei.hem.zn:
+# jadx com.huawei.hms.api.C1488a | DEX SourceFile BindingFailedResolveMgr.java
+com.huawei.hms.api.BindingFailedResolveMgr -> com.huawei.hms.api.a:
+# jadx com.huawei.hms.api.C1489b | DEX SourceFile HuaweiApiAvailabilityImpl.java
+com.huawei.hms.api.HuaweiApiAvailabilityImpl -> com.huawei.hms.api.b:
+# jadx com.huawei.hms.availableupdate.C1490a | DEX SourceFile DownloadRecord.java
+com.huawei.hms.availableupdate.DownloadRecord -> com.huawei.hms.availableupdate.a:
+# jadx com.huawei.hms.availableupdate.C1492b | DEX SourceFile RandomFileOutputStream.java
+com.huawei.hms.availableupdate.RandomFileOutputStream -> com.huawei.hms.availableupdate.b:
+# jadx com.huawei.hms.availableupdate.C1494c | DEX SourceFile ThreadWrapper.java
+com.huawei.hms.availableupdate.ThreadWrapper -> com.huawei.hms.availableupdate.c:
+# jadx com.huawei.hms.availableupdate.C1496d | DEX SourceFile UpdateDownload.java
+com.huawei.hms.availableupdate.UpdateDownload -> com.huawei.hms.availableupdate.d:
+# jadx com.huawei.hms.availableupdate.InterfaceC1498e | DEX SourceFile IOtaUpdate.java
+com.huawei.hms.availableupdate.IOtaUpdate -> com.huawei.hms.availableupdate.e:
+# jadx com.huawei.hms.availableupdate.C1499e0 | DEX SourceFile SilentUpdateWizard.java
+com.huawei.hms.availableupdate.SilentUpdateWizard -> com.huawei.hms.availableupdate.e0:
+# jadx com.huawei.hms.availableupdate.InterfaceC1500f | DEX SourceFile IUpdateCallback.java
+com.huawei.hms.availableupdate.IUpdateCallback -> com.huawei.hms.availableupdate.f:
+# jadx com.huawei.hms.availableupdate.C1501f0 | DEX SourceFile UpdateWizard.java
+com.huawei.hms.availableupdate.UpdateWizard -> com.huawei.hms.availableupdate.f0:
+# jadx com.huawei.hms.availableupdate.C1502g | DEX SourceFile UpdateInfo.java
+com.huawei.hms.availableupdate.UpdateInfo -> com.huawei.hms.availableupdate.g:
+# jadx com.huawei.hms.availableupdate.C1503h | DEX SourceFile UpdateStatus.java
+com.huawei.hms.availableupdate.UpdateStatus -> com.huawei.hms.availableupdate.h:
+# jadx com.huawei.hms.availableupdate.C1504i | DEX SourceFile CanceledException.java
+com.huawei.hms.availableupdate.CanceledException -> com.huawei.hms.availableupdate.i:
+# jadx com.huawei.hms.availableupdate.C1505j | DEX SourceFile HttpRequestHelper.java
+com.huawei.hms.availableupdate.HttpRequestHelper -> com.huawei.hms.availableupdate.j:
+# jadx com.huawei.hms.availableupdate.InterfaceC1506k | DEX SourceFile IHttpRequestHelper.java
+com.huawei.hms.availableupdate.IHttpRequestHelper -> com.huawei.hms.availableupdate.k:
+# jadx com.huawei.hms.availableupdate.C1507l | DEX SourceFile ContentUriHelper.java
+com.huawei.hms.availableupdate.ContentUriHelper -> com.huawei.hms.availableupdate.l:
+# jadx com.huawei.hms.availableupdate.C1508m | DEX SourceFile SilentInstallReceive.java
+com.huawei.hms.availableupdate.SilentInstallReceive -> com.huawei.hms.availableupdate.m:
+# jadx com.huawei.hms.availableupdate.AbstractC1509n | DEX SourceFile AbsUpdateWizard.java
+com.huawei.hms.availableupdate.AbsUpdateWizard -> com.huawei.hms.availableupdate.n:
+# jadx com.huawei.hms.availableupdate.C1511p | DEX SourceFile AppTouchWizard.java
+com.huawei.hms.availableupdate.AppTouchWizard -> com.huawei.hms.availableupdate.p:
+# jadx com.huawei.hms.availableupdate.C1512q | DEX SourceFile CheckProgress.java
+com.huawei.hms.availableupdate.CheckProgress -> com.huawei.hms.availableupdate.q:
+# jadx com.huawei.hms.availableupdate.C1518w | DEX SourceFile DownloadProgress.java
+com.huawei.hms.availableupdate.DownloadProgress -> com.huawei.hms.availableupdate.w:
+# jadx com.huawei.hms.availableupdate.C1519x | DEX SourceFile HiappWizard.java
+com.huawei.hms.availableupdate.HiappWizard -> com.huawei.hms.availableupdate.x:
+# jadx com.huawei.hms.availableupdate.C1520y | DEX SourceFile InstallConfirm.java
+com.huawei.hms.availableupdate.InstallConfirm -> com.huawei.hms.availableupdate.y:
+# jadx com.huawei.hms.base.log.C1524a | DEX SourceFile LogAdaptor.java
+com.huawei.hms.base.log.HmsLogAdaptor -> com.huawei.hms.base.log.a:
+# jadx com.huawei.hms.base.log.InterfaceC1525b | DEX SourceFile LogNode.java
+com.huawei.hms.base.log.LogNode -> com.huawei.hms.base.log.b:
+# jadx com.huawei.hms.base.log.C1526c | DEX SourceFile LogRecord.java
+com.huawei.hms.base.log.LogRecord -> com.huawei.hms.base.log.c:
+# jadx com.huawei.hms.base.log.C1527d | DEX SourceFile LogCatNode.java
+com.huawei.hms.base.log.LogCatNode -> com.huawei.hms.base.log.d:
+# jadx com.huawei.hms.core.aidl.C1540a | DEX SourceFile CodecLookup.java
+com.huawei.hms.core.aidl.CodecLookup -> com.huawei.hms.core.aidl.a:
+# jadx com.huawei.hms.core.aidl.InterfaceC1542c | DEX SourceFile IAIDLCallback.java
+com.huawei.hms.core.aidl.IAIDLCallback -> com.huawei.hms.core.aidl.c:
+# jadx com.huawei.hms.core.aidl.InterfaceC1543d | DEX SourceFile IAIDLInvoke.java
+com.huawei.hms.core.aidl.IAIDLInvoke -> com.huawei.hms.core.aidl.d:
+# jadx com.huawei.hms.core.aidl.C1544e | DEX SourceFile MessageCodec.java
+com.huawei.hms.core.aidl.MessageCodec -> com.huawei.hms.core.aidl.e:
+# jadx com.huawei.hms.core.aidl.C1545f | DEX SourceFile MessageCodecV2.java
+com.huawei.hms.core.aidl.MessageCodecV2 -> com.huawei.hms.core.aidl.f:
+# jadx com.huawei.hms.device.C1546a | DEX SourceFile X509CertUtil.java
+com.huawei.hms.device.X509CertUtil -> com.huawei.hms.device.a:
+# jadx com.huawei.hms.stats.C1557a | DEX SourceFile AnalyticsSwitchHolder.java
+com.huawei.hms.stats.AnalyticsSwitchHolder -> com.huawei.hms.stats.a:
+# jadx com.huawei.hms.stats.C1558b | DEX SourceFile HiAnalyticsOfCpUtils.java
+com.huawei.hms.stats.HiAnalyticsOfCpUtils -> com.huawei.hms.stats.b:
+# jadx com.huawei.hms.stats.C1559c | DEX SourceFile HianalyticsExist.java
+com.huawei.hms.stats.HianalyticsExist -> com.huawei.hms.stats.c:
+# jadx com.loc.C1710a | DEX SourceFile GeoFenceManager.java
+com.loc.GeoFenceManager -> com.loc.a:
+# jadx com.loc.InterfaceC1711aa | DEX SourceFile EntityClass.java
+com.loc.EntityClass -> com.loc.aa:
+# jadx com.loc.InterfaceC1712ab | DEX SourceFile EntityField.java
+com.loc.EntityField -> com.loc.ab:
+# jadx com.loc.C1713ac | DEX SourceFile DB.java
+com.loc.DB -> com.loc.ac:
+# jadx com.loc.C1714ad | DEX SourceFile NoneEncryptProcessor.java
+com.loc.NoneEncryptProcessor -> com.loc.ad:
+# jadx com.loc.C1715ae | DEX SourceFile ADDNumEncryptProcessor.java
+com.loc.ADDNumEncryptProcessor -> com.loc.ae:
+# jadx com.loc.C1716af | DEX SourceFile Base64EncryptProcessor.java
+com.loc.Base64EncryptProcessor -> com.loc.af:
+# jadx com.loc.AbstractC1717ag | DEX SourceFile EncryptProcessor.java
+com.loc.EncryptProcessor -> com.loc.ag:
+# jadx com.loc.C1718ah | DEX SourceFile GZipEncryptProcessor.java
+com.loc.GZipEncryptProcessor -> com.loc.ah:
+# jadx com.loc.C1719ai | DEX SourceFile RSAAESEncryptProcessor.java
+com.loc.RSAAESEncryptProcessor -> com.loc.ai:
+# jadx com.loc.C1722al | DEX SourceFile ADIURequest.java
+com.loc.ADIURequest -> com.loc.al:
+# jadx com.loc.C1723am | DEX SourceFile BaseNetManager.java
+com.loc.BaseNetManager -> com.loc.am:
+# jadx com.loc.AbstractC1724an | DEX SourceFile BinaryRequest.java
+com.loc.BinaryRequest -> com.loc.an:
+# jadx com.loc.C1725ao | DEX SourceFile HttpLimitUtil.java
+com.loc.HttpLimitUtil -> com.loc.ao:
+# jadx com.loc.C1726ap | DEX SourceFile HttpUrlUtil.java
+com.loc.HttpUrlUtil -> com.loc.ap:
+# jadx com.loc.C1727aq | DEX SourceFile MySSLSocketFactory.java
+com.loc.MySSLSocketFactory -> com.loc.aq:
+# jadx com.loc.AbstractC1728ar | Request.java; abstract map SDK request and URL parameters
+com.loc.AMapNetworkRequest -> com.loc.ar:
+# jadx com.loc.C1729as | DEX SourceFile ResponseEntity.java
+com.loc.ResponseEntity -> com.loc.as:
+# jadx com.loc.C1730at | DEX SourceFile LogConfig.java
+com.loc.LogConfig -> com.loc.at:
+# jadx com.loc.C1731au | DEX SourceFile LogEngine.java
+com.loc.LogEngine -> com.loc.au:
+# jadx com.loc.C1732av | DEX SourceFile OfflineLocEntity.java
+com.loc.OfflineLocEntity -> com.loc.av:
+# jadx com.loc.C1733aw | DEX SourceFile OfflineLocManager.java
+com.loc.OfflineLocManager -> com.loc.aw:
+# jadx com.loc.C1734ax | DEX SourceFile StatisticsEntity.java
+com.loc.StatisticsEntity -> com.loc.ax:
+# jadx com.loc.C1735ay | DEX SourceFile StatisticsManager.java
+com.loc.StatisticsManager -> com.loc.ay:
+# jadx com.loc.C1737b | DEX SourceFile GeoFenceNetManager.java
+com.loc.GeoFenceNetManager -> com.loc.b:
+# jadx com.loc.C1738ba | DEX SourceFile ByteJoinDataStrategy.java
+com.loc.ByteJoinDataStrategy -> com.loc.ba:
+# jadx com.loc.C1739bb | DEX SourceFile EncryptRsaDataStrategy.java
+com.loc.EncryptRsaDataStrategy -> com.loc.bb:
+# jadx com.loc.C1740bc | DEX SourceFile HeaderAddStrategy.java
+com.loc.HeaderAddStrategy -> com.loc.bc:
+# jadx com.loc.C1741bd | DEX SourceFile LogJsonDataStrategy.java
+com.loc.LogJsonDataStrategy -> com.loc.bd:
+# jadx com.loc.C1742be | DEX SourceFile StatisticsHeaderDataStrategy.java
+com.loc.StatisticsHeaderDataStrategy -> com.loc.be:
+# jadx com.loc.C1743bf | DEX SourceFile StatisticsPubDataStrategy.java
+com.loc.StatisticsPubDataStrategy -> com.loc.bf:
+# jadx com.loc.AbstractC1744bg | DEX SourceFile UpdateDataStrategy.java
+com.loc.UpdateDataStrategy -> com.loc.bg:
+# jadx com.loc.C1745bh | DEX SourceFile ZipUpdateDataStrategy.java
+com.loc.ZipUpdateDataStrategy -> com.loc.bh:
+# jadx com.loc.C1746bi | DEX SourceFile FileNumUpdateStrategy.java
+com.loc.FileNumUpdateStrategy -> com.loc.bi:
+# jadx com.loc.C1747bj | DEX SourceFile MobileUpdateStrategy.java
+com.loc.MobileUpdateStrategy -> com.loc.bj:
+# jadx com.loc.C1748bk | DEX SourceFile SwitchUpdateStrategy.java
+com.loc.SwitchUpdateStrategy -> com.loc.bk:
+# jadx com.loc.C1749bl | DEX SourceFile TimeUpdateStrategy.java
+com.loc.TimeUpdateStrategy -> com.loc.bl:
+# jadx com.loc.AbstractC1750bm | DEX SourceFile UpdateStrategy.java
+com.loc.UpdateStrategy -> com.loc.bm:
+# jadx com.loc.C1751bn | DEX SourceFile WiFiUplateStrategy.java
+com.loc.WiFiUplateStrategy -> com.loc.bn:
+# jadx com.loc.ThreadFactoryC1752bo | DEX SourceFile BasicThreadFactory.java
+com.loc.BasicThreadFactory -> com.loc.bo:
+# jadx com.loc.C1753bp | DEX SourceFile ThreadPool.java
+com.loc.ThreadPool -> com.loc.bp:
+# jadx com.loc.AbstractRunnableC1754bq | DEX SourceFile ThreadTask.java
+com.loc.ThreadTask -> com.loc.bq:
+# jadx com.loc.AbstractC1755br | DEX SourceFile BasePool.java
+com.loc.BasePool -> com.loc.br:
+# jadx com.loc.C1756bs | DEX SourceFile CollectionConfig.java
+com.loc.CollectionConfig -> com.loc.bs:
+# jadx com.loc.AbstractC1757bt | DEX SourceFile AbstractBuilder.java
+com.loc.AbstractBuilder -> com.loc.bt:
+# jadx com.loc.C1758bu | DEX SourceFile FpsBufferBuilder.java
+com.loc.FpsBufferBuilder -> com.loc.bu:
+# jadx com.loc.C1759bv | DEX SourceFile RobustFlatBufferBuilder.java
+com.loc.RobustFlatBufferBuilder -> com.loc.bv:
+# jadx com.loc.C1760bw | DEX SourceFile UploadBufferBuilder.java
+com.loc.UploadBufferBuilder -> com.loc.bw:
+# jadx com.loc.C1761bx | DEX SourceFile CellCollector.java
+com.loc.CellCollector -> com.loc.bx:
+# jadx com.loc.C1762by | DEX SourceFile FpsCollector.java
+com.loc.FpsCollector -> com.loc.by:
+# jadx com.loc.C1763bz | DEX SourceFile WifiCollector.java
+com.loc.WifiCollector -> com.loc.bz:
+# jadx com.loc.C1764c | DEX SourceFile GeoFenceSearchResultParser.java
+com.loc.GeoFenceSearchResultParser -> com.loc.c:
+# jadx com.loc.C1765ca | DEX SourceFile CollectionData.java
+com.loc.CollectionData -> com.loc.ca:
+# jadx com.loc.C1766cb | DEX SourceFile CollectionUploader.java
+com.loc.CollectionUploader -> com.loc.cb:
+# jadx com.loc.C1767cc | DEX SourceFile RootTLocator.java
+com.loc.RootTLocator -> com.loc.cc:
+# jadx com.loc.C1768cd | DEX SourceFile RootTUploadData.java
+com.loc.RootTUploadData -> com.loc.cd:
+# jadx com.loc.C1769ce | DEX SourceFile TCdma.java
+com.loc.TCdma -> com.loc.ce:
+# jadx com.loc.C1770cf | DEX SourceFile TCell.java
+com.loc.TCell -> com.loc.cf:
+# jadx com.loc.C1771cg | DEX SourceFile TCellHistory.java
+com.loc.TCellHistory -> com.loc.cg:
+# jadx com.loc.C1772ch | DEX SourceFile TCellInfo.java
+com.loc.TCellInfo -> com.loc.ch:
+# jadx com.loc.C1773ci | DEX SourceFile TData.java
+com.loc.TData -> com.loc.ci:
+# jadx com.loc.C1774cj | DEX SourceFile TGps.java
+com.loc.TGps -> com.loc.cj:
+# jadx com.loc.C1775ck | DEX SourceFile TGsm.java
+com.loc.TGsm -> com.loc.ck:
+# jadx com.loc.C1776cl | DEX SourceFile TLte.java
+com.loc.TLte -> com.loc.cl:
+# jadx com.loc.C1777cm | DEX SourceFile TMainCellCDMAHistory.java
+com.loc.TMainCellCDMAHistory -> com.loc.cm:
+# jadx com.loc.C1778cn | DEX SourceFile TMainCellGSMHistory.java
+com.loc.TMainCellGSMHistory -> com.loc.cn:
+# jadx com.loc.C1779co | DEX SourceFile TWcdma.java
+com.loc.TWcdma -> com.loc.co:
+# jadx com.loc.C1780cp | DEX SourceFile TWifi.java
+com.loc.TWifi -> com.loc.cp:
+# jadx com.loc.C1781cq | DEX SourceFile TWifiInfo.java
+com.loc.TWifiInfo -> com.loc.cq:
+# jadx com.loc.InterfaceC1782cr | DEX SourceFile IRssiInfo.java
+com.loc.IRssiInfo -> com.loc.cr:
+# jadx com.loc.C1783cs | DEX SourceFile RssiInfoManager.java
+com.loc.RssiInfoManager -> com.loc.cs:
+# jadx com.loc.C1784ct | DEX SourceFile RssiManager.java
+com.loc.RssiManager -> com.loc.ct:
+# jadx com.loc.C1785cu | DEX SourceFile OpenSdkCollectionManagerProxy.java
+com.loc.OpenSdkCollectionManagerProxy -> com.loc.cu:
+# jadx com.loc.C1786cv | DEX SourceFile GpsUtil.java
+com.loc.GpsUtil -> com.loc.cv:
+# jadx com.loc.C1787cw | DEX SourceFile AmapContext.java
+com.loc.AmapContext -> com.loc.cw:
+# jadx com.loc.AbstractC1788cx | DEX SourceFile AmapCell.java
+com.loc.AmapCell -> com.loc.cx:
+# jadx com.loc.C1789cy | DEX SourceFile AmapCellCdma.java
+com.loc.AmapCellCdma -> com.loc.cy:
+# jadx com.loc.C1790cz | DEX SourceFile AmapCellGsm.java
+com.loc.AmapCellGsm -> com.loc.cz:
+# jadx com.loc.C1791d | DEX SourceFile AmapLocationManager.java
+com.loc.AmapLocationManager -> com.loc.d:
+# jadx com.loc.C1792da | DEX SourceFile AmapCellLte.java
+com.loc.AmapCellLte -> com.loc.da:
+# jadx com.loc.C1793db | DEX SourceFile AmapCellWcdma.java
+com.loc.AmapCellWcdma -> com.loc.db:
+# jadx com.loc.C1794dc | DEX SourceFile AmapLocation.java
+com.loc.AmapLocation -> com.loc.dc:
+# jadx com.loc.C1795dd | DEX SourceFile AmapLocationGnss.java
+com.loc.AmapLocationGnss -> com.loc.dd:
+# jadx com.loc.C1796de | DEX SourceFile AmapWifi.java
+com.loc.AmapWifi -> com.loc.de:
+# jadx com.loc.C1797df | DEX SourceFile HeaderConfig.java
+com.loc.HeaderConfig -> com.loc.df:
+# jadx com.loc.C1798dg | DEX SourceFile THeader.java
+com.loc.THeader -> com.loc.dg:
+# jadx com.loc.C1799dh | DEX SourceFile ALLog.java
+com.loc.ALLog -> com.loc.dh:
+# jadx com.loc.C1801dj | DEX SourceFile HttpResponse.java
+com.loc.HttpResponse -> com.loc.dj:
+# jadx com.loc.InterfaceC1802dk | DEX SourceFile INetwork.java
+com.loc.INetwork -> com.loc.dk:
+# jadx com.loc.C1804dm | DEX SourceFile DataTypeUtil.java
+com.loc.DataTypeUtil -> com.loc.dm:
+# jadx com.loc.C1805dn | DEX SourceFile GeoUtil.java
+com.loc.GeoUtil -> com.loc.dn:
+# jadx com.loc.C1806do | DEX SourceFile AMapLocationStaticsEntity.java
+com.loc.AMapLocationStaticsEntity -> com.loc.do:
+# jadx com.loc.C1807dp | DEX SourceFile Aps.java
+com.loc.Aps -> com.loc.dp:
+# jadx com.loc.C1808dq | DEX SourceFile CollectionManager.java
+com.loc.CollectionManager -> com.loc.dq:
+# jadx com.loc.C1809dr | DEX SourceFile DNSIPDelegate.java
+com.loc.DNSIPDelegate -> com.loc.dr:
+# jadx com.loc.C1810ds | DEX SourceFile Const.java
+com.loc.Const -> com.loc.ds:
+# jadx com.loc.C1811dt | DEX SourceFile LocFilter.java
+com.loc.LocFilter -> com.loc.dt:
+# jadx com.loc.C1812du | DEX SourceFile AMapLocationServer.java
+com.loc.AMapLocationServer -> com.loc.du:
+# jadx com.loc.AbstractC1813dv | DEX SourceFile AgeEstimator.java
+com.loc.AgeEstimator -> com.loc.dv:
+# jadx com.loc.C1814dw | DEX SourceFile AmapSensorManager.java
+com.loc.AmapSensorManager -> com.loc.dw:
+# jadx com.loc.C1815dx | DEX SourceFile CellAgeEstimator.java
+com.loc.CellAgeEstimator -> com.loc.dx:
+# jadx com.loc.C1816dy | DEX SourceFile Cgi.java
+com.loc.Cgi -> com.loc.dy:
+# jadx com.loc.C1817dz | DEX SourceFile CgiManager.java
+com.loc.CgiManager -> com.loc.dz:
+# jadx com.loc.C1818e | DEX SourceFile ApsManager.java
+com.loc.ApsManager -> com.loc.e:
+# jadx com.loc.C1819ea | DEX SourceFile HistoryLocation.java
+com.loc.HistoryLocation -> com.loc.ea:
+# jadx com.loc.C1820eb | DEX SourceFile HistoryLocationRecorder.java
+com.loc.HistoryLocationRecorder -> com.loc.eb:
+# jadx com.loc.C1821ec | DEX SourceFile WifiAgeEstimator.java
+com.loc.WifiAgeEstimator -> com.loc.ec:
+# jadx com.loc.C1822ed | DEX SourceFile WifiManagerWrapper.java
+com.loc.WifiManagerWrapper -> com.loc.ed:
+# jadx com.loc.C1825eg | DEX SourceFile LastLocationInfo.java
+com.loc.LastLocationInfo -> com.loc.eg:
+# jadx com.loc.C1826eh | DEX SourceFile SdCardDbCreator.java
+com.loc.SdCardDbCreator -> com.loc.eh:
+# jadx com.loc.C1827ei | DEX SourceFile AMapDnsManager.java
+com.loc.AMapDnsManager -> com.loc.ei:
+# jadx com.loc.C1829ek | DEX SourceFile LocNetManager.java
+com.loc.LocNetManager -> com.loc.ek:
+# jadx com.loc.C1830el | DEX SourceFile LocationRequest.java
+com.loc.LocationRequest -> com.loc.el:
+# jadx com.loc.C1831em | DEX SourceFile Parser.java
+com.loc.Parser -> com.loc.em:
+# jadx com.loc.C1832en | DEX SourceFile Req.java
+com.loc.Req -> com.loc.en:
+# jadx com.loc.C1833eo | DEX SourceFile AuthUtil.java
+com.loc.AuthUtil -> com.loc.eo:
+# jadx com.loc.C1834ep | DEX SourceFile CoreUtil.java
+com.loc.CoreUtil -> com.loc.ep:
+# jadx com.loc.C1835eq | DEX SourceFile DateUtil.java
+com.loc.DateUtil -> com.loc.eq:
+# jadx com.loc.C1836er | DEX SourceFile OffsetUtil.java
+com.loc.OffsetUtil -> com.loc.er:
+# jadx com.loc.C1837es | DEX SourceFile Reflect.java
+com.loc.Reflect -> com.loc.es:
+# jadx com.loc.C1838et | DEX SourceFile ReportRecorder.java
+com.loc.ReportRecorder -> com.loc.et:
+# jadx com.loc.C1839eu | DEX SourceFile ReportUtil.java
+com.loc.ReportUtil -> com.loc.eu:
+# jadx com.loc.C1843ey | DEX SourceFile FlatBufferBuilder.java
+com.loc.FlatBufferBuilder -> com.loc.ey:
+# jadx com.loc.C1844ez | DEX SourceFile Table.java
+com.loc.AMapFlatBufferTable -> com.loc.ez:
+# jadx com.loc.C1845f | DEX SourceFile ApsServiceCore.java
+com.loc.ApsServiceCore -> com.loc.f:
+# jadx com.loc.C1846g | DEX SourceFile GpsLocation.java
+com.loc.GpsLocation -> com.loc.g:
+# jadx com.loc.C1847h | DEX SourceFile H5LocationClient.java
+com.loc.H5LocationClient -> com.loc.h:
+# jadx com.loc.C1848i | DEX SourceFile LastLocationManager.java
+com.loc.LastLocationManager -> com.loc.i:
+# jadx com.loc.C1849j | DEX SourceFile AdiuManager.java
+com.loc.AdiuManager -> com.loc.j:
+# jadx com.loc.C1850k | DEX SourceFile AdiuStorageModel.java
+com.loc.AdiuStorageModel -> com.loc.k:
+# jadx com.loc.C1851l | DEX SourceFile Base64Util.java
+com.loc.Base64Util -> com.loc.l:
+# jadx com.loc.C1852m | DEX SourceFile FileStorageModel.java
+com.loc.FileStorageModel -> com.loc.m:
+# jadx com.loc.C1853n | DEX SourceFile NetReuestParam.java
+com.loc.NetReuestParam -> com.loc.n:
+# jadx com.loc.C1854o | DEX SourceFile NetworkParam.java
+com.loc.NetworkParam -> com.loc.o:
+# jadx com.loc.C1855p | DEX SourceFile RSAUtil.java
+com.loc.RSAUtil -> com.loc.p:
+# jadx com.loc.C1856q | DEX SourceFile SecurityUtil.java
+com.loc.SecurityUtil -> com.loc.q:
+# jadx com.loc.EnumC1857r | DEX SourceFile Rom.java
+com.loc.Rom -> com.loc.r:
+# jadx com.loc.C1858s | DEX SourceFile RomIdentifier.java
+com.loc.RomIdentifier -> com.loc.s:
+# jadx com.loc.C1859t | DEX SourceFile BasicLogHandler.java
+com.loc.BasicLogHandler -> com.loc.t:
+# jadx com.loc.C1860u | DEX SourceFile Log.java
+com.loc.AMapLog -> com.loc.u:
+# jadx com.loc.C1861v | DEX SourceFile LogUpdateRequest.java
+com.loc.LogUpdateRequest -> com.loc.v:
+# jadx com.loc.C1862w | DEX SourceFile SDKLogHandler.java
+com.loc.SDKLogHandler -> com.loc.w:
+# jadx com.loc.C1863x | DEX SourceFile ErrorLogManager.java
+com.loc.ErrorLogManager -> com.loc.x:
+# jadx com.loc.InterfaceC1864y | DEX SourceFile DBCreator.java
+com.loc.DBCreator -> com.loc.y:
+# jadx com.loc.C1865z | DEX SourceFile DBOperation.java
+com.loc.DBOperation -> com.loc.z:

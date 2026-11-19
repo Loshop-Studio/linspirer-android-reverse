@@ -2,7 +2,7 @@ package com.huawei.hms.framework.common;
 
 import android.content.Context;
 import android.os.PowerManager;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class PowerUtils {
@@ -40,7 +40,7 @@ public class PowerUtils {
                 try {
                     return ((PowerManager) systemService).isInteractive();
                 } catch (RuntimeException e) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("getActiveNetworkInfo failed, exception:");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("getActiveNetworkInfo failed, exception:");
                     sbM1765j.append(e.getClass().getSimpleName());
                     sbM1765j.append(e.getMessage());
                     Logger.m3434i(TAG, sbM1765j.toString());

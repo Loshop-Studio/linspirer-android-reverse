@@ -2,7 +2,7 @@ package org.android.agoo.accs;
 
 import android.text.TextUtils;
 import com.alibaba.sdk.android.error.ErrorCode;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.common.Constants;
@@ -108,7 +108,7 @@ public class AgooService extends TaoBaseService {
             }
         }
         if (ALog.isPrintLog(ALog.Level.D)) {
-            ALog.m5726d("AgooService", C0948f6.m1760e("onResponse,message=", str4), new Object[0]);
+            ALog.m5726d("AgooService", CompilerOutline.m1760e("onResponse,message=", str4), new Object[0]);
         }
         if (i == AccsErrorCode.SUCCESS.getCodeInt() && TextUtils.equals(str, AgooConstants.AGOO_SERVICE_AGOOACK)) {
             if (ALog.isPrintLog(ALog.Level.I)) {
@@ -117,7 +117,7 @@ public class AgooService extends TaoBaseService {
             this.f6456c.updateMsg(bArr, true);
         } else if (i == AccsErrorCode.SUCCESS.getCodeInt() || !TextUtils.equals(str, AgooConstants.AGOO_SERVICE_AGOOACK)) {
             if (ALog.isPrintLog(ALog.Level.E)) {
-                ALog.m5728e("AgooService", C0948f6.m1760e("business request is error,message=", str4), new Object[0]);
+                ALog.m5728e("AgooService", CompilerOutline.m1760e("business request is error,message=", str4), new Object[0]);
             }
         } else {
             if (ALog.isPrintLog(ALog.Level.E)) {
@@ -162,7 +162,7 @@ public class AgooService extends TaoBaseService {
             ALog.m5729i("AgooService", "onSendData,reportData=" + str2 + ",serviceId=" + str, new Object[0]);
         } catch (Throwable th) {
             if (ALog.isPrintLog(ALog.Level.E)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("onSendData exception,e=");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("onSendData exception,e=");
                 sbM1765j.append(th.getMessage());
                 sbM1765j.append(",e.getStackMsg=");
                 sbM1765j.append(m5825a(th));

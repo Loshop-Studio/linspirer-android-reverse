@@ -1,11 +1,11 @@
 package com.huawei.hms.api;
 
 import android.os.Bundle;
-import com.huawei.hms.core.aidl.C1540a;
+import com.huawei.hms.core.aidl.CodecLookup;
 import com.huawei.hms.core.aidl.C1541b;
-import com.huawei.hms.core.aidl.C1544e;
+import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
-import com.huawei.hms.core.aidl.InterfaceC1542c;
+import com.huawei.hms.core.aidl.IAIDLCallback;
 import com.huawei.hms.core.aidl.RequestHeader;
 import com.huawei.hms.support.api.client.AidlApiClient;
 import com.huawei.hms.support.api.client.ApiClient;
@@ -35,12 +35,12 @@ public class IPCTransport implements DatagramTransport {
     }
 
     /* renamed from: a */
-    private int m3246a(ApiClient apiClient, InterfaceC1542c interfaceC1542c) {
+    private int m3246a(ApiClient apiClient, IAIDLCallback interfaceC1542c) {
         if (!(apiClient instanceof HuaweiApiClientImpl)) {
             if (apiClient instanceof AidlApiClient) {
                 AidlApiClient aidlApiClient = (AidlApiClient) apiClient;
                 C1541b c1541b = new C1541b(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
-                c1541b.m3390a(C1540a.m3386a(c1541b.m3392c()).m3401a(this.f4423b, new Bundle()));
+                c1541b.m3390a(CodecLookup.m3386a(c1541b.m3392c()).m3401a(this.f4423b, new Bundle()));
                 try {
                     aidlApiClient.getService().mo3393a(c1541b, interfaceC1542c);
                     return 0;
@@ -51,7 +51,7 @@ public class IPCTransport implements DatagramTransport {
             return CommonCode.ErrorCode.INTERNAL_ERROR;
         }
         C1541b c1541b2 = new C1541b(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
-        C1544e c1544eM3386a = C1540a.m3386a(c1541b2.m3392c());
+        MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b2.m3392c());
         c1541b2.m3390a(c1544eM3386a.m3401a(this.f4423b, new Bundle()));
         RequestHeader requestHeader = new RequestHeader();
         requestHeader.setAppID(apiClient.getAppID());

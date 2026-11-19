@@ -26,7 +26,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -328,7 +328,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.adjustVolume(i, i2, null);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in adjustVolume. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in adjustVolume. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -341,7 +341,7 @@ public final class MediaControllerCompat {
                 this.mBinder.sendMediaButton(keyEvent);
                 return false;
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in dispatchMediaButtonEvent. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in dispatchMediaButtonEvent. ", e, MediaControllerCompat.TAG);
                 return false;
             }
         }
@@ -351,7 +351,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getExtras();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getExtras. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getExtras. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -361,7 +361,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getFlags();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getFlags. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getFlags. ", e, MediaControllerCompat.TAG);
                 return 0L;
             }
         }
@@ -376,7 +376,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getMetadata();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getMetadata. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getMetadata. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -386,7 +386,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getPackageName();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getPackageName. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getPackageName. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -397,7 +397,7 @@ public final class MediaControllerCompat {
                 ParcelableVolumeInfo volumeAttributes = this.mBinder.getVolumeAttributes();
                 return new PlaybackInfo(volumeAttributes.volumeType, volumeAttributes.audioStream, volumeAttributes.controlType, volumeAttributes.maxVolume, volumeAttributes.currentVolume);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getPlaybackInfo. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getPlaybackInfo. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -407,7 +407,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getPlaybackState();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getPlaybackState. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getPlaybackState. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -417,7 +417,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getQueue();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getQueue. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getQueue. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -427,7 +427,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getQueueTitle();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getQueueTitle. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getQueueTitle. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -437,7 +437,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getRatingType();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getRatingType. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getRatingType. ", e, MediaControllerCompat.TAG);
                 return 0;
             }
         }
@@ -447,7 +447,7 @@ public final class MediaControllerCompat {
             try {
                 return this.mBinder.getLaunchPendingIntent();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in getSessionActivity. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in getSessionActivity. ", e, MediaControllerCompat.TAG);
                 return null;
             }
         }
@@ -481,7 +481,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.sendCommand(str, bundle, new MediaSessionCompat.ResultReceiverWrapper(resultReceiver));
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in sendCommand. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in sendCommand. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -490,7 +490,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.setVolumeTo(i, i2, null);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in setVolumeTo. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in setVolumeTo. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -504,7 +504,7 @@ public final class MediaControllerCompat {
                 this.mBinder.asBinder().unlinkToDeath(callback, 0);
                 callback.mRegistered = false;
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in unregisterCallback. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in unregisterCallback. ", e, MediaControllerCompat.TAG);
             }
         }
     }
@@ -636,7 +636,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.fastForward();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in fastForward. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in fastForward. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -645,7 +645,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.pause();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in pause. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in pause. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -654,7 +654,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.play();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in play. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in play. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -663,7 +663,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.playFromMediaId(str, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in playFromMediaId. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in playFromMediaId. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -672,7 +672,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.playFromSearch(str, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in playFromSearch. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in playFromSearch. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -681,7 +681,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.playFromUri(uri, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in playFromUri. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in playFromUri. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -690,7 +690,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.prepare();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in prepare. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in prepare. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -699,7 +699,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.prepareFromMediaId(str, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in prepareFromMediaId. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in prepareFromMediaId. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -708,7 +708,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.prepareFromSearch(str, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in prepareFromSearch. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in prepareFromSearch. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -717,7 +717,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.prepareFromUri(uri, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in prepareFromUri. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in prepareFromUri. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -726,7 +726,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.rewind();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in rewind. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in rewind. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -735,7 +735,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.seekTo(j);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in seekTo. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in seekTo. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -749,7 +749,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.rate(ratingCompat);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in setRating. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in setRating. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -758,7 +758,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.next();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in skipToNext. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in skipToNext. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -767,7 +767,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.previous();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in skipToPrevious. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in skipToPrevious. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -776,7 +776,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.skipToQueueItem(j);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in skipToQueueItem. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in skipToQueueItem. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -785,7 +785,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.stop();
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in stop. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in stop. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -794,7 +794,7 @@ public final class MediaControllerCompat {
             try {
                 this.mBinder.sendCustomAction(str, bundle);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in sendCustomAction. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in sendCustomAction. ", e, MediaControllerCompat.TAG);
             }
         }
     }
@@ -826,7 +826,7 @@ public final class MediaControllerCompat {
         try {
             return new MediaControllerCompat(activity, MediaSessionCompat.Token.fromToken(MediaControllerCompatApi21.getSessionToken(mediaController)));
         } catch (RemoteException e) {
-            C0948f6.m1778w("Dead object in getMediaController. ", e, TAG);
+            CompilerOutline.m1778w("Dead object in getMediaController. ", e, TAG);
             return null;
         }
     }
@@ -1130,7 +1130,7 @@ public final class MediaControllerCompat {
                                 try {
                                     MediaControllerImplApi21.this.mExtraBinder.registerCallbackListener(extraCallback);
                                 } catch (RemoteException e) {
-                                    C0948f6.m1778w("Dead object in registerCallback. ", e, MediaControllerCompat.TAG);
+                                    CompilerOutline.m1778w("Dead object in registerCallback. ", e, MediaControllerCompat.TAG);
                                 }
                             }
                             MediaControllerImplApi21.this.mPendingCallbacks = null;
@@ -1248,7 +1248,7 @@ public final class MediaControllerCompat {
             try {
                 this.mExtraBinder.registerCallbackListener(extraCallback);
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in registerCallback. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in registerCallback. ", e, MediaControllerCompat.TAG);
             }
         }
 
@@ -1278,7 +1278,7 @@ public final class MediaControllerCompat {
                     this.mExtraBinder.unregisterCallbackListener(extraCallbackRemove);
                 }
             } catch (RemoteException e) {
-                C0948f6.m1778w("Dead object in unregisterCallback. ", e, MediaControllerCompat.TAG);
+                CompilerOutline.m1778w("Dead object in unregisterCallback. ", e, MediaControllerCompat.TAG);
             }
         }
 

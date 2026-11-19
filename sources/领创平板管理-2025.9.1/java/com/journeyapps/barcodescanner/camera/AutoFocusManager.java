@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import anet.channel.entity.ConnType;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -55,7 +55,7 @@ public final class AutoFocusManager {
         String focusMode = camera.getParameters().getFocusMode();
         this.useAutoFocus = cameraSettings.isAutoFocusEnabled() && FOCUS_MODES_CALLING_AF.contains(focusMode);
         String str = TAG;
-        StringBuilder sbM1769n = C0948f6.m1769n("Current focus mode '", focusMode, "'; use auto focus? ");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("Current focus mode '", focusMode, "'; use auto focus? ");
         sbM1769n.append(this.useAutoFocus);
         Log.i(str, sbM1769n.toString());
         start();

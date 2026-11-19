@@ -19,7 +19,7 @@ import anet.channel.status.NetworkStatusHelper;
 import anet.channel.thread.ThreadPoolExecutorFactory;
 import anet.channel.util.ALog;
 import anet.channel.util.C0422c;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.UtilityImpl;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -97,7 +97,7 @@ public class C0386b {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (ALog.isPrintLog(1)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("receiver:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("receiver:");
                 sbM1765j.append(intent.getAction());
                 ALog.m337d("awcn.NetworkStatusMonitor", sbM1765j.toString(), null, new Object[0]);
             }

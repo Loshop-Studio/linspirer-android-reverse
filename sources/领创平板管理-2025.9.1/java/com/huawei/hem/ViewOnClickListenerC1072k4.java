@@ -22,13 +22,13 @@ public class ViewOnClickListenerC1072k4 implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         PopupWindow popupWindow = this.f3021a;
         if (popupWindow != null && popupWindow.isShowing()) {
             this.f3021a.dismiss();
         }
-        C1423y4.m2979Z(this.f3022b.f1800a);
+        LauncherMenuHelper.m2979Z(this.f3022b.f1800a);
     }
 }

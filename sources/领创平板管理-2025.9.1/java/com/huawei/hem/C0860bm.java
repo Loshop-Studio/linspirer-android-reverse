@@ -5,7 +5,7 @@ import java.io.IOException;
 /* compiled from: Http2Connection.java */
 /* renamed from: com.huawei.hem.bm */
 /* loaded from: classes.dex */
-public class C0860bm extends AbstractRunnableC1289sk {
+public class C0860bm extends NamedRunnable {
 
     /* renamed from: b */
     public final /* synthetic */ C0834am f2310b;

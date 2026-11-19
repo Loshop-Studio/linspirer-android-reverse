@@ -15,14 +15,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0878ce;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DeviceTypeUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.C1395x1;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC1030ic;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.DeviceManagementInterface;
 
 /* loaded from: classes.dex */
 public class LockActivity extends BaseActivity {
@@ -40,7 +40,7 @@ public class LockActivity extends BaseActivity {
     public TextView f1754d;
 
     /* renamed from: e */
-    public C1424y5 f1755e;
+    public UserInfoUtil f1755e;
 
     /* renamed from: f */
     public long f1756f = 0;
@@ -62,13 +62,13 @@ public class LockActivity extends BaseActivity {
                 return;
             }
             String action = intent.getAction();
-            C0850bc.m1403m("LockActivity receive close lock activity");
+            LTKDateUtil.m1403m("LockActivity receive close lock activity");
             if (action.equals("com.linspirer.close.violation")) {
                 if (!"0000".equals(LockActivity.this.f1755e.m3062p())) {
                     LockActivity.this.m1202h();
-                    C0850bc.m1403m("LockActivity has  locked status no clear ");
+                    LTKDateUtil.m1403m("LockActivity has  locked status no clear ");
                 } else {
-                    C0850bc.m1403m("LockActivity has no locked status need hide activity");
+                    LTKDateUtil.m1403m("LockActivity has no locked status need hide activity");
                     LockActivity.this.m1200f();
                     LockActivity.f1751i = false;
                     LockActivity.this.finish();
@@ -94,8 +94,8 @@ public class LockActivity extends BaseActivity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.linspirer.close.violation");
         registerReceiver(this.f1758h, intentFilter);
-        this.f1755e = C1424y5.b.f4202a;
-        this.f1754d.setText(String.format(getResources().getString(R.string.info), C0904de.m1592i(), C0904de.m1588e(this)));
+        this.f1755e = UserInfoUtil.b.f4202a;
+        this.f1754d.setText(String.format(getResources().getString(R.string.info), LauncherDeviceUtils.m1592i(), LauncherDeviceUtils.m1588e(this)));
     }
 
     @Override // com.android.launcher3.activity.base.BaseActivity
@@ -115,25 +115,25 @@ public class LockActivity extends BaseActivity {
 
     /* renamed from: f */
     public final void m1200f() {
-        if (C0850bc.f2294f == null || !f1751i) {
+        if (LTKDateUtil.f2294f == null || !f1751i) {
             return;
         }
-        C1424y5 c1424y5 = this.f1755e;
+        UserInfoUtil c1424y5 = this.f1755e;
         if (c1424y5.f4191t == 0) {
             c1424y5.f4191t = c1424y5.f4130D.f2199a.getInt("disable_back", 0);
         }
         if (c1424y5.f4191t != 1) {
-            C0850bc.m1403m("LockActivity enable back by lock activity");
-            C0850bc.f2294f.enableBack();
+            LTKDateUtil.m1403m("LockActivity enable back by lock activity");
+            LTKDateUtil.f2294f.enableBack();
         }
         if (this.f1755e.m3019N() == 1) {
             if (this.f1755e.m3048i() != 1) {
-                C0850bc.m1403m("LockActivity enable home by lock activity");
-                C0850bc.f2294f.enableHome();
+                LTKDateUtil.m1403m("LockActivity enable home by lock activity");
+                LTKDateUtil.f2294f.enableHome();
             }
             if (this.f1755e.m3050j() != 1) {
-                C0850bc.m1403m("LockActivity enable recent by lock activity");
-                C0850bc.f2294f.enableRecent();
+                LTKDateUtil.m1403m("LockActivity enable recent by lock activity");
+                LTKDateUtil.f2294f.enableRecent();
             }
         }
     }
@@ -171,11 +171,11 @@ public class LockActivity extends BaseActivity {
     public final void m1203i() {
         String strTrim = this.f1752b.getText().toString().trim();
         if (TextUtils.isEmpty(strTrim)) {
-            C0850bc.m1413w(this, getResources().getString(R.string.input_admin_pwd), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.input_admin_pwd), 0);
             return;
         }
-        if (!strTrim.equals(C1423y4.m2957D())) {
-            C0850bc.m1413w(this, getResources().getString(R.string.input_admin_pwd_error), 0);
+        if (!strTrim.equals(LauncherMenuHelper.m2957D())) {
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.input_admin_pwd_error), 0);
             return;
         }
         C1395x1.f4040c = -1;
@@ -186,7 +186,7 @@ public class LockActivity extends BaseActivity {
 
     public void onClick(View view) {
         if (view.getId() != R.id.admin_click) {
-            if (C0902dc.m1583a(view)) {
+            if (ViewControlUtil.m1583a(view)) {
                 return;
             }
             if (view.getId() != R.id.net_icon && view.getId() != R.id.net_text) {
@@ -196,14 +196,14 @@ public class LockActivity extends BaseActivity {
                 }
                 return;
             } else {
-                if (C0878ce.m1524q()) {
-                    C0850bc.f2294f.enableNavigation();
-                    C0850bc.f2294f.disableRecent();
-                    C0850bc.f2294f.disableHome();
+                if (DeviceTypeUtil.m1524q()) {
+                    LTKDateUtil.f2294f.enableNavigation();
+                    LTKDateUtil.f2294f.disableRecent();
+                    LTKDateUtil.f2294f.disableHome();
                 } else {
-                    C0850bc.f2294f.enableBack();
+                    LTKDateUtil.f2294f.enableBack();
                 }
-                C1423y4.m2979Z(this);
+                LauncherMenuHelper.m2979Z(this);
                 return;
             }
         }
@@ -216,23 +216,23 @@ public class LockActivity extends BaseActivity {
             this.f1757g = 1;
         }
         if (this.f1757g == 7) {
-            if (C0904de.m1589f().equals("Lenovo TB-8X04F")) {
-                C0850bc.f2294f.enableHome();
-                C0850bc.f2294f.enableBack();
-                C0850bc.f2294f.enableVolume();
-                C0850bc.f2294f.enableShortPressPower();
+            if (LauncherDeviceUtils.m1589f().equals("Lenovo TB-8X04F")) {
+                LTKDateUtil.f2294f.enableHome();
+                LTKDateUtil.f2294f.enableBack();
+                LTKDateUtil.f2294f.enableVolume();
+                LTKDateUtil.f2294f.enableShortPressPower();
             } else {
-                C0850bc.f2294f.enableNavigation();
-                C0850bc.f2294f.disableRecent();
+                LTKDateUtil.f2294f.enableNavigation();
+                LTKDateUtil.f2294f.disableRecent();
             }
-            C1423y4.m2974U(this, AdminLoginActivity.class);
+            LauncherMenuHelper.m2974U(this, AdminLoginActivity.class);
         }
     }
 
     @Override // com.android.launcher3.activity.base.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        C0850bc.m1403m("LockActivity onDestroy");
+        LTKDateUtil.m1403m("LockActivity onDestroy");
         f1751i = false;
         unregisterReceiver(this.f1758h);
     }
@@ -241,13 +241,13 @@ public class LockActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         f1751i = true;
-        InterfaceC1030ic interfaceC1030ic = C0850bc.f2294f;
+        DeviceManagementInterface interfaceC1030ic = LTKDateUtil.f2294f;
         if (interfaceC1030ic != null) {
             interfaceC1030ic.disableBack();
-            C0850bc.f2294f.disableHome();
-            C0850bc.f2294f.disableRecent();
+            LTKDateUtil.f2294f.disableHome();
+            LTKDateUtil.f2294f.disableRecent();
         }
         m1202h();
-        C0850bc.m1403m("LockActivity onResume");
+        LTKDateUtil.m1403m("LockActivity onResume");
     }
 }

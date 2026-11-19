@@ -4,7 +4,7 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public final class AccessibilityServiceInfoCompat {
 
     @NonNull
     public static String feedbackTypeToString(int i) {
-        StringBuilder sbM1765j = C0948f6.m1765j("[");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         while (i > 0) {
             int iNumberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(i);
             i &= ~iNumberOfTrailingZeros;

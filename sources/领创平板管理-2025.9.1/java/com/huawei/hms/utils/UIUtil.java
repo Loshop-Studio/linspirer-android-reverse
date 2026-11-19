@@ -6,7 +6,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.common.ActivityMgr;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class UIUtil {
     public static Activity getActiveActivity(Activity activity, Context context) {
         if (isBackground(context)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("isBackground");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("isBackground");
             sbM1765j.append(isBackground(context));
             HMSLog.m3463i("UIUtil", sbM1765j.toString());
             return null;
@@ -27,7 +27,7 @@ public class UIUtil {
         if (!activity.isFinishing()) {
             return activity;
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("activity isFinishing is ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("activity isFinishing is ");
         sbM1765j2.append(activity.isFinishing());
         HMSLog.m3463i("UIUtil", sbM1765j2.toString());
         return ActivityMgr.INST.getCurrentActivity();
@@ -63,7 +63,7 @@ public class UIUtil {
         String processName = getProcessName(context, Process.myPid());
         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
             if (TextUtils.equals(runningAppProcessInfo.processName, processName)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("appProcess.importance is ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("appProcess.importance is ");
                 sbM1765j.append(runningAppProcessInfo.importance);
                 HMSLog.m3463i("UIUtil", sbM1765j.toString());
                 boolean z = runningAppProcessInfo.importance == 100;

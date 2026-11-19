@@ -2,7 +2,7 @@ package com.alibaba.sdk.android.tbrest.rest;
 
 import android.content.Context;
 import com.alibaba.sdk.android.tbrest.utils.MD5Utils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -43,9 +43,9 @@ public class RestUrlWrapper {
             Set<String> setKeySet = map2.keySet();
             String[] strArr = new String[setKeySet.size()];
             setKeySet.toArray(strArr);
-            for (String str8 : C0602c.m981a().m982a(strArr, true)) {
+            for (String str8 : RestKeyArraySorter.m981a().m982a(strArr, true)) {
                 byte[] bArr = (byte[]) map2.get(str8);
-                StringBuilder sbM1767l = C0948f6.m1767l(string, str8);
+                StringBuilder sbM1767l = CompilerOutline.m1767l(string, str8);
                 sbM1767l.append(MD5Utils.getMd5Hex(bArr));
                 string = sbM1767l.toString();
             }

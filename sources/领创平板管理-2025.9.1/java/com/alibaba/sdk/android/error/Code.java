@@ -1,6 +1,6 @@
 package com.alibaba.sdk.android.error;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public class Code implements Serializable {
         if (num != null) {
             return String.valueOf(num);
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("invalid code ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("invalid code ");
         sbM1765j.append(hashCode());
         return sbM1765j.toString();
     }

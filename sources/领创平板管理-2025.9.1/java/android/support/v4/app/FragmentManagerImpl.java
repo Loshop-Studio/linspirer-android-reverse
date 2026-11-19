@@ -42,8 +42,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1293t;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.ViewModelStore;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
@@ -381,7 +381,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         if (this.mNoTransactionsBecause == null) {
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Can not perform this action inside of ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Can not perform this action inside of ");
         sbM1765j.append(this.mNoTransactionsBecause);
         throw new IllegalStateException(sbM1765j.toString());
     }
@@ -1412,7 +1412,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         int size3;
         int size4;
         int size5;
-        String strM1760e = C0948f6.m1760e(str, "    ");
+        String strM1760e = CompilerOutline.m1760e(str, "    ");
         SparseArray<Fragment> sparseArray = this.mActive;
         if (sparseArray != null && (size5 = sparseArray.size()) > 0) {
             printWriter.print(str);
@@ -1989,7 +1989,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             fragmentFindFragmentById = findFragmentById(id);
         }
         if (DEBUG) {
-            StringBuilder sbM1765j = C0948f6.m1765j("onCreateView: id=0x");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("onCreateView: id=0x");
             sbM1765j.append(Integer.toHexString(resourceId));
             sbM1765j.append(" fname=");
             sbM1765j.append(str2);
@@ -2028,7 +2028,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         }
         View view2 = fragment.mView;
         if (view2 == null) {
-            throw new IllegalStateException(C0948f6.m1761f("Fragment ", str2, " did not create a view."));
+            throw new IllegalStateException(CompilerOutline.m1761f("Fragment ", str2, " did not create a view."));
         }
         if (resourceId != 0) {
             view2.setId(resourceId);
@@ -2119,7 +2119,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     @Override // android.support.v4.app.FragmentManager
     public void putFragment(Bundle bundle, String str, Fragment fragment) {
         if (fragment.mIndex < 0) {
-            throwException(new IllegalStateException(C0948f6.m1758c("Fragment ", fragment, " is not currently in the FragmentManager")));
+            throwException(new IllegalStateException(CompilerOutline.m1758c("Fragment ", fragment, " is not currently in the FragmentManager")));
         }
         bundle.putInt(str, fragment.mIndex);
     }
@@ -2164,7 +2164,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
 
     public void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
         List<FragmentManagerNonConfig> childNonConfigs;
-        List<C1293t> viewModelStores;
+        List<ViewModelStore> viewModelStores;
         if (parcelable == null) {
             return;
         }
@@ -2192,7 +2192,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
                     }
                 }
                 if (i2 == fragmentManagerState.mActive.length) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Could not find active fragment with index ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Could not find active fragment with index ");
                     sbM1765j.append(fragment.mIndex);
                     throwException(new IllegalStateException(sbM1765j.toString()));
                 }
@@ -2257,7 +2257,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
                 }
                 Fragment fragment4 = this.mActive.get(iArr[i6]);
                 if (fragment4 == null) {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j("No instantiated fragment for index #");
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j("No instantiated fragment for index #");
                     sbM1765j2.append(fragmentManagerState.mAdded[i6]);
                     throwException(new IllegalStateException(sbM1765j2.toString()));
                 }
@@ -2284,7 +2284,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
                 }
                 BackStackRecord backStackRecordInstantiate = backStackStateArr[i7].instantiate(this);
                 if (DEBUG) {
-                    StringBuilder sbM1766k = C0948f6.m1766k("restoreAllState: back stack #", i7, " (index ");
+                    StringBuilder sbM1766k = CompilerOutline.m1766k("restoreAllState: back stack #", i7, " (index ");
                     sbM1766k.append(backStackRecordInstantiate.mIndex);
                     sbM1766k.append("): ");
                     sbM1766k.append(backStackRecordInstantiate);
@@ -2376,14 +2376,14 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             for (int i3 = 0; i3 < size3; i3++) {
                 iArr[i3] = this.mAdded.get(i3).mIndex;
                 if (iArr[i3] < 0) {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Failure saving state: active ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Failure saving state: active ");
                     sbM1765j.append(this.mAdded.get(i3));
                     sbM1765j.append(" has cleared index: ");
                     sbM1765j.append(iArr[i3]);
                     throwException(new IllegalStateException(sbM1765j.toString()));
                 }
                 if (DEBUG) {
-                    StringBuilder sbM1766k = C0948f6.m1766k("saveAllState: adding fragment #", i3, ": ");
+                    StringBuilder sbM1766k = CompilerOutline.m1766k("saveAllState: adding fragment #", i3, ": ");
                     sbM1766k.append(this.mAdded.get(i3));
                     Log.v("FragmentManager", sbM1766k.toString());
                 }
@@ -2397,7 +2397,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             for (int i4 = 0; i4 < size; i4++) {
                 backStackStateArr[i4] = new BackStackState(this.mBackStack.get(i4));
                 if (DEBUG) {
-                    StringBuilder sbM1766k2 = C0948f6.m1766k("saveAllState: adding back stack #", i4, ": ");
+                    StringBuilder sbM1766k2 = CompilerOutline.m1766k("saveAllState: adding back stack #", i4, ": ");
                     sbM1766k2.append(this.mBackStack.get(i4));
                     Log.v("FragmentManager", sbM1766k2.toString());
                 }
@@ -2451,7 +2451,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     public Fragment.SavedState saveFragmentInstanceState(Fragment fragment) {
         Bundle bundleSaveFragmentBasicState;
         if (fragment.mIndex < 0) {
-            throwException(new IllegalStateException(C0948f6.m1758c("Fragment ", fragment, " is not currently in the FragmentManager")));
+            throwException(new IllegalStateException(CompilerOutline.m1758c("Fragment ", fragment, " is not currently in the FragmentManager")));
         }
         if (fragment.mState <= 0 || (bundleSaveFragmentBasicState = saveFragmentBasicState(fragment)) == null) {
             return null;
@@ -2657,7 +2657,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             enqueueAction(new PopBackStackState(null, i, i2), false);
             return;
         }
-        throw new IllegalArgumentException(C0948f6.m1754L("Bad id: ", i));
+        throw new IllegalArgumentException(CompilerOutline.m1754L("Bad id: ", i));
     }
 
     @Override // android.support.v4.app.FragmentManager
@@ -2695,7 +2695,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         if (i >= 0) {
             return popBackStackImmediate(null, i, i2);
         }
-        throw new IllegalArgumentException(C0948f6.m1754L("Bad id: ", i));
+        throw new IllegalArgumentException(CompilerOutline.m1754L("Bad id: ", i));
     }
 
     /* compiled from: FragmentManager.java */

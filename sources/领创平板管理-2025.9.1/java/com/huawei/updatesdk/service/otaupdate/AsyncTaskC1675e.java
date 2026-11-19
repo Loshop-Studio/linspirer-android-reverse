@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.alibaba.fastjson.asm.Label;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
@@ -133,7 +133,7 @@ public class AsyncTaskC1675e extends AsyncTask<Void, Void, C1606d> {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("go AppUpdateActivity error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("go AppUpdateActivity error: ");
             sbM1765j.append(e.toString());
             C1584a.m3516b("UpdateSDKCheckTask", sbM1765j.toString());
         }
@@ -221,7 +221,7 @@ public class AsyncTaskC1675e extends AsyncTask<Void, Void, C1606d> {
             arrayList = c1652e.list;
             if (!C1642d.m3779a(c1652e.notRcmList)) {
                 ApkUpgradeInfo apkUpgradeInfo = c1652e.notRcmList.get(0);
-                StringBuilder sbM1765j = C0948f6.m1765j("UpdateSDK get update info is not recommend,reason: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("UpdateSDK get update info is not recommend,reason: ");
                 sbM1765j.append(apkUpgradeInfo.getNotRcmReason_());
                 sbM1765j.append(",is same signature: ");
                 sbM1765j.append(apkUpgradeInfo.getSameS_());
@@ -237,7 +237,7 @@ public class AsyncTaskC1675e extends AsyncTask<Void, Void, C1606d> {
             }
         } else {
             m3883b(c1606d);
-            StringBuilder sbM1765j2 = C0948f6.m1765j("get app update msg failed,responseCode is ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("get app update msg failed,responseCode is ");
             sbM1765j2.append(c1606d.m3639d());
             sbM1765j2.append(",failreason: ");
             sbM1765j2.append(c1606d.m3638c());
@@ -262,7 +262,7 @@ public class AsyncTaskC1675e extends AsyncTask<Void, Void, C1606d> {
             this.f4792b.onUpdateInfo(intent3);
         }
         if (apkUpgradeInfo2 != null) {
-            StringBuilder sbM1765j3 = C0948f6.m1765j("ApkUpgradeInfo,version = ");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("ApkUpgradeInfo,version = ");
             sbM1765j3.append(apkUpgradeInfo2.getVersion_());
             sbM1765j3.append(",versionCode = ");
             sbM1765j3.append(apkUpgradeInfo2.getVersionCode_());

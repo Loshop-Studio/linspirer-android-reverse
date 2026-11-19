@@ -7,12 +7,12 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseFragment;
 import com.android.launcher3.adapter.RecyclerViewAdapter;
 import com.android.launcher3.model.AppItem;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.InterfaceC0919e3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.AppStoreInstalledCheckListener;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class ChildPageFragment extends BaseFragment implements InterfaceC0919e3 {
+public class ChildPageFragment extends BaseFragment implements AppStoreInstalledCheckListener {
 
     /* renamed from: i */
     public RecyclerView f1946i;
@@ -38,7 +38,7 @@ public class ChildPageFragment extends BaseFragment implements InterfaceC0919e3 
         recyclerViewAdapter.f1864c = gridLayoutManager.getSpanCount();
         recyclerViewAdapter.f1865d = this;
         this.f1946i.setAdapter(recyclerViewAdapter);
-        C0850bc.m1403m("ChildPageFragment -- initData ");
+        LTKDateUtil.m1403m("ChildPageFragment -- initData ");
     }
 
     @Override // com.android.launcher3.activity.base.BaseFragment

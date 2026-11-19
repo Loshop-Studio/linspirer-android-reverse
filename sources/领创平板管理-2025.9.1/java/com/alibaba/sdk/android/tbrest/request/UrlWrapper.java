@@ -2,14 +2,14 @@ package com.alibaba.sdk.android.tbrest.request;
 
 import anetwork.channel.util.RequestConstant;
 import com.alibaba.sdk.android.tbrest.SendService;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class UrlWrapper {
     public static final int MAX_CONNECTION_TIME_OUT = 10000;
     public static final int MAX_READ_CONNECTION_STREAM_TIME_OUT = 60000;
     public static int mErrorCode;
-    public static C0599a mRestSslSocketFactory;
+    public static RestSslSocketFactory mRestSslSocketFactory;
 
     static {
         System.setProperty("http.keepAlive", RequestConstant.TRUE);
@@ -36,9 +36,9 @@ public class UrlWrapper {
         String strM1761f;
         String str2 = sendService.appKey;
         if (sendService.openHttp.booleanValue()) {
-            strM1761f = C0948f6.m1761f("http://", str, "/upload");
+            strM1761f = CompilerOutline.m1761f("http://", str, "/upload");
         } else {
-            strM1761f = C0948f6.m1761f("https://", str, "/upload");
+            strM1761f = CompilerOutline.m1761f("https://", str, "/upload");
         }
         return sendRequest(sendService, str2, strM1761f, bArr);
     }

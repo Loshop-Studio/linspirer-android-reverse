@@ -1,10 +1,10 @@
 package okhttp3.internal.publicsuffix;
 
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0862bo;
-import com.huawei.hem.C1192on;
+import com.huawei.hem.Timeout;
+import com.huawei.hem.GzipSource;
 import com.huawei.hem.C1267rn;
-import com.huawei.hem.C1367vn;
+import com.huawei.hem.RealBufferedSource;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
@@ -123,7 +123,7 @@ public final class PublicSuffixDatabase {
         if (resourceAsStream == null) {
             return;
         }
-        C1367vn c1367vn = new C1367vn(new C1192on(C1267rn.m2674f(resourceAsStream, new C0862bo())));
+        RealBufferedSource c1367vn = new RealBufferedSource(new GzipSource(C1267rn.m2674f(resourceAsStream, new Timeout())));
         try {
             byte[] bArr = new byte[c1367vn.readInt()];
             c1367vn.m2881c(bArr);

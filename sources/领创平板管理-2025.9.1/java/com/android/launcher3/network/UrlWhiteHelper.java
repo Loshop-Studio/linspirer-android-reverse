@@ -12,15 +12,15 @@ import com.android.launcher3.network.response.ExceptionHandler;
 import com.android.launcher3.network.response.LTKListResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0878ce;
-import com.huawei.hem.C0904de;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DeviceTypeUtil;
+import com.huawei.hem.LauncherDeviceUtils;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.license.HemLicenseManager;
 import com.huawei.hem.license.HemLicenseStatusListener;
 import java.security.NoSuchAlgorithmException;
@@ -32,29 +32,29 @@ public class UrlWhiteHelper {
     public static final String TAG = "UrlWhiteHelper ";
     public List<String> defaultUrls;
     public Context mContext;
-    public C1255rb mHttpCore;
-    public C1424y5 userInfoUtil;
+    public HttpCore mHttpCore;
+    public UserInfoUtil userInfoUtil;
 
     public static class UrlWhiteHolder {
         public static final UrlWhiteHelper instance = new UrlWhiteHelper();
     }
 
     private void checkHemActive() {
-        if (C0850bc.f2294f.mo2066k()) {
+        if (LTKDateUtil.f2294f.mo2066k()) {
             return;
         }
         HemLicenseManager hemLicenseManager = HemLicenseManager.getInstance(this.mContext);
         hemLicenseManager.setStatusListener(new HemLicenseStatusListener() { // from class: com.huawei.hem.e5
             @Override // com.huawei.hem.license.HemLicenseStatusListener
             public final void onStatus(int i, String str) {
-                C0850bc.m1403m("UrlWhiteHelper  -- hem msg = " + str + " -- msgCode = " + i);
+                LTKDateUtil.m1403m("UrlWhiteHelper  -- hem msg = " + str + " -- msgCode = " + i);
             }
         });
         hemLicenseManager.activeLicense();
     }
 
     private List<String> convertIPs(List<String> list) {
-        if (!C0878ce.m1528u(C0904de.m1589f())) {
+        if (!DeviceTypeUtil.m1528u(LauncherDeviceUtils.m1589f())) {
             return list;
         }
         ArrayList arrayList = new ArrayList();
@@ -72,7 +72,7 @@ public class UrlWhiteHelper {
                 sb.append(".");
                 sb.append(strArrSplit[1]);
                 sb.append(".");
-                strM1762g = C0948f6.m1762g(sb, strArrSplit[2], ".255");
+                strM1762g = CompilerOutline.m1762g(sb, strArrSplit[2], ".255");
             } else if (strM1762g.endsWith(".0.0/16")) {
                 String[] strArrSplit2 = strM1762g.split("\\.");
                 StringBuilder sb2 = new StringBuilder();
@@ -82,7 +82,7 @@ public class UrlWhiteHelper {
                 sb2.append(".0.0-");
                 sb2.append(strArrSplit2[0]);
                 sb2.append(".");
-                strM1762g = C0948f6.m1762g(sb2, strArrSplit2[1], ".255.255");
+                strM1762g = CompilerOutline.m1762g(sb2, strArrSplit2[1], ".255.255");
             }
             arrayList.add(strM1762g);
         }
@@ -95,8 +95,8 @@ public class UrlWhiteHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleByNoNeedRequest() throws NoSuchAlgorithmException {
-        C0850bc.m1403m("UrlWhiteHelper write url by no need request from server or request error");
-        C1424y5 c1424y5 = this.userInfoUtil;
+        LTKDateUtil.m1403m("UrlWhiteHelper write url by no need request from server or request error");
+        UserInfoUtil c1424y5 = this.userInfoUtil;
         if (c1424y5.f4135I == null) {
             c1424y5.f4135I = c1424y5.f4130D.f2199a.getString("server_url_white_list", "");
         }
@@ -162,37 +162,37 @@ public class UrlWhiteHelper {
         if (!TextUtils.isEmpty(strM3068s)) {
             arrayList.addAll(AbstractC1102l9.m2277R(strM3068s, ","));
         }
-        String strM1401k = C0850bc.m1401k(arrayList.toString());
-        C1424y5 c1424y5 = this.userInfoUtil;
+        String strM1401k = LTKDateUtil.m1401k(arrayList.toString());
+        UserInfoUtil c1424y5 = this.userInfoUtil;
         if (c1424y5.f4192t0 == null) {
             c1424y5.f4192t0 = c1424y5.f4130D.f2199a.getString("total_url_md5", null);
         }
         String str = c1424y5.f4192t0;
         if (!TextUtils.isEmpty(strM1401k) && !TextUtils.isEmpty(str) && strM1401k.equals(str)) {
-            C0850bc.m1403m("UrlWhiteHelper  white url are same no need write to system .");
+            LTKDateUtil.m1403m("UrlWhiteHelper  white url are same no need write to system .");
             return;
         }
         writeUrls(convertIPs(arrayList));
-        C1424y5 c1424y52 = this.userInfoUtil;
+        UserInfoUtil c1424y52 = this.userInfoUtil;
         String string = list.toString();
         if (c1424y52.f4135I != string) {
             c1424y52.f4135I = string;
-            C0824ac c0824ac = c1424y52.f4130D;
+            DeskSPF c0824ac = c1424y52.f4130D;
             c0824ac.f2200b.putString("server_url_white_list", string);
             c0824ac.f2200b.commit();
         }
-        C1424y5 c1424y53 = this.userInfoUtil;
+        UserInfoUtil c1424y53 = this.userInfoUtil;
         c1424y53.f4192t0 = strM1401k;
-        C0824ac c0824ac2 = c1424y53.f4130D;
+        DeskSPF c0824ac2 = c1424y53.f4130D;
         c0824ac2.f2200b.putString("total_url_md5", strM1401k);
         c0824ac2.f2200b.commit();
     }
 
     private void writeUrls(List<String> list) {
-        StringBuilder sbM1765j = C0948f6.m1765j("UrlWhiteHelper  需要关注的日志，网址白名单是否包含空格和特殊符号：");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("UrlWhiteHelper  需要关注的日志，网址白名单是否包含空格和特殊符号：");
         sbM1765j.append(AbstractC1102l9.m2273N(list) ? null : list.toString());
-        C0850bc.m1393c(sbM1765j.toString());
-        C0850bc.f2294f.mo1316V(list);
+        LTKDateUtil.m1393c(sbM1765j.toString());
+        LTKDateUtil.f2294f.mo1316V(list);
     }
 
     public List<String> getLspDefaultUrl() {
@@ -204,8 +204,8 @@ public class UrlWhiteHelper {
     }
 
     public void request() throws NoSuchAlgorithmException {
-        if (!C1423y4.m3004y()) {
-            C0850bc.m1403m("UrlWhiteHelper  other case no need request");
+        if (!LauncherMenuHelper.m3004y()) {
+            LTKDateUtil.m1403m("UrlWhiteHelper  other case no need request");
             handleByNoNeedRequest();
             return;
         }
@@ -216,55 +216,55 @@ public class UrlWhiteHelper {
             Params params = new Params(this.mContext);
             params.setEmail(this.userInfoUtil.m3052k());
             v2Params.setParams(JSON.toJSONString(params));
-            C1255rb c1255rb = this.mHttpCore;
+            HttpCore c1255rb = this.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.f3780d = true;
             c1355vb.m2869b(new LTKListResponseListener<String>(String.class) { // from class: com.android.launcher3.network.UrlWhiteHelper.1
                 @Override // com.android.launcher3.network.response.LTKListResponseListener
                 public void handleResult(List<String> list) throws NoSuchAlgorithmException {
-                    C0850bc.m1403m("UrlWhiteHelper get server url successfully ");
+                    LTKDateUtil.m1403m("UrlWhiteHelper get server url successfully ");
                     UrlWhiteHelper.this.prepareToWriteUrls(list);
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailed(Response response) throws NoSuchAlgorithmException {
-                    C0850bc.m1393c("UrlWhiteHelper  request url white failed ");
+                    LTKDateUtil.m1393c("UrlWhiteHelper  request url white failed ");
                     ExceptionHandler.handleException(UrlWhiteHelper.this.mContext, response, true, true);
                     UrlWhiteHelper.this.handleByNoNeedRequest();
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) throws NoSuchAlgorithmException {
-                    C0850bc.m1393c("UrlWhiteHelper request url white failed by network ");
+                    LTKDateUtil.m1393c("UrlWhiteHelper request url white failed by network ");
                     UrlWhiteHelper.this.handleByNoNeedRequest();
                 }
             });
         } catch (Throwable th) {
-            C0948f6.m1746D(th, C0948f6.m1765j("UrlWhiteHelper request white url exception "));
+            CompilerOutline.m1746D(th, CompilerOutline.m1765j("UrlWhiteHelper request white url exception "));
             handleByNoNeedRequest();
         }
     }
 
     public void writeUrlFromLocal() {
-        C0850bc.m1403m("UrlWhiteHelper application init must write white url");
+        LTKDateUtil.m1403m("UrlWhiteHelper application init must write white url");
         if (this.userInfoUtil.m3056m() != 1 && !this.userInfoUtil.m3023R()) {
             request();
         } else {
-            C0850bc.m1403m("UrlWhiteHelper disable firewall need clear white urls or device is release control");
+            LTKDateUtil.m1403m("UrlWhiteHelper disable firewall need clear white urls or device is release control");
             writeUrls(new ArrayList());
         }
     }
 
     public UrlWhiteHelper() {
         this.mContext = GuardSecureApplication.f1640b;
-        this.userInfoUtil = C1424y5.b.f4202a;
+        this.userInfoUtil = UserInfoUtil.b.f4202a;
         this.defaultUrls = new ArrayList();
-        this.mHttpCore = new C1255rb();
+        this.mHttpCore = new HttpCore();
         initDefaultUrls();
     }
 }

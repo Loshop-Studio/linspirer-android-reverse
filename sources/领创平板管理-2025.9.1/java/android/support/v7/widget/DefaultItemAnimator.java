@@ -9,7 +9,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -537,7 +537,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("ChangeInfo{oldHolder=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("ChangeInfo{oldHolder=");
             sbM1765j.append(this.oldHolder);
             sbM1765j.append(", newHolder=");
             sbM1765j.append(this.newHolder);

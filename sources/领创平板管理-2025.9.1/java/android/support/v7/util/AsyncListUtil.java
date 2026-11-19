@@ -9,7 +9,7 @@ import android.support.v7.util.TileList;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class AsyncListUtil<T> {
@@ -52,7 +52,7 @@ public class AsyncListUtil<T> {
             }
             TileList.Tile<T> tileAddOrReplace = AsyncListUtil.this.mTileList.addOrReplace(tile);
             if (tileAddOrReplace != null) {
-                StringBuilder sbM1765j = C0948f6.m1765j("duplicate tile @");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("duplicate tile @");
                 sbM1765j.append(tileAddOrReplace.mStartPosition);
                 Log.e(AsyncListUtil.TAG, sbM1765j.toString());
                 AsyncListUtil.this.mBackgroundProxy.recycleTile(tileAddOrReplace);
@@ -152,7 +152,7 @@ public class AsyncListUtil<T> {
         }
 
         private void log(String str, Object... objArr) {
-            StringBuilder sbM1765j = C0948f6.m1765j("[BKGR] ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("[BKGR] ");
             sbM1765j.append(String.format(str, objArr));
             Log.d(AsyncListUtil.TAG, sbM1765j.toString());
         }
@@ -297,7 +297,7 @@ public class AsyncListUtil<T> {
     }
 
     public void log(String str, Object... objArr) {
-        StringBuilder sbM1765j = C0948f6.m1765j("[MAIN] ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[MAIN] ");
         sbM1765j.append(String.format(str, objArr));
         Log.d(TAG, sbM1765j.toString());
     }

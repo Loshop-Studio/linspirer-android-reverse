@@ -6,7 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 
 /* renamed from: com.huawei.updatesdk.a.a.d.h.a */
@@ -35,7 +35,7 @@ public class C1592a {
                 String unused2 = C1592a.f4628b = carInfoManager.getModel();
                 C1581a.m3501b("CarInfoUtil", "car getManufacturer = " + C1592a.f4629c + "  getModel = " + C1592a.f4628b);
             } catch (Throwable th) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Car not connected in onServiceConnected");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Car not connected in onServiceConnected");
                 sbM1765j.append(th.toString());
                 C1581a.m3500a("CarInfoUtil", sbM1765j.toString());
             }
@@ -60,7 +60,7 @@ public class C1592a {
                 carCreateCar.connect();
             }
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Car Service Connect Error");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Car Service Connect Error");
             sbM1765j.append(th.toString());
             C1581a.m3500a("CarInfoUtil", sbM1765j.toString());
         }

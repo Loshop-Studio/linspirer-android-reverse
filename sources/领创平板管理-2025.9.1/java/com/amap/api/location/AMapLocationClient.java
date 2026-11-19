@@ -7,10 +7,10 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.loc.C1723am;
-import com.loc.C1791d;
-import com.loc.C1834ep;
-import com.loc.C1839eu;
+import com.loc.BaseNetManager;
+import com.loc.AmapLocationManager;
+import com.loc.CoreUtil;
+import com.loc.ReportUtil;
 import org.json.JSONObject;
 
 /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class AMapLocationClient {
     public Context f1517a;
 
     /* renamed from: b */
-    public C1791d f1518b;
+    public AmapLocationManager f1518b;
 
     public AMapLocationClient(Context context) {
         try {
@@ -28,9 +28,9 @@ public class AMapLocationClient {
                 throw new IllegalArgumentException("Context参数不能为null");
             }
             this.f1517a = context.getApplicationContext();
-            this.f1518b = new C1791d(context, null, null);
+            this.f1518b = new AmapLocationManager(context, null, null);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "ne1");
+            CoreUtil.m5014a(th, "AMClt", "ne1");
         }
     }
 
@@ -41,9 +41,9 @@ public class AMapLocationClient {
             }
             Context applicationContext = context.getApplicationContext();
             this.f1517a = applicationContext;
-            this.f1518b = new C1791d(applicationContext, intent, null);
+            this.f1518b = new AmapLocationManager(applicationContext, intent, null);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "ne2");
+            CoreUtil.m5014a(th, "AMClt", "ne2");
         }
     }
 
@@ -54,9 +54,9 @@ public class AMapLocationClient {
             }
             Context applicationContext = context.getApplicationContext();
             this.f1517a = applicationContext;
-            this.f1518b = new C1791d(applicationContext, null, looper);
+            this.f1518b = new AmapLocationManager(applicationContext, null, looper);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "ne3");
+            CoreUtil.m5014a(th, "AMClt", "ne3");
         }
     }
 
@@ -68,18 +68,18 @@ public class AMapLocationClient {
         try {
             AMapLocationClientOption.f1519a = str;
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "sKey");
+            CoreUtil.m5014a(th, "AMClt", "sKey");
         }
     }
 
     public static void setHost(String str) {
         if (TextUtils.isEmpty(str)) {
-            C1723am.f4933a = -1;
+            BaseNetManager.f4933a = -1;
             str = "";
         } else {
-            C1723am.f4933a = 1;
+            BaseNetManager.f4933a = 1;
         }
-        C1723am.f4934b = str;
+        BaseNetManager.f4934b = str;
     }
 
     public void disableBackgroundLocation(boolean z) {
@@ -88,7 +88,7 @@ public class AMapLocationClient {
                 this.f1518b.m4504a(z);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "dBackL");
+            CoreUtil.m5014a(th, "AMClt", "dBackL");
         }
     }
 
@@ -98,7 +98,7 @@ public class AMapLocationClient {
                 this.f1518b.m4500a(i, notification);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "eBackL");
+            CoreUtil.m5014a(th, "AMClt", "eBackL");
         }
     }
 
@@ -109,7 +109,7 @@ public class AMapLocationClient {
             }
             return null;
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "gLastL");
+            CoreUtil.m5014a(th, "AMClt", "gLastL");
             return null;
         }
     }
@@ -125,7 +125,7 @@ public class AMapLocationClient {
             }
             return false;
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "isS");
+            CoreUtil.m5014a(th, "AMClt", "isS");
             return false;
         }
     }
@@ -136,7 +136,7 @@ public class AMapLocationClient {
                 this.f1518b.m4509d();
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "onDy");
+            CoreUtil.m5014a(th, "AMClt", "onDy");
         }
     }
 
@@ -149,7 +149,7 @@ public class AMapLocationClient {
                 this.f1518b.m4503a(aMapLocationListener);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "sLocL");
+            CoreUtil.m5014a(th, "AMClt", "sLocL");
         }
     }
 
@@ -167,10 +167,10 @@ public class AMapLocationClient {
                 if (!TextUtils.isEmpty(aMapLocationClientOption.f1531c)) {
                     jSONObject.put("amap_loc_scenes_type", aMapLocationClientOption.f1531c);
                 }
-                C1839eu.m5074a(this.f1517a, "O019", jSONObject);
+                ReportUtil.m5074a(this.f1517a, "O019", jSONObject);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "sLocnO");
+            CoreUtil.m5014a(th, "AMClt", "sLocnO");
         }
     }
 
@@ -180,7 +180,7 @@ public class AMapLocationClient {
                 this.f1518b.m4511f();
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "stAssLo");
+            CoreUtil.m5014a(th, "AMClt", "stAssLo");
         }
     }
 
@@ -190,7 +190,7 @@ public class AMapLocationClient {
                 this.f1518b.m4501a(webView);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "sttAssL1");
+            CoreUtil.m5014a(th, "AMClt", "sttAssL1");
         }
     }
 
@@ -200,7 +200,7 @@ public class AMapLocationClient {
                 this.f1518b.m4506b();
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "stl");
+            CoreUtil.m5014a(th, "AMClt", "stl");
         }
     }
 
@@ -210,7 +210,7 @@ public class AMapLocationClient {
                 this.f1518b.m4512g();
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "stAssL");
+            CoreUtil.m5014a(th, "AMClt", "stAssL");
         }
     }
 
@@ -220,7 +220,7 @@ public class AMapLocationClient {
                 this.f1518b.m4508c();
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "stl");
+            CoreUtil.m5014a(th, "AMClt", "stl");
         }
     }
 
@@ -230,7 +230,7 @@ public class AMapLocationClient {
                 this.f1518b.m4507b(aMapLocationListener);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMClt", "unRL");
+            CoreUtil.m5014a(th, "AMClt", "unRL");
         }
     }
 }

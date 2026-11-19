@@ -67,7 +67,7 @@ import com.alibaba.fastjson.util.ParameterizedTypeImpl;
 import com.alibaba.fastjson.util.ServiceLoader;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.google.zxing.oned.rss.expanded.decoders.DecodedChar;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.io.File;
 import java.io.Serializable;
@@ -544,7 +544,7 @@ public class ParserConfig {
         } catch (NoSuchMethodException unused3) {
             return new JavaBeanDeserializer(this, cls, type);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("create asm deserializer error, ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("create asm deserializer error, ");
             sbM1765j.append(cls.getName());
             throw new JSONException(sbM1765j.toString(), e);
         }

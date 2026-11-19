@@ -24,7 +24,7 @@ import anet.channel.util.HttpUrl;
 import anet.channel.util.StringUtils;
 import anet.channel.util.Utils;
 import anetwork.channel.util.RequestConstant;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import java.net.ConnectException;
 import java.security.InvalidParameterException;
@@ -401,7 +401,7 @@ public class SessionCenter {
         try {
             return m41a(httpUrl, i, j, null);
         } catch (NoAvailStrategyException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("[Get]");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("[Get]");
             sbM1765j.append(e.getMessage());
             ALog.m340i(TAG, sbM1765j.toString(), this.f124c, null, AgooConstants.OPEN_URL, httpUrl.urlString());
             return null;
@@ -415,7 +415,7 @@ public class SessionCenter {
             ALog.m338e(TAG, "[Get]timeout exception", this.f124c, e4, AgooConstants.OPEN_URL, httpUrl.urlString());
             return null;
         } catch (Exception e5) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("[Get]");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("[Get]");
             sbM1765j2.append(e5.getMessage());
             ALog.m338e(TAG, sbM1765j2.toString(), this.f124c, null, AgooConstants.OPEN_URL, httpUrl.urlString());
             return null;

@@ -3,7 +3,7 @@ package android.support.v4.util;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -104,7 +104,7 @@ public class AtomicFile {
             if (this.mBackupName.exists()) {
                 this.mBaseName.delete();
             } else if (!this.mBaseName.renameTo(this.mBackupName)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Couldn't rename file ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Couldn't rename file ");
                 sbM1765j.append(this.mBaseName);
                 sbM1765j.append(" to backup file ");
                 sbM1765j.append(this.mBackupName);
@@ -115,14 +115,14 @@ public class AtomicFile {
             return new FileOutputStream(this.mBaseName);
         } catch (FileNotFoundException unused) {
             if (!this.mBaseName.getParentFile().mkdirs()) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("Couldn't create directory ");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("Couldn't create directory ");
                 sbM1765j2.append(this.mBaseName);
                 throw new IOException(sbM1765j2.toString());
             }
             try {
                 return new FileOutputStream(this.mBaseName);
             } catch (FileNotFoundException unused2) {
-                StringBuilder sbM1765j3 = C0948f6.m1765j("Couldn't create ");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j("Couldn't create ");
                 sbM1765j3.append(this.mBaseName);
                 throw new IOException(sbM1765j3.toString());
             }

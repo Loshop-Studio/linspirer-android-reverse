@@ -8,7 +8,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import anetwork.channel.util.RequestConstant;
-import com.huawei.hem.InterfaceC1136mh;
+import com.huawei.hem.IControlBinder;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class C1361vh {
     public Context f3961a;
 
     /* renamed from: b */
-    public InterfaceC1136mh f3962b;
+    public IControlBinder f3962b;
 
     /* renamed from: c */
     public List<Runnable> f3963c = new ArrayList();
@@ -44,7 +44,7 @@ public class C1361vh {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Log.e(RequestConstant.ENV_TEST, "onServiceConnected");
-            C1361vh.this.f3962b = InterfaceC1136mh.a.m2390J(iBinder);
+            C1361vh.this.f3962b = IControlBinder.a.m2390J(iBinder);
             Iterator<Runnable> it = C1361vh.this.f3963c.iterator();
             while (it.hasNext()) {
                 it.next().run();
@@ -136,7 +136,7 @@ public class C1361vh {
         if (this.f3962b == null) {
             m2875c();
         }
-        InterfaceC1136mh interfaceC1136mh = this.f3962b;
+        IControlBinder interfaceC1136mh = this.f3962b;
         if (interfaceC1136mh == null) {
             Log.e("seewoimdm", "appWhiteListRead  mBinder is still null");
             return arrayList;
@@ -170,7 +170,7 @@ public class C1361vh {
         if (this.f3962b == null) {
             m2875c();
         }
-        InterfaceC1136mh interfaceC1136mh = this.f3962b;
+        IControlBinder interfaceC1136mh = this.f3962b;
         if (interfaceC1136mh == null) {
             Log.e("seewoimdm", "appWhiteListWrite  mBinder is still null");
             return false;
@@ -215,7 +215,7 @@ public class C1361vh {
         if (this.f3962b == null) {
             m2875c();
         }
-        InterfaceC1136mh interfaceC1136mh = this.f3962b;
+        IControlBinder interfaceC1136mh = this.f3962b;
         if (interfaceC1136mh == null) {
             Log.e("seewoimdm", "getWifiMacAddress  mBinder is still null...");
             return m2872d();

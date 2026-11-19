@@ -1,7 +1,7 @@
 package org.android.spdy;
 
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class NetTimeGaurd {
@@ -35,13 +35,13 @@ public class NetTimeGaurd {
 
     public static void finish(int i) {
         if (SpdyAgent.enableTimeGaurd) {
-            StringBuilder sbM1765j = C0948f6.m1765j("NetTimeGaurd[finish]:time=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("NetTimeGaurd[finish]:time=");
             sbM1765j.append(totaltime[i]);
             Log.i("NetTimeGaurd", sbM1765j.toString());
             if (totaltime[i] <= 50) {
                 return;
             }
-            StringBuilder sbM1765j2 = C0948f6.m1765j("CallBack totaltimeconsuming:");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("CallBack totaltimeconsuming:");
             sbM1765j2.append(totaltime[i]);
             sbM1765j2.append("  mustlessthan:");
             sbM1765j2.append(50L);

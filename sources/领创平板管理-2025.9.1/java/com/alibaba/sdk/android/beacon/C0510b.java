@@ -6,7 +6,7 @@ import android.support.v4.app.Person;
 import android.text.TextUtils;
 import android.util.Log;
 import com.alibaba.sdk.android.beacon.Beacon;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import com.p061ta.utdid2.device.UTDevice;
@@ -320,7 +320,7 @@ public final class C0510b {
 
     static {
         f863a = C0509a.f862a ? "100.67.64.54" : "beacon-api.aliyuncs.com";
-        f864b = C0948f6.m1762g(C0948f6.m1765j("https://"), f863a, "/beacon/fetch/config");
+        f864b = CompilerOutline.m1762g(CompilerOutline.m1765j("https://"), f863a, "/beacon/fetch/config");
     }
 
     public C0510b(Beacon beacon) {
@@ -392,7 +392,7 @@ public final class C0510b {
     /* renamed from: a */
     public void m567a(Context context, String str, String str2, Map<String, String> map) {
         b bVarM560a = m560a(context, str, str2, map);
-        String strM1763h = C0948f6.m1763h(new StringBuilder(), f864b, GrsManager.SEPARATOR, "byappkey");
+        String strM1763h = CompilerOutline.m1763h(new StringBuilder(), f864b, GrsManager.SEPARATOR, "byappkey");
         Log.i("beacon", "url=" + strM1763h);
         String strM568a = this.f866a.m568a(strM1763h, m561a(bVarM560a).getBytes());
         Log.i("beacon", "[fetchByAppKey] result: " + strM568a);

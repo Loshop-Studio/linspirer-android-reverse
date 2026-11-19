@@ -11,9 +11,9 @@ import com.android.launcher3.adapter.ReadWebsitRecyclerViewAdapter;
 import com.android.launcher3.network.UrlWhiteHelper;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.UserInfoUtil;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +50,7 @@ public class ReadWebSiteWhiteActivity extends BaseActivity implements View.OnCli
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: c */
     public void mo1171c() {
-        this.f1781d = new ReadWebsitRecyclerViewAdapter(this, C0850bc.f2294f.mo1330t0());
+        this.f1781d = new ReadWebsitRecyclerViewAdapter(this, LTKDateUtil.f2294f.mo1330t0());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(1);
         this.f1780c.setLayoutManager(linearLayoutManager);
@@ -68,7 +68,7 @@ public class ReadWebSiteWhiteActivity extends BaseActivity implements View.OnCli
         linearLayoutManager3.setOrientation(1);
         this.f1783f.setLayoutManager(linearLayoutManager3);
         this.f1783f.setAdapter(readWebsitRecyclerViewAdapter2);
-        String strM3068s = C1424y5.b.f4202a.m3068s();
+        String strM3068s = UserInfoUtil.b.f4202a.m3068s();
         if (!TextUtils.isEmpty(strM3068s)) {
             this.f1785h = AbstractC1102l9.m2277R(strM3068s, ",");
         }
@@ -98,7 +98,7 @@ public class ReadWebSiteWhiteActivity extends BaseActivity implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!C0902dc.m1583a(view) && R.id.read_website_back == view.getId()) {
+        if (!ViewControlUtil.m1583a(view) && R.id.read_website_back == view.getId()) {
             finish();
         }
     }

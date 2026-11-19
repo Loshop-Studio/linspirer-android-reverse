@@ -28,7 +28,7 @@ import android.support.v4.provider.SelfDestructiveThread;
 import android.support.v4.util.LruCache;
 import android.support.v4.util.Preconditions;
 import android.support.v4.util.SimpleArrayMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
@@ -363,10 +363,10 @@ public class FontsContractCompat {
         String providerAuthority = fontRequest.getProviderAuthority();
         ProviderInfo providerInfoResolveContentProvider = packageManager.resolveContentProvider(providerAuthority, 0);
         if (providerInfoResolveContentProvider == null) {
-            throw new PackageManager.NameNotFoundException(C0948f6.m1760e("No package found for authority: ", providerAuthority));
+            throw new PackageManager.NameNotFoundException(CompilerOutline.m1760e("No package found for authority: ", providerAuthority));
         }
         if (!providerInfoResolveContentProvider.packageName.equals(fontRequest.getProviderPackage())) {
-            StringBuilder sbM1769n = C0948f6.m1769n("Found content provider ", providerAuthority, ", but package was not ");
+            StringBuilder sbM1769n = CompilerOutline.m1769n("Found content provider ", providerAuthority, ", but package was not ");
             sbM1769n.append(fontRequest.getProviderPackage());
             throw new PackageManager.NameNotFoundException(sbM1769n.toString());
         }

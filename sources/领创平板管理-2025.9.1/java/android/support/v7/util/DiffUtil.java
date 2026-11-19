@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v7.widget.RecyclerView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -106,7 +106,7 @@ public class DiffUtil {
                     }
                 } else {
                     if (i6 != 16) {
-                        StringBuilder sbM1766k = C0948f6.m1766k("unknown flag for pos ", i5, " ");
+                        StringBuilder sbM1766k = CompilerOutline.m1766k("unknown flag for pos ", i5, " ");
                         sbM1766k.append(Long.toBinaryString(i6));
                         throw new IllegalStateException(sbM1766k.toString());
                     }
@@ -138,7 +138,7 @@ public class DiffUtil {
                     }
                 } else {
                     if (i6 != 16) {
-                        StringBuilder sbM1766k = C0948f6.m1766k("unknown flag for pos ", i5, " ");
+                        StringBuilder sbM1766k = CompilerOutline.m1766k("unknown flag for pos ", i5, " ");
                         sbM1766k.append(Long.toBinaryString(i6));
                         throw new IllegalStateException(sbM1766k.toString());
                     }
@@ -265,7 +265,7 @@ public class DiffUtil {
                     return i2 >> 5;
                 }
             }
-            StringBuilder sbM1766k = C0948f6.m1766k("Index out of bounds - passed position = ", i, ", new list size = ");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("Index out of bounds - passed position = ", i, ", new list size = ");
             sbM1766k.append(this.mNewItemStatuses.length);
             throw new IndexOutOfBoundsException(sbM1766k.toString());
         }
@@ -281,7 +281,7 @@ public class DiffUtil {
                     return i2 >> 5;
                 }
             }
-            StringBuilder sbM1766k = C0948f6.m1766k("Index out of bounds - passed position = ", i, ", old list size = ");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("Index out of bounds - passed position = ", i, ", old list size = ");
             sbM1766k.append(this.mOldItemStatuses.length);
             throw new IndexOutOfBoundsException(sbM1766k.toString());
         }

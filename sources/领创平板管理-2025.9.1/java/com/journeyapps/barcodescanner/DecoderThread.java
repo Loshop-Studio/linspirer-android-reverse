@@ -9,7 +9,7 @@ import android.util.Log;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.C0787R;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.journeyapps.barcodescanner.camera.CameraInstance;
 import com.journeyapps.barcodescanner.camera.PreviewCallback;
 
@@ -75,7 +75,7 @@ public class DecoderThread {
         if (resultDecode != null) {
             long jCurrentTimeMillis2 = System.currentTimeMillis();
             String str = TAG;
-            StringBuilder sbM1765j = C0948f6.m1765j("Found barcode in ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Found barcode in ");
             sbM1765j.append(jCurrentTimeMillis2 - jCurrentTimeMillis);
             sbM1765j.append(" ms");
             Log.d(str, sbM1765j.toString());

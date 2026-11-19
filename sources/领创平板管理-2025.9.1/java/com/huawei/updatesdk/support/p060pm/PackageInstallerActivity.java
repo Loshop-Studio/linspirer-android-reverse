@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
@@ -24,7 +24,7 @@ public class PackageInstallerActivity extends Activity {
         if (TextUtils.isEmpty(str) || str.contains("../") || str.contains("..") || str.contains("%00") || str.contains(".\\.\\") || str.contains("./")) {
             throw new IllegalArgumentException("getNomalInstallIntent: Not a standard path");
         }
-        Intent intentM1768m = C0948f6.m1768m("android.intent.action.INSTALL_PACKAGE");
+        Intent intentM1768m = CompilerOutline.m1768m("android.intent.action.INSTALL_PACKAGE");
         if (Build.VERSION.SDK_INT >= 24) {
             intentM1768m.addFlags(1);
             uriFromFile = UpdateSdkFileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + UpdateSdkFileProvider.AUTHORITIES_SUFFIX, new File(str));

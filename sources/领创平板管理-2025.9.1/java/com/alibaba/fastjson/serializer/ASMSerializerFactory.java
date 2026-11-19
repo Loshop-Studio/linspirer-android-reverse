@@ -9,7 +9,7 @@ import com.alibaba.fastjson.util.ASMClassLoader;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -30,13 +30,13 @@ public class ASMSerializerFactory implements Opcodes {
     public final AtomicLong seed = new AtomicLong();
     public static final String JSONSerializer = ASMUtils.type(JSONSerializer.class);
     public static final String ObjectSerializer = ASMUtils.type(ObjectSerializer.class);
-    public static final String ObjectSerializer_desc = C0948f6.m1762g(C0948f6.m1765j("L"), ObjectSerializer, ";");
+    public static final String ObjectSerializer_desc = CompilerOutline.m1762g(CompilerOutline.m1765j("L"), ObjectSerializer, ";");
     public static final String SerializeWriter = ASMUtils.type(SerializeWriter.class);
-    public static final String SerializeWriter_desc = C0948f6.m1762g(C0948f6.m1765j("L"), SerializeWriter, ";");
+    public static final String SerializeWriter_desc = CompilerOutline.m1762g(CompilerOutline.m1765j("L"), SerializeWriter, ";");
     public static final String JavaBeanSerializer = ASMUtils.type(JavaBeanSerializer.class);
 
     static {
-        StringBuilder sbM1765j = C0948f6.m1765j("L");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("L");
         sbM1765j.append(ASMUtils.type(JavaBeanSerializer.class));
         sbM1765j.append(";");
         JavaBeanSerializer_desc = sbM1765j.toString();
@@ -49,7 +49,7 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, 2);
         methodVisitor.visitVarInsn(21, context.var("seperator"));
-        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeAfter", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;C)C"));
+        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeAfter", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;C)C"));
         methodVisitor.visitVarInsn(54, context.var("seperator"));
     }
 
@@ -94,7 +94,7 @@ public class ASMSerializerFactory implements Opcodes {
         } else {
             methodVisitor.visitVarInsn(25, context.var("object"));
         }
-        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "apply", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Z"));
+        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "apply", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Z"));
     }
 
     private void _before(MethodVisitor methodVisitor, Context context) {
@@ -102,7 +102,7 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, 2);
         methodVisitor.visitVarInsn(21, context.var("seperator"));
-        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeBefore", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;C)C"));
+        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeBefore", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;C)C"));
         methodVisitor.visitVarInsn(54, context.var("seperator"));
     }
 
@@ -244,37 +244,37 @@ public class ASMSerializerFactory implements Opcodes {
     private void _getFieldSer(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo) {
         Label label = new Label();
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
         methodVisitor.visitJumpInsn(199, label);
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(fieldInfo.fieldClass)));
         String str = JSONSerializer;
-        StringBuilder sbM1765j = C0948f6.m1765j("(Ljava/lang/Class;)");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(Ljava/lang/Class;)");
         sbM1765j.append(ObjectSerializer_desc);
         methodVisitor.visitMethodInsn(182, str, "getObjectWriter", sbM1765j.toString());
-        methodVisitor.visitFieldInsn(181, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(181, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
         methodVisitor.visitLabel(label);
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_ser_"), ObjectSerializer_desc);
     }
 
     private void _getListFieldItemSer(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo, Class<?> cls) {
         Label label = new Label();
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
         methodVisitor.visitJumpInsn(199, label);
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls)));
         String str = JSONSerializer;
-        StringBuilder sbM1765j = C0948f6.m1765j("(Ljava/lang/Class;)");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(Ljava/lang/Class;)");
         sbM1765j.append(ObjectSerializer_desc);
         methodVisitor.visitMethodInsn(182, str, "getObjectWriter", sbM1765j.toString());
-        methodVisitor.visitFieldInsn(181, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(181, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
         methodVisitor.visitLabel(label);
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_ser_"), ObjectSerializer_desc);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x009b  */
@@ -310,7 +310,7 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitLdcInsn(fieldInfo.label);
-        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "applyLabel", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/String;)Z"));
+        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "applyLabel", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/String;)Z"));
         methodVisitor.visitJumpInsn(153, label);
     }
 
@@ -461,9 +461,9 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
                     methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
                     String str5 = JavaBeanSerializer;
-                    StringBuilder sbM1765j = C0948f6.m1765j("(L");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("(L");
                     str3 = ExceptionCode.WRITE;
-                    methodVisitor.visitMethodInsn(182, str5, str4, C0948f6.m1762g(sbM1765j, JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+                    methodVisitor.visitMethodInsn(182, str5, str4, CompilerOutline.m1762g(sbM1765j, JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
                     methodVisitor.visitJumpInsn(167, label21);
                     methodVisitor.visitLabel(label20);
                 } else {
@@ -484,7 +484,7 @@ public class ASMSerializerFactory implements Opcodes {
                 fieldInfo2 = fieldInfo;
                 methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo2.serialzeFeatures));
                 str2 = str3;
-                methodVisitor.visitMethodInsn(185, ObjectSerializer, str2, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+                methodVisitor.visitMethodInsn(185, ObjectSerializer, str2, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
                 methodVisitor.visitLabel(label21);
                 label5 = label7;
                 methodVisitor.visitJumpInsn(167, label5);
@@ -546,7 +546,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 2);
             methodVisitor.visitVarInsn(25, Context.fieldName);
-            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "applyName", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;)Z"));
+            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "applyName", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;)Z"));
             methodVisitor.visitJumpInsn(153, label);
             _labelApply(methodVisitor, fieldInfo, context, label);
         }
@@ -651,7 +651,7 @@ public class ASMSerializerFactory implements Opcodes {
         } else {
             methodVisitor.visitVarInsn(25, context.var("object"));
         }
-        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "processKey", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;"));
+        methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "processKey", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;"));
         methodVisitor.visitVarInsn(58, Context.fieldName);
         methodVisitor.visitLabel(label);
     }
@@ -675,7 +675,7 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitLdcInsn(Integer.valueOf(context.getFieldOrinal(fieldInfo.name)));
         String str = JavaBeanSerializer;
-        StringBuilder sbM1765j = C0948f6.m1765j("(I)");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(I)");
         sbM1765j.append(ASMUtils.desc((Class<?>) BeanContext.class));
         methodVisitor.visitMethodInsn(182, str, "getBeanContext", sbM1765j.toString());
         methodVisitor.visitVarInsn(25, 2);
@@ -742,7 +742,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, Context.original);
         }
         String str2 = JavaBeanSerializer;
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(L");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(L");
         sbM1765j2.append(JSONSerializer);
         sbM1765j2.append(";");
         sbM1765j2.append(ASMUtils.desc((Class<?>) BeanContext.class));
@@ -873,10 +873,10 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, Context.fieldName);
             methodVisitor.visitVarInsn(25, 0);
             str = format;
-            methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
+            methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
             methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
             label3 = label6;
-            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, str2, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, str2, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
             methodVisitor.visitJumpInsn(167, label8);
             methodVisitor.visitLabel(label7);
             methodVisitor.visitVarInsn(25, context.var("fied_ser"));
@@ -884,9 +884,9 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, context.var("object"));
             methodVisitor.visitVarInsn(25, Context.fieldName);
             methodVisitor.visitVarInsn(25, 0);
-            methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
+            methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
             methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-            methodVisitor.visitMethodInsn(185, ObjectSerializer, ExceptionCode.WRITE, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+            methodVisitor.visitMethodInsn(185, ObjectSerializer, ExceptionCode.WRITE, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
             methodVisitor.visitLabel(label8);
             label2 = label5;
             methodVisitor.visitJumpInsn(167, label2);
@@ -912,7 +912,7 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                 } else {
                     methodVisitor.visitVarInsn(25, 0);
-                    methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
+                    methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_fieldType"), "Ljava/lang/reflect/Type;");
                 }
                 methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
                 methodVisitor.visitMethodInsn(182, JSONSerializer, "writeWithFieldName", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
@@ -989,7 +989,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 3);
             methodVisitor.visitVarInsn(25, 4);
             methodVisitor.visitVarInsn(21, 5);
-            methodVisitor.visitMethodInsn(183, JavaBeanSerializer, ExceptionCode.WRITE, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+            methodVisitor.visitMethodInsn(183, JavaBeanSerializer, ExceptionCode.WRITE, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
             methodVisitor.visitInsn(177);
             methodVisitor.visitLabel(label3);
         }
@@ -999,7 +999,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 2);
             methodVisitor.visitVarInsn(21, 5);
-            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeReference", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;I)Z"));
+            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeReference", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;I)Z"));
             methodVisitor.visitJumpInsn(153, label5);
             methodVisitor.visitInsn(177);
             methodVisitor.visitLabel(label5);
@@ -1017,7 +1017,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 3);
             methodVisitor.visitVarInsn(25, 4);
             methodVisitor.visitVarInsn(21, 5);
-            methodVisitor.visitMethodInsn(182, context.className, str2, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+            methodVisitor.visitMethodInsn(182, context.className, str2, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
             methodVisitor.visitInsn(177);
             methodVisitor.visitLabel(label6);
         } else {
@@ -1027,13 +1027,13 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 3);
             methodVisitor.visitVarInsn(25, 4);
             methodVisitor.visitVarInsn(21, 5);
-            methodVisitor.visitMethodInsn(182, context.className, str2, C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
+            methodVisitor.visitMethodInsn(182, context.className, str2, CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V"));
             methodVisitor.visitInsn(177);
         }
         if (!context.nonContext) {
             methodVisitor.visitVarInsn(25, 1);
             String str3 = JSONSerializer;
-            StringBuilder sbM1765j = C0948f6.m1765j("()");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("()");
             sbM1765j.append(SerialContext_desc);
             methodVisitor.visitMethodInsn(182, str3, "getContext", sbM1765j.toString());
             methodVisitor.visitVarInsn(58, context.var("parent"));
@@ -1042,7 +1042,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 2);
             methodVisitor.visitVarInsn(25, 3);
             methodVisitor.visitLdcInsn(Integer.valueOf(context.beanInfo.features));
-            methodVisitor.visitMethodInsn(182, JSONSerializer, "setContext", C0948f6.m1762g(C0948f6.m1765j("("), SerialContext_desc, "Ljava/lang/Object;Ljava/lang/Object;I)V"));
+            methodVisitor.visitMethodInsn(182, JSONSerializer, "setContext", CompilerOutline.m1762g(CompilerOutline.m1765j("("), SerialContext_desc, "Ljava/lang/Object;Ljava/lang/Object;I)V"));
         }
         boolean z2 = (context.beanInfo.features & SerializerFeature.WriteClassName.mask) != 0;
         if (z2 || !context.writeDirect) {
@@ -1077,7 +1077,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitInsn(1);
             }
             methodVisitor.visitVarInsn(25, 2);
-            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeClassName", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONSerializer, ";Ljava/lang/String;Ljava/lang/Object;)V"));
+            methodVisitor.visitMethodInsn(182, JavaBeanSerializer, "writeClassName", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONSerializer, ";Ljava/lang/String;Ljava/lang/Object;)V"));
             methodVisitor.visitVarInsn(16, 44);
             methodVisitor.visitJumpInsn(167, label7);
             methodVisitor.visitLabel(label8);
@@ -1097,11 +1097,11 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(54, context.var("notWriteDefaultValue"));
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 0);
-            methodVisitor.visitMethodInsn(182, JSONSerializer, "checkValue", C0948f6.m1762g(C0948f6.m1765j("("), SerializeFilterable_desc, ")Z"));
+            methodVisitor.visitMethodInsn(182, JSONSerializer, "checkValue", CompilerOutline.m1762g(CompilerOutline.m1765j("("), SerializeFilterable_desc, ")Z"));
             methodVisitor.visitVarInsn(54, context.var("checkValue"));
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 0);
-            methodVisitor.visitMethodInsn(182, JSONSerializer, "hasNameFilters", C0948f6.m1762g(C0948f6.m1765j("("), SerializeFilterable_desc, ")Z"));
+            methodVisitor.visitMethodInsn(182, JSONSerializer, "hasNameFilters", CompilerOutline.m1762g(CompilerOutline.m1765j("("), SerializeFilterable_desc, ")Z"));
             methodVisitor.visitVarInsn(54, context.var("hasNameFilters"));
         }
         int i4 = 0;
@@ -1162,7 +1162,7 @@ public class ASMSerializerFactory implements Opcodes {
         }
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, context.var(str));
-        methodVisitor.visitMethodInsn(182, JSONSerializer, "setContext", C0948f6.m1762g(C0948f6.m1765j("("), SerialContext_desc, ")V"));
+        methodVisitor.visitMethodInsn(182, JSONSerializer, "setContext", CompilerOutline.m1762g(CompilerOutline.m1765j("("), SerialContext_desc, ")V"));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:89:0x0353  */

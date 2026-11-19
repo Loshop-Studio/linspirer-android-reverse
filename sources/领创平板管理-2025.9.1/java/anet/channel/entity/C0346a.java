@@ -1,7 +1,7 @@
 package anet.channel.entity;
 
 import anet.channel.strategy.IConnStrategy;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* renamed from: anet.channel.entity.a */
@@ -91,7 +91,7 @@ public class C0346a {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("ConnInfo [ip=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ConnInfo [ip=");
         sbM1765j.append(m132a());
         sbM1765j.append(",port=");
         sbM1765j.append(m133b());

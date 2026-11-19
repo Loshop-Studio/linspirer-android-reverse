@@ -20,7 +20,7 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -69,18 +69,18 @@ public class ASMDeserializerFactory implements Opcodes {
 
         public String fieldDeserName(FieldInfo fieldInfo) {
             if (validIdent(fieldInfo.name)) {
-                return C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_deser__");
+                return CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_deser__");
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("_asm_deser__");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("_asm_deser__");
             sbM1765j.append(TypeUtils.fnv1a_64_extract(fieldInfo.name));
             return sbM1765j.toString();
         }
 
         public String fieldName(FieldInfo fieldInfo) {
             if (validIdent(fieldInfo.name)) {
-                return C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_prefix__");
+                return CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_prefix__");
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("asm_field_");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("asm_field_");
             sbM1765j.append(TypeUtils.fnv1a_64_extract(fieldInfo.name));
             return sbM1765j.toString();
         }
@@ -150,7 +150,7 @@ public class ASMDeserializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 0);
             methodVisitor.visitFieldInsn(180, ASMUtils.type(JavaBeanDeserializer.class), "clazz", "Ljava/lang/Class;");
-            methodVisitor.visitMethodInsn(183, ASMUtils.type(JavaBeanDeserializer.class), "createInstance", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;)Ljava/lang/Object;"));
+            methodVisitor.visitMethodInsn(183, ASMUtils.type(JavaBeanDeserializer.class), "createInstance", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;)Ljava/lang/Object;"));
             methodVisitor.visitTypeInsn(192, ASMUtils.type(context.getInstClass()));
         }
         methodVisitor.visitVarInsn(58, context.var("instance"));
@@ -176,7 +176,7 @@ public class ASMDeserializerFactory implements Opcodes {
             }
             methodVisitor.visitLdcInsn(fieldInfo.name);
             methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.parserFeatures));
-            methodVisitor.visitMethodInsn(182, ASMUtils.type(JavaBeanDeserializer.class), "deserialze", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;I)Ljava/lang/Object;"));
+            methodVisitor.visitMethodInsn(182, ASMUtils.type(JavaBeanDeserializer.class), "deserialze", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;I)Ljava/lang/Object;"));
             methodVisitor.visitTypeInsn(192, ASMUtils.type(cls));
             methodVisitor.visitVarInsn(58, context.var_asm(fieldInfo));
             methodVisitor.visitJumpInsn(167, label2);
@@ -194,7 +194,7 @@ public class ASMDeserializerFactory implements Opcodes {
             methodVisitor.visitMethodInsn(182, ASMUtils.type(JavaBeanDeserializer.class), "getFieldType", "(I)Ljava/lang/reflect/Type;");
         }
         methodVisitor.visitLdcInsn(fieldInfo.name);
-        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
+        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
         methodVisitor.visitTypeInsn(192, ASMUtils.type(cls));
         methodVisitor.visitVarInsn(58, context.var_asm(fieldInfo));
         methodVisitor.visitLabel(label2);
@@ -229,16 +229,16 @@ public class ASMDeserializerFactory implements Opcodes {
         MethodWriter methodWriter;
         int i2;
         Class<JavaBeanDeserializer> cls2 = JavaBeanDeserializer.class;
-        MethodWriter methodWriter2 = new MethodWriter(classWriter, 1, "deserialzeArrayMapping", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"), null, null);
+        MethodWriter methodWriter2 = new MethodWriter(classWriter, 1, "deserialzeArrayMapping", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"), null, null);
         defineVarLexer(context, methodWriter2);
         methodWriter2.visitVarInsn(25, context.var("lexer"));
         methodWriter2.visitVarInsn(25, 1);
         String str = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("()");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("()");
         sbM1765j.append(ASMUtils.desc((Class<?>) SymbolTable.class));
         methodWriter2.visitMethodInsn(182, str, "getSymbolTable", sbM1765j.toString());
         String str2 = JSONLexerBase;
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(");
         sbM1765j2.append(ASMUtils.desc((Class<?>) SymbolTable.class));
         sbM1765j2.append(")Ljava/lang/String;");
         methodWriter2.visitMethodInsn(182, str2, "scanTypeName", sbM1765j2.toString());
@@ -248,7 +248,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter2.visitJumpInsn(198, label);
         methodWriter2.visitVarInsn(25, 1);
         String str3 = DefaultJSONParser;
-        StringBuilder sbM1765j3 = C0948f6.m1765j("()");
+        StringBuilder sbM1765j3 = CompilerOutline.m1765j("()");
         sbM1765j3.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         methodWriter2.visitMethodInsn(182, str3, "getConfig", sbM1765j3.toString());
         int i3 = 0;
@@ -256,7 +256,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter2.visitFieldInsn(180, ASMUtils.type(cls2), "beanInfo", ASMUtils.desc((Class<?>) JavaBeanInfo.class));
         methodWriter2.visitVarInsn(25, context.var("typeName"));
         String strType = ASMUtils.type(cls2);
-        StringBuilder sbM1765j4 = C0948f6.m1765j("(");
+        StringBuilder sbM1765j4 = CompilerOutline.m1765j("(");
         sbM1765j4.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         sbM1765j4.append(ASMUtils.desc((Class<?>) JavaBeanInfo.class));
         sbM1765j4.append("Ljava/lang/String;)");
@@ -271,7 +271,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter2.visitVarInsn(25, 2);
         methodWriter2.visitVarInsn(25, 3);
         methodWriter2.visitVarInsn(25, 4);
-        methodWriter2.visitMethodInsn(182, ASMUtils.type(cls2), "deserialzeArrayMapping", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"));
+        methodWriter2.visitMethodInsn(182, ASMUtils.type(cls2), "deserialzeArrayMapping", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"));
         methodWriter2.visitInsn(176);
         methodWriter2.visitLabel(label);
         _createInstance(context, methodWriter2);
@@ -448,12 +448,12 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                             methodWriter2.visitVarInsn(25, 1);
                             String str4 = DefaultJSONParser;
-                            StringBuilder sbM1765j5 = C0948f6.m1765j("()");
+                            StringBuilder sbM1765j5 = CompilerOutline.m1765j("()");
                             sbM1765j5.append(ASMUtils.desc((Class<?>) SymbolTable.class));
                             methodWriter2.visitMethodInsn(182, str4, "getSymbolTable", sbM1765j5.toString());
                             methodWriter2.visitVarInsn(16, i4);
                             String str5 = JSONLexerBase;
-                            StringBuilder sbM1765j6 = C0948f6.m1765j("(Ljava/lang/Class;");
+                            StringBuilder sbM1765j6 = CompilerOutline.m1765j("(Ljava/lang/Class;");
                             sbM1765j6.append(ASMUtils.desc((Class<?>) SymbolTable.class));
                             sbM1765j6.append("C)Ljava/lang/Enum;");
                             methodWriter2.visitMethodInsn(182, str5, "scanEnum", sbM1765j6.toString());
@@ -476,7 +476,7 @@ public class ASMDeserializerFactory implements Opcodes {
                             methodWriter2.visitVarInsn(25, 0);
                             methodWriter2.visitVarInsn(25, context.var("lexer"));
                             methodWriter2.visitVarInsn(16, i4);
-                            methodWriter2.visitMethodInsn(182, ASMUtils.type(cls), "scanEnum", C0948f6.m1762g(C0948f6.m1765j("(L"), JSONLexerBase, ";C)Ljava/lang/Enum;"));
+                            methodWriter2.visitMethodInsn(182, ASMUtils.type(cls), "scanEnum", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), JSONLexerBase, ";C)Ljava/lang/Enum;"));
                             methodWriter2.visitLabel(label10);
                             methodWriter2.visitTypeInsn(192, ASMUtils.type(cls3));
                             methodWriter2.visitVarInsn(58, context.var_asm(fieldInfo));
@@ -547,10 +547,10 @@ public class ASMDeserializerFactory implements Opcodes {
                                     methodWriter2.visitLdcInsn(Type.getType(ASMUtils.desc(collectionItemClass)));
                                     methodWriter2.visitVarInsn(25, 3);
                                     String strType2 = ASMUtils.type(cls);
-                                    StringBuilder sbM1765j7 = C0948f6.m1765j("(Ljava/util/Collection;");
+                                    StringBuilder sbM1765j7 = CompilerOutline.m1765j("(Ljava/util/Collection;");
                                     sbM1765j7.append(ASMUtils.desc((Class<?>) ObjectDeserializer.class));
                                     sbM1765j7.append("L");
-                                    methodWriter2.visitMethodInsn(184, strType2, "parseArray", C0948f6.m1762g(sbM1765j7, DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)V"));
+                                    methodWriter2.visitMethodInsn(184, strType2, "parseArray", CompilerOutline.m1762g(sbM1765j7, DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)V"));
                                 }
                             } else {
                                 i3 = i2;
@@ -598,7 +598,7 @@ public class ASMDeserializerFactory implements Opcodes {
                                         methodWriter.visitLdcInsn(16);
                                     }
                                     String strType3 = ASMUtils.type(cls);
-                                    StringBuilder sbM1765j8 = C0948f6.m1765j("(");
+                                    StringBuilder sbM1765j8 = CompilerOutline.m1765j("(");
                                     sbM1765j8.append(ASMUtils.desc((Class<?>) JSONLexer.class));
                                     sbM1765j8.append("I)V");
                                     methodWriter.visitMethodInsn(183, strType3, "check", sbM1765j8.toString());
@@ -725,7 +725,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
         methodVisitor.visitInsn(3);
         methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
-        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
+        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
         methodVisitor.visitVarInsn(58, context.var("list_item_value"));
         methodVisitor.visitVarInsn(25, context.var_asm(fieldInfo));
         methodVisitor.visitVarInsn(25, context.var("list_item_value"));
@@ -760,7 +760,7 @@ public class ASMDeserializerFactory implements Opcodes {
         }
         methodVisitor.visitVarInsn(25, 1);
         String str4 = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("()");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("()");
         sbM1765j.append(ASMUtils.desc((Class<?>) ParseContext.class));
         methodVisitor.visitMethodInsn(182, str4, "getContext", sbM1765j.toString());
         methodVisitor.visitVarInsn(58, context.var("listContext"));
@@ -768,7 +768,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, context.var_asm(fieldInfo));
         methodVisitor.visitLdcInsn(fieldInfo.name);
         String str5 = DefaultJSONParser;
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(Ljava/lang/Object;Ljava/lang/Object;)");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(Ljava/lang/Object;Ljava/lang/Object;)");
         sbM1765j2.append(ASMUtils.desc((Class<?>) ParseContext.class));
         methodVisitor.visitMethodInsn(182, str5, "setContext", sbM1765j2.toString());
         methodVisitor.visitInsn(87);
@@ -783,12 +783,12 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitJumpInsn(159, label8);
         methodVisitor.visitVarInsn(25, 0);
         String str6 = str2;
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
         methodVisitor.visitVarInsn(21, context.var("i"));
         methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
-        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
+        methodVisitor.visitMethodInsn(185, ASMUtils.type(ObjectDeserializer.class), "deserialze", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/Object;"));
         String str7 = str;
         methodVisitor.visitVarInsn(58, context.var(str7));
         methodVisitor.visitIincInsn(context.var("i"), 1);
@@ -827,7 +827,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, context.var("listContext"));
         String str8 = DefaultJSONParser;
-        StringBuilder sbM1765j3 = C0948f6.m1765j("(");
+        StringBuilder sbM1765j3 = CompilerOutline.m1765j("(");
         sbM1765j3.append(ASMUtils.desc((Class<?>) ParseContext.class));
         sbM1765j3.append(")V");
         methodVisitor.visitMethodInsn(182, str8, "setContext", sbM1765j3.toString());
@@ -863,14 +863,14 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitJumpInsn(160, label3);
         methodVisitor.visitVarInsn(25, 1);
         String str = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("()");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("()");
         sbM1765j.append(ASMUtils.desc((Class<?>) DefaultJSONParser.ResolveTask.class));
         methodVisitor.visitMethodInsn(182, str, "getLastResolveTask", sbM1765j.toString());
         methodVisitor.visitVarInsn(58, context.var("resolveTask"));
         methodVisitor.visitVarInsn(25, context.var("resolveTask"));
         methodVisitor.visitVarInsn(25, 1);
         String str2 = DefaultJSONParser;
-        StringBuilder sbM1765j2 = C0948f6.m1765j("()");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("()");
         sbM1765j2.append(ASMUtils.desc((Class<?>) ParseContext.class));
         methodVisitor.visitMethodInsn(182, str2, "getContext", sbM1765j2.toString());
         methodVisitor.visitFieldInsn(181, ASMUtils.type(DefaultJSONParser.ResolveTask.class), "ownerContext", ASMUtils.desc((Class<?>) ParseContext.class));
@@ -878,7 +878,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitLdcInsn(fieldInfo.name);
         String strType = ASMUtils.type(JavaBeanDeserializer.class);
-        StringBuilder sbM1765j3 = C0948f6.m1765j("(Ljava/lang/String;)");
+        StringBuilder sbM1765j3 = CompilerOutline.m1765j("(Ljava/lang/String;)");
         sbM1765j3.append(ASMUtils.desc((Class<?>) FieldDeserializer.class));
         methodVisitor.visitMethodInsn(182, strType, "getFieldDeserializer", sbM1765j3.toString());
         methodVisitor.visitFieldInsn(181, ASMUtils.type(DefaultJSONParser.ResolveTask.class), "fieldDeserializer", ASMUtils.desc((Class<?>) FieldDeserializer.class));
@@ -891,23 +891,23 @@ public class ASMDeserializerFactory implements Opcodes {
     private void _getCollectionFieldItemDeser(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo, Class<?> cls) {
         Label label = new Label();
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
         methodVisitor.visitJumpInsn(199, label);
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitVarInsn(25, 1);
         String str = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("()");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("()");
         sbM1765j.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         methodVisitor.visitMethodInsn(182, str, "getConfig", sbM1765j.toString());
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls)));
         String strType = ASMUtils.type(ParserConfig.class);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(Ljava/lang/reflect/Type;)");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(Ljava/lang/reflect/Type;)");
         sbM1765j2.append(ASMUtils.desc((Class<?>) ObjectDeserializer.class));
         methodVisitor.visitMethodInsn(182, strType, "getDeserializer", sbM1765j2.toString());
-        methodVisitor.visitFieldInsn(181, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
+        methodVisitor.visitFieldInsn(181, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
         methodVisitor.visitLabel(label);
         methodVisitor.visitVarInsn(25, 0);
-        methodVisitor.visitFieldInsn(180, context.className, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
+        methodVisitor.visitFieldInsn(180, context.className, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
     }
 
     private void _getFieldDeser(Context context, MethodVisitor methodVisitor, FieldInfo fieldInfo) {
@@ -918,12 +918,12 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 0);
         methodVisitor.visitVarInsn(25, 1);
         String str = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("()");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("()");
         sbM1765j.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         methodVisitor.visitMethodInsn(182, str, "getConfig", sbM1765j.toString());
         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(fieldInfo.fieldClass)));
         String strType = ASMUtils.type(ParserConfig.class);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(Ljava/lang/reflect/Type;)");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(Ljava/lang/reflect/Type;)");
         sbM1765j2.append(ASMUtils.desc((Class<?>) ObjectDeserializer.class));
         methodVisitor.visitMethodInsn(182, strType, "getDeserializer", sbM1765j2.toString());
         methodVisitor.visitFieldInsn(181, context.className, context.fieldDeserName(fieldInfo), ASMUtils.desc((Class<?>) ObjectDeserializer.class));
@@ -943,13 +943,13 @@ public class ASMDeserializerFactory implements Opcodes {
             Class<?> cls = fieldInfo.fieldClass;
             if (!cls.isPrimitive()) {
                 if (Collection.class.isAssignableFrom(cls)) {
-                    new FieldWriter(classWriter, 1, C0948f6.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class)).visitEnd();
+                    new FieldWriter(classWriter, 1, CompilerOutline.m1762g(new StringBuilder(), fieldInfo.name, "_asm_list_item_deser__"), ASMUtils.desc((Class<?>) ObjectDeserializer.class)).visitEnd();
                 } else {
                     new FieldWriter(classWriter, 1, context.fieldDeserName(fieldInfo), ASMUtils.desc((Class<?>) ObjectDeserializer.class)).visitEnd();
                 }
             }
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("(");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(");
         sbM1765j.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         sbM1765j.append(ASMUtils.desc((Class<?>) JavaBeanInfo.class));
         sbM1765j.append(")V");
@@ -958,7 +958,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodWriter.visitVarInsn(25, 1);
         methodWriter.visitVarInsn(25, 2);
         String strType = ASMUtils.type(JavaBeanDeserializer.class);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("(");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("(");
         sbM1765j2.append(ASMUtils.desc((Class<?>) ParserConfig.class));
         sbM1765j2.append(ASMUtils.desc((Class<?>) JavaBeanInfo.class));
         sbM1765j2.append(")V");
@@ -977,7 +977,7 @@ public class ASMDeserializerFactory implements Opcodes {
     }
 
     private void _isFlag(MethodVisitor methodVisitor, Context context, int i, Label label) {
-        StringBuilder sbM1765j = C0948f6.m1765j("_asm_flag_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("_asm_flag_");
         sbM1765j.append(i / 32);
         methodVisitor.visitVarInsn(21, context.var(sbM1765j.toString()));
         methodVisitor.visitLdcInsn(Integer.valueOf(1 << i));
@@ -1186,7 +1186,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, 1);
         methodVisitor.visitVarInsn(25, context.var("context"));
         String str = DefaultJSONParser;
-        StringBuilder sbM1765j = C0948f6.m1765j("(");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("(");
         sbM1765j.append(ASMUtils.desc((Class<?>) ParseContext.class));
         sbM1765j.append(")V");
         methodVisitor.visitMethodInsn(182, str, "setContext", sbM1765j.toString());
@@ -1200,7 +1200,7 @@ public class ASMDeserializerFactory implements Opcodes {
     }
 
     private void _setFlag(MethodVisitor methodVisitor, Context context, int i) {
-        StringBuilder sbM1765j = C0948f6.m1765j("_asm_flag_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("_asm_flag_");
         sbM1765j.append(i / 32);
         String string = sbM1765j.toString();
         methodVisitor.visitVarInsn(21, context.var(string));
@@ -1220,11 +1220,11 @@ public class ASMDeserializerFactory implements Opcodes {
         String strM1761f;
         Class<?> cls = javaBeanInfo.clazz;
         if (cls.isPrimitive()) {
-            StringBuilder sbM1765j = C0948f6.m1765j("not support type :");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("not support type :");
             sbM1765j.append(cls.getName());
             throw new IllegalArgumentException(sbM1765j.toString());
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("FastjsonASMDeserializer_");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("FastjsonASMDeserializer_");
         sbM1765j2.append(this.seed.incrementAndGet());
         sbM1765j2.append("_");
         sbM1765j2.append(cls.getSimpleName());
@@ -1233,7 +1233,7 @@ public class ASMDeserializerFactory implements Opcodes {
         if (r1 != null) {
             String name = r1.getName();
             String str = name.replace('.', '/') + GrsManager.SEPARATOR + string;
-            strM1761f = C0948f6.m1761f(name, ".", string);
+            strM1761f = CompilerOutline.m1761f(name, ".", string);
             string = str;
         } else {
             strM1761f = string;
@@ -1264,7 +1264,7 @@ public class ASMDeserializerFactory implements Opcodes {
 
     private void _createInstance(ClassWriter classWriter, Context context) {
         if (Modifier.isPublic(context.beanInfo.defaultConstructor.getModifiers())) {
-            MethodWriter methodWriter = new MethodWriter(classWriter, 1, "createInstance", C0948f6.m1762g(C0948f6.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;)Ljava/lang/Object;"), null, null);
+            MethodWriter methodWriter = new MethodWriter(classWriter, 1, "createInstance", CompilerOutline.m1762g(CompilerOutline.m1765j("(L"), DefaultJSONParser, ";Ljava/lang/reflect/Type;)Ljava/lang/Object;"), null, null);
             methodWriter.visitTypeInsn(187, ASMUtils.type(context.getInstClass()));
             methodWriter.visitInsn(89);
             methodWriter.visitMethodInsn(183, ASMUtils.type(context.getInstClass()), "<init>", "()V");

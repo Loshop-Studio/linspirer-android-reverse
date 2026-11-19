@@ -9,7 +9,7 @@ import com.alibaba.sdk.android.push.MessageReceiver;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
 import com.android.launcher3.model.CommandInfo;
 import com.android.launcher3.network.ReciverPushHelper;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C1219q0;
 import java.util.Map;
 
@@ -18,14 +18,14 @@ public class MsgReceiver extends MessageReceiver {
     @Override // com.alibaba.sdk.android.push.MessageReceiver
     public void onMessage(Context context, CPushMessage cPushMessage) {
         String content = cPushMessage.getContent();
-        C0850bc.m1403m("handle push message" + content);
+        LTKDateUtil.m1403m("handle push message" + content);
         if (TextUtils.isEmpty(content)) {
-            C0850bc.m1403m("MPS:AgooMessageReceiverpush message empty");
+            LTKDateUtil.m1403m("MPS:AgooMessageReceiverpush message empty");
             return;
         }
         CommandInfo commandInfo = (CommandInfo) JSON.parseObject(content, CommandInfo.class);
         if (commandInfo == null) {
-            C0850bc.m1403m("MPS:AgooMessageReceiverparser message empty");
+            LTKDateUtil.m1403m("MPS:AgooMessageReceiverparser message empty");
             return;
         }
         int type = commandInfo.getType();

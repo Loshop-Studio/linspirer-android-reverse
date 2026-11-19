@@ -2,7 +2,7 @@ package com.huawei.updatesdk.fileprovider;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.io.File;
 import java.io.IOException;
@@ -75,7 +75,7 @@ public class C1646b implements InterfaceC1645a {
                 throw new IllegalArgumentException("wisedist: Failed to resolve canonical path for");
             }
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("UpdateSDKFileProvider error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("UpdateSDKFileProvider error: ");
             sbM1765j.append(e.toString());
             throw new IllegalArgumentException(sbM1765j.toString());
         }

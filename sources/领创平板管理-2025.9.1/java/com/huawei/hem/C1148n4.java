@@ -25,7 +25,7 @@ public class C1148n4 extends LTKListResponseListener<ItemApp> {
 
     @Override // com.android.launcher3.network.response.LTKListResponseListener
     public void handleResult(List<ItemApp> list) {
-        C0850bc.m1403m("AppCheckUpdateHelper -- check update sucess");
+        LTKDateUtil.m1403m("AppCheckUpdateHelper -- check update sucess");
         DialogUtil.hideDialog();
         C1198p4 c1198p4 = this.f3286a;
         if (c1198p4 == null) {
@@ -33,17 +33,17 @@ public class C1148n4 extends LTKListResponseListener<ItemApp> {
         }
         ArrayList arrayList = new ArrayList();
         for (ItemApp itemApp : list) {
-            if (C0850bc.m1406p(c1198p4.mContext, itemApp.getPackagename(), itemApp.getVersioncode())) {
+            if (LTKDateUtil.m1406p(c1198p4.mContext, itemApp.getPackagename(), itemApp.getVersioncode())) {
                 arrayList.add(itemApp);
             } else {
-                StringBuilder sbM1765j = C0948f6.m1765j("AppCheckUpdateHelper");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("AppCheckUpdateHelper");
                 sbM1765j.append(itemApp.getPackagename());
                 sbM1765j.append(" -- is no need update");
-                C0850bc.m1403m(sbM1765j.toString());
+                LTKDateUtil.m1403m(sbM1765j.toString());
             }
         }
         if (AbstractC1102l9.m2272M(arrayList)) {
-            C0850bc.m1415y(c1198p4.mContext, R.string.no_upgrade_note);
+            LTKDateUtil.m1415y(c1198p4.mContext, R.string.no_upgrade_note);
             return;
         }
         CommonDialog commonDialog = new CommonDialog();
@@ -53,22 +53,22 @@ public class C1148n4 extends LTKListResponseListener<ItemApp> {
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailed(Response response) {
-        C0850bc.m1403m("AppCheckUpdateHelper -- check update failed");
+        LTKDateUtil.m1403m("AppCheckUpdateHelper -- check update failed");
         DialogUtil.hideDialog();
         if (response == null) {
-            C0850bc.m1414x(this.f3286a.mContext, R.string.network_error_note);
+            LTKDateUtil.m1414x(this.f3286a.mContext, R.string.network_error_note);
             return;
         }
         String string = this.f3286a.mContext.getString(R.string.request_fail_with_code);
-        StringBuilder sbM1765j = C0948f6.m1765j("");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("");
         sbM1765j.append(response.getCode());
-        C0850bc.m1413w(this.f3286a.mContext, String.format(string, sbM1765j.toString()), 0);
+        LTKDateUtil.m1413w(this.f3286a.mContext, String.format(string, sbM1765j.toString()), 0);
     }
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailureByNet(Object obj) {
-        C0850bc.m1403m("AppCheckUpdateHelper -- check update failure");
+        LTKDateUtil.m1403m("AppCheckUpdateHelper -- check update failure");
         DialogUtil.hideDialog();
-        C0850bc.m1414x(this.f3286a.mContext, R.string.network_error_note);
+        LTKDateUtil.m1414x(this.f3286a.mContext, R.string.network_error_note);
     }
 }

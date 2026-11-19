@@ -8,7 +8,7 @@ import android.os.IBinder;
 import android.os.Process;
 import android.support.v4.app.Person;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.IChannelInit;
@@ -94,7 +94,7 @@ public class ServiceImpl extends AbstractC1931d {
                 ALog.m5728e("ServiceImpl", "onHostStartCommand COMMAND_UNBIND_APP", new Object[0]);
                 if (abstractC1940b.m5647j().m5482e(stringExtra)) {
                     Message messageM5490a = Message.m5490a(abstractC1940b, stringExtra);
-                    ALog.m5729i("ServiceImpl", C0948f6.m1760e(stringExtra, " isAppUnbinded"), new Object[0]);
+                    ALog.m5729i("ServiceImpl", CompilerOutline.m1760e(stringExtra, " isAppUnbinded"), new Object[0]);
                     abstractC1940b.m5627a(messageM5490a, AccsErrorCode.SUCCESS);
                     return;
                 }
@@ -149,7 +149,7 @@ public class ServiceImpl extends AbstractC1931d {
             abstractC1940b.f6209a = stringExtra6;
             UtilityImpl.m5762e(this.f6174c, stringExtra4);
             if (abstractC1940b.m5647j().m5481d(stringExtra) && !intent.getBooleanExtra(Constants.KEY_FOUCE_BIND, false)) {
-                ALog.m5729i("ServiceImpl", C0948f6.m1760e(stringExtra, " isAppBinded"), new Object[0]);
+                ALog.m5729i("ServiceImpl", CompilerOutline.m1760e(stringExtra, " isAppBinded"), new Object[0]);
                 abstractC1940b.m5627a(messageM5492a, AccsErrorCode.SUCCESS);
                 return;
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.logger.ILog;
 import com.google.zxing.client.android.InactivityTimer;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import com.taobao.accs.utl.AccsLogger;
 import java.lang.annotation.Retention;
@@ -360,7 +360,7 @@ public class AccsClientConfig {
     }
 
     public String toString() {
-        StringBuilder sbM1767l = C0948f6.m1767l("AccsClientConfig{", "Tag=");
+        StringBuilder sbM1767l = CompilerOutline.m1767l("AccsClientConfig{", "Tag=");
         sbM1767l.append(this.mTag);
         sbM1767l.append(", ConfigEnv=");
         sbM1767l.append(this.mConfigEnv);

@@ -11,7 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.C1587c;
 import com.huawei.updatesdk.p034a.p035a.p040d.C1589e;
@@ -204,13 +204,13 @@ public class C1594c {
         String country = locale.getCountry();
         String variant = locale.getVariant();
         String script = locale.getScript();
-        return (TextUtils.isEmpty(script) && TextUtils.isEmpty(variant)) ? C0948f6.m1761f(language, "_", country) : C0948f6.m1762g(C0948f6.m1770o(language, "_", script, "_", country), "_", variant);
+        return (TextUtils.isEmpty(script) && TextUtils.isEmpty(variant)) ? CompilerOutline.m1761f(language, "_", country) : CompilerOutline.m1762g(CompilerOutline.m1770o(language, "_", script, "_", country), "_", variant);
     }
 
     /* renamed from: e */
     public static String m3571e(Context context) {
         DisplayMetrics displayMetricsM3566c = m3566c(context);
-        return displayMetricsM3566c != null ? C0948f6.m1761f(String.valueOf(displayMetricsM3566c.widthPixels), "_", String.valueOf(displayMetricsM3566c.heightPixels)) : "";
+        return displayMetricsM3566c != null ? CompilerOutline.m1761f(String.valueOf(displayMetricsM3566c.widthPixels), "_", String.valueOf(displayMetricsM3566c.heightPixels)) : "";
     }
 
     /* renamed from: f */
@@ -255,7 +255,7 @@ public class C1594c {
             country = "US";
         }
         if (TextUtils.isEmpty(script)) {
-            return C0948f6.m1761f(language, "_", country);
+            return CompilerOutline.m1761f(language, "_", country);
         }
         return language + "_" + script + "_" + country;
     }

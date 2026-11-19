@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -200,7 +200,7 @@ public final class RatingCompat implements Parcelable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("Rating:style=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Rating:style=");
         sbM1765j.append(this.mRatingStyle);
         sbM1765j.append(" rating=");
         float f = this.mRatingValue;

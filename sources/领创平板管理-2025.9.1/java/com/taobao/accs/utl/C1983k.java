@@ -1,7 +1,7 @@
 package com.taobao.accs.utl;
 
 import anet.channel.util.ALog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* renamed from: com.taobao.accs.utl.k */
@@ -73,7 +73,7 @@ public class C1983k implements ALog.ILog {
     public void mo82e(String str, String str2, Throwable th) {
         this.f6401a.mo82e(str, str2, th);
         a aVar = this.f6402b;
-        StringBuilder sbM1767l = C0948f6.m1767l(str2, " ");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str2, " ");
         sbM1767l.append(th.getMessage());
         aVar.mo5792a(sbM1767l.toString());
     }
@@ -83,7 +83,7 @@ public class C1983k implements ALog.ILog {
     public void mo85w(String str, String str2, Throwable th) {
         this.f6401a.mo85w(str, str2, th);
         a aVar = this.f6402b;
-        StringBuilder sbM1767l = C0948f6.m1767l(str2, " ");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str2, " ");
         sbM1767l.append(th.getMessage());
         aVar.mo5792a(sbM1767l.toString());
     }

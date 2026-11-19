@@ -1,19 +1,19 @@
 package com.huawei.hem;
 
 import anet.channel.util.HttpConstant;
-import com.huawei.hem.C1088kk;
+import com.huawei.hem.OkHttpResponse;
 import javax.annotation.Nullable;
 
 /* compiled from: CacheInterceptor.java */
 /* renamed from: com.huawei.hem.wk */
 /* loaded from: classes.dex */
-public final class C1389wk implements InterfaceC0832ak {
+public final class C1389wk implements OkHttpInterceptor {
 
     /* renamed from: a */
     @Nullable
-    public final InterfaceC1464zk f4027a;
+    public final InternalCache f4027a;
 
-    public C1389wk(@Nullable InterfaceC1464zk interfaceC1464zk) {
+    public C1389wk(@Nullable InternalCache interfaceC1464zk) {
         this.f4027a = interfaceC1464zk;
     }
 
@@ -28,11 +28,11 @@ public final class C1389wk implements InterfaceC0832ak {
     }
 
     /* renamed from: d */
-    public static C1088kk m2912d(C1088kk c1088kk) {
+    public static OkHttpResponse m2912d(OkHttpResponse c1088kk) {
         if (c1088kk == null || c1088kk.f3097g == null) {
             return c1088kk;
         }
-        C1088kk.a aVar = new C1088kk.a(c1088kk);
+        OkHttpResponse.a aVar = new OkHttpResponse.a(c1088kk);
         aVar.f3111g = null;
         return aVar.m2200b();
     }
@@ -62,7 +62,7 @@ public final class C1389wk implements InterfaceC0832ak {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public com.huawei.hem.C1088kk mo1363a(com.huawei.hem.InterfaceC0832ak.a r27) throws java.lang.NumberFormatException, java.io.IOException {
+    public com.huawei.hem.OkHttpResponse mo1363a(com.huawei.hem.OkHttpInterceptor.a r27) throws java.lang.NumberFormatException, java.io.IOException {
         /*
             Method dump skipped, instructions count: 1105
             To view this dump add '--comments-level debug' option

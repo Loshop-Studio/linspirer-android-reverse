@@ -5,7 +5,7 @@ import com.huawei.hem.C0834am;
 /* compiled from: Http2Connection.java */
 /* renamed from: com.huawei.hem.im */
 /* loaded from: classes.dex */
-public class C1040im extends AbstractRunnableC1289sk {
+public class C1040im extends NamedRunnable {
 
     /* renamed from: b */
     public final /* synthetic */ C0834am.g f2928b;

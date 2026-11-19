@@ -17,7 +17,7 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Queue;
 
 /* loaded from: classes.dex */
@@ -158,7 +158,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
     }
 
     private void logV(String str) {
-        StringBuilder sbM1767l = C0948f6.m1767l(str, " this: ");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str, " this: ");
         sbM1767l.append(this.tag);
         Log.v(TAG, sbM1767l.toString());
     }
@@ -214,7 +214,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
             this.target.onLoadStarted(getPlaceholderDrawable());
         }
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("finished run method in ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("finished run method in ");
             sbM1765j.append(LogTime.getElapsedMillis(this.startTime));
             logV(sbM1765j.toString());
         }
@@ -294,7 +294,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
     @Override // com.bumptech.glide.request.ResourceCallback
     public void onResourceReady(Resource<?> resource) {
         if (resource == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Expected to receive a Resource<R> with an object of ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Expected to receive a Resource<R> with an object of ");
             sbM1765j.append(this.transcodeClass);
             sbM1765j.append(" inside, but instead got null.");
             onException(new Exception(sbM1765j.toString()));
@@ -312,7 +312,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
             }
         }
         releaseResource(resource);
-        StringBuilder sbM1765j2 = C0948f6.m1765j("Expected to receive an object of ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("Expected to receive an object of ");
         sbM1765j2.append(this.transcodeClass);
         sbM1765j2.append(" but instead got ");
         sbM1765j2.append(obj != null ? obj.getClass() : "");
@@ -329,7 +329,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
     @Override // com.bumptech.glide.request.target.SizeReadyCallback
     public void onSizeReady(int i, int i2) {
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Got onSizeReady in ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Got onSizeReady in ");
             sbM1765j.append(LogTime.getElapsedMillis(this.startTime));
             logV(sbM1765j.toString());
         }
@@ -341,7 +341,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
         int iRound2 = Math.round(this.sizeMultiplier * i2);
         DataFetcher<T> resourceFetcher = this.loadProvider.getModelLoader().getResourceFetcher(this.model, iRound, iRound2);
         if (resourceFetcher == null) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("Failed to load model: '");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Failed to load model: '");
             sbM1765j2.append(this.model);
             sbM1765j2.append("'");
             onException(new Exception(sbM1765j2.toString()));
@@ -349,7 +349,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
         }
         ResourceTranscoder<Z, R> transcoder = this.loadProvider.getTranscoder();
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j3 = C0948f6.m1765j("finished setup for calling load in ");
+            StringBuilder sbM1765j3 = CompilerOutline.m1765j("finished setup for calling load in ");
             sbM1765j3.append(LogTime.getElapsedMillis(this.startTime));
             logV(sbM1765j3.toString());
         }
@@ -357,7 +357,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
         this.loadStatus = this.engine.load(this.signature, iRound, iRound2, resourceFetcher, this.loadProvider, this.transformation, transcoder, this.priority, this.isMemoryCacheable, this.diskCacheStrategy, this);
         this.loadedFromMemoryCache = this.resource != null;
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j4 = C0948f6.m1765j("finished onSizeReady in ");
+            StringBuilder sbM1765j4 = CompilerOutline.m1765j("finished onSizeReady in ");
             sbM1765j4.append(LogTime.getElapsedMillis(this.startTime));
             logV(sbM1765j4.toString());
         }
@@ -397,7 +397,7 @@ public final class GenericRequest<A, T, Z, R> implements Request, SizeReadyCallb
         }
         notifyLoadSuccess();
         if (Log.isLoggable(TAG, 2)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Resource ready in ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Resource ready in ");
             sbM1765j.append(LogTime.getElapsedMillis(this.startTime));
             sbM1765j.append(" size: ");
             sbM1765j.append(resource.getSize() * 9.5367431640625E-7d);

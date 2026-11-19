@@ -2,7 +2,7 @@ package com.android.launcher3.model;
 
 import android.content.pm.ResolveInfo;
 import android.support.annotation.NonNull;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -111,8 +111,8 @@ public class AppItem implements Serializable, Comparable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("AppItem{pkgName='");
-        C0948f6.m1781z(sbM1765j, this.pkgName, '\'', ", weight=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("AppItem{pkgName='");
+        CompilerOutline.m1781z(sbM1765j, this.pkgName, '\'', ", weight=");
         sbM1765j.append(this.weight);
         sbM1765j.append('}');
         return sbM1765j.toString();

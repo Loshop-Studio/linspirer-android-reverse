@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import anet.channel.strategy.dispatch.DispatchConstants;
-import com.loc.C1834ep;
+import com.loc.CoreUtil;
 import com.loc.C1841ew;
 import com.taobao.accs.common.Constants;
 import com.taobao.agoo.p074a.p075a.AbstractC2002b;
@@ -303,7 +303,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
             aMapLocation.setTrustedLevel(this.f1489C);
             aMapLocation.setConScenario(this.f1490D);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMapLocation", "clone");
+            CoreUtil.m5014a(th, "AMapLocation", "clone");
         }
         return aMapLocation;
     }
@@ -533,7 +533,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
             try {
                 Integer.parseInt(str);
             } catch (Throwable th) {
-                C1834ep.m5014a(th, "AmapLoc", "setFloor");
+                CoreUtil.m5014a(th, "AmapLoc", "setFloor");
                 str = null;
             }
         }
@@ -659,7 +659,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
             jSONObject.put("coordType", this.f1488B);
             return jSONObject;
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AmapLoc", "toStr");
+            CoreUtil.m5014a(th, "AmapLoc", "toStr");
             return null;
         }
     }
@@ -673,7 +673,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
         try {
             json = toJson(i);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMapLocation", "toStr part2");
+            CoreUtil.m5014a(th, "AMapLocation", "toStr part2");
             json = null;
         }
         if (json == null) {
@@ -754,7 +754,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
             parcel.writeInt(this.f1489C);
             parcel.writeInt(this.f1490D);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMapLocation", "writeToParcel");
+            CoreUtil.m5014a(th, "AMapLocation", "writeToParcel");
         }
     }
 }

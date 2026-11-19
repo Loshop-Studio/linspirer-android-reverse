@@ -25,7 +25,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -59,7 +59,7 @@ public class SupportMenuInflater extends MenuInflater {
             try {
                 this.mMethod = cls.getMethod(str, PARAM_TYPES);
             } catch (Exception e) {
-                StringBuilder sbM1769n = C0948f6.m1769n("Couldn't resolve menu item onClick handler ", str, " in class ");
+                StringBuilder sbM1769n = CompilerOutline.m1769n("Couldn't resolve menu item onClick handler ", str, " in class ");
                 sbM1769n.append(cls.getName());
                 InflateException inflateException = new InflateException(sbM1769n.toString());
                 inflateException.initCause(e);
@@ -311,7 +311,7 @@ public class SupportMenuInflater extends MenuInflater {
             if (eventType == 2) {
                 String name = xmlPullParser.getName();
                 if (!name.equals(XML_MENU)) {
-                    throw new RuntimeException(C0948f6.m1760e("Expecting menu, got ", name));
+                    throw new RuntimeException(CompilerOutline.m1760e("Expecting menu, got ", name));
                 }
                 eventType = xmlPullParser.next();
             } else {

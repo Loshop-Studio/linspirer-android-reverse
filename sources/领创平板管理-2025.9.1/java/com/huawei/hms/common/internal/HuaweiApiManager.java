@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1401x7;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.ConnectionResult;
@@ -150,7 +150,7 @@ public class HuaweiApiManager implements Handler.Callback {
             boolean z = true;
             while (it.hasNext()) {
                 TaskApiCallWrapper apiCallWrapper = it.next().getApiCallWrapper();
-                StringBuilder sbM1765j = C0948f6.m1765j("Connection Failed:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Connection Failed:");
                 sbM1765j.append(errorReason(connectionResult));
                 sbM1765j.append("(");
                 sbM1765j.append(connectionResult.getErrorCode());
@@ -217,7 +217,7 @@ public class HuaweiApiManager implements Handler.Callback {
                     }
                     ResponseHeader responseHeader = (ResponseHeader) iMessageEntity;
                     if (!TextUtils.isEmpty(responseHeader.getResolution())) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Response has resolution: ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Response has resolution: ");
                         sbM1765j.append(responseHeader.getResolution());
                         HMSLog.m3461e(HuaweiApiManager.TAG, sbM1765j.toString());
                     }
@@ -407,7 +407,7 @@ public class HuaweiApiManager implements Handler.Callback {
             connectAndSendRequest((HandlerMessageWrapper) message.obj);
             return true;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Unknown message id: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Unknown message id: ");
         sbM1765j.append(message.what);
         HMSLog.m3464w(TAG, sbM1765j.toString());
         return false;

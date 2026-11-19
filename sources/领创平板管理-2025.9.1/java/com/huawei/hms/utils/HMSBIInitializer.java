@@ -5,8 +5,8 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import com.huawei.hem.C0900da;
 import com.huawei.hem.C0926ea;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C0951f9;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.HmsHiAnalyticsUtils;
 import com.huawei.hem.C1028ia;
 import com.huawei.hem.C1303t9;
 import com.huawei.hem.C1328u9;
@@ -22,8 +22,8 @@ import com.huawei.hms.framework.network.grs.GrsApp;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.huawei.hms.framework.network.grs.GrsClient;
 import com.huawei.hms.framework.network.grs.IQueryUrlCallBack;
-import com.huawei.hms.stats.C1557a;
-import com.huawei.hms.stats.C1559c;
+import com.huawei.hms.stats.AnalyticsSwitchHolder;
+import com.huawei.hms.stats.HianalyticsExist;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Locale;
@@ -49,7 +49,7 @@ public class HMSBIInitializer {
     public AtomicBoolean f4600b = new AtomicBoolean(false);
 
     /* renamed from: c */
-    public boolean f4601c = C1559c.m3448a();
+    public boolean f4601c = HianalyticsExist.m3448a();
 
     /* renamed from: com.huawei.hms.utils.HMSBIInitializer$a */
     public class C1577a implements IQueryUrlCallBack {
@@ -92,12 +92,12 @@ public class HMSBIInitializer {
                         C1404xa.m2937d("hmsSdk", "Builder.create() is execute.");
                         C1378w9 c1378w9 = new C1378w9("_hms_config_tag");
                         C0926ea c0926ea = new C0926ea(c0900da.f2396a);
-                        StringBuilder sbM1765j = C0948f6.m1765j("HiAnalyticsInstanceImpl.setOperConf() is executed.TAG: ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("HiAnalyticsInstanceImpl.setOperConf() is executed.TAG: ");
                         sbM1765j.append(c1378w9.f4012a);
                         C1404xa.m2937d("hmsSdk", sbM1765j.toString());
                         c1378w9.f4013b.f2941b = c0926ea;
                         C0926ea c0926ea2 = new C0926ea(c0900da.f2397b);
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("HiAnalyticsInstanceImpl.setMaintConf() is executed.TAG : ");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("HiAnalyticsInstanceImpl.setMaintConf() is executed.TAG : ");
                         sbM1765j2.append(c1378w9.f4012a);
                         C1404xa.m2937d("hmsSdk", sbM1765j2.toString());
                         c1378w9.f4013b.f2940a = c0926ea2;
@@ -213,9 +213,9 @@ public class HMSBIInitializer {
     }
 
     public void initBI() {
-        boolean zM1784b = !this.f4601c ? C0951f9.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
+        boolean zM1784b = !this.f4601c ? HmsHiAnalyticsUtils.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
         HMSLog.m3463i("HMSBIInitializer", "Builder->biInitFlag :" + zM1784b);
-        if (zM1784b || C1557a.m3443c(this.f4599a) || !this.f4600b.compareAndSet(false, true)) {
+        if (zM1784b || AnalyticsSwitchHolder.m3443c(this.f4599a) || !this.f4600b.compareAndSet(false, true)) {
             return;
         }
         String issueCountryCode = GrsApp.getInstance().getIssueCountryCode(this.f4599a);
@@ -231,7 +231,7 @@ public class HMSBIInitializer {
     }
 
     public boolean isInit() {
-        return !this.f4601c ? C0951f9.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
+        return !this.f4601c ? HmsHiAnalyticsUtils.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
     }
 
     /* renamed from: a */

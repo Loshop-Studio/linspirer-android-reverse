@@ -7,7 +7,7 @@ import anet.channel.strategy.utils.C0413c;
 import anet.channel.util.ALog;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpUrl;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -152,10 +152,10 @@ public class Request {
 
         public Request build() {
             if (this.f353g == null && this.f351e == null && Method.m201a(this.f349c)) {
-                ALog.m339e("awcn.Request", C0948f6.m1762g(C0948f6.m1765j("method "), this.f349c, " must have a request body"), null, new Object[0]);
+                ALog.m339e("awcn.Request", CompilerOutline.m1762g(CompilerOutline.m1765j("method "), this.f349c, " must have a request body"), null, new Object[0]);
             }
             if (this.f353g != null && !Method.m202b(this.f349c)) {
-                ALog.m339e("awcn.Request", C0948f6.m1762g(C0948f6.m1765j("method "), this.f349c, " should not have a request body"), null, new Object[0]);
+                ALog.m339e("awcn.Request", CompilerOutline.m1762g(CompilerOutline.m1765j("method "), this.f349c, " should not have a request body"), null, new Object[0]);
                 this.f353g = null;
             }
             BodyEntry bodyEntry = this.f353g;
@@ -279,7 +279,7 @@ public class Request {
             if (httpUrl != null) {
                 return this;
             }
-            throw new IllegalArgumentException(C0948f6.m1760e("toURL is invalid! toURL = ", str));
+            throw new IllegalArgumentException(CompilerOutline.m1760e("toURL is invalid! toURL = ", str));
         }
     }
 

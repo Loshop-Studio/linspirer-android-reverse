@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
 import org.greenrobot.greendao.database.Database;
@@ -28,11 +28,11 @@ public class GesturePasswordDao extends AbstractDao<GesturePassword, Long> {
         database.execSQL("CREATE TABLE " + str + "\"gestrue_password_table\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"USER_NAME\" TEXT,\"GESTURE_PASSWORD\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_gestrue_password_table__id ON \"gestrue_password_table\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_gestrue_password_table__id ON \"gestrue_password_table\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"gestrue_password_table\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"gestrue_password_table\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

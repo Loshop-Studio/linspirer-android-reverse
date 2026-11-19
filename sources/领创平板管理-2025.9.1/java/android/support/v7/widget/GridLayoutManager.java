@@ -11,7 +11,7 @@ import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Arrays;
 
 /* loaded from: classes.dex */
@@ -733,7 +733,7 @@ public class GridLayoutManager extends LinearLayoutManager {
         }
         this.mPendingSpanCountChange = true;
         if (i < 1) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Span count should be at least 1. Provided ", i));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Span count should be at least 1. Provided ", i));
         }
         this.mSpanCount = i;
         this.mSpanSizeLookup.invalidateSpanIndexCache();

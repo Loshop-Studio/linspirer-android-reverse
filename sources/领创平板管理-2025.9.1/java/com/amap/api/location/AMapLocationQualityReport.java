@@ -2,7 +2,7 @@ package com.amap.api.location;
 
 import com.amap.api.location.AMapLocationClientOption;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import com.loc.C1834ep;
+import com.loc.CoreUtil;
 
 /* loaded from: classes.dex */
 public class AMapLocationQualityReport implements Cloneable {
@@ -49,7 +49,7 @@ public class AMapLocationQualityReport implements Cloneable {
             aMapLocationQualityReport.setLocationMode(this.f1558a);
             aMapLocationQualityReport.setInstallHighDangerMockApp(this.f1564g);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "AMapLocationQualityReport", "clone");
+            CoreUtil.m5014a(th, "AMapLocationQualityReport", "clone");
         }
         return aMapLocationQualityReport;
     }

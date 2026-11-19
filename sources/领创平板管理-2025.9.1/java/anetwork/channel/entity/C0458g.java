@@ -11,7 +11,7 @@ import anetwork.channel.aidl.ParcelableRequest;
 import anetwork.channel.config.NetworkConfigCenter;
 import anetwork.channel.util.C0474a;
 import anetwork.channel.util.RequestConstant;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -92,7 +92,7 @@ public class C0458g {
     private HttpUrl m424l() {
         HttpUrl httpUrl = HttpUrl.parse(this.f742g.url);
         if (httpUrl == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("url is invalid. url=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("url is invalid. url=");
             sbM1765j.append(this.f742g.url);
             throw new IllegalArgumentException(sbM1765j.toString());
         }

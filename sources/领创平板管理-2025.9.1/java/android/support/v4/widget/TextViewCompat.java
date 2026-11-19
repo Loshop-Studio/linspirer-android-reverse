@@ -31,7 +31,7 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
@@ -324,7 +324,7 @@ public final class TextViewCompat {
         try {
             return field.getInt(textView);
         } catch (IllegalAccessException unused) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Could not retrieve value of ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Could not retrieve value of ");
             sbM1765j.append(field.getName());
             sbM1765j.append(" field.");
             Log.d(LOG_TAG, sbM1765j.toString());

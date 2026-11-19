@@ -23,14 +23,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import com.huawei.hem.AbstractC0992h;
-import com.huawei.hem.C1067k;
-import com.huawei.hem.C1293t;
-import com.huawei.hem.InterfaceC1318u;
+import com.huawei.hem.LifecycleRegistry;
+import com.huawei.hem.ViewModelStore;
+import com.huawei.hem.ViewModelStoreOwner;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 /* loaded from: classes.dex */
-public class FragmentActivity extends SupportActivity implements InterfaceC1318u, ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
+public class FragmentActivity extends SupportActivity implements ViewModelStoreOwner, ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
     public static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final int MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS = 65534;
@@ -45,7 +45,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
     public boolean mResumed;
     public boolean mStartedActivityFromFragment;
     public boolean mStartedIntentSenderFromFragment;
-    public C1293t mViewModelStore;
+    public ViewModelStore mViewModelStore;
     public final Handler mHandler = new Handler() { // from class: android.support.v4.app.FragmentActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -151,7 +151,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
     public static final class NonConfigurationInstances {
         public Object custom;
         public FragmentManagerNonConfig fragments;
-        public C1293t viewModelStore;
+        public ViewModelStore viewModelStore;
     }
 
     private int allocateRequestIndex(Fragment fragment) {
@@ -182,7 +182,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
         boolean zMarkState = false;
         for (Fragment fragment : fragmentManager.getFragments()) {
             if (fragment != null) {
-                if (((C1067k) fragment.getLifecycle()).f2994b.isAtLeast(AbstractC0992h.b.STARTED)) {
+                if (((LifecycleRegistry) fragment.getLifecycle()).f2994b.isAtLeast(AbstractC0992h.b.STARTED)) {
                     fragment.mLifecycleRegistry.m2152e(bVar);
                     zMarkState = true;
                 }
@@ -244,7 +244,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
 
     @Override // com.huawei.hem.InterfaceC1318u
     @NonNull
-    public C1293t getViewModelStore() {
+    public ViewModelStore getViewModelStore() {
         if (getApplication() == null) {
             throw new IllegalStateException("Your activity is not yet attached to the Application instance. You can't request ViewModel before onCreate call.");
         }
@@ -254,7 +254,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
                 this.mViewModelStore = nonConfigurationInstances.viewModelStore;
             }
             if (this.mViewModelStore == null) {
-                this.mViewModelStore = new C1293t();
+                this.mViewModelStore = new ViewModelStore();
             }
         }
         return this.mViewModelStore;
@@ -310,7 +310,7 @@ public class FragmentActivity extends SupportActivity implements InterfaceC1318u
 
     @Override // android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        C1293t c1293t;
+        ViewModelStore c1293t;
         this.mFragments.attachHost(null);
         super.onCreate(bundle);
         NonConfigurationInstances nonConfigurationInstances = (NonConfigurationInstances) getLastNonConfigurationInstance();

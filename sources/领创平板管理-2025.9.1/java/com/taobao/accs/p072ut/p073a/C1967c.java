@@ -1,6 +1,6 @@
 package com.taobao.accs.p072ut.p073a;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.UTMini;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ public class C1967c {
         String strValueOf3;
         long jCurrentTimeMillis = System.currentTimeMillis();
         if (ALog.isPrintLog(ALog.Level.D)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("commitUT interval:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("commitUT interval:");
             sbM1765j.append(jCurrentTimeMillis - this.f6344k);
             sbM1765j.append(" interval1:");
             sbM1765j.append(jCurrentTimeMillis - this.f6341h);

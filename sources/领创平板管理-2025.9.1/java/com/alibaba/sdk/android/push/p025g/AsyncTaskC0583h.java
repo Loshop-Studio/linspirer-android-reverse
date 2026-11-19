@@ -10,7 +10,7 @@ import com.alibaba.sdk.android.push.common.p018a.C0560d;
 import com.alibaba.sdk.android.push.common.util.p019a.AbstractAsyncTaskC0565c;
 import com.alibaba.sdk.android.push.common.util.p019a.C0564b;
 import com.alibaba.sdk.android.push.p016b.C0555f;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Map;
 
 /* renamed from: com.alibaba.sdk.android.push.g.h */
@@ -36,7 +36,7 @@ public class AsyncTaskC0583h extends AbstractAsyncTaskC0565c {
             return;
         }
         AmsLogger amsLogger = f1294c;
-        StringBuilder sbM1766k = C0948f6.m1766k("requestType: ", i, ", errorCode:");
+        StringBuilder sbM1766k = CompilerOutline.m1766k("requestType: ", i, ", errorCode:");
         sbM1766k.append(c0564b.f1156c);
         sbM1766k.append(", httpcode: ");
         sbM1766k.append(c0564b.f1155b);

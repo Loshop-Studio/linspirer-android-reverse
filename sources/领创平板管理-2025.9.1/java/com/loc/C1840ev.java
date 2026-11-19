@@ -13,7 +13,7 @@ public final class C1840ev {
         try {
             return context.getSharedPreferences(str, 0).getInt(str2, i);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "getPrefsInt");
+            CoreUtil.m5014a(th, "SpUtil", "getPrefsInt");
             return i;
         }
     }
@@ -23,7 +23,7 @@ public final class C1840ev {
         try {
             return context.getSharedPreferences(str, 0).getLong(str2, j);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "getPrefsLong");
+            CoreUtil.m5014a(th, "SpUtil", "getPrefsLong");
             return j;
         }
     }
@@ -43,7 +43,7 @@ public final class C1840ev {
         try {
             return context.getSharedPreferences(str, 0).getString(str2, str3);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "getPrefsInt");
+            CoreUtil.m5014a(th, "SpUtil", "getPrefsInt");
             return str3;
         }
     }
@@ -61,7 +61,7 @@ public final class C1840ev {
         try {
             editor.remove(str);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "setPrefsLong");
+            CoreUtil.m5014a(th, "SpUtil", "setPrefsLong");
         }
     }
 
@@ -70,7 +70,7 @@ public final class C1840ev {
         try {
             editor.putInt(str, i);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "setPrefsInt");
+            CoreUtil.m5014a(th, "SpUtil", "setPrefsInt");
         }
     }
 
@@ -79,7 +79,7 @@ public final class C1840ev {
         try {
             editor.putLong(str, j);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "setPrefsLong");
+            CoreUtil.m5014a(th, "SpUtil", "setPrefsLong");
         }
     }
 
@@ -88,7 +88,7 @@ public final class C1840ev {
         try {
             editor.putString(str, str2);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "setPrefsStr");
+            CoreUtil.m5014a(th, "SpUtil", "setPrefsStr");
         }
     }
 
@@ -97,7 +97,7 @@ public final class C1840ev {
         try {
             editor.putBoolean(str, z);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "updatePrefsBoolean");
+            CoreUtil.m5014a(th, "SpUtil", "updatePrefsBoolean");
         }
     }
 
@@ -106,7 +106,7 @@ public final class C1840ev {
         try {
             return context.getSharedPreferences(str, 0).getBoolean(str2, z);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "SpUtil", "getPrefsBoolean");
+            CoreUtil.m5014a(th, "SpUtil", "getPrefsBoolean");
             return z;
         }
     }

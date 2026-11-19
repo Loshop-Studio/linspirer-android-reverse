@@ -7,10 +7,10 @@ import android.os.Build;
 import android.os.UserManager;
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C1147n3;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.PushCallBack;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class GuardSecureApplication extends Application {
@@ -19,7 +19,7 @@ public class GuardSecureApplication extends Application {
     public static GuardSecureApplication f1640b;
 
     /* renamed from: a */
-    public C1424y5 f1641a;
+    public UserInfoUtil f1641a;
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x0454  */
     /* JADX WARN: Removed duplicated region for block: B:102:0x045a  */
@@ -61,18 +61,18 @@ public class GuardSecureApplication extends Application {
     public void m1160b() {
         UserManager userManager = (UserManager) getSystemService(UserManager.class);
         if (Build.VERSION.SDK_INT < 24 || userManager.isUserUnlocked()) {
-            C0850bc.m1403m("GuardSecureApplication init push for message");
-            C1424y5 c1424y5 = this.f1641a;
+            LTKDateUtil.m1403m("GuardSecureApplication init push for message");
+            UserInfoUtil c1424y5 = this.f1641a;
             if (c1424y5.f4137K != "") {
                 c1424y5.f4137K = "";
-                C0824ac c0824ac = c1424y5.f4130D;
+                DeskSPF c0824ac = c1424y5.f4130D;
                 c0824ac.f2200b.putString("push_token", "");
                 c0824ac.f2200b.commit();
             }
             PushServiceFactory.init(this);
             CloudPushService cloudPushService = PushServiceFactory.getCloudPushService();
             cloudPushService.setLogLevel(-1);
-            cloudPushService.register(this, new C1147n3());
+            cloudPushService.register(this, new PushCallBack());
         }
     }
 

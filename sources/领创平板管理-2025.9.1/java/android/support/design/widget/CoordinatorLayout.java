@@ -44,7 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -474,7 +474,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             if (behavior == null || !behavior.getInsetDodgeRect(this, view, rectAcquireTempRect)) {
                 rectAcquireTempRect.set(rectAcquireTempRect2);
             } else if (!rectAcquireTempRect2.contains(rectAcquireTempRect)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Rect should be within the child's bounds. Rect:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Rect should be within the child's bounds. Rect:");
                 sbM1765j.append(rectAcquireTempRect.toShortString());
                 sbM1765j.append(" | Bounds:");
                 sbM1765j.append(rectAcquireTempRect2.toShortString());
@@ -542,7 +542,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
             return (Behavior) constructor.newInstance(context, attributeSet);
         } catch (Exception e) {
-            throw new RuntimeException(C0948f6.m1760e("Could not inflate Behavior subclass ", str), e);
+            throw new RuntimeException(CompilerOutline.m1760e("Could not inflate Behavior subclass ", str), e);
         }
     }
 
@@ -896,7 +896,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     try {
                         layoutParams.setBehavior(defaultBehavior.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
                     } catch (Exception e) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Default behavior class ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Default behavior class ");
                         sbM1765j.append(defaultBehavior.value().getName());
                         sbM1765j.append(" could not be instantiated. Did you forget");
                         sbM1765j.append(" a default constructor?");
@@ -1609,7 +1609,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     this.mAnchorView = null;
                     return;
                 } else {
-                    StringBuilder sbM1765j = C0948f6.m1765j("Could not find CoordinatorLayout descendant view with id ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("Could not find CoordinatorLayout descendant view with id ");
                     sbM1765j.append(coordinatorLayout.getResources().getResourceName(this.mAnchorId));
                     sbM1765j.append(" to anchor view ");
                     sbM1765j.append(view);

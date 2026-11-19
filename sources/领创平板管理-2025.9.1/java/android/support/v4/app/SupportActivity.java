@@ -11,15 +11,15 @@ import android.support.v4.view.KeyEventDispatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import com.huawei.hem.AbstractC0992h;
-import com.huawei.hem.C1067k;
-import com.huawei.hem.InterfaceC1042j;
+import com.huawei.hem.LifecycleRegistry;
+import com.huawei.hem.LifecycleOwner;
 
 /* compiled from: ComponentActivity.java */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
-public class SupportActivity extends Activity implements InterfaceC1042j, KeyEventDispatcher.Component {
+public class SupportActivity extends Activity implements LifecycleOwner, KeyEventDispatcher.Component {
     public SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
-    public C1067k mLifecycleRegistry = new C1067k(this);
+    public LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
     /* compiled from: ComponentActivity.java */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

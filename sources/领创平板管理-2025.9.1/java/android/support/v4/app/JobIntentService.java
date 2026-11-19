@@ -16,7 +16,7 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -270,7 +270,7 @@ public abstract class JobIntentService extends Service {
                 if (this.mJobId == i) {
                     return;
                 }
-                StringBuilder sbM1766k = C0948f6.m1766k("Given job ID ", i, " is different than previous ");
+                StringBuilder sbM1766k = CompilerOutline.m1766k("Given job ID ", i, " is different than previous ");
                 sbM1766k.append(this.mJobId);
                 throw new IllegalArgumentException(sbM1766k.toString());
             }

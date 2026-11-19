@@ -10,7 +10,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -77,7 +77,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
 
         public String toString() {
-            StringBuilder sbM1767l = C0948f6.m1767l("[", "resolveInfo:");
+            StringBuilder sbM1767l = CompilerOutline.m1767l("[", "resolveInfo:");
             sbM1767l.append(this.resolveInfo.toString());
             sbM1767l.append("; weight:");
             sbM1767l.append(new BigDecimal(this.weight));
@@ -159,7 +159,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
 
         public String toString() {
-            StringBuilder sbM1767l = C0948f6.m1767l("[", "; activity:");
+            StringBuilder sbM1767l = CompilerOutline.m1767l("[", "; activity:");
             sbM1767l.append(this.activity);
             sbM1767l.append("; time:");
             sbM1767l.append(this.time);
@@ -255,7 +255,7 @@ public class ActivityChooserModel extends DataSetObservable {
         if (TextUtils.isEmpty(str) || str.endsWith(HISTORY_FILE_EXTENSION)) {
             this.mHistoryFileName = str;
         } else {
-            this.mHistoryFileName = C0948f6.m1760e(str, HISTORY_FILE_EXTENSION);
+            this.mHistoryFileName = CompilerOutline.m1760e(str, HISTORY_FILE_EXTENSION);
         }
     }
 

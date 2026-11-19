@@ -46,7 +46,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.alibaba.fastjson.asm.Label;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.actions.SearchIntents;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.lang.reflect.InvocationTargetException;
@@ -209,7 +209,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
 
         public String toString() {
-            StringBuilder sbM1765j = C0948f6.m1765j("SearchView.SavedState{");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("SearchView.SavedState{");
             sbM1765j.append(Integer.toHexString(System.identityHashCode(this)));
             sbM1765j.append(" isIconified=");
             sbM1765j.append(this.isIconified);

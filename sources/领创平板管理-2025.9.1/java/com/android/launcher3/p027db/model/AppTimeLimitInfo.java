@@ -1,6 +1,6 @@
 package com.android.launcher3.p027db.model;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -111,14 +111,14 @@ public class AppTimeLimitInfo {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("AppTimeLimitInfo{friday='");
-        C0948f6.m1781z(sbM1765j, this.friday, '\'', ", monday='");
-        C0948f6.m1781z(sbM1765j, this.monday, '\'', ", sunday='");
-        C0948f6.m1781z(sbM1765j, this.sunday, '\'', ", tuesday='");
-        C0948f6.m1781z(sbM1765j, this.tuesday, '\'', ", saturday='");
-        C0948f6.m1781z(sbM1765j, this.saturday, '\'', ", thursday='");
-        C0948f6.m1781z(sbM1765j, this.thursday, '\'', ", wednesday='");
-        C0948f6.m1781z(sbM1765j, this.wednesday, '\'', ", packageNames='");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("AppTimeLimitInfo{friday='");
+        CompilerOutline.m1781z(sbM1765j, this.friday, '\'', ", monday='");
+        CompilerOutline.m1781z(sbM1765j, this.monday, '\'', ", sunday='");
+        CompilerOutline.m1781z(sbM1765j, this.sunday, '\'', ", tuesday='");
+        CompilerOutline.m1781z(sbM1765j, this.tuesday, '\'', ", saturday='");
+        CompilerOutline.m1781z(sbM1765j, this.saturday, '\'', ", thursday='");
+        CompilerOutline.m1781z(sbM1765j, this.thursday, '\'', ", wednesday='");
+        CompilerOutline.m1781z(sbM1765j, this.wednesday, '\'', ", packageNames='");
         sbM1765j.append(this.packageNames);
         sbM1765j.append('\'');
         sbM1765j.append('}');

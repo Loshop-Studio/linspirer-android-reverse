@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import anet.channel.strategy.dispatch.DispatchConstants;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
 
@@ -34,7 +34,7 @@ public final class C1636a {
             f4709a = str2;
             return str2;
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("getUserAgent() ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("getUserAgent() ");
             sbM1765j.append(e.toString());
             C1584a.m3516b("ApplicationSession", sbM1765j.toString());
             return null;

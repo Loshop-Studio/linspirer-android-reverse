@@ -3,9 +3,9 @@ package com.android.launcher3.network.params;
 import android.content.pm.PackageManager;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.android.launcher3.GuardSecureApplication;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0940eo;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -51,25 +51,25 @@ public class V2Params {
 
     public String getParams() {
         String str = this.params;
-        C0850bc.m1395e("1191ADF1-8489-D8DA-5E9B-755A8B674394");
+        LTKDateUtil.m1395e("1191ADF1-8489-D8DA-5E9B-755A8B674394");
         try {
-            Cipher cipherM1402l = C0850bc.m1402l(1);
+            Cipher cipherM1402l = LTKDateUtil.m1402l(1);
             return cipherM1402l == null ? str : new String(C0940eo.m1690f(cipherM1402l.doFinal(str.getBytes())));
         } catch (BadPaddingException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("login two:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("login two:");
             sbM1765j.append(e.getMessage());
-            C0850bc.m1393c(sbM1765j.toString());
+            LTKDateUtil.m1393c(sbM1765j.toString());
             return str;
         } catch (IllegalBlockSizeException e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("login one:");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("login one:");
             sbM1765j2.append(e2.getMessage());
-            C0850bc.m1393c(sbM1765j2.toString());
+            LTKDateUtil.m1393c(sbM1765j2.toString());
             return str;
         } catch (Exception e3) {
-            C0948f6.m1776u(e3, C0948f6.m1765j("logoutold exception:"));
+            CompilerOutline.m1776u(e3, CompilerOutline.m1765j("logoutold exception:"));
             return str;
         } catch (Throwable th) {
-            C0948f6.m1744B(th, C0948f6.m1765j("logoutold throwable:"));
+            CompilerOutline.m1744B(th, CompilerOutline.m1765j("logoutold throwable:"));
             return str;
         }
     }

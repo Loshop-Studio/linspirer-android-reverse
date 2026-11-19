@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.provider.BaseColumns;
-import com.huawei.hem.C1347v3;
+import com.huawei.hem.UserInfoDBHelper;
 import java.util.HashMap;
 import org.android.agoo.common.AgooConstants;
 
@@ -28,7 +28,7 @@ public class UserDeviceInfoProvider extends ContentProvider {
     public static final Uri f1900d = Uri.parse("content://com.drupe.swd.launcher.huoshan.mdm.provider.CommonLoginContentProvider/users");
 
     /* renamed from: a */
-    public C1347v3 f1901a;
+    public UserInfoDBHelper f1901a;
 
     /* renamed from: com.android.launcher3.db.provider.UserDeviceInfoProvider$a */
     public static final class C0650a implements BaseColumns {
@@ -82,7 +82,7 @@ public class UserDeviceInfoProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f1901a = new C1347v3(getContext(), "common_login_user.db", 2);
+        this.f1901a = new UserInfoDBHelper(getContext(), "common_login_user.db", 2);
         return true;
     }
 

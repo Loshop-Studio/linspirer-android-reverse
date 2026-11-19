@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Base64;
 import anet.channel.util.HttpConstant;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -42,7 +42,7 @@ public class C0505a {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry.getValue() == null) {
                     AmsLogger amsLogger = f848a;
-                    StringBuilder sbM1765j = C0948f6.m1765j("skip empty entry ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("skip empty entry ");
                     sbM1765j.append(entry.getKey());
                     amsLogger.m507w(sbM1765j.toString());
                 } else {
@@ -85,7 +85,7 @@ public class C0505a {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry.getValue() == null) {
                     AmsLogger amsLogger = f848a;
-                    StringBuilder sbM1765j = C0948f6.m1765j("skip empty entry ");
+                    StringBuilder sbM1765j = CompilerOutline.m1765j("skip empty entry ");
                     sbM1765j.append(entry.getKey());
                     amsLogger.m507w(sbM1765j.toString());
                 } else {

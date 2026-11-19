@@ -24,7 +24,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -93,7 +93,7 @@ public final class NotificationManagerCompat {
             sb.append(", id:");
             sb.append(this.f20id);
             sb.append(", tag:");
-            return C0948f6.m1762g(sb, this.tag, "]");
+            return CompilerOutline.m1762g(sb, this.tag, "]");
         }
     }
 
@@ -147,7 +147,7 @@ public final class NotificationManagerCompat {
             if (zBindService) {
                 listenerRecord.retryCount = 0;
             } else {
-                StringBuilder sbM1765j = C0948f6.m1765j("Unable to bind to listener ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Unable to bind to listener ");
                 sbM1765j.append(listenerRecord.componentName);
                 Log.w(NotificationManagerCompat.TAG, sbM1765j.toString());
                 this.mContext.unbindService(this);
@@ -196,7 +196,7 @@ public final class NotificationManagerCompat {
 
         private void processListenerQueue(ListenerRecord listenerRecord) {
             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Processing component ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Processing component ");
                 sbM1765j.append(listenerRecord.componentName);
                 sbM1765j.append(", ");
                 sbM1765j.append(listenerRecord.taskQueue.size());
@@ -223,12 +223,12 @@ public final class NotificationManagerCompat {
                     listenerRecord.taskQueue.remove();
                 } catch (DeadObjectException unused) {
                     if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("Remote service has died: ");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("Remote service has died: ");
                         sbM1765j2.append(listenerRecord.componentName);
                         Log.d(NotificationManagerCompat.TAG, sbM1765j2.toString());
                     }
                 } catch (RemoteException e) {
-                    StringBuilder sbM1765j3 = C0948f6.m1765j("RemoteException communicating with ");
+                    StringBuilder sbM1765j3 = CompilerOutline.m1765j("RemoteException communicating with ");
                     sbM1765j3.append(listenerRecord.componentName);
                     Log.w(NotificationManagerCompat.TAG, sbM1765j3.toString(), e);
                 }
@@ -246,7 +246,7 @@ public final class NotificationManagerCompat {
             int i = listenerRecord.retryCount + 1;
             listenerRecord.retryCount = i;
             if (i > 6) {
-                StringBuilder sbM1765j = C0948f6.m1765j("Giving up on delivering ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("Giving up on delivering ");
                 sbM1765j.append(listenerRecord.taskQueue.size());
                 sbM1765j.append(" tasks to ");
                 sbM1765j.append(listenerRecord.componentName);
@@ -298,7 +298,7 @@ public final class NotificationManagerCompat {
                 Map.Entry<ComponentName, ListenerRecord> next = it2.next();
                 if (!hashSet.contains(next.getKey())) {
                     if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Removing listener record for ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Removing listener record for ");
                         sbM1765j.append(next.getKey());
                         Log.d(NotificationManagerCompat.TAG, sbM1765j.toString());
                     }

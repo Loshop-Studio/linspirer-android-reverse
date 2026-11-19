@@ -159,7 +159,7 @@ public class C0870c6 {
     public void m1457O(boolean z) {
         m1442a("setGPSDisabled disabled=" + z);
         SystemProperties.set("persist.sys.gpsdisabled", z ? RequestConstant.TRUE : RequestConstant.FALSE);
-        this.f2324a.sendBroadcast(C0948f6.m1768m("com.imt.mdm.setgpsdisabled"));
+        this.f2324a.sendBroadcast(CompilerOutline.m1768m("com.imt.mdm.setgpsdisabled"));
     }
 
     /* renamed from: P */
@@ -195,7 +195,7 @@ public class C0870c6 {
         m1442a("setScreenCaptureDisabled disabled=" + z);
         SystemProperties.set("persist.sys.screenshothide", z ? RequestConstant.TRUE : RequestConstant.FALSE);
         if (z) {
-            this.f2324a.sendBroadcast(C0948f6.m1768m("com.imt.mdm.setscreencapturedisabled"));
+            this.f2324a.sendBroadcast(CompilerOutline.m1768m("com.imt.mdm.setscreencapturedisabled"));
         }
     }
 

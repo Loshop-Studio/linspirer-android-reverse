@@ -9,7 +9,7 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import com.android.launcher3.R;
 import com.android.launcher3.model.AppItem;
-import com.huawei.hem.C1446z2;
+import com.huawei.hem.HengxuanAppAdapter;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -21,7 +21,7 @@ public class HengxuanChildFragment extends Fragment {
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View viewInflate = layoutInflater.inflate(R.layout.layout_gridview, viewGroup, false);
-        ((GridView) viewInflate.findViewById(R.id.grid_view)).setAdapter((ListAdapter) new C1446z2(getActivity(), this.f1948a));
+        ((GridView) viewInflate.findViewById(R.id.grid_view)).setAdapter((ListAdapter) new HengxuanAppAdapter(getActivity(), this.f1948a));
         return viewInflate;
     }
 }

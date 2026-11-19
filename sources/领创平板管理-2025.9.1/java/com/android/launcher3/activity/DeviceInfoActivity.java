@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.ViewControlUtil;
 
 /* loaded from: classes.dex */
 public class DeviceInfoActivity extends BaseActivity implements View.OnClickListener {
@@ -117,7 +117,7 @@ public class DeviceInfoActivity extends BaseActivity implements View.OnClickList
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!C0902dc.m1583a(view) && view.getId() == R.id.device_info_back) {
+        if (!ViewControlUtil.m1583a(view) && view.getId() == R.id.device_info_back) {
             finish();
         }
     }

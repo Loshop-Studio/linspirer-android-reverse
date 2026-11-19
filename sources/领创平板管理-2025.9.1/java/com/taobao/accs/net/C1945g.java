@@ -4,7 +4,7 @@ import anet.channel.entity.ConnType;
 import anet.channel.strategy.IConnStrategy;
 import anet.channel.strategy.StrategyCenter;
 import anet.channel.strategy.dispatch.HttpDispatcher;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.utl.ALog;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class C1945g {
     public void m5666b() {
         this.f6240a++;
         if (ALog.isPrintLog(ALog.Level.D)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("updateStrategyPos StrategyPos:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("updateStrategyPos StrategyPos:");
             sbM1765j.append(this.f6240a);
             ALog.m5726d("HttpDnsProvider", sbM1765j.toString(), new Object[0]);
         }

@@ -16,7 +16,7 @@ public class C0876cc {
         try {
             this.f2337a = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Throwable th) {
-            C0948f6.m1745C(th, C0948f6.m1765j("NetWorkUtilinit network error "));
+            CompilerOutline.m1745C(th, CompilerOutline.m1765j("NetWorkUtilinit network error "));
         }
     }
 

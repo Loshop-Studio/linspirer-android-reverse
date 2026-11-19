@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.Closeable;
 import java.math.BigDecimal;
@@ -53,7 +53,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public int nanos = 0;
 
     static {
-        StringBuilder sbM1765j = C0948f6.m1765j("\"");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("\"");
         sbM1765j.append(JSON.DEFAULT_TYPE_KEY);
         sbM1765j.append("\":\"");
         typeFieldName = sbM1765j.toString().toCharArray();
@@ -278,7 +278,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         String strNumberString = numberString();
         float f = Float.parseFloat(strNumberString);
         if ((f == 0.0f || f == Float.POSITIVE_INFINITY) && (cCharAt = strNumberString.charAt(0)) > '0' && cCharAt <= '9') {
-            throw new JSONException(C0948f6.m1760e("float overflow : ", strNumberString));
+            throw new JSONException(CompilerOutline.m1760e("float overflow : ", strNumberString));
         }
         return f;
     }
@@ -958,7 +958,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 date = new Date(j);
                 i2 = i11;
             } else {
-                if (cCharAt != 'n' || charAt(this.f831bp + 1) != 'u' || C0948f6.m1756a(this.f831bp, 1, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, 1, 2, this) != 'l') {
+                if (cCharAt != 'n' || charAt(this.f831bp + 1) != 'u' || CompilerOutline.m1756a(this.f831bp, 1, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, 1, 2, this) != 'l') {
                     this.matchStat = -1;
                     return null;
                 }
@@ -1032,7 +1032,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i++;
         }
         if (cCharAt2 < '0' || cCharAt2 > '9') {
-            if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || C0948f6.m1756a(this.f831bp, i, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i, 2, this) != 'l') {
+            if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || CompilerOutline.m1756a(this.f831bp, i, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i, 2, this) != 'l') {
                 this.matchStat = -1;
                 return null;
             }
@@ -1210,7 +1210,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i++;
         }
         if (cCharAt3 < '0' || cCharAt3 > '9') {
-            if (cCharAt3 != 'n' || charAt(this.f831bp + i) != 'u' || C0948f6.m1756a(this.f831bp, i, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i, 2, this) != 'l') {
+            if (cCharAt3 != 'n' || charAt(this.f831bp + i) != 'u' || CompilerOutline.m1756a(this.f831bp, i, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i, 2, this) != 'l') {
                 this.matchStat = -1;
                 return 0.0d;
             }
@@ -1722,7 +1722,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i3++;
         }
         if (cCharAt2 < '0' || cCharAt2 > '9') {
-            if (cCharAt2 != 'n' || charAt(this.f831bp + i3) != 'u' || C0948f6.m1756a(this.f831bp, i3, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i3, 2, this) != 'l') {
+            if (cCharAt2 != 'n' || charAt(this.f831bp + i3) != 'u' || CompilerOutline.m1756a(this.f831bp, i3, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i3, 2, this) != 'l') {
                 this.matchStat = -1;
                 return null;
             }
@@ -1899,7 +1899,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i5++;
         }
         if (cCharAt3 < '0' || cCharAt3 > '9') {
-            if (cCharAt3 != 'n' || charAt(this.f831bp + i5) != 'u' || C0948f6.m1756a(this.f831bp, i5, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i5, 2, this) != 'l') {
+            if (cCharAt3 != 'n' || charAt(this.f831bp + i5) != 'u' || CompilerOutline.m1756a(this.f831bp, i5, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i5, 2, this) != 'l') {
                 this.matchStat = -1;
                 return 0.0d;
             }
@@ -2259,7 +2259,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 return f2;
             }
         }
-        if (cCharAt3 != 'n' || charAt(this.f831bp + i8) != 'u' || C0948f6.m1756a(this.f831bp, i8, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i8, 2, this) != 'l') {
+        if (cCharAt3 != 'n' || charAt(this.f831bp + i8) != 'u' || CompilerOutline.m1756a(this.f831bp, i8, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i8, 2, this) != 'l') {
             this.matchStat = -1;
             return 0.0f;
         }
@@ -3067,7 +3067,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i++;
         }
         if (cCharAt2 < '0' || cCharAt2 > '9') {
-            if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || C0948f6.m1756a(this.f831bp, i, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i, 2, this) != 'l') {
+            if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || CompilerOutline.m1756a(this.f831bp, i, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i, 2, this) != 'l') {
                 this.matchStat = -1;
                 return 0.0f;
             }
@@ -3218,13 +3218,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public final void scanHex() {
         char next;
         if (this.f832ch != 'x') {
-            StringBuilder sbM1765j = C0948f6.m1765j("illegal state. ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("illegal state. ");
             sbM1765j.append(this.f832ch);
             throw new JSONException(sbM1765j.toString());
         }
         next();
         if (this.f832ch != '\'') {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("illegal state. ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal state. ");
             sbM1765j2.append(this.f832ch);
             throw new JSONException(sbM1765j2.toString());
         }
@@ -3343,7 +3343,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             this.token = 16;
             return z2 ? -i3 : i3;
         }
-        if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || C0948f6.m1756a(this.f831bp, i, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i, 2, this) != 'l') {
+        if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || CompilerOutline.m1756a(this.f831bp, i, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i, 2, this) != 'l') {
             this.matchStat = -1;
             return 0;
         }
@@ -3449,7 +3449,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 return z3 ? -j : j;
             }
         }
-        if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || C0948f6.m1756a(this.f831bp, i, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, i, 2, this) != 'l') {
+        if (cCharAt2 != 'n' || charAt(this.f831bp + i) != 'u' || CompilerOutline.m1756a(this.f831bp, i, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, i, 2, this) != 'l') {
             this.matchStat = -1;
             return 0L;
         }
@@ -3650,7 +3650,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         char cCharAt3 = charAt(this.f831bp + 0);
         char c2 = 'u';
         char c3 = 'n';
-        if (cCharAt3 == 'n' && charAt(this.f831bp + 1) == 'u' && C0948f6.m1756a(this.f831bp, 1, 1, this) == 'l' && C0948f6.m1756a(this.f831bp, 1, 2, this) == 'l' && C0948f6.m1756a(this.f831bp, 1, 3, this) == c) {
+        if (cCharAt3 == 'n' && charAt(this.f831bp + 1) == 'u' && CompilerOutline.m1756a(this.f831bp, 1, 1, this) == 'l' && CompilerOutline.m1756a(this.f831bp, 1, 2, this) == 'l' && CompilerOutline.m1756a(this.f831bp, 1, 3, this) == c) {
             int i3 = this.f831bp + 5;
             this.f831bp = i3;
             this.f832ch = charAt(i3);
@@ -3664,7 +3664,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         char cCharAt4 = charAt(this.f831bp + 1);
         int i4 = 2;
         while (true) {
-            if (cCharAt4 == c3 && charAt(this.f831bp + i4) == c2 && C0948f6.m1756a(this.f831bp, i4, 1, this) == 'l' && C0948f6.m1756a(this.f831bp, i4, 2, this) == 'l') {
+            if (cCharAt4 == c3 && charAt(this.f831bp + i4) == c2 && CompilerOutline.m1756a(this.f831bp, i4, 1, this) == 'l' && CompilerOutline.m1756a(this.f831bp, i4, 2, this) == 'l') {
                 int i5 = i4 + 3;
                 i = i5 + 1;
                 cCharAt = charAt(this.f831bp + i5);
@@ -3770,7 +3770,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         boolean[] zArr = IOUtils.firstIdentifierFlags;
         int i = this.f832ch;
         if (!(i >= zArr.length || zArr[i])) {
-            StringBuilder sbM1765j = C0948f6.m1765j("illegal identifier : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("illegal identifier : ");
             sbM1765j.append(this.f832ch);
             sbM1765j.append(info());
             throw new JSONException(sbM1765j.toString());
@@ -3800,7 +3800,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         this.matchStat = 0;
         char cCharAt = charAt(this.f831bp + 0);
         if (cCharAt == 'n') {
-            if (charAt(this.f831bp + 1) != 'u' || C0948f6.m1756a(this.f831bp, 1, 1, this) != 'l' || C0948f6.m1756a(this.f831bp, 1, 2, this) != 'l') {
+            if (charAt(this.f831bp + 1) != 'u' || CompilerOutline.m1756a(this.f831bp, 1, 1, this) != 'l' || CompilerOutline.m1756a(this.f831bp, 1, 2, this) != 'l') {
                 this.matchStat = -1;
                 return null;
             }
@@ -4536,7 +4536,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         this.matchStat = 0;
         char cCharAt = charAt(this.f831bp + 0);
         if (cCharAt == 'n') {
-            if (charAt(this.f831bp + 1) == 'u' && C0948f6.m1756a(this.f831bp, 1, 1, this) == 'l' && C0948f6.m1756a(this.f831bp, 1, 2, this) == 'l') {
+            if (charAt(this.f831bp + 1) == 'u' && CompilerOutline.m1756a(this.f831bp, 1, 1, this) == 'l' && CompilerOutline.m1756a(this.f831bp, 1, 2, this) == 'l') {
                 if (charAt(this.f831bp + 4) == c) {
                     int i = this.f831bp + 5;
                     this.f831bp = i;

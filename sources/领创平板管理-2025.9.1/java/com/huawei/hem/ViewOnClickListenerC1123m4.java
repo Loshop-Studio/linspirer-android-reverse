@@ -19,7 +19,7 @@ public class ViewOnClickListenerC1123m4 implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PopupWindow popupWindow;
-        if (C0902dc.m1583a(view) || (popupWindow = this.f3240a) == null || !popupWindow.isShowing()) {
+        if (ViewControlUtil.m1583a(view) || (popupWindow = this.f3240a) == null || !popupWindow.isShowing()) {
             return;
         }
         this.f3240a.dismiss();

@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -42,7 +42,7 @@ public class LongCodec implements ObjectSerializer, ObjectDeserializer {
             }
             return type == AtomicLong.class ? (T) new AtomicLong(((Long) objCastToLong).longValue()) : (T) objCastToLong;
         } catch (Exception e) {
-            throw new JSONException(C0948f6.m1759d("parseLong error, field : ", obj), e);
+            throw new JSONException(CompilerOutline.m1759d("parseLong error, field : ", obj), e);
         }
     }
 

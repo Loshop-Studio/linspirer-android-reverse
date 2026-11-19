@@ -35,8 +35,8 @@ public class C1304ta {
                 if ("_default_config_tag".equals(str2)) {
                     hashSet.add("_default_config_tag");
                 } else {
-                    String strM1761f = C0948f6.m1761f(str2, "-", "oper");
-                    String strM1761f2 = C0948f6.m1761f(str2, "-", "maint");
+                    String strM1761f = CompilerOutline.m1761f(str2, "-", "oper");
+                    String strM1761f2 = CompilerOutline.m1761f(str2, "-", "maint");
                     hashSet.add(strM1761f);
                     hashSet.add(strM1761f2);
                     hashSet.add(str2 + "-diffprivacy");

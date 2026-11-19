@@ -3,7 +3,7 @@ package com.alibaba.fastjson;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class JSONWriter implements Closeable, Flushable {
                 return;
             case 1003:
             default:
-                throw new JSONException(C0948f6.m1754L("illegal state : ", i));
+                throw new JSONException(CompilerOutline.m1754L("illegal state : ", i));
             case JSONStreamContext.ArrayValue /* 1005 */:
                 this.writer.write(44);
                 return;

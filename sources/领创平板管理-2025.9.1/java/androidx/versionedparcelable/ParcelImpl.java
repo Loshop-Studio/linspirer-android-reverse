@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
 import android.util.SparseIntArray;
-import com.huawei.hem.AbstractC1393x;
-import com.huawei.hem.C1418y;
-import com.huawei.hem.InterfaceC1443z;
+import com.huawei.hem.VersionedParcel;
+import com.huawei.hem.VersionedParcelParcel;
+import com.huawei.hem.VersionedParcelable;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.lang.reflect.InvocationTargetException;
 
@@ -16,7 +16,7 @@ public class ParcelImpl implements Parcelable {
     public static final Parcelable.Creator<ParcelImpl> CREATOR = new C0301a();
 
     /* renamed from: a */
-    public final InterfaceC1443z f43a;
+    public final VersionedParcelable f43a;
 
     /* renamed from: androidx.versionedparcelable.ParcelImpl$a */
     public static class C0301a implements Parcelable.Creator<ParcelImpl> {
@@ -36,10 +36,10 @@ public class ParcelImpl implements Parcelable {
         int iDataSize = parcel.dataSize();
         new SparseIntArray();
         String string = parcel.readString();
-        InterfaceC1443z interfaceC1443z = null;
+        VersionedParcelable interfaceC1443z = null;
         if (string != null) {
             try {
-                interfaceC1443z = (InterfaceC1443z) Class.forName(string, true, AbstractC1393x.class.getClassLoader()).getDeclaredMethod(ExceptionCode.READ, AbstractC1393x.class).invoke(null, new C1418y(parcel, parcel.dataPosition(), iDataPosition == iDataPosition ? iDataSize : iDataPosition, "  "));
+                interfaceC1443z = (VersionedParcelable) Class.forName(string, true, VersionedParcel.class.getClassLoader()).getDeclaredMethod(ExceptionCode.READ, VersionedParcel.class).invoke(null, new VersionedParcelParcel(parcel, parcel.dataPosition(), iDataPosition == iDataPosition ? iDataSize : iDataPosition, "  "));
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);
             } catch (IllegalAccessException e2) {
@@ -66,20 +66,20 @@ public class ParcelImpl implements Parcelable {
         int iDataPosition = parcel.dataPosition();
         int iDataSize = parcel.dataSize();
         new SparseIntArray();
-        InterfaceC1443z interfaceC1443z = this.f43a;
+        VersionedParcelable interfaceC1443z = this.f43a;
         if (interfaceC1443z == null) {
             parcel.writeString(null);
             return;
         }
         try {
-            parcel.writeString(AbstractC1393x.m2920b(interfaceC1443z.getClass()).getName());
+            parcel.writeString(VersionedParcel.m2920b(interfaceC1443z.getClass()).getName());
             int iDataPosition2 = parcel.dataPosition();
             if (iDataPosition == iDataPosition) {
                 iDataPosition = iDataSize;
             }
-            C1418y c1418y = new C1418y(parcel, iDataPosition2, iDataPosition, "  ");
+            VersionedParcelParcel c1418y = new VersionedParcelParcel(parcel, iDataPosition2, iDataPosition, "  ");
             try {
-                AbstractC1393x.m2920b(interfaceC1443z.getClass()).getDeclaredMethod(ExceptionCode.WRITE, interfaceC1443z.getClass(), AbstractC1393x.class).invoke(null, interfaceC1443z, c1418y);
+                VersionedParcel.m2920b(interfaceC1443z.getClass()).getDeclaredMethod(ExceptionCode.WRITE, interfaceC1443z.getClass(), VersionedParcel.class).invoke(null, interfaceC1443z, c1418y);
                 c1418y.mo2921a();
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);

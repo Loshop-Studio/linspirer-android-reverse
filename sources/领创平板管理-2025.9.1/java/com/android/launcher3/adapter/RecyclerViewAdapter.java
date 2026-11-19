@@ -14,13 +14,13 @@ import com.android.launcher3.R;
 import com.android.launcher3.fragment.home.ChildPageFragment;
 import com.android.launcher3.model.AppItem;
 import com.android.launcher3.network.DeviceLogHelper;
-import com.huawei.hem.AsyncTaskC0844b6;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC0919e3;
+import com.huawei.hem.ImageLoadAsyncTask;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.AppStoreInstalledCheckListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
     public int f1864c;
 
     /* renamed from: d */
-    public InterfaceC0919e3 f1865d;
+    public AppStoreInstalledCheckListener f1865d;
 
     /* renamed from: com.android.launcher3.adapter.RecyclerViewAdapter$a */
     public class ViewOnClickListenerC0648a extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -61,14 +61,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            InterfaceC0919e3 interfaceC0919e3;
-            if (C0902dc.m1583a(view)) {
+            AppStoreInstalledCheckListener interfaceC0919e3;
+            if (ViewControlUtil.m1583a(view)) {
                 return;
             }
             AppItem appItem = RecyclerViewAdapter.this.f1863b.get(getAdapterPosition());
             String pkgName = appItem.getPkgName();
             String activityName = appItem.getActivityName();
-            if ("com.ndwill.swd.appstore".equals(pkgName) && !C0850bc.m1405o("com.ndwill.swd.appstore", RecyclerViewAdapter.this.f1862a) && (interfaceC0919e3 = RecyclerViewAdapter.this.f1865d) != null) {
+            if ("com.ndwill.swd.appstore".equals(pkgName) && !LTKDateUtil.m1405o("com.ndwill.swd.appstore", RecyclerViewAdapter.this.f1862a) && (interfaceC0919e3 = RecyclerViewAdapter.this.f1865d) != null) {
                 ChildPageFragment childPageFragment = (ChildPageFragment) interfaceC0919e3;
                 if (childPageFragment.m1216b()) {
                     ArrayList arrayList = new ArrayList();
@@ -77,9 +77,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
                 }
             }
             try {
-                C1423y4.m2973T(RecyclerViewAdapter.this.f1862a, new ComponentName(pkgName, activityName));
+                LauncherMenuHelper.m2973T(RecyclerViewAdapter.this.f1862a, new ComponentName(pkgName, activityName));
                 if (!TextUtils.isEmpty("com.zykj.manage") && pkgName.equals("com.zykj.manage")) {
-                    C1424y5.b.f4202a.m3065q0(0);
+                    UserInfoUtil.b.f4202a.m3065q0(0);
                 }
                 DeviceLogHelper.getInstance().recordOpenApp(pkgName);
             } catch (Exception e) {
@@ -88,8 +88,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
                 sb.append("RecyclerViewAdapter -- can not open apk--packageName: ");
                 sb.append(pkgName);
                 sb.append(" --openApk -error:");
-                C0948f6.m1776u(e, sb);
-                C0850bc.m1415y(RecyclerViewAdapter.this.f1862a, R.string.text_cannot_open_app);
+                CompilerOutline.m1776u(e, sb);
+                LTKDateUtil.m1415y(RecyclerViewAdapter.this.f1862a, R.string.text_cannot_open_app);
             }
         }
     }
@@ -131,7 +131,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
         } else {
             viewOnClickListenerC0648a.f1868c.setVisibility(8);
         }
-        new AsyncTaskC0844b6(this.f1862a, viewOnClickListenerC0648a.f1866a, appItem).execute(new Integer[0]);
+        new ImageLoadAsyncTask(this.f1862a, viewOnClickListenerC0648a.f1866a, appItem).execute(new Integer[0]);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter

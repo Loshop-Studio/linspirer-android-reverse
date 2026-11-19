@@ -3,7 +3,7 @@ package anet.channel.strategy;
 import android.text.TextUtils;
 import anet.channel.strategy.C0407l;
 import anet.channel.util.HttpConstant;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +41,7 @@ public class ConnProtocol implements Serializable {
             sb.append("_");
             sb.append(str2);
         }
-        return C0948f6.m1762g(sb, "_", str3);
+        return CompilerOutline.m1762g(sb, "_", str3);
     }
 
     public static ConnProtocol valueOf(C0407l.a aVar) {

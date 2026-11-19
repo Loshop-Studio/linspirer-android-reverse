@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.error.ErrorCode;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsErrorCode;
 import com.taobao.accs.IAppReceiver;
 import com.taobao.accs.base.AccsAbstractDataListener;
@@ -90,7 +90,7 @@ public class C1924g {
             }
             ALog.m5727e("MsgDistribute", "distribMessage", th, new Object[0]);
             UTMini uTMini = UTMini.getInstance();
-            StringBuilder sbM1765j = C0948f6.m1765j("distribMessage");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("distribMessage");
             sbM1765j.append(th.toString());
             uTMini.commitEvent(66001, "MsgToBuss8", sbM1765j.toString(), 221);
         }
@@ -101,7 +101,7 @@ public class C1924g {
         if (i != 100 && !"agooSend".equals(str)) {
             long jM5754c = UtilityImpl.m5754c();
             if (jM5754c != -1 && jM5754c <= 5242880) {
-                AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str, "1", C0948f6.m1755M("space low ", jM5754c));
+                AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str, "1", CompilerOutline.m1755M("space low ", jM5754c));
                 ALog.m5728e("MsgDistribute", "user space low, don't distribute", "size", Long.valueOf(jM5754c), Constants.KEY_SERVICE_ID, str);
                 return true;
             }
@@ -226,7 +226,7 @@ public class C1924g {
             return;
         }
         AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str3, "1", "appReceiver null return");
-        UTMini.getInstance().commitEvent(66001, "MsgToBuss7", C0948f6.m1754L("commandId=", i), "serviceId=" + str3 + " errorCode=" + errorCode + " dataId=" + str4, 221);
+        UTMini.getInstance().commitEvent(66001, "MsgToBuss7", CompilerOutline.m1754L("commandId=", i), "serviceId=" + str3 + " errorCode=" + errorCode + " dataId=" + str4, 221);
     }
 
     /* renamed from: b */
@@ -274,7 +274,7 @@ public class C1924g {
                 AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str, "1", "service is null");
             }
         }
-        UTMini.getInstance().commitEvent(66001, "MsgToBuss", C0948f6.m1754L("commandId=", i), "serviceId=" + str + " errorCode=" + errorCode + " dataId=" + str2, 221);
+        UTMini.getInstance().commitEvent(66001, "MsgToBuss", CompilerOutline.m1754L("commandId=", i), "serviceId=" + str + " errorCode=" + errorCode + " dataId=" + str2, 221);
         StringBuilder sb = new StringBuilder();
         sb.append("2commandId=");
         sb.append(i);
@@ -312,10 +312,10 @@ public class C1924g {
                 return;
             }
             if (i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6) {
-                ALog.m5732w("MsgDistribute", C0948f6.m1754L("handBroadCastMsg not handled command ", i), new Object[0]);
+                ALog.m5732w("MsgDistribute", CompilerOutline.m1754L("handBroadCastMsg not handled command ", i), new Object[0]);
                 return;
             } else {
-                ALog.m5726d("MsgDistribute", C0948f6.m1754L("handBroadCastMsg not handled command ", i), new Object[0]);
+                ALog.m5726d("MsgDistribute", CompilerOutline.m1754L("handBroadCastMsg not handled command ", i), new Object[0]);
                 return;
             }
         }

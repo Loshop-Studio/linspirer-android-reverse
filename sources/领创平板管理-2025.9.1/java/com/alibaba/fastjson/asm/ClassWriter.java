@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.asm;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public class ClassWriter {
@@ -96,7 +96,7 @@ public class ClassWriter {
                 return newString((String) obj);
             }
             if (!(obj instanceof Type)) {
-                throw new IllegalArgumentException(C0948f6.m1759d("value ", obj));
+                throw new IllegalArgumentException(CompilerOutline.m1759d("value ", obj));
             }
             Type type = (Type) obj;
             return newClassItem(type.sort == 10 ? type.getInternalName() : type.getDescriptor());

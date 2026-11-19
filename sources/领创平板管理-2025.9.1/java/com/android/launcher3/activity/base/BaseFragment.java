@@ -28,19 +28,19 @@ import com.android.launcher3.p027db.model.ItemApp;
 import com.android.launcher3.view.CommonDialog;
 import com.android.launcher3.view.DialogUtil;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.AbstractC1158ne;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.FileDownloadListener;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1007he;
-import com.huawei.hem.C1171o2;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1333ue;
-import com.huawei.hem.C1355vb;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.DownloadTask;
+import com.huawei.hem.BaseFragmentDialogButtonListener;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.DBController;
+import com.huawei.hem.FileDownloader;
+import com.huawei.hem.PostBuilder;
 import com.huawei.hem.C1395x1;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC0956fe;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.BaseDownloadTask;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,25 +58,25 @@ public abstract class BaseFragment extends Fragment {
     public GesturePasswordDao f1801b;
 
     /* renamed from: c */
-    public C1424y5 f1802c;
+    public UserInfoUtil f1802c;
 
     /* renamed from: e */
     public View f1804e;
 
     /* renamed from: f */
-    public C1255rb f1805f;
+    public HttpCore f1805f;
 
     /* renamed from: d */
     public boolean f1803d = false;
 
     /* renamed from: g */
-    public Map<String, InterfaceC0956fe> f1806g = new HashMap();
+    public Map<String, BaseDownloadTask> f1806g = new HashMap();
 
     /* renamed from: h */
     public String f1807h = "";
 
     /* renamed from: com.android.launcher3.activity.base.BaseFragment$a */
-    public class C0642a extends AbstractC1158ne {
+    public class C0642a extends FileDownloadListener {
 
         /* renamed from: a */
         public final /* synthetic */ String f1808a;
@@ -90,7 +90,7 @@ public abstract class BaseFragment extends Fragment {
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void completed(InterfaceC0956fe interfaceC0956fe) {
+        public void completed(BaseDownloadTask interfaceC0956fe) {
             BaseFragment baseFragment = BaseFragment.this;
             ItemApp itemApp = this.f1809b;
             if (baseFragment == null) {
@@ -102,25 +102,25 @@ public abstract class BaseFragment extends Fragment {
             String md5sum = itemApp.getMd5sum();
             if (TextUtils.isEmpty(md5sum)) {
                 baseFragment.m1222h(strMo1796j);
-            } else if (C0850bc.m1416z(strMo1796j, md5sum)) {
+            } else if (LTKDateUtil.m1416z(strMo1796j, md5sum)) {
                 baseFragment.m1222h(strMo1796j);
             } else {
-                C0850bc.m1415y(baseFragment.f1800a, R.string.text_apk_check_not_pass);
+                LTKDateUtil.m1415y(baseFragment.f1800a, R.string.text_apk_check_not_pass);
                 new File(strMo1796j).delete();
             }
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void error(InterfaceC0956fe interfaceC0956fe, Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j(" -- download app ,packageName = ");
+        public void error(BaseDownloadTask interfaceC0956fe, Throwable th) {
+            StringBuilder sbM1765j = CompilerOutline.m1765j(" -- download app ,packageName = ");
             sbM1765j.append(this.f1808a);
             sbM1765j.append(" -- error = ");
             sbM1765j.append(th.getMessage());
             String string = sbM1765j.toString();
             Log.e("BaseFragment", string);
-            C0850bc.m1411u("BaseFragment", string);
+            LTKDateUtil.m1411u("BaseFragment", string);
             BaseFragment.this.f1806g.remove(this.f1808a);
-            C0850bc.m1415y(BaseFragment.this.f1800a, R.string.text_downloading_fail);
+            LTKDateUtil.m1415y(BaseFragment.this.f1800a, R.string.text_downloading_fail);
             interfaceC0956fe.pause();
             if (BaseFragment.this.f1806g.size() <= 0) {
                 DialogUtil.hideDialog();
@@ -128,19 +128,19 @@ public abstract class BaseFragment extends Fragment {
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void paused(InterfaceC0956fe interfaceC0956fe, int i, int i2) {
+        public void paused(BaseDownloadTask interfaceC0956fe, int i, int i2) {
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void pending(InterfaceC0956fe interfaceC0956fe, int i, int i2) {
+        public void pending(BaseDownloadTask interfaceC0956fe, int i, int i2) {
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void progress(InterfaceC0956fe interfaceC0956fe, int i, int i2) {
+        public void progress(BaseDownloadTask interfaceC0956fe, int i, int i2) {
         }
 
         @Override // com.huawei.hem.AbstractC1158ne
-        public void warn(InterfaceC0956fe interfaceC0956fe) {
+        public void warn(BaseDownloadTask interfaceC0956fe) {
             DialogUtil.hideDialog();
         }
     }
@@ -153,30 +153,30 @@ public abstract class BaseFragment extends Fragment {
 
         @Override // com.android.launcher3.network.response.LTKListResponseListener
         public void handleResult(List<ItemApp> list) {
-            C0850bc.m1403m("BaseFragment -- check update sucess");
+            LTKDateUtil.m1403m("BaseFragment -- check update sucess");
             DialogUtil.hideDialog();
             BaseFragment.m1215a(BaseFragment.this, list);
         }
 
         @Override // com.android.launcher3.network.response.BaseResponse
         public void onFailed(Response response) {
-            C0850bc.m1403m("BaseFragment -- check update failed");
+            LTKDateUtil.m1403m("BaseFragment -- check update failed");
             DialogUtil.hideDialog();
             if (response == null) {
-                C0850bc.m1414x(BaseFragment.this.f1800a, R.string.network_error_note);
+                LTKDateUtil.m1414x(BaseFragment.this.f1800a, R.string.network_error_note);
                 return;
             }
             String string = BaseFragment.this.getString(R.string.request_fail_with_code);
-            StringBuilder sbM1765j = C0948f6.m1765j("");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("");
             sbM1765j.append(response.getCode());
-            C0850bc.m1413w(BaseFragment.this.f1800a, String.format(string, sbM1765j.toString()), 0);
+            LTKDateUtil.m1413w(BaseFragment.this.f1800a, String.format(string, sbM1765j.toString()), 0);
         }
 
         @Override // com.android.launcher3.network.response.BaseResponse
         public void onFailureByNet(Object obj) {
-            C0850bc.m1403m("BaseFragment -- check update failure");
+            LTKDateUtil.m1403m("BaseFragment -- check update failure");
             DialogUtil.hideDialog();
-            C0850bc.m1414x(BaseFragment.this.f1800a, R.string.network_error_note);
+            LTKDateUtil.m1414x(BaseFragment.this.f1800a, R.string.network_error_note);
         }
     }
 
@@ -189,22 +189,22 @@ public abstract class BaseFragment extends Fragment {
         Iterator it = list.iterator();
         while (it.hasNext()) {
             ItemApp itemApp = (ItemApp) it.next();
-            if (C0850bc.m1406p(baseFragment.f1800a, itemApp.getPackagename(), itemApp.getVersioncode())) {
+            if (LTKDateUtil.m1406p(baseFragment.f1800a, itemApp.getPackagename(), itemApp.getVersioncode())) {
                 arrayList.add(itemApp);
             } else {
-                StringBuilder sbM1765j = C0948f6.m1765j("BaseFragment");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("BaseFragment");
                 sbM1765j.append(itemApp.getPackagename());
                 sbM1765j.append(" -- is no need update");
-                C0850bc.m1403m(sbM1765j.toString());
+                LTKDateUtil.m1403m(sbM1765j.toString());
             }
         }
         if (AbstractC1102l9.m2272M(arrayList)) {
-            C0850bc.m1415y(baseFragment.f1800a, R.string.no_upgrade_note);
+            LTKDateUtil.m1415y(baseFragment.f1800a, R.string.no_upgrade_note);
             return;
         }
         CommonDialog commonDialog = new CommonDialog();
         commonDialog.initDialog(baseFragment.f1800a, R.string.text_has_newversion, R.string.text_update_immediately, R.string.text_recall_again, 0.5d, 0.5d, false);
-        commonDialog.setDialogOnClickEvent(new C1171o2(baseFragment, arrayList));
+        commonDialog.setDialogOnClickEvent(new BaseFragmentDialogButtonListener(baseFragment, arrayList));
     }
 
     /* renamed from: b */
@@ -221,11 +221,11 @@ public abstract class BaseFragment extends Fragment {
 
     /* renamed from: c */
     public void m1217c(List<String> list) {
-        if (C1424y5.b.f4202a.m3023R()) {
+        if (UserInfoUtil.b.f4202a.m3023R()) {
             return;
         }
         if (!new C0876cc(this.f1800a).m1505a()) {
-            C0850bc.m1415y(this.f1800a, R.string.network_unable_note);
+            LTKDateUtil.m1415y(this.f1800a, R.string.network_unable_note);
             return;
         }
         try {
@@ -235,40 +235,40 @@ public abstract class BaseFragment extends Fragment {
             V2Params v2Params = new V2Params();
             v2Params.setParams(JSON.toJSONString(checkUpdateParams));
             v2Params.setMethod(RequestUrl.CHECK_UPDATE_METHOD);
-            C1255rb c1255rb = this.f1805f;
+            HttpCore c1255rb = this.f1805f;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new C0643b(ItemApp.class));
         } catch (Exception e) {
             e.printStackTrace();
             DialogUtil.hideDialog();
-            C0850bc.m1414x(this.f1800a, R.string.network_error_note);
+            LTKDateUtil.m1414x(this.f1800a, R.string.network_error_note);
         }
     }
 
     /* renamed from: d */
     public void m1218d(ItemApp itemApp, String str) {
-        InterfaceC0956fe interfaceC0956fe;
+        BaseDownloadTask interfaceC0956fe;
         String packagename = itemApp.getPackagename();
-        C0948f6.m1779x("BaseFragment -- download app packageName = ", packagename);
+        CompilerOutline.m1779x("BaseFragment -- download app packageName = ", packagename);
         if (this.f1806g.containsKey(packagename)) {
-            InterfaceC0956fe interfaceC0956fe2 = this.f1806g.get(packagename);
+            BaseDownloadTask interfaceC0956fe2 = this.f1806g.get(packagename);
             this.f1806g.put(packagename, interfaceC0956fe2);
             interfaceC0956fe = interfaceC0956fe2;
         } else {
-            if (C1333ue.m2788b() == null) {
+            if (FileDownloader.m2788b() == null) {
                 throw null;
             }
-            C1007he c1007he = new C1007he(str);
-            c1007he.m1947z(C0948f6.m1763h(new StringBuilder(), C1395x1.f4038a, packagename, ".apk"), false);
+            DownloadTask c1007he = new DownloadTask(str);
+            c1007he.m1947z(CompilerOutline.m1763h(new StringBuilder(), C1395x1.f4038a, packagename, ".apk"), false);
             interfaceC0956fe = c1007he;
         }
         if (interfaceC0956fe == null) {
-            C0850bc.m1403m("BaseFragmentdownload task empty can not  downloading");
+            LTKDateUtil.m1403m("BaseFragmentdownload task empty can not  downloading");
         } else {
             interfaceC0956fe.mo1802x(new C0642a(packagename, itemApp));
             interfaceC0956fe.start();
@@ -288,7 +288,7 @@ public abstract class BaseFragment extends Fragment {
 
     /* renamed from: h */
     public void m1222h(String str) {
-        C0850bc.m1403m("BaseFragment -- installing apk path = " + str);
+        LTKDateUtil.m1403m("BaseFragment -- installing apk path = " + str);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -325,8 +325,8 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         this.f1800a = getActivity();
-        this.f1802c = C1424y5.b.f4202a;
-        this.f1801b = C1297t3.m2715a().m2719e();
+        this.f1802c = UserInfoUtil.b.f4202a;
+        this.f1801b = DBController.m2715a().m2719e();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -342,7 +342,7 @@ public abstract class BaseFragment extends Fragment {
             }
         }
         mo1221g(this.f1804e);
-        this.f1805f = new C1255rb();
+        this.f1805f = new HttpCore();
         mo1220f();
         return this.f1804e;
     }

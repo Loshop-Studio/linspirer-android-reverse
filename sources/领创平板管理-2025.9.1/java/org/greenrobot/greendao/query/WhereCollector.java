@@ -1,6 +1,6 @@
 package org.greenrobot.greendao.query;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -73,7 +73,7 @@ public class WhereCollector<T> {
             if (z) {
                 return;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("Property '");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Property '");
             sbM1765j.append(property.name);
             sbM1765j.append("' is not part of ");
             sbM1765j.append(this.dao);

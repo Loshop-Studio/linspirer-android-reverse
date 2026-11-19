@@ -3,7 +3,7 @@ package com.alibaba.fastjson.util;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -81,7 +81,7 @@ public class ASMUtils {
         if (Double.TYPE == cls) {
             return "D";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Type: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Type: ");
         sbM1765j.append(cls.getCanonicalName());
         sbM1765j.append(" is not a primitive type");
         throw new IllegalStateException(sbM1765j.toString());
@@ -155,7 +155,7 @@ public class ASMUtils {
         if (!cls.isArray()) {
             return !cls.isPrimitive() ? cls.getName().replace('.', '/') : getPrimitiveLetter(cls);
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("[");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         sbM1765j.append(desc(cls.getComponentType()));
         return sbM1765j.toString();
     }
@@ -165,11 +165,11 @@ public class ASMUtils {
             return getPrimitiveLetter(cls);
         }
         if (cls.isArray()) {
-            StringBuilder sbM1765j = C0948f6.m1765j("[");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("[");
             sbM1765j.append(desc(cls.getComponentType()));
             return sbM1765j.toString();
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("L");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("L");
         sbM1765j2.append(type(cls));
         sbM1765j2.append(";");
         return sbM1765j2.toString();

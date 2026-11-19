@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.adapter.BaseAdapter;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.huawei.hms.core.aidl.AbstractMessageEntity;
@@ -181,10 +181,10 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         try {
             this.transport = (DatagramTransport) Class.forName(apiClient.getTransportName()).getConstructor(String.class, IMessageEntity.class, Class.class, Integer.TYPE).newInstance(str, iMessageEntity, cls, Integer.valueOf(i));
         } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("gen transport error:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("gen transport error:");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
-            StringBuilder sbM1765j2 = C0948f6.m1765j("Instancing transport exception, ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Instancing transport exception, ");
             sbM1765j2.append(e.getMessage());
             throw new IllegalStateException(sbM1765j2.toString(), e);
         }
@@ -193,7 +193,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
     /* JADX INFO: Access modifiers changed from: private */
     public void setResult(int i, IMessageEntity iMessageEntity) {
         Status status;
-        C0948f6.m1777v("setResult:", i, TAG);
+        CompilerOutline.m1777v("setResult:", i, TAG);
         Status commonStatus = iMessageEntity instanceof AbstractMessageEntity ? ((AbstractMessageEntity) iMessageEntity).getCommonStatus() : null;
         if (i == 0) {
             this.result = (R) onComplete(iMessageEntity);
@@ -297,7 +297,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
                 this.result = r;
                 r.setStatus(new Status(i));
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("on Error:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("on Error:");
                 sbM1765j.append(e.getMessage());
                 HMSLog.m3461e(TAG, sbM1765j.toString());
                 return null;

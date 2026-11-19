@@ -25,7 +25,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
@@ -453,7 +453,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     this.mToolbar.addView(this.mSpinner, 0);
                 } else {
                     if (i != 2) {
-                        throw new IllegalArgumentException(C0948f6.m1754L("Invalid navigation mode ", i));
+                        throw new IllegalArgumentException(CompilerOutline.m1754L("Invalid navigation mode ", i));
                     }
                     View view2 = this.mTabView;
                     if (view2 != null) {

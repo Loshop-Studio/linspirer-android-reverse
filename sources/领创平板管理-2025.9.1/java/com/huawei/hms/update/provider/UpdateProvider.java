@@ -11,8 +11,8 @@ import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.alibaba.fastjson.asm.Label;
-import com.huawei.hem.C0948f6;
-import com.huawei.hms.availableupdate.C1507l;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hms.availableupdate.ContentUriHelper;
 import java.io.File;
 
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class UpdateProvider extends ContentProvider {
     public static final String[] f4580a = {"_display_name", "_size"};
 
     /* renamed from: b */
-    public static C1507l f4581b = new C1507l();
+    public static ContentUriHelper f4581b = new ContentUriHelper();
 
     /* renamed from: a */
     public static int m3476a(String str) {
@@ -42,7 +42,7 @@ public class UpdateProvider extends ContentProvider {
         if ("rwt".equals(str)) {
             return 1006632960;
         }
-        throw new IllegalArgumentException(C0948f6.m1760e("Invalid mode: ", str));
+        throw new IllegalArgumentException(CompilerOutline.m1760e("Invalid mode: ", str));
     }
 
     public static File getLocalFile(Context context, String str) {

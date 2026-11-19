@@ -13,7 +13,7 @@ import com.alibaba.fastjson.serializer.ObjectSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -524,7 +524,7 @@ public class JSONPath implements JSONAware {
                 if (i6 > 0) {
                     return new RangeSegment(i4, i5, i6);
                 }
-                throw new UnsupportedOperationException(C0948f6.m1754L("step must greater than zero : ", i6));
+                throw new UnsupportedOperationException(CompilerOutline.m1754L("step must greater than zero : ", i6));
             }
             throw new UnsupportedOperationException("end must greater than or equals start. start " + i4 + ",  end " + i5);
         }
@@ -655,7 +655,7 @@ public class JSONPath implements JSONAware {
             skipWhitespace();
             char c = this.f813ch;
             if (c != '\\' && !Character.isJavaIdentifierStart(c)) {
-                StringBuilder sbM1765j = C0948f6.m1765j("illeal jsonpath syntax. ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("illeal jsonpath syntax. ");
                 sbM1765j.append(this.path);
                 throw new JSONPathException(sbM1765j.toString());
             }
@@ -786,7 +786,7 @@ public class JSONPath implements JSONAware {
                         if (c3 == '?') {
                             return new FilterSegment((Filter) parseArrayAccessFilter(false));
                         }
-                        StringBuilder sbM1765j = C0948f6.m1765j("not support jsonpath : ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("not support jsonpath : ");
                         sbM1765j.append(this.path);
                         throw new JSONPathException(sbM1765j.toString());
                     }
@@ -823,7 +823,7 @@ public class JSONPath implements JSONAware {
                     }
                     next();
                     if (this.f813ch != ')') {
-                        StringBuilder sbM1765j2 = C0948f6.m1765j("not support jsonpath : ");
+                        StringBuilder sbM1765j2 = CompilerOutline.m1765j("not support jsonpath : ");
                         sbM1765j2.append(this.path);
                         throw new JSONPathException(sbM1765j2.toString());
                     }
@@ -848,7 +848,7 @@ public class JSONPath implements JSONAware {
                     if ("floor".equals(name)) {
                         return FloorSegment.instance;
                     }
-                    StringBuilder sbM1765j3 = C0948f6.m1765j("not support jsonpath : ");
+                    StringBuilder sbM1765j3 = CompilerOutline.m1765j("not support jsonpath : ");
                     sbM1765j3.append(this.path);
                     throw new JSONPathException(sbM1765j3.toString());
                 }
@@ -1199,7 +1199,7 @@ public class JSONPath implements JSONAware {
                     this.functionExpr = TypeSegment.instance;
                 } else {
                     if (jFnv1a_64 != JSONPath.SIZE) {
-                        throw new JSONPathException(C0948f6.m1760e("unsupported funciton : ", str));
+                        throw new JSONPathException(CompilerOutline.m1760e("unsupported funciton : ", str));
                     }
                     this.functionExpr = SizeSegment.instance;
                 }
@@ -1371,7 +1371,7 @@ public class JSONPath implements JSONAware {
                         return;
                     }
                     if (jSONLexerBase.token() != 16) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("illegal json : ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("illegal json : ");
                         sbM1765j.append(jSONLexerBase.info());
                         throw new JSONException(sbM1765j.toString());
                     }
@@ -1892,7 +1892,7 @@ public class JSONPath implements JSONAware {
             i2++;
         }
         if (objEval == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("value not found in path ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("value not found in path ");
             sbM1765j.append(this.path);
             throw new JSONPathException(sbM1765j.toString());
         }
@@ -1980,7 +1980,7 @@ public class JSONPath implements JSONAware {
                 fieldValues = javaBeanSerializer.getFieldValues(obj);
                 list.add(obj);
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("jsonpath error, path ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("jsonpath error, path ");
                 sbM1765j.append(this.path);
                 throw new JSONPathException(sbM1765j.toString(), e);
             }
@@ -2008,7 +2008,7 @@ public class JSONPath implements JSONAware {
             try {
                 fieldValues = javaBeanSerializer.getFieldValues(obj);
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("jsonpath error, path ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("jsonpath error, path ");
                 sbM1765j.append(this.path);
                 throw new JSONPathException(sbM1765j.toString(), e);
             }
@@ -2082,7 +2082,7 @@ public class JSONPath implements JSONAware {
                 throw new JSONException("getFieldValue error." + str, e2);
             }
         } catch (Exception e3) {
-            throw new JSONPathException(C0948f6.m1763h(C0948f6.m1765j("jsonpath error, path "), this.path, ", segement ", str), e3);
+            throw new JSONPathException(CompilerOutline.m1763h(CompilerOutline.m1765j("jsonpath error, path "), this.path, ", segement ", str), e3);
         }
     }
 
@@ -2127,7 +2127,7 @@ public class JSONPath implements JSONAware {
                 deepSet(it2.next(), str, j, obj2);
             }
         } catch (Exception e) {
-            throw new JSONPathException(C0948f6.m1763h(C0948f6.m1765j("jsonpath error, path "), this.path, ", segement ", str), e);
+            throw new JSONPathException(CompilerOutline.m1763h(CompilerOutline.m1765j("jsonpath error, path "), this.path, ", segement ", str), e);
         }
     }
 
@@ -2162,7 +2162,7 @@ public class JSONPath implements JSONAware {
         try {
             return javaBeanSerializer.getFieldNames(obj);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("evalKeySet error : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("evalKeySet error : ");
             sbM1765j.append(this.path);
             throw new JSONPathException(sbM1765j.toString(), e);
         }
@@ -2198,7 +2198,7 @@ public class JSONPath implements JSONAware {
         try {
             return javaBeanSerializer.getSize(obj);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("evalSize error : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("evalSize error : ");
             sbM1765j.append(this.path);
             throw new JSONPathException(sbM1765j.toString(), e);
         }
@@ -2426,7 +2426,7 @@ public class JSONPath implements JSONAware {
             try {
                 return javaBeanSerializer.getFieldValue(obj2, str, j, false);
             } catch (Exception e) {
-                throw new JSONPathException(C0948f6.m1763h(C0948f6.m1765j("jsonpath error, path "), this.path, ", segement ", str), e);
+                throw new JSONPathException(CompilerOutline.m1763h(CompilerOutline.m1765j("jsonpath error, path "), this.path, ", segement ", str), e);
             }
         }
         int i = 0;
@@ -2525,7 +2525,7 @@ public class JSONPath implements JSONAware {
             try {
                 return javaBeanSerializer.getFieldValues(obj);
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("jsonpath error, path ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("jsonpath error, path ");
                 sbM1765j.append(this.path);
                 throw new JSONPathException(sbM1765j.toString(), e);
             }
@@ -3039,7 +3039,7 @@ public class JSONPath implements JSONAware {
             for (Map.Entry entry : ((Map) obj).entrySet()) {
                 Object key = entry.getKey();
                 if (key instanceof String) {
-                    StringBuilder sb2 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : C0948f6.m1765j(str);
+                    StringBuilder sb2 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : CompilerOutline.m1765j(str);
                     sb2.append(GrsManager.SEPARATOR);
                     sb2.append(key);
                     paths(map, map2, sb2.toString(), entry.getValue(), serializeConfig);
@@ -3049,7 +3049,7 @@ public class JSONPath implements JSONAware {
         }
         if (obj instanceof Collection) {
             for (Object obj2 : (Collection) obj) {
-                StringBuilder sb3 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : C0948f6.m1765j(str);
+                StringBuilder sb3 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : CompilerOutline.m1765j(str);
                 sb3.append(GrsManager.SEPARATOR);
                 sb3.append(i);
                 paths(map, map2, sb3.toString(), obj2, serializeConfig);
@@ -3062,7 +3062,7 @@ public class JSONPath implements JSONAware {
             int length = Array.getLength(obj);
             while (i < length) {
                 Object obj3 = Array.get(obj, i);
-                StringBuilder sb4 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : C0948f6.m1765j(str);
+                StringBuilder sb4 = str.equals(GrsManager.SEPARATOR) ? new StringBuilder() : CompilerOutline.m1765j(str);
                 sb4.append(GrsManager.SEPARATOR);
                 sb4.append(i);
                 paths(map, map2, sb4.toString(), obj3, serializeConfig);

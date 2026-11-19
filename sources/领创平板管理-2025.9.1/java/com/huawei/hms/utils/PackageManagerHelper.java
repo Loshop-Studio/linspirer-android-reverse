@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.log.HMSLog;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +36,7 @@ public class PackageManagerHelper {
                 return packageInfo.signatures[0].toByteArray();
             }
         } catch (PackageManager.NameNotFoundException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Failed to get application signature certificate fingerprint.");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Failed to get application signature certificate fingerprint.");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("PackageManagerHelper", sbM1765j.toString());
         }

@@ -1,6 +1,6 @@
 package com.alibaba.sdk.android.logger.p014b;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.AccsClientConfig;
 
 /* renamed from: com.alibaba.sdk.android.logger.b.g */
@@ -29,6 +29,6 @@ public class C0541g {
         } else {
             simpleName = obj.getClass().getSimpleName() + "@" + obj.hashCode();
         }
-        return C0948f6.m1763h(new StringBuilder(), this.f980a, "_", simpleName);
+        return CompilerOutline.m1763h(new StringBuilder(), this.f980a, "_", simpleName);
     }
 }

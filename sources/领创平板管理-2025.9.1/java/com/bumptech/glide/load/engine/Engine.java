@@ -17,7 +17,7 @@ import com.bumptech.glide.provider.DataLoadProvider;
 import com.bumptech.glide.request.ResourceCallback;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -171,7 +171,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     }
 
     public static void logWithTimeAndKey(String str, long j, Key key) {
-        StringBuilder sbM1767l = C0948f6.m1767l(str, " in ");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str, " in ");
         sbM1767l.append(LogTime.getElapsedMillis(j));
         sbM1767l.append("ms, key: ");
         sbM1767l.append(key);

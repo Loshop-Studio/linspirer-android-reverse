@@ -2,7 +2,7 @@ package com.bumptech.glide.gifdecoder;
 
 import android.util.Log;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -123,7 +123,7 @@ public class GifHeaderParser {
                     readBlock();
                     String string = "";
                     for (int i3 = 0; i3 < 11; i3++) {
-                        StringBuilder sbM1765j = C0948f6.m1765j(string);
+                        StringBuilder sbM1765j = CompilerOutline.m1765j(string);
                         sbM1765j.append((char) this.block[i3]);
                         string = sbM1765j.toString();
                     }
@@ -170,7 +170,7 @@ public class GifHeaderParser {
     private void readHeader() {
         String string = "";
         for (int i = 0; i < 6; i++) {
-            StringBuilder sbM1765j = C0948f6.m1765j(string);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(string);
             sbM1765j.append((char) read());
             string = sbM1765j.toString();
         }

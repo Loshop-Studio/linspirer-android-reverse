@@ -10,8 +10,8 @@ import android.view.animation.LinearInterpolator;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.p027db.model.GesturePassword;
 import com.android.launcher3.p027db.model.GesturePasswordDao;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.DBController;
+import com.huawei.hem.UserInfoUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.greenrobot.greendao.query.WhereCondition;
@@ -23,7 +23,7 @@ public abstract class BaseGesturePwdActivity extends BaseActivity {
     public Context f1814c;
 
     /* renamed from: d */
-    public C1424y5 f1815d;
+    public UserInfoUtil f1815d;
 
     /* renamed from: e */
     public GesturePasswordDao f1816e;
@@ -49,10 +49,10 @@ public abstract class BaseGesturePwdActivity extends BaseActivity {
     /* renamed from: e */
     public void mo1172e() {
         this.f1814c = this;
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         this.f1815d = c1424y5;
         this.f1817f = c1424y5.m3052k();
-        this.f1816e = C1297t3.m2715a().m2719e();
+        this.f1816e = DBController.m2715a().m2719e();
     }
 
     /* renamed from: f */

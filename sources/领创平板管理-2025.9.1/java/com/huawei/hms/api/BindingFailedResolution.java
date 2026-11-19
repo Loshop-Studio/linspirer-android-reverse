@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.view.KeyEvent;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.activity.IBridgeActivityDelegate;
 import com.huawei.hms.common.internal.BindResolveClients;
@@ -173,7 +173,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     @Override // com.huawei.hms.activity.IBridgeActivityDelegate
     public void onBridgeActivityCreate(Activity activity) {
         this.f4358a = activity;
-        C1488a.f4430b.m3250a(activity);
+        BindingFailedResolveMgr.f4430b.m3250a(activity);
         m3209d();
         m3203a(activity);
     }
@@ -181,7 +181,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     @Override // com.huawei.hms.activity.IBridgeActivityDelegate
     public void onBridgeActivityDestroy() {
         m3207b();
-        C1488a.f4430b.m3251b(this.f4358a);
+        BindingFailedResolveMgr.f4430b.m3251b(this.f4358a);
         this.f4358a = null;
     }
 
@@ -250,7 +250,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         try {
             activity.startActivityForResult(intent, getRequestCode());
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("ActivityNotFoundException：");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("ActivityNotFoundException：");
             sbM1765j.append(th.getMessage());
             HMSLog.m3461e("BindingFailedResolution", sbM1765j.toString());
             Handler handler = this.f4362e;

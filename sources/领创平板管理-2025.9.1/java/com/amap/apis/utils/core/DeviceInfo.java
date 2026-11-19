@@ -23,17 +23,17 @@ import android.text.TextUtils;
 import android.util.Xml;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hem.C0865c1;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C0994h1;
 import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1120m1;
+import com.huawei.hem.ConstConfig;
 import com.huawei.hem.C1170o1;
 import com.huawei.hem.C1219q0;
-import com.loc.AbstractC1728ar;
-import com.loc.AbstractRunnableC1754bq;
-import com.loc.C1723am;
-import com.loc.C1753bp;
-import com.loc.C1859t;
+import com.loc.AMapNetworkRequest;
+import com.loc.ThreadTask;
+import com.loc.BaseNetManager;
+import com.loc.ThreadPool;
+import com.loc.BasicLogHandler;
 import com.taobao.accs.utl.UtilityImpl;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -183,7 +183,7 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$a */
-    public static class C0621a extends AbstractRunnableC1754bq {
+    public static class C0621a extends ThreadTask {
 
         /* renamed from: a */
         public final /* synthetic */ Context f1630a;
@@ -201,8 +201,8 @@ public final class DeviceInfo {
                 if (TextUtils.isEmpty(strMo1097a)) {
                     return;
                 }
-                C1723am.m4058a();
-                String strMo1096a = DeviceInfo.f1608e.mo1096a(this.f1630a, new String(C1723am.m4059a(DeviceInfo.f1608e.mo1094a(strMo1097a.getBytes(), mapMo1098b)).f5048a));
+                BaseNetManager.m4058a();
+                String strMo1096a = DeviceInfo.f1608e.mo1096a(this.f1630a, new String(BaseNetManager.m4059a(DeviceInfo.f1608e.mo1094a(strMo1097a.getBytes(), mapMo1098b)).f5048a));
                 if (TextUtils.isEmpty(strMo1096a)) {
                     return;
                 }
@@ -213,7 +213,7 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$b */
-    public static class C0622b extends AbstractRunnableC1754bq {
+    public static class C0622b extends ThreadTask {
 
         /* renamed from: a */
         public final /* synthetic */ Context f1631a;
@@ -233,7 +233,7 @@ public final class DeviceInfo {
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$c */
     public interface InterfaceC0623c {
         /* renamed from: a */
-        AbstractC1728ar mo1094a(byte[] bArr, Map<String, String> map);
+        AMapNetworkRequest mo1094a(byte[] bArr, Map<String, String> map);
 
         /* renamed from: a */
         String mo1095a();
@@ -450,7 +450,7 @@ public final class DeviceInfo {
                     return str;
                 }
             } catch (Throwable th) {
-                C1859t.m5312a(th, "oa", "xm");
+                BasicLogHandler.m5312a(th, "oa", "xm");
                 f1611h = true;
             }
             return f1610g;
@@ -489,7 +489,7 @@ public final class DeviceInfo {
             }
         } catch (Throwable th2) {
             f1611h = true;
-            C1859t.m5312a(th2, "oa", AgooConstants.MESSAGE_SYSTEM_SOURCE_VIVO);
+            BasicLogHandler.m5312a(th2, "oa", AgooConstants.MESSAGE_SYSTEM_SOURCE_VIVO);
         }
         return f1610g;
     }
@@ -540,7 +540,7 @@ public final class DeviceInfo {
                             editorM2420b.putString("a1", strM2247p);
                         }
                     } catch (Throwable th) {
-                        C1859t.m5312a(th, "sp", "ps");
+                        BasicLogHandler.m5312a(th, "sp", "ps");
                     }
                 }
                 C1170o1.m2421c(editorM2420b);
@@ -715,7 +715,7 @@ public final class DeviceInfo {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        StringBuilder sbM1765j = C0948f6.m1765j(str);
+        StringBuilder sbM1765j = CompilerOutline.m1765j(str);
         sbM1765j.append(File.separator);
         sbM1765j.append(C1094l1.m2251t("KYmFja3Vwcw"));
         File file = new File(sbM1765j.toString(), C1094l1.m2251t("MLmFkaXU"));
@@ -826,7 +826,7 @@ public final class DeviceInfo {
             return "";
         }
         f1609f = true;
-        C1753bp.m4236a().m4242b(new C0621a(context));
+        ThreadPool.m4236a().m4242b(new C0621a(context));
         return "";
     }
 
@@ -858,7 +858,7 @@ public final class DeviceInfo {
             }
             return f1610g;
         } catch (Throwable th) {
-            C1859t.m5312a(th, "oa", String.valueOf(i));
+            BasicLogHandler.m5312a(th, "oa", String.valueOf(i));
             f1611h = true;
             return f1610g;
         }
@@ -876,7 +876,7 @@ public final class DeviceInfo {
         }
         if (TextUtils.isEmpty(f1610g) && !f1612i) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                C1753bp.m4236a().m4242b(new C0622b(context));
+                ThreadPool.m4236a().m4242b(new C0622b(context));
                 return f1610g;
             }
             f1612i = true;
@@ -965,7 +965,7 @@ public final class DeviceInfo {
     public static String m1085s(Context context) {
         if (TextUtils.isEmpty(f1614k) && !f1617n) {
             try {
-                String string = Settings.Secure.getString(context.getContentResolver(), C1094l1.m2251t(new String(C1120m1.m2346c(13))));
+                String string = Settings.Secure.getString(context.getContentResolver(), C1094l1.m2251t(new String(ConstConfig.m2346c(13))));
                 f1614k = string;
                 f1617n = true;
                 return string == null ? "" : string;

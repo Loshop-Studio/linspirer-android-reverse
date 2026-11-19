@@ -17,7 +17,7 @@ import com.alibaba.sdk.android.ams.common.p007a.C0494a;
 import com.alibaba.sdk.android.push.common.p018a.C0558b;
 import com.alibaba.sdk.android.push.p024f.C0574a;
 import com.google.zxing.qrcode.encoder.Encoder;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -166,7 +166,7 @@ public class CustomNotificationBuilder {
                 uri = Uri.parse(strM884a);
             } else {
                 boolean zStartsWith = strM884a.startsWith("/raw/");
-                StringBuilder sbM1765j = C0948f6.m1765j("android.resource://");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("android.resource://");
                 sbM1765j.append(context.getPackageName());
                 if (!zStartsWith) {
                     sbM1765j.append("/raw/");

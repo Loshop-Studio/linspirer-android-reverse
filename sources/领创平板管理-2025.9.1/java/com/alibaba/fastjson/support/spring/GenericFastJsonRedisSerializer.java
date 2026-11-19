@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 
@@ -27,7 +27,7 @@ public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
         try {
             return JSON.parseObject(new String(bArr, IOUtils.UTF8), Object.class, defaultRedisConfig, new Feature[0]);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Could not deserialize: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Could not deserialize: ");
             sbM1765j.append(e.getMessage());
             throw new SerializationException(sbM1765j.toString(), e);
         }
@@ -41,7 +41,7 @@ public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
         try {
             return JSON.toJSONBytes(obj, SerializerFeature.WriteClassName);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("Could not serialize: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Could not serialize: ");
             sbM1765j.append(e.getMessage());
             throw new SerializationException(sbM1765j.toString(), e);
         }

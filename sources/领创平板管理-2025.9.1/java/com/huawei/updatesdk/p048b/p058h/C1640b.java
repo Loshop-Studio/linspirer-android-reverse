@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 import com.huawei.updatesdk.p034a.p035a.p040d.AbstractC1588d;
@@ -110,7 +110,7 @@ public class C1640b {
             C1581a.m3501b("PackageUtils", "appmarket info,versioncode = " + packageInfo.versionCode + "versioncode = " + packageInfo.versionName);
             return packageInfo.versionCode < 70203000 ? b.INSTALLED_LOWCODE : b.INSTALLED;
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("isInstallByPackage Exception:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("isInstallByPackage Exception:");
             sbM1765j.append(e.toString());
             C1584a.m3518d("PackageUtils", sbM1765j.toString());
             return bVar;
@@ -141,13 +141,13 @@ public class C1640b {
         try {
             return (fieldM3765b.getInt(applicationInfo) & 33554432) != 0;
         } catch (IllegalAccessException e) {
-            sbM1765j = C0948f6.m1765j("can not get hwflags");
+            sbM1765j = CompilerOutline.m1765j("can not get hwflags");
             string = e.toString();
             sbM1765j.append(string);
             C1584a.m3514a("PackageUtils", sbM1765j.toString());
             return false;
         } catch (IllegalArgumentException e2) {
-            sbM1765j = C0948f6.m1765j("can not get hwflags");
+            sbM1765j = CompilerOutline.m1765j("can not get hwflags");
             string = e2.toString();
             sbM1765j.append(string);
             C1584a.m3514a("PackageUtils", sbM1765j.toString());
@@ -160,7 +160,7 @@ public class C1640b {
         try {
             return context.getPackageManager().getPackageInfo(str, 0).versionCode;
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("isInstallByPackage:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("isInstallByPackage:");
             sbM1765j.append(e.toString());
             C1584a.m3518d("PackageUtils", sbM1765j.toString());
             return 0;
@@ -193,7 +193,7 @@ public class C1640b {
             Class<?> cls = Class.forName("android.content.pm.PackageParser");
             f4718a = Integer.valueOf(cls.getDeclaredField("PARSE_IS_REMOVABLE_PREINSTALLED_APK").getInt(cls));
         } catch (ClassNotFoundException e) {
-            sbM1765j = C0948f6.m1765j("isDelApp error ClassNotFoundException:");
+            sbM1765j = CompilerOutline.m1765j("isDelApp error ClassNotFoundException:");
             string2 = e.toString();
             sbM1765j.append(string2);
             string = sbM1765j.toString();
@@ -201,7 +201,7 @@ public class C1640b {
             f4719b = true;
             return f4718a;
         } catch (IllegalAccessException e2) {
-            sbM1765j = C0948f6.m1765j("isDelApp error IllegalAccessException:");
+            sbM1765j = CompilerOutline.m1765j("isDelApp error IllegalAccessException:");
             string2 = e2.toString();
             sbM1765j.append(string2);
             string = sbM1765j.toString();
@@ -209,7 +209,7 @@ public class C1640b {
             f4719b = true;
             return f4718a;
         } catch (IllegalArgumentException e3) {
-            sbM1765j = C0948f6.m1765j("isDelApp error IllegalArgumentException:");
+            sbM1765j = CompilerOutline.m1765j("isDelApp error IllegalArgumentException:");
             string2 = e3.toString();
             sbM1765j.append(string2);
             string = sbM1765j.toString();
@@ -217,7 +217,7 @@ public class C1640b {
             f4719b = true;
             return f4718a;
         } catch (NoSuchFieldException e4) {
-            sbM1765j = C0948f6.m1765j("isDelApp error NoSuchFieldException:");
+            sbM1765j = CompilerOutline.m1765j("isDelApp error NoSuchFieldException:");
             string2 = e4.toString();
             sbM1765j.append(string2);
             string = sbM1765j.toString();
@@ -240,7 +240,7 @@ public class C1640b {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0) != null;
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("isAppInstalled NameNotFoundException:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("isAppInstalled NameNotFoundException:");
                 sbM1765j.append(e.toString());
                 C1584a.m3518d("PackageUtils", sbM1765j.toString());
             }

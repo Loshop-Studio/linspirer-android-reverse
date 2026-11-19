@@ -11,7 +11,7 @@ import anet.channel.entity.ENV;
 import anet.channel.strategy.ConnProtocol;
 import anet.channel.strategy.StrategyTemplate;
 import com.alibaba.sdk.android.error.ErrorCode;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsClientConfig;
 import com.taobao.accs.AccsErrorCode;
@@ -393,7 +393,7 @@ public abstract class AbstractC1940b {
     /* renamed from: b */
     public String mo5634b(String str) {
         String inappHost = this.f6217i.getInappHost();
-        String strM1762g = C0948f6.m1762g(C0948f6.m1765j("https://"), TextUtils.isEmpty(str) ? "" : str, inappHost);
+        String strM1762g = CompilerOutline.m1762g(CompilerOutline.m1765j("https://"), TextUtils.isEmpty(str) ? "" : str, inappHost);
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("https://");

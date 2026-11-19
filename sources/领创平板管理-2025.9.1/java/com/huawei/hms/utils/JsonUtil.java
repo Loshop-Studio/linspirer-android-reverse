@@ -1,7 +1,7 @@
 package com.huawei.hms.utils;
 
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
 import com.huawei.hms.support.log.HMSLog;
@@ -62,12 +62,12 @@ public class JsonUtil {
         try {
             return createInnerJsonString(iMessageEntity);
         } catch (IllegalAccessException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("catch IllegalAccessException ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("catch IllegalAccessException ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
             return "";
         } catch (JSONException e2) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("catch JSONException ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("catch JSONException ");
             sbM1765j2.append(e2.getMessage());
             HMSLog.m3461e(TAG, sbM1765j2.toString());
             return "";
@@ -190,7 +190,7 @@ public class JsonUtil {
                 }
             }
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("catch JSONException when parse jsonString");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("catch JSONException when parse jsonString");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -201,7 +201,7 @@ public class JsonUtil {
         try {
             return Base64.decode(jSONObject.getString(BYTE_BYTE));
         } catch (IllegalArgumentException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("readByte failed : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("readByte failed : ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
             return null;
@@ -291,7 +291,7 @@ public class JsonUtil {
         try {
             jSONObject2.put(BYTE_BYTE, Base64.encode(bArr));
         } catch (IllegalArgumentException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("writeByte failed : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("writeByte failed : ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -303,7 +303,7 @@ public class JsonUtil {
         jSONObject2.put(VAL_TYPE, 1);
         jSONObject2.put(LIST_SIZE, list.size());
         for (int i = 0; i < list.size(); i++) {
-            disposeType(C0948f6.m1754L(LIST_ITEM_VALUE, i), list.get(i), jSONObject2);
+            disposeType(CompilerOutline.m1754L(LIST_ITEM_VALUE, i), list.get(i), jSONObject2);
             if (list.get(i) instanceof IMessageEntity) {
                 jSONObject2.put(VAL_TYPE, 0);
             }

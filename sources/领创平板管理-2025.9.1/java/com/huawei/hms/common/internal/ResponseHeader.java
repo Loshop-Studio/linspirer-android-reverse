@@ -2,7 +2,7 @@ package com.huawei.hms.common.internal;
 
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
@@ -65,7 +65,7 @@ public class ResponseHeader implements IMessageEntity, ResponseErrorCode {
             this.resolution = JsonUtil.getStringValue(jSONObject, CommonCode.MapKey.HAS_RESOLUTION);
             return true;
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("fromJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("fromJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
             return false;
@@ -199,7 +199,7 @@ public class ResponseHeader implements IMessageEntity, ResponseErrorCode {
             jSONObject.put(CommonCode.MapKey.TRANSACTION_ID, this.transaction_id);
             jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, this.resolution);
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("toJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("toJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -207,7 +207,7 @@ public class ResponseHeader implements IMessageEntity, ResponseErrorCode {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("status_code:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("status_code:");
         sbM1765j.append(this.status_code);
         sbM1765j.append(", error_code");
         sbM1765j.append(this.error_code);

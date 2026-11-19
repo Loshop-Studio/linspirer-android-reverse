@@ -1,6 +1,6 @@
 package com.huawei.hms.support.gentyref;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -18,7 +18,7 @@ public final class GenericTypeReflector {
             TypeVariable typeVariable = (TypeVariable) type;
             return typeVariable.getBounds().length == 0 ? Object.class : getType(typeVariable.getBounds()[0]);
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("not supported: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("not supported: ");
         sbM1765j.append(type.getClass());
         throw new IllegalArgumentException(sbM1765j.toString());
     }

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.IBinder;
 import android.os.Messenger;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.ThreadPoolExecutorFactory;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.AdapterUtilityImpl;
@@ -108,7 +108,7 @@ public abstract class BaseIntentService extends Service {
         if (TextUtils.isEmpty(action)) {
             return;
         }
-        ALog.m5729i(TAG, C0948f6.m1760e("onHandleIntent,action=", action), new Object[0]);
+        ALog.m5729i(TAG, CompilerOutline.m1760e("onHandleIntent,action=", action), new Object[0]);
         try {
             if (action.equals("org.agoo.android.intent.action.RECEIVE")) {
                 handleRemoteMessage(this.mContext, intent);

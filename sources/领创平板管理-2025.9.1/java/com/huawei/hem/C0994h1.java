@@ -3,7 +3,7 @@ package com.huawei.hem;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.huawei.hms.framework.common.ContainerUtils;
-import com.loc.C1859t;
+import com.loc.BasicLogHandler;
 import java.io.ByteArrayOutputStream;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -62,7 +62,7 @@ public final class C0994h1 {
         try {
             bArrM1936g = m1936g(encoded, bArr, C1094l1.m2252u());
         } catch (Throwable th) {
-            C1859t.m5312a(th, "er", "asEn");
+            BasicLogHandler.m5312a(th, "er", "asEn");
         }
         byte[] bArr2 = new byte[bArrM1931b.length + bArrM1936g.length];
         System.arraycopy(bArrM1931b, 0, bArr2, 0, bArrM1931b.length);
@@ -91,7 +91,7 @@ public final class C0994h1 {
         try {
             return m1937h(bArr);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "er", "e64");
+            BasicLogHandler.m5312a(th, "er", "e64");
             return null;
         }
     }

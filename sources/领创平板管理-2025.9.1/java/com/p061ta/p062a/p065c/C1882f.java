@@ -3,7 +3,7 @@ package com.p061ta.p062a.p065c;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* renamed from: com.ta.a.c.f */
 /* loaded from: classes.dex */
@@ -47,7 +47,7 @@ public class C1882f {
             methodName = "";
             strSubstring = methodName;
         }
-        return C0948f6.m1763h(C0948f6.m1770o("Utdid.", strSubstring, ".", methodName, "."), String.valueOf(Process.myPid()), ".", Thread.currentThread().getId() + "");
+        return CompilerOutline.m1763h(CompilerOutline.m1770o("Utdid.", strSubstring, ".", methodName, "."), String.valueOf(Process.myPid()), ".", Thread.currentThread().getId() + "");
     }
 
     /* renamed from: a */

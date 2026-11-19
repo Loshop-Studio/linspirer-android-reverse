@@ -3,7 +3,7 @@ package com.p061ta.utdid2.device;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.p061ta.p062a.C1866a;
 import com.p061ta.p062a.p065c.C1881e;
 import com.p061ta.p062a.p065c.C1882f;
@@ -42,7 +42,7 @@ public class C1892d {
     public static final Object f6028a = new Object();
 
     /* renamed from: f */
-    public static final String f6031f = C0948f6.m1762g(C0948f6.m1765j(".UTSystemConfig"), File.separator, "Global");
+    public static final String f6031f = CompilerOutline.m1762g(CompilerOutline.m1765j(".UTSystemConfig"), File.separator, "Global");
 
     /* renamed from: e */
     public static int f6030e = 0;

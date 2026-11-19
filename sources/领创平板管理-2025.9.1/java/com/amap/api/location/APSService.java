@@ -5,15 +5,15 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import com.loc.C1834ep;
-import com.loc.C1845f;
-import com.loc.C1860u;
+import com.loc.CoreUtil;
+import com.loc.ApsServiceCore;
+import com.loc.AMapLog;
 
 /* loaded from: classes.dex */
 public class APSService extends Service {
 
     /* renamed from: a */
-    public C1845f f1565a;
+    public ApsServiceCore f1565a;
 
     /* renamed from: b */
     public int f1566b = 0;
@@ -25,11 +25,11 @@ public class APSService extends Service {
     private void m1063a(Context context) {
         try {
             if (this.f1565a == null) {
-                this.f1565a = new C1845f(context);
+                this.f1565a = new ApsServiceCore(context);
             }
             this.f1565a.m5196a();
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "APSService", "onCreate");
+            CoreUtil.m5014a(th, "APSService", "onCreate");
         }
         super.onCreate();
     }
@@ -39,7 +39,7 @@ public class APSService extends Service {
         try {
             return this.f1565a.m5195a(intent);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "APSService", "onBind");
+            CoreUtil.m5014a(th, "APSService", "onBind");
             return null;
         }
     }
@@ -57,7 +57,7 @@ public class APSService extends Service {
                 stopForeground(true);
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "APSService", "onDestroy");
+            CoreUtil.m5014a(th, "APSService", "onDestroy");
         }
         super.onDestroy();
     }
@@ -66,17 +66,17 @@ public class APSService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null) {
             try {
-                int intExtra = intent.getIntExtra(C1860u.f5946f, 0);
+                int intExtra = intent.getIntExtra(AMapLog.f5946f, 0);
                 if (intExtra == 1) {
                     int intExtra2 = intent.getIntExtra("i", 0);
-                    Notification notification = (Notification) intent.getParcelableExtra(C1860u.f5947g);
+                    Notification notification = (Notification) intent.getParcelableExtra(AMapLog.f5947g);
                     if (intExtra2 != 0 && notification != null) {
                         startForeground(intExtra2, notification);
                         this.f1567c = true;
                         this.f1566b++;
                     }
                 } else if (intExtra == 2) {
-                    if (intent.getBooleanExtra(C1860u.f5950j, true) && this.f1566b > 0) {
+                    if (intent.getBooleanExtra(AMapLog.f5950j, true) && this.f1566b > 0) {
                         this.f1566b--;
                     }
                     if (this.f1566b <= 0) {

@@ -3,8 +3,8 @@ package com.huawei.hem;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.loc.C1859t;
-import com.loc.C1862w;
+import com.loc.BasicLogHandler;
+import com.loc.SDKLogHandler;
 import java.util.Arrays;
 
 /* compiled from: SPUtil.java */
@@ -23,7 +23,7 @@ public final class C1170o1 {
         try {
             return context.getSharedPreferences(str, 0).getInt(str2, i);
         } catch (Throwable th) {
-            C1862w.m5333b(th, "csp", "giv");
+            SDKLogHandler.m5333b(th, "csp", "giv");
             return i;
         }
     }
@@ -36,7 +36,7 @@ public final class C1170o1 {
                     return context.getSharedPreferences(str, 0).edit();
                 }
             } catch (Throwable th) {
-                C1859t.m5312a(th, "sp", "ge");
+                BasicLogHandler.m5312a(th, "sp", "ge");
             }
         }
         return null;
@@ -50,7 +50,7 @@ public final class C1170o1 {
         try {
             editor.apply();
         } catch (Throwable th) {
-            C1859t.m5312a(th, "sp", "cm");
+            BasicLogHandler.m5312a(th, "sp", "cm");
         }
     }
 
@@ -59,7 +59,7 @@ public final class C1170o1 {
         try {
             editor.putInt(str, i);
         } catch (Throwable th) {
-            C1862w.m5333b(th, "csp", "putPrefsInt");
+            SDKLogHandler.m5333b(th, "csp", "putPrefsInt");
         }
     }
 
@@ -68,7 +68,7 @@ public final class C1170o1 {
         try {
             editor.putBoolean(str, z);
         } catch (Throwable th) {
-            C1862w.m5333b(th, "csp", "setPrefsStr");
+            SDKLogHandler.m5333b(th, "csp", "setPrefsStr");
         }
     }
 
@@ -77,7 +77,7 @@ public final class C1170o1 {
         try {
             return context.getSharedPreferences(str, 0).getBoolean(str2, z);
         } catch (Throwable th) {
-            C1862w.m5333b(th, "csp", "gbv");
+            SDKLogHandler.m5333b(th, "csp", "gbv");
             return z;
         }
     }
@@ -91,7 +91,7 @@ public final class C1170o1 {
         if (bArr != null && bArr.length > 0) {
             return bArr;
         }
-        byte[] bytes = C0917e1.m1641g(context).getBytes();
+        byte[] bytes = AppInfo.m1641g(context).getBytes();
         f3366a = bytes;
         return bytes;
     }
@@ -104,7 +104,7 @@ public final class C1170o1 {
         try {
             return context.getSharedPreferences(str, 0).getString(str2, str3);
         } catch (Throwable th) {
-            C1862w.m5333b(th, "csp", "gsv");
+            SDKLogHandler.m5333b(th, "csp", "gsv");
             return str3;
         }
     }

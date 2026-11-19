@@ -3,7 +3,7 @@ package android.support.v4.graphics;
 import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Preconditions;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class PathSegment {
@@ -57,7 +57,7 @@ public final class PathSegment {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("PathSegment{start=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("PathSegment{start=");
         sbM1765j.append(this.mStart);
         sbM1765j.append(", startFraction=");
         sbM1765j.append(this.mStartFraction);

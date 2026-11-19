@@ -1,7 +1,7 @@
 package com.p061ta.p062a;
 
 import android.content.Context;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* renamed from: com.ta.a.a */
 /* loaded from: classes.dex */
@@ -49,7 +49,7 @@ public class C1866a {
 
     /* renamed from: a */
     public String m5367a() {
-        StringBuilder sbM1765j = C0948f6.m1765j("");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("");
         sbM1765j.append(m5366a());
         return sbM1765j.toString();
     }

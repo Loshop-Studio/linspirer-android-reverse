@@ -23,7 +23,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import android.view.InflateException;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
@@ -92,7 +92,7 @@ public class AnimatorInflaterCompat {
         int length = objArr.length;
         for (int i = 0; i < length; i++) {
             Keyframe keyframe = (Keyframe) objArr[i];
-            StringBuilder sbM1766k = C0948f6.m1766k("Keyframe ", i, ": fraction ");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("Keyframe ", i, ": fraction ");
             Object value = "null";
             sbM1766k.append(keyframe.getFraction() < 0.0f ? "null" : Float.valueOf(keyframe.getFraction()));
             sbM1766k.append(", ");

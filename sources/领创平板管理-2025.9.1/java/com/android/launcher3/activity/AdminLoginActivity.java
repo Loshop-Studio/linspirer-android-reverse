@@ -25,23 +25,23 @@ import com.android.launcher3.p027db.model.ItemApp;
 import com.android.launcher3.view.DialogUtil;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1148n4;
 import com.huawei.hem.C1198p4;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC0945f3;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.AppUpdateSccessListener;
 import com.huawei.hem.license.HemLicenseManager;
 import com.huawei.hem.license.HemLicenseStatusListener;
 import java.io.File;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
-public class AdminLoginActivity extends BaseActivity implements View.OnClickListener, InterfaceC0945f3 {
+public class AdminLoginActivity extends BaseActivity implements View.OnClickListener, AppUpdateSccessListener {
 
     /* renamed from: c */
     public Button f1653c;
@@ -56,7 +56,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     public TextView f1656f;
 
     /* renamed from: g */
-    public C1424y5 f1657g;
+    public UserInfoUtil f1657g;
 
     /* renamed from: b */
     public String f1652b = "";
@@ -77,10 +77,10 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     /* renamed from: c */
     public void mo1171c() {
         String string = getString(R.string.build_version);
-        StringBuilder sbM1765j = C0948f6.m1765j("");
-        sbM1765j.append(C0850bc.m1397g("com.android.launcher3", this));
+        StringBuilder sbM1765j = CompilerOutline.m1765j("");
+        sbM1765j.append(LTKDateUtil.m1397g("com.android.launcher3", this));
         String str = String.format(string, sbM1765j.toString());
-        this.f1655e.setText(C0850bc.m1398h("com.android.launcher3", this) + str);
+        this.f1655e.setText(LTKDateUtil.m1398h("com.android.launcher3", this) + str);
     }
 
     @Override // com.android.launcher3.activity.base.BaseActivity
@@ -92,7 +92,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: e */
     public void mo1172e() {
-        this.f1657g = C1424y5.b.f4202a;
+        this.f1657g = UserInfoUtil.b.f4202a;
         this.f1653c = (Button) findViewById(R.id.scan_code_button);
         this.f1654d = (LinearLayout) findViewById(R.id.sync_time_layout);
         this.f1655e = (TextView) findViewById(R.id.version_text);
@@ -109,9 +109,9 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     /* renamed from: f */
     public final void m1175f() {
         int iM3040e = this.f1657g.m3040e();
-        C0850bc.m1403m("AdminLoginActivity --camera:" + iM3040e);
+        LTKDateUtil.m1403m("AdminLoginActivity --camera:" + iM3040e);
         if (iM3040e != 1) {
-            C0850bc.f2294f.enableCamera();
+            LTKDateUtil.f2294f.enableCamera();
         }
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setOrientationLocked(false);
@@ -122,7 +122,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     /* renamed from: g */
     public final void m1176g(String str) {
         boolean zCanRequestPackageInstalls;
-        C0850bc.m1403m("AdminLoginActivity  -- installing apk path = " + str);
+        LTKDateUtil.m1403m("AdminLoginActivity  -- installing apk path = " + str);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -188,7 +188,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();
@@ -197,13 +197,13 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                 if (id != R.id.sync_time_layout) {
                     return;
                 }
-                C0850bc.m1403m("AdminLoginActivity sycn_timing");
-                if (!C0850bc.f2294f.mo2066k()) {
+                LTKDateUtil.m1403m("AdminLoginActivity sycn_timing");
+                if (!LTKDateUtil.f2294f.mo2066k()) {
                     HemLicenseManager hemLicenseManager = HemLicenseManager.getInstance(this);
                     hemLicenseManager.setStatusListener(new HemLicenseStatusListener() { // from class: com.huawei.hem.y1
                         @Override // com.huawei.hem.license.HemLicenseStatusListener
                         public final void onStatus(int i, String str) {
-                            C0850bc.m1403m("AdminLoginActivity  -- hem msg = " + str + " -- msgCode = " + i);
+                            LTKDateUtil.m1403m("AdminLoginActivity  -- hem msg = " + str + " -- msgCode = " + i);
                         }
                     });
                     hemLicenseManager.activeLicense();
@@ -211,12 +211,12 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                 SynchronizeTimeUtil.pullSynchronizeTime(this, true);
                 return;
             }
-            C1424y5 c1424y5 = this.f1657g;
+            UserInfoUtil c1424y5 = this.f1657g;
             if (c1424y5.f4133G == -1) {
                 c1424y5.f4133G = c1424y5.f4130D.f2199a.getInt("enable_client_admin_status", 1);
             }
             if (c1424y5.f4133G != 1) {
-                C0850bc.m1413w(this, getResources().getString(R.string.login_qr_code), 0);
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.login_qr_code), 0);
                 return;
             } else if (ContextCompat.checkSelfPermission(this, this.f1659i[0]) != 0) {
                 ActivityCompat.requestPermissions(this, this.f1659i, this.f1658h);
@@ -238,7 +238,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             return;
         }
         if (!new C0876cc(c1198p4.mContext).m1505a()) {
-            C0850bc.m1415y(c1198p4.mContext, R.string.network_unable_note);
+            LTKDateUtil.m1415y(c1198p4.mContext, R.string.network_unable_note);
             return;
         }
         try {
@@ -251,18 +251,18 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             V2Params v2Params = new V2Params();
             v2Params.setParams(JSON.toJSONString(checkUpdateParams));
             v2Params.setMethod(RequestUrl.CHECK_UPDATE_METHOD);
-            C1255rb c1255rb = c1198p4.mHttpCore;
+            HttpCore c1255rb = c1198p4.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new C1148n4(c1198p4, ItemApp.class));
         } catch (Exception e) {
             e.printStackTrace();
             DialogUtil.hideDialog();
-            C0850bc.m1414x(c1198p4.mContext, R.string.network_error_note);
+            LTKDateUtil.m1414x(c1198p4.mContext, R.string.network_error_note);
         }
     }
 
@@ -270,9 +270,9 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     public void onDestroy() {
         super.onDestroy();
         int iM3040e = this.f1657g.m3040e();
-        C0850bc.m1403m("AdminLoginActivity --onDestroy camera:" + iM3040e);
+        LTKDateUtil.m1403m("AdminLoginActivity --onDestroy camera:" + iM3040e);
         if (iM3040e != 1) {
-            C0850bc.f2294f.disableCamera();
+            LTKDateUtil.f2294f.disableCamera();
         }
     }
 
@@ -280,7 +280,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         if (i == this.f1658h) {
             if (iArr.length <= 0 || iArr[0] != 0) {
-                C0850bc.m1413w(this, getResources().getString(R.string.qr_out_of_commission), 0);
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.qr_out_of_commission), 0);
             } else {
                 m1175f();
             }

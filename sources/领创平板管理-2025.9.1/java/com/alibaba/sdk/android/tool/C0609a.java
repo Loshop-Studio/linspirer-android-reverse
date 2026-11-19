@@ -3,7 +3,7 @@ package com.alibaba.sdk.android.tool;
 import com.alibaba.sdk.android.tbrest.request.BizRequest;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -428,10 +428,10 @@ public class C0609a {
             throw new NullPointerException("Cannot serialize a null array.");
         }
         if (i < 0) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Cannot have negative offset: ", i));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Cannot have negative offset: ", i));
         }
         if (i2 < 0) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Cannot have length offset: ", i2));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Cannot have length offset: ", i2));
         }
         if (i + i2 > bArr.length) {
             throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(bArr.length)));
@@ -581,7 +581,7 @@ public class C0609a {
             return new byte[0];
         }
         if (i2 < 4) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Base64-encoded string must have at least four characters, but length specified was ", i2));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Base64-encoded string must have at least four characters, but length specified was ", i2));
         }
         byte[] bArrM1018c = m1018c(i3);
         byte[] bArr2 = new byte[(i2 * 3) / 4];

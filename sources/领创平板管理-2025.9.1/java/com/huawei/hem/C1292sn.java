@@ -40,13 +40,13 @@ public final class C1292sn extends C0965fn {
             }
             Logger logger = C1267rn.f3649a;
             Level level = Level.WARNING;
-            StringBuilder sbM1765j = C0948f6.m1765j("Failed to close timed out socket ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("Failed to close timed out socket ");
             sbM1765j.append(this.f3736k);
             logger.log(level, sbM1765j.toString(), (Throwable) e);
         } catch (Exception e2) {
             Logger logger2 = C1267rn.f3649a;
             Level level2 = Level.WARNING;
-            StringBuilder sbM1765j2 = C0948f6.m1765j("Failed to close timed out socket ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Failed to close timed out socket ");
             sbM1765j2.append(this.f3736k);
             logger2.log(level2, sbM1765j2.toString(), (Throwable) e2);
         }

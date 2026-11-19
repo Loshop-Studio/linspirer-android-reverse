@@ -3,13 +3,13 @@ package com.android.launcher3.activity.base;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public abstract class BaseFragmentActivity extends FragmentActivity {
 
     /* renamed from: a */
-    public C1424y5 f1812a;
+    public UserInfoUtil f1812a;
 
     /* renamed from: a */
     public abstract int mo1164a();
@@ -29,7 +29,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1812a = C1424y5.b.f4202a;
+        this.f1812a = UserInfoUtil.b.f4202a;
         setContentView(mo1164a());
         mo1180c();
         mo1166d(bundle);

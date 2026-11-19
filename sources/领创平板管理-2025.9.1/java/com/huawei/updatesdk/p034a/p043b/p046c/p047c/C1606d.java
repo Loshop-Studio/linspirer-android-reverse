@@ -1,6 +1,6 @@
 package com.huawei.updatesdk.p034a.p043b.p046c.p047c;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* renamed from: com.huawei.updatesdk.a.b.c.c.d */
 /* loaded from: classes.dex */
@@ -83,7 +83,7 @@ public class C1606d extends AbstractC1604b {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j(" { \n\tresponseCode: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j(" { \n\tresponseCode: ");
         sbM1765j.append(m3639d());
         sbM1765j.append("\n\trtnCode_: ");
         sbM1765j.append(m3640e());

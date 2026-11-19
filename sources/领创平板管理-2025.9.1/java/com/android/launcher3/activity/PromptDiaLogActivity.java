@@ -18,13 +18,13 @@ import com.android.launcher3.network.params.Params;
 import com.android.launcher3.network.params.V2Params;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1146n2;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.PromptDiaLogActivityResponseListener;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.license.HemLicenseManager;
 import com.huawei.hem.license.HemLicenseStatusListener;
 import java.text.SimpleDateFormat;
@@ -52,7 +52,7 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
     public int f1776g;
 
     /* renamed from: h */
-    public C1424y5 f1777h;
+    public UserInfoUtil f1777h;
 
     /* renamed from: f */
     public static void m1206f(final PromptDiaLogActivity promptDiaLogActivity) {
@@ -60,7 +60,7 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
             throw null;
         }
         ControlHelper.getInstance().handleHemRelease();
-        C0850bc.f2294f.mo2056R(2);
+        LTKDateUtil.f2294f.mo2056R(2);
         HemLicenseManager hemLicenseManager = HemLicenseManager.getInstance(promptDiaLogActivity);
         hemLicenseManager.setStatusListener(new HemLicenseStatusListener() { // from class: com.huawei.hem.d2
             @Override // com.huawei.hem.license.HemLicenseStatusListener
@@ -97,7 +97,7 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
             return;
         }
         if (intExtra == 4) {
-            this.f1777h = C1424y5.b.f4202a;
+            this.f1777h = UserInfoUtil.b.f4202a;
             setFinishOnTouchOutside(false);
             this.f1773d.setText(R.string.release_control_tip);
             return;
@@ -136,9 +136,9 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
     /* renamed from: g */
     public final void m1207g() {
         int iM3040e = this.f1777h.m3040e();
-        C0850bc.m1403m("PromptDiaLogActivity --camera:" + iM3040e);
+        LTKDateUtil.m1403m("PromptDiaLogActivity --camera:" + iM3040e);
         if (iM3040e != 1) {
-            C0850bc.f2294f.enableCamera();
+            LTKDateUtil.f2294f.enableCamera();
         }
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setOrientationLocked(false);
@@ -148,11 +148,11 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
 
     /* renamed from: h */
     public void m1208h(int i, String str) {
-        C0850bc.m1403m("PromptDiaLogActivity  -- hem msg = " + str + " -- msgCode = " + i);
+        LTKDateUtil.m1403m("PromptDiaLogActivity  -- hem msg = " + str + " -- msgCode = " + i);
         if (i == 3000) {
-            C0850bc.m1413w(this, getResources().getString(R.string.release_control_sucessed), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.release_control_sucessed), 0);
         } else {
-            C0850bc.m1413w(this, "msg:" + str + "  errorcode:" + i, 1);
+            LTKDateUtil.m1413w(this, "msg:" + str + "  errorcode:" + i, 1);
         }
         setResult(-1);
         finish();
@@ -161,22 +161,22 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        C0850bc.m1403m("PromptDiaLogActivity scaning start");
+        LTKDateUtil.m1403m("PromptDiaLogActivity scaning start");
         IntentResult activityResult = IntentIntegrator.parseActivityResult(i, i2, intent);
         if (activityResult == null) {
-            C0850bc.m1403m("PromptDiaLogActivity scaning result is empty");
+            LTKDateUtil.m1403m("PromptDiaLogActivity scaning result is empty");
             return;
         }
         String contents = activityResult.getContents();
         if (TextUtils.isEmpty(contents)) {
-            C0850bc.m1403m("PromptDiaLogActivity scaning signature is empty");
+            LTKDateUtil.m1403m("PromptDiaLogActivity scaning signature is empty");
             return;
         }
-        String strM1407q = C0850bc.m1407q(contents);
+        String strM1407q = LTKDateUtil.m1407q(contents);
         String str = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        C0850bc.m1403m("PromptDiaLogActivity parse  result:" + strM1407q + " current:" + str);
+        LTKDateUtil.m1403m("PromptDiaLogActivity parse  result:" + strM1407q + " current:" + str);
         if (!str.equals(strM1407q)) {
-            C0850bc.m1413w(this, getResources().getString(R.string.cancel_distribute_failed), 0);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.cancel_distribute_failed), 0);
             finish();
             return;
         }
@@ -186,21 +186,21 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
             params.setEmail(this.f1777h.m3052k());
             v2Params.setMethod(RequestUrl.CANCEL_DISTRIBUTE);
             v2Params.setParams(JSON.toJSONString(params));
-            C1355vb c1355vb = new C1355vb(new C1255rb());
+            PostBuilder c1355vb = new PostBuilder(new HttpCore());
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
-            c1355vb.m2869b(new C1146n2(this, Boolean.class));
+            c1355vb.m2869b(new PromptDiaLogActivityResponseListener(this, Boolean.class));
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("PromptDiaLogActivity --JSONException:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("PromptDiaLogActivity --JSONException:");
             sbM1765j.append(e.getMessage());
-            C0850bc.m1393c(sbM1765j.toString());
+            LTKDateUtil.m1393c(sbM1765j.toString());
             finish();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();
@@ -213,7 +213,7 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
         }
         int i = this.f1776g;
         if (i == 1 || i == 7) {
-            C0850bc.f2294f.mo1329t(false);
+            LTKDateUtil.f2294f.mo1329t(false);
         } else if (i == 4) {
             this.f1773d.setText(R.string.release_control_now);
             this.f1775f.setVisibility(8);
@@ -233,7 +233,7 @@ public class PromptDiaLogActivity extends BaseActivity implements View.OnClickLi
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         if (i == this.f1772c) {
             if (iArr.length <= 0 || iArr[0] != 0) {
-                C0850bc.m1413w(this, getResources().getString(R.string.qr_out_of_commission), 0);
+                LTKDateUtil.m1413w(this, getResources().getString(R.string.qr_out_of_commission), 0);
             } else {
                 m1207g();
             }

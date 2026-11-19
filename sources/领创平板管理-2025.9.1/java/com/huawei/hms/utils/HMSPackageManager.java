@@ -9,8 +9,8 @@ import android.content.pm.ServiceInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.huawei.hem.C0948f6;
-import com.huawei.hms.device.C1546a;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hms.device.X509CertUtil;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.PackageManagerHelper;
 import java.security.cert.X509Certificate;
@@ -80,7 +80,7 @@ public class HMSPackageManager {
                 HMSLog.m3461e("HMSPackageManager", "skip package " + str + " for no signer");
             } else if (bundle.containsKey("hms_app_cert_chain")) {
                 String packageSignature = this.f4608b.getPackageSignature(str);
-                if (m3494a(C0948f6.m1761f(str, "&", packageSignature), bundle.getString("hms_app_signer"), bundle.getString("hms_app_cert_chain"))) {
+                if (m3494a(CompilerOutline.m1761f(str, "&", packageSignature), bundle.getString("hms_app_signer"), bundle.getString("hms_app_cert_chain"))) {
                     return new Pair<>(str, packageSignature);
                 }
                 HMSLog.m3461e("HMSPackageManager", "checkSinger failed");
@@ -188,25 +188,25 @@ public class HMSPackageManager {
     /* renamed from: a */
     public final boolean m3494a(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            List<X509Certificate> listM3417b = C1546a.m3417b(str3);
+            List<X509Certificate> listM3417b = X509CertUtil.m3417b(str3);
             if (listM3417b.size() == 0) {
                 HMSLog.m3461e("HMSPackageManager", "certChain is empty");
                 return false;
             }
-            if (!C1546a.m3414a(C1546a.m3407a(this.f4607a), listM3417b)) {
+            if (!X509CertUtil.m3414a(X509CertUtil.m3407a(this.f4607a), listM3417b)) {
                 HMSLog.m3461e("HMSPackageManager", "failed to verify cert chain");
                 return false;
             }
             X509Certificate x509Certificate = listM3417b.get(listM3417b.size() - 1);
-            if (!C1546a.m3412a(x509Certificate, "Huawei CBG HMS")) {
+            if (!X509CertUtil.m3412a(x509Certificate, "Huawei CBG HMS")) {
                 HMSLog.m3461e("HMSPackageManager", "CN is invalid");
                 return false;
             }
-            if (!C1546a.m3419b(x509Certificate, "Huawei CBG Cloud Security Signer")) {
+            if (!X509CertUtil.m3419b(x509Certificate, "Huawei CBG Cloud Security Signer")) {
                 HMSLog.m3461e("HMSPackageManager", "OU is invalid");
                 return false;
             }
-            if (C1546a.m3413a(x509Certificate, str, str2)) {
+            if (X509CertUtil.m3413a(x509Certificate, str, str2)) {
                 return true;
             }
             HMSLog.m3461e("HMSPackageManager", "signature is invalid: " + str);

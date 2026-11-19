@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Field;
 
 /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public final class LayoutInflaterCompat {
                 sLayoutInflaterFactory2Field = declaredField;
                 declaredField.setAccessible(true);
             } catch (NoSuchFieldException e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("forceSetFactory2 Could not find field 'mFactory2' on class ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("forceSetFactory2 Could not find field 'mFactory2' on class ");
                 sbM1765j.append(LayoutInflater.class.getName());
                 sbM1765j.append("; inflation may have unexpected results.");
                 Log.e(TAG, sbM1765j.toString(), e);

@@ -1,6 +1,6 @@
 package com.huawei.hms.activity.internal;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
 import org.json.JSONException;
@@ -20,7 +20,7 @@ public class ForegroundInnerHeader {
             this.action = JsonUtil.getStringValue(jSONObject, "action");
             this.responseCallbackKey = JsonUtil.getStringValue(jSONObject, "responseCallbackKey");
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("fromJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("fromJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("ForegroundInnerHeader", sbM1765j.toString());
         }
@@ -57,7 +57,7 @@ public class ForegroundInnerHeader {
             jSONObject.put("action", this.action);
             jSONObject.put("responseCallbackKey", this.responseCallbackKey);
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("ForegroundInnerHeader toJson failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("ForegroundInnerHeader toJson failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("ForegroundInnerHeader", sbM1765j.toString());
         }
@@ -65,7 +65,7 @@ public class ForegroundInnerHeader {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("apkVersion:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("apkVersion:");
         sbM1765j.append(this.apkVersion);
         sbM1765j.append(", action:");
         sbM1765j.append(this.action);

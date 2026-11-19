@@ -8,10 +8,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.android.SystemUtils;
-import com.huawei.hms.availableupdate.AbstractC1509n;
+import com.huawei.hms.availableupdate.AbsUpdateWizard;
 import com.huawei.hms.common.PackageConstants;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.update.p033ui.UpdateBean;
@@ -93,7 +93,7 @@ public class UpdateManager {
             HMSLog.m3463i("UpdateManager", "typeList is empty, no upgrade solution");
         }
         updateBean.setTypeList(arrayList);
-        Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbstractC1509n.m3331a(iIntValue));
+        Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbsUpdateWizard.m3331a(iIntValue));
         intentStartBridgeActivity.putExtra(BridgeActivity.EXTRA_DELEGATE_UPDATE_INFO, updateBean);
         return intentStartBridgeActivity;
     }
@@ -128,7 +128,7 @@ public class UpdateManager {
         }
         updateBean.setTypeList(arrayList);
         if (arrayList.size() > 1) {
-            intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbstractC1509n.m3331a(((Integer) arrayList.get(1)).intValue()));
+            intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbsUpdateWizard.m3331a(((Integer) arrayList.get(1)).intValue()));
         } else {
             int iIntValue = -2;
             if (arrayList.size() > 0) {
@@ -136,7 +136,7 @@ public class UpdateManager {
             } else {
                 HMSLog.m3463i("UpdateManager", "typeList is empty, no upgrade solution");
             }
-            intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbstractC1509n.m3331a(iIntValue));
+            intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, AbsUpdateWizard.m3331a(iIntValue));
         }
         intentStartBridgeActivity.putExtra(BridgeActivity.EXTRA_DELEGATE_UPDATE_INFO, updateBean);
         return intentStartBridgeActivity;
@@ -145,7 +145,7 @@ public class UpdateManager {
     /* renamed from: b */
     public static boolean m3472b(Context context) {
         int packageVersionCode = new PackageManagerHelper(context).getPackageVersionCode(PackageConstants.SERVICES_PACKAGE_APPMARKET);
-        C0948f6.m1777v("getHiappVersion is ", packageVersionCode, "UpdateManager");
+        CompilerOutline.m1777v("getHiappVersion is ", packageVersionCode, "UpdateManager");
         return ((long) packageVersionCode) >= 70203000;
     }
 
@@ -213,7 +213,7 @@ public class UpdateManager {
             HMSLog.m3463i("UpdateManager", "typeList is empty, no upgrade solution");
         }
         updateBean.setTypeList(arrayList);
-        Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(context, AbstractC1509n.m3331a(iIntValue));
+        Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(context, AbsUpdateWizard.m3331a(iIntValue));
         intentStartBridgeActivity.putExtra(BridgeActivity.EXTRA_DELEGATE_UPDATE_INFO, updateBean);
         return intentStartBridgeActivity;
     }

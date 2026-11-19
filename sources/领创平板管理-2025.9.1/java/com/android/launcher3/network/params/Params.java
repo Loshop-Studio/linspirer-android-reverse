@@ -1,7 +1,7 @@
 package com.android.launcher3.network.params;
 
 import android.content.Context;
-import com.huawei.hem.C0904de;
+import com.huawei.hem.LauncherDeviceUtils;
 
 /* loaded from: classes.dex */
 public class Params {
@@ -10,8 +10,8 @@ public class Params {
     public String swdid;
 
     public Params(Context context) {
-        setModel(C0904de.m1589f());
-        setSwdid(C0904de.m1593j(context));
+        setModel(LauncherDeviceUtils.m1589f());
+        setSwdid(LauncherDeviceUtils.m1593j(context));
     }
 
     public String getEmail() {

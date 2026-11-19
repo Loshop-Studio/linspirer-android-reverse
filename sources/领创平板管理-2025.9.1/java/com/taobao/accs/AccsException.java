@@ -1,6 +1,6 @@
 package com.taobao.accs;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
@@ -15,7 +15,7 @@ public class AccsException extends Exception {
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        StringBuilder sbM1765j = C0948f6.m1765j("errorCode = ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("errorCode = ");
         sbM1765j.append(this.mErrorCode);
         printStream.println(sbM1765j.toString());
         super.printStackTrace(printStream);
@@ -27,7 +27,7 @@ public class AccsException extends Exception {
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        StringBuilder sbM1765j = C0948f6.m1765j("errorCode = ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("errorCode = ");
         sbM1765j.append(this.mErrorCode);
         printWriter.println(sbM1765j.toString());
         super.printStackTrace(printWriter);

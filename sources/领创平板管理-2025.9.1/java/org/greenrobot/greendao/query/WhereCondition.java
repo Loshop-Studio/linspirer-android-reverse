@@ -1,6 +1,6 @@
 package org.greenrobot.greendao.query;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Date;
 import java.util.List;
 import org.greenrobot.greendao.DaoException;
@@ -59,7 +59,7 @@ public interface WhereCondition {
                 if (obj instanceof Long) {
                     return obj;
                 }
-                throw new DaoException(C0948f6.m1759d("Illegal date value: expected java.util.Date or Long for value ", obj));
+                throw new DaoException(CompilerOutline.m1759d("Illegal date value: expected java.util.Date or Long for value ", obj));
             }
             if (cls == Boolean.TYPE || cls == Boolean.class) {
                 if (obj instanceof Boolean) {
@@ -68,7 +68,7 @@ public interface WhereCondition {
                 if (obj instanceof Number) {
                     int iIntValue = ((Number) obj).intValue();
                     if (iIntValue != 0 && iIntValue != 1) {
-                        throw new DaoException(C0948f6.m1759d("Illegal boolean value: numbers must be 0 or 1, but was ", obj));
+                        throw new DaoException(CompilerOutline.m1759d("Illegal boolean value: numbers must be 0 or 1, but was ", obj));
                     }
                 } else if (obj instanceof String) {
                     String str = (String) obj;
@@ -78,7 +78,7 @@ public interface WhereCondition {
                     if ("FALSE".equalsIgnoreCase(str)) {
                         return 0;
                     }
-                    throw new DaoException(C0948f6.m1759d("Illegal boolean value: Strings must be \"TRUE\" or \"FALSE\" (case insensitive), but was ", obj));
+                    throw new DaoException(CompilerOutline.m1759d("Illegal boolean value: Strings must be \"TRUE\" or \"FALSE\" (case insensitive), but was ", obj));
                 }
             }
             return obj;

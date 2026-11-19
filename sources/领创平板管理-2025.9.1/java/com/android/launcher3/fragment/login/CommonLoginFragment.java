@@ -15,12 +15,12 @@ import com.android.launcher3.LauncherNew;
 import com.android.launcher3.R;
 import com.android.launcher3.network.CommonLoginRequestHelper;
 import com.android.launcher3.network.DeviceLogHelper;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.C0876cc;
-import com.huawei.hem.C0904de;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherDeviceUtils;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class CommonLoginFragment extends BaseLoginFragment {
@@ -121,59 +121,59 @@ public class CommonLoginFragment extends BaseLoginFragment {
             strTrim = this.f2016q.getText().toString().trim();
             strTrim2 = this.f2018s.getText().toString().trim();
             if (TextUtils.isEmpty(strTrim)) {
-                C0850bc.m1415y(this.f1800a, R.string.text_account_is_null);
+                LTKDateUtil.m1415y(this.f1800a, R.string.text_account_is_null);
                 return;
             } else if (TextUtils.isEmpty(strTrim2)) {
-                C0850bc.m1415y(this.f1800a, R.string.text_password_is_null);
+                LTKDateUtil.m1415y(this.f1800a, R.string.text_password_is_null);
                 return;
             }
         }
         if (!this.f2008n.isChecked()) {
-            C0850bc.m1415y(this.f1800a, R.string.text_privacytips_before_login);
+            LTKDateUtil.m1415y(this.f1800a, R.string.text_privacytips_before_login);
             return;
         }
-        C1424y5 c1424y5 = this.f1802c;
+        UserInfoUtil c1424y5 = this.f1802c;
         int i = this.f2014C ? 2 : 1;
         if (c1424y5.f4198w0 != i) {
             c1424y5.f4198w0 = i;
-            C0824ac c0824ac = c1424y5.f4130D;
+            DeskSPF c0824ac = c1424y5.f4130D;
             c0824ac.f2200b.putInt("login_account_type", i);
             c0824ac.f2200b.commit();
         }
         this.f1802c.m3041e0(false);
         NetworkInfo networkInfo = new C0876cc(this.f1800a).f2337a;
         if (networkInfo != null ? networkInfo.isAvailable() : false) {
-            C0850bc.m1403m("CommonLoginFragmentparepare to on line login");
+            LTKDateUtil.m1403m("CommonLoginFragmentparepare to on line login");
             CommonLoginRequestHelper.getInstance().onlineLogin(this.f1800a, strTrim, strTrim2, this.f2019t.isChecked());
             return;
         }
-        C0850bc.m1403m("CommonLoginFragmentparepare to on offline login");
+        LTKDateUtil.m1403m("CommonLoginFragmentparepare to on offline login");
         String strM3052k = this.f1802c.m3052k();
         String strM3013H = this.f1802c.m3013H();
-        if (!strM3052k.equals(strTrim) || !strM3013H.equals(C0850bc.m1401k(strTrim2))) {
-            C0850bc.m1414x(this.f1800a, R.string.text_offline_fail);
+        if (!strM3052k.equals(strTrim) || !strM3013H.equals(LTKDateUtil.m1401k(strTrim2))) {
+            LTKDateUtil.m1414x(this.f1800a, R.string.text_offline_fail);
             return;
         }
         this.f1802c.m3037c0(1);
-        C1424y5 c1424y52 = this.f1802c;
+        UserInfoUtil c1424y52 = this.f1802c;
         boolean zIsChecked = this.f2008n.isChecked();
         if (c1424y52.f4140N != zIsChecked) {
-            C0824ac c0824ac2 = c1424y52.f4130D;
+            DeskSPF c0824ac2 = c1424y52.f4130D;
             c0824ac2.f2200b.putBoolean("agreed_privacy", zIsChecked);
             c0824ac2.f2200b.commit();
             c1424y52.f4140N = zIsChecked;
         }
-        C1424y5 c1424y53 = this.f1802c;
+        UserInfoUtil c1424y53 = this.f1802c;
         boolean zIsChecked2 = this.f2019t.isChecked();
         if (c1424y53.f4181o != zIsChecked2) {
             c1424y53.f4181o = zIsChecked2;
-            C0824ac c0824ac3 = c1424y53.f4130D;
+            DeskSPF c0824ac3 = c1424y53.f4130D;
             c0824ac3.f2200b.putBoolean("stu_is_save_account", zIsChecked2);
             c0824ac3.f2200b.commit();
         }
-        C1423y4.m2974U(this.f1800a, LauncherNew.class);
+        LauncherMenuHelper.m2974U(this.f1800a, LauncherNew.class);
         ((FragmentActivity) this.f1800a).finish();
-        C0850bc.f2294f.enableNavigation();
+        LTKDateUtil.f2294f.enableNavigation();
         DeviceLogHelper.getInstance().recordAccountOfflineLogin();
     }
 
@@ -185,7 +185,7 @@ public class CommonLoginFragment extends BaseLoginFragment {
             this.f2023x.setVisibility(8);
             this.f2012A.setVisibility(0);
             this.f2025z.setVisibility(8);
-            this.f2017r.setText(C0904de.m1592i());
+            this.f2017r.setText(LauncherDeviceUtils.m1592i());
             return;
         }
         this.f2021v.setChecked(true);

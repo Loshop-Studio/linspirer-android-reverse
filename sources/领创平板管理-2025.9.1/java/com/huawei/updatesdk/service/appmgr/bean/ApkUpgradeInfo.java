@@ -2,7 +2,7 @@ package com.huawei.updatesdk.service.appmgr.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import java.io.Serializable;
 
@@ -348,7 +348,7 @@ public class ApkUpgradeInfo extends AbstractC1604b implements Serializable, Parc
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j(" {\n\tid_: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j(" {\n\tid_: ");
         sbM1765j.append(getId_());
         sbM1765j.append("\n\tname_: ");
         sbM1765j.append(getName_());

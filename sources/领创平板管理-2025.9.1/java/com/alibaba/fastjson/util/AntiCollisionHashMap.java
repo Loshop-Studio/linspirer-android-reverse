@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.util;
 
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -295,7 +295,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         this.random = new Random().nextInt(99999);
         this.entrySet = null;
         if (i < 0) {
-            throw new IllegalArgumentException(C0948f6.m1754L("Illegal initial capacity: ", i));
+            throw new IllegalArgumentException(CompilerOutline.m1754L("Illegal initial capacity: ", i));
         }
         i = i > 1073741824 ? 1073741824 : i;
         if (f <= 0.0f || Float.isNaN(f)) {

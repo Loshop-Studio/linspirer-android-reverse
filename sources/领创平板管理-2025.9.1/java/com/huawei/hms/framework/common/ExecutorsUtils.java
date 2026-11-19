@@ -1,7 +1,7 @@
 package com.huawei.hms.framework.common;
 
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
@@ -23,7 +23,7 @@ public class ExecutorsUtils {
 
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(Runnable runnable) {
-                StringBuilder sbM1765j = C0948f6.m1765j("NetworkKit_");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("NetworkKit_");
                 sbM1765j.append(str);
                 sbM1765j.append("_");
                 sbM1765j.append(this.threadNumbers.getAndIncrement());

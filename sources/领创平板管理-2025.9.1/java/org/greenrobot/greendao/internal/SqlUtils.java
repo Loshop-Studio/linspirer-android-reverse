@@ -1,7 +1,7 @@
 package org.greenrobot.greendao.internal;
 
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.Property;
@@ -138,7 +138,7 @@ public class SqlUtils {
     }
 
     public static String escapeBlobArgument(byte[] bArr) {
-        StringBuilder sbM1765j = C0948f6.m1765j("X'");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("X'");
         sbM1765j.append(toHex(bArr));
         sbM1765j.append('\'');
         return sbM1765j.toString();

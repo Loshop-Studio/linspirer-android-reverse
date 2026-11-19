@@ -9,8 +9,8 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.widget.RelativeLayout;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public abstract class BaseActivity extends Activity {
@@ -49,7 +49,7 @@ public abstract class BaseActivity extends Activity {
         mo1174d();
         if (this.f1799a != null && ImmersionBar.hasNavigationBar(this) && ImmersionBar.isNavigationAtBottom(this)) {
             int navigationBarHeight = ImmersionBar.getNavigationBarHeight(this);
-            C0850bc.m1403m("navigation bar height:" + navigationBarHeight);
+            LTKDateUtil.m1403m("navigation bar height:" + navigationBarHeight);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             layoutParams.bottomMargin = navigationBarHeight;
@@ -73,9 +73,9 @@ public abstract class BaseActivity extends Activity {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 1) {
             for (int i2 = 0; i2 < iArr.length; i2++) {
-                StringBuilder sbM1766k = C0948f6.m1766k("user set permission item:", i2, " status :");
+                StringBuilder sbM1766k = CompilerOutline.m1766k("user set permission item:", i2, " status :");
                 sbM1766k.append(iArr[i2]);
-                C0850bc.m1403m(sbM1766k.toString());
+                LTKDateUtil.m1403m(sbM1766k.toString());
             }
         }
     }

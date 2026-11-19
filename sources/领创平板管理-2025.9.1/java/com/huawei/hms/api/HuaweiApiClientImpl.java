@@ -15,17 +15,17 @@ import android.os.RemoteException;
 import android.support.v7.widget.TooltipCompatHandler;
 import android.text.TextUtils;
 import com.google.zxing.client.android.InactivityTimer;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.HuaweiApiClient;
 import com.huawei.hms.common.api.ConnectionPostProcessor;
 import com.huawei.hms.common.internal.AutoLifecycleFragment;
-import com.huawei.hms.core.aidl.C1540a;
+import com.huawei.hms.core.aidl.CodecLookup;
 import com.huawei.hms.core.aidl.C1541b;
-import com.huawei.hms.core.aidl.C1544e;
+import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
-import com.huawei.hms.core.aidl.InterfaceC1542c;
-import com.huawei.hms.core.aidl.InterfaceC1543d;
+import com.huawei.hms.core.aidl.IAIDLCallback;
+import com.huawei.hms.core.aidl.IAIDLInvoke;
 import com.huawei.hms.core.aidl.RequestHeader;
 import com.huawei.hms.core.aidl.ResponseHeader;
 import com.huawei.hms.support.api.PendingResultImpl;
@@ -97,7 +97,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     public String f4386e;
 
     /* renamed from: f */
-    public volatile InterfaceC1543d f4387f;
+    public volatile IAIDLInvoke f4387f;
 
     /* renamed from: g */
     public String f4388g;
@@ -191,7 +191,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
                 if (intExtra == 7) {
                     ApkUpgradeInfo apkUpgradeInfo = (ApkUpgradeInfo) intent.getSerializableExtra(UpdateKey.INFO);
                     if (apkUpgradeInfo != null) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("onUpdateInfo: ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("onUpdateInfo: ");
                         sbM1765j.append(apkUpgradeInfo.toString());
                         HMSLog.m3463i("HuaweiApiClientImpl", sbM1765j.toString());
                     }
@@ -203,7 +203,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
                 }
                 HuaweiApiClientImpl.this.f4407z = null;
             } catch (Exception e) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("intent has some error");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("intent has some error");
                 sbM1765j2.append(e.getMessage());
                 HMSLog.m3461e("HuaweiApiClientImpl", sbM1765j2.toString());
                 HuaweiApiClientImpl.this.f4407z.onResult(-1);
@@ -255,7 +255,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$d */
-    public class BinderC1483d extends InterfaceC1542c.a {
+    public class BinderC1483d extends IAIDLCallback.a {
 
         /* renamed from: a */
         public final /* synthetic */ ResultCallback f4411a;
@@ -271,7 +271,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
                 this.f4411a.onResult(new BundleResult(-1, null));
                 return;
             }
-            C1544e c1544eM3386a = C1540a.m3386a(c1541b.m3392c());
+            MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b.m3392c());
             ResponseHeader responseHeader = new ResponseHeader();
             c1544eM3386a.m3402a(c1541b.f4527b, responseHeader);
             BundleResult bundleResult = new BundleResult(responseHeader.getStatusCode(), c1541b.m3389a());
@@ -524,7 +524,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             return CommonCode.ErrorCode.CLIENT_API_INVALID;
         }
         C1541b c1541b = new C1541b(str, i);
-        C1544e c1544eM3386a = C1540a.m3386a(c1541b.m3392c());
+        MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b.m3392c());
         c1541b.m3390a(bundle);
         RequestHeader requestHeader = new RequestHeader(getAppID(), getPackageName(), 50200300, getSessionId());
         requestHeader.setApiNameList(getApiNameList());
@@ -533,7 +533,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             getService().mo3393a(c1541b, new BinderC1483d(this, resultCallback));
             return 0;
         } catch (RemoteException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("remote exception:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("remote exception:");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("HuaweiApiClientImpl", sbM1765j.toString());
             return CommonCode.ErrorCode.INTERNAL_ERROR;
@@ -567,7 +567,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     public void connect(Activity activity) {
         HMSLog.m3463i("HuaweiApiClientImpl", "====== HMSSDK version: 50200300 ======");
         int i = this.f4392k.get();
-        C0948f6.m1777v("Enter connect, Connection Status: ", i, "HuaweiApiClientImpl");
+        CompilerOutline.m1777v("Enter connect, Connection Status: ", i, "HuaweiApiClientImpl");
         if (i == 3 || i == 5 || i == 2 || i == 4) {
             return;
         }
@@ -580,7 +580,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         HMSLog.m3463i("HuaweiApiClientImpl", "connect minVersion:" + iM3232e);
         HuaweiApiAvailability.setServicesVersionCode(iM3232e);
         int iIsHuaweiMobileServicesAvailable = HuaweiMobileServicesUtil.isHuaweiMobileServicesAvailable(this.f4383b, iM3232e);
-        C0948f6.m1777v("In connect, isHuaweiMobileServicesAvailable result: ", iIsHuaweiMobileServicesAvailable, "HuaweiApiClientImpl");
+        CompilerOutline.m1777v("In connect, isHuaweiMobileServicesAvailable result: ", iIsHuaweiMobileServicesAvailable, "HuaweiApiClientImpl");
         this.f4398q = HMSPackageManager.getInstance(this.f4383b).getHmsVersionCode();
         if (iIsHuaweiMobileServicesAvailable != 0) {
             if (this.f4404w != null) {
@@ -603,7 +603,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     public void connectForeground() {
         HMSLog.m3463i("HuaweiApiClientImpl", "====== HMSSDK version: 50200300 ======");
         int i = this.f4392k.get();
-        C0948f6.m1777v("Enter forceConnect, Connection Status: ", i, "HuaweiApiClientImpl");
+        CompilerOutline.m1777v("Enter forceConnect, Connection Status: ", i, "HuaweiApiClientImpl");
         if (i == 3 || i == 5 || i == 2 || i == 4) {
             return;
         }
@@ -631,7 +631,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     @Override // com.huawei.hms.api.HuaweiApiClient
     public void disconnect() {
         int i = this.f4392k.get();
-        C0948f6.m1777v("Enter disconnect, Connection Status: ", i, "HuaweiApiClientImpl");
+        CompilerOutline.m1777v("Enter disconnect, Connection Status: ", i, "HuaweiApiClientImpl");
         if (i == 2) {
             m3228c(4);
             return;
@@ -707,7 +707,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     @Override // com.huawei.hms.support.api.client.AidlApiClient
-    public InterfaceC1543d getService() {
+    public IAIDLInvoke getService() {
         return this.f4387f;
     }
 
@@ -806,7 +806,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             return true;
         }
         int statusCode = status.getStatusCode();
-        C0948f6.m1777v("isConnected is false, statuscode:", statusCode, "HuaweiApiClientImpl");
+        CompilerOutline.m1777v("isConnected is false, statuscode:", statusCode, "HuaweiApiClientImpl");
         if (statusCode == 907135004) {
             return false;
         }
@@ -839,7 +839,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         HMSLog.m3463i("HuaweiApiClientImpl", "Enter onServiceConnected.");
         m3217a(2);
-        this.f4387f = InterfaceC1543d.a.m3395a(iBinder);
+        this.f4387f = IAIDLInvoke.a.m3395a(iBinder);
         if (this.f4387f != null) {
             if (this.f4392k.get() == 5) {
                 m3228c(2);
@@ -999,7 +999,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             resolveErrorPendingIntent = null;
         } else {
             resolveErrorPendingIntent = HuaweiApiAvailability.getInstance().getResolveErrorPendingIntent(this.f4389h.get(), i);
-            C0948f6.m1777v("connect 2.0 fail: ", i, "HuaweiApiClientImpl");
+            CompilerOutline.m1777v("connect 2.0 fail: ", i, "HuaweiApiClientImpl");
         }
         ConnectionResult connectionResult = new ConnectionResult(i, resolveErrorPendingIntent);
         this.f4404w.onConnectionFailed(connectionResult);
@@ -1052,7 +1052,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
     public void m3226b(ResolveResult<DisconnectResp> resolveResult) {
-        StringBuilder sbM1765j = C0948f6.m1765j("Enter onDisconnectionResult, disconnect from server result: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Enter onDisconnectionResult, disconnect from server result: ");
         sbM1765j.append(resolveResult.getStatus().getStatusCode());
         HMSLog.m3463i("HuaweiApiClientImpl", sbM1765j.toString());
         m3242o();
@@ -1139,7 +1139,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
                 this.f4385d = subAppID;
             }
             int statusCode = resolveResult.getStatus().getStatusCode();
-            C0948f6.m1777v("Enter onConnectionResult, connect to server result: ", statusCode, "HuaweiApiClientImpl");
+            CompilerOutline.m1777v("Enter onConnectionResult, connect to server result: ", statusCode, "HuaweiApiClientImpl");
             if (Status.SUCCESS.equals(resolveResult.getStatus())) {
                 if (resolveResult.getValue() != null) {
                     ProtocolNegotiate.getInstance().negotiate(resolveResult.getValue().protocolVersion);

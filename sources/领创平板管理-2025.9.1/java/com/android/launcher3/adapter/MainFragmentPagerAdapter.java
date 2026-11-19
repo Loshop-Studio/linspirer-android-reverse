@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
-import com.huawei.hem.C0850bc;
+import com.huawei.hem.LTKDateUtil;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
         try {
             super.finishUpdate(viewGroup);
         } catch (NullPointerException unused) {
-            C0850bc.m1390A("Catch the NullPointerException in FragmentPagerAdapter.finishUpdate");
+            LTKDateUtil.m1390A("Catch the NullPointerException in FragmentPagerAdapter.finishUpdate");
         }
     }
 

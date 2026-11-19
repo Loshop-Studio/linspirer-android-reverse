@@ -12,7 +12,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,11 +55,11 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
         String str = this.mTag;
         if (z) {
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append(fragment.getClass().getName());
             string = sbM1765j.toString();
         } else {
-            StringBuilder sbM1765j2 = C0948f6.m1765j(str);
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j(str);
             sbM1765j2.append(System.identityHashCode(fragment));
             string = sbM1765j2.toString();
         }
@@ -157,11 +157,11 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
         String str = this.mTag;
         if (z) {
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append(fragment.getClass().getName());
             string = sbM1765j.toString();
         } else {
-            StringBuilder sbM1765j2 = C0948f6.m1765j(str);
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j(str);
             sbM1765j2.append(System.identityHashCode(fragment));
             string = sbM1765j2.toString();
         }
@@ -178,11 +178,11 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
         String str = this.mTag;
         if (z) {
-            StringBuilder sbM1765j = C0948f6.m1765j(str);
+            StringBuilder sbM1765j = CompilerOutline.m1765j(str);
             sbM1765j.append(fragment.getClass().getName());
             string = sbM1765j.toString();
         } else {
-            StringBuilder sbM1765j2 = C0948f6.m1765j(str);
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j(str);
             sbM1765j2.append(System.identityHashCode(fragment));
             string = sbM1765j2.toString();
         }

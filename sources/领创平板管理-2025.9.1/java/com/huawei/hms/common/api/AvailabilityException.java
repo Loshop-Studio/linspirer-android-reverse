@@ -1,6 +1,6 @@
 package com.huawei.hms.common.api;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
@@ -14,7 +14,7 @@ public class AvailabilityException extends Exception {
     public String message = null;
 
     private ConnectionResult generateConnectionResult(int i) {
-        C0948f6.m1777v("The availability check result is: ", i, this.TAG);
+        CompilerOutline.m1777v("The availability check result is: ", i, this.TAG);
         setMessage(i);
         return new ConnectionResult(i);
     }

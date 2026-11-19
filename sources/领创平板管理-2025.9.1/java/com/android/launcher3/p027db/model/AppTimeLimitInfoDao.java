@@ -2,7 +2,7 @@ package com.android.launcher3.p027db.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.common.Constants;
 import org.android.agoo.common.AgooConstants;
 import org.greenrobot.greendao.AbstractDao;
@@ -38,11 +38,11 @@ public class AppTimeLimitInfoDao extends AbstractDao<AppTimeLimitInfo, Long> {
         database.execSQL("CREATE TABLE " + str + "\"app_time_limit\" (\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ,\"FRIDAY\" TEXT,\"MONDAY\" TEXT,\"SUNDAY\" TEXT,\"TUESDAY\" TEXT,\"SATURDAY\" TEXT,\"THURSDAY\" TEXT,\"WEDNESDAY\" TEXT,\"PACKAGE_NAMES\" TEXT);");
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE UNIQUE INDEX ");
-        C0948f6.m1743A(sb, str, "IDX_app_time_limit__id ON \"app_time_limit\" (\"_id\" ASC);", database);
+        CompilerOutline.m1743A(sb, str, "IDX_app_time_limit__id ON \"app_time_limit\" (\"_id\" ASC);", database);
     }
 
     public static void dropTable(Database database, boolean z) {
-        C0948f6.m1743A(C0948f6.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"app_time_limit\"", database);
+        CompilerOutline.m1743A(CompilerOutline.m1765j("DROP TABLE "), z ? "IF EXISTS " : "", "\"app_time_limit\"", database);
     }
 
     @Override // org.greenrobot.greendao.AbstractDao

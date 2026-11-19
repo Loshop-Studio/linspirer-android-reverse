@@ -1,6 +1,6 @@
 package com.huawei.hms.common.internal;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ContainerUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public final class Objects {
         public final ToStringHelper add(String str, Object obj) {
             String str2 = (String) Preconditions.checkNotNull(str);
             String strValueOf = String.valueOf(obj);
-            this.f4524a.add(C0948f6.m1763h(new StringBuilder(strValueOf.length() + str2.length() + 1), str2, ContainerUtils.KEY_VALUE_DELIMITER, strValueOf));
+            this.f4524a.add(CompilerOutline.m1763h(new StringBuilder(strValueOf.length() + str2.length() + 1), str2, ContainerUtils.KEY_VALUE_DELIMITER, strValueOf));
             return this;
         }
 

@@ -3,17 +3,17 @@ package com.huawei.hms.support.hianalytics;
 import android.content.Context;
 import android.text.TextUtils;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C0951f9;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.HmsHiAnalyticsUtils;
 import com.huawei.hem.C1328u9;
 import com.huawei.hem.C1353v9;
 import com.huawei.hem.C1378w9;
 import com.huawei.hem.C1404xa;
 import com.huawei.hianalytics.process.HiAnalyticsManager;
 import com.huawei.hianalytics.util.HiAnalyticTools;
-import com.huawei.hms.stats.C1557a;
-import com.huawei.hms.stats.C1558b;
-import com.huawei.hms.stats.C1559c;
+import com.huawei.hms.stats.AnalyticsSwitchHolder;
+import com.huawei.hms.stats.HiAnalyticsOfCpUtils;
+import com.huawei.hms.stats.HianalyticsExist;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -36,7 +36,7 @@ public class HiAnalyticsUtils {
     public int f4567a = 0;
 
     /* renamed from: b */
-    public boolean f4568b = C1559c.m3448a();
+    public boolean f4568b = HianalyticsExist.m3448a();
 
     /* renamed from: a */
     public static LinkedHashMap<String, String> m3455a(Map<String, String> map) {
@@ -74,16 +74,16 @@ public class HiAnalyticsUtils {
         if (this.f4568b) {
             HiAnalyticTools.enableLog(context);
         } else {
-            C0951f9.m1783a();
+            HmsHiAnalyticsUtils.m1783a();
         }
     }
 
     public boolean getInitFlag() {
-        return !this.f4568b ? C0951f9.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
+        return !this.f4568b ? HmsHiAnalyticsUtils.m1784b() : HiAnalyticsManager.getInitFlag(HiAnalyticsConstant.HA_SERVICE_TAG);
     }
 
     public boolean hasError(Context context) {
-        return C1557a.m3443c(context);
+        return AnalyticsSwitchHolder.m3443c(context);
     }
 
     public void onBuoyEvent(Context context, String str, String str2) {
@@ -98,11 +98,11 @@ public class HiAnalyticsUtils {
             return;
         }
         if (this.f4568b) {
-            C1558b.m3446a(context, 0, str, m3455a(map));
-            C1558b.m3446a(context, 1, str, m3455a(map));
+            HiAnalyticsOfCpUtils.m3446a(context, 0, str, m3455a(map));
+            HiAnalyticsOfCpUtils.m3446a(context, 1, str, m3455a(map));
         } else {
-            C0951f9.m1785c(0, str, m3455a(map));
-            C0951f9.m1785c(1, str, m3455a(map));
+            HmsHiAnalyticsUtils.m1785c(0, str, m3455a(map));
+            HmsHiAnalyticsUtils.m1785c(1, str, m3455a(map));
         }
         m3456a(context);
     }
@@ -112,7 +112,7 @@ public class HiAnalyticsUtils {
             return;
         }
         if (this.f4568b) {
-            C1558b.m3447a(context, str, str2);
+            HiAnalyticsOfCpUtils.m3447a(context, str, str2);
             return;
         }
         if (AbstractC1102l9.m2279b() != null) {
@@ -120,17 +120,17 @@ public class HiAnalyticsUtils {
             if (c1378w9 == null) {
                 throw null;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("HiAnalyticsInstance.onEvent(eventId, mapValue) is execute.TAG : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("HiAnalyticsInstance.onEvent(eventId, mapValue) is execute.TAG : ");
             sbM1765j.append(c1378w9.f4012a);
             C1404xa.m2937d("hmsSdk", sbM1765j.toString());
             if ((!AbstractC1102l9.m2298u("eventId", str, 256)) || !c1378w9.m2903a(0)) {
-                StringBuilder sbM1765j2 = C0948f6.m1765j("onEvent() parameters check fail. Nothing will be recorded.TAG: ");
+                StringBuilder sbM1765j2 = CompilerOutline.m1765j("onEvent() parameters check fail. Nothing will be recorded.TAG: ");
                 sbM1765j2.append(c1378w9.f4012a);
                 C1404xa.m2939f("hmsSdk", sbM1765j2.toString());
                 return;
             }
             if (!AbstractC1102l9.m2298u("value", str2, 65536)) {
-                StringBuilder sbM1765j3 = C0948f6.m1765j("onEvent() parameter VALUE is overlong, content will be cleared.TAG: ");
+                StringBuilder sbM1765j3 = CompilerOutline.m1765j("onEvent() parameter VALUE is overlong, content will be cleared.TAG: ");
                 sbM1765j3.append(c1378w9.f4012a);
                 C1404xa.m2939f("hmsSdk", sbM1765j3.toString());
                 str2 = "";
@@ -155,11 +155,11 @@ public class HiAnalyticsUtils {
             return;
         }
         if (this.f4568b) {
-            C1558b.m3446a(context, 0, str, m3455a((Map<String, String>) map));
-            C1558b.m3446a(context, 1, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3446a(context, 0, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3446a(context, 1, str, m3455a((Map<String, String>) map));
         } else {
-            C0951f9.m1785c(0, str, m3455a((Map<String, String>) map));
-            C0951f9.m1785c(1, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1785c(0, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1785c(1, str, m3455a((Map<String, String>) map));
         }
         m3456a(context);
     }
@@ -169,14 +169,14 @@ public class HiAnalyticsUtils {
             return;
         }
         if (!this.f4568b) {
-            C0951f9.m1785c(0, str, m3455a((Map<String, String>) map));
-            C0951f9.m1785c(1, str, m3455a((Map<String, String>) map));
-            C0951f9.m1786d();
+            HmsHiAnalyticsUtils.m1785c(0, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1785c(1, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1786d();
         } else {
-            C1558b.m3446a(context, 0, str, m3455a((Map<String, String>) map));
-            C1558b.m3446a(context, 1, str, m3455a((Map<String, String>) map));
-            C1558b.m3445a(context, 0);
-            C1558b.m3445a(context, 1);
+            HiAnalyticsOfCpUtils.m3446a(context, 0, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3446a(context, 1, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3445a(context, 0);
+            HiAnalyticsOfCpUtils.m3445a(context, 1);
         }
     }
 
@@ -188,10 +188,10 @@ public class HiAnalyticsUtils {
             } else {
                 this.f4567a = 0;
                 if (!this.f4568b) {
-                    C0951f9.m1786d();
+                    HmsHiAnalyticsUtils.m1786d();
                 } else {
-                    C1558b.m3445a(context, 0);
-                    C1558b.m3445a(context, 1);
+                    HiAnalyticsOfCpUtils.m3445a(context, 0);
+                    HiAnalyticsOfCpUtils.m3445a(context, 1);
                 }
             }
         }
@@ -200,7 +200,7 @@ public class HiAnalyticsUtils {
     public void enableLog() {
         HMSLog.m3463i("HiAnalyticsUtils", "Enable Log");
         if (!this.f4568b) {
-            C0951f9.m1783a();
+            HmsHiAnalyticsUtils.m1783a();
         } else {
             HMSLog.m3463i("HiAnalyticsUtils", "cp needs to pass in the context, this method is not supported");
         }
@@ -218,9 +218,9 @@ public class HiAnalyticsUtils {
             return;
         }
         if (!this.f4568b) {
-            C0951f9.m1785c(i, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1785c(i, str, m3455a((Map<String, String>) map));
         } else {
-            C1558b.m3446a(context, i, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3446a(context, i, str, m3455a((Map<String, String>) map));
         }
         m3456a(context);
     }
@@ -237,11 +237,11 @@ public class HiAnalyticsUtils {
             return;
         }
         if (!this.f4568b) {
-            C0951f9.m1785c(i, str, m3455a((Map<String, String>) map));
-            C0951f9.m1786d();
+            HmsHiAnalyticsUtils.m1785c(i, str, m3455a((Map<String, String>) map));
+            HmsHiAnalyticsUtils.m1786d();
         } else {
-            C1558b.m3446a(context, i, str, m3455a((Map<String, String>) map));
-            C1558b.m3445a(context, i);
+            HiAnalyticsOfCpUtils.m3446a(context, i, str, m3455a((Map<String, String>) map));
+            HiAnalyticsOfCpUtils.m3445a(context, i);
         }
     }
 }

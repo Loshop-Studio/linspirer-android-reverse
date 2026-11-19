@@ -2,13 +2,13 @@ package com.liulishuo.filedownloader.message;
 
 import android.os.Parcel;
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.InterfaceC1009hg;
+import com.huawei.hem.IFlowDirectly;
 import com.liulishuo.filedownloader.message.MessageSnapshot;
 
 /* loaded from: classes.dex */
 public abstract class LargeMessageSnapshot extends MessageSnapshot {
 
-    public static class CompletedFlowDirectlySnapshot extends CompletedSnapshot implements InterfaceC1009hg {
+    public static class CompletedFlowDirectlySnapshot extends CompletedSnapshot implements IFlowDirectly {
         public CompletedFlowDirectlySnapshot(int i, boolean z, long j) {
             super(i, z, j);
         }
@@ -26,7 +26,7 @@ public abstract class LargeMessageSnapshot extends MessageSnapshot {
         }
     }
 
-    public static class WarnFlowDirectlySnapshot extends WarnMessageSnapshot implements InterfaceC1009hg {
+    public static class WarnFlowDirectlySnapshot extends WarnMessageSnapshot implements IFlowDirectly {
         public WarnFlowDirectlySnapshot(int i, long j, long j2) {
             super(i, j, j2);
         }

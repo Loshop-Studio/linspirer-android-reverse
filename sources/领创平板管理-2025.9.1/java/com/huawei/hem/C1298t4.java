@@ -21,7 +21,7 @@ public class C1298t4 extends LTKResponseListener<SougouSetting> {
     @Override // com.android.launcher3.network.response.LTKResponseListener
     public void handleResult(SougouSetting sougouSetting) {
         SougouSetting sougouSetting2 = sougouSetting;
-        C0850bc.m1403m("SouGouControlHelper----getSougouSetting success----");
+        LTKDateUtil.m1403m("SouGouControlHelper----getSougouSetting success----");
         C1323u4.m2782a(this.f3753a, sougouSetting2.getInputMethodSet().getOpen_fuzzy_yin(), "sogou_pad_base_fuzzy");
         C1323u4.m2782a(this.f3753a, sougouSetting2.getInputMethodSet().getOpen_associative(), "sogou_pad_base_association");
         C1323u4.m2783b(this.f3753a, sougouSetting2.getInputMethodSet().getHandwriting_status(), "sogou_pad_base_handwrite_type");
@@ -36,13 +36,13 @@ public class C1298t4 extends LTKResponseListener<SougouSetting> {
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailed(Response response) {
-        StringBuilder sbM1765j = C0948f6.m1765j("SouGouControlHelper--- get sougou setting fail respon code:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("SouGouControlHelper--- get sougou setting fail respon code:");
         sbM1765j.append(response.getCode());
-        C0850bc.m1403m(sbM1765j.toString());
+        LTKDateUtil.m1403m(sbM1765j.toString());
     }
 
     @Override // com.android.launcher3.network.response.BaseResponse
     public void onFailureByNet(Object obj) {
-        C0850bc.m1403m("SouGouControlHelper--- get sougou setting failur---");
+        LTKDateUtil.m1403m("SouGouControlHelper--- get sougou setting failur---");
     }
 }

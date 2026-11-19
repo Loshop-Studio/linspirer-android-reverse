@@ -5,15 +5,15 @@ import java.io.IOException;
 /* compiled from: AsyncTimeout.java */
 /* renamed from: com.huawei.hem.en */
 /* loaded from: classes.dex */
-public class C0939en implements InterfaceC0836ao {
+public class C0939en implements Source {
 
     /* renamed from: a */
-    public final /* synthetic */ InterfaceC0836ao f2566a;
+    public final /* synthetic */ Source f2566a;
 
     /* renamed from: b */
     public final /* synthetic */ C0965fn f2567b;
 
-    public C0939en(C0965fn c0965fn, InterfaceC0836ao interfaceC0836ao) {
+    public C0939en(C0965fn c0965fn, Source interfaceC0836ao) {
         this.f2567b = c0965fn;
         this.f2566a = interfaceC0836ao;
     }
@@ -40,7 +40,7 @@ public class C0939en implements InterfaceC0836ao {
 
     @Override // com.huawei.hem.InterfaceC0836ao
     /* renamed from: e */
-    public long mo1380e(C1016hn c1016hn, long j) throws IOException {
+    public long mo1380e(OkioBuffer c1016hn, long j) throws IOException {
         this.f2567b.m1837i();
         try {
             try {
@@ -62,12 +62,12 @@ public class C0939en implements InterfaceC0836ao {
 
     @Override // com.huawei.hem.InterfaceC0836ao
     /* renamed from: n */
-    public C0862bo mo1381n() {
+    public Timeout mo1381n() {
         return this.f2567b;
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("AsyncTimeout.source(");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("AsyncTimeout.source(");
         sbM1765j.append(this.f2566a);
         sbM1765j.append(")");
         return sbM1765j.toString();

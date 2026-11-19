@@ -3,7 +3,7 @@ package com.taobao.accs.utl;
 import anet.channel.util.ALog;
 import com.alibaba.sdk.android.logger.ILog;
 import com.alibaba.sdk.android.logger.LogLevel;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 @Deprecated
@@ -52,7 +52,7 @@ public class ALog {
     /* renamed from: d */
     public static void m5726d(String str, String str2, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo664d(sbM1769n.toString());
     }
@@ -60,7 +60,7 @@ public class ALog {
     /* renamed from: e */
     public static void m5728e(String str, String str2, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo666e(sbM1769n.toString());
     }
@@ -82,7 +82,7 @@ public class ALog {
     /* renamed from: i */
     public static void m5729i(String str, String str2, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo669i(sbM1769n.toString());
     }
@@ -149,7 +149,7 @@ public class ALog {
     /* renamed from: v */
     public static void m5730v(String str, String str2, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo664d(sbM1769n.toString());
     }
@@ -157,7 +157,7 @@ public class ALog {
     /* renamed from: w */
     public static void m5732w(String str, String str2, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo671w(sbM1769n.toString());
     }
@@ -165,7 +165,7 @@ public class ALog {
     /* renamed from: e */
     public static void m5727e(String str, String str2, Throwable th, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo667e(sbM1769n.toString(), th);
     }
@@ -173,7 +173,7 @@ public class ALog {
     /* renamed from: w */
     public static void m5731w(String str, String str2, Throwable th, Object... objArr) {
         ILog iLog = log;
-        StringBuilder sbM1769n = C0948f6.m1769n("[", str, "]");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("[", str, "]");
         sbM1769n.append(buildLogMsg(str2, objArr));
         iLog.mo672w(sbM1769n.toString(), th);
     }

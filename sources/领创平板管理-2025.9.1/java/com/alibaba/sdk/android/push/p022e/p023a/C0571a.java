@@ -9,7 +9,7 @@ import com.alibaba.sdk.android.ams.common.util.C0506b;
 import com.alibaba.sdk.android.ams.common.util.StringUtil;
 import com.alibaba.sdk.android.push.common.util.AppInfoUtil;
 import com.alibaba.sdk.android.push.common.util.p019a.EnumC0566d;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -47,7 +47,7 @@ public class C0571a implements InterfaceC0497b {
 
     /* renamed from: f */
     private String m788f() {
-        StringBuilder sbM1765j = C0948f6.m1765j("mps_deviceId_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("mps_deviceId_");
         sbM1765j.append(mo480a());
         return sbM1765j.toString();
     }

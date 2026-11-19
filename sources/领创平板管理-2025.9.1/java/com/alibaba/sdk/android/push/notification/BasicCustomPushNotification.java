@@ -1,7 +1,7 @@
 package com.alibaba.sdk.android.push.notification;
 
 import android.R;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
@@ -89,7 +89,7 @@ public class BasicCustomPushNotification implements Serializable {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("type:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("type:");
         sbM1765j.append(this.notificationType);
         sbM1765j.append(", statusBarDrawable:");
         sbM1765j.append(this.statusBarDrawable);

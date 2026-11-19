@@ -18,15 +18,15 @@ import com.android.launcher3.p027db.model.AppTimeLimitInfo;
 import com.android.launcher3.p027db.model.AppTimeLimitInfoDao;
 import com.android.launcher3.p027db.model.WeekTactics;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1219q0;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.DBController;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import com.taobao.accs.common.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,9 +45,9 @@ public class AppTimeLimitHelper {
     public List<String> lastDisableApps;
     public AppTimeLimitInfoDao mAppTimeLimitDao;
     public Context mContext;
-    public C1255rb mHttpCore;
+    public HttpCore mHttpCore;
     public volatile TimerCountDownTimer timerCountDownTimer;
-    public C1424y5 userInfoUtil;
+    public UserInfoUtil userInfoUtil;
 
     public static class AppTimeLimitHolder {
         public static final AppTimeLimitHelper instance = new AppTimeLimitHelper();
@@ -71,17 +71,17 @@ public class AppTimeLimitHelper {
     private void actionEnableLastData(List<AppTimeLimitInfo> list) {
         for (AppTimeLimitInfo appTimeLimitInfo : list) {
             List<String> listM2277R = AbstractC1102l9.m2277R(appTimeLimitInfo.getPackageNames(), ",");
-            StringBuilder sbM1765j = C0948f6.m1765j("AppTimeLimitHelper enable last local apps");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("AppTimeLimitHelper enable last local apps");
             sbM1765j.append(appTimeLimitInfo.getPackageNames());
-            C0850bc.m1403m(sbM1765j.toString());
-            C0850bc.f2294f.mo1304B0(listM2277R);
+            LTKDateUtil.m1403m(sbM1765j.toString());
+            LTKDateUtil.f2294f.mo1304B0(listM2277R);
             handlePhoneStatus(true, listM2277R, null);
             handleSMStatus(true, listM2277R, null);
         }
     }
 
     private void convertData(List<AppTimeLimit> list) {
-        C0850bc.m1403m("AppTimeLimitHelper  convert server limit data");
+        LTKDateUtil.m1403m("AppTimeLimitHelper  convert server limit data");
         this.appTimeLimitInfos.clear();
         ArrayList arrayList = new ArrayList();
         for (AppTimeLimit appTimeLimit : list) {
@@ -100,7 +100,7 @@ public class AppTimeLimitHelper {
                 arrayList.addAll(callsms);
             }
             if (AbstractC1102l9.m2273N(arrayList2)) {
-                C0850bc.m1403m("AppTimeLimitHelper  set apptime limit no apps no need save and handle");
+                LTKDateUtil.m1403m("AppTimeLimitHelper  set apptime limit no apps no need save and handle");
             } else {
                 AppTimeLimitInfo appTimeLimitInfo = new AppTimeLimitInfo();
                 WeekTactics time_limit = appTimeLimit.getTime_limit();
@@ -117,37 +117,37 @@ public class AppTimeLimitHelper {
             }
         }
         if (arrayList.contains(LIMIT_USED_PHONE)) {
-            C1424y5 c1424y5 = this.userInfoUtil;
+            UserInfoUtil c1424y5 = this.userInfoUtil;
             if (c1424y5.f4164f0 != 1) {
                 c1424y5.f4164f0 = 1;
-                C0824ac c0824ac = c1424y5.f4130D;
+                DeskSPF c0824ac = c1424y5.f4130D;
                 c0824ac.f2200b.putInt("is_time_limit_phone", 1);
                 c0824ac.f2200b.commit();
             }
         } else {
-            C1424y5 c1424y52 = this.userInfoUtil;
+            UserInfoUtil c1424y52 = this.userInfoUtil;
             if (c1424y52.f4164f0 != -1) {
                 c1424y52.f4164f0 = -1;
-                C0824ac c0824ac2 = c1424y52.f4130D;
+                DeskSPF c0824ac2 = c1424y52.f4130D;
                 c0824ac2.f2200b.putInt("is_time_limit_phone", -1);
                 c0824ac2.f2200b.commit();
             }
         }
         if (arrayList.contains(LIMIT_USED_SMS)) {
-            C1424y5 c1424y53 = this.userInfoUtil;
+            UserInfoUtil c1424y53 = this.userInfoUtil;
             if (c1424y53.f4162e0 != 1) {
                 c1424y53.f4162e0 = 1;
-                C0824ac c0824ac3 = c1424y53.f4130D;
+                DeskSPF c0824ac3 = c1424y53.f4130D;
                 c0824ac3.f2200b.putInt("is_time_limit_sms", 1);
                 c0824ac3.f2200b.commit();
                 return;
             }
             return;
         }
-        C1424y5 c1424y54 = this.userInfoUtil;
+        UserInfoUtil c1424y54 = this.userInfoUtil;
         if (c1424y54.f4162e0 != -1) {
             c1424y54.f4162e0 = -1;
-            C0824ac c0824ac4 = c1424y54.f4130D;
+            DeskSPF c0824ac4 = c1424y54.f4130D;
             c0824ac4.f2200b.putInt("is_time_limit_sms", -1);
             c0824ac4.f2200b.commit();
         }
@@ -182,7 +182,7 @@ public class AppTimeLimitHelper {
     public void handleAppTimeLimit(List<AppTimeLimit> list) {
         List<AppTimeLimitInfo> listLoadAll = this.mAppTimeLimitDao.loadAll();
         if (AbstractC1102l9.m2273N(list) && AbstractC1102l9.m2273N(listLoadAll)) {
-            C0850bc.m1403m("AppTimeLimitHelper set no app time limit");
+            LTKDateUtil.m1403m("AppTimeLimitHelper set no app time limit");
             return;
         }
         convertData(list);
@@ -193,8 +193,8 @@ public class AppTimeLimitHelper {
             actionEnableLastData(listLoadAll);
             saveData();
         } else {
-            if (C0850bc.m1401k(listLoadAll.toString()).equals(C0850bc.m1401k(this.appTimeLimitInfos.toString()))) {
-                C0850bc.m1403m("AppTimeLimitHelper last and new is the same no need check");
+            if (LTKDateUtil.m1401k(listLoadAll.toString()).equals(LTKDateUtil.m1401k(this.appTimeLimitInfos.toString()))) {
+                LTKDateUtil.m1403m("AppTimeLimitHelper last and new is the same no need check");
                 return;
             }
             actionEnableLastData(listLoadAll);
@@ -208,26 +208,26 @@ public class AppTimeLimitHelper {
             return;
         }
         int iM3079z = this.userInfoUtil.m3079z();
-        C0850bc.m1403m("AppTimeLimitHelper read isv phone status:" + iM3079z);
+        LTKDateUtil.m1403m("AppTimeLimitHelper read isv phone status:" + iM3079z);
         if (iM3079z != -1) {
-            C0850bc.m1403m("AppTimeLimitHelper isv control phone status no need handle time limit");
+            LTKDateUtil.m1403m("AppTimeLimitHelper isv control phone status no need handle time limit");
             return;
         }
-        C0850bc.m1403m("AppTimeLimitHelper handle phone time limit status:" + z);
+        LTKDateUtil.m1403m("AppTimeLimitHelper handle phone time limit status:" + z);
         if (!C1219q0.m2524t()) {
             List<String> listM2500B = C1219q0.m2500B();
             if (z) {
-                C0850bc.f2294f.mo1304B0(listM2500B);
+                LTKDateUtil.f2294f.mo1304B0(listM2500B);
                 this.isDisablePhone = false;
             } else {
-                C0850bc.f2294f.mo1326k0(listM2500B);
+                LTKDateUtil.f2294f.mo1326k0(listM2500B);
                 this.isDisablePhone = true;
             }
         } else if (z) {
-            C0850bc.f2294f.enableSpeech();
+            LTKDateUtil.f2294f.enableSpeech();
             this.isDisablePhone = false;
         } else {
-            C0850bc.f2294f.disableSpeech();
+            LTKDateUtil.f2294f.disableSpeech();
             this.isDisablePhone = true;
         }
         if (list2 == null || z) {
@@ -241,26 +241,26 @@ public class AppTimeLimitHelper {
             return;
         }
         int iM3011F = this.userInfoUtil.m3011F();
-        C0850bc.m1403m("AppTimeLimitHelper read isv  sms status:" + iM3011F);
+        LTKDateUtil.m1403m("AppTimeLimitHelper read isv  sms status:" + iM3011F);
         if (iM3011F != -1) {
-            C0850bc.m1403m("AppTimeLimitHelper isv control sms status no need handle time limit");
+            LTKDateUtil.m1403m("AppTimeLimitHelper isv control sms status no need handle time limit");
             return;
         }
-        C0850bc.m1403m("AppTimeLimitHelper handle sms time limit status:" + z);
+        LTKDateUtil.m1403m("AppTimeLimitHelper handle sms time limit status:" + z);
         if (!C1219q0.m2525u()) {
             List<String> listM2499A = C1219q0.m2499A();
             if (z) {
-                C0850bc.f2294f.mo1304B0(listM2499A);
+                LTKDateUtil.f2294f.mo1304B0(listM2499A);
                 this.isDisableSMS = false;
             } else {
-                C0850bc.f2294f.mo1326k0(listM2499A);
+                LTKDateUtil.f2294f.mo1326k0(listM2499A);
                 this.isDisableSMS = true;
             }
         } else if (z) {
-            C0850bc.f2294f.mo1322g0();
+            LTKDateUtil.f2294f.mo1322g0();
             this.isDisableSMS = false;
         } else {
-            C0850bc.f2294f.mo1315S();
+            LTKDateUtil.f2294f.mo1315S();
             this.isDisableSMS = true;
         }
         if (list2 == null || z) {
@@ -277,7 +277,7 @@ public class AppTimeLimitHelper {
             }
             this.appTimeLimitInfos.addAll(listLoadAll);
         }
-        C0850bc.m1403m("AppTimeLimitHelper init local limit data");
+        LTKDateUtil.m1403m("AppTimeLimitHelper init local limit data");
     }
 
     private void saveData() {
@@ -300,9 +300,9 @@ public class AppTimeLimitHelper {
         }
         for (AppTimeLimitInfo appTimeLimitInfo : this.appTimeLimitInfos) {
             String limitTime = getLimitTime(appTimeLimitInfo);
-            StringBuilder sbM1769n = C0948f6.m1769n("AppTimeLimitHelper  limit times:", limitTime, " to packagenames:");
+            StringBuilder sbM1769n = CompilerOutline.m1769n("AppTimeLimitHelper  limit times:", limitTime, " to packagenames:");
             sbM1769n.append(appTimeLimitInfo.getPackageNames());
-            C0850bc.m1403m(sbM1769n.toString());
+            LTKDateUtil.m1403m(sbM1769n.toString());
             List<WorkTime> array = JSON.parseArray(limitTime, WorkTime.class);
             boolean z = false;
             if (AbstractC1102l9.m2273N(array)) {
@@ -317,12 +317,12 @@ public class AppTimeLimitHelper {
                     if (end.equals("23:59:59")) {
                         end = "24:00";
                     }
-                    if (C0850bc.m1391a(str, start) >= 0 && C0850bc.m1391a(end, str) > 0) {
+                    if (LTKDateUtil.m1391a(str, start) >= 0 && LTKDateUtil.m1391a(end, str) > 0) {
                         z = true;
                     }
                 }
                 if (z) {
-                    C0850bc.f2294f.mo1304B0(appTimeLimitInfo.getPkgs());
+                    LTKDateUtil.f2294f.mo1304B0(appTimeLimitInfo.getPkgs());
                 } else {
                     C1219q0.m2519o(appTimeLimitInfo.getPkgs());
                     arrayList.addAll(appTimeLimitInfo.getPkgs());
@@ -334,8 +334,8 @@ public class AppTimeLimitHelper {
         if (arrayList.toString().equals(this.lastDisableApps.toString())) {
             return;
         }
-        C0850bc.m1403m("AppTimeLimitHelper refresh desktop by time limit");
-        C1423y4.m2959F(this.mContext);
+        LTKDateUtil.m1403m("AppTimeLimitHelper refresh desktop by time limit");
+        LauncherMenuHelper.m2959F(this.mContext);
         this.lastDisableApps.clear();
         this.lastDisableApps.addAll(arrayList);
     }
@@ -360,21 +360,21 @@ public class AppTimeLimitHelper {
     }
 
     public void handleFromInstalled(String str) {
-        StringBuilder sbM1765j = C0948f6.m1765j("AppTimeLimitHelper   already in disabled apps need disable");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("AppTimeLimitHelper   already in disabled apps need disable");
         sbM1765j.append(this.lastDisableApps.toString());
-        C0850bc.m1403m(sbM1765j.toString());
+        LTKDateUtil.m1403m(sbM1765j.toString());
         if (this.lastDisableApps.contains(str)) {
-            C0850bc.m1403m("AppTimeLimitHelper  already in disabled apps need disable");
+            LTKDateUtil.m1403m("AppTimeLimitHelper  already in disabled apps need disable");
             if (((ArrayList) C1219q0.m2502D()).contains(str)) {
                 return;
             }
-            C0850bc.f2294f.mo1320e(str);
+            LTKDateUtil.f2294f.mo1320e(str);
         }
     }
 
     public void request() {
-        if (!C1423y4.m3004y()) {
-            C0850bc.m1403m("AppTimeLimitHelper   other case no need request");
+        if (!LauncherMenuHelper.m3004y()) {
+            LTKDateUtil.m1403m("AppTimeLimitHelper   other case no need request");
             return;
         }
         try {
@@ -383,33 +383,33 @@ public class AppTimeLimitHelper {
             Params params = new Params(this.mContext);
             params.setEmail(this.userInfoUtil.m3052k());
             v2Params.setParams(JSON.toJSONString(params));
-            C1255rb c1255rb = this.mHttpCore;
+            HttpCore c1255rb = this.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.f3780d = true;
             c1355vb.m2869b(new LTKListResponseListener<AppTimeLimit>(AppTimeLimit.class) { // from class: com.android.launcher3.network.AppTimeLimitHelper.1
                 @Override // com.android.launcher3.network.response.LTKListResponseListener
                 public void handleResult(List<AppTimeLimit> list) {
-                    C0850bc.m1403m("AppTimeLimitHelper   get app time limit  successfully ");
+                    LTKDateUtil.m1403m("AppTimeLimitHelper   get app time limit  successfully ");
                     AppTimeLimitHelper.this.handleAppTimeLimit(list);
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailed(Response response) {
-                    C0850bc.m1393c("AppTimeLimitHelper  request app time limit failed ");
+                    LTKDateUtil.m1393c("AppTimeLimitHelper  request app time limit failed ");
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) {
-                    C0850bc.m1393c("AppTimeLimitHelper  request app time limit failed by network ");
+                    LTKDateUtil.m1393c("AppTimeLimitHelper  request app time limit failed by network ");
                 }
             });
         } catch (Throwable th) {
-            C0948f6.m1746D(th, C0948f6.m1765j("AppTimeLimitHelper  request app time limit exception "));
+            CompilerOutline.m1746D(th, CompilerOutline.m1765j("AppTimeLimitHelper  request app time limit exception "));
         }
     }
 
@@ -421,11 +421,11 @@ public class AppTimeLimitHelper {
 
     public AppTimeLimitHelper() {
         this.mContext = GuardSecureApplication.f1640b;
-        this.userInfoUtil = C1424y5.b.f4202a;
-        this.mHttpCore = new C1255rb();
+        this.userInfoUtil = UserInfoUtil.b.f4202a;
+        this.mHttpCore = new HttpCore();
         this.appTimeLimitInfos = new ArrayList();
         this.lastDisableApps = new ArrayList();
-        this.mAppTimeLimitDao = C1297t3.m2715a().f3751c.getAppTimeLimitInfoDao();
+        this.mAppTimeLimitDao = DBController.m2715a().f3751c.getAppTimeLimitInfoDao();
         initLocalData();
     }
 }

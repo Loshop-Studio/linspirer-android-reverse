@@ -3,7 +3,7 @@ package com.huawei.updatesdk.p034a.p043b.p046c;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
 import com.huawei.updatesdk.p034a.p035a.p036b.C1583b;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
@@ -102,7 +102,7 @@ public class AsyncTaskC1602b extends AsyncTask<C1605c, Void, C1606d> {
 
     /* renamed from: a */
     private void m3608a(String str, Throwable th) {
-        StringBuilder sbM1767l = C0948f6.m1767l("invoke store error", ", exceptionType:");
+        StringBuilder sbM1767l = CompilerOutline.m1767l("invoke store error", ", exceptionType:");
         sbM1767l.append(th.getClass().getName());
         sbM1767l.append(", url:");
         sbM1767l.append(str);
@@ -196,14 +196,14 @@ public class AsyncTaskC1602b extends AsyncTask<C1605c, Void, C1606d> {
         int i = this.f4652e;
         this.f4652e = i + 1;
         if (i >= 3) {
-            StringBuilder sbM1765j = C0948f6.m1765j("retry completed total times = ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("retry completed total times = ");
             sbM1765j.append(this.f4652e);
             sbM1765j.append(",response.responseCode = ");
             sbM1765j.append(c1606d.m3639d());
             C1584a.m3514a("StoreTask", sbM1765j.toString());
             return false;
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("retry times = ");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("retry times = ");
         sbM1765j2.append(this.f4652e);
         sbM1765j2.append(",response.responseCode = ");
         sbM1765j2.append(c1606d.m3639d());
@@ -240,7 +240,7 @@ public class AsyncTaskC1602b extends AsyncTask<C1605c, Void, C1606d> {
     @Override // android.os.AsyncTask
     /* renamed from: a, reason: merged with bridge method [inline-methods] */
     public C1606d doInBackground(C1605c... c1605cArr) {
-        StringBuilder sbM1765j = C0948f6.m1765j("doInBackground, method:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("doInBackground, method:");
         sbM1765j.append(this.f4648a.m3627b());
         C1584a.m3514a("StoreTask", sbM1765j.toString());
         C1637b.m3751a(this);
@@ -255,7 +255,7 @@ public class AsyncTaskC1602b extends AsyncTask<C1605c, Void, C1606d> {
     @Override // android.os.AsyncTask
     /* renamed from: a, reason: merged with bridge method [inline-methods] */
     public void onPostExecute(C1606d c1606d) {
-        StringBuilder sbM1765j = C0948f6.m1765j("onPostExecute, method:");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("onPostExecute, method:");
         sbM1765j.append(this.f4648a.m3627b());
         C1584a.m3514a("StoreTask", sbM1765j.toString());
         C1637b.m3750a().remove(this);
@@ -281,7 +281,7 @@ public class AsyncTaskC1602b extends AsyncTask<C1605c, Void, C1606d> {
         C1606d c1606dM3615a = null;
         do {
             if (this.f4652e > 0 && c1606dM3615a != null) {
-                StringBuilder sbM1765j = C0948f6.m1765j("call store error! responseCode:");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("call store error! responseCode:");
                 sbM1765j.append(c1606dM3615a.m3639d());
                 sbM1765j.append(", retryTimes:");
                 sbM1765j.append(this.f4652e);

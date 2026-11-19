@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p048b.p055e;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.huawei.hms.framework.network.grs.GrsClient;
 import com.huawei.updatesdk.p034a.p035a.C1581a;
@@ -29,7 +29,7 @@ public abstract class AbstractC1628a {
             grsBaseInfo.setSerCountry(str);
             strSynGetGrsUrl = new GrsClient(context, grsBaseInfo).synGetGrsUrl(mo3729a(), "ROOT");
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("UpdateSDK Get url from GRS_SDK error: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("UpdateSDK Get url from GRS_SDK error: ");
             sbM1765j.append(th.toString());
             C1581a.m3502c("AbstractTaskInit", sbM1765j.toString());
             strSynGetGrsUrl = null;
@@ -38,7 +38,7 @@ public abstract class AbstractC1628a {
             C1581a.m3501b("AbstractTaskInit", "UpdateSDK Get url is default url");
             return mo3730a(context);
         }
-        StringBuilder sbM1765j2 = C0948f6.m1765j("UpdateSDK Get url from GRS_SDK Success!");
+        StringBuilder sbM1765j2 = CompilerOutline.m1765j("UpdateSDK Get url from GRS_SDK Success!");
         sbM1765j2.append(m3727a(strSynGetGrsUrl));
         C1581a.m3501b("AbstractTaskInit", sbM1765j2.toString());
         return strSynGetGrsUrl;
@@ -98,7 +98,7 @@ public abstract class AbstractC1628a {
             try {
                 asyncTaskC1631d.get(1000L, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
-                StringBuilder sbM1765j = C0948f6.m1765j("init AccountZone error: ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("init AccountZone error: ");
                 sbM1765j.append(e.toString());
                 C1581a.m3500a("AbstractTaskInit", sbM1765j.toString());
             }

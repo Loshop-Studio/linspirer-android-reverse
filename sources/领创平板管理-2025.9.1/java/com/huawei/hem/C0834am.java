@@ -1,7 +1,7 @@
 package com.huawei.hem;
 
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.C1090km;
+import com.huawei.hem.Http2Reader;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -53,7 +53,7 @@ public final class C0834am implements Closeable {
     public final ExecutorService f2225i;
 
     /* renamed from: j */
-    public final InterfaceC1191om f2226j;
+    public final PushObserver f2226j;
 
     /* renamed from: r */
     public long f2234r;
@@ -62,13 +62,13 @@ public final class C0834am implements Closeable {
     public final Socket f2237u;
 
     /* renamed from: v */
-    public final C1141mm f2238v;
+    public final Http2Writer f2238v;
 
     /* renamed from: w */
     public final g f2239w;
 
     /* renamed from: c */
-    public final Map<Integer, C1116lm> f2219c = new LinkedHashMap();
+    public final Map<Integer, Http2Stream> f2219c = new LinkedHashMap();
 
     /* renamed from: k */
     public long f2227k = 0;
@@ -92,26 +92,26 @@ public final class C0834am implements Closeable {
     public long f2233q = 0;
 
     /* renamed from: s */
-    public C1216pm f2235s = new C1216pm();
+    public Http2Settings f2235s = new Http2Settings();
 
     /* renamed from: t */
-    public final C1216pm f2236t = new C1216pm();
+    public final Http2Settings f2236t = new Http2Settings();
 
     /* renamed from: x */
     public final Set<Integer> f2240x = new LinkedHashSet();
 
     /* compiled from: Http2Connection.java */
     /* renamed from: com.huawei.hem.am$a */
-    public class a extends AbstractRunnableC1289sk {
+    public class a extends NamedRunnable {
 
         /* renamed from: b */
         public final /* synthetic */ int f2241b;
 
         /* renamed from: c */
-        public final /* synthetic */ EnumC1390wl f2242c;
+        public final /* synthetic */ Http2ErrorCode f2242c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Object[] objArr, int i, EnumC1390wl enumC1390wl) {
+        public a(String str, Object[] objArr, int i, Http2ErrorCode enumC1390wl) {
             super(str, objArr);
             this.f2241b = i;
             this.f2242c = enumC1390wl;
@@ -125,7 +125,7 @@ public final class C0834am implements Closeable {
                 c0834am.f2238v.m2402i(this.f2241b, this.f2242c);
             } catch (IOException e) {
                 C0834am c0834am2 = C0834am.this;
-                EnumC1390wl enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
+                Http2ErrorCode enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
                 c0834am2.m1366a(enumC1390wl, enumC1390wl, e);
             }
         }
@@ -133,7 +133,7 @@ public final class C0834am implements Closeable {
 
     /* compiled from: Http2Connection.java */
     /* renamed from: com.huawei.hem.am$b */
-    public class b extends AbstractRunnableC1289sk {
+    public class b extends NamedRunnable {
 
         /* renamed from: b */
         public final /* synthetic */ int f2244b;
@@ -155,7 +155,7 @@ public final class C0834am implements Closeable {
                 C0834am.this.f2238v.m2403j(this.f2244b, this.f2245c);
             } catch (IOException e) {
                 C0834am c0834am = C0834am.this;
-                EnumC1390wl enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
+                Http2ErrorCode enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
                 c0834am.m1366a(enumC1390wl, enumC1390wl, e);
             }
         }
@@ -172,16 +172,16 @@ public final class C0834am implements Closeable {
         public String f2248b;
 
         /* renamed from: c */
-        public InterfaceC1066jn f2249c;
+        public BufferedSource f2249c;
 
         /* renamed from: d */
-        public InterfaceC1041in f2250d;
+        public BufferedSink f2250d;
 
         /* renamed from: e */
         public e f2251e = e.f2256a;
 
         /* renamed from: f */
-        public InterfaceC1191om f2252f = InterfaceC1191om.f3415a;
+        public PushObserver f2252f = PushObserver.f3415a;
 
         /* renamed from: g */
         public boolean f2253g;
@@ -196,7 +196,7 @@ public final class C0834am implements Closeable {
 
     /* compiled from: Http2Connection.java */
     /* renamed from: com.huawei.hem.am$d */
-    public final class d extends AbstractRunnableC1289sk {
+    public final class d extends NamedRunnable {
         public d() {
             super("OkHttp %s ping", C0834am.this.f2220d);
         }
@@ -218,7 +218,7 @@ public final class C0834am implements Closeable {
                 return;
             }
             C0834am c0834am = C0834am.this;
-            EnumC1390wl enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
+            Http2ErrorCode enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
             c0834am.m1366a(enumC1390wl, enumC1390wl, null);
         }
     }
@@ -235,8 +235,8 @@ public final class C0834am implements Closeable {
         public class a extends e {
             @Override // com.huawei.hem.C0834am.e
             /* renamed from: b */
-            public void mo1378b(C1116lm c1116lm) {
-                c1116lm.m2329c(EnumC1390wl.REFUSED_STREAM, null);
+            public void mo1378b(Http2Stream c1116lm) {
+                c1116lm.m2329c(Http2ErrorCode.REFUSED_STREAM, null);
             }
         }
 
@@ -245,12 +245,12 @@ public final class C0834am implements Closeable {
         }
 
         /* renamed from: b */
-        public abstract void mo1378b(C1116lm c1116lm);
+        public abstract void mo1378b(Http2Stream c1116lm);
     }
 
     /* compiled from: Http2Connection.java */
     /* renamed from: com.huawei.hem.am$f */
-    public final class f extends AbstractRunnableC1289sk {
+    public final class f extends NamedRunnable {
 
         /* renamed from: b */
         public final boolean f2257b;
@@ -277,12 +277,12 @@ public final class C0834am implements Closeable {
 
     /* compiled from: Http2Connection.java */
     /* renamed from: com.huawei.hem.am$g */
-    public class g extends AbstractRunnableC1289sk implements C1090km.b {
+    public class g extends NamedRunnable implements Http2Reader.b {
 
         /* renamed from: b */
-        public final C1090km f2261b;
+        public final Http2Reader f2261b;
 
-        public g(C1090km c1090km) {
+        public g(Http2Reader c1090km) {
             super("OkHttp %s", C0834am.this.f2220d);
             this.f2261b = c1090km;
         }
@@ -290,22 +290,22 @@ public final class C0834am implements Closeable {
         @Override // com.huawei.hem.AbstractRunnableC1289sk
         /* renamed from: a */
         public void mo1376a() throws Throwable {
-            EnumC1390wl enumC1390wl;
-            EnumC1390wl enumC1390wl2;
-            EnumC1390wl enumC1390wl3 = EnumC1390wl.INTERNAL_ERROR;
+            Http2ErrorCode enumC1390wl;
+            Http2ErrorCode enumC1390wl2;
+            Http2ErrorCode enumC1390wl3 = Http2ErrorCode.INTERNAL_ERROR;
             IOException e = null;
             try {
                 this.f2261b.m2215d(this);
                 while (this.f2261b.m2214c(false, this)) {
                 }
-                enumC1390wl = EnumC1390wl.NO_ERROR;
+                enumC1390wl = Http2ErrorCode.NO_ERROR;
                 try {
                     try {
-                        enumC1390wl2 = EnumC1390wl.CANCEL;
+                        enumC1390wl2 = Http2ErrorCode.CANCEL;
                     } catch (IOException e2) {
                         e = e2;
-                        enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
-                        enumC1390wl2 = EnumC1390wl.PROTOCOL_ERROR;
+                        enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
+                        enumC1390wl2 = Http2ErrorCode.PROTOCOL_ERROR;
                         C0834am.this.m1366a(enumC1390wl, enumC1390wl2, e);
                         C1314tk.m2749d(this.f2261b);
                     }
@@ -355,12 +355,12 @@ public final class C0834am implements Closeable {
         this.f2236t.m2497b(5, 16384);
         this.f2234r = this.f2236t.m2496a();
         this.f2237u = cVar.f2247a;
-        this.f2238v = new C1141mm(cVar.f2250d, this.f2217a);
-        this.f2239w = new g(new C1090km(cVar.f2249c, this.f2217a));
+        this.f2238v = new Http2Writer(cVar.f2250d, this.f2217a);
+        this.f2239w = new g(new Http2Reader(cVar.f2249c, this.f2217a));
     }
 
     /* renamed from: N */
-    public void m1364N(int i, EnumC1390wl enumC1390wl) {
+    public void m1364N(int i, Http2ErrorCode enumC1390wl) {
         try {
             this.f2224h.execute(new a("OkHttp %s stream %d", new Object[]{this.f2220d, Integer.valueOf(i)}, i, enumC1390wl));
         } catch (RejectedExecutionException unused) {
@@ -376,20 +376,20 @@ public final class C0834am implements Closeable {
     }
 
     /* renamed from: a */
-    public void m1366a(EnumC1390wl enumC1390wl, EnumC1390wl enumC1390wl2, @Nullable IOException iOException) throws IOException {
+    public void m1366a(Http2ErrorCode enumC1390wl, Http2ErrorCode enumC1390wl2, @Nullable IOException iOException) throws IOException {
         try {
             m1372i(enumC1390wl);
         } catch (IOException unused) {
         }
-        C1116lm[] c1116lmArr = null;
+        Http2Stream[] c1116lmArr = null;
         synchronized (this) {
             if (!this.f2219c.isEmpty()) {
-                c1116lmArr = (C1116lm[]) this.f2219c.values().toArray(new C1116lm[this.f2219c.size()]);
+                c1116lmArr = (Http2Stream[]) this.f2219c.values().toArray(new Http2Stream[this.f2219c.size()]);
                 this.f2219c.clear();
             }
         }
         if (c1116lmArr != null) {
-            for (C1116lm c1116lm : c1116lmArr) {
+            for (Http2Stream c1116lm : c1116lmArr) {
                 try {
                     c1116lm.m2329c(enumC1390wl2, iOException);
                 } catch (IOException unused2) {
@@ -409,19 +409,19 @@ public final class C0834am implements Closeable {
     }
 
     /* renamed from: c */
-    public synchronized C1116lm m1367c(int i) {
+    public synchronized Http2Stream m1367c(int i) {
         return this.f2219c.get(Integer.valueOf(i));
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        m1366a(EnumC1390wl.NO_ERROR, EnumC1390wl.CANCEL, null);
+        m1366a(Http2ErrorCode.NO_ERROR, Http2ErrorCode.CANCEL, null);
     }
 
     /* renamed from: d */
     public synchronized int m1368d() {
         int i;
-        C1216pm c1216pm = this.f2236t;
+        Http2Settings c1216pm = this.f2236t;
         i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         if ((c1216pm.f3479a & 16) != 0) {
             i = c1216pm.f3480b[4];
@@ -430,7 +430,7 @@ public final class C0834am implements Closeable {
     }
 
     /* renamed from: f */
-    public final synchronized void m1369f(AbstractRunnableC1289sk abstractRunnableC1289sk) {
+    public final synchronized void m1369f(NamedRunnable abstractRunnableC1289sk) {
         if (!this.f2223g) {
             this.f2225i.execute(abstractRunnableC1289sk);
         }
@@ -442,15 +442,15 @@ public final class C0834am implements Closeable {
     }
 
     /* renamed from: h */
-    public synchronized C1116lm m1371h(int i) {
-        C1116lm c1116lmRemove;
+    public synchronized Http2Stream m1371h(int i) {
+        Http2Stream c1116lmRemove;
         c1116lmRemove = this.f2219c.remove(Integer.valueOf(i));
         notifyAll();
         return c1116lmRemove;
     }
 
     /* renamed from: i */
-    public void m1372i(EnumC1390wl enumC1390wl) {
+    public void m1372i(Http2ErrorCode enumC1390wl) {
         synchronized (this.f2238v) {
             synchronized (this) {
                 if (this.f2223g) {
@@ -473,7 +473,7 @@ public final class C0834am implements Closeable {
     }
 
     /* renamed from: k */
-    public void m1374k(int i, boolean z, C1016hn c1016hn, long j) {
+    public void m1374k(int i, boolean z, OkioBuffer c1016hn, long j) {
         int iMin;
         long j2;
         if (j == 0) {
@@ -507,7 +507,7 @@ public final class C0834am implements Closeable {
         try {
             this.f2238v.m2401h(z, i, i2);
         } catch (IOException e2) {
-            EnumC1390wl enumC1390wl = EnumC1390wl.PROTOCOL_ERROR;
+            Http2ErrorCode enumC1390wl = Http2ErrorCode.PROTOCOL_ERROR;
             m1366a(enumC1390wl, enumC1390wl, e2);
         }
     }

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
 import com.alibaba.sdk.android.ams.common.util.C0505a;
 import com.alibaba.sdk.android.push.common.p018a.C0560d;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -123,7 +123,7 @@ public abstract class AbstractAsyncTaskC0565c extends AsyncTask<Map<String, Stri
     /* renamed from: a, reason: merged with bridge method [inline-methods] */
     public void onPostExecute(C0564b c0564b) {
         AmsLogger amsLogger = f1158a;
-        StringBuilder sbM1765j = C0948f6.m1765j("HTTP Return code: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("HTTP Return code: ");
         sbM1765j.append(c0564b.f1155b);
         amsLogger.m504i(sbM1765j.toString());
     }

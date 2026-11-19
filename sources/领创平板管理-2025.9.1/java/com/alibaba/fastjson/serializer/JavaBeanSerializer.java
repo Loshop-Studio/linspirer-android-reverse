@@ -6,7 +6,7 @@ import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -105,14 +105,14 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     public Object getFieldValue(Object obj, String str) {
         FieldSerializer fieldSerializer = getFieldSerializer(str);
         if (fieldSerializer == null) {
-            throw new JSONException(C0948f6.m1760e("field not found. ", str));
+            throw new JSONException(CompilerOutline.m1760e("field not found. ", str));
         }
         try {
             return fieldSerializer.getPropertyValue(obj);
         } catch (IllegalAccessException e) {
-            throw new JSONException(C0948f6.m1760e("getFieldValue error.", str), e);
+            throw new JSONException(CompilerOutline.m1760e("getFieldValue error.", str), e);
         } catch (InvocationTargetException e2) {
-            throw new JSONException(C0948f6.m1760e("getFieldValue error.", str), e2);
+            throw new JSONException(CompilerOutline.m1760e("getFieldValue error.", str), e2);
         }
     }
 
@@ -437,16 +437,16 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         FieldSerializer fieldSerializer = getFieldSerializer(j);
         if (fieldSerializer == null) {
             if (z) {
-                throw new JSONException(C0948f6.m1760e("field not found. ", str));
+                throw new JSONException(CompilerOutline.m1760e("field not found. ", str));
             }
             return null;
         }
         try {
             return fieldSerializer.getPropertyValue(obj);
         } catch (IllegalAccessException e) {
-            throw new JSONException(C0948f6.m1760e("getFieldValue error.", str), e);
+            throw new JSONException(CompilerOutline.m1760e("getFieldValue error.", str), e);
         } catch (InvocationTargetException e2) {
-            throw new JSONException(C0948f6.m1760e("getFieldValue error.", str), e2);
+            throw new JSONException(CompilerOutline.m1760e("getFieldValue error.", str), e2);
         }
     }
 }

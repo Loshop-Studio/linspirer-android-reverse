@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.client.AdapterGlobalClientInfo;
 import com.taobao.accs.common.Constants;
@@ -261,7 +261,7 @@ public class AgooFactory {
             ALog.m5727e(TAG, "sendMsgToBussiness", th, new Object[0]);
         }
         if (ALog.isPrintLog(ALog.Level.I)) {
-            StringBuilder sbM1765j = C0948f6.m1765j("sendMsgToBussiness intent:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("sendMsgToBussiness intent:");
             sbM1765j.append(bundle.toString());
             sbM1765j.append(",utdid=");
             sbM1765j.append(AdapterUtilityImpl.getDeviceId(context));
@@ -508,7 +508,7 @@ public class AgooFactory {
         try {
             ThreadPoolExecutorFactory.execute(new RunnableC2011c(this));
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("reportCacheMsg fail:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("reportCacheMsg fail:");
             sbM1765j.append(th.toString());
             ALog.m5728e(TAG, sbM1765j.toString(), new Object[0]);
         }
@@ -535,7 +535,7 @@ public class AgooFactory {
                 }
             }
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("updateNotifyMsg e=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("updateNotifyMsg e=");
             sbM1765j.append(th.toString());
             ALog.m5728e(TAG, sbM1765j.toString(), new Object[0]);
         }
@@ -552,7 +552,7 @@ public class AgooFactory {
             }
             ThreadPoolExecutorFactory.execute(new RunnableC2010b(this, bArr, str, extraInfo));
         } catch (Throwable th) {
-            StringBuilder sbM1765j = C0948f6.m1765j("serviceImpl init task fail:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("serviceImpl init task fail:");
             sbM1765j.append(th.toString());
             ALog.m5728e(TAG, sbM1765j.toString(), new Object[0]);
         }

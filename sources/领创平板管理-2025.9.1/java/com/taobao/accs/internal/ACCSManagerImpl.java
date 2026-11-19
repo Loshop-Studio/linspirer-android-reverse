@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import anet.channel.SessionCenter;
 import com.alibaba.sdk.android.logger.ILog;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.taobao.accs.ACCSClient;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsClientConfig;
@@ -61,7 +61,7 @@ public class ACCSManagerImpl implements IACCSManager {
         GlobalClientInfo.f6059a = applicationContext;
         this.f6168a = new C1948j(applicationContext, 1, str);
         this.f6171d = str;
-        StringBuilder sbM1765j = C0948f6.m1765j("ACCSMgrImpl_");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("ACCSMgrImpl_");
         sbM1765j.append(this.f6168a.f6221m);
         this.f6172e = AccsLogger.getLogger(sbM1765j.toString());
         ThreadPoolExecutorFactory.getScheduledExecutor().schedule(new RunnableC1928a(this, str, context), 64L, TimeUnit.MILLISECONDS);
@@ -224,7 +224,7 @@ public class ACCSManagerImpl implements IACCSManager {
         try {
         } catch (Throwable th) {
             String str = accsRequest.serviceId;
-            StringBuilder sbM1765j = C0948f6.m1765j("push response ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("push response ");
             sbM1765j.append(th.toString());
             AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str, "1", sbM1765j.toString());
             this.f6172e.mo668e("sendPushResponse", Constants.KEY_DATA_ID, accsRequest.dataId, th);
@@ -508,7 +508,7 @@ public class ACCSManagerImpl implements IACCSManager {
         } catch (Throwable th) {
             if (accsRequest != null) {
                 String str2 = accsRequest.serviceId;
-                StringBuilder sbM1765j = C0948f6.m1765j("request ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("request ");
                 sbM1765j.append(th.toString());
                 AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str2, "1", sbM1765j.toString());
                 this.f6172e.mo668e("sendRequest", Constants.KEY_DATA_ID, accsRequest.dataId, th);
@@ -551,7 +551,7 @@ public class ACCSManagerImpl implements IACCSManager {
         try {
         } catch (Throwable th) {
             String str = accsRequest.serviceId;
-            StringBuilder sbM1765j = C0948f6.m1765j("data ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("data ");
             sbM1765j.append(th.toString());
             AppMonitorAdapter.commitAlarmFail("accs", BaseMonitor.ALARM_POINT_REQ_ERROR, str, "1", sbM1765j.toString());
             this.f6172e.mo668e("sendData", Constants.KEY_DATA_ID, accsRequest.dataId, th);
@@ -632,7 +632,7 @@ public class ACCSManagerImpl implements IACCSManager {
 
     /* renamed from: a */
     private Intent m5586a(Context context, int i) {
-        Intent intentM1768m = C0948f6.m1768m(Constants.ACTION_COMMAND);
+        Intent intentM1768m = CompilerOutline.m1768m(Constants.ACTION_COMMAND);
         intentM1768m.setClassName(context.getPackageName(), AdapterUtilityImpl.channelService);
         intentM1768m.putExtra(Constants.KEY_PACKAGE_NAME, context.getPackageName());
         intentM1768m.putExtra("command", i);

@@ -7,7 +7,7 @@ import android.os.Message;
 import android.os.Process;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
@@ -37,7 +37,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            StringBuilder sbM1765j = C0948f6.m1765j("ModernAsyncTask #");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("ModernAsyncTask #");
             sbM1765j.append(this.mCount.getAndIncrement());
             return new Thread(runnable, sbM1765j.toString());
         }

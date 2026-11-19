@@ -14,25 +14,25 @@ import com.android.launcher3.network.response.Response;
 import com.android.launcher3.p027db.model.ScreenPartSettings;
 import com.android.launcher3.p027db.model.ScreenPartSettingsDao;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1248r4;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1297t3;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.InterfaceC1096l3;
-import com.huawei.hem.InterfaceC1122m3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.BaseRequestHelper;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.DBController;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.OnHiBoardChangeListener;
+import com.huawei.hem.OnMainScreenChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class HiScreenHelper extends C1248r4 {
+public class HiScreenHelper extends BaseRequestHelper {
     public static final String TAG = "HiScreenHelper";
     public String mLogoPath;
     public List<ScreenPartSettings> mScreenPartSettings = new ArrayList();
-    public InterfaceC1096l3 onHiBoardChangeListener;
-    public InterfaceC1122m3 onMainScreenChangeListener;
+    public OnHiBoardChangeListener onHiBoardChangeListener;
+    public OnMainScreenChangeListener onMainScreenChangeListener;
 
     public static class HiScreenHolder {
         public static final HiScreenHelper instance = new HiScreenHelper();
@@ -44,7 +44,7 @@ public class HiScreenHelper extends C1248r4 {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleHiBoardResult(HiBoardScreen hiBoardScreen) {
-        ScreenPartSettingsDao screenPartSettingsDao = C1297t3.m2715a().f3751c.getScreenPartSettingsDao();
+        ScreenPartSettingsDao screenPartSettingsDao = DBController.m2715a().f3751c.getScreenPartSettingsDao();
         List<ScreenPartSettings> module_setting = hiBoardScreen.getModule_setting();
         this.mScreenPartSettings.clear();
         if (AbstractC1102l9.m2273N(module_setting)) {
@@ -60,24 +60,24 @@ public class HiScreenHelper extends C1248r4 {
         module_setting.add(screenPartSettings);
         this.mScreenPartSettings.addAll(module_setting);
         this.mLogoPath = hiBoardScreen.getLogo_path();
-        if (C0850bc.m1401k(module_setting.toString()).equals(C0850bc.m1401k(listLoadAll.toString()))) {
-            C0850bc.m1403m("HiScreenHelperhiboard data is same with last no need handle");
+        if (LTKDateUtil.m1401k(module_setting.toString()).equals(LTKDateUtil.m1401k(listLoadAll.toString()))) {
+            LTKDateUtil.m1403m("HiScreenHelperhiboard data is same with last no need handle");
             return;
         }
-        C0850bc.m1403m("HiScreenHelperhiboard data is not same need handle");
+        LTKDateUtil.m1403m("HiScreenHelperhiboard data is not same need handle");
         screenPartSettingsDao.deleteAll();
         screenPartSettingsDao.saveInTx(module_setting);
         updateView(module_setting, hiBoardScreen.getLogo_path());
     }
 
     private void updateView(List<ScreenPartSettings> list, String str) {
-        InterfaceC1122m3 interfaceC1122m3 = this.onMainScreenChangeListener;
+        OnMainScreenChangeListener interfaceC1122m3 = this.onMainScreenChangeListener;
         if (interfaceC1122m3 != null) {
             BaseHomeFragment baseHomeFragment = (BaseHomeFragment) interfaceC1122m3;
             if (baseHomeFragment == null) {
                 throw null;
             }
-            C0850bc.m1403m("BaseHomeFragment  -- onMainScreenChanged --------------------- ");
+            LTKDateUtil.m1403m("BaseHomeFragment  -- onMainScreenChanged --------------------- ");
             baseHomeFragment.f1916r = list;
             baseHomeFragment.f1915q = str;
             if (baseHomeFragment.m1238l()) {
@@ -85,14 +85,14 @@ public class HiScreenHelper extends C1248r4 {
                 baseHomeFragment.m1244r(false);
                 baseHomeFragment.mo1240n();
             } else {
-                C0850bc.m1403m("BaseHomeFragment has no hiboard");
+                LTKDateUtil.m1403m("BaseHomeFragment has no hiboard");
                 baseHomeFragment.f1917s = 0;
                 baseHomeFragment.mo1240n();
                 baseHomeFragment.m1244r(false);
             }
             baseHomeFragment.f1912n = false;
         }
-        InterfaceC1096l3 interfaceC1096l3 = this.onHiBoardChangeListener;
+        OnHiBoardChangeListener interfaceC1096l3 = this.onHiBoardChangeListener;
         if (interfaceC1096l3 != null) {
             ((HiBoardFragment) interfaceC1096l3).m1252j(list);
         }
@@ -110,12 +110,12 @@ public class HiScreenHelper extends C1248r4 {
         this.mLogoPath = str;
     }
 
-    public HiScreenHelper setOnHiBoardChangeListener(InterfaceC1096l3 interfaceC1096l3) {
+    public HiScreenHelper setOnHiBoardChangeListener(OnHiBoardChangeListener interfaceC1096l3) {
         this.onHiBoardChangeListener = interfaceC1096l3;
         return this;
     }
 
-    public HiScreenHelper setOnMainScreenChangeListener(InterfaceC1122m3 interfaceC1122m3) {
+    public HiScreenHelper setOnMainScreenChangeListener(OnMainScreenChangeListener interfaceC1122m3) {
         this.onMainScreenChangeListener = interfaceC1122m3;
         return this;
     }
@@ -126,8 +126,8 @@ public class HiScreenHelper extends C1248r4 {
     }
 
     public void updateScreenSettings() {
-        if (!C1423y4.m3004y()) {
-            C0850bc.m1390A("HiScreenHelper -- Unable to request the ScreenSettings data for unknown reason .");
+        if (!LauncherMenuHelper.m3004y()) {
+            LTKDateUtil.m1390A("HiScreenHelper -- Unable to request the ScreenSettings data for unknown reason .");
             return;
         }
         try {
@@ -136,34 +136,34 @@ public class HiScreenHelper extends C1248r4 {
             params.setEmail(this.userInfoUtil.m3052k());
             v2Params.setParams(JSON.toJSONString(params));
             v2Params.setMethod(RequestUrl.SETTINGS_SCREEN);
-            C1255rb c1255rb = this.mHttpCore;
+            HttpCore c1255rb = this.mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new LTKResponseListener<HiBoardScreen>(HiBoardScreen.class) { // from class: com.android.launcher3.network.HiScreenHelper.1
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailed(Response response) {
-                    C0850bc.m1393c("HiScreenHelper -- update HiScreen Settings failed 01.");
+                    LTKDateUtil.m1393c("HiScreenHelper -- update HiScreen Settings failed 01.");
                     ExceptionHandler.handleException(HiScreenHelper.this.mContext, response, false, false);
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) {
-                    C0850bc.m1393c("HiScreenHelper -- update HiScreen Settings failed 02.");
+                    LTKDateUtil.m1393c("HiScreenHelper -- update HiScreen Settings failed 02.");
                     ExceptionHandler.handleException(HiScreenHelper.this.mContext, obj, false, false);
                 }
 
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(HiBoardScreen hiBoardScreen) {
-                    C0850bc.m1403m("HiScreenHelper -- update Screen Settings successfully .");
+                    LTKDateUtil.m1403m("HiScreenHelper -- update Screen Settings successfully .");
                     HiScreenHelper.this.handleHiBoardResult(hiBoardScreen);
                 }
             });
         } catch (Throwable th) {
-            C0948f6.m1744B(th, C0948f6.m1765j("HiScreenHelper -- get HiScreen Settings error = "));
+            CompilerOutline.m1744B(th, CompilerOutline.m1765j("HiScreenHelper -- get HiScreen Settings error = "));
         }
     }
 }

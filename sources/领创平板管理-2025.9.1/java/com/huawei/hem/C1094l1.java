@@ -9,9 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import anet.channel.entity.ConnType;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C1069k1;
+import com.huawei.hem.SDKInfo;
 import com.huawei.hms.framework.common.ContainerUtils;
-import com.loc.C1859t;
+import com.loc.BasicLogHandler;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -67,7 +67,7 @@ public final class C1094l1 {
         try {
             return m2230C(bArr);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "csb2h");
+            BasicLogHandler.m5312a(th, "ut", "csb2h");
             return null;
         }
     }
@@ -82,7 +82,7 @@ public final class C1094l1 {
             Log.i("authErrLog", "|" + str.substring(0, 78) + "|");
             str = str.substring(78);
         }
-        StringBuilder sbM1767l = C0948f6.m1767l("|", str);
+        StringBuilder sbM1767l = CompilerOutline.m1767l("|", str);
         for (i = 0; i < 78 - str.length(); i++) {
             sbM1767l.append(" ");
         }
@@ -149,8 +149,8 @@ public final class C1094l1 {
     }
 
     /* renamed from: a */
-    public static C1069k1 m2232a() {
-        C1069k1.a aVar = new C1069k1.a("collection", "1.0", "AMap_collection_1.0");
+    public static SDKInfo m2232a() {
+        SDKInfo.a aVar = new SDKInfo.a("collection", "1.0", "AMap_collection_1.0");
         aVar.m2160a(new String[]{"com.amap.api.collection"});
         return aVar.m2161b();
     }
@@ -160,7 +160,7 @@ public final class C1094l1 {
         try {
             return new SimpleDateFormat(str, Locale.CHINA).format(new Date(j));
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "ctt");
+            BasicLogHandler.m5312a(th, "ut", "ctt");
             return null;
         }
     }
@@ -176,7 +176,7 @@ public final class C1094l1 {
                 declaredField.setAccessible(true);
                 str = (String) declaredField.get(applicationInfo);
             } catch (Throwable th) {
-                C1859t.m5312a(th, "ut", "gct");
+                BasicLogHandler.m5312a(th, "ut", "gct");
             }
         } else {
             str = "";
@@ -196,7 +196,7 @@ public final class C1094l1 {
                     }
                 }
             } catch (Throwable th2) {
-                C1859t.m5312a(th2, "ut", "gct_p");
+                BasicLogHandler.m5312a(th2, "ut", "gct_p");
             }
         }
         return TextUtils.isEmpty(str) ? Build.CPU_ABI : str;
@@ -295,7 +295,7 @@ public final class C1094l1 {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), calendar2.get(11), calendar2.get(12), calendar2.get(13));
             return calendar;
         } catch (ParseException e) {
-            C1859t.m5312a(e, "ut", "ctt");
+            BasicLogHandler.m5312a(e, "ut", "ctt");
             return null;
         }
     }
@@ -308,13 +308,13 @@ public final class C1094l1 {
         String string2;
         String strM2251t;
         string = "";
-        String strM1640f = C0917e1.m1640f(context);
+        String strM1640f = AppInfo.m1640f(context);
         String strM2507c = C1219q0.m2507c(strM1640f);
         try {
-            strM1642h = C0917e1.m1642h(context);
+            strM1642h = AppInfo.m1642h(context);
         } catch (Throwable th) {
             th.printStackTrace();
-            strM1642h = C0917e1.f2505d;
+            strM1642h = AppInfo.f2505d;
         }
         try {
             if (jSONObject.has("info")) {
@@ -391,7 +391,7 @@ public final class C1094l1 {
                 byteArrayOutputStream.write(bArr, 0, 255);
             }
         } catch (IOException e) {
-            C1859t.m5312a(e, "ut", "wFie");
+            BasicLogHandler.m5312a(e, "ut", "wFie");
         }
     }
 
@@ -402,7 +402,7 @@ public final class C1094l1 {
                 byteArrayOutputStream.write(new byte[]{0});
                 return;
             } catch (IOException e) {
-                C1859t.m5312a(e, "ut", "wsf");
+                BasicLogHandler.m5312a(e, "ut", "wsf");
                 return;
             }
         }
@@ -424,7 +424,7 @@ public final class C1094l1 {
                     return false;
                 }
             } catch (Throwable th) {
-                C1859t.m5312a(th, "ut", "cpm");
+                BasicLogHandler.m5312a(th, "ut", "cpm");
             }
         }
         return true;
@@ -453,8 +453,8 @@ public final class C1094l1 {
     }
 
     /* renamed from: o */
-    public static C1069k1 m2246o() {
-        C1069k1.a aVar = new C1069k1.a("co", "1.0.0", "AMap_co_1.0.0");
+    public static SDKInfo m2246o() {
+        SDKInfo.a aVar = new SDKInfo.a("co", "1.0.0", "AMap_co_1.0.0");
         aVar.m2160a(new String[]{"com.amap.co", "com.amap.opensdk.co", "com.amap.location"});
         return aVar.m2161b();
     }
@@ -468,7 +468,7 @@ public final class C1094l1 {
         try {
             return ((char) ((strM1935f.length() % 26) + 65)) + strM1935f;
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "tsfb64");
+            BasicLogHandler.m5312a(th, "ut", "tsfb64");
             return "";
         }
     }
@@ -504,7 +504,7 @@ public final class C1094l1 {
             String string2 = stringBuffer.toString();
             return string2.length() > 1 ? (String) string2.subSequence(0, string2.length() - 1) : string;
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "sPa");
+            BasicLogHandler.m5312a(th, "ut", "sPa");
             return string;
         }
     }
@@ -516,7 +516,7 @@ public final class C1094l1 {
         if (context == null) {
             return false;
         }
-        if (TextUtils.isEmpty(C1145n1.f3284a)) {
+        if (TextUtils.isEmpty(MccUtil.f3284a)) {
             try {
                 telephonyManager = (TelephonyManager) context.getSystemService("phone");
             } catch (Throwable unused) {
@@ -526,15 +526,15 @@ public final class C1094l1 {
                 if (!TextUtils.isEmpty(networkOperator) && networkOperator.length() >= 3) {
                     strSubstring = networkOperator.substring(0, 3);
                 }
-                C1145n1.f3284a = strSubstring;
+                MccUtil.f3284a = strSubstring;
             }
             strSubstring = "";
-            C1145n1.f3284a = strSubstring;
+            MccUtil.f3284a = strSubstring;
         }
-        if (TextUtils.isEmpty(C1145n1.f3284a) || !TextUtils.isDigitsOnly(C1145n1.f3284a)) {
+        if (TextUtils.isEmpty(MccUtil.f3284a) || !TextUtils.isDigitsOnly(MccUtil.f3284a)) {
             return false;
         }
-        return ",202,204,206,208,212,213,214,216,218,219,220,222,225,226,228,230,231,232,234,235,238,240,242,244,246,247,248,250,255,257,259,260,262,266,268,270,272,274,276,278,280,282,283,284,286,288,289,290,292,293,294,295,297,302,308,310,311,312,313,314,315,316,310,330,332,334,338,340,342,344,346,348,350,352,354,356,358,360,362,363,364,365,366,368,370,372,374,376,400,401,402,404,405,406,410,412,413,414,415,416,417,418,419,420,421,422,424,425,426,427,428,429,430,431,432,434,436,437,438,440,441,450,452,454,455,456,457,466,467,470,472,502,505,510,514,515,520,525,528,530,534,535,536,537,539,540,541,542,543,544,545,546,547,548,549,550,551,552,553,555,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622,623,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639,640,641,642,643,645,646,647,648,649,650,651,652,653,654,655,657,659,702,704,706,708,710,712,714,716,722,724,730,732,734,736,738,740,742,744,746,748,750,901,".contains("," + C1145n1.f3284a + ",");
+        return ",202,204,206,208,212,213,214,216,218,219,220,222,225,226,228,230,231,232,234,235,238,240,242,244,246,247,248,250,255,257,259,260,262,266,268,270,272,274,276,278,280,282,283,284,286,288,289,290,292,293,294,295,297,302,308,310,311,312,313,314,315,316,310,330,332,334,338,340,342,344,346,348,350,352,354,356,358,360,362,363,364,365,366,368,370,372,374,376,400,401,402,404,405,406,410,412,413,414,415,416,417,418,419,420,421,422,424,425,426,427,428,429,430,431,432,434,436,437,438,440,441,450,452,454,455,456,457,466,467,470,472,502,505,510,514,515,520,525,528,530,534,535,536,537,539,540,541,542,543,544,545,546,547,548,549,550,551,552,553,555,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622,623,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639,640,641,642,643,645,646,647,648,649,650,651,652,653,654,655,657,659,702,704,706,708,710,712,714,716,722,724,730,732,734,736,738,740,742,744,746,748,750,901,".contains("," + MccUtil.f3284a + ",");
     }
 
     /* renamed from: s */
@@ -542,7 +542,7 @@ public final class C1094l1 {
         try {
             return m2231D(bArr);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "gZp");
+            BasicLogHandler.m5312a(th, "ut", "gZp");
             return new byte[0];
         }
     }
@@ -567,7 +567,7 @@ public final class C1094l1 {
             }
             return bArr2;
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", "gIV");
+            BasicLogHandler.m5312a(th, "ut", "gIV");
             return new byte[16];
         }
     }
@@ -581,7 +581,7 @@ public final class C1094l1 {
         if (bArr != null) {
             try {
             } catch (Throwable th) {
-                C1859t.m5312a(th, "ut", "zp2");
+                BasicLogHandler.m5312a(th, "ut", "zp2");
             }
             if (bArr.length != 0) {
                 try {
@@ -597,18 +597,18 @@ public final class C1094l1 {
                             try {
                                 zipOutputStream.close();
                             } catch (Throwable th2) {
-                                C1859t.m5312a(th2, "ut", "zp1");
+                                BasicLogHandler.m5312a(th2, "ut", "zp1");
                             }
                             byteArrayOutputStream.close();
                         } catch (Throwable th3) {
                             th = th3;
                             try {
-                                C1859t.m5312a(th, "ut", "zp");
+                                BasicLogHandler.m5312a(th, "ut", "zp");
                                 if (zipOutputStream != null) {
                                     try {
                                         zipOutputStream.close();
                                     } catch (Throwable th4) {
-                                        C1859t.m5312a(th4, "ut", "zp1");
+                                        BasicLogHandler.m5312a(th4, "ut", "zp1");
                                     }
                                 }
                                 if (byteArrayOutputStream != null) {
@@ -701,7 +701,7 @@ public final class C1094l1 {
         try {
             return m2230C(bArr);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", ConnType.H2S);
+            BasicLogHandler.m5312a(th, "ut", ConnType.H2S);
             return null;
         }
     }

@@ -27,7 +27,7 @@ import android.support.v7.widget.TintContextWrapper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -72,12 +72,12 @@ public class AppCompatViewInflater {
             if (id == -1) {
                 string = "";
             } else {
-                StringBuilder sbM1765j = C0948f6.m1765j(" with id '");
+                StringBuilder sbM1765j = CompilerOutline.m1765j(" with id '");
                 sbM1765j.append(this.mHostView.getContext().getResources().getResourceEntryName(id));
                 sbM1765j.append("'");
                 string = sbM1765j.toString();
             }
-            StringBuilder sbM1765j2 = C0948f6.m1765j("Could not find method ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("Could not find method ");
             sbM1765j2.append(this.mMethodName);
             sbM1765j2.append("(View) in a parent or ancestor Context for android:onClick ");
             sbM1765j2.append("attribute defined on view ");

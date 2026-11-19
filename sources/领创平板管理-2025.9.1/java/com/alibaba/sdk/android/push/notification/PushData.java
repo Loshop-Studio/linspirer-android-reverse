@@ -4,7 +4,7 @@ import android.content.Context;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
 import com.alibaba.sdk.android.ams.common.util.StringUtil;
 import com.alibaba.sdk.android.push.common.util.JSONUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -230,25 +230,25 @@ public class PushData {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("PushData{title='");
-        C0948f6.m1781z(sbM1765j, this.title, '\'', ", contentText='");
-        C0948f6.m1781z(sbM1765j, this.contentText, '\'', ", image='");
-        C0948f6.m1781z(sbM1765j, this.image, '\'', ", notifyType=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("PushData{title='");
+        CompilerOutline.m1781z(sbM1765j, this.title, '\'', ", contentText='");
+        CompilerOutline.m1781z(sbM1765j, this.contentText, '\'', ", image='");
+        CompilerOutline.m1781z(sbM1765j, this.image, '\'', ", notifyType=");
         sbM1765j.append(this.notifyType);
         sbM1765j.append(", sound='");
-        C0948f6.m1781z(sbM1765j, this.sound, '\'', ", notificationChannel='");
-        C0948f6.m1781z(sbM1765j, this.notificationChannel, '\'', ", priority=");
+        CompilerOutline.m1781z(sbM1765j, this.sound, '\'', ", notificationChannel='");
+        CompilerOutline.m1781z(sbM1765j, this.notificationChannel, '\'', ", priority=");
         sbM1765j.append(this.priority);
         sbM1765j.append(", customNotificationId=");
         sbM1765j.append(this.customNotificationId);
         sbM1765j.append(", extraMap=");
         sbM1765j.append(this.extraMap);
         sbM1765j.append(", style='");
-        C0948f6.m1781z(sbM1765j, this.style, '\'', ", bigTitle='");
-        C0948f6.m1781z(sbM1765j, this.bigTitle, '\'', ", bigPicture='");
-        C0948f6.m1781z(sbM1765j, this.bigPicture, '\'', ", bigBody='");
-        C0948f6.m1781z(sbM1765j, this.bigBody, '\'', ", inboxContent='");
-        C0948f6.m1781z(sbM1765j, this.inboxContent, '\'', ", notifyId=");
+        CompilerOutline.m1781z(sbM1765j, this.style, '\'', ", bigTitle='");
+        CompilerOutline.m1781z(sbM1765j, this.bigTitle, '\'', ", bigPicture='");
+        CompilerOutline.m1781z(sbM1765j, this.bigPicture, '\'', ", bigBody='");
+        CompilerOutline.m1781z(sbM1765j, this.bigBody, '\'', ", inboxContent='");
+        CompilerOutline.m1781z(sbM1765j, this.inboxContent, '\'', ", notifyId=");
         sbM1765j.append(this.notifyId);
         sbM1765j.append(", msgId='");
         sbM1765j.append(this.msgId);

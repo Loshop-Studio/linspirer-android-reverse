@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class NavUtils {
@@ -51,7 +51,7 @@ public final class NavUtils {
             navigateUpTo(activity, parentActivityIntent);
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("Activity ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Activity ");
         sbM1765j.append(activity.getClass().getSimpleName());
         sbM1765j.append(" does not have a parent activity name specified.");
         sbM1765j.append(" (Did you forget to add the android.support.PARENT_ACTIVITY <meta-data> ");

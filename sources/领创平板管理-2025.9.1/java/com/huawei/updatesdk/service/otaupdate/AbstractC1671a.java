@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.framework.common.ActivityUtil;
 import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
 
@@ -19,7 +19,7 @@ public abstract class AbstractC1671a {
         try {
             context.unregisterReceiver(broadcastReceiver);
         } catch (IllegalArgumentException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("unregisterReceiver error:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("unregisterReceiver error:");
             sbM1765j.append(e.toString());
             C1584a.m3516b(ActivityUtil.TAG, sbM1765j.toString());
         }
@@ -33,7 +33,7 @@ public abstract class AbstractC1671a {
         try {
             context.registerReceiver(broadcastReceiver, intentFilter);
         } catch (IllegalArgumentException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("registerReceiver error:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("registerReceiver error:");
             sbM1765j.append(e.toString());
             C1584a.m3516b(ActivityUtil.TAG, sbM1765j.toString());
         }

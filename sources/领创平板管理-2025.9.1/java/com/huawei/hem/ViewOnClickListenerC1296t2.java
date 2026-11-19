@@ -18,7 +18,7 @@ public class ViewOnClickListenerC1296t2 implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         this.f3747a.f1819h.setVisibility(8);

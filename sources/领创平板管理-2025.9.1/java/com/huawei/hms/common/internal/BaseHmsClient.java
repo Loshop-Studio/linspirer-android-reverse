@@ -8,13 +8,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.adapter.AvailableAdapter;
 import com.huawei.hms.adapter.BinderAdapter;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
 import com.huawei.hms.api.IPCTransport;
-import com.huawei.hms.core.aidl.InterfaceC1543d;
+import com.huawei.hms.core.aidl.IAIDLInvoke;
 import com.huawei.hms.support.api.client.AidlApiClient;
 import com.huawei.hms.support.api.client.SubAppInfo;
 import com.huawei.hms.support.log.HMSLog;
@@ -39,7 +39,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
     public final ConnectionCallbacks mConnectionCallbacks;
     public final OnConnectionFailedListener mConnectionFailedListener;
     public final Context mContext;
-    public volatile InterfaceC1543d mService;
+    public volatile IAIDLInvoke mService;
     public String sessionId;
 
     public interface ConnectionCallbacks {
@@ -92,7 +92,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
             @Override // com.huawei.hms.adapter.BinderAdapter.BinderCallBack
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 HMSLog.m3463i(BaseHmsClient.TAG, "Enter onServiceConnected.");
-                BaseHmsClient.this.mService = InterfaceC1543d.a.m3395a(iBinder);
+                BaseHmsClient.this.mService = IAIDLInvoke.a.m3395a(iBinder);
                 if (BaseHmsClient.this.mService != null) {
                     BaseHmsClient.this.onConnecting();
                     return;
@@ -145,13 +145,13 @@ public abstract class BaseHmsClient implements AidlApiClient {
     private void checkAvailabilityAndConnect(int i, boolean z) {
         HMSLog.m3463i(TAG, "====== HMSSDK version: 50200300 ======");
         int i2 = this.mConnStatus.get();
-        C0948f6.m1777v("Enter connect, Connection Status: ", i2, TAG);
+        CompilerOutline.m1777v("Enter connect, Connection Status: ", i2, TAG);
         if (z || !(i2 == 3 || i2 == 5 || i2 == 4)) {
             setConnectStatus(5);
             if (getMinApkVersion() > i) {
                 i = getMinApkVersion();
             }
-            StringBuilder sbM1766k = C0948f6.m1766k("connect minVersion:", i, " packageName:");
+            StringBuilder sbM1766k = CompilerOutline.m1766k("connect minVersion:", i, " packageName:");
             sbM1766k.append(this.mClientSettings.getInnerHmsPkg());
             HMSLog.m3463i(TAG, sbM1766k.toString());
             if (this.mContext.getPackageName().equals(this.mClientSettings.getInnerHmsPkg())) {
@@ -161,7 +161,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
             }
             if (!Util.isAvailableLibExist(this.mContext)) {
                 int iIsHuaweiMobileServicesAvailable = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(this.mContext, i);
-                C0948f6.m1777v("HuaweiApiAvailability check available result: ", iIsHuaweiMobileServicesAvailable, TAG);
+                CompilerOutline.m1777v("HuaweiApiAvailability check available result: ", iIsHuaweiMobileServicesAvailable, TAG);
                 if (iIsHuaweiMobileServicesAvailable == 0) {
                     bindCoreService();
                     return;
@@ -172,7 +172,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
             }
             AvailableAdapter availableAdapter = new AvailableAdapter(i);
             int iIsHuaweiMobileServicesAvailable2 = availableAdapter.isHuaweiMobileServicesAvailable(this.mContext);
-            C0948f6.m1777v("check available result: ", iIsHuaweiMobileServicesAvailable2, TAG);
+            CompilerOutline.m1777v("check available result: ", iIsHuaweiMobileServicesAvailable2, TAG);
             if (iIsHuaweiMobileServicesAvailable2 == 0) {
                 bindCoreService();
                 return;
@@ -189,7 +189,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyFailed(int i) {
-        C0948f6.m1777v("notifyFailed result: ", i, TAG);
+        CompilerOutline.m1777v("notifyFailed result: ", i, TAG);
         OnConnectionFailedListener onConnectionFailedListener = this.mConnectionFailedListener;
         if (onConnectionFailedListener != null) {
             onConnectionFailedListener.onConnectionFailed(new ConnectionResult(i));
@@ -244,7 +244,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
 
     public void disconnect() {
         int i = this.mConnStatus.get();
-        C0948f6.m1777v("Enter disconnect, Connection Status: ", i, TAG);
+        CompilerOutline.m1777v("Enter disconnect, Connection Status: ", i, TAG);
         if (i != 1) {
             if (i == 3) {
                 BinderAdapter binderAdapter = this.mBinderAdapter;
@@ -297,7 +297,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
     }
 
     @Override // com.huawei.hms.support.api.client.AidlApiClient
-    public InterfaceC1543d getService() {
+    public IAIDLInvoke getService() {
         return this.mService;
     }
 
@@ -339,7 +339,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyFailed(ConnectionResult connectionResult) {
-        StringBuilder sbM1765j = C0948f6.m1765j("notifyFailed result: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("notifyFailed result: ");
         sbM1765j.append(connectionResult.getErrorCode());
         HMSLog.m3463i(TAG, sbM1765j.toString());
         OnConnectionFailedListener onConnectionFailedListener = this.mConnectionFailedListener;

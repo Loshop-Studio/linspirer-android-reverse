@@ -2,7 +2,7 @@ package com.huawei.updatesdk.p048b.p054d;
 
 import android.text.TextUtils;
 import com.bumptech.glide.load.model.LazyHeaders;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C0979gb;
 import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
 import java.io.File;
@@ -32,7 +32,7 @@ public class C1625d {
         if (TextUtils.isEmpty(strM3593b)) {
             return "";
         }
-        String strM1760e = C0948f6.m1760e(strM3593b, "/updatesdk");
+        String strM1760e = CompilerOutline.m1760e(strM3593b, "/updatesdk");
         File file = new File(strM1760e);
         return (file.exists() || file.mkdirs()) ? strM1760e : "";
     }

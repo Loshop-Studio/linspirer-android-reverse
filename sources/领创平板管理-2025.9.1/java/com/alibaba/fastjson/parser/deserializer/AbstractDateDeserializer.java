@@ -7,7 +7,7 @@ import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONScanner;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -128,7 +128,7 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
             }
             jSONLexer.nextTokenWithColon(2);
             if (jSONLexer.token() != 2) {
-                StringBuilder sbM1765j = C0948f6.m1765j("syntax error : ");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("syntax error : ");
                 sbM1765j.append(jSONLexer.tokenName());
                 throw new JSONException(sbM1765j.toString());
             }

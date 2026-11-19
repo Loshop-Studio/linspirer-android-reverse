@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.support.v7.util.ThreadUtil;
 import android.support.v7.util.TileList;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -32,7 +32,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                     } else if (i == 2) {
                         C02081.this.val$callback.addTile(next.arg1, (TileList.Tile) next.data);
                     } else if (i != 3) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Unsupported message, what=");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Unsupported message, what=");
                         sbM1765j.append(next.what);
                         Log.e("ThreadUtil", sbM1765j.toString());
                     } else {
@@ -98,7 +98,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                     } else if (i == 3) {
                         C02092.this.val$callback.loadTile(next.arg1, next.arg2);
                     } else if (i != 4) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Unsupported message, what=");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Unsupported message, what=");
                         sbM1765j.append(next.what);
                         Log.e("ThreadUtil", sbM1765j.toString());
                     } else {

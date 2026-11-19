@@ -25,21 +25,21 @@ import com.android.launcher3.model.AppItem;
 import com.android.launcher3.p027db.model.GesturePassword;
 import com.android.launcher3.p027db.model.GesturePasswordDao;
 import com.android.launcher3.view.CommonDialog;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0946f4;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1149n5;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.ViewOnClickListenerC0816a4;
-import com.huawei.hem.ViewOnClickListenerC0842b4;
-import com.huawei.hem.ViewOnClickListenerC0868c4;
-import com.huawei.hem.ViewOnClickListenerC0894d4;
-import com.huawei.hem.ViewOnClickListenerC0920e4;
-import com.huawei.hem.ViewOnClickListenerC1397x3;
-import com.huawei.hem.ViewOnClickListenerC1422y3;
-import com.huawei.hem.ViewOnClickListenerC1447z3;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.MainFragmentDialogButtonListener;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.ActivityController;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.MainMenuGestureSettingsClickListener;
+import com.huawei.hem.MainMenuPrivacyAgreementClickListener;
+import com.huawei.hem.MainMenuLogoutClickListener;
+import com.huawei.hem.MainMenuCheckUpdateClickListener;
+import com.huawei.hem.MainMenuScanClickListener;
+import com.huawei.hem.MainMenuMessageCenterClickListener;
+import com.huawei.hem.MainMenuChangePasswordClickListener;
+import com.huawei.hem.MainMenuDeviceInfoClickListener;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,15 +105,15 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
     public static void m1254t(MainFragment mainFragment) {
         GesturePassword gesturePasswordUnique = mainFragment.f1801b.queryBuilder().where(GesturePasswordDao.Properties.User_name.m5870eq(mainFragment.f1802c.m3052k()), new WhereCondition[0]).unique();
         String gesture_password = gesturePasswordUnique == null ? "" : gesturePasswordUnique.getGesture_password();
-        C0850bc.m1392b("BaseFragment -- get gesture password : " + gesture_password);
+        LTKDateUtil.m1392b("BaseFragment -- get gesture password : " + gesture_password);
         if (TextUtils.isEmpty(gesture_password)) {
             Bundle bundle = new Bundle();
             bundle.putInt("settings_type", 0);
-            C1423y4.m2975V(mainFragment.f1800a, SettingPwdGestureActivity.class, bundle);
+            LauncherMenuHelper.m2975V(mainFragment.f1800a, SettingPwdGestureActivity.class, bundle);
         } else {
             CommonDialog commonDialog = new CommonDialog();
             commonDialog.initDialog(mainFragment.f1800a, R.string.dialog_title_text, R.string.text_gesture_reset_password, R.string.text_gesture_cancel_itself, 0.5d, 0.55d, false);
-            commonDialog.setDialogOnClickEvent(new C0946f4(mainFragment));
+            commonDialog.setDialogOnClickEvent(new MainFragmentDialogButtonListener(mainFragment));
         }
     }
 
@@ -124,7 +124,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
         }
         Bundle bundle = new Bundle();
         bundle.putInt("settings_type", i);
-        C1423y4.m2975V(mainFragment.f1800a, SettingPwdGestureActivity.class, bundle);
+        LauncherMenuHelper.m2975V(mainFragment.f1800a, SettingPwdGestureActivity.class, bundle);
     }
 
     @Override // com.android.launcher3.activity.base.BaseFragment
@@ -187,11 +187,11 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
     public void onClick(View view) throws Resources.NotFoundException {
         if (view.getId() != R.id.user_avatar) {
             if (view.getId() == R.id.wifi_setting) {
-                C1423y4.m2979Z(this.f1800a);
+                LauncherMenuHelper.m2979Z(this.f1800a);
                 return;
             } else {
                 if (view.getId() == R.id.launcher_shade) {
-                    C0850bc.m1408r(this.f1800a, "com.ndwill.swd.appstore", R.string.text_cannot_open_app);
+                    LTKDateUtil.m1408r(this.f1800a, "com.ndwill.swd.appstore", R.string.text_cannot_open_app);
                     return;
                 }
                 return;
@@ -205,7 +205,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
                 int i = this.f1996E + 1;
                 this.f1996E = i;
                 if (i == 10) {
-                    C1423y4.m2974U(this.f1800a, AdminLoginActivity.class);
+                    LauncherMenuHelper.m2974U(this.f1800a, AdminLoginActivity.class);
                     this.f1996E = 0;
                     return;
                 }
@@ -213,7 +213,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
             }
             return;
         }
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         View viewInflate = LayoutInflater.from(this.f1800a).inflate(R.layout.fragment_main_popwindow, (ViewGroup) null);
@@ -246,7 +246,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
             textView4.setVisibility(8);
             viewFindViewById2.setVisibility(8);
         }
-        C1424y5 c1424y5 = this.f1802c;
+        UserInfoUtil c1424y5 = this.f1802c;
         if (c1424y5.f4160d0 == -1) {
             c1424y5.f4160d0 = c1424y5.f4130D.f2199a.getInt("allow_change_pwd_status", -1);
         }
@@ -254,7 +254,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
             textView2.setVisibility(8);
             viewFindViewById.setVisibility(8);
         }
-        C1424y5 c1424y52 = this.f1802c;
+        UserInfoUtil c1424y52 = this.f1802c;
         if (c1424y52.f4142P == -1) {
             c1424y52.f4142P = c1424y52.f4130D.f2199a.getInt("privacy_status", 0);
         }
@@ -262,34 +262,34 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
             textView6.setVisibility(8);
             viewFindViewById3.setVisibility(8);
         }
-        if (C0850bc.m1405o("com.ndwill.swd.appstore", this.f1800a)) {
+        if (LTKDateUtil.m1405o("com.ndwill.swd.appstore", this.f1800a)) {
             viewFindViewById4.setVisibility(8);
             textView7.setVisibility(8);
         }
-        textView.setOnClickListener(new ViewOnClickListenerC1397x3(this, popupWindow));
-        textView2.setOnClickListener(new ViewOnClickListenerC1422y3(this, popupWindow));
-        textView3.setOnClickListener(new ViewOnClickListenerC1447z3(this, popupWindow));
-        textView4.setOnClickListener(new ViewOnClickListenerC0816a4(this, popupWindow));
-        textView6.setOnClickListener(new ViewOnClickListenerC0842b4(this, popupWindow));
-        textView5.setOnClickListener(new ViewOnClickListenerC0868c4(this, popupWindow));
-        textView7.setOnClickListener(new ViewOnClickListenerC0894d4(this, popupWindow));
-        textView8.setOnClickListener(new ViewOnClickListenerC0920e4(this, popupWindow));
-        if (C1149n5.m2405a() == null) {
+        textView.setOnClickListener(new MainMenuMessageCenterClickListener(this, popupWindow));
+        textView2.setOnClickListener(new MainMenuChangePasswordClickListener(this, popupWindow));
+        textView3.setOnClickListener(new MainMenuDeviceInfoClickListener(this, popupWindow));
+        textView4.setOnClickListener(new MainMenuGestureSettingsClickListener(this, popupWindow));
+        textView6.setOnClickListener(new MainMenuPrivacyAgreementClickListener(this, popupWindow));
+        textView5.setOnClickListener(new MainMenuLogoutClickListener(this, popupWindow));
+        textView7.setOnClickListener(new MainMenuCheckUpdateClickListener(this, popupWindow));
+        textView8.setOnClickListener(new MainMenuScanClickListener(this, popupWindow));
+        if (ActivityController.m2405a() == null) {
             throw null;
         }
-        for (WeakReference<Activity> weakReference : C1149n5.f3287a) {
+        for (WeakReference<Activity> weakReference : ActivityController.f3287a) {
             if (weakReference.get() != null) {
                 weakReference.get().finish();
             }
         }
-        C1149n5.f3287a.clear();
+        ActivityController.f3287a.clear();
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (m1238l()) {
-            C0850bc.m1403m("MainFragment  -- onConfigurationChanged  create HiBoardFragment and refresh");
+            LTKDateUtil.m1403m("MainFragment  -- onConfigurationChanged  create HiBoardFragment and refresh");
             this.f1994C.notifyDataSetChanged();
             m1259y();
         }
@@ -298,9 +298,9 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
     @Override // android.support.v4.app.Fragment
     public void onResume() throws Resources.NotFoundException {
         super.onResume();
-        C0850bc.m1403m("MainFragment =======onResume=======");
+        LTKDateUtil.m1403m("MainFragment =======onResume=======");
         if (this.f1912n) {
-            C0850bc.m1403m("MainFragment =======onResume======= refresh");
+            LTKDateUtil.m1403m("MainFragment =======onResume======= refresh");
             m1244r(this.f1917s == 0);
             m1258x(m1238l());
             m1259y();
@@ -341,19 +341,19 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
             return;
         }
         if (!this.f1802c.m3023R()) {
-            C1424y5 c1424y5 = this.f1802c;
+            UserInfoUtil c1424y5 = this.f1802c;
             if (c1424y5.f4143Q == -1) {
                 c1424y5.f4143Q = c1424y5.f4130D.f2199a.getInt("school_class_info_status", 0);
             }
             if (c1424y5.f4143Q == 1) {
                 String strM3008C = this.f1802c.m3008C();
                 String strM3012G = this.f1802c.m3012G();
-                strM1760e = TextUtils.isEmpty(strM3008C) ? "" : C0948f6.m1760e(strM3008C, "  |  ");
+                strM1760e = TextUtils.isEmpty(strM3008C) ? "" : CompilerOutline.m1760e(strM3008C, "  |  ");
                 if (!TextUtils.isEmpty(strM3012G)) {
-                    strM1760e = C0948f6.m1761f(strM1760e, strM3012G, "  |  ");
+                    strM1760e = CompilerOutline.m1761f(strM1760e, strM3012G, "  |  ");
                 }
             }
         }
-        this.f2001z.setText(C0948f6.m1760e(strM1760e, strM3074v));
+        this.f2001z.setText(CompilerOutline.m1760e(strM1760e, strM3074v));
     }
 }

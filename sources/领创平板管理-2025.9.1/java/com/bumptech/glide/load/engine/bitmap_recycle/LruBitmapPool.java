@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.util.Log;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -80,7 +80,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     private void dumpUnchecked() {
-        StringBuilder sbM1765j = C0948f6.m1765j("Hits=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Hits=");
         sbM1765j.append(this.hits);
         sbM1765j.append(", misses=");
         sbM1765j.append(this.misses);

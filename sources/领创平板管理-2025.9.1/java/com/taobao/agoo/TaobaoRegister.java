@@ -8,7 +8,7 @@ import com.alibaba.sdk.android.error.ErrorCode;
 import com.aliyun.ams.emas.push.AgooInnerService;
 import com.aliyun.ams.emas.push.MsgService;
 import com.aliyun.ams.emas.push.notification.CPushMessage;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C1169o0;
 import com.huawei.hem.C1319u0;
 import com.huawei.hem.C1344v0;
@@ -299,7 +299,7 @@ public final class TaobaoRegister {
                 }
                 iCallback.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
             }
-            ALog.m5728e(TAG, C0948f6.m1760e(str, " param null"), "appkey", strM5830b, "deviceId", deviceToken, "context", context);
+            ALog.m5728e(TAG, CompilerOutline.m1760e(str, " param null"), "appkey", strM5830b, "deviceId", deviceToken, "context", context);
             return;
         }
         try {

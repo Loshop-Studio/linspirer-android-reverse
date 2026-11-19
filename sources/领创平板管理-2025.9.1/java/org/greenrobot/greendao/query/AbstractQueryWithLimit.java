@@ -1,6 +1,6 @@
 package org.greenrobot.greendao.query;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import org.greenrobot.greendao.AbstractDao;
 
 /* loaded from: classes.dex */
@@ -37,6 +37,6 @@ public abstract class AbstractQueryWithLimit<T> extends AbstractQuery<T> {
         if (i < 0 || !(i == this.limitPosition || i == this.offsetPosition)) {
             return (AbstractQueryWithLimit) super.setParameter(i, obj);
         }
-        throw new IllegalArgumentException(C0948f6.m1754L("Illegal parameter index: ", i));
+        throw new IllegalArgumentException(CompilerOutline.m1754L("Illegal parameter index: ", i));
     }
 }

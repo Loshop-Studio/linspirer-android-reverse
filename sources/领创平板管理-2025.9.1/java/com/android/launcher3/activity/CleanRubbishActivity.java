@@ -15,13 +15,13 @@ import com.android.launcher3.network.DeviceLogHelper;
 import com.android.launcher3.view.CommonDialog;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.AbstractC1102l9;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.C0930ee;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1045j2;
-import com.huawei.hem.C1299t5;
-import com.huawei.hem.InterfaceC1071k3;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.CheckGrantedPermission;
+import com.huawei.hem.DataCleanUtil;
+import com.huawei.hem.LauncherOnClickListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -58,7 +58,7 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
     public int f1690j;
 
     /* renamed from: com.android.launcher3.activity.CleanRubbishActivity$a */
-    public class C0629a implements InterfaceC1071k3 {
+    public class C0629a implements LauncherOnClickListener {
         public C0629a() {
         }
 
@@ -122,15 +122,15 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
         @Override // android.os.AsyncTask
         public Void doInBackground(Void[] voidArr) {
             if (AbstractC1102l9.m2273N(CleanRubbishActivity.this.f1685e)) {
-                C0850bc.m1403m("CleanRubbishActivity----rubbishs are empty");
+                LTKDateUtil.m1403m("CleanRubbishActivity----rubbishs are empty");
                 return null;
             }
-            StringBuilder sbM1765j = C0948f6.m1765j("CleanRubbishActivity----deleteLayout:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("CleanRubbishActivity----deleteLayout:");
             sbM1765j.append(CleanRubbishActivity.this.f1690j);
-            C0850bc.m1403m(sbM1765j.toString());
+            LTKDateUtil.m1403m(sbM1765j.toString());
             for (int i = 0; i < CleanRubbishActivity.this.f1685e.size(); i++) {
                 if (CleanRubbishActivity.this.f1685e.get(i).isSelected()) {
-                    C0850bc.m1403m("CleanRubbishActivity----isSelected:" + i);
+                    LTKDateUtil.m1403m("CleanRubbishActivity----isSelected:" + i);
                     File file = new File(CleanRubbishActivity.this.f1685e.get(i).getFilePath());
                     C0930ee.m1678c(file);
                     C0930ee.m1682g(CleanRubbishActivity.this, file.getAbsolutePath(), file.getName());
@@ -143,9 +143,9 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
         public void onPostExecute(Void r5) {
             super.onPostExecute(r5);
             ArrayList arrayList = new ArrayList();
-            StringBuilder sbM1765j = C0948f6.m1765j("CleanRubbishActivity----befo rubbishFileInfoList size:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("CleanRubbishActivity----befo rubbishFileInfoList size:");
             sbM1765j.append(CleanRubbishActivity.this.f1685e.size());
-            C0850bc.m1403m(sbM1765j.toString());
+            LTKDateUtil.m1403m(sbM1765j.toString());
             for (int i = 0; i < CleanRubbishActivity.this.f1685e.size(); i++) {
                 if (CleanRubbishActivity.this.f1685e.get(i).isSelected()) {
                     arrayList.add(Integer.valueOf(i));
@@ -157,9 +157,9 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
                     list.remove(list.get(((Integer) arrayList.get(size)).intValue()));
                 }
             }
-            StringBuilder sbM1765j2 = C0948f6.m1765j("CleanRubbishActivity----after rubbishFileInfoList size:");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("CleanRubbishActivity----after rubbishFileInfoList size:");
             sbM1765j2.append(CleanRubbishActivity.this.f1685e.size());
-            C0850bc.m1403m(sbM1765j2.toString());
+            LTKDateUtil.m1403m(sbM1765j2.toString());
             CleanRubbishActivity.this.f1689i.notifyDataSetChanged();
             CleanRubbishActivity.this.f1686f = true;
         }
@@ -192,7 +192,7 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
     public void mo1171c() {
         int i = getIntent().getExtras().getInt("rubbishState");
         this.f1690j = i;
-        this.f1685e.addAll(C1299t5.m2720a(i));
+        this.f1685e.addAll(DataCleanUtil.m2720a(i));
         if (!AbstractC1102l9.m2273N(this.f1685e)) {
             Iterator<RubbishFileInfo> it = this.f1685e.iterator();
             while (it.hasNext()) {
@@ -200,7 +200,7 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
             }
         }
         this.f1689i.f1873d = new C0629a();
-        new C1045j2(this, true);
+        new CheckGrantedPermission(this, true);
         m1214a();
     }
 
@@ -240,7 +240,7 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
             return;
         }
         int id = view.getId();
@@ -301,13 +301,13 @@ public class CleanRubbishActivity extends BaseActivity implements View.OnClickLi
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        C0850bc.m1403m("CleanRubbishActivity----onPause");
+        LTKDateUtil.m1403m("CleanRubbishActivity----onPause");
         AsyncTaskC0631c asyncTaskC0631c = this.f1687g;
         if (asyncTaskC0631c == null || asyncTaskC0631c.isCancelled() || this.f1687g.getStatus() != AsyncTask.Status.RUNNING) {
             return;
         }
         this.f1687g.cancel(true);
         this.f1687g = null;
-        C0850bc.m1403m("CleanRubbishActivity----fileCleanTask cancel");
+        LTKDateUtil.m1403m("CleanRubbishActivity----fileCleanTask cancel");
     }
 }

@@ -12,7 +12,7 @@ import java.util.Map;
 public class C0874ca implements InterfaceRunnableC1003ha {
 
     /* renamed from: a */
-    public Context f2332a = C1423y4.m2998s();
+    public Context f2332a = LauncherMenuHelper.m2998s();
 
     /* renamed from: b */
     public String f2333b;

@@ -11,12 +11,12 @@ public interface InterfaceC1012hj {
     public static final InterfaceC1012hj f2873a = new InterfaceC1012hj() { // from class: com.huawei.hem.bj
         @Override // com.huawei.hem.InterfaceC1012hj
         /* renamed from: a */
-        public final C0988gk mo1420a(C1164nk c1164nk, C1088kk c1088kk) {
+        public final OkHttpRequest mo1420a(Route c1164nk, OkHttpResponse c1088kk) {
             return C0987gj.m1875a(c1164nk, c1088kk);
         }
     };
 
     @Nullable
     /* renamed from: a */
-    C0988gk mo1420a(@Nullable C1164nk c1164nk, C1088kk c1088kk);
+    OkHttpRequest mo1420a(@Nullable Route c1164nk, OkHttpResponse c1088kk);
 }

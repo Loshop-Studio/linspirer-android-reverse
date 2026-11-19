@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.adapter.p030ui.BaseResolutionAdapter;
@@ -200,7 +200,7 @@ public class BaseAdapter {
         try {
             jSONObject.put(Constants.KEY_ERROR_CODE, i);
         } catch (JSONException e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("buildBodyStr failed: ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("buildBodyStr failed: ");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }
@@ -232,14 +232,14 @@ public class BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public Activity getCpActivity() {
         if (this.activityWeakReference == null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("activityWeakReference is ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("activityWeakReference is ");
             sbM1765j.append(this.activityWeakReference);
             HMSLog.m3463i(TAG, sbM1765j.toString());
             return null;
         }
         ApiClient apiClient = this.api.get();
         if (apiClient != null) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("activityWeakReference has ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("activityWeakReference has ");
             sbM1765j2.append(this.activityWeakReference.get());
             HMSLog.m3463i(TAG, sbM1765j2.toString());
             return Util.getActiveActivity(this.activityWeakReference.get(), apiClient.getContext());
@@ -300,7 +300,7 @@ public class BaseAdapter {
                 }
                 if (intent.hasExtra(KpmsConstant.KIT_UPDATE_RESULT)) {
                     int intExtra = intent.getIntExtra(KpmsConstant.KIT_UPDATE_RESULT, 0);
-                    C0948f6.m1777v("kit_update_result is ", intExtra, BaseAdapter.TAG);
+                    CompilerOutline.m1777v("kit_update_result is ", intExtra, BaseAdapter.TAG);
                     if (intExtra == 1) {
                         HMSLog.m3461e(BaseAdapter.TAG, "kit update success,replay request");
                         BaseAdapter.this.replayRequest();
@@ -433,7 +433,7 @@ public class BaseAdapter {
             baseCallBack.onError(getResponseHeaderForError(-6));
             return;
         }
-        StringBuilder sbM1769n = C0948f6.m1769n("in baseRequest + uri is :", apiName, ", transactionId is : ");
+        StringBuilder sbM1769n = CompilerOutline.m1769n("in baseRequest + uri is :", apiName, ", transactionId is : ");
         sbM1769n.append(this.transactionId);
         HMSLog.m3463i(TAG, sbM1769n.toString());
         biReportRequestEntryIpc(this.appContext, this.requestHeader);

@@ -1,6 +1,6 @@
 package anet.channel.fulltrace;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* compiled from: Taobao */
 /* renamed from: anet.channel.fulltrace.b */
@@ -29,7 +29,7 @@ public class C0351b {
     public String f270g;
 
     public String toString() {
-        StringBuilder sbM1767l = C0948f6.m1767l("SceneInfo{", "startType=");
+        StringBuilder sbM1767l = CompilerOutline.m1767l("SceneInfo{", "startType=");
         sbM1767l.append(this.f264a);
         sbM1767l.append(", isUrlLaunch=");
         sbM1767l.append(this.f265b);
@@ -42,6 +42,6 @@ public class C0351b {
         sbM1767l.append(", speedBucket=");
         sbM1767l.append(this.f269f);
         sbM1767l.append(", abTestBucket=");
-        return C0948f6.m1762g(sbM1767l, this.f270g, "}");
+        return CompilerOutline.m1762g(sbM1767l, this.f270g, "}");
     }
 }

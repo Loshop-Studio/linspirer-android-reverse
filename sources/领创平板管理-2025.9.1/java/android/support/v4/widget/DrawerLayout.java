@@ -34,7 +34,7 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.accessibility.AccessibilityEvent;
 import com.alibaba.fastjson.util.AntiCollisionHashMap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1142,7 +1142,7 @@ public class DrawerLayout extends ViewGroup {
                         i4 = 1;
                     }
                     if ((i4 != 0 && z2) || (i4 == 0 && z3)) {
-                        StringBuilder sbM1765j = C0948f6.m1765j("Child drawer has absolute gravity ");
+                        StringBuilder sbM1765j = CompilerOutline.m1765j("Child drawer has absolute gravity ");
                         sbM1765j.append(gravityToString(drawerViewAbsoluteGravity));
                         sbM1765j.append(" but this ");
                         sbM1765j.append(TAG);
@@ -1740,7 +1740,7 @@ public class DrawerLayout extends ViewGroup {
         if (viewFindDrawerWithGravity != null) {
             closeDrawer(viewFindDrawerWithGravity, z);
         } else {
-            StringBuilder sbM1765j = C0948f6.m1765j("No drawer view found with gravity ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("No drawer view found with gravity ");
             sbM1765j.append(gravityToString(i));
             throw new IllegalArgumentException(sbM1765j.toString());
         }
@@ -1755,7 +1755,7 @@ public class DrawerLayout extends ViewGroup {
         if (viewFindDrawerWithGravity != null) {
             openDrawer(viewFindDrawerWithGravity, z);
         } else {
-            StringBuilder sbM1765j = C0948f6.m1765j("No drawer view found with gravity ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("No drawer view found with gravity ");
             sbM1765j.append(gravityToString(i));
             throw new IllegalArgumentException(sbM1765j.toString());
         }

@@ -36,7 +36,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -360,9 +360,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     private void printGroupTree(VGroup vGroup, int i) {
         String strM1760e = "";
         for (int i2 = 0; i2 < i; i2++) {
-            strM1760e = C0948f6.m1760e(strM1760e, "    ");
+            strM1760e = CompilerOutline.m1760e(strM1760e, "    ");
         }
-        StringBuilder sbM1767l = C0948f6.m1767l(strM1760e, "current group is :");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(strM1760e, "current group is :");
         sbM1767l.append(vGroup.getGroupName());
         sbM1767l.append(" rotation is ");
         sbM1767l.append(vGroup.mRotate);
@@ -832,12 +832,12 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public String nodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
             String string = " ";
             for (int i = 0; i < pathDataNodeArr.length; i++) {
-                StringBuilder sbM1765j = C0948f6.m1765j(string);
+                StringBuilder sbM1765j = CompilerOutline.m1765j(string);
                 sbM1765j.append(pathDataNodeArr[i].mType);
                 sbM1765j.append(":");
                 string = sbM1765j.toString();
                 for (float f : pathDataNodeArr[i].mParams) {
-                    StringBuilder sbM1765j2 = C0948f6.m1765j(string);
+                    StringBuilder sbM1765j2 = CompilerOutline.m1765j(string);
                     sbM1765j2.append(f);
                     sbM1765j2.append(",");
                     string = sbM1765j2.toString();
@@ -849,9 +849,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public void printVPath(int i) {
             String strM1760e = "";
             for (int i2 = 0; i2 < i; i2++) {
-                strM1760e = C0948f6.m1760e(strM1760e, "    ");
+                strM1760e = CompilerOutline.m1760e(strM1760e, "    ");
             }
-            StringBuilder sbM1767l = C0948f6.m1767l(strM1760e, "current path is :");
+            StringBuilder sbM1767l = CompilerOutline.m1767l(strM1760e, "current path is :");
             sbM1767l.append(this.mPathName);
             sbM1767l.append(" pathData is ");
             sbM1767l.append(nodesToString(this.mNodes));

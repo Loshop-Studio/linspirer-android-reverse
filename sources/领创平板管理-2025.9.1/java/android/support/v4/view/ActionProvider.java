@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public abstract class ActionProvider {
@@ -77,7 +77,7 @@ public abstract class ActionProvider {
 
     public void setVisibilityListener(VisibilityListener visibilityListener) {
         if (this.mVisibilityListener != null && visibilityListener != null) {
-            StringBuilder sbM1765j = C0948f6.m1765j("setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this ");
             sbM1765j.append(getClass().getSimpleName());
             sbM1765j.append(" instance while it is still in use somewhere else?");
             Log.w(TAG, sbM1765j.toString());

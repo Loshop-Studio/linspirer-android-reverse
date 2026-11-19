@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.common.internal.AutoLifecycleFragment;
 import com.huawei.hms.common.internal.Preconditions;
@@ -150,7 +150,7 @@ public abstract class HuaweiApiClient implements AidlApiClient {
             if (HuaweiApiAvailability.HMS_API_NAME_GAME.equals(api.getApiName())) {
                 HiAnalyticsUtil hiAnalyticsUtil = HiAnalyticsUtil.getInstance();
                 Context applicationContext = this.f4371a.getApplicationContext();
-                StringBuilder sbM1765j = C0948f6.m1765j("|");
+                StringBuilder sbM1765j = CompilerOutline.m1765j("|");
                 sbM1765j.append(System.currentTimeMillis());
                 hiAnalyticsUtil.onEvent(applicationContext, HiAnalyticsConstant.KeyAndValue.GAME_INIT_KEY, sbM1765j.toString());
             }

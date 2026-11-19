@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
-import com.huawei.hem.C1273s4;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.EyeProtectedHelper;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 
 /* loaded from: classes.dex */
 public class EyeDialogActivity extends BaseActivity {
@@ -31,7 +31,7 @@ public class EyeDialogActivity extends BaseActivity {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (!C1423y4.m2954A(intent) && intent.getAction().equals("com.android.launcher3.eyeprotected.close")) {
+            if (!LauncherMenuHelper.m2954A(intent) && intent.getAction().equals("com.android.launcher3.eyeprotected.close")) {
                 EyeDialogActivity.this.finish();
             }
         }
@@ -52,8 +52,8 @@ public class EyeDialogActivity extends BaseActivity {
         if (intExtra != 0) {
             string = intExtra != 1 ? intExtra != 2 ? intExtra != 3 ? intExtra != 4 ? null : getResources().getString(R.string.eye_too_bright_tip) : getResources().getString(R.string.eye_too_dark_tip) : getResources().getString(R.string.eye_fliped_tip) : getResources().getString(R.string.eye_shorter_tip);
         } else {
-            string = String.format(getResources().getString(R.string.duration_protect_eye_tip), Integer.valueOf(C1424y5.b.f4202a.m3006A()));
-            C1273s4.m2677a().f3661e = true;
+            string = String.format(getResources().getString(R.string.duration_protect_eye_tip), Integer.valueOf(UserInfoUtil.b.f4202a.m3006A()));
+            EyeProtectedHelper.m2677a().f3661e = true;
         }
         this.f1735b.setText(string);
     }
@@ -76,7 +76,7 @@ public class EyeDialogActivity extends BaseActivity {
         super.onDestroy();
         unregisterReceiver(this.f1737d);
         if (this.f1736c == 0) {
-            C1273s4.m2677a().f3661e = false;
+            EyeProtectedHelper.m2677a().f3661e = false;
         }
     }
 
@@ -84,7 +84,7 @@ public class EyeDialogActivity extends BaseActivity {
     public void onStop() {
         super.onStop();
         if (this.f1736c == 0) {
-            C1273s4.m2677a().f3661e = false;
+            EyeProtectedHelper.m2677a().f3661e = false;
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.huawei.hem;
 
-import com.huawei.hem.InterfaceC1191om;
+import com.huawei.hem.PushObserver;
 import java.io.IOException;
 import java.util.List;
 
 /* compiled from: Http2Connection.java */
 /* renamed from: com.huawei.hem.cm */
 /* loaded from: classes.dex */
-public class C0886cm extends AbstractRunnableC1289sk {
+public class C0886cm extends NamedRunnable {
 
     /* renamed from: b */
     public final /* synthetic */ int f2360b;
@@ -30,13 +30,13 @@ public class C0886cm extends AbstractRunnableC1289sk {
     /* renamed from: a */
     public void mo1376a() {
         C0834am c0834am = this.f2362d;
-        InterfaceC1191om interfaceC1191om = c0834am.f2226j;
+        PushObserver interfaceC1191om = c0834am.f2226j;
         int i = this.f2360b;
-        if (((InterfaceC1191om.a) interfaceC1191om) == null) {
+        if (((PushObserver.a) interfaceC1191om) == null) {
             throw null;
         }
         try {
-            c0834am.f2238v.m2402i(i, EnumC1390wl.CANCEL);
+            c0834am.f2238v.m2402i(i, Http2ErrorCode.CANCEL);
             synchronized (this.f2362d) {
                 this.f2362d.f2240x.remove(Integer.valueOf(this.f2360b));
             }

@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class PreFillType {
@@ -94,7 +94,7 @@ public final class PreFillType {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("PreFillSize{width=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("PreFillSize{width=");
         sbM1765j.append(this.width);
         sbM1765j.append(", height=");
         sbM1765j.append(this.height);

@@ -7,7 +7,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.text.TextUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.android.SystemUtils;
 import com.huawei.hms.common.util.AGCUtils;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
@@ -211,7 +211,7 @@ public class Util {
                 }
             }
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("available exist: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("available exist: ");
         sbM1765j.append(isAvailableAvailable);
         HMSLog.m3463i(TAG, sbM1765j.toString());
         return isAvailableAvailable;
@@ -230,7 +230,7 @@ public class Util {
             HMSLog.m3463i(TAG, "Trying to unbind service from " + serviceConnection);
             context.unbindService(serviceConnection);
         } catch (Exception e) {
-            StringBuilder sbM1765j = C0948f6.m1765j("On unBindServiceException:");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("On unBindServiceException:");
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e(TAG, sbM1765j.toString());
         }

@@ -7,7 +7,7 @@ import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.RyuDouble;
 import com.alibaba.fastjson.util.RyuFloat;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -267,7 +267,7 @@ public final class SerializeWriter extends Writer {
         char[] cArr;
         int i2 = this.maxBufSize;
         if (i2 != -1 && i >= i2) {
-            StringBuilder sbM1765j = C0948f6.m1765j("serialize exceeded MAX_OUTPUT_LENGTH=");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("serialize exceeded MAX_OUTPUT_LENGTH=");
             sbM1765j.append(this.maxBufSize);
             sbM1765j.append(", minimumCapacity=");
             sbM1765j.append(i);
@@ -329,7 +329,7 @@ public final class SerializeWriter extends Writer {
         if (i >= this.buf.length) {
             this.maxBufSize = i;
         } else {
-            StringBuilder sbM1765j = C0948f6.m1765j("must > ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("must > ");
             sbM1765j.append(this.buf.length);
             throw new JSONException(sbM1765j.toString());
         }
@@ -1091,7 +1091,7 @@ public final class SerializeWriter extends Writer {
             computeFeatures();
             return;
         }
-        throw new IllegalArgumentException(C0948f6.m1754L("Negative initial size: ", i));
+        throw new IllegalArgumentException(CompilerOutline.m1754L("Negative initial size: ", i));
     }
 
     @Override // java.io.Writer

@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONPObject;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexerBase;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Type;
 
 /* loaded from: classes.dex */
@@ -21,13 +21,13 @@ public class JSONPDeserializer implements ObjectDeserializer {
         int i2 = jSONLexerBase.token();
         if (i2 == 25) {
             String strScanSymbolUnQuoted2 = jSONLexerBase.scanSymbolUnQuoted(defaultJSONParser.getSymbolTable());
-            strScanSymbolUnQuoted = C0948f6.m1760e(strScanSymbolUnQuoted, ".") + strScanSymbolUnQuoted2;
+            strScanSymbolUnQuoted = CompilerOutline.m1760e(strScanSymbolUnQuoted, ".") + strScanSymbolUnQuoted2;
             jSONLexerBase.nextToken();
             i2 = jSONLexerBase.token();
         }
         ?? r1 = (T) new JSONPObject(strScanSymbolUnQuoted);
         if (i2 != 10) {
-            StringBuilder sbM1765j = C0948f6.m1765j("illegal jsonp : ");
+            StringBuilder sbM1765j = CompilerOutline.m1765j("illegal jsonp : ");
             sbM1765j.append(jSONLexerBase.info());
             throw new JSONException(sbM1765j.toString());
         }
@@ -41,7 +41,7 @@ public class JSONPDeserializer implements ObjectDeserializer {
             jSONLexerBase.nextToken();
         }
         if (i != 11) {
-            StringBuilder sbM1765j2 = C0948f6.m1765j("illegal jsonp : ");
+            StringBuilder sbM1765j2 = CompilerOutline.m1765j("illegal jsonp : ");
             sbM1765j2.append(jSONLexerBase.info());
             throw new JSONException(sbM1765j2.toString());
         }

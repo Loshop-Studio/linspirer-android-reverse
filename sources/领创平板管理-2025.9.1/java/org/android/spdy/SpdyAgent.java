@@ -2,7 +2,7 @@ package org.android.spdy;
 
 import android.content.Context;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -172,7 +172,7 @@ public final class SpdyAgent {
         if (bytes == null || bytes.length < 5242880) {
             return bytes;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("SPDY_JNI_ERR_INVALID_PARAM:total=");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("SPDY_JNI_ERR_INVALID_PARAM:total=");
         sbM1765j.append(bytes.length);
         throw new SpdyErrorException(sbM1765j.toString(), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
     }
@@ -306,10 +306,10 @@ public final class SpdyAgent {
 
     public static void securityCheck(int i, int i2) {
         if (i >= 32768) {
-            throw new SpdyErrorException(C0948f6.m1754L("SPDY_JNI_ERR_INVALID_PARAM:total=", i), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
+            throw new SpdyErrorException(CompilerOutline.m1754L("SPDY_JNI_ERR_INVALID_PARAM:total=", i), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
         }
         if (i2 >= 8192) {
-            throw new SpdyErrorException(C0948f6.m1754L("SPDY_JNI_ERR_INVALID_PARAM:value=", i2), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
+            throw new SpdyErrorException(CompilerOutline.m1754L("SPDY_JNI_ERR_INVALID_PARAM:value=", i2), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
         }
     }
 
@@ -546,7 +546,7 @@ public final class SpdyAgent {
 
     public static void tableListJudge(int i) {
         if (i >= 5242880) {
-            throw new SpdyErrorException(C0948f6.m1754L("SPDY_JNI_ERR_INVALID_PARAM:total=", i), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
+            throw new SpdyErrorException(CompilerOutline.m1754L("SPDY_JNI_ERR_INVALID_PARAM:total=", i), TnetStatusCode.TNET_JNI_ERR_INVLID_PARAM);
         }
     }
 
@@ -609,7 +609,7 @@ public final class SpdyAgent {
     }
 
     public void setAccsSslCallback(AccsSSLCallback accsSSLCallback) {
-        StringBuilder sbM1765j = C0948f6.m1765j("[setAccsSslCallback] - ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[setAccsSslCallback] - ");
         sbM1765j.append(accsSSLCallback.getClass());
         spduLog.Logi("tnet-jni", sbM1765j.toString());
         this.accsSSLCallback = accsSSLCallback;

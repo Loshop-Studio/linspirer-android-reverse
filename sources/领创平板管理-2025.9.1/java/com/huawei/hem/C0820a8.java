@@ -42,10 +42,10 @@ public class C0820a8 {
             return new HashMap();
         }
         Long l = this.f2187b.get(grsBaseInfo.getGrsParasKey(false, true, context));
-        if (C1423y4.m2986g(l)) {
+        if (LauncherMenuHelper.m2986g(l)) {
             c0846b8.f2283a = 2;
         } else {
-            if (C1423y4.m2987h(l, InactivityTimer.INACTIVITY_DELAY_MS)) {
+            if (LauncherMenuHelper.m2987h(l, InactivityTimer.INACTIVITY_DELAY_MS)) {
                 this.f2190e.m2859b(new C1152n8(grsBaseInfo, context), null, str, this.f2189d);
             }
             c0846b8.f2283a = 1;
@@ -70,7 +70,7 @@ public class C0820a8 {
         C0872c8 c0872c83 = this.f2188c;
         c0872c83.f2329a.putString(grsParasKey, c1252r8.f3609g);
         C0872c8 c0872c84 = this.f2188c;
-        c0872c84.f2329a.putString(C0948f6.m1760e(grsParasKey, "time"), c1252r8.f3612j);
+        c0872c84.f2329a.putString(CompilerOutline.m1760e(grsParasKey, "time"), c1252r8.f3612j);
         this.f2186a.put(grsParasKey, C1451z7.m3139d(c1252r8.f3609g));
         this.f2187b.put(grsParasKey, Long.valueOf(Long.parseLong(c1252r8.f3612j)));
     }

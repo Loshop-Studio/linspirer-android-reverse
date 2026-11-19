@@ -8,7 +8,7 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.Size;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v7.widget.ActivityChooserView;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 import java.util.Arrays;
 import java.util.Collection;
@@ -352,7 +352,7 @@ public final class LocaleListHelper {
     }
 
     public String toString() {
-        StringBuilder sbM1765j = C0948f6.m1765j("[");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         int i = 0;
         while (true) {
             Locale[] localeArr = this.mList;

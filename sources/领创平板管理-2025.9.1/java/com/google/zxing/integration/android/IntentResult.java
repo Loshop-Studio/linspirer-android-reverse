@@ -1,6 +1,6 @@
 package com.google.zxing.integration.android;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 
 /* loaded from: classes.dex */
 public final class IntentResult {
@@ -42,8 +42,8 @@ public final class IntentResult {
     public String toString() {
         byte[] bArr = this.rawBytes;
         int length = bArr == null ? 0 : bArr.length;
-        StringBuilder sbM1765j = C0948f6.m1765j("Format: ");
-        C0948f6.m1781z(sbM1765j, this.formatName, '\n', "Contents: ");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("Format: ");
+        CompilerOutline.m1781z(sbM1765j, this.formatName, '\n', "Contents: ");
         sbM1765j.append(this.contents);
         sbM1765j.append('\n');
         sbM1765j.append("Raw bytes: (");
@@ -52,7 +52,7 @@ public final class IntentResult {
         sbM1765j.append(this.orientation);
         sbM1765j.append('\n');
         sbM1765j.append("EC level: ");
-        C0948f6.m1781z(sbM1765j, this.errorCorrectionLevel, '\n', "Barcode image: ");
+        CompilerOutline.m1781z(sbM1765j, this.errorCorrectionLevel, '\n', "Barcode image: ");
         sbM1765j.append(this.barcodeImagePath);
         sbM1765j.append('\n');
         return sbM1765j.toString();

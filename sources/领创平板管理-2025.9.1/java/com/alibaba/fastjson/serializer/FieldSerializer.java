@@ -5,7 +5,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -72,7 +72,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         fieldInfo.setAccessible();
         StringBuilder sb = new StringBuilder();
         sb.append('\"');
-        this.double_quoted_fieldPrefix = C0948f6.m1762g(sb, fieldInfo.name, "\":");
+        this.double_quoted_fieldPrefix = CompilerOutline.m1762g(sb, fieldInfo.name, "\":");
         JSONField annotation = fieldInfo.getAnnotation();
         if (annotation != null) {
             SerializerFeature[] serializerFeatureArrSerialzeFeatures = annotation.serialzeFeatures();
@@ -140,7 +140,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (!serializeWriter.quoteFieldNames) {
             if (this.un_quoted_fieldPrefix == null) {
-                this.un_quoted_fieldPrefix = C0948f6.m1762g(new StringBuilder(), this.fieldInfo.name, ":");
+                this.un_quoted_fieldPrefix = CompilerOutline.m1762g(new StringBuilder(), this.fieldInfo.name, ":");
             }
             serializeWriter.write(this.un_quoted_fieldPrefix);
         } else {
@@ -151,7 +151,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             if (this.single_quoted_fieldPrefix == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append('\'');
-                this.single_quoted_fieldPrefix = C0948f6.m1762g(sb, this.fieldInfo.name, "':");
+                this.single_quoted_fieldPrefix = CompilerOutline.m1762g(sb, this.fieldInfo.name, "':");
             }
             serializeWriter.write(this.single_quoted_fieldPrefix);
         }

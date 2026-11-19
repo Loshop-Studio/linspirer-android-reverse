@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClientOption;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.C0994h1;
 import com.taobao.accs.utl.UtilityImpl;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public final class C1824ef {
     public String f5613d = null;
 
     /* renamed from: e */
-    public C1816dy f5614e = null;
+    public Cgi f5614e = null;
 
     /* renamed from: m */
     public String f5622m = null;
@@ -66,18 +66,18 @@ public final class C1824ef {
     public static class a {
 
         /* renamed from: a */
-        public C1812du f5624a = null;
+        public AMapLocationServer f5624a = null;
 
         /* renamed from: b */
         public String f5625b = null;
 
         /* renamed from: a */
-        public final C1812du m4902a() {
+        public final AMapLocationServer m4902a() {
             return this.f5624a;
         }
 
         /* renamed from: a */
-        public final void m4903a(C1812du c1812du) {
+        public final void m4903a(AMapLocationServer c1812du) {
             this.f5624a = c1812du;
         }
 
@@ -93,14 +93,14 @@ public final class C1824ef {
     }
 
     /* renamed from: a */
-    private C1812du m4879a(String str, StringBuilder sb, boolean z) {
+    private AMapLocationServer m4879a(String str, StringBuilder sb, boolean z) {
         try {
             a aVarM4880a = (str.contains("cgiwifi") || str.contains(UtilityImpl.NET_TYPE_WIFI)) ? m4880a(sb, str) : (str.contains("cgi") && this.f5610a.containsKey(str) && this.f5610a.get(str).size() > 0) ? this.f5610a.get(str).get(0) : null;
             if (aVarM4880a != null && C1841ew.m5117a(aVarM4880a.m4902a())) {
-                C1812du c1812duM4902a = aVarM4880a.m4902a();
+                AMapLocationServer c1812duM4902a = aVarM4880a.m4902a();
                 c1812duM4902a.m4691e("mem");
                 c1812duM4902a.m4697h(aVarM4880a.m4905b());
-                if (!z && !C1833eo.m4976a(c1812duM4902a.getTime())) {
+                if (!z && !AuthUtil.m4976a(c1812duM4902a.getTime())) {
                     if (this.f5610a != null && this.f5610a.containsKey(str)) {
                         this.f5610a.get(str).remove(aVarM4880a);
                     }
@@ -112,7 +112,7 @@ public final class C1824ef {
                 return c1812duM4902a;
             }
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Cache", "get1");
+            CoreUtil.m5014a(th, "Cache", "get1");
         }
         return null;
     }
@@ -177,7 +177,7 @@ public final class C1824ef {
                 double[] dArrM4889a = m4889a(dArr, dArr2);
                 if (dArrM4889a[0] < 0.800000011920929d) {
                     aVar2 = aVar3;
-                    if (dArrM4889a[c2] >= Math.min(C1833eo.m4991g(), 0.618d) || (c != 0 && dArrM4889a[0] >= Math.min(C1833eo.m4991g(), 0.618d))) {
+                    if (dArrM4889a[c2] >= Math.min(AuthUtil.m4991g(), 0.618d) || (c != 0 && dArrM4889a[0] >= Math.min(AuthUtil.m4991g(), 0.618d))) {
                         aVar = aVar2;
                         break;
                     }
@@ -287,7 +287,7 @@ public final class C1824ef {
             }
         } catch (Throwable th) {
             try {
-                C1834ep.m5014a(th, "DB", "updateHist");
+                CoreUtil.m5014a(th, "DB", "updateHist");
                 sb2.delete(0, sb2.length());
                 if (sQLiteDatabaseOpenOrCreateDatabase == null || !sQLiteDatabaseOpenOrCreateDatabase.isOpen()) {
                     return;
@@ -317,15 +317,15 @@ public final class C1824ef {
     }
 
     /* renamed from: a */
-    private boolean m4885a(C1812du c1812du, boolean z) {
+    private boolean m4885a(AMapLocationServer c1812du, boolean z) {
         if (m4888a(z)) {
-            return c1812du == null || C1833eo.m4976a(c1812du.getTime()) || z;
+            return c1812du == null || AuthUtil.m4976a(c1812du.getTime()) || z;
         }
         return false;
     }
 
     /* renamed from: a */
-    public static boolean m4886a(String str, C1812du c1812du) {
+    public static boolean m4886a(String str, AMapLocationServer c1812du) {
         if (TextUtils.isEmpty(str) || !C1841ew.m5117a(c1812du) || str.startsWith("#")) {
             return false;
         }
@@ -347,8 +347,8 @@ public final class C1824ef {
 
     /* renamed from: a */
     private boolean m4888a(boolean z) {
-        if (C1833eo.m4988e() || z) {
-            return this.f5611b || C1833eo.m4990f() || z;
+        if (AuthUtil.m4988e() || z) {
+            return this.f5611b || AuthUtil.m4990f() || z;
         }
         return false;
     }
@@ -426,7 +426,7 @@ public final class C1824ef {
             try {
                 sQLiteDatabaseOpenOrCreateDatabase.delete("hist" + this.f5620k, "time<?", new String[]{String.valueOf(C1841ew.m5107a() - 172800000)});
             } catch (Throwable th) {
-                C1834ep.m5014a(th, "DB", "clearHist");
+                CoreUtil.m5014a(th, "DB", "clearHist");
                 String message = th.getMessage();
                 if (!TextUtils.isEmpty(message)) {
                     message.contains("no such table");
@@ -438,7 +438,7 @@ public final class C1824ef {
             sQLiteDatabaseOpenOrCreateDatabase.close();
         } catch (Throwable th2) {
             try {
-                C1834ep.m5014a(th2, "DB", "clearHist p2");
+                CoreUtil.m5014a(th2, "DB", "clearHist p2");
                 if (sQLiteDatabaseOpenOrCreateDatabase == null || !sQLiteDatabaseOpenOrCreateDatabase.isOpen()) {
                     return;
                 }
@@ -452,18 +452,18 @@ public final class C1824ef {
     }
 
     /* renamed from: a */
-    public final C1812du m4893a(Context context, String str, StringBuilder sb, boolean z, boolean z2) {
-        if (TextUtils.isEmpty(str) || !C1833eo.m4988e()) {
+    public final AMapLocationServer m4893a(Context context, String str, StringBuilder sb, boolean z, boolean z2) {
+        if (TextUtils.isEmpty(str) || !AuthUtil.m4988e()) {
             return null;
         }
-        StringBuilder sbM1767l = C0948f6.m1767l(str, "&");
+        StringBuilder sbM1767l = CompilerOutline.m1767l(str, "&");
         sbM1767l.append(this.f5615f);
         sbM1767l.append("&");
         sbM1767l.append(this.f5616g);
         sbM1767l.append("&");
         sbM1767l.append(this.f5617h);
         String string = sbM1767l.toString();
-        if (string.contains("gps") || !C1833eo.m4988e() || sb == null) {
+        if (string.contains("gps") || !AuthUtil.m4988e() || sb == null) {
             return null;
         }
         if (m4890b()) {
@@ -492,7 +492,7 @@ public final class C1824ef {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public final com.loc.C1812du m4894a(com.loc.C1817dz r16, boolean r17, com.loc.C1812du r18, com.loc.C1822ed r19, java.lang.StringBuilder r20, java.lang.String r21, android.content.Context r22, boolean r23) {
+    public final com.loc.AMapLocationServer m4894a(com.loc.CgiManager r16, boolean r17, com.loc.AMapLocationServer r18, com.loc.WifiManagerWrapper r19, java.lang.StringBuilder r20, java.lang.String r21, android.content.Context r22, boolean r23) {
         /*
             Method dump skipped, instructions count: 243
             To view this dump add '--comments-level debug' option
@@ -515,7 +515,7 @@ public final class C1824ef {
             m4891c();
             m4882a(context, (String) null, false);
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Cache", "loadDB");
+            CoreUtil.m5014a(th, "Cache", "loadDB");
         }
         this.f5619j = true;
     }
@@ -529,7 +529,7 @@ public final class C1824ef {
     }
 
     /* renamed from: a */
-    public final void m4898a(C1816dy c1816dy) {
+    public final void m4898a(Cgi c1816dy) {
         this.f5614e = c1816dy;
     }
 
@@ -539,7 +539,7 @@ public final class C1824ef {
     }
 
     /* renamed from: a */
-    public final void m4900a(String str, StringBuilder sb, C1812du c1812du, Context context, boolean z) {
+    public final void m4900a(String str, StringBuilder sb, AMapLocationServer c1812du, Context context, boolean z) {
         try {
             if (C1841ew.m5117a(c1812du)) {
                 String str2 = str + "&" + c1812du.isOffset() + "&" + c1812du.m4698i() + "&" + c1812du.m4699j();
@@ -573,7 +573,7 @@ public final class C1824ef {
                     }
                     if (str2.contains("cgiwifi") && !TextUtils.isEmpty(c1812du.m4694g())) {
                         String strReplace = str2.replace("cgiwifi", "cgi");
-                        C1812du c1812duM4696h = c1812du.m4696h();
+                        AMapLocationServer c1812duM4696h = c1812du.m4696h();
                         if (C1841ew.m5117a(c1812duM4696h)) {
                             m4900a(strReplace, new StringBuilder(), c1812duM4696h, context, true);
                         }
@@ -581,7 +581,7 @@ public final class C1824ef {
                 } else if (str2.contains("cgi") && ((sb != null && sb.indexOf(",") != -1) || "4".equals(c1812du.m4688d()))) {
                     return;
                 }
-                C1812du c1812duM4879a = m4879a(str2, sb, false);
+                AMapLocationServer c1812duM4879a = m4879a(str2, sb, false);
                 if (C1841ew.m5117a(c1812duM4879a) && c1812duM4879a.toStr().equals(c1812du.toStr(3))) {
                     return;
                 }
@@ -600,12 +600,12 @@ public final class C1824ef {
                     try {
                         m4883a(str2, c1812du, sb, context);
                     } catch (Throwable th) {
-                        C1834ep.m5014a(th, "Cache", "add");
+                        CoreUtil.m5014a(th, "Cache", "add");
                     }
                 }
             }
         } catch (Throwable th2) {
-            C1834ep.m5014a(th2, "Cache", "add");
+            CoreUtil.m5014a(th2, "Cache", "add");
         }
     }
 
@@ -618,7 +618,7 @@ public final class C1824ef {
             this.f5613d = null;
             this.f5623n = 0L;
         } catch (Throwable th) {
-            C1834ep.m5014a(th, "Cache", "destroy part");
+            CoreUtil.m5014a(th, "Cache", "destroy part");
         }
     }
 }

@@ -31,11 +31,11 @@ public class C1354va {
         @Override // com.huawei.hem.AbstractC1379wa
         /* renamed from: c */
         public int mo2868c() {
-            C0848ba c0848baM2994o = C1423y4.m2994o(this.f3945a, this.f3946b);
+            C0848ba c0848baM2994o = LauncherMenuHelper.m2994o(this.f3945a, this.f3946b);
             int i = (c0848baM2994o != null && c0848baM2994o.f2288c ? 4 : 0) | 0;
-            C0848ba c0848baM2994o2 = C1423y4.m2994o(this.f3945a, this.f3946b);
+            C0848ba c0848baM2994o2 = LauncherMenuHelper.m2994o(this.f3945a, this.f3946b);
             int i2 = i | (c0848baM2994o2 != null && c0848baM2994o2.f2286a ? 2 : 0);
-            C0848ba c0848baM2994o3 = C1423y4.m2994o(this.f3945a, this.f3946b);
+            C0848ba c0848baM2994o3 = LauncherMenuHelper.m2994o(this.f3945a, this.f3946b);
             return i2 | ((c0848baM2994o3 == null || !c0848baM2994o3.f2287b) ? 0 : 1);
         }
     }

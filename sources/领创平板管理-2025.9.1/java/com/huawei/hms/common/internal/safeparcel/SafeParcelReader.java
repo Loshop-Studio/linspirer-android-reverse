@@ -8,7 +8,7 @@ import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 import android.util.SparseLongArray;
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -638,7 +638,7 @@ public class SafeParcelReader {
 
     public static void ensureAtEnd(Parcel parcel, int i) {
         if (parcel.dataPosition() != i) {
-            throw new ParseException(C0948f6.m1754L("Overread allowed size end=", i), parcel);
+            throw new ParseException(CompilerOutline.m1754L("Overread allowed size end=", i), parcel);
         }
     }
 
@@ -783,7 +783,7 @@ public class SafeParcelReader {
         sb.append(i2);
         sb.append(" got ");
         sb.append(size);
-        throw new ParseException(C0948f6.m1763h(sb, " (0x", hexString, ")"), parcel);
+        throw new ParseException(CompilerOutline.m1763h(sb, " (0x", hexString, ")"), parcel);
     }
 
     public static void skipUnknownField(Parcel parcel, int i) {
@@ -818,6 +818,6 @@ public class SafeParcelReader {
         sb.append(i3);
         sb.append(" got ");
         sb.append(i2);
-        throw new ParseException(C0948f6.m1763h(sb, " (0x", hexString, ")"), parcel);
+        throw new ParseException(CompilerOutline.m1763h(sb, " (0x", hexString, ")"), parcel);
     }
 }

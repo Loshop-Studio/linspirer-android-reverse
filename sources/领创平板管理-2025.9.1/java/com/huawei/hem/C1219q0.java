@@ -11,8 +11,8 @@ import com.aliyun.ams.emas.push.notification.CPushMessage;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.android.launcher3.p027db.model.ItemApp;
 import com.android.launcher3.p027db.model.ItemAppDao;
-import com.loc.C1859t;
-import com.loc.C1862w;
+import com.loc.BasicLogHandler;
+import com.loc.SDKLogHandler;
 import com.taobao.accs.common.ThreadPoolExecutorFactory;
 import com.taobao.accs.utl.ALog;
 import java.io.ByteArrayOutputStream;
@@ -46,7 +46,7 @@ public class C1219q0 {
 
     /* renamed from: B */
     public static List<String> m2500B() {
-        ArrayList arrayListM1772q = C0948f6.m1772q("com.android.contacts", "com.android.dialer", "com.huawei.contacts", "com.tct.dialer", "com.hihonor.contacts");
+        ArrayList arrayListM1772q = CompilerOutline.m1772q("com.android.contacts", "com.android.dialer", "com.huawei.contacts", "com.tct.dialer", "com.hihonor.contacts");
         arrayListM1772q.add("com.samsung.android.app.contacts");
         return arrayListM1772q;
     }
@@ -87,7 +87,7 @@ public class C1219q0 {
     /* renamed from: F */
     public static List<String> m2504F() {
         ArrayList arrayList = new ArrayList();
-        List<ItemApp> listLoadAll = C1297t3.m2715a().m2717c().loadAll();
+        List<ItemApp> listLoadAll = DBController.m2715a().m2717c().loadAll();
         if (AbstractC1102l9.m2273N(listLoadAll)) {
             return arrayList;
         }
@@ -102,11 +102,11 @@ public class C1219q0 {
     public static String m2505a() {
         try {
             String strValueOf = String.valueOf(System.currentTimeMillis());
-            String str = C0917e1.m1635a() ? "1" : MessageService.MSG_DB_READY_REPORT;
+            String str = AppInfo.m1635a() ? "1" : MessageService.MSG_DB_READY_REPORT;
             int length = strValueOf.length();
             return strValueOf.substring(0, length - 2) + str + strValueOf.substring(length - 1);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "CI", "TS");
+            BasicLogHandler.m5312a(th, "CI", "TS");
             return null;
         }
     }
@@ -114,9 +114,9 @@ public class C1219q0 {
     /* renamed from: b */
     public static String m2506b(Context context, String str, String str2) {
         try {
-            return m2507c(C0917e1.m1640f(context) + ":" + str.substring(0, str.length() - 3) + ":" + str2);
+            return m2507c(AppInfo.m1640f(context) + ":" + str.substring(0, str.length() - 3) + ":" + str2);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "CI", "Sco");
+            BasicLogHandler.m5312a(th, "CI", "Sco");
             return null;
         }
     }
@@ -130,7 +130,7 @@ public class C1219q0 {
         try {
             bArrM2520p = m2520p(str);
         } catch (Throwable th) {
-            C1859t.m5312a(th, "MD5", "gmb");
+            BasicLogHandler.m5312a(th, "MD5", "gmb");
             bArrM2520p = new byte[0];
         }
         return C1094l1.m2257z(bArrM2520p);
@@ -141,7 +141,7 @@ public class C1219q0 {
         try {
             return C1094l1.m2230C(m2516l(bArr, C1094l1.m2251t("ETUQ1")));
         } catch (Throwable th) {
-            C1859t.m5312a(th, "ut", ConnType.H2S);
+            BasicLogHandler.m5312a(th, "ut", ConnType.H2S);
             return null;
         }
     }
@@ -168,11 +168,11 @@ public class C1219q0 {
                         }
                     }
                 } catch (Throwable th) {
-                    C1862w.m5333b(th, "pu", "gpsc");
+                    SDKLogHandler.m5333b(th, "pu", "gpsc");
                 }
             }
         } catch (Throwable th2) {
-            C1862w.m5333b(th2, str, "gp");
+            SDKLogHandler.m5333b(th2, str, "gp");
         }
         return proxy2;
     }
@@ -281,7 +281,7 @@ public class C1219q0 {
     }
 
     /* renamed from: k */
-    public static byte[] m2515k(C0969g1 c0969g1) {
+    public static byte[] m2515k(HemClientInfo c0969g1) {
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArrM1931b;
         try {
@@ -334,7 +334,7 @@ public class C1219q0 {
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    C1859t.m5312a(th, "CI", "gzx");
+                    BasicLogHandler.m5312a(th, "CI", "gzx");
                     return null;
                 } finally {
                     if (byteArrayOutputStream != null) {
@@ -359,7 +359,7 @@ public class C1219q0 {
             messageDigest.update(bArr);
             return messageDigest.digest();
         } catch (Throwable th) {
-            C1859t.m5312a(th, "MD5", "gmb");
+            BasicLogHandler.m5312a(th, "MD5", "gmb");
             return null;
         }
     }
@@ -377,7 +377,7 @@ public class C1219q0 {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static com.huawei.hem.C0969g1 m2517m(android.content.Context r12, boolean r13, boolean r14) {
+    public static com.huawei.hem.HemClientInfo m2517m(android.content.Context r12, boolean r13, boolean r14) {
         /*
             Method dump skipped, instructions count: 881
             To view this dump add '--comments-level debug' option
@@ -403,7 +403,7 @@ public class C1219q0 {
     /* renamed from: o */
     public static void m2519o(List<String> list) {
         if (AbstractC1102l9.m2273N(list)) {
-            C0850bc.m1403m("disable app is null");
+            LTKDateUtil.m1403m("disable app is null");
             return;
         }
         List<String> listM2502D = m2502D();
@@ -413,7 +413,7 @@ public class C1219q0 {
                 arrayList.add(str);
             }
         }
-        C0850bc.f2294f.mo1326k0(arrayList);
+        LTKDateUtil.f2294f.mo1326k0(arrayList);
     }
 
     /* renamed from: p */
@@ -443,12 +443,12 @@ public class C1219q0 {
 
     /* renamed from: r */
     public static String m2522r(String str) {
-        return (C1423y4.m3003x() || C0878ce.m1514g(str)) ? "com.android.launcher3.LauncherNew" : "LauncherNew";
+        return (LauncherMenuHelper.m3003x() || DeviceTypeUtil.m1514g(str)) ? "com.android.launcher3.LauncherNew" : "LauncherNew";
     }
 
     /* renamed from: s */
     public static List<String> m2523s() {
-        List<ItemApp> list = C1297t3.m2715a().m2717c().queryBuilder().where(ItemAppDao.Properties.IsTrust.m5870eq(1), new WhereCondition[0]).list();
+        List<ItemApp> list = DBController.m2715a().m2717c().queryBuilder().where(ItemAppDao.Properties.IsTrust.m5870eq(1), new WhereCondition[0]).list();
         ArrayList arrayList = new ArrayList();
         if (!AbstractC1102l9.m2273N(list)) {
             Iterator<ItemApp> it = list.iterator();
@@ -461,10 +461,10 @@ public class C1219q0 {
 
     /* renamed from: t */
     public static boolean m2524t() {
-        if (!C0878ce.m1521n() && !C0878ce.m1519l() && !C0878ce.m1510c()) {
-            if (!(C0904de.m1598o() ? true : C0878ce.m1520m(C0904de.m1589f())) && !C0878ce.m1522o()) {
-                String strM1589f = C0904de.m1589f();
-                if (!(C0878ce.m1516i(strM1589f) || C0878ce.m1517j(strM1589f)) && !C0878ce.m1517j(C0904de.m1589f())) {
+        if (!DeviceTypeUtil.m1521n() && !DeviceTypeUtil.m1519l() && !DeviceTypeUtil.m1510c()) {
+            if (!(LauncherDeviceUtils.m1598o() ? true : DeviceTypeUtil.m1520m(LauncherDeviceUtils.m1589f())) && !DeviceTypeUtil.m1522o()) {
+                String strM1589f = LauncherDeviceUtils.m1589f();
+                if (!(DeviceTypeUtil.m1516i(strM1589f) || DeviceTypeUtil.m1517j(strM1589f)) && !DeviceTypeUtil.m1517j(LauncherDeviceUtils.m1589f())) {
                     return false;
                 }
             }
@@ -474,21 +474,21 @@ public class C1219q0 {
 
     /* renamed from: u */
     public static boolean m2525u() {
-        if (C0878ce.m1521n() || C0878ce.m1519l() || C0878ce.m1510c()) {
+        if (DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1519l() || DeviceTypeUtil.m1510c()) {
             return true;
         }
-        return (C0904de.m1598o() ? true : C0878ce.m1520m(C0904de.m1589f())) || C0878ce.m1522o();
+        return (LauncherDeviceUtils.m1598o() ? true : DeviceTypeUtil.m1520m(LauncherDeviceUtils.m1589f())) || DeviceTypeUtil.m1522o();
     }
 
     /* renamed from: v */
     public static List<String> m2526v() {
-        return C0948f6.m1772q("com.huawei.calendar", "com.android.calendar", "com.ebensz.enote.calendar", "com.hihonor.calendar", "com.samsung.android.calendar");
+        return CompilerOutline.m1772q("com.huawei.calendar", "com.android.calendar", "com.ebensz.enote.calendar", "com.hihonor.calendar", "com.samsung.android.calendar");
     }
 
     /* renamed from: w */
     public static List<String> m2527w() {
-        ArrayList arrayListM1772q = C0948f6.m1772q("com.mediatek.camera", "com.huawei.camera", "org.codeaurora.snapcam", "com.android.camera2", "com.tcl.camera");
-        C0948f6.m1749G(arrayListM1772q, "com.sec.android.app.camera", "com.dtab.camera", "com.hihonor.camera", "com.lenovotab.camera");
+        ArrayList arrayListM1772q = CompilerOutline.m1772q("com.mediatek.camera", "com.huawei.camera", "org.codeaurora.snapcam", "com.android.camera2", "com.tcl.camera");
+        CompilerOutline.m1749G(arrayListM1772q, "com.sec.android.app.camera", "com.dtab.camera", "com.hihonor.camera", "com.lenovotab.camera");
         return arrayListM1772q;
     }
 
@@ -504,10 +504,10 @@ public class C1219q0 {
 
     /* renamed from: y */
     public static List<String> m2529y() {
-        ArrayList arrayListM1772q = C0948f6.m1772q("org.codeaurora.gallery", "com.android.gallery3d", "com.huawei.photos", "com.tclhz.gallery", "com.hihonor.photos");
+        ArrayList arrayListM1772q = CompilerOutline.m1772q("org.codeaurora.gallery", "com.android.gallery3d", "com.huawei.photos", "com.tclhz.gallery", "com.hihonor.photos");
         arrayListM1772q.add("com.sec.android.gallery3d");
         arrayListM1772q.add("com.zui.gallery");
-        if (C0878ce.m1525r()) {
+        if (DeviceTypeUtil.m1525r()) {
             arrayListM1772q.add("com.android.gallery3d.app.GalleryActivity");
         }
         return arrayListM1772q;
@@ -522,6 +522,6 @@ public class C1219q0 {
         if (!AbstractC1102l9.m2273N(arrayList2)) {
             arrayList.addAll(arrayList2);
         }
-        C0850bc.f2294f.mo2070n0(arrayList);
+        LTKDateUtil.f2294f.mo2070n0(arrayList);
     }
 }

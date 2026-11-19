@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.util;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
@@ -266,7 +266,7 @@ public final class RyuDouble {
                                 i3 = 3;
                             }
                         } else {
-                            throw new IllegalArgumentException(C0948f6.m1754L("", i41));
+                            throw new IllegalArgumentException(CompilerOutline.m1754L("", i41));
                         }
                     } else {
                         z = z3;
@@ -313,7 +313,7 @@ public final class RyuDouble {
                             i6 = 0;
                             i7 = 0;
                         } else {
-                            throw new IllegalArgumentException(C0948f6.m1754L("", i46));
+                            throw new IllegalArgumentException(CompilerOutline.m1754L("", i46));
                         }
                     }
                     if (j3 >= 1000000000000000000L) {

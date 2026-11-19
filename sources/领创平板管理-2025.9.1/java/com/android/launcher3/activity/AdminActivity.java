@@ -11,13 +11,13 @@ import android.widget.Switch;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.network.RunningLogHelper;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0902dc;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C0954fc;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.ViewControlUtil;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.FileConfig;
 import com.huawei.hem.C1395x1;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
 import java.io.File;
 
 /* loaded from: classes.dex */
@@ -41,12 +41,12 @@ public class AdminActivity extends BaseActivity implements View.OnClickListener,
     @Override // com.android.launcher3.activity.base.BaseActivity
     /* renamed from: c */
     public void mo1171c() {
-        if (C0850bc.f2292d) {
+        if (LTKDateUtil.f2292d) {
             this.f1649b.setChecked(true);
         } else {
             this.f1649b.setChecked(false);
         }
-        this.f1650c.setChecked(C1424y5.b.f4202a.m3016K() == 1);
+        this.f1650c.setChecked(UserInfoUtil.b.f4202a.m3016K() == 1);
     }
 
     @Override // com.android.launcher3.activity.base.BaseActivity
@@ -64,30 +64,30 @@ public class AdminActivity extends BaseActivity implements View.OnClickListener,
         if (compoundButton != this.f1649b) {
             if (compoundButton == this.f1650c) {
                 if (z) {
-                    C0850bc.f2294f.enableUsb();
+                    LTKDateUtil.f2294f.enableUsb();
                 } else {
-                    C0850bc.f2294f.disableUsb();
+                    LTKDateUtil.f2294f.disableUsb();
                 }
-                C1424y5.b.f4202a.m3071t0(z ? 1 : 0);
+                UserInfoUtil.b.f4202a.m3071t0(z ? 1 : 0);
                 return;
             }
             return;
         }
-        if (C1424y5.b.f4202a.m3023R()) {
-            C0850bc.m1403m("device is release no need handle");
+        if (UserInfoUtil.b.f4202a.m3023R()) {
+            LTKDateUtil.m1403m("device is release no need handle");
             return;
         }
         if (!z) {
-            C0850bc.m1403m("send  broadcast to appstore for open log");
-            C1423y4.m2971R(this, "com.ndwill.swd.appstore.log.close");
-            C0850bc.m1412v(false);
-            C0850bc.m1413w(this, getResources().getString(R.string.close_log_switch), 0);
+            LTKDateUtil.m1403m("send  broadcast to appstore for open log");
+            LauncherMenuHelper.m2971R(this, "com.ndwill.swd.appstore.log.close");
+            LTKDateUtil.m1412v(false);
+            LTKDateUtil.m1413w(this, getResources().getString(R.string.close_log_switch), 0);
             this.f1651d.setClickable(true);
             return;
         }
-        C0954fc.b bVar = new C0954fc.b(this);
+        FileConfig.b bVar = new FileConfig.b(this);
         bVar.f2651e = true;
-        bVar.f2649c = new File(C0948f6.m1762g(new StringBuilder(), C1395x1.f4038a, "log/")).getAbsolutePath();
+        bVar.f2649c = new File(CompilerOutline.m1762g(new StringBuilder(), C1395x1.f4038a, "log/")).getAbsolutePath();
         if (TextUtils.isEmpty(bVar.f2650d)) {
             Context context = bVar.f2647a;
             ApplicationInfo applicationInfo = context.getApplicationInfo();
@@ -96,53 +96,53 @@ public class AdminActivity extends BaseActivity implements View.OnClickListener,
         }
         if (bVar.f2651e) {
             if (bVar.f2648b == null) {
-                bVar.f2648b = new C0954fc.c();
+                bVar.f2648b = new FileConfig.c();
             }
             if (TextUtils.isEmpty(bVar.f2649c)) {
                 File externalFilesDir = bVar.f2647a.getExternalFilesDir("log");
                 if (externalFilesDir != null) {
                     bVar.f2649c = externalFilesDir.getAbsolutePath();
                 } else {
-                    C0850bc.m1393c("failed to resolve default log file directory");
+                    LTKDateUtil.m1393c("failed to resolve default log file directory");
                 }
             }
             if (bVar.f2652f <= 0) {
                 throw new IllegalArgumentException("max total size must be > 0");
             }
         }
-        C0850bc.f2293e = new C0954fc(bVar, null);
-        C0850bc.m1403m("send  broadcast to appstore for open log");
-        C1423y4.m2971R(this, "com.ndwill.swd.appstore.log.open");
-        C0850bc.m1412v(true);
-        C0850bc.m1413w(this, getResources().getString(R.string.open_log_switch), 0);
+        LTKDateUtil.f2293e = new FileConfig(bVar, null);
+        LTKDateUtil.m1403m("send  broadcast to appstore for open log");
+        LauncherMenuHelper.m2971R(this, "com.ndwill.swd.appstore.log.open");
+        LTKDateUtil.m1412v(true);
+        LTKDateUtil.m1413w(this, getResources().getString(R.string.open_log_switch), 0);
         this.f1651d.setClickable(false);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (C0902dc.m1583a(view)) {
+        if (ViewControlUtil.m1583a(view)) {
         }
         switch (view.getId()) {
             case R.id.admin_lift_restrication /* 2131165216 */:
                 Bundle bundle = new Bundle();
                 bundle.putInt("action", 2);
-                C1423y4.m2975V(this, PromptDiaLogActivity.class, bundle);
+                LauncherMenuHelper.m2975V(this, PromptDiaLogActivity.class, bundle);
                 break;
             case R.id.admin_reset_factory /* 2131165219 */:
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("action", 1);
-                C1423y4.m2975V(this, PromptDiaLogActivity.class, bundle2);
+                LauncherMenuHelper.m2975V(this, PromptDiaLogActivity.class, bundle2);
                 break;
             case R.id.license /* 2131165388 */:
                 Bundle bundle3 = new Bundle();
                 bundle3.putString("from", "admin");
-                C1423y4.m2975V(this, LicenseActivity.class, bundle3);
+                LauncherMenuHelper.m2975V(this, LicenseActivity.class, bundle3);
                 break;
             case R.id.uploadlog /* 2131165551 */:
                 RunningLogHelper.UploadRunningLog(this, C1395x1.f4038a + "log/");
                 break;
             case R.id.whiteurl_read /* 2131165568 */:
-                C1423y4.m2974U(this, ReadWebSiteWhiteActivity.class);
+                LauncherMenuHelper.m2974U(this, ReadWebSiteWhiteActivity.class);
                 break;
         }
     }

@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.asm;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
 
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class MethodCollector {
         if (i < i2 || i >= i2 + this.paramCount) {
             return;
         }
-        StringBuilder sbM1765j = C0948f6.m1765j("arg");
+        StringBuilder sbM1765j = CompilerOutline.m1765j("arg");
         sbM1765j.append(this.currentParameter);
         if (!str.equals(sbM1765j.toString())) {
             this.debugInfoPresent = true;

@@ -1,6 +1,6 @@
 package anet.channel.util;
 
-import com.huawei.hem.C0948f6;
+import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.security.MessageDigest;
 
@@ -27,7 +27,7 @@ public class StringUtils {
     }
 
     public static String concatString(String str, String str2) {
-        return C0948f6.m1762g(new StringBuilder(str2.length() + str.length()), str, str2);
+        return CompilerOutline.m1762g(new StringBuilder(str2.length() + str.length()), str, str2);
     }
 
     public static boolean isBlank(String str) {
@@ -70,7 +70,7 @@ public class StringUtils {
     }
 
     public static String concatString(String str, String str2, String str3) {
-        return C0948f6.m1763h(new StringBuilder(str3.length() + str2.length() + str.length()), str, str2, str3);
+        return CompilerOutline.m1763h(new StringBuilder(str3.length() + str2.length() + str.length()), str, str2, str3);
     }
 
     public static String bytesToHexString(byte[] bArr) {

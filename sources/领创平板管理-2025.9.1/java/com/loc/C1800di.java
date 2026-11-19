@@ -25,11 +25,11 @@ public final class C1800di {
 
     /* renamed from: a */
     public static String m4569a() {
-        return "lc_" + ((int) C1797df.m4519a());
+        return "lc_" + ((int) HeaderConfig.m4519a());
     }
 
     /* renamed from: b */
     public static String m4570b() {
-        return C1797df.m4525c() + "*" + C1797df.m4531f();
+        return HeaderConfig.m4525c() + "*" + HeaderConfig.m4531f();
     }
 }

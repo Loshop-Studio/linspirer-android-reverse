@@ -13,17 +13,17 @@ import com.android.launcher3.network.params.ControlHelperParams;
 import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
-import com.huawei.hem.C0824ac;
-import com.huawei.hem.C0850bc;
-import com.huawei.hem.C0878ce;
-import com.huawei.hem.C0904de;
-import com.huawei.hem.C0948f6;
-import com.huawei.hem.C1255rb;
-import com.huawei.hem.C1355vb;
-import com.huawei.hem.C1398x4;
-import com.huawei.hem.C1423y4;
-import com.huawei.hem.C1424y5;
-import com.huawei.hem.InterfaceC1030ic;
+import com.huawei.hem.DeskSPF;
+import com.huawei.hem.LTKDateUtil;
+import com.huawei.hem.DeviceTypeUtil;
+import com.huawei.hem.LauncherDeviceUtils;
+import com.huawei.hem.CompilerOutline;
+import com.huawei.hem.HttpCore;
+import com.huawei.hem.PostBuilder;
+import com.huawei.hem.AppWhiteHelper;
+import com.huawei.hem.LauncherMenuHelper;
+import com.huawei.hem.UserInfoUtil;
+import com.huawei.hem.DeviceManagementInterface;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class ControlHelper {
     public static final int NORMAL = 0;
     public static final int RELEASE_CONTROL = 2;
     public static final String TAG = "ControlHelper ";
-    public static C1255rb mHttpCore;
+    public static HttpCore mHttpCore;
     public Context mContext;
 
     public static class ControlHolder {
@@ -40,8 +40,8 @@ public class ControlHelper {
     }
 
     private void control() {
-        C0850bc.f2294f.mo1348f();
-        C0850bc.f2294f.mo2056R(2);
+        LTKDateUtil.f2294f.mo1348f();
+        LTKDateUtil.f2294f.mo2056R(2);
         new Handler().postDelayed(new Runnable() { // from class: com.huawei.hem.b5
             @Override // java.lang.Runnable
             public final void run() {
@@ -55,13 +55,13 @@ public class ControlHelper {
     }
 
     private boolean isNeedUpload() {
-        InterfaceC1030ic interfaceC1030ic = C0850bc.f2294f;
+        DeviceManagementInterface interfaceC1030ic = LTKDateUtil.f2294f;
         if (interfaceC1030ic == null) {
             return false;
         }
         int iMo2071p = interfaceC1030ic.mo2071p(true);
-        boolean zM3023R = C1424y5.b.f4202a.m3023R();
-        C0850bc.m1403m("ControlHelper  control mode " + iMo2071p + " release control:" + zM3023R);
+        boolean zM3023R = UserInfoUtil.b.f4202a.m3023R();
+        LTKDateUtil.m1403m("ControlHelper  control mode " + iMo2071p + " release control:" + zM3023R);
         return 1 != iMo2071p && zM3023R;
     }
 
@@ -69,7 +69,7 @@ public class ControlHelper {
         new Handler().postDelayed(new Runnable() { // from class: com.huawei.hem.c5
             @Override // java.lang.Runnable
             public final void run() {
-                C0850bc.f2294f.mo1329t(true);
+                LTKDateUtil.f2294f.mo1329t(true);
             }
         }, 5000L);
     }
@@ -77,7 +77,7 @@ public class ControlHelper {
     private void showDialog() {
         Bundle bundle = new Bundle();
         bundle.putInt("action", 3);
-        C1423y4.m2975V(this.mContext, PromptDiaLogActivity.class, bundle);
+        LauncherMenuHelper.m2975V(this.mContext, PromptDiaLogActivity.class, bundle);
     }
 
     /* renamed from: a */
@@ -87,98 +87,98 @@ public class ControlHelper {
     }
 
     public void handleHemRelease() {
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         if (c1424y5.f4189s != 1) {
             c1424y5.f4189s = 1;
-            C0824ac c0824ac = c1424y5.f4130D;
+            DeskSPF c0824ac = c1424y5.f4130D;
             c0824ac.f2200b.putInt("release_control", 1);
             c0824ac.f2200b.commit();
         }
-        C0850bc.f2294f.mo2083y("com.huawei.hwid");
-        C0850bc.f2294f.mo2044D();
-        C0850bc.f2294f.mo1348f();
-        C0850bc.f2294f.disableFireWall();
-        C0850bc.f2294f.mo1328s(new ArrayList());
-        C0850bc.f2294f.mo1323h();
-        C0850bc.f2294f.mo1316V(new ArrayList());
-        C0850bc.f2294f.enableCamera();
-        C0850bc.f2294f.enableUsb();
-        C0850bc.f2294f.enableBluetooth();
-        C0850bc.f2294f.mo1346X();
-        C0850bc.f2294f.mo1319c(true);
-        C1423y4.m2972S(true);
-        C0850bc.f2294f.enableGPS();
-        C1398x4.b.f4050a.m2927a();
-        C0850bc.f2294f.mo1304B0(C0850bc.f2294f.mo2073q());
+        LTKDateUtil.f2294f.mo2083y("com.huawei.hwid");
+        LTKDateUtil.f2294f.mo2044D();
+        LTKDateUtil.f2294f.mo1348f();
+        LTKDateUtil.f2294f.disableFireWall();
+        LTKDateUtil.f2294f.mo1328s(new ArrayList());
+        LTKDateUtil.f2294f.mo1323h();
+        LTKDateUtil.f2294f.mo1316V(new ArrayList());
+        LTKDateUtil.f2294f.enableCamera();
+        LTKDateUtil.f2294f.enableUsb();
+        LTKDateUtil.f2294f.enableBluetooth();
+        LTKDateUtil.f2294f.mo1346X();
+        LTKDateUtil.f2294f.mo1319c(true);
+        LauncherMenuHelper.m2972S(true);
+        LTKDateUtil.f2294f.enableGPS();
+        AppWhiteHelper.b.f4050a.m2927a();
+        LTKDateUtil.f2294f.mo1304B0(LTKDateUtil.f2294f.mo2073q());
         AppTimeLimitHelper.getInstance().clearData();
-        C1424y5.b.f4202a.m3057m0(0);
-        C1424y5.b.f4202a.m3035b0(0);
-        C1424y5.b.f4202a.m3039d0(10000, false);
+        UserInfoUtil.b.f4202a.m3057m0(0);
+        UserInfoUtil.b.f4202a.m3035b0(0);
+        UserInfoUtil.b.f4202a.m3039d0(10000, false);
         Bundle bundle = new Bundle();
         bundle.putInt("action", 5);
-        C1423y4.m2975V(this.mContext, PromptDiaLogActivity.class, bundle);
-        C0850bc.f2294f.mo2056R(2);
+        LauncherMenuHelper.m2975V(this.mContext, PromptDiaLogActivity.class, bundle);
+        LTKDateUtil.f2294f.mo2056R(2);
     }
 
     public void handleOtherRelease() {
-        C0850bc.m1403m("ControlHelper handle other devices  release control");
-        C1424y5 c1424y5 = C1424y5.b.f4202a;
+        LTKDateUtil.m1403m("ControlHelper handle other devices  release control");
+        UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;
         if (c1424y5.f4189s != 1) {
             c1424y5.f4189s = 1;
-            C0824ac c0824ac = c1424y5.f4130D;
+            DeskSPF c0824ac = c1424y5.f4130D;
             c0824ac.f2200b.putInt("release_control", 1);
             c0824ac.f2200b.commit();
         }
-        C0850bc.f2294f.disableFireWall();
-        C0850bc.f2294f.mo1328s(new ArrayList());
-        C0850bc.f2294f.mo1323h();
-        C0850bc.f2294f.enableCamera();
-        C0850bc.f2294f.enableUsb();
-        C0850bc.f2294f.enableBluetooth();
-        C0850bc.f2294f.mo1319c(true);
-        C1423y4.m2972S(true);
-        C0850bc.f2294f.enableGPS();
-        C1398x4.b.f4050a.m2927a();
+        LTKDateUtil.f2294f.disableFireWall();
+        LTKDateUtil.f2294f.mo1328s(new ArrayList());
+        LTKDateUtil.f2294f.mo1323h();
+        LTKDateUtil.f2294f.enableCamera();
+        LTKDateUtil.f2294f.enableUsb();
+        LTKDateUtil.f2294f.enableBluetooth();
+        LTKDateUtil.f2294f.mo1319c(true);
+        LauncherMenuHelper.m2972S(true);
+        LTKDateUtil.f2294f.enableGPS();
+        AppWhiteHelper.b.f4050a.m2927a();
         AppTimeLimitHelper.getInstance().clearData();
-        C1424y5.b.f4202a.m3057m0(0);
-        C1424y5.b.f4202a.m3035b0(0);
-        C1424y5.b.f4202a.m3039d0(10000, false);
-        C1423y4.m2959F(this.mContext);
+        UserInfoUtil.b.f4202a.m3057m0(0);
+        UserInfoUtil.b.f4202a.m3035b0(0);
+        UserInfoUtil.b.f4202a.m3039d0(10000, false);
+        LauncherMenuHelper.m2959F(this.mContext);
     }
 
     public void handleReleaseControl(int i) {
         if (i == 1) {
-            String strM1606w = C0904de.m1606w();
+            String strM1606w = LauncherDeviceUtils.m1606w();
             if (!TextUtils.isEmpty(strM1606w) && "2.0.0".compareTo(strM1606w) <= 0) {
                 handleHemRelease();
                 return;
             }
-            if (!(C0878ce.m1521n() || C0878ce.m1530w() || C0878ce.m1522o())) {
+            if (!(DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1530w() || DeviceTypeUtil.m1522o())) {
                 handleOtherRelease();
                 return;
             }
-            int iMo2071p = C0850bc.f2294f.mo2071p(false);
-            C0850bc.m1403m("ControlHelper  -- handle release control server " + i + " local mode:" + iMo2071p);
+            int iMo2071p = LTKDateUtil.f2294f.mo2071p(false);
+            LTKDateUtil.m1403m("ControlHelper  -- handle release control server " + i + " local mode:" + iMo2071p);
             if (iMo2071p != 2) {
                 control();
             } else if (i == 1) {
-                C0850bc.f2294f.mo1348f();
-                C0850bc.f2294f.mo1329t(true);
+                LTKDateUtil.f2294f.mo1348f();
+                LTKDateUtil.f2294f.mo1329t(true);
             }
         }
     }
 
     public void reportControlStatus() {
-        InterfaceC1030ic interfaceC1030ic = C0850bc.f2294f;
+        DeviceManagementInterface interfaceC1030ic = LTKDateUtil.f2294f;
         if (interfaceC1030ic == null) {
-            C0850bc.m1403m("ControlHelper  upload break by mdm null ");
+            LTKDateUtil.m1403m("ControlHelper  upload break by mdm null ");
             return;
         }
         int iMo2071p = interfaceC1030ic.mo2071p(!interfaceC1030ic.mo2062e0());
-        C0850bc.m1403m("ControlHelper  mdm control mode " + iMo2071p);
+        LTKDateUtil.m1403m("ControlHelper  mdm control mode " + iMo2071p);
         if (iMo2071p == -1) {
-            int i = C1424y5.b.f4202a.m3023R() ? 2 : 1;
-            C0850bc.m1403m("ControlHelper  weak  control mode " + i);
+            int i = UserInfoUtil.b.f4202a.m3023R() ? 2 : 1;
+            LTKDateUtil.m1403m("ControlHelper  weak  control mode " + i);
             iMo2071p = i;
         }
         try {
@@ -187,38 +187,38 @@ public class ControlHelper {
             controlHelperParams.setIs_control(iMo2071p);
             v2Params.setMethod(RequestUrl.METHOD_DEVICE_CONTROL);
             v2Params.setParams(JSON.toJSONString(controlHelperParams));
-            C1255rb c1255rb = mHttpCore;
+            HttpCore c1255rb = mHttpCore;
             if (c1255rb == null) {
                 throw null;
             }
-            C1355vb c1355vb = new C1355vb(c1255rb);
+            PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
             c1355vb.m2869b(new LTKResponseListener<Boolean>(Boolean.class) { // from class: com.android.launcher3.network.ControlHelper.1
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailed(Response response) {
-                    C0850bc.m1403m("ControlHelper upload control model failed");
+                    LTKDateUtil.m1403m("ControlHelper upload control model failed");
                 }
 
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) {
-                    C0850bc.m1403m("ControlHelper upload control model failure");
+                    LTKDateUtil.m1403m("ControlHelper upload control model failure");
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(Boolean bool) {
-                    C0850bc.m1403m("ControlHelper upload control model sucess");
+                    LTKDateUtil.m1403m("ControlHelper upload control model sucess");
                 }
             });
         } catch (Exception e) {
-            C0948f6.m1776u(e, C0948f6.m1765j("ControlHelper --JSONException:"));
+            CompilerOutline.m1776u(e, CompilerOutline.m1765j("ControlHelper --JSONException:"));
         }
     }
 
     public ControlHelper() {
         this.mContext = GuardSecureApplication.f1640b;
-        mHttpCore = new C1255rb();
-        C0850bc.m1403m("ControlHelper construct Control helper");
+        mHttpCore = new HttpCore();
+        LTKDateUtil.m1403m("ControlHelper construct Control helper");
     }
 }
