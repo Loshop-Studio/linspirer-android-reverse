@@ -7,7 +7,7 @@ import com.huawei.hms.core.aidl.annotation.Packed;
 
 /* loaded from: classes.dex */
 public class PermissionInfo implements IMessageEntity, Parcelable {
-    public static final Parcelable.Creator<PermissionInfo> CREATOR = new C1569a();
+    public static final Parcelable.Creator<PermissionInfo> CREATOR = new HmsPermissionInfoCreator();
 
     @Packed
     public String appID;
@@ -19,7 +19,7 @@ public class PermissionInfo implements IMessageEntity, Parcelable {
     public String permission;
 
     /* renamed from: com.huawei.hms.support.api.entity.auth.PermissionInfo$a */
-    public static class C1569a implements Parcelable.Creator<PermissionInfo> {
+    public static class HmsPermissionInfoCreator implements Parcelable.Creator<PermissionInfo> {
         @Override // android.os.Parcelable.Creator
         public PermissionInfo createFromParcel(Parcel parcel) {
             return new PermissionInfo(parcel);

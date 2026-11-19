@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 
 /* loaded from: classes.dex */
 public final class GeneralAppIdDecoder {
@@ -33,7 +33,7 @@ public final class GeneralAppIdDecoder {
                 c = '*';
                 break;
             case 59:
-                c = AbstractC1604b.COMMA;
+                c = UpdateJsonBean.COMMA;
                 break;
             case 60:
                 c = '-';
@@ -95,7 +95,7 @@ public final class GeneralAppIdDecoder {
                 c = '+';
                 break;
             case 241:
-                c = AbstractC1604b.COMMA;
+                c = UpdateJsonBean.COMMA;
                 break;
             case 242:
                 c = '-';

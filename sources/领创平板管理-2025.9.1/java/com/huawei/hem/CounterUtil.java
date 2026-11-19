@@ -122,7 +122,7 @@ public class CounterUtil {
         }
         if (i % 17 == 0) {
             LTKDateUtil.m1403m("CounterUtil  action reach need check sougou input setting");
-            C1323u4.m2784c(this.f3665b).m2785d();
+            SogouInputSettingsHelper.m2784c(this.f3665b).m2785d();
         }
         if (i4 % 80 == 0) {
             LTKDateUtil.m1403m("CounterUtil  action reach need  request control app ");

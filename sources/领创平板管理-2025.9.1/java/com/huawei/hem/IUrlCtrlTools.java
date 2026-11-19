@@ -16,12 +16,12 @@ public interface IUrlCtrlTools extends IInterface {
 
         /* compiled from: IUrlCtrlTools.java */
         /* renamed from: com.huawei.hem.g6$a$a, reason: collision with other inner class name */
-        public static class C2073a implements IUrlCtrlTools {
+        public static class UrlControlBinderProxy implements IUrlCtrlTools {
 
             /* renamed from: a */
             public IBinder f2746a;
 
-            public C2073a(IBinder iBinder) {
+            public UrlControlBinderProxy(IBinder iBinder) {
                 this.f2746a = iBinder;
             }
 
@@ -197,7 +197,7 @@ public interface IUrlCtrlTools extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.android.url_control_tool.IUrlCtrlTools");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IUrlCtrlTools)) ? new C2073a(iBinder) : (IUrlCtrlTools) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IUrlCtrlTools)) ? new UrlControlBinderProxy(iBinder) : (IUrlCtrlTools) iInterfaceQueryLocalInterface;
         }
     }
 

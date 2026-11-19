@@ -6,7 +6,7 @@ import android.content.res.TypedArray;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
@@ -129,8 +129,8 @@ public abstract class AbsActionBarView extends ViewGroup {
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(null, C0200R.styleable.ActionBar, C0200R.attr.actionBarStyle, 0);
-        setContentHeight(typedArrayObtainStyledAttributes.getLayoutDimension(C0200R.styleable.ActionBar_height, 0));
+        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(null, SupportAppcompatResources.styleable.ActionBar, SupportAppcompatResources.attr.actionBarStyle, 0);
+        setContentHeight(typedArrayObtainStyledAttributes.getLayoutDimension(SupportAppcompatResources.styleable.ActionBar_height, 0));
         typedArrayObtainStyledAttributes.recycle();
         ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
         if (actionMenuPresenter != null) {
@@ -247,7 +247,7 @@ public abstract class AbsActionBarView extends ViewGroup {
         super(context, attributeSet, i);
         this.mVisAnimListener = new VisibilityAnimListener();
         TypedValue typedValue = new TypedValue();
-        if (context.getTheme().resolveAttribute(C0200R.attr.actionBarPopupTheme, typedValue, true) && typedValue.resourceId != 0) {
+        if (context.getTheme().resolveAttribute(SupportAppcompatResources.attr.actionBarPopupTheme, typedValue, true) && typedValue.resourceId != 0) {
             this.mPopupContext = new ContextThemeWrapper(context, typedValue.resourceId);
         } else {
             this.mPopupContext = context;

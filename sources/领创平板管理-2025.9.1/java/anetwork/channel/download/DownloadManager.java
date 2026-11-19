@@ -41,7 +41,7 @@ public class DownloadManager {
     public static final String TAG = "anet.DownloadManager";
 
     /* renamed from: a */
-    public SparseArray<RunnableC0449b> f688a;
+    public SparseArray<NetworkFileDownloadTask> f688a;
 
     /* renamed from: b */
     public AtomicInteger f689b;
@@ -63,7 +63,7 @@ public class DownloadManager {
 
     /* compiled from: Taobao */
     /* renamed from: anetwork.channel.download.DownloadManager$a */
-    public static class C0448a {
+    public static class NetworkDownloadManagerHolder {
 
         /* renamed from: a */
         public static DownloadManager f692a = new DownloadManager();
@@ -80,12 +80,12 @@ public class DownloadManager {
     }
 
     public static DownloadManager getInstance() {
-        return C0448a.f692a;
+        return NetworkDownloadManagerHolder.f692a;
     }
 
     public void cancel(int i) {
         synchronized (this.f688a) {
-            RunnableC0449b runnableC0449b = this.f688a.get(i);
+            NetworkFileDownloadTask runnableC0449b = this.f688a.get(i);
             if (runnableC0449b != null) {
                 if (ALog.isPrintLog(2)) {
                     ALog.m340i(TAG, "try cancel task" + i + " url=" + runnableC0449b.f694b.toString(), null, new Object[0]);
@@ -102,7 +102,7 @@ public class DownloadManager {
 
     /* compiled from: Taobao */
     /* renamed from: anetwork.channel.download.DownloadManager$b */
-    public class RunnableC0449b implements Runnable {
+    public class NetworkFileDownloadTask implements Runnable {
 
         /* renamed from: a */
         public final int f693a;
@@ -128,7 +128,7 @@ public class DownloadManager {
         /* renamed from: i */
         public boolean f701i;
 
-        public RunnableC0449b(URL url, String str, String str2, DownloadListener downloadListener) {
+        public NetworkFileDownloadTask(URL url, String str, String str2, DownloadListener downloadListener) {
             this.f701i = true;
             this.f693a = DownloadManager.this.f689b.getAndIncrement();
             this.f694b = url;
@@ -307,14 +307,14 @@ public class DownloadManager {
                     if (i >= size) {
                         break;
                     }
-                    RunnableC0449b runnableC0449bValueAt = this.f688a.valueAt(i);
+                    NetworkFileDownloadTask runnableC0449bValueAt = this.f688a.valueAt(i);
                     if (!url.equals(runnableC0449bValueAt.f694b)) {
                         i++;
                     } else if (runnableC0449bValueAt.m412a(downloadListener)) {
                         return runnableC0449bValueAt.f693a;
                     }
                 }
-                RunnableC0449b runnableC0449b = new RunnableC0449b(url, str2, str3, downloadListener);
+                NetworkFileDownloadTask runnableC0449b = new NetworkFileDownloadTask(url, str2, str3, downloadListener);
                 this.f688a.put(runnableC0449b.f693a, runnableC0449b);
                 this.f690c.submit(runnableC0449b);
                 return runnableC0449b.f693a;

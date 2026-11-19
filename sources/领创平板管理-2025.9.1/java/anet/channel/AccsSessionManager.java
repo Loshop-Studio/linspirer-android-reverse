@@ -82,7 +82,7 @@ public class AccsSessionManager {
     }
 
     public void notifyListener(Intent intent) {
-        ThreadPoolExecutorFactory.submitScheduledTask(new RunnableC0307a(this, intent));
+        ThreadPoolExecutorFactory.submitScheduledTask(new AccsSessionNotificationTask(this, intent));
     }
 
     public void registerListener(ISessionListener iSessionListener) {

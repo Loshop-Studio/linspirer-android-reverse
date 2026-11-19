@@ -4,7 +4,7 @@ import anet.channel.util.HttpConstant;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.huawei.hem.OkHttpRequest;
 import com.huawei.hem.OkHttpResponse;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import com.huawei.hem.OkHttpInterceptor;
 import com.huawei.hem.CookieJar;
 import java.util.Collections;
@@ -32,7 +32,7 @@ public final class BridgeInterceptor implements OkHttpInterceptor {
             throw null;
         }
         OkHttpRequest.a aVar2 = new OkHttpRequest.a(c0988gk);
-        AbstractC1063jk abstractC1063jk = c0988gk.f2788d;
+        OkHttpRequestBody abstractC1063jk = c0988gk.f2788d;
         if (abstractC1063jk != null) {
             OkHttpMediaType c0858bkMo1535b = abstractC1063jk.mo1535b();
             if (c0858bkMo1535b != null) {
@@ -48,7 +48,7 @@ public final class BridgeInterceptor implements OkHttpInterceptor {
             }
         }
         if (c0988gk.f2787c.m3110c(HttpConstant.HOST) == null) {
-            aVar2.m1878b(HttpConstant.HOST, C1314tk.m2758m(c0988gk.f2785a, false));
+            aVar2.m1878b(HttpConstant.HOST, OkHttpCommonUtilities.m2758m(c0988gk.f2785a, false));
         }
         if (c0988gk.f2787c.m3110c("Connection") == null) {
             aVar2.m1878b("Connection", "Keep-Alive");
@@ -91,12 +91,12 @@ public final class BridgeInterceptor implements OkHttpInterceptor {
             }
             if (HttpConstant.GZIP.equalsIgnoreCase(strM3110c) && OkHttpHeaders.m2492b(c1088kkM2646b)) {
                 GzipSource c1192on = new GzipSource(c1088kkM2646b.f3097g.mo2326g());
-                C1438yj.a aVarM3112e = c1088kkM2646b.f3096f.m3112e();
+                OkHttpHeaderList.a aVarM3112e = c1088kkM2646b.f3096f.m3112e();
                 aVarM3112e.m3116b(HttpConstant.CONTENT_ENCODING);
                 aVarM3112e.m3116b(HttpConstant.CONTENT_LENGTH);
                 List<String> list = aVarM3112e.f4230a;
                 String[] strArr = (String[]) list.toArray(new String[list.size()]);
-                C1438yj.a aVar4 = new C1438yj.a();
+                OkHttpHeaderList.a aVar4 = new OkHttpHeaderList.a();
                 Collections.addAll(aVar4.f4230a, strArr);
                 aVar3.f3110f = aVar4;
                 String strM3110c2 = c1088kkM2646b.f3096f.m3110c(HttpConstant.CONTENT_TYPE);

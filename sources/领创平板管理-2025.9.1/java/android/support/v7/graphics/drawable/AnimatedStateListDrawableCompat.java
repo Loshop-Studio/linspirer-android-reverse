@@ -24,7 +24,7 @@ import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v4.util.LongSparseArray;
 import android.support.v4.util.SparseArrayCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.graphics.drawable.DrawableContainer;
 import android.support.v7.graphics.drawable.StateListDrawable;
@@ -339,9 +339,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
 
     private int parseItem(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         int next;
-        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, C0200R.styleable.AnimatedStateListDrawableItem);
-        int resourceId = typedArrayObtainAttributes.getResourceId(C0200R.styleable.AnimatedStateListDrawableItem_android_id, 0);
-        int resourceId2 = typedArrayObtainAttributes.getResourceId(C0200R.styleable.AnimatedStateListDrawableItem_android_drawable, -1);
+        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, SupportAppcompatResources.styleable.AnimatedStateListDrawableItem);
+        int resourceId = typedArrayObtainAttributes.getResourceId(SupportAppcompatResources.styleable.AnimatedStateListDrawableItem_android_id, 0);
+        int resourceId2 = typedArrayObtainAttributes.getResourceId(SupportAppcompatResources.styleable.AnimatedStateListDrawableItem_android_drawable, -1);
         Drawable drawable = resourceId2 > 0 ? AppCompatResources.getDrawable(context, resourceId2) : null;
         typedArrayObtainAttributes.recycle();
         int[] iArrExtractStateSet = extractStateSet(attributeSet);
@@ -362,12 +362,12 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
 
     private int parseTransition(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         int next;
-        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, C0200R.styleable.AnimatedStateListDrawableTransition);
-        int resourceId = typedArrayObtainAttributes.getResourceId(C0200R.styleable.AnimatedStateListDrawableTransition_android_fromId, -1);
-        int resourceId2 = typedArrayObtainAttributes.getResourceId(C0200R.styleable.AnimatedStateListDrawableTransition_android_toId, -1);
-        int resourceId3 = typedArrayObtainAttributes.getResourceId(C0200R.styleable.AnimatedStateListDrawableTransition_android_drawable, -1);
+        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, SupportAppcompatResources.styleable.AnimatedStateListDrawableTransition);
+        int resourceId = typedArrayObtainAttributes.getResourceId(SupportAppcompatResources.styleable.AnimatedStateListDrawableTransition_android_fromId, -1);
+        int resourceId2 = typedArrayObtainAttributes.getResourceId(SupportAppcompatResources.styleable.AnimatedStateListDrawableTransition_android_toId, -1);
+        int resourceId3 = typedArrayObtainAttributes.getResourceId(SupportAppcompatResources.styleable.AnimatedStateListDrawableTransition_android_drawable, -1);
         Drawable drawable = resourceId3 > 0 ? AppCompatResources.getDrawable(context, resourceId3) : null;
-        boolean z = typedArrayObtainAttributes.getBoolean(C0200R.styleable.AnimatedStateListDrawableTransition_android_reversible, false);
+        boolean z = typedArrayObtainAttributes.getBoolean(SupportAppcompatResources.styleable.AnimatedStateListDrawableTransition_android_reversible, false);
         typedArrayObtainAttributes.recycle();
         if (drawable == null) {
             do {
@@ -440,11 +440,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     private void updateStateFromTypedArray(TypedArray typedArray) {
         AnimatedStateListState animatedStateListState = this.mState;
         animatedStateListState.mChangingConfigurations |= typedArray.getChangingConfigurations();
-        animatedStateListState.setVariablePadding(typedArray.getBoolean(C0200R.styleable.AnimatedStateListDrawableCompat_android_variablePadding, animatedStateListState.mVariablePadding));
-        animatedStateListState.setConstantSize(typedArray.getBoolean(C0200R.styleable.AnimatedStateListDrawableCompat_android_constantSize, animatedStateListState.mConstantSize));
-        animatedStateListState.setEnterFadeDuration(typedArray.getInt(C0200R.styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration, animatedStateListState.mEnterFadeDuration));
-        animatedStateListState.setExitFadeDuration(typedArray.getInt(C0200R.styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration, animatedStateListState.mExitFadeDuration));
-        setDither(typedArray.getBoolean(C0200R.styleable.AnimatedStateListDrawableCompat_android_dither, animatedStateListState.mDither));
+        animatedStateListState.setVariablePadding(typedArray.getBoolean(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_variablePadding, animatedStateListState.mVariablePadding));
+        animatedStateListState.setConstantSize(typedArray.getBoolean(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_constantSize, animatedStateListState.mConstantSize));
+        animatedStateListState.setEnterFadeDuration(typedArray.getInt(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration, animatedStateListState.mEnterFadeDuration));
+        animatedStateListState.setExitFadeDuration(typedArray.getInt(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration, animatedStateListState.mExitFadeDuration));
+        setDither(typedArray.getBoolean(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_dither, animatedStateListState.mDither));
     }
 
     @Override // android.support.v7.graphics.drawable.StateListDrawable
@@ -541,8 +541,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
 
     @Override // android.support.v7.graphics.drawable.StateListDrawable
     public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
-        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, C0200R.styleable.AnimatedStateListDrawableCompat);
-        setVisible(typedArrayObtainAttributes.getBoolean(C0200R.styleable.AnimatedStateListDrawableCompat_android_visible, true), true);
+        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat);
+        setVisible(typedArrayObtainAttributes.getBoolean(SupportAppcompatResources.styleable.AnimatedStateListDrawableCompat_android_visible, true), true);
         updateStateFromTypedArray(typedArrayObtainAttributes);
         updateDensity(resources);
         typedArrayObtainAttributes.recycle();

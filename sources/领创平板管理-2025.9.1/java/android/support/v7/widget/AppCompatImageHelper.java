@@ -7,7 +7,7 @@ import android.graphics.drawable.RippleDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.widget.ImageViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -94,20 +94,20 @@ public class AppCompatImageHelper {
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, C0200R.styleable.AppCompatImageView, i, 0);
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, SupportAppcompatResources.styleable.AppCompatImageView, i, 0);
         try {
             Drawable drawable = this.mView.getDrawable();
-            if (drawable == null && (resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
+            if (drawable == null && (resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
                 this.mView.setImageDrawable(drawable);
             }
             if (drawable != null) {
                 DrawableUtils.fixDrawable(drawable);
             }
-            if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatImageView_tint)) {
-                ImageViewCompat.setImageTintList(this.mView, tintTypedArrayObtainStyledAttributes.getColorStateList(C0200R.styleable.AppCompatImageView_tint));
+            if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatImageView_tint)) {
+                ImageViewCompat.setImageTintList(this.mView, tintTypedArrayObtainStyledAttributes.getColorStateList(SupportAppcompatResources.styleable.AppCompatImageView_tint));
             }
-            if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatImageView_tintMode)) {
-                ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(tintTypedArrayObtainStyledAttributes.getInt(C0200R.styleable.AppCompatImageView_tintMode, -1), null));
+            if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatImageView_tintMode)) {
+                ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(tintTypedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.AppCompatImageView_tintMode, -1), null));
             }
         } finally {
             tintTypedArrayObtainStyledAttributes.recycle();

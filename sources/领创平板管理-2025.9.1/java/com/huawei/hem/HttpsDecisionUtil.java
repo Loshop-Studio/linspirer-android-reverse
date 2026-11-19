@@ -38,7 +38,7 @@ public final class HttpsDecisionUtil {
     }
 
     public HttpsDecisionUtil() {
-        C1219q0.m2507c(TextUtils.isDigitsOnly("HttpsDecisionUtil") ? "SPUtil" : "HttpsDecisionUtil");
+        AgooNotificationHandler.m2507c(TextUtils.isDigitsOnly("HttpsDecisionUtil") ? "SPUtil" : "HttpsDecisionUtil");
     }
 
     /* renamed from: a */
@@ -46,7 +46,7 @@ public final class HttpsDecisionUtil {
         if (this.f2885a == null) {
             this.f2885a = new b((byte) 0);
         }
-        this.f2885a.f2888b = C1170o1.m2424f(context, "open_common", "a3", true);
+        this.f2885a.f2888b = AMapSharedPreferences.m2424f(context, "open_common", "a3", true);
         b bVar = this.f2885a;
         if (bVar == null) {
             throw null;

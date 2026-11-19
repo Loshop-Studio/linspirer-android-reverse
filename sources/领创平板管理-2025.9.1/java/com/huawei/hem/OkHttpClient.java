@@ -1,7 +1,7 @@
 package com.huawei.hem;
 
 import com.huawei.hem.EventListener;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.security.GeneralSecurityException;
@@ -29,10 +29,10 @@ import javax.net.ssl.X509TrustManager;
 public class OkHttpClient implements Cloneable {
 
     /* renamed from: C */
-    public static final List<Protocol> f2413C = C1314tk.m2760o(Protocol.HTTP_2, Protocol.HTTP_1_1);
+    public static final List<Protocol> f2413C = OkHttpCommonUtilities.m2760o(Protocol.HTTP_2, Protocol.HTTP_1_1);
 
     /* renamed from: D */
-    public static final List<ConnectionSpec> f2414D = C1314tk.m2760o(ConnectionSpec.f3468g, ConnectionSpec.f3469h);
+    public static final List<ConnectionSpec> f2414D = OkHttpCommonUtilities.m2760o(ConnectionSpec.f3468g, ConnectionSpec.f3469h);
 
     /* renamed from: A */
     public final int f2415A;
@@ -70,7 +70,7 @@ public class OkHttpClient implements Cloneable {
 
     /* renamed from: j */
     @Nullable
-    public final C1037ij f2426j;
+    public final OkHttpResponseCache f2426j;
 
     /* renamed from: k */
     @Nullable
@@ -92,16 +92,16 @@ public class OkHttpClient implements Cloneable {
     public final CertificatePinner f2432p;
 
     /* renamed from: q */
-    public final InterfaceC1012hj f2433q;
+    public final OkHttpAuthenticator f2433q;
 
     /* renamed from: r */
-    public final InterfaceC1012hj f2434r;
+    public final OkHttpAuthenticator f2434r;
 
     /* renamed from: s */
     public final ConnectionPool f2435s;
 
     /* renamed from: t */
-    public final InterfaceC1338uj f2436t;
+    public final OkHttpDnsResolver f2436t;
 
     /* renamed from: u */
     public final boolean f2437u;
@@ -123,10 +123,10 @@ public class OkHttpClient implements Cloneable {
 
     /* compiled from: OkHttpClient.java */
     /* renamed from: com.huawei.hem.dk$a */
-    public class a extends AbstractC1264rk {
+    public class a extends OkHttpInternalAccess {
         @Override // com.huawei.hem.AbstractC1264rk
         /* renamed from: a */
-        public void mo1612a(C1438yj.a aVar, String str, String str2) {
+        public void mo1612a(OkHttpHeaderList.a aVar, String str, String str2) {
             aVar.f4230a.add(str);
             aVar.f4230a.add(str2.trim());
         }
@@ -155,16 +155,16 @@ public class OkHttpClient implements Cloneable {
         public CertificatePinner f2453k;
 
         /* renamed from: l */
-        public InterfaceC1012hj f2454l;
+        public OkHttpAuthenticator f2454l;
 
         /* renamed from: m */
-        public InterfaceC1012hj f2455m;
+        public OkHttpAuthenticator f2455m;
 
         /* renamed from: n */
         public ConnectionPool f2456n;
 
         /* renamed from: o */
-        public InterfaceC1338uj f2457o;
+        public OkHttpDnsResolver f2457o;
 
         /* renamed from: p */
         public boolean f2458p;
@@ -223,11 +223,11 @@ public class OkHttpClient implements Cloneable {
             this.f2451i = SocketFactory.getDefault();
             this.f2452j = OkHostnameVerifier.f2311a;
             this.f2453k = CertificatePinner.f3269c;
-            InterfaceC1012hj interfaceC1012hj = InterfaceC1012hj.f2873a;
+            OkHttpAuthenticator interfaceC1012hj = OkHttpAuthenticator.f2873a;
             this.f2454l = interfaceC1012hj;
             this.f2455m = interfaceC1012hj;
             this.f2456n = new ConnectionPool();
-            this.f2457o = InterfaceC1338uj.f3874a;
+            this.f2457o = OkHttpDnsResolver.f3874a;
             this.f2458p = true;
             this.f2459q = true;
             this.f2460r = true;
@@ -240,7 +240,7 @@ public class OkHttpClient implements Cloneable {
     }
 
     static {
-        AbstractC1264rk.f3645a = new a();
+        OkHttpInternalAccess.f3645a = new a();
     }
 
     public OkHttpClient() {
@@ -253,8 +253,8 @@ public class OkHttpClient implements Cloneable {
         this.f2418b = null;
         this.f2419c = bVar.f2444b;
         this.f2420d = bVar.f2445c;
-        this.f2421e = C1314tk.m2759n(bVar.f2446d);
-        this.f2422f = C1314tk.m2759n(bVar.f2447e);
+        this.f2421e = OkHttpCommonUtilities.m2759n(bVar.f2446d);
+        this.f2422f = OkHttpCommonUtilities.m2759n(bVar.f2447e);
         this.f2423g = bVar.f2448f;
         this.f2424h = bVar.f2449g;
         this.f2425i = bVar.f2450h;

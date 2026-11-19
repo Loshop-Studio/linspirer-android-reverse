@@ -6,7 +6,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPoint;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class BarcodeView extends CameraPreview {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i = message.what;
-                if (i == C0787R.id.zxing_decode_succeeded) {
+                if (i == ZxingClientAndroidResources.id.zxing_decode_succeeded) {
                     BarcodeResult barcodeResult = (BarcodeResult) message.obj;
                     if (barcodeResult != null && BarcodeView.this.callback != null && BarcodeView.this.decodeMode != DecodeMode.NONE) {
                         BarcodeView.this.callback.barcodeResult(barcodeResult);
@@ -43,10 +43,10 @@ public class BarcodeView extends CameraPreview {
                     }
                     return true;
                 }
-                if (i == C0787R.id.zxing_decode_failed) {
+                if (i == ZxingClientAndroidResources.id.zxing_decode_failed) {
                     return true;
                 }
-                if (i != C0787R.id.zxing_possible_result_points) {
+                if (i != ZxingClientAndroidResources.id.zxing_possible_result_points) {
                     return false;
                 }
                 List<ResultPoint> list = (List) message.obj;
@@ -150,7 +150,7 @@ public class BarcodeView extends CameraPreview {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i = message.what;
-                if (i == C0787R.id.zxing_decode_succeeded) {
+                if (i == ZxingClientAndroidResources.id.zxing_decode_succeeded) {
                     BarcodeResult barcodeResult = (BarcodeResult) message.obj;
                     if (barcodeResult != null && BarcodeView.this.callback != null && BarcodeView.this.decodeMode != DecodeMode.NONE) {
                         BarcodeView.this.callback.barcodeResult(barcodeResult);
@@ -160,10 +160,10 @@ public class BarcodeView extends CameraPreview {
                     }
                     return true;
                 }
-                if (i == C0787R.id.zxing_decode_failed) {
+                if (i == ZxingClientAndroidResources.id.zxing_decode_failed) {
                     return true;
                 }
-                if (i != C0787R.id.zxing_possible_result_points) {
+                if (i != ZxingClientAndroidResources.id.zxing_possible_result_points) {
                     return false;
                 }
                 List<ResultPoint> list = (List) message.obj;
@@ -184,7 +184,7 @@ public class BarcodeView extends CameraPreview {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i2 = message.what;
-                if (i2 == C0787R.id.zxing_decode_succeeded) {
+                if (i2 == ZxingClientAndroidResources.id.zxing_decode_succeeded) {
                     BarcodeResult barcodeResult = (BarcodeResult) message.obj;
                     if (barcodeResult != null && BarcodeView.this.callback != null && BarcodeView.this.decodeMode != DecodeMode.NONE) {
                         BarcodeView.this.callback.barcodeResult(barcodeResult);
@@ -194,10 +194,10 @@ public class BarcodeView extends CameraPreview {
                     }
                     return true;
                 }
-                if (i2 == C0787R.id.zxing_decode_failed) {
+                if (i2 == ZxingClientAndroidResources.id.zxing_decode_failed) {
                     return true;
                 }
-                if (i2 != C0787R.id.zxing_possible_result_points) {
+                if (i2 != ZxingClientAndroidResources.id.zxing_possible_result_points) {
                     return false;
                 }
                 List<ResultPoint> list = (List) message.obj;

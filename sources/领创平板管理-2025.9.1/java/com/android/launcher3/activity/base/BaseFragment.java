@@ -27,10 +27,10 @@ import com.android.launcher3.p027db.model.GesturePasswordDao;
 import com.android.launcher3.p027db.model.ItemApp;
 import com.android.launcher3.view.CommonDialog;
 import com.android.launcher3.view.DialogUtil;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.FileDownloadListener;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.DownloadTask;
 import com.huawei.hem.BaseFragmentDialogButtonListener;
@@ -38,7 +38,7 @@ import com.huawei.hem.HttpCore;
 import com.huawei.hem.DBController;
 import com.huawei.hem.FileDownloader;
 import com.huawei.hem.PostBuilder;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.BaseDownloadTask;
 import java.io.File;
@@ -76,7 +76,7 @@ public abstract class BaseFragment extends Fragment {
     public String f1807h = "";
 
     /* renamed from: com.android.launcher3.activity.base.BaseFragment$a */
-    public class C0642a extends FileDownloadListener {
+    public class FragmentApkDownloadListener extends FileDownloadListener {
 
         /* renamed from: a */
         public final /* synthetic */ String f1808a;
@@ -84,7 +84,7 @@ public abstract class BaseFragment extends Fragment {
         /* renamed from: b */
         public final /* synthetic */ ItemApp f1809b;
 
-        public C0642a(String str, ItemApp itemApp) {
+        public FragmentApkDownloadListener(String str, ItemApp itemApp) {
             this.f1808a = str;
             this.f1809b = itemApp;
         }
@@ -146,8 +146,8 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /* renamed from: com.android.launcher3.activity.base.BaseFragment$b */
-    public class C0643b extends LTKListResponseListener<ItemApp> {
-        public C0643b(Class cls) {
+    public class FragmentUpdateListResponse extends LTKListResponseListener<ItemApp> {
+        public FragmentUpdateListResponse(Class cls) {
             super(cls);
         }
 
@@ -198,7 +198,7 @@ public abstract class BaseFragment extends Fragment {
                 LTKDateUtil.m1403m(sbM1765j.toString());
             }
         }
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             LTKDateUtil.m1415y(baseFragment.f1800a, R.string.no_upgrade_note);
             return;
         }
@@ -224,7 +224,7 @@ public abstract class BaseFragment extends Fragment {
         if (UserInfoUtil.b.f4202a.m3023R()) {
             return;
         }
-        if (!new C0876cc(this.f1800a).m1505a()) {
+        if (!new LauncherNetworkUtil(this.f1800a).m1505a()) {
             LTKDateUtil.m1415y(this.f1800a, R.string.network_unable_note);
             return;
         }
@@ -242,7 +242,7 @@ public abstract class BaseFragment extends Fragment {
             PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
-            c1355vb.m2869b(new C0643b(ItemApp.class));
+            c1355vb.m2869b(new FragmentUpdateListResponse(ItemApp.class));
         } catch (Exception e) {
             e.printStackTrace();
             DialogUtil.hideDialog();
@@ -264,13 +264,13 @@ public abstract class BaseFragment extends Fragment {
                 throw null;
             }
             DownloadTask c1007he = new DownloadTask(str);
-            c1007he.m1947z(CompilerOutline.m1763h(new StringBuilder(), C1395x1.f4038a, packagename, ".apk"), false);
+            c1007he.m1947z(CompilerOutline.m1763h(new StringBuilder(), LauncherConstants.f4038a, packagename, ".apk"), false);
             interfaceC0956fe = c1007he;
         }
         if (interfaceC0956fe == null) {
             LTKDateUtil.m1403m("BaseFragmentdownload task empty can not  downloading");
         } else {
-            interfaceC0956fe.mo1802x(new C0642a(packagename, itemApp));
+            interfaceC0956fe.mo1802x(new FragmentApkDownloadListener(packagename, itemApp));
             interfaceC0956fe.start();
         }
     }

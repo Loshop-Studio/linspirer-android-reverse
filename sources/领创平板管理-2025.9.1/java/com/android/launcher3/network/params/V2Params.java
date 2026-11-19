@@ -4,7 +4,7 @@ import android.content.pm.PackageManager;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.android.launcher3.GuardSecureApplication;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0940eo;
+import com.huawei.hem.HemBase64Codec;
 import com.huawei.hem.CompilerOutline;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -54,7 +54,7 @@ public class V2Params {
         LTKDateUtil.m1395e("1191ADF1-8489-D8DA-5E9B-755A8B674394");
         try {
             Cipher cipherM1402l = LTKDateUtil.m1402l(1);
-            return cipherM1402l == null ? str : new String(C0940eo.m1690f(cipherM1402l.doFinal(str.getBytes())));
+            return cipherM1402l == null ? str : new String(HemBase64Codec.m1690f(cipherM1402l.doFinal(str.getBytes())));
         } catch (BadPaddingException e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("login two:");
             sbM1765j.append(e.getMessage());

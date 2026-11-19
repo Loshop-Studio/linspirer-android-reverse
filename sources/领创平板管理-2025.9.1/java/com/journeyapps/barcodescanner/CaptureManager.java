@@ -14,7 +14,7 @@ import android.util.Log;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.BeepManager;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 import com.google.zxing.client.android.InactivityTimer;
 import com.google.zxing.client.android.Intents;
 import com.journeyapps.barcodescanner.CameraPreview;
@@ -198,9 +198,9 @@ public class CaptureManager {
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(this.activity);
-        builder.setTitle(this.activity.getString(C0787R.string.zxing_app_name));
-        builder.setMessage(this.activity.getString(C0787R.string.zxing_msg_camera_framework_bug));
-        builder.setPositiveButton(C0787R.string.zxing_button_ok, new DialogInterface.OnClickListener() { // from class: com.journeyapps.barcodescanner.CaptureManager.5
+        builder.setTitle(this.activity.getString(ZxingClientAndroidResources.string.zxing_app_name));
+        builder.setMessage(this.activity.getString(ZxingClientAndroidResources.string.zxing_msg_camera_framework_bug));
+        builder.setPositiveButton(ZxingClientAndroidResources.string.zxing_button_ok, new DialogInterface.OnClickListener() { // from class: com.journeyapps.barcodescanner.CaptureManager.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 CaptureManager.this.finish();

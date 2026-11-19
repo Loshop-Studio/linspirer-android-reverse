@@ -8,7 +8,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.widget.TintableCompoundButton;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
@@ -79,7 +79,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     public AppCompatRadioButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.radioButtonStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.radioButtonStyle);
     }
 
     public AppCompatRadioButton(Context context, AttributeSet attributeSet, int i) {

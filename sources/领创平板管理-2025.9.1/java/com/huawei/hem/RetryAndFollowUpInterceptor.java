@@ -77,7 +77,7 @@ public final class RetryAndFollowUpInterceptor implements OkHttpInterceptor {
             return false;
         }
         if (z) {
-            AbstractC1063jk abstractC1063jk = c0988gk.f2788d;
+            OkHttpRequestBody abstractC1063jk = c0988gk.f2788d;
             if (iOException instanceof FileNotFoundException) {
                 return false;
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 import com.journeyapps.barcodescanner.Size;
 import com.journeyapps.barcodescanner.Util;
 
@@ -38,7 +38,7 @@ public class CameraInstance {
                 Log.d(CameraInstance.TAG, "Configuring camera");
                 CameraInstance.this.cameraManager.configure();
                 if (CameraInstance.this.readyHandler != null) {
-                    CameraInstance.this.readyHandler.obtainMessage(C0787R.id.zxing_prewiew_size_ready, CameraInstance.this.getPreviewSize()).sendToTarget();
+                    CameraInstance.this.readyHandler.obtainMessage(ZxingClientAndroidResources.id.zxing_prewiew_size_ready, CameraInstance.this.getPreviewSize()).sendToTarget();
                 }
             } catch (Exception e) {
                 CameraInstance.this.notifyError(e);
@@ -70,7 +70,7 @@ public class CameraInstance {
                 Log.e(CameraInstance.TAG, "Failed to close camera", e);
             }
             CameraInstance.this.cameraClosed = true;
-            CameraInstance.this.readyHandler.sendEmptyMessage(C0787R.id.zxing_camera_closed);
+            CameraInstance.this.readyHandler.sendEmptyMessage(ZxingClientAndroidResources.id.zxing_camera_closed);
             CameraInstance.this.cameraThread.decrementInstances();
         }
     };
@@ -92,7 +92,7 @@ public class CameraInstance {
     public void notifyError(Exception exc) {
         Handler handler = this.readyHandler;
         if (handler != null) {
-            handler.obtainMessage(C0787R.id.zxing_camera_error, exc).sendToTarget();
+            handler.obtainMessage(ZxingClientAndroidResources.id.zxing_camera_error, exc).sendToTarget();
         }
     }
 

@@ -8,18 +8,19 @@ REA 证据编号 `ev_ac0255e60b929a113823595b892a915362c7b9ea56a977788b7d595df65
 
 ## Java 类名
 
-本版阅读源码共 3,589 个顶层 Java 文件。557 个类已使用可读名称，涉及 1,151 个声明或引用这些类的文件。`C` 加四位编号的顶层类由 965 个减至 536 个。把 `RunnableC`、`AbstractC` 等变体一并计算，占位类名由 1,364 个减至 807 个。这里统计的是顶层文件，内部类、方法和字段另计。
+3,589 个 Java 文件中，原有 1,364 个顶层类和 200 个内部类使用 JADX 编号占位名。两轮共命名 1,564 个类，并更新了 1,975 个文件里的声明或引用。按 Java 词法跳过注释和字符串后，形如 `C0811a`、`RunnableC…`、`InterfaceC…` 的编号类声明现为零。
 
 | 旧 Java 类名 | 阅读源码 | 命名依据 |
 | --- | --- | --- |
-| `C0811a` | [ArchTaskExecutor](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/ArchTaskExecutor.java) | 原始 DEX 保留了 `ArchTaskExecutor.java`。 |
-| `ViewOnClickListenerC1397x3` | [MainMenuMessageCenterClickListener](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/MainMenuMessageCenterClickListener.java) | 首页把消息中心菜单项绑定到这个回调，回调打开消息中心。 |
-| `ViewOnClickListenerC1447z3` | [MainMenuDeviceInfoClickListener](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/MainMenuDeviceInfoClickListener.java) | 首页的设备信息菜单项和回调打开的页面一致。 |
-| `InterfaceC1268s` | [ViewModelProviderFactory](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/ViewModelProviderFactory.java) | DEX 保留了外层文件名，接口的 `create(Class)` 与同批 APK 中的 `ViewModelProvider.Factory` 一致。 |
+| `C0811a` | [ArchTaskExecutor](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/ArchTaskExecutor.java) | 原始 DEX 保留了同名源文件。 |
+| `InterfaceC1268s` | [ViewModelProviderFactory](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/ViewModelProviderFactory.java) | 源文件名和接口的 `create(Class)` 方法与同批 APK 中的 `ViewModelProvider.Factory` 对应。 |
+| `ViewOnClickListenerC1097l4` | [LoginMenuSyncTimeClickListener](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/LoginMenuSyncTimeClickListener.java) | 登录菜单将同步时间控件绑定到这个回调，回调会发起校时。 |
+| `C0660a`、`C0661b` | [HiBoardFragment 的两个图片加载回调](../../../sources/领创平板管理-2025.9.1/java/com/android/launcher3/fragment/home/HiBoardFragment.java#L79) | 前者用于配置的图片路径，后者用于本地 drawable 资源。两者最终都设置控件背景。 |
+| `C1000h7` | [SdkStringAndThreeIntegers](../../../sources/领创平板管理-2025.9.1/java/com/huawei/hem/SdkStringAndThreeIntegers.java) | 构造器保存一个字符串和三个整数，现有证据只能说明字段结构。 |
 
-[可读名称映射](../../../sources/领创平板管理-2025.9.1/class-names.map)逐项记录旧 JADX 名、阅读名、原始 DEX 类名和依据，可作为 REA 的 `--mapping-path` 输入。REA 6.9.0 识别出全部 557 条类记录，格式错误为零。源文件同名、编译器合并等情况会影响原始符号的恢复，按控件或接口职责起的名称是本项目的阅读别名。
+[类名映射](../../../sources/领创平板管理-2025.9.1/class-names.map)记录旧 Java 简名、阅读名、原始 DEX 类型和命名依据，可用作 REA 的 `--mapping-path`。本轮新增的 807 个顶层名称里，40 个对应独立包的安卓资源表，48 个由创建回调的具名方法确定，684 个按实现职责命名，35 个标为结构命名。另补全 200 个内部类。涉及内部类的映射用 `$` 保留声明层级。发行 APK 未附厂商的原始混淆映射，按职责和结构起的名称是项目阅读别名。
 
-[原始 JADX 名称表](../../../sources/领创平板管理-2025.9.1/names.jobf)保留了复现初次导出所需的名称。在仓库根目录运行 `python3 tools/apply_class_names.py 领创平板管理-2025.9.1` 可对初次导出的阅读源码应用映射，或者检查已改名文件的声明与引用。APK 由 smali 构建，[356 个 Java 占位方法](java-fallbacks.md)分别链接到对应的 DEX 方法体。
+[原始 JADX 名称表](../../../sources/领创平板管理-2025.9.1/names.jobf)保留初次导出结果。在仓库根目录运行 `python3 tools/apply_class_names.py 领创平板管理-2025.9.1`，可从原始导出或上一版阅读源码应用映射。反向替换后，全部 3,589 个 Java 文件与初次导出逐字节一致。REA 6.9.0 识别出 1,564 条记录，格式错误为零。APK 由 smali 构建，[356 个 Java 占位方法](java-fallbacks.md)分别链接到原始 DEX 中对应的方法体。
 
 ## Android 组件
 

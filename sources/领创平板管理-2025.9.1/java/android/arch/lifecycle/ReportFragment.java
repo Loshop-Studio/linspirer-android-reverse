@@ -6,7 +6,7 @@ import android.app.FragmentManager;
 import android.content.ComponentCallbacks2;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.LifecycleRegistry;
 import com.huawei.hem.LifecycleOwner;
 import com.huawei.hem.LifecycleRegistryOwner;
@@ -16,10 +16,10 @@ import com.huawei.hem.LifecycleRegistryOwner;
 public class ReportFragment extends Fragment {
 
     /* renamed from: a */
-    public InterfaceC0003a f12a;
+    public ReportActivityLifecycleListener f12a;
 
     /* renamed from: android.arch.lifecycle.ReportFragment$a */
-    public interface InterfaceC0003a {
+    public interface ReportActivityLifecycleListener {
         /* renamed from: a */
         void m13a();
 
@@ -38,12 +38,12 @@ public class ReportFragment extends Fragment {
     }
 
     /* renamed from: a */
-    public final void m12a(AbstractC0992h.a aVar) {
+    public final void m12a(ArchitectureLifecycle.a aVar) {
         ComponentCallbacks2 activity = getActivity();
         if (activity instanceof LifecycleRegistryOwner) {
             ((LifecycleRegistryOwner) activity).getLifecycle().m2151c(aVar);
         } else if (activity instanceof LifecycleOwner) {
-            AbstractC0992h lifecycle = ((LifecycleOwner) activity).getLifecycle();
+            ArchitectureLifecycle lifecycle = ((LifecycleOwner) activity).getLifecycle();
             if (lifecycle instanceof LifecycleRegistry) {
                 ((LifecycleRegistry) lifecycle).m2151c(aVar);
             }
@@ -53,49 +53,49 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        InterfaceC0003a interfaceC0003a = this.f12a;
+        ReportActivityLifecycleListener interfaceC0003a = this.f12a;
         if (interfaceC0003a != null) {
             interfaceC0003a.onCreate();
         }
-        m12a(AbstractC0992h.a.ON_CREATE);
+        m12a(ArchitectureLifecycle.a.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        m12a(AbstractC0992h.a.ON_DESTROY);
+        m12a(ArchitectureLifecycle.a.ON_DESTROY);
         this.f12a = null;
     }
 
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        m12a(AbstractC0992h.a.ON_PAUSE);
+        m12a(ArchitectureLifecycle.a.ON_PAUSE);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        InterfaceC0003a interfaceC0003a = this.f12a;
+        ReportActivityLifecycleListener interfaceC0003a = this.f12a;
         if (interfaceC0003a != null) {
             interfaceC0003a.m13a();
         }
-        m12a(AbstractC0992h.a.ON_RESUME);
+        m12a(ArchitectureLifecycle.a.ON_RESUME);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        InterfaceC0003a interfaceC0003a = this.f12a;
+        ReportActivityLifecycleListener interfaceC0003a = this.f12a;
         if (interfaceC0003a != null) {
             interfaceC0003a.onStart();
         }
-        m12a(AbstractC0992h.a.ON_START);
+        m12a(ArchitectureLifecycle.a.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onStop() {
         super.onStop();
-        m12a(AbstractC0992h.a.ON_STOP);
+        m12a(ArchitectureLifecycle.a.ON_STOP);
     }
 }

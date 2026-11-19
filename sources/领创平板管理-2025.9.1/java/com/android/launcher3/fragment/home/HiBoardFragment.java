@@ -32,12 +32,12 @@ import com.bumptech.glide.BitmapTypeRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.OnHiBoardChangeListener;
 import com.linspirer.mdm.R$string;
@@ -76,12 +76,12 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
     public int f1973q = 2;
 
     /* renamed from: com.android.launcher3.fragment.home.HiBoardFragment$a */
-    public class C0660a extends SimpleTarget<Bitmap> {
+    public class HiBoardRemoteBackgroundTarget extends SimpleTarget<Bitmap> {
 
         /* renamed from: a */
         public final /* synthetic */ TextView f1974a;
 
-        public C0660a(TextView textView) {
+        public HiBoardRemoteBackgroundTarget(TextView textView) {
             this.f1974a = textView;
         }
 
@@ -94,12 +94,12 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
     }
 
     /* renamed from: com.android.launcher3.fragment.home.HiBoardFragment$b */
-    public class C0661b extends SimpleTarget<Bitmap> {
+    public class HiBoardResourceBackgroundTarget extends SimpleTarget<Bitmap> {
 
         /* renamed from: a */
         public final /* synthetic */ TextView f1976a;
 
-        public C0661b(TextView textView) {
+        public HiBoardResourceBackgroundTarget(TextView textView) {
             this.f1976a = textView;
         }
 
@@ -126,9 +126,9 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
         textView.setText(screenPartSettings.getTitle());
         String b_img_path = screenPartSettings.getB_img_path();
         if (TextUtils.isEmpty(b_img_path)) {
-            Glide.with(this.f1800a).load(Integer.valueOf(i)).asBitmap().into((BitmapTypeRequest<Integer>) new C0661b(textView));
+            Glide.with(this.f1800a).load(Integer.valueOf(i)).asBitmap().into((BitmapTypeRequest<Integer>) new HiBoardResourceBackgroundTarget(textView));
         } else {
-            Glide.with(this.f1800a).load(b_img_path).asBitmap().fallback(i).into((BitmapRequestBuilder<String, Bitmap>) new C0660a(textView));
+            Glide.with(this.f1800a).load(b_img_path).asBitmap().fallback(i).into((BitmapRequestBuilder<String, Bitmap>) new HiBoardRemoteBackgroundTarget(textView));
         }
         textView.setTag(screenPartSettings);
     }
@@ -145,7 +145,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
         ScreenPartSettings screenPartSettings3 = new ScreenPartSettings(3, resources.getString(R.string.text_model_default_three));
         ScreenPartSettings screenPartSettings4 = new ScreenPartSettings(4, resources.getString(R.string.text_model_default_four));
         ScreenPartSettings screenPartSettings5 = new ScreenPartSettings(5, resources.getString(R.string.text_model_default_five));
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             for (ScreenPartSettings screenPartSettings6 : list) {
                 int position = screenPartSettings6.getPosition();
                 if (position == 1) {
@@ -230,7 +230,7 @@ public class HiBoardFragment extends BaseFragment implements View.OnClickListene
                         if (!z) {
                             LTKDateUtil.m1415y(this.f1800a, R.string.text_loading_browser_component);
                             LauncherMenuHelper.m3001v(getActivity(), true);
-                            File file = new File(CompilerOutline.m1763h(new StringBuilder(), C1395x1.f4038a, "com.linspirer.exclusivebrowser", ".apk"));
+                            File file = new File(CompilerOutline.m1763h(new StringBuilder(), LauncherConstants.f4038a, "com.linspirer.exclusivebrowser", ".apk"));
                             if (!file.exists()) {
                                 LTKDateUtil.m1403m("HiBoardFragmentno download apk  need download");
                                 ItemApp itemApp = new ItemApp();

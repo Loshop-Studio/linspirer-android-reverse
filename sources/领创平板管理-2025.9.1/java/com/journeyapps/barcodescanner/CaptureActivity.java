@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 
 /* loaded from: classes.dex */
 public class CaptureActivity extends Activity {
@@ -12,8 +12,8 @@ public class CaptureActivity extends Activity {
     public CaptureManager capture;
 
     public DecoratedBarcodeView initializeContent() {
-        setContentView(C0787R.layout.zxing_capture);
-        return (DecoratedBarcodeView) findViewById(C0787R.id.zxing_barcode_scanner);
+        setContentView(ZxingClientAndroidResources.layout.zxing_capture);
+        return (DecoratedBarcodeView) findViewById(ZxingClientAndroidResources.id.zxing_barcode_scanner);
     }
 
     @Override // android.app.Activity

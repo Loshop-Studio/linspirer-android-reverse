@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 /* compiled from: FormBody.java */
 /* renamed from: com.huawei.hem.wj */
 /* loaded from: classes.dex */
-public final class FormBody extends AbstractC1063jk {
+public final class FormBody extends OkHttpRequestBody {
 
     /* renamed from: c */
     public static final OkHttpMediaType f4024c = OkHttpMediaType.m1421a("application/x-www-form-urlencoded");
@@ -18,8 +18,8 @@ public final class FormBody extends AbstractC1063jk {
     public final List<String> f4026b;
 
     public FormBody(List<String> list, List<String> list2) {
-        this.f4025a = C1314tk.m2759n(list);
-        this.f4026b = C1314tk.m2759n(list2);
+        this.f4025a = OkHttpCommonUtilities.m2759n(list);
+        this.f4026b = OkHttpCommonUtilities.m2759n(list2);
     }
 
     @Override // com.huawei.hem.AbstractC1063jk

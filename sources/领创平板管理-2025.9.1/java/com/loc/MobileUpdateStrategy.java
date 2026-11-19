@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: MobileUpdateStrategy.java */
 /* renamed from: com.loc.bj */
@@ -53,7 +53,7 @@ public final class MobileUpdateStrategy extends UpdateStrategy {
         if (DeviceInfo.m1087u(this.f5109b) == 1) {
             return;
         }
-        String strM2233b = C1094l1.m2233b(System.currentTimeMillis(), "yyyyMMdd");
+        String strM2233b = AMapCoreUtilities.m2233b(System.currentTimeMillis(), "yyyyMMdd");
         String strM5317a = AMapLog.m5317a(this.f5109b, this.f5108a);
         if (!TextUtils.isEmpty(strM5317a)) {
             String[] strArrSplit = strM5317a.split("\\|");
@@ -81,7 +81,7 @@ public final class MobileUpdateStrategy extends UpdateStrategy {
         }
         String[] strArrSplit = strM5317a.split("\\|");
         if (strArrSplit != null && strArrSplit.length >= 2) {
-            return !C1094l1.m2233b(System.currentTimeMillis(), "yyyyMMdd").equals(strArrSplit[0]) || Integer.parseInt(strArrSplit[1]) < this.f5112f;
+            return !AMapCoreUtilities.m2233b(System.currentTimeMillis(), "yyyyMMdd").equals(strArrSplit[0]) || Integer.parseInt(strArrSplit[1]) < this.f5112f;
         }
         AMapLog.m5323b(this.f5109b, this.f5108a);
         return true;

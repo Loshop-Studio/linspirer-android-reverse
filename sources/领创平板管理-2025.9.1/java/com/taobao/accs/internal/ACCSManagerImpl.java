@@ -17,20 +17,20 @@ import com.taobao.accs.IAppReceiver;
 import com.taobao.accs.ILoginInfo;
 import com.taobao.accs.base.AccsAbstractDataListener;
 import com.taobao.accs.base.TaoBaseService;
-import com.taobao.accs.client.C1910a;
+import com.taobao.accs.client.AccsClientRegistry;
 import com.taobao.accs.client.GlobalClientInfo;
 import com.taobao.accs.common.Constants;
 import com.taobao.accs.common.ThreadPoolExecutorFactory;
-import com.taobao.accs.data.C1924g;
+import com.taobao.accs.data.AccsMessageDistributor;
 import com.taobao.accs.data.Message;
-import com.taobao.accs.net.AbstractC1940b;
-import com.taobao.accs.net.C1948j;
+import com.taobao.accs.net.AccsConnectionBase;
+import com.taobao.accs.net.AccsInAppConnection;
 import com.taobao.accs.p072ut.monitor.NetPerformanceMonitor;
 import com.taobao.accs.utl.AccsLogger;
 import com.taobao.accs.utl.AdapterUtilityImpl;
 import com.taobao.accs.utl.AppMonitorAdapter;
 import com.taobao.accs.utl.BaseMonitor;
-import com.taobao.accs.utl.C1975c;
+import com.taobao.accs.utl.LegacyAppReceiverAdapter;
 import com.taobao.accs.utl.UtilityImpl;
 import java.net.URL;
 import java.util.HashMap;
@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
 public class ACCSManagerImpl implements IACCSManager {
 
     /* renamed from: a */
-    public AbstractC1940b f6168a;
+    public AccsConnectionBase f6168a;
 
     /* renamed from: b */
     public int f6169b = 0;
@@ -59,12 +59,12 @@ public class ACCSManagerImpl implements IACCSManager {
     public ACCSManagerImpl(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
         GlobalClientInfo.f6059a = applicationContext;
-        this.f6168a = new C1948j(applicationContext, 1, str);
+        this.f6168a = new AccsInAppConnection(applicationContext, 1, str);
         this.f6171d = str;
         StringBuilder sbM1765j = CompilerOutline.m1765j("ACCSMgrImpl_");
         sbM1765j.append(this.f6168a.f6221m);
         this.f6172e = AccsLogger.getLogger(sbM1765j.toString());
-        ThreadPoolExecutorFactory.getScheduledExecutor().schedule(new RunnableC1928a(this, str, context), 64L, TimeUnit.MILLISECONDS);
+        ThreadPoolExecutorFactory.getScheduledExecutor().schedule(new RegisterAccsConnectionListenerTask(this, str, context), 64L, TimeUnit.MILLISECONDS);
     }
 
     @Override // com.taobao.accs.IACCSManager
@@ -204,7 +204,7 @@ public class ACCSManagerImpl implements IACCSManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        C1910a.m5471a().m5475b(this.f6171d);
+        AccsClientRegistry.m5471a().m5475b(this.f6171d);
         this.f6170c = false;
     }
 
@@ -359,9 +359,9 @@ public class ACCSManagerImpl implements IACCSManager {
 
     @Override // com.taobao.accs.IACCSManager
     public void updateConfig(AccsClientConfig accsClientConfig) {
-        AbstractC1940b abstractC1940b = this.f6168a;
-        if (abstractC1940b instanceof C1948j) {
-            ((C1948j) abstractC1940b).m5678a(accsClientConfig);
+        AccsConnectionBase abstractC1940b = this.f6168a;
+        if (abstractC1940b instanceof AccsInAppConnection) {
+            ((AccsInAppConnection) abstractC1940b).m5678a(accsClientConfig);
         }
     }
 
@@ -383,13 +383,13 @@ public class ACCSManagerImpl implements IACCSManager {
             this.f6168a.m5627a(messageM5493a, AccsErrorCode.APPKEY_NULL);
             return;
         }
-        AbstractC1940b abstractC1940b = this.f6168a;
+        AccsConnectionBase abstractC1940b = this.f6168a;
         abstractC1940b.f6209a = str3;
         abstractC1940b.f6210b = str;
         abstractC1940b.f6217i.getAppSecret();
         UtilityImpl.m5762e(context, str);
         if (iAppReceiver != null) {
-            C1910a.m5471a().m5473a(this.f6171d, C1975c.m5774a(iAppReceiver));
+            AccsClientRegistry.m5471a().m5473a(this.f6171d, LegacyAppReceiverAdapter.m5774a(iAppReceiver));
         }
         m5589a(context, str, str3);
     }
@@ -445,7 +445,7 @@ public class ACCSManagerImpl implements IACCSManager {
     @Override // com.taobao.accs.IACCSManager
     public void startInAppConnection(Context context, String str, String str2, String str3, IAppReceiver iAppReceiver) {
         if (iAppReceiver != null) {
-            C1910a.m5471a().m5473a(this.f6171d, C1975c.m5774a(iAppReceiver));
+            AccsClientRegistry.m5471a().m5473a(this.f6171d, LegacyAppReceiverAdapter.m5774a(iAppReceiver));
         }
         if (!UtilityImpl.isMainProcess(context)) {
             this.f6172e.mo671w("inapp only init in main process!");
@@ -456,7 +456,7 @@ public class ACCSManagerImpl implements IACCSManager {
             return;
         }
         if (!TextUtils.equals(this.f6168a.m5646i(), str)) {
-            AbstractC1940b abstractC1940b = this.f6168a;
+            AccsConnectionBase abstractC1940b = this.f6168a;
             abstractC1940b.f6209a = str3;
             abstractC1940b.f6210b = str;
             abstractC1940b.f6217i.getAppSecret();
@@ -626,7 +626,7 @@ public class ACCSManagerImpl implements IACCSManager {
 
     /* renamed from: a */
     private boolean m5591a(Context context) {
-        AbstractC1940b abstractC1940b = this.f6168a;
+        AccsConnectionBase abstractC1940b = this.f6168a;
         return abstractC1940b == null || !abstractC1940b.m5647j().m5481d(context.getPackageName());
     }
 
@@ -651,6 +651,6 @@ public class ACCSManagerImpl implements IACCSManager {
         intent.putExtra(Constants.KEY_APP_KEY, this.f6168a.f6210b);
         intent.putExtra(Constants.KEY_CONFIG_TAG, this.f6171d);
         intent.putExtra(Constants.KEY_ERROR_OBJ, i == 2 ? AccsErrorCode.SUCCESS : AccsErrorCode.APP_NOT_BIND);
-        C1924g.m5570a(context, intent);
+        AccsMessageDistributor.m5570a(context, intent);
     }
 }

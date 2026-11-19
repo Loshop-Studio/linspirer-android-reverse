@@ -26,7 +26,7 @@ public class ZeDiImpl extends AndroidImpl {
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Context context = f3259c;
@@ -581,7 +581,7 @@ public class ZeDiImpl extends AndroidImpl {
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Context context = f3259c;
@@ -598,7 +598,7 @@ public class ZeDiImpl extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("ZeDiImpl---setAppWhiteList");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return false;
         }
         LTKDateUtil.m1403m("ZeDiImpl---cleanWhiteAppList");

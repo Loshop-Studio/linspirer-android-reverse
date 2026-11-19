@@ -111,7 +111,7 @@ public class AngdaImpl extends AndroidImpl {
                 Iterator it = arrayListM1772q.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    String[] strArrM2276Q = AbstractC1102l9.m2276Q(str2, " ");
+                    String[] strArrM2276Q = MobileSdkPlatformUtilities.m2276Q(str2, " ");
                     if (strArrM2276Q != null && strArrM2276Q.length != 0) {
                         LTKDateUtil.m1403m("AngdaImpl angda url:" + str2);
                         AngdaImpl.f3072c.mo1845J2(strArrM2276Q);
@@ -624,7 +624,7 @@ public class AngdaImpl extends AndroidImpl {
         if (f3072c == null) {
             return false;
         }
-        f3072c.mo1849g2(AbstractC1102l9.m2275P(list));
+        f3072c.mo1849g2(MobileSdkPlatformUtilities.m2275P(list));
         return false;
     }
 

@@ -291,7 +291,7 @@ public final class ApsManager {
         bundle.putParcelable("loc", aMapLocation);
         bundle.putString("nb", str);
         bundle.putParcelable("statics", c1806do);
-        this.f5538h.put(messenger, Long.valueOf(C1841ew.m5127b()));
+        this.f5538h.put(messenger, Long.valueOf(AMapLocationUtilities.m5127b()));
         m4786a(messenger, 1, bundle);
     }
 
@@ -326,7 +326,7 @@ public final class ApsManager {
                 String[] strArrSplit4 = str.split(ContainerUtils.KEY_VALUE_DELIMITER);
                 if (strArrSplit4 != null && strArrSplit4.length > 1) {
                     if ("to".equals(strArrSplit4[0])) {
-                        iM5144e = C1841ew.m5144e(strArrSplit4[1]);
+                        iM5144e = AMapLocationUtilities.m5144e(strArrSplit4[1]);
                     }
                     if ("callback".equals(strArrSplit4[0])) {
                         this.f5531F = strArrSplit4[1];
@@ -516,7 +516,7 @@ public final class ApsManager {
                 c1806do.m4591e("conitue");
                 AMapLocationClientOption aMapLocationClientOptionM4797b = m4797b(bundle);
                 if (this.f5538h.containsKey(messenger) && !aMapLocationClientOptionM4797b.isOnceLocation()) {
-                    if (C1841ew.m5127b() - this.f5538h.get(messenger).longValue() < 800) {
+                    if (AMapLocationUtilities.m5127b() - this.f5538h.get(messenger).longValue() < 800) {
                         return;
                     }
                 }
@@ -528,13 +528,13 @@ public final class ApsManager {
                     ReportUtil.m5076a((String) null, 2091);
                     return;
                 }
-                long jM5127b = C1841ew.m5127b();
-                if (C1841ew.m5117a(this.f5554x) && jM5127b - this.f5553w < 600) {
+                long jM5127b = AMapLocationUtilities.m5127b();
+                if (AMapLocationUtilities.m5117a(this.f5554x) && jM5127b - this.f5553w < 600) {
                     m4787a(messenger, this.f5554x, this.f5554x.m4700k(), c1806do);
                     this.f5537f.m4627a(this.f5554x, 3);
                     return;
                 }
-                c1806do.m4585c(C1841ew.m5127b());
+                c1806do.m4585c(AMapLocationUtilities.m5127b());
                 try {
                     AMapLocationServer c1812duM4618a = this.f5537f.m4618a(c1806do);
                     this.f5554x = c1812duM4618a;
@@ -552,8 +552,8 @@ public final class ApsManager {
                     this.f5554x = m4782a(8, "loc error : " + th.getMessage() + "#0801");
                     CoreUtil.m5014a(th, "ApsServiceCore", "run part2");
                 }
-                if (C1841ew.m5117a(this.f5554x)) {
-                    this.f5553w = C1841ew.m5127b();
+                if (AMapLocationUtilities.m5117a(this.f5554x)) {
+                    this.f5553w = AMapLocationUtilities.m5127b();
                 }
                 if (this.f5554x == null) {
                     this.f5554x = m4782a(8, "loc is null#0801");
@@ -600,7 +600,7 @@ public final class ApsManager {
         StringBuilder sb;
         String str;
         long jCurrentTimeMillis = System.currentTimeMillis();
-        if (C1841ew.m5146e(this.f5536e)) {
+        if (AMapLocationUtilities.m5146e(this.f5536e)) {
             sb = new StringBuilder();
             sb.append(this.f5531F);
             sb.append("&&");
@@ -726,7 +726,7 @@ public final class ApsManager {
                     this.f5537f.m4625a(aMapLocation);
                     if (this.f5543m == null || this.f5543m.isNeedAddress()) {
                         if (this.f5534c != null) {
-                            fM5105a = C1841ew.m5105a(new double[]{d, d2, this.f5534c.getLatitude(), this.f5534c.getLongitude()});
+                            fM5105a = AMapLocationUtilities.m5105a(new double[]{d, d2, this.f5534c.getLatitude(), this.f5534c.getLongitude()});
                             if (fM5105a < AuthUtil.m4995i() * 3) {
                                 Bundle bundle2 = new Bundle();
                                 bundle2.setClassLoader(AMapLocation.class.getClassLoader());
@@ -841,7 +841,7 @@ public final class ApsManager {
             }
             this.f5533b = null;
             if (this.f5539i != null && this.f5540j != 0 && this.f5541k != 0) {
-                long jM5127b = C1841ew.m5127b() - this.f5540j;
+                long jM5127b = AMapLocationUtilities.m5127b() - this.f5540j;
                 ReportUtil.m5067a(this.f5536e, this.f5539i.m5085c(this.f5536e), this.f5539i.m5086d(this.f5536e), this.f5541k, jM5127b);
                 this.f5539i.m5087e(this.f5536e);
             }

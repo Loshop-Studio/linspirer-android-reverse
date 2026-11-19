@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.TintableBackgroundView;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.view.ActionMode;
@@ -124,7 +124,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.autoCompleteTextViewStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.autoCompleteTextViewStyle);
     }
 
     public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {

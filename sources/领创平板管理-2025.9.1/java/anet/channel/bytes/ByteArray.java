@@ -1,6 +1,6 @@
 package anet.channel.bytes;
 
-import anet.channel.bytes.C0317a;
+import anet.channel.bytes.AwcnByteArrayPool;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -52,7 +52,7 @@ public class ByteArray implements Comparable<ByteArray> {
         if (this.bufferLength == 0) {
             return;
         }
-        C0317a.a.f177a.m72a(this);
+        AwcnByteArrayPool.a.f177a.m72a(this);
     }
 
     public void setDataLength(int i) {

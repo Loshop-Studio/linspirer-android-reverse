@@ -79,8 +79,8 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
     public TextView f2001z;
 
     /* renamed from: com.android.launcher3.fragment.home.MainFragment$a */
-    public class C0663a implements ViewPager.OnPageChangeListener {
-        public C0663a() {
+    public class MainPageListener implements ViewPager.OnPageChangeListener {
+        public MainPageListener() {
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -166,7 +166,7 @@ public class MainFragment extends BaseHomeFragment implements View.OnClickListen
         this.f1994C = mainFragmentPagerAdapter;
         this.f1999x.setAdapter(mainFragmentPagerAdapter);
         this.f1999x.setOffscreenPageLimit(5);
-        this.f1999x.setOnPageChangeListener(new C0663a());
+        this.f1999x.setOnPageChangeListener(new MainPageListener());
         this.f2000y.setOnClickListener(this);
         this.f1993B.setOnClickListener(this);
     }

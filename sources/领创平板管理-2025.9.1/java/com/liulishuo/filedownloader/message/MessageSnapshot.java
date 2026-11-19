@@ -7,7 +7,7 @@ import com.huawei.hem.IMessageSnapshot;
 
 /* loaded from: classes.dex */
 public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
-    public static final Parcelable.Creator<MessageSnapshot> CREATOR = new C1704a();
+    public static final Parcelable.Creator<MessageSnapshot> CREATOR = new DownloadSnapshotParcelCreator();
 
     /* renamed from: a */
     public final int f4819a;
@@ -32,7 +32,7 @@ public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
     }
 
     /* renamed from: com.liulishuo.filedownloader.message.MessageSnapshot$a */
-    public static class C1704a implements Parcelable.Creator<MessageSnapshot> {
+    public static class DownloadSnapshotParcelCreator implements Parcelable.Creator<MessageSnapshot> {
         /* JADX WARN: Removed duplicated region for block: B:46:0x0093  */
         /* JADX WARN: Removed duplicated region for block: B:48:0x0096  */
         @Override // android.os.Parcelable.Creator
@@ -158,14 +158,14 @@ public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
     }
 
     /* renamed from: com.liulishuo.filedownloader.message.MessageSnapshot$b */
-    public interface InterfaceC1705b {
+    public interface SnapshotFlagContract {
         /* renamed from: b */
         MessageSnapshot mo3925b();
     }
 
     /* renamed from: com.liulishuo.filedownloader.message.MessageSnapshot$c */
-    public static class C1706c extends IllegalStateException {
-        public C1706c(String str, MessageSnapshot messageSnapshot) {
+    public static class DownloadSnapshotStateException extends IllegalStateException {
+        public DownloadSnapshotStateException(String str, MessageSnapshot messageSnapshot) {
             super(FileDownloadUtils.m1955e("There isn't a field for '%s' in this message %d %d %s", str, Integer.valueOf(messageSnapshot.f4819a), Byte.valueOf(messageSnapshot.mo2112a()), messageSnapshot.getClass().getName()));
         }
     }
@@ -176,7 +176,7 @@ public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
 
     /* renamed from: d */
     public String mo3919d() {
-        throw new C1706c("getEtag", this);
+        throw new DownloadSnapshotStateException("getEtag", this);
     }
 
     public int describeContents() {
@@ -185,47 +185,47 @@ public abstract class MessageSnapshot implements IMessageSnapshot, Parcelable {
 
     /* renamed from: e */
     public String mo3920e() {
-        throw new C1706c("getFileName", this);
+        throw new DownloadSnapshotStateException("getFileName", this);
     }
 
     /* renamed from: f */
     public long mo3922f() {
-        throw new C1706c("getLargeSofarBytes", this);
+        throw new DownloadSnapshotStateException("getLargeSofarBytes", this);
     }
 
     /* renamed from: g */
     public long mo3917g() {
-        throw new C1706c("getLargeTotalBytes", this);
+        throw new DownloadSnapshotStateException("getLargeTotalBytes", this);
     }
 
     /* renamed from: h */
     public int mo3924h() {
-        throw new C1706c("getRetryingTimes", this);
+        throw new DownloadSnapshotStateException("getRetryingTimes", this);
     }
 
     /* renamed from: i */
     public int mo3915i() {
-        throw new C1706c("getSmallSofarBytes", this);
+        throw new DownloadSnapshotStateException("getSmallSofarBytes", this);
     }
 
     /* renamed from: j */
     public int mo3916j() {
-        throw new C1706c("getSmallTotalBytes", this);
+        throw new DownloadSnapshotStateException("getSmallTotalBytes", this);
     }
 
     /* renamed from: k */
     public Throwable mo3923k() {
-        throw new C1706c("getThrowable", this);
+        throw new DownloadSnapshotStateException("getThrowable", this);
     }
 
     /* renamed from: l */
     public boolean mo3921l() {
-        throw new C1706c("isResuming", this);
+        throw new DownloadSnapshotStateException("isResuming", this);
     }
 
     /* renamed from: m */
     public boolean mo3918m() {
-        throw new C1706c("isReusedDownloadedFile", this);
+        throw new DownloadSnapshotStateException("isReusedDownloadedFile", this);
     }
 
     public void writeToParcel(Parcel parcel, int i) {

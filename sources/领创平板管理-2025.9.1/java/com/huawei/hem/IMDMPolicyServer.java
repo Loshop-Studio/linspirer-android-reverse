@@ -17,12 +17,12 @@ public interface IMDMPolicyServer extends IInterface {
 
         /* compiled from: IMDMPolicyServer.java */
         /* renamed from: com.huawei.hem.w$a$a, reason: collision with other inner class name */
-        public static class C2082a implements IMDMPolicyServer {
+        public static class MdmPolicyBinderProxy implements IMDMPolicyServer {
 
             /* renamed from: a */
             public IBinder f3979a;
 
-            public C2082a(IBinder iBinder) {
+            public MdmPolicyBinderProxy(IBinder iBinder) {
                 this.f3979a = iBinder;
             }
 
@@ -292,7 +292,7 @@ public interface IMDMPolicyServer extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("android.jlink.IMDMPolicyServer");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IMDMPolicyServer)) ? new C2082a(iBinder) : (IMDMPolicyServer) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IMDMPolicyServer)) ? new MdmPolicyBinderProxy(iBinder) : (IMDMPolicyServer) iInterfaceQueryLocalInterface;
         }
     }
 

@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import com.google.zxing.common.detector.MathUtils;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 
 /* loaded from: classes.dex */
 public class ResultPoint {
@@ -80,6 +80,6 @@ public class ResultPoint {
     }
 
     public final String toString() {
-        return "(" + this.f2129x + AbstractC1604b.COMMA + this.f2130y + ')';
+        return "(" + this.f2129x + UpdateJsonBean.COMMA + this.f2130y + ')';
     }
 }

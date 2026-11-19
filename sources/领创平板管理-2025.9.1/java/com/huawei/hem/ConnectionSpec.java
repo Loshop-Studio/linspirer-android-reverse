@@ -151,11 +151,11 @@ public final class ConnectionSpec {
             return false;
         }
         String[] strArr = this.f3473d;
-        if (strArr != null && !C1314tk.m2767v(C1314tk.f3823i, strArr, sSLSocket.getEnabledProtocols())) {
+        if (strArr != null && !OkHttpCommonUtilities.m2767v(OkHttpCommonUtilities.f3823i, strArr, sSLSocket.getEnabledProtocols())) {
             return false;
         }
         String[] strArr2 = this.f3472c;
-        return strArr2 == null || C1314tk.m2767v(CipherSuite.f3334b, strArr2, sSLSocket.getEnabledCipherSuites());
+        return strArr2 == null || OkHttpCommonUtilities.m2767v(CipherSuite.f3334b, strArr2, sSLSocket.getEnabledCipherSuites());
     }
 
     public boolean equals(@Nullable Object obj) {

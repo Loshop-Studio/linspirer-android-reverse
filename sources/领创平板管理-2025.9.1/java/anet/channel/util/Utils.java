@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import anet.channel.appmonitor.AppMonitor;
-import anet.channel.monitor.C0361b;
+import anet.channel.monitor.BandwidthSampler;
 import anet.channel.monitor.NetworkSpeed;
 import anet.channel.statist.ExceptionStatistic;
 import anet.channel.status.NetworkStatusHelper;
@@ -59,7 +59,7 @@ public class Utils {
     public static float getNetworkTimeFactor() {
         NetworkStatusHelper.NetworkStatus status = NetworkStatusHelper.getStatus();
         float f = (status == NetworkStatusHelper.NetworkStatus.G4 || status == NetworkStatusHelper.NetworkStatus.WIFI) ? 0.8f : 1.0f;
-        return C0361b.m150a().m156b() == NetworkSpeed.Fast.getCode() ? f * 0.75f : f;
+        return BandwidthSampler.m150a().m156b() == NetworkSpeed.Fast.getCode() ? f * 0.75f : f;
     }
 
     public static String getProcessName(Context context2, int i) {

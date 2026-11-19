@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Enumeration;
@@ -30,7 +30,7 @@ public class EnumerationSerializer implements ObjectSerializer {
                 Object objNextElement = enumeration.nextElement();
                 int i3 = i2 + 1;
                 if (i2 != 0) {
-                    serializeWriter.append(AbstractC1604b.COMMA);
+                    serializeWriter.append(UpdateJsonBean.COMMA);
                 }
                 if (objNextElement == null) {
                     serializeWriter.writeNull();

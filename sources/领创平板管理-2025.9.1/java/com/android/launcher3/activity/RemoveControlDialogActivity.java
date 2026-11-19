@@ -35,11 +35,11 @@ public class RemoveControlDialogActivity extends BaseActivity implements View.On
     public Button f1791g;
 
     /* renamed from: h */
-    public DownLoadBrowserListener f1792h = new C0641a();
+    public DownLoadBrowserListener f1792h = new ControlRemovalDownloadCallback();
 
     /* renamed from: com.android.launcher3.activity.RemoveControlDialogActivity$a */
-    public class C0641a implements DownLoadBrowserListener {
-        public C0641a() {
+    public class ControlRemovalDownloadCallback implements DownLoadBrowserListener {
+        public ControlRemovalDownloadCallback() {
         }
 
         /* renamed from: a */

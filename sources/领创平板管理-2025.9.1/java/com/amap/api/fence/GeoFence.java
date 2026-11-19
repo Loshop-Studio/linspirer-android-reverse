@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.DPoint;
-import com.loc.C1841ew;
+import com.loc.AMapLocationUtilities;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -310,7 +310,7 @@ public class GeoFence implements Parcelable {
         if (j < 0) {
             this.f1465j = -1L;
         } else {
-            this.f1465j = C1841ew.m5127b() + j;
+            this.f1465j = AMapLocationUtilities.m5127b() + j;
         }
     }
 

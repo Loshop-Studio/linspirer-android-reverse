@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.AppInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.io.ByteArrayOutputStream;
 
 /* compiled from: StatisticsHeaderDataStrategy.java */
@@ -32,18 +32,18 @@ public final class StatisticsHeaderDataStrategy extends UpdateDataStrategy {
         byte[] byteArray = new byte[0];
         try {
             try {
-                C1094l1.m2241j(byteArrayOutputStream, "1.2." + f5101a + "." + f5102b);
-                C1094l1.m2241j(byteArrayOutputStream, "Android");
-                C1094l1.m2241j(byteArrayOutputStream, DeviceInfo.m1091y(context));
-                C1094l1.m2241j(byteArrayOutputStream, DeviceInfo.m1086t(context));
-                C1094l1.m2241j(byteArrayOutputStream, DeviceInfo.m1083q(context));
-                C1094l1.m2241j(byteArrayOutputStream, Build.MANUFACTURER);
-                C1094l1.m2241j(byteArrayOutputStream, Build.MODEL);
-                C1094l1.m2241j(byteArrayOutputStream, Build.DEVICE);
-                C1094l1.m2241j(byteArrayOutputStream, DeviceInfo.m1092z(context));
-                C1094l1.m2241j(byteArrayOutputStream, AppInfo.m1638d(context));
-                C1094l1.m2241j(byteArrayOutputStream, AppInfo.m1639e(context));
-                C1094l1.m2241j(byteArrayOutputStream, AppInfo.m1641g(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, "1.2." + f5101a + "." + f5102b);
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, "Android");
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, DeviceInfo.m1091y(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, DeviceInfo.m1086t(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, DeviceInfo.m1083q(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, Build.MANUFACTURER);
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, Build.MODEL);
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, Build.DEVICE);
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, DeviceInfo.m1092z(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, AppInfo.m1638d(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, AppInfo.m1639e(context));
+                AMapCoreUtilities.m2241j(byteArrayOutputStream, AppInfo.m1641g(context));
                 byteArrayOutputStream.write(new byte[]{0});
                 byteArray = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();

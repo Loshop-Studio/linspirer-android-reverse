@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MessageThreadUtil<T> implements ThreadUtil<T> {
 
     /* renamed from: android.support.v7.util.MessageThreadUtil$1 */
-    public class C02081 implements ThreadUtil.MainThreadCallback<T> {
+    public class MainThreadTileQueue implements ThreadUtil.MainThreadCallback<T> {
         public static final int ADD_TILE = 2;
         public static final int REMOVE_TILE = 3;
         public static final int UPDATE_ITEM_COUNT = 1;
@@ -24,26 +24,26 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         public Runnable mMainThreadRunnable = new Runnable() { // from class: android.support.v7.util.MessageThreadUtil.1.1
             @Override // java.lang.Runnable
             public void run() {
-                SyncQueueItem next = C02081.this.mQueue.next();
+                SyncQueueItem next = MainThreadTileQueue.this.mQueue.next();
                 while (next != null) {
                     int i = next.what;
                     if (i == 1) {
-                        C02081.this.val$callback.updateItemCount(next.arg1, next.arg2);
+                        MainThreadTileQueue.this.val$callback.updateItemCount(next.arg1, next.arg2);
                     } else if (i == 2) {
-                        C02081.this.val$callback.addTile(next.arg1, (TileList.Tile) next.data);
+                        MainThreadTileQueue.this.val$callback.addTile(next.arg1, (TileList.Tile) next.data);
                     } else if (i != 3) {
                         StringBuilder sbM1765j = CompilerOutline.m1765j("Unsupported message, what=");
                         sbM1765j.append(next.what);
                         Log.e("ThreadUtil", sbM1765j.toString());
                     } else {
-                        C02081.this.val$callback.removeTile(next.arg1, next.arg2);
+                        MainThreadTileQueue.this.val$callback.removeTile(next.arg1, next.arg2);
                     }
-                    next = C02081.this.mQueue.next();
+                    next = MainThreadTileQueue.this.mQueue.next();
                 }
             }
         };
 
-        public C02081(ThreadUtil.MainThreadCallback mainThreadCallback) {
+        public MainThreadTileQueue(ThreadUtil.MainThreadCallback mainThreadCallback) {
             this.val$callback = mainThreadCallback;
         }
 
@@ -69,7 +69,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
     }
 
     /* renamed from: android.support.v7.util.MessageThreadUtil$2 */
-    public class C02092 implements ThreadUtil.BackgroundCallback<T> {
+    public class BackgroundTileQueue implements ThreadUtil.BackgroundCallback<T> {
         public static final int LOAD_TILE = 3;
         public static final int RECYCLE_TILE = 4;
         public static final int REFRESH = 1;
@@ -82,33 +82,33 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
-                    SyncQueueItem next = C02092.this.mQueue.next();
+                    SyncQueueItem next = BackgroundTileQueue.this.mQueue.next();
                     if (next == null) {
-                        C02092.this.mBackgroundRunning.set(false);
+                        BackgroundTileQueue.this.mBackgroundRunning.set(false);
                         return;
                     }
                     int i = next.what;
                     if (i == 1) {
-                        C02092.this.mQueue.removeMessages(1);
-                        C02092.this.val$callback.refresh(next.arg1);
+                        BackgroundTileQueue.this.mQueue.removeMessages(1);
+                        BackgroundTileQueue.this.val$callback.refresh(next.arg1);
                     } else if (i == 2) {
-                        C02092.this.mQueue.removeMessages(2);
-                        C02092.this.mQueue.removeMessages(3);
-                        C02092.this.val$callback.updateRange(next.arg1, next.arg2, next.arg3, next.arg4, next.arg5);
+                        BackgroundTileQueue.this.mQueue.removeMessages(2);
+                        BackgroundTileQueue.this.mQueue.removeMessages(3);
+                        BackgroundTileQueue.this.val$callback.updateRange(next.arg1, next.arg2, next.arg3, next.arg4, next.arg5);
                     } else if (i == 3) {
-                        C02092.this.val$callback.loadTile(next.arg1, next.arg2);
+                        BackgroundTileQueue.this.val$callback.loadTile(next.arg1, next.arg2);
                     } else if (i != 4) {
                         StringBuilder sbM1765j = CompilerOutline.m1765j("Unsupported message, what=");
                         sbM1765j.append(next.what);
                         Log.e("ThreadUtil", sbM1765j.toString());
                     } else {
-                        C02092.this.val$callback.recycleTile((TileList.Tile) next.data);
+                        BackgroundTileQueue.this.val$callback.recycleTile((TileList.Tile) next.data);
                     }
                 }
             }
         };
 
-        public C02092(ThreadUtil.BackgroundCallback backgroundCallback) {
+        public BackgroundTileQueue(ThreadUtil.BackgroundCallback backgroundCallback) {
             this.val$callback = backgroundCallback;
         }
 
@@ -203,12 +203,12 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
 
     @Override // android.support.v7.util.ThreadUtil
     public ThreadUtil.BackgroundCallback<T> getBackgroundProxy(ThreadUtil.BackgroundCallback<T> backgroundCallback) {
-        return new C02092(backgroundCallback);
+        return new BackgroundTileQueue(backgroundCallback);
     }
 
     @Override // android.support.v7.util.ThreadUtil
     public ThreadUtil.MainThreadCallback<T> getMainThreadProxy(ThreadUtil.MainThreadCallback<T> mainThreadCallback) {
-        return new C02081(mainThreadCallback);
+        return new MainThreadTileQueue(mainThreadCallback);
     }
 
     public static class SyncQueueItem {

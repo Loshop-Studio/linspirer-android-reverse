@@ -11,7 +11,7 @@ import anetwork.channel.statist.StatisticData;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class DefaultFinishEvent implements Parcelable, NetworkEvent.FinishEvent {
-    public static final Parcelable.Creator<DefaultFinishEvent> CREATOR = new C0431a();
+    public static final Parcelable.Creator<DefaultFinishEvent> CREATOR = new FinishEventParcelCreator();
 
     /* renamed from: a */
     public Object f605a;

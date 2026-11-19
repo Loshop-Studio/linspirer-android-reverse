@@ -5,7 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -84,20 +84,20 @@ public class AppCompatBackgroundHelper {
     }
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, C0200R.styleable.ViewBackgroundHelper, i, 0);
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, SupportAppcompatResources.styleable.ViewBackgroundHelper, i, 0);
         try {
-            if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.ViewBackgroundHelper_android_background)) {
-                this.mBackgroundResId = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ViewBackgroundHelper_android_background, -1);
+            if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.ViewBackgroundHelper_android_background)) {
+                this.mBackgroundResId = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ViewBackgroundHelper_android_background, -1);
                 ColorStateList tintList = this.mDrawableManager.getTintList(this.mView.getContext(), this.mBackgroundResId);
                 if (tintList != null) {
                     setInternalBackgroundTint(tintList);
                 }
             }
-            if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.ViewBackgroundHelper_backgroundTint)) {
-                ViewCompat.setBackgroundTintList(this.mView, tintTypedArrayObtainStyledAttributes.getColorStateList(C0200R.styleable.ViewBackgroundHelper_backgroundTint));
+            if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.ViewBackgroundHelper_backgroundTint)) {
+                ViewCompat.setBackgroundTintList(this.mView, tintTypedArrayObtainStyledAttributes.getColorStateList(SupportAppcompatResources.styleable.ViewBackgroundHelper_backgroundTint));
             }
-            if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.ViewBackgroundHelper_backgroundTintMode)) {
-                ViewCompat.setBackgroundTintMode(this.mView, DrawableUtils.parseTintMode(tintTypedArrayObtainStyledAttributes.getInt(C0200R.styleable.ViewBackgroundHelper_backgroundTintMode, -1), null));
+            if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.ViewBackgroundHelper_backgroundTintMode)) {
+                ViewCompat.setBackgroundTintMode(this.mView, DrawableUtils.parseTintMode(tintTypedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.ViewBackgroundHelper_backgroundTintMode, -1), null));
             }
         } finally {
             tintTypedArrayObtainStyledAttributes.recycle();

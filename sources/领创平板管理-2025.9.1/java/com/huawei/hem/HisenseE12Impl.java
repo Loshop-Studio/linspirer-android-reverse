@@ -13,7 +13,7 @@ public class HisenseE12Impl extends AndroidImpl {
     public static HisenseE12Impl f3860b = new HisenseE12Impl();
 
     /* renamed from: c */
-    public static C1225q6 f3861c;
+    public static HisenseDeviceManagement f3861c;
 
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: F */

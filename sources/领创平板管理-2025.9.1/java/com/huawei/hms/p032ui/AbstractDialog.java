@@ -26,8 +26,8 @@ public abstract class AbstractDialog {
     }
 
     /* renamed from: com.huawei.hms.ui.AbstractDialog$a */
-    public class DialogInterfaceOnClickListenerC1572a implements DialogInterface.OnClickListener {
-        public DialogInterfaceOnClickListenerC1572a() {
+    public class HmsDialogPositiveClick implements DialogInterface.OnClickListener {
+        public HmsDialogPositiveClick() {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -37,8 +37,8 @@ public abstract class AbstractDialog {
     }
 
     /* renamed from: com.huawei.hms.ui.AbstractDialog$b */
-    public class DialogInterfaceOnClickListenerC1573b implements DialogInterface.OnClickListener {
-        public DialogInterfaceOnClickListenerC1573b() {
+    public class HmsDialogNegativeClick implements DialogInterface.OnClickListener {
+        public HmsDialogNegativeClick() {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -48,8 +48,8 @@ public abstract class AbstractDialog {
     }
 
     /* renamed from: com.huawei.hms.ui.AbstractDialog$c */
-    public class DialogInterfaceOnCancelListenerC1574c implements DialogInterface.OnCancelListener {
-        public DialogInterfaceOnCancelListenerC1574c() {
+    public class HmsDialogCancelListener implements DialogInterface.OnCancelListener {
+        public HmsDialogCancelListener() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -59,8 +59,8 @@ public abstract class AbstractDialog {
     }
 
     /* renamed from: com.huawei.hms.ui.AbstractDialog$d */
-    public class DialogInterfaceOnKeyListenerC1575d implements DialogInterface.OnKeyListener {
-        public DialogInterfaceOnKeyListenerC1575d() {
+    public class HmsDialogBackKeyListener implements DialogInterface.OnKeyListener {
+        public HmsDialogBackKeyListener() {
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
@@ -129,11 +129,11 @@ public abstract class AbstractDialog {
         }
         String strOnGetPositiveButtonString = onGetPositiveButtonString(activity);
         if (strOnGetPositiveButtonString != null) {
-            builder.setPositiveButton(strOnGetPositiveButtonString, new DialogInterfaceOnClickListenerC1572a());
+            builder.setPositiveButton(strOnGetPositiveButtonString, new HmsDialogPositiveClick());
         }
         String strOnGetNegativeButtonString = onGetNegativeButtonString(activity);
         if (strOnGetNegativeButtonString != null) {
-            builder.setNegativeButton(strOnGetNegativeButtonString, new DialogInterfaceOnClickListenerC1573b());
+            builder.setNegativeButton(strOnGetNegativeButtonString, new HmsDialogNegativeClick());
         }
         return builder.create();
     }
@@ -170,8 +170,8 @@ public abstract class AbstractDialog {
         AlertDialog alertDialogOnCreateDialog = onCreateDialog(this.f4572a);
         this.f4573b = alertDialogOnCreateDialog;
         alertDialogOnCreateDialog.setCanceledOnTouchOutside(false);
-        this.f4573b.setOnCancelListener(new DialogInterfaceOnCancelListenerC1574c());
-        this.f4573b.setOnKeyListener(new DialogInterfaceOnKeyListenerC1575d());
+        this.f4573b.setOnCancelListener(new HmsDialogCancelListener());
+        this.f4573b.setOnKeyListener(new HmsDialogBackKeyListener());
         this.f4573b.show();
     }
 }

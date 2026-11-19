@@ -17,10 +17,10 @@ import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C1095l2;
+import com.huawei.hem.LicenseActivityResultCallback;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
-import com.huawei.hem.CountDownTimerC1121m2;
+import com.huawei.hem.LicenseButtonCountdown;
 
 /* loaded from: classes.dex */
 public class LicenseActivity extends BaseActivity {
@@ -53,11 +53,11 @@ public class LicenseActivity extends BaseActivity {
     public int f1748j = 3;
 
     /* renamed from: k */
-    public Handler f1749k = new HandlerC0637a();
+    public Handler f1749k = new LicenseUiHandler();
 
     /* renamed from: com.android.launcher3.activity.LicenseActivity$a */
-    public class HandlerC0637a extends Handler {
-        public HandlerC0637a() {
+    public class LicenseUiHandler extends Handler {
+        public LicenseUiHandler() {
         }
 
         @Override // android.os.Handler
@@ -99,7 +99,7 @@ public class LicenseActivity extends BaseActivity {
         this.f1742d.setText(LauncherDeviceUtils.m1592i());
         LicenseHelper licenseHelper = LicenseHelper.getInstance();
         this.f1747i = licenseHelper;
-        licenseHelper.setCallBack(new C1095l2(this));
+        licenseHelper.setCallBack(new LicenseActivityResultCallback(this));
         String strM3072u = UserInfoUtil.b.f4202a.m3072u();
         this.f1746h = strM3072u;
         if (TextUtils.isEmpty(strM3072u)) {
@@ -115,7 +115,7 @@ public class LicenseActivity extends BaseActivity {
         }
         this.f1744f.setText("3 秒");
         this.f1744f.setEnabled(false);
-        new CountDownTimerC1121m2(this, TooltipCompatHandler.HOVER_HIDE_TIMEOUT_SHORT_MS, 1000L).start();
+        new LicenseButtonCountdown(this, TooltipCompatHandler.HOVER_HIDE_TIMEOUT_SHORT_MS, 1000L).start();
     }
 
     @Override // com.android.launcher3.activity.base.BaseActivity

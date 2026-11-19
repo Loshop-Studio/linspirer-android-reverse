@@ -16,6 +16,6 @@ public class Constants {
     public static final String IMMERSION_NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
     public static final String IMMERSION_NAVIGATION_BAR_WIDTH = "navigation_bar_width";
     public static final String IMMERSION_STATUS_BAR_HEIGHT = "status_bar_height";
-    public static final int IMMERSION_ID_STATUS_BAR_VIEW = C0808R.id.immersion_status_bar_view;
-    public static final int IMMERSION_ID_NAVIGATION_BAR_VIEW = C0808R.id.immersion_navigation_bar_view;
+    public static final int IMMERSION_ID_STATUS_BAR_VIEW = GyfImmersionbarResources.id.immersion_status_bar_view;
+    public static final int IMMERSION_ID_NAVIGATION_BAR_VIEW = GyfImmersionbarResources.id.immersion_navigation_bar_view;
 }

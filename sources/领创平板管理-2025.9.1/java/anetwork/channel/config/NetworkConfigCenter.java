@@ -7,7 +7,7 @@ import anet.channel.AwcnConfig;
 import anet.channel.GlobalAppRuntimeInfo;
 import anet.channel.statist.RequestStatistic;
 import anet.channel.strategy.dispatch.HttpDispatcher;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.thread.ThreadPoolExecutorFactory;
 import anet.channel.util.ALog;
 import anet.channel.util.HttpUrl;
@@ -274,7 +274,7 @@ public class NetworkConfigCenter {
                 ArrayList arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
                     String string = jSONArray.getString(i);
-                    if (C0413c.m333c(string)) {
+                    if (AmdcStringEncoding.m333c(string)) {
                         arrayList.add(string);
                     }
                 }
@@ -386,7 +386,7 @@ public class NetworkConfigCenter {
             CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
             for (int i = 0; i < length; i++) {
                 String string = jSONArray.getString(i);
-                if (C0413c.m333c(string)) {
+                if (AmdcStringEncoding.m333c(string)) {
                     copyOnWriteArrayList.add(string);
                 }
             }

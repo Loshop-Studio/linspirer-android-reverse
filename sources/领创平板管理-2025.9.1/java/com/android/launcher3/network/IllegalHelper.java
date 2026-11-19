@@ -20,10 +20,10 @@ import com.android.launcher3.p027db.model.IllegalEventDao;
 import com.android.launcher3.p027db.model.ItemApp;
 import com.android.launcher3.p027db.model.ItemAppDao;
 import com.android.launcher3.p027db.model.ManageDevice;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C1023i5;
+import com.huawei.hem.TimeReceiverViolationCallback;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.DBController;
 import com.huawei.hem.PostBuilder;
@@ -97,7 +97,7 @@ public class IllegalHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void insertDB(List<IllegalEvent> list, List<IllegalEvent> list2, IllegalEventDao illegalEventDao) {
-        if (!AbstractC1102l9.m2273N(list) && list.size() >= 500) {
+        if (!MobileSdkPlatformUtilities.m2273N(list) && list.size() >= 500) {
             LTKDateUtil.m1403m("IllegalHelper illegal db cache is too large need clear");
             illegalEventDao.deleteAll();
         }
@@ -108,13 +108,13 @@ public class IllegalHelper {
     private boolean isIllegal(String str) {
         List<ItemApp> list = DBController.m2715a().m2717c().queryBuilder().where(ItemAppDao.Properties.IsForceApps.m5870eq(1), new WhereCondition[0]).list();
         ArrayList arrayList = new ArrayList();
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             Iterator<ItemApp> it = list.iterator();
             while (it.hasNext()) {
                 arrayList.add(it.next().getPackagename());
             }
         }
-        if (!AbstractC1102l9.m2273N(arrayList)) {
+        if (!MobileSdkPlatformUtilities.m2273N(arrayList)) {
             return arrayList.contains(str);
         }
         LTKDateUtil.m1403m("IllegalHelper has no force apps");
@@ -130,12 +130,12 @@ public class IllegalHelper {
         final IllegalEventDao illegalEventDao = DBController.m2715a().f3751c.getIllegalEventDao();
         final List<IllegalEvent> listLoadAll = illegalEventDao.loadAll();
         ArrayList arrayList = new ArrayList();
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             list = new ArrayList<>();
         }
         final List<IllegalEvent> list2 = list;
         arrayList.addAll(list2);
-        if (!AbstractC1102l9.m2273N(listLoadAll)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             arrayList.addAll(listLoadAll);
         }
         try {
@@ -159,7 +159,7 @@ public class IllegalHelper {
                     IllegalHelper.this.insertDB(listLoadAll, list2, illegalEventDao);
                     IllegalHelper.this.handleIllegal(illegal);
                     if (IllegalHelper.this.illegalCallBack != null) {
-                        C1023i5 c1023i5 = (C1023i5) IllegalHelper.this.illegalCallBack;
+                        TimeReceiverViolationCallback c1023i5 = (TimeReceiverViolationCallback) IllegalHelper.this.illegalCallBack;
                         if (c1023i5 == null) {
                             throw null;
                         }
@@ -174,7 +174,7 @@ public class IllegalHelper {
                     IllegalHelper.this.insertDB(listLoadAll, list2, illegalEventDao);
                     IllegalHelper.this.handleIllegal(illegal);
                     if (IllegalHelper.this.illegalCallBack != null) {
-                        C1023i5 c1023i5 = (C1023i5) IllegalHelper.this.illegalCallBack;
+                        TimeReceiverViolationCallback c1023i5 = (TimeReceiverViolationCallback) IllegalHelper.this.illegalCallBack;
                         if (c1023i5 == null) {
                             throw null;
                         }
@@ -190,7 +190,7 @@ public class IllegalHelper {
                     illegalEventDao.deleteAll();
                     IllegalHelper.this.handleIllegal(illegal);
                     if (IllegalHelper.this.illegalCallBack != null) {
-                        C1023i5 c1023i5 = (C1023i5) IllegalHelper.this.illegalCallBack;
+                        TimeReceiverViolationCallback c1023i5 = (TimeReceiverViolationCallback) IllegalHelper.this.illegalCallBack;
                         if (c1023i5 == null) {
                             throw null;
                         }
@@ -242,7 +242,7 @@ public class IllegalHelper {
 
     public void recordConnectUsb() throws Resources.NotFoundException {
         List<ManageDevice> listLoadAll = DBController.m2715a().m2718d().loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             LTKDateUtil.m1403m("IllegalHelper record device manage is empty ");
             return;
         }
@@ -270,7 +270,7 @@ public class IllegalHelper {
 
     public void recordDisconnectUsb() {
         List<ManageDevice> listLoadAll = DBController.m2715a().m2718d().loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             return;
         }
         if (listLoadAll.get(0).isCommand_connect_usb()) {
@@ -344,7 +344,7 @@ public class IllegalHelper {
 
     public void recordOpenBluetooth() {
         List<ManageDevice> listLoadAll = DBController.m2715a().m2718d().loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             return;
         }
         if (listLoadAll.get(0).isCommand_bluetooth()) {

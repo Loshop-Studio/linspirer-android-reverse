@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 
 /* compiled from: RSAAESEncryptProcessor.java */
 /* renamed from: com.loc.ai */
@@ -16,6 +16,6 @@ public final class RSAAESEncryptProcessor extends EncryptProcessor {
     @Override // com.loc.AbstractC1717ag
     /* renamed from: a */
     public final byte[] mo3997a(byte[] bArr) {
-        return C0994h1.m1930a(bArr);
+        return AMapEncryptionUtilities.m1930a(bArr);
     }
 }

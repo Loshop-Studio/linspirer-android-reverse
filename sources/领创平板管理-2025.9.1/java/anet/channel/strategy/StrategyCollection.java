@@ -2,7 +2,7 @@ package anet.channel.strategy;
 
 import anet.channel.appmonitor.AppMonitor;
 import anet.channel.statist.PolicyVersionStat;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.strategy.dispatch.DispatchConstants;
 import anet.channel.util.ALog;
 import com.taobao.accs.common.Constants;
@@ -107,7 +107,7 @@ public class StrategyCollection implements Serializable {
         return sb.toString();
     }
 
-    public synchronized void update(C0407l.b bVar) {
+    public synchronized void update(AmdcStrategyResultParser.b bVar) {
         this.f453b = (bVar.f530b * 1000) + System.currentTimeMillis();
         if (!bVar.f529a.equalsIgnoreCase(this.f452a)) {
             ALog.m339e("StrategyCollection", "update error!", null, Constants.KEY_HOST, this.f452a, "dnsInfo.host", bVar.f529a);

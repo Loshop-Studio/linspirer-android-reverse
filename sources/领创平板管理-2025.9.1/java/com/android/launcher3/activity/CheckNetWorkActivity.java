@@ -16,7 +16,7 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseFragmentActivity;
 import com.android.launcher3.adapter.MFragmentPagerAdapter;
 import com.android.launcher3.fragment.home.CheckNetWorkFragment;
-import com.android.launcher3.fragment.home.CheckNetWorkFragment.AsyncTaskC0657d;
+import com.android.launcher3.fragment.home.CheckNetWorkFragment.NetworkEndpointCheckTask;
 import com.android.launcher3.fragment.home.KeyInfoFragment;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.ViewControlUtil;
@@ -183,7 +183,7 @@ public class CheckNetWorkActivity extends BaseFragmentActivity implements View.O
                 if (checkNetWorkFragment == null) {
                     throw null;
                 }
-                CheckNetWorkFragment.AsyncTaskC0657d asyncTaskC0657d = checkNetWorkFragment.new AsyncTaskC0657d();
+                CheckNetWorkFragment.NetworkEndpointCheckTask asyncTaskC0657d = checkNetWorkFragment.new NetworkEndpointCheckTask();
                 checkNetWorkFragment.f1941z = asyncTaskC0657d;
                 asyncTaskC0657d.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Object[0]);
             }

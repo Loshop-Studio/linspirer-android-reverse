@@ -18,12 +18,12 @@ public interface IHCAPI extends IInterface {
 
         /* compiled from: IHCAPI.java */
         /* renamed from: com.huawei.hem.u1$a$a, reason: collision with other inner class name */
-        public static class C2080a implements IHCAPI {
+        public static class HcApiBinderProxy implements IHCAPI {
 
             /* renamed from: a */
             public IBinder f3837a;
 
-            public C2080a(IBinder iBinder) {
+            public HcApiBinderProxy(IBinder iBinder) {
                 this.f3837a = iBinder;
             }
 
@@ -1082,7 +1082,7 @@ public interface IHCAPI extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.android.hccontrol.custom.lingc.IHCAPI");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IHCAPI)) ? new C2080a(iBinder) : (IHCAPI) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IHCAPI)) ? new HcApiBinderProxy(iBinder) : (IHCAPI) iInterfaceQueryLocalInterface;
         }
 
         @Override // android.os.IInterface

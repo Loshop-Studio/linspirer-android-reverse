@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.widget.ListViewAutoScrollHelper;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.graphics.drawable.DrawableWrapper;
 import android.view.MotionEvent;
 import android.view.View;
@@ -112,7 +112,7 @@ public class DropDownListView extends ListView {
     }
 
     public DropDownListView(Context context, boolean z) throws NoSuchFieldException {
-        super(context, null, C0200R.attr.dropDownListViewStyle);
+        super(context, null, SupportAppcompatResources.attr.dropDownListViewStyle);
         this.mSelectorRect = new Rect();
         this.mSelectionLeftPadding = 0;
         this.mSelectionTopPadding = 0;

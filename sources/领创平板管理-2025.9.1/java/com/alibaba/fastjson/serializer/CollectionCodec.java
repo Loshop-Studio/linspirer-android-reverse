@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
@@ -68,7 +68,7 @@ public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
             for (Object obj3 : collection) {
                 int i3 = i2 + 1;
                 if (i2 != 0) {
-                    serializeWriter.append(AbstractC1604b.COMMA);
+                    serializeWriter.append(UpdateJsonBean.COMMA);
                 }
                 if (obj3 == null) {
                     serializeWriter.writeNull();

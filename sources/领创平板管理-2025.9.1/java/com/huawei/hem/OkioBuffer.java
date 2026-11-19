@@ -27,7 +27,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     @Override // com.huawei.hem.InterfaceC1066jn
     /* renamed from: A */
     public byte[] mo1971A(long j) throws EOFException {
-        C0888co.m1543b(this.f2884b, 0L, j);
+        OkioByteUtilities.m1543b(this.f2884b, 0L, j);
         if (j > 2147483647L) {
             throw new IllegalArgumentException(CompilerOutline.m1755M("byteCount > Integer.MAX_VALUE: ", j));
         }
@@ -53,7 +53,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     @Override // com.huawei.hem.InterfaceC1066jn
     /* renamed from: D */
     public short mo1974D() {
-        return C0888co.m1545d(readShort());
+        return OkioByteUtilities.m1545d(readShort());
     }
 
     @Override // com.huawei.hem.InterfaceC1041in
@@ -295,7 +295,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
             throw new IllegalArgumentException("source == null");
         }
         long j = i2;
-        C0888co.m1543b(bArr.length, i, j);
+        OkioByteUtilities.m1543b(bArr.length, i, j);
         int i3 = i2 + i;
         while (i < i3) {
             OkioSegment c1392wnM1984N = m1984N(1);
@@ -533,7 +533,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
         if (c1016hn == null) {
             throw new IllegalArgumentException("out == null");
         }
-        C0888co.m1543b(this.f2884b, j, j2);
+        OkioByteUtilities.m1543b(this.f2884b, j, j2);
         if (j2 == 0) {
             return this;
         }
@@ -595,7 +595,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     /* renamed from: d */
     public final byte m1999d(long j) {
         int i;
-        C0888co.m1543b(this.f2884b, j, 1L);
+        OkioByteUtilities.m1543b(this.f2884b, j, 1L);
         long j2 = this.f2884b;
         if (j2 - j <= j) {
             long j3 = j - j2;
@@ -773,7 +773,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
 
     /* renamed from: i */
     public String m2003i(long j, Charset charset) {
-        C0888co.m1543b(this.f2884b, 0L, j);
+        OkioByteUtilities.m1543b(this.f2884b, 0L, j);
         if (charset == null) {
             throw new IllegalArgumentException("charset == null");
         }
@@ -806,7 +806,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     /* renamed from: j */
     public String m2004j() {
         try {
-            return m2003i(this.f2884b, C0888co.f2363a);
+            return m2003i(this.f2884b, OkioByteUtilities.f2363a);
         } catch (EOFException e) {
             throw new AssertionError(e);
         }
@@ -817,12 +817,12 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
         if (j > 0) {
             long j2 = j - 1;
             if (m1999d(j2) == 13) {
-                String strM2003i = m2003i(j2, C0888co.f2363a);
+                String strM2003i = m2003i(j2, OkioByteUtilities.f2363a);
                 skip(2L);
                 return strM2003i;
             }
         }
-        String strM2003i2 = m2003i(j, C0888co.f2363a);
+        String strM2003i2 = m2003i(j, OkioByteUtilities.f2363a);
         skip(1L);
         return strM2003i2;
     }
@@ -881,7 +881,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
         if (c1016hn == this) {
             throw new IllegalArgumentException("source == this");
         }
-        C0888co.m1543b(c1016hn.f2884b, 0L, j);
+        OkioByteUtilities.m1543b(c1016hn.f2884b, 0L, j);
         while (j > 0) {
             OkioSegment c1392wn = c1016hn.f2883a;
             if (j < c1392wn.f4033c - c1392wn.f4032b) {
@@ -960,7 +960,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     }
 
     public int read(byte[] bArr, int i, int i2) {
-        C0888co.m1543b(bArr.length, i, i2);
+        OkioByteUtilities.m1543b(bArr.length, i, i2);
         OkioSegment c1392wn = this.f2883a;
         if (c1392wn == null) {
             return -1;
@@ -1122,7 +1122,7 @@ public final class OkioBuffer implements BufferedSource, BufferedSink, Cloneable
     @Override // com.huawei.hem.InterfaceC1066jn
     /* renamed from: w */
     public int mo2015w() {
-        return C0888co.m1544c(readInt());
+        return OkioByteUtilities.m1544c(readInt());
     }
 
     @Override // java.nio.channels.WritableByteChannel

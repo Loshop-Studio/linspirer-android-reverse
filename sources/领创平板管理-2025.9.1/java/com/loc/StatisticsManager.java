@@ -99,8 +99,8 @@ public class StatisticsManager {
                             if (this.f5088d == null) {
                                 return;
                             }
-                            LogConfig c1730atM4191a = C1736az.m4191a(StatisticsManager.f5083d);
-                            C1736az.m4195a(this.f5088d, c1730atM4191a, AMapLog.f5948h, 1000, 307200, MessageService.MSG_DB_NOTIFY_CLICK);
+                            LogConfig c1730atM4191a = AMapLogCacheUtilities.m4191a(StatisticsManager.f5083d);
+                            AMapLogCacheUtilities.m4195a(this.f5088d, c1730atM4191a, AMapLog.f5948h, 1000, 307200, MessageService.MSG_DB_NOTIFY_CLICK);
                             if (c1730atM4191a.f5060g == null) {
                                 c1730atM4191a.f5060g = new ByteJoinDataStrategy(new StatisticsHeaderDataStrategy(this.f5088d, new EncryptRsaDataStrategy(new StatisticsPubDataStrategy(new ZipUpdateDataStrategy()))));
                             }
@@ -187,8 +187,8 @@ public class StatisticsManager {
 
     /* renamed from: a */
     public static /* synthetic */ void m4184a(Context context, byte[] bArr) {
-        LogConfig c1730atM4191a = C1736az.m4191a(f5083d);
-        C1736az.m4195a(context, c1730atM4191a, AMapLog.f5948h, 1000, 307200, MessageService.MSG_DB_NOTIFY_CLICK);
+        LogConfig c1730atM4191a = AMapLogCacheUtilities.m4191a(f5083d);
+        AMapLogCacheUtilities.m4195a(context, c1730atM4191a, AMapLog.f5948h, 1000, 307200, MessageService.MSG_DB_NOTIFY_CLICK);
         if (c1730atM4191a.f5058e == null) {
             c1730atM4191a.f5058e = new NoneEncryptProcessor();
         }

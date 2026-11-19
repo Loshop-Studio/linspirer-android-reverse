@@ -6,8 +6,8 @@ import android.os.Process;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import anet.channel.entity.ENV;
-import anet.channel.fulltrace.C0350a;
-import anet.channel.fulltrace.C0351b;
+import anet.channel.fulltrace.FullTraceAnalysisRegistry;
+import anet.channel.fulltrace.FullTraceSceneInfo;
 import anet.channel.strategy.StrategyCenter;
 import anet.channel.strategy.dispatch.AmdcRuntimeInfo;
 import anet.channel.strategy.dispatch.DispatchConstants;
@@ -91,7 +91,7 @@ public class GlobalAppRuntimeInfo {
 
     @Deprecated
     public static int getStartType() {
-        C0351b sceneInfo = C0350a.m140a().getSceneInfo();
+        FullTraceSceneInfo sceneInfo = FullTraceAnalysisRegistry.m140a().getSceneInfo();
         if (sceneInfo != null) {
             return sceneInfo.f264a;
         }

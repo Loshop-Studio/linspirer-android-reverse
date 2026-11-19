@@ -3,7 +3,7 @@ package com.huawei.hms.availableupdate;
 import android.content.Context;
 import com.alibaba.sdk.android.tbrest.rest.RestConstants;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C0979gb;
+import com.huawei.hem.SecureSocketFactoryAdapter;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.IOUtils;
 import java.io.BufferedInputStream;
@@ -75,7 +75,7 @@ public class HttpRequestHelper implements IHttpRequestHelper {
         this.f4483a = httpURLConnection;
         if (httpURLConnection instanceof HttpsURLConnection) {
             try {
-                C0979gb c0979gbM1856b = C0979gb.m1856b(context);
+                SecureSocketFactoryAdapter c0979gbM1856b = SecureSocketFactoryAdapter.m1856b(context);
                 if (c0979gbM1856b != null) {
                     ((HttpsURLConnection) this.f4483a).setSSLSocketFactory(c0979gbM1856b);
                 }

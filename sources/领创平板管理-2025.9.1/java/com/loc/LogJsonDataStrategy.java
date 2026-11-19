@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: LogJsonDataStrategy.java */
 /* renamed from: com.loc.bd */
@@ -27,7 +27,7 @@ public final class LogJsonDataStrategy extends UpdateDataStrategy {
     @Override // com.loc.AbstractC1744bg
     /* renamed from: a */
     public final byte[] mo4202a(byte[] bArr) {
-        byte[] bArrM2245n = C1094l1.m2245n(this.f5099a.toString());
+        byte[] bArrM2245n = AMapCoreUtilities.m2245n(this.f5099a.toString());
         this.f5105d = bArrM2245n;
         this.f5100b = true;
         StringBuilder sb = this.f5099a;
@@ -38,7 +38,7 @@ public final class LogJsonDataStrategy extends UpdateDataStrategy {
     @Override // com.loc.AbstractC1744bg
     /* renamed from: b */
     public final void mo4203b(byte[] bArr) {
-        String strM2236e = C1094l1.m2236e(bArr);
+        String strM2236e = AMapCoreUtilities.m2236e(bArr);
         if (this.f5100b) {
             this.f5100b = false;
         } else {

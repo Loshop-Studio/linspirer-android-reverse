@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 /* compiled from: MultipartBody.java */
 /* renamed from: com.huawei.hem.ck */
 /* loaded from: classes.dex */
-public final class MultipartBody extends AbstractC1063jk {
+public final class MultipartBody extends OkHttpRequestBody {
 
     /* renamed from: e */
     public static final OkHttpMediaType f2342e = OkHttpMediaType.m1421a("multipart/mixed");
@@ -61,7 +61,7 @@ public final class MultipartBody extends AbstractC1063jk {
         }
 
         /* renamed from: a */
-        public a m1538a(@Nullable C1438yj c1438yj, AbstractC1063jk abstractC1063jk) {
+        public a m1538a(@Nullable OkHttpHeaderList c1438yj, OkHttpRequestBody abstractC1063jk) {
             if (c1438yj.m3110c(HttpConstant.CONTENT_TYPE) != null) {
                 throw new IllegalArgumentException("Unexpected header: Content-Type");
             }
@@ -91,12 +91,12 @@ public final class MultipartBody extends AbstractC1063jk {
 
         /* renamed from: a */
         @Nullable
-        public final C1438yj f2354a;
+        public final OkHttpHeaderList f2354a;
 
         /* renamed from: b */
-        public final AbstractC1063jk f2355b;
+        public final OkHttpRequestBody f2355b;
 
-        public b(@Nullable C1438yj c1438yj, AbstractC1063jk abstractC1063jk) {
+        public b(@Nullable OkHttpHeaderList c1438yj, OkHttpRequestBody abstractC1063jk) {
             this.f2354a = c1438yj;
             this.f2355b = abstractC1063jk;
         }
@@ -115,7 +115,7 @@ public final class MultipartBody extends AbstractC1063jk {
     public MultipartBody(ByteString c1091kn, OkHttpMediaType c0858bk, List<b> list) {
         this.f2347a = c1091kn;
         this.f2348b = OkHttpMediaType.m1421a(c0858bk + "; boundary=" + c1091kn.utf8());
-        this.f2349c = C1314tk.m2759n(list);
+        this.f2349c = OkHttpCommonUtilities.m2759n(list);
     }
 
     @Override // com.huawei.hem.AbstractC1063jk
@@ -156,8 +156,8 @@ public final class MultipartBody extends AbstractC1063jk {
         long j = 0;
         for (int i = 0; i < size; i++) {
             b bVar = this.f2349c.get(i);
-            C1438yj c1438yj = bVar.f2354a;
-            AbstractC1063jk abstractC1063jk = bVar.f2355b;
+            OkHttpHeaderList c1438yj = bVar.f2354a;
+            OkHttpRequestBody abstractC1063jk = bVar.f2355b;
             interfaceC1041in.mo1972B(f2346i);
             interfaceC1041in.mo1973C(this.f2347a);
             interfaceC1041in.mo1972B(f2345h);

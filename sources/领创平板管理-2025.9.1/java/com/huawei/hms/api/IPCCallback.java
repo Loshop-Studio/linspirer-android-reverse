@@ -4,7 +4,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hms.core.aidl.CodecLookup;
-import com.huawei.hms.core.aidl.C1541b;
+import com.huawei.hms.core.aidl.HmsAidlDataBuffer;
 import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.IAIDLCallback;
@@ -19,15 +19,15 @@ public class IPCCallback extends IAIDLCallback.a {
     public final Class<? extends IMessageEntity> f4420a;
 
     /* renamed from: b */
-    public final DatagramTransport.InterfaceC1571a f4421b;
+    public final DatagramTransport.DatagramResultCallback f4421b;
 
-    public IPCCallback(Class<? extends IMessageEntity> cls, DatagramTransport.InterfaceC1571a interfaceC1571a) {
+    public IPCCallback(Class<? extends IMessageEntity> cls, DatagramTransport.DatagramResultCallback interfaceC1571a) {
         this.f4420a = cls;
         this.f4421b = interfaceC1571a;
     }
 
     @Override // com.huawei.hms.core.aidl.InterfaceC1542c
-    public void call(C1541b c1541b) throws RemoteException {
+    public void call(HmsAidlDataBuffer c1541b) throws RemoteException {
         if (c1541b == null || TextUtils.isEmpty(c1541b.f4526a)) {
             HMSLog.m3461e("IPCCallback", "In call, URI cannot be empty.");
             throw new RemoteException();

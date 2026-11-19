@@ -12,7 +12,7 @@ import com.android.launcher3.network.AppTimeLimitHelper;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
 
@@ -30,7 +30,7 @@ public class BootCheckReceiver extends BroadcastReceiver {
         if ("android.intent.action.BOOT_COMPLETED".equals(action)) {
             if (DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1519l() || DeviceTypeUtil.m1510c()) {
                 LTKDateUtil.m1403m("=====BootCheckReceiver=== empty");
-            } else if (TextUtils.isEmpty(C1395x1.f4039b)) {
+            } else if (TextUtils.isEmpty(LauncherConstants.f4039b)) {
                 LauncherMenuHelper.m2978Y(context, LauncherNew.class);
             }
             UserInfoUtil c1424y5 = UserInfoUtil.b.f4202a;

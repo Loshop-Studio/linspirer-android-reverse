@@ -17,12 +17,12 @@ public interface IMyAidlInterface extends IInterface {
 
         /* compiled from: IMyAidlInterface.java */
         /* renamed from: com.huawei.hem.j6$a$a, reason: collision with other inner class name */
-        public static class C2075a implements IMyAidlInterface {
+        public static class FnfServiceBinderProxy implements IMyAidlInterface {
 
             /* renamed from: a */
             public IBinder f2937a;
 
-            public C2075a(IBinder iBinder) {
+            public FnfServiceBinderProxy(IBinder iBinder) {
                 this.f2937a = iBinder;
             }
 
@@ -54,7 +54,7 @@ public interface IMyAidlInterface extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.fnf.executor.IMyAidlInterface");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IMyAidlInterface)) ? new C2075a(iBinder) : (IMyAidlInterface) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IMyAidlInterface)) ? new FnfServiceBinderProxy(iBinder) : (IMyAidlInterface) iInterfaceQueryLocalInterface;
         }
     }
 

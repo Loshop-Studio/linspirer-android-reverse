@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 
@@ -41,8 +41,8 @@ public class ByteBufferCodec implements ObjectSerializer, ObjectDeserializer {
         serializeWriter.write(123);
         serializeWriter.writeFieldName("array");
         serializeWriter.writeByteArray(bArrArray);
-        serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "limit", byteBuffer.limit());
-        serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "position", byteBuffer.position());
+        serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "limit", byteBuffer.limit());
+        serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "position", byteBuffer.position());
         serializeWriter.write(125);
     }
 }

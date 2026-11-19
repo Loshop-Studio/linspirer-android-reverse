@@ -1,10 +1,10 @@
 package anet.channel.statist;
 
 import anet.channel.AwcnConfig;
-import anet.channel.entity.C0346a;
-import anet.channel.fulltrace.C0350a;
-import anet.channel.fulltrace.C0351b;
-import anet.channel.p006e.C0339a;
+import anet.channel.entity.SessionConnectionInfo;
+import anet.channel.fulltrace.FullTraceAnalysisRegistry;
+import anet.channel.fulltrace.FullTraceSceneInfo;
+import anet.channel.p006e.ConnectionProtocolDetector;
 import anet.channel.strategy.IConnStrategy;
 import org.json.JSONObject;
 
@@ -142,7 +142,7 @@ public class SessionStatistic extends StatObject {
     public long stdRCount = 1;
     public boolean isCommitted = false;
 
-    public SessionStatistic(C0346a c0346a) {
+    public SessionStatistic(SessionConnectionInfo c0346a) {
         this.ipRefer = 0;
         this.ipType = 1;
         if (c0346a == null) {
@@ -159,9 +159,9 @@ public class SessionStatistic extends StatObject {
         this.conntype = c0346a.m134c().toString();
         this.retryTimes = c0346a.f248b;
         maxRetryTime = c0346a.f249c;
-        C0351b sceneInfo = C0350a.m140a().getSceneInfo();
+        FullTraceSceneInfo sceneInfo = FullTraceAnalysisRegistry.m140a().getSceneInfo();
         String str = sceneInfo != null ? sceneInfo.f269f : null;
-        boolean zM121b = C0339a.m121b();
+        boolean zM121b = ConnectionProtocolDetector.m121b();
         this.xqcConnEnv = AwcnConfig.isHttp3OrangeEnable() + "_" + zM121b + "_" + str;
     }
 

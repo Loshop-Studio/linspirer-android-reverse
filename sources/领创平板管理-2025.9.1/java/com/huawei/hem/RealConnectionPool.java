@@ -23,7 +23,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 public final class RealConnectionPool {
 
     /* renamed from: g */
-    public static final Executor f2796g = new ThreadPoolExecutor(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new SynchronousQueue(), C1314tk.m2743A("OkHttp ConnectionPool", true));
+    public static final Executor f2796g = new ThreadPoolExecutor(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new SynchronousQueue(), OkHttpCommonUtilities.m2743A("OkHttp ConnectionPool", true));
 
     /* renamed from: a */
     public final int f2797a;
@@ -86,7 +86,7 @@ public final class RealConnectionPool {
                 return -1L;
             }
             this.f2800d.remove(c0963fl);
-            C1314tk.m2750e(c0963fl.f2684e);
+            OkHttpCommonUtilities.m2750e(c0963fl.f2684e);
             return 0L;
         }
     }
@@ -159,7 +159,7 @@ public final class RealConnectionPool {
             RealConnection next = it.next();
             if (!z || next.m1831g()) {
                 if (next.f2695p.size() < next.f2694o && !next.f2690k) {
-                    AbstractC1264rk abstractC1264rk = AbstractC1264rk.f3645a;
+                    OkHttpInternalAccess abstractC1264rk = OkHttpInternalAccess.f3645a;
                     OkHttpAddress c0961fj2 = next.f2682c.f3353a;
                     if (((OkHttpClient.a) abstractC1264rk) == null) {
                         throw null;

@@ -9,7 +9,7 @@ import anet.channel.strategy.dispatch.DispatchConstants;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClientOption;
 import com.huawei.hem.AMapCoreException;
-import com.taobao.accs.net.C1958t;
+import com.taobao.accs.net.JobSchedulerHeartbeatManager;
 import com.taobao.accs.utl.BaseMonitor;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +127,7 @@ public final class ReportUtil {
             return "MaybeMockGPSLoc";
         }
         switch (i) {
-            case C1958t.DEAMON_JOB_ID /* 2051 */:
+            case JobSchedulerHeartbeatManager.DEAMON_JOB_ID /* 2051 */:
                 return "NeedLoginNetWork\t";
             case 2052:
                 return "MaybeIntercepted";
@@ -166,15 +166,15 @@ public final class ReportUtil {
             }
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("gpsTime:");
-            stringBuffer.append(C1841ew.m5110a(j, "yyyy-MM-dd HH:mm:ss.SSS"));
+            stringBuffer.append(AMapLocationUtilities.m5110a(j, "yyyy-MM-dd HH:mm:ss.SSS"));
             stringBuffer.append(",");
             stringBuffer.append("sysTime:");
-            stringBuffer.append(C1841ew.m5110a(j2, "yyyy-MM-dd HH:mm:ss.SSS"));
+            stringBuffer.append(AMapLocationUtilities.m5110a(j2, "yyyy-MM-dd HH:mm:ss.SSS"));
             stringBuffer.append(",");
             long jM5006t = AuthUtil.m5006t();
             String strM5110a = MessageService.MSG_DB_READY_REPORT;
             if (0 != jM5006t) {
-                strM5110a = C1841ew.m5110a(jM5006t, "yyyy-MM-dd HH:mm:ss.SSS");
+                strM5110a = AMapLocationUtilities.m5110a(jM5006t, "yyyy-MM-dd HH:mm:ss.SSS");
             }
             stringBuffer.append("serverTime:");
             stringBuffer.append(strM5110a);
@@ -237,7 +237,7 @@ public final class ReportUtil {
     public static synchronized void m5069a(Context context, AMapLocation aMapLocation) {
         int i;
         try {
-            if (C1841ew.m5116a(aMapLocation)) {
+            if (AMapLocationUtilities.m5116a(aMapLocation)) {
                 int locationType = aMapLocation.getLocationType();
                 int i2 = 0;
                 if (locationType == 1) {
@@ -271,10 +271,10 @@ public final class ReportUtil {
                         f5787j = new JSONArray();
                     }
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("lon", C1841ew.m5125b(aMapLocation.getLongitude()));
-                    jSONObject.put(DispatchConstants.LATITUDE, C1841ew.m5125b(aMapLocation.getLatitude()));
+                    jSONObject.put("lon", AMapLocationUtilities.m5125b(aMapLocation.getLongitude()));
+                    jSONObject.put(DispatchConstants.LATITUDE, AMapLocationUtilities.m5125b(aMapLocation.getLatitude()));
                     jSONObject.put("type", i);
-                    jSONObject.put(NotificationCompat.CarExtender.KEY_TIMESTAMP, C1841ew.m5107a());
+                    jSONObject.put(NotificationCompat.CarExtender.KEY_TIMESTAMP, AMapLocationUtilities.m5107a());
                     if (aMapLocation.getCoordType().equalsIgnoreCase(AMapLocation.COORD_TYPE_WGS84)) {
                         jSONObject.put("coordType", 1);
                     } else {
@@ -282,10 +282,10 @@ public final class ReportUtil {
                     }
                     if (i == 0) {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("accuracy", C1841ew.m5135c(aMapLocation.getAccuracy()));
-                        jSONObject2.put("altitude", C1841ew.m5135c(aMapLocation.getAltitude()));
-                        jSONObject2.put("bearing", C1841ew.m5135c(aMapLocation.getBearing()));
-                        jSONObject2.put("speed", C1841ew.m5135c(aMapLocation.getSpeed()));
+                        jSONObject2.put("accuracy", AMapLocationUtilities.m5135c(aMapLocation.getAccuracy()));
+                        jSONObject2.put("altitude", AMapLocationUtilities.m5135c(aMapLocation.getAltitude()));
+                        jSONObject2.put("bearing", AMapLocationUtilities.m5135c(aMapLocation.getBearing()));
+                        jSONObject2.put("speed", AMapLocationUtilities.m5135c(aMapLocation.getSpeed()));
                         jSONObject.put("extension", jSONObject2);
                     }
                     JSONArray jSONArrayPut = f5787j.put(jSONObject);
@@ -450,13 +450,13 @@ public final class ReportUtil {
     public static void m5075a(AMapLocation aMapLocation, AMapLocation aMapLocation2) {
         try {
             if (f5784g == null) {
-                if (!C1841ew.m5116a(aMapLocation)) {
+                if (!AMapLocationUtilities.m5116a(aMapLocation)) {
                     f5784g = aMapLocation2;
                     return;
                 }
                 f5784g = aMapLocation.m5888clone();
             }
-            if (C1841ew.m5116a(f5784g) && C1841ew.m5116a(aMapLocation2)) {
+            if (AMapLocationUtilities.m5116a(f5784g) && AMapLocationUtilities.m5116a(aMapLocation2)) {
                 AMapLocation aMapLocationM5888clone = aMapLocation2.m5888clone();
                 if (f5784g.getLocationType() != 1 && f5784g.getLocationType() != 9 && !"gps".equalsIgnoreCase(f5784g.getProvider()) && f5784g.getLocationType() != 7 && aMapLocationM5888clone.getLocationType() != 1 && aMapLocationM5888clone.getLocationType() != 9 && !"gps".equalsIgnoreCase(aMapLocationM5888clone.getProvider()) && aMapLocationM5888clone.getLocationType() != 7) {
                     long jAbs = Math.abs(aMapLocationM5888clone.getTime() - f5784g.getTime()) / 1000;
@@ -464,7 +464,7 @@ public final class ReportUtil {
                         jAbs = 1;
                     }
                     if (jAbs <= 1800) {
-                        float fM5103a = C1841ew.m5103a(f5784g, aMapLocationM5888clone);
+                        float fM5103a = AMapLocationUtilities.m5103a(f5784g, aMapLocationM5888clone);
                         float f = fM5103a / jAbs;
                         if (fM5103a > 30000.0f && f > 1000.0f) {
                             StringBuilder sb = new StringBuilder();
@@ -477,7 +477,7 @@ public final class ReportUtil {
                             sb.append(f5784g.getLocationType());
                             sb.append(",");
                             if (aMapLocation.getTime() != 0) {
-                                sb.append(C1841ew.m5110a(f5784g.getTime(), "yyyyMMdd_HH:mm:ss:SS"));
+                                sb.append(AMapLocationUtilities.m5110a(f5784g.getTime(), "yyyyMMdd_HH:mm:ss:SS"));
                             } else {
                                 sb.append(f5784g.getTime());
                             }
@@ -491,7 +491,7 @@ public final class ReportUtil {
                             sb.append(aMapLocationM5888clone.getLocationType());
                             sb.append(",");
                             if (aMapLocationM5888clone.getTime() != 0) {
-                                sb.append(C1841ew.m5110a(aMapLocationM5888clone.getTime(), "yyyyMMdd_HH:mm:ss:SS"));
+                                sb.append(AMapLocationUtilities.m5110a(aMapLocationM5888clone.getTime(), "yyyyMMdd_HH:mm:ss:SS"));
                             } else {
                                 sb.append(aMapLocationM5888clone.getTime());
                             }
@@ -540,7 +540,7 @@ public final class ReportUtil {
 
     /* renamed from: a */
     public static boolean m5080a(AMapLocation aMapLocation) {
-        return C1841ew.m5116a(aMapLocation) ? !CoreUtil.m5015a(aMapLocation.getLatitude(), aMapLocation.getLongitude()) : "http://abroad.apilocate.amap.com/mobile/binary".equals(CoreUtil.f5756c);
+        return AMapLocationUtilities.m5116a(aMapLocation) ? !CoreUtil.m5015a(aMapLocation.getLatitude(), aMapLocation.getLongitude()) : "http://abroad.apilocate.amap.com/mobile/binary".equals(CoreUtil.f5756c);
     }
 
     /* renamed from: f */
@@ -563,9 +563,9 @@ public final class ReportUtil {
                 return;
             }
             if (this.f5789b != -1 && this.f5789b != i) {
-                this.f5788a.append(this.f5789b, Long.valueOf((C1841ew.m5127b() - this.f5790c) + this.f5788a.get(this.f5789b, 0L).longValue()));
+                this.f5788a.append(this.f5789b, Long.valueOf((AMapLocationUtilities.m5127b() - this.f5790c) + this.f5788a.get(this.f5789b, 0L).longValue()));
             }
-            this.f5790c = C1841ew.m5127b() - C1840ev.m5089a(context, "pref1", this.f5791d[i], 0L);
+            this.f5790c = AMapLocationUtilities.m5127b() - AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[i], 0L);
             this.f5789b = i;
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "ReportUtil", "setLocationType");
@@ -588,9 +588,9 @@ public final class ReportUtil {
                 return;
             }
             if (this.f5792e != -1 && this.f5792e != i2) {
-                this.f5788a.append(this.f5792e, Long.valueOf((C1841ew.m5127b() - this.f5793f) + this.f5788a.get(this.f5792e, 0L).longValue()));
+                this.f5788a.append(this.f5792e, Long.valueOf((AMapLocationUtilities.m5127b() - this.f5793f) + this.f5788a.get(this.f5792e, 0L).longValue()));
             }
-            this.f5793f = C1841ew.m5127b() - C1840ev.m5089a(context, "pref1", this.f5791d[i2], 0L);
+            this.f5793f = AMapLocationUtilities.m5127b() - AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[i2], 0L);
             this.f5792e = i2;
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "ReportUtil", "setLocationMode");
@@ -600,22 +600,22 @@ public final class ReportUtil {
     /* renamed from: b */
     public final void m5084b(Context context) {
         try {
-            long jM5127b = C1841ew.m5127b() - this.f5790c;
+            long jM5127b = AMapLocationUtilities.m5127b() - this.f5790c;
             if (this.f5789b != -1) {
                 this.f5788a.append(this.f5789b, Long.valueOf(jM5127b + this.f5788a.get(this.f5789b, 0L).longValue()));
             }
-            long jM5127b2 = C1841ew.m5127b() - this.f5793f;
+            long jM5127b2 = AMapLocationUtilities.m5127b() - this.f5793f;
             if (this.f5792e != -1) {
                 this.f5788a.append(this.f5792e, Long.valueOf(jM5127b2 + this.f5788a.get(this.f5792e, 0L).longValue()));
             }
-            SharedPreferences.Editor editorM5090a = C1840ev.m5090a(context, "pref1");
+            SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(context, "pref1");
             for (int i = 0; i < this.f5791d.length; i++) {
                 long jLongValue = this.f5788a.get(i, 0L).longValue();
-                if (jLongValue > 0 && jLongValue > C1840ev.m5089a(context, "pref1", this.f5791d[i], 0L)) {
-                    C1840ev.m5096a(editorM5090a, this.f5791d[i], jLongValue);
+                if (jLongValue > 0 && jLongValue > AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[i], 0L)) {
+                    AMapLocationPreferences.m5096a(editorM5090a, this.f5791d[i], jLongValue);
                 }
             }
-            C1840ev.m5093a(editorM5090a);
+            AMapLocationPreferences.m5093a(editorM5090a);
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "ReportUtil", "saveLocationTypeAndMode");
         }
@@ -624,9 +624,9 @@ public final class ReportUtil {
     /* renamed from: c */
     public final int m5085c(Context context) {
         try {
-            long jM5089a = C1840ev.m5089a(context, "pref1", this.f5791d[2], 0L);
-            long jM5089a2 = C1840ev.m5089a(context, "pref1", this.f5791d[0], 0L);
-            long jM5089a3 = C1840ev.m5089a(context, "pref1", this.f5791d[1], 0L);
+            long jM5089a = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[2], 0L);
+            long jM5089a2 = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[0], 0L);
+            long jM5089a3 = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[1], 0L);
             if (jM5089a == 0 && jM5089a2 == 0 && jM5089a3 == 0) {
                 return -1;
             }
@@ -641,9 +641,9 @@ public final class ReportUtil {
     /* renamed from: d */
     public final int m5086d(Context context) {
         try {
-            long jM5089a = C1840ev.m5089a(context, "pref1", this.f5791d[3], 0L);
-            long jM5089a2 = C1840ev.m5089a(context, "pref1", this.f5791d[4], 0L);
-            long jM5089a3 = C1840ev.m5089a(context, "pref1", this.f5791d[5], 0L);
+            long jM5089a = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[3], 0L);
+            long jM5089a2 = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[4], 0L);
+            long jM5089a3 = AMapLocationPreferences.m5089a(context, "pref1", this.f5791d[5], 0L);
             if (jM5089a == 0 && jM5089a2 == 0 && jM5089a3 == 0) {
                 return -1;
             }
@@ -656,11 +656,11 @@ public final class ReportUtil {
     /* renamed from: e */
     public final void m5087e(Context context) {
         try {
-            SharedPreferences.Editor editorM5090a = C1840ev.m5090a(context, "pref1");
+            SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(context, "pref1");
             for (int i = 0; i < this.f5791d.length; i++) {
-                C1840ev.m5096a(editorM5090a, this.f5791d[i], 0L);
+                AMapLocationPreferences.m5096a(editorM5090a, this.f5791d[i], 0L);
             }
-            C1840ev.m5093a(editorM5090a);
+            AMapLocationPreferences.m5093a(editorM5090a);
         } catch (Throwable unused) {
         }
     }

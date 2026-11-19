@@ -10,15 +10,15 @@ public class InterceptorManager {
     public ArrayList<ILogInterceptor> f984a = new ArrayList<>();
 
     /* renamed from: b */
-    public ArrayList<InterfaceC0545c> f985b = new ArrayList<>();
+    public ArrayList<LogMessageStage> f985b = new ArrayList<>();
 
     /* renamed from: c */
-    public C0543a f986c;
+    public LogOutputInterceptor f986c;
 
     /* renamed from: d */
-    public C0544b f987d;
+    public LogPrintAdapter f987d;
 
-    public InterceptorManager(C0543a c0543a, C0544b c0544b) {
+    public InterceptorManager(LogOutputInterceptor c0543a, LogPrintAdapter c0544b) {
         this.f986c = c0543a;
         this.f987d = c0544b;
     }
@@ -42,7 +42,7 @@ public class InterceptorManager {
     }
 
     /* renamed from: a */
-    public void m693a(InterfaceC0545c interfaceC0545c) {
+    public void m693a(LogMessageStage interfaceC0545c) {
         this.f985b.add(interfaceC0545c);
     }
 

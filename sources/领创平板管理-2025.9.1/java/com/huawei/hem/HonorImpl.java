@@ -207,7 +207,7 @@ public class HonorImpl extends AndroidImpl {
     public List<String> mo1307G0() {
         try {
             ArrayList networkAccessAppList = f3308g.getNetworkAccessAppList(f3317p, true);
-            if (!AbstractC1102l9.m2272M(networkAccessAppList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(networkAccessAppList)) {
                 LTKDateUtil.m1403m("HonorImpl ---getNetworkAccessAppWhiteList:" + networkAccessAppList.size());
                 return networkAccessAppList;
             }
@@ -528,7 +528,7 @@ public class HonorImpl extends AndroidImpl {
     public void mo2055P0(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HonorImpl  -- removeSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 arrayList.remove("com.android.launcher3");
                 arrayList.remove("com.ndwill.swd.appstore");
             }
@@ -602,7 +602,7 @@ public class HonorImpl extends AndroidImpl {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("HonorImpl  ---removeNetworkList-error:"));
         }
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("HonorImpl  -- setUrlWhiteList-none url need add");
             } else {
                 ArrayList arrayList = new ArrayList();
@@ -740,7 +740,7 @@ public class HonorImpl extends AndroidImpl {
     public void mo1506d(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HonorImpl  -- setSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 LTKDateUtil.m1403m("HonorImpl  -- 设置可信任应用:" + arrayList);
                 f3312k.setSuperTrustListForHwSystemManger(f3317p, arrayList);
             }
@@ -1207,7 +1207,7 @@ public class HonorImpl extends AndroidImpl {
     /* renamed from: j0 */
     public void mo1349j0(ArrayList<String> arrayList) {
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             f3309h.removeSsidFromTrustList(f3317p, arrayList);
@@ -1340,7 +1340,7 @@ public class HonorImpl extends AndroidImpl {
         try {
             LTKDateUtil.m1403m("HonorImpl ---remove app white list ");
             List installPackageTrustList = f3306e.getInstallPackageTrustList(f3317p);
-            if (!AbstractC1102l9.m2273N(installPackageTrustList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(installPackageTrustList)) {
                 f3306e.removeInstallPackageTrustList(f3317p, installPackageTrustList);
             }
         } catch (Throwable th) {
@@ -1399,11 +1399,11 @@ public class HonorImpl extends AndroidImpl {
             LTKDateUtil.m1403m("HonorImpl ---getNetworkList:");
             List networkList = f3308g.getNetworkList(f3317p, true, true);
             ArrayList arrayList = new ArrayList();
-            if (!AbstractC1102l9.m2273N(networkList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(networkList)) {
                 arrayList.addAll(networkList);
             }
             List networkList2 = f3308g.getNetworkList(f3317p, true, false);
-            if (!AbstractC1102l9.m2273N(networkList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(networkList)) {
                 arrayList.addAll(networkList2);
             }
             return arrayList;
@@ -1475,7 +1475,7 @@ public class HonorImpl extends AndroidImpl {
     /* renamed from: x */
     public void mo1354x(ArrayList<String> arrayList) {
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             f3309h.addSsidToTrustList(f3317p, arrayList);

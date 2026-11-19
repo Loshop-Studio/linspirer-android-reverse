@@ -1,11 +1,11 @@
 package anetwork.channel.degrade;
 
 import android.content.Context;
-import anetwork.channel.aidl.adapter.C0433b;
+import anetwork.channel.aidl.adapter.RemoteNetworkDelegate;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
-public class DegradableNetwork extends C0433b {
+public class DegradableNetwork extends RemoteNetworkDelegate {
     public DegradableNetwork(Context context) {
         super(context, 1);
     }

@@ -19,7 +19,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.DPoint;
 import com.google.zxing.client.android.InactivityTimer;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -277,14 +277,14 @@ public final class GpsLocation {
         }
         try {
             AMapLocation aMapLocation = new AMapLocation(location);
-            if (C1841ew.m5116a(aMapLocation)) {
+            if (AMapLocationUtilities.m5116a(aMapLocation)) {
                 aMapLocation.setProvider("gps");
                 aMapLocation.setLocationType(1);
-                if (!this.f5843e && C1841ew.m5116a(aMapLocation)) {
-                    ReportUtil.m5068a(this.f5857z, C1841ew.m5127b() - this.f5830A, CoreUtil.m5015a(aMapLocation.getLatitude(), aMapLocation.getLongitude()));
+                if (!this.f5843e && AMapLocationUtilities.m5116a(aMapLocation)) {
+                    ReportUtil.m5068a(this.f5857z, AMapLocationUtilities.m5127b() - this.f5830A, CoreUtil.m5015a(aMapLocation.getLatitude(), aMapLocation.getLongitude()));
                     this.f5843e = true;
                 }
-                if (C1841ew.m5115a(location, this.f5832C)) {
+                if (AMapLocationUtilities.m5115a(location, this.f5832C)) {
                     aMapLocation.setMock(true);
                     aMapLocation.setTrustedLevel(4);
                     if (!this.f5841c.isMockEnable()) {
@@ -319,10 +319,10 @@ public final class GpsLocation {
                     m5204a(aMapLocationM5217g, f5829y);
                 }
                 try {
-                    if (C1841ew.m5116a(aMapLocationM5217g)) {
+                    if (AMapLocationUtilities.m5116a(aMapLocationM5217g)) {
                         if (this.f5847i != null) {
                             this.f5848m = location.getTime() - this.f5847i.getTime();
-                            this.f5849n = C1841ew.m5103a(this.f5847i, aMapLocationM5217g);
+                            this.f5849n = AMapLocationUtilities.m5103a(this.f5847i, aMapLocationM5217g);
                         }
                         synchronized (this.f5851p) {
                             this.f5847i = aMapLocationM5217g.m5888clone();
@@ -343,10 +343,10 @@ public final class GpsLocation {
 
     /* renamed from: a */
     private void m5203a(AMapLocation aMapLocation) {
-        if (C1841ew.m5116a(aMapLocation)) {
-            this.f5842d = C1841ew.m5127b();
+        if (AMapLocationUtilities.m5116a(aMapLocation)) {
+            this.f5842d = AMapLocationUtilities.m5127b();
             synchronized (f5825l) {
-                f5824k = C1841ew.m5127b();
+                f5824k = AMapLocationUtilities.m5127b();
                 f5823j = aMapLocation.m5888clone();
             }
             this.f5831B++;
@@ -355,7 +355,7 @@ public final class GpsLocation {
 
     /* renamed from: a */
     private void m5204a(AMapLocation aMapLocation, AMapLocation aMapLocation2) {
-        if (aMapLocation2 == null || !this.f5841c.isNeedAddress() || C1841ew.m5103a(aMapLocation, aMapLocation2) >= this.f5845g) {
+        if (aMapLocation2 == null || !this.f5841c.isNeedAddress() || AMapLocationUtilities.m5103a(aMapLocation, aMapLocation2) >= this.f5845g) {
             return;
         }
         CoreUtil.m5008a(aMapLocation, aMapLocation2);
@@ -394,8 +394,8 @@ public final class GpsLocation {
 
     /* renamed from: b */
     private void m5211b(AMapLocation aMapLocation) {
-        if (C1841ew.m5116a(aMapLocation) && this.f5839a != null) {
-            long jM5127b = C1841ew.m5127b();
+        if (AMapLocationUtilities.m5116a(aMapLocation) && this.f5839a != null) {
+            long jM5127b = AMapLocationUtilities.m5127b();
             if (this.f5841c.getInterval() <= 8000 || jM5127b - this.f5854v > this.f5841c.getInterval() - 8000) {
                 Bundle bundle = new Bundle();
                 bundle.putDouble(DispatchConstants.LATITUDE, aMapLocation.getLatitude());
@@ -406,7 +406,7 @@ public final class GpsLocation {
                 messageObtain.setData(bundle);
                 messageObtain.what = 5;
                 synchronized (this.f5850o) {
-                    if (f5829y == null || C1841ew.m5103a(aMapLocation, f5829y) > this.f5846h) {
+                    if (f5829y == null || AMapLocationUtilities.m5103a(aMapLocation, f5829y) > this.f5846h) {
                         Handler handler = this.f5839a;
                         handler.sendMessage(messageObtain);
                     }
@@ -418,12 +418,12 @@ public final class GpsLocation {
     /* renamed from: b */
     private boolean m5212b(String str) {
         try {
-            ArrayList<String> arrayListM5131b = C1841ew.m5131b(str);
-            ArrayList<String> arrayListM5131b2 = C1841ew.m5131b(this.f5835F);
+            ArrayList<String> arrayListM5131b = AMapLocationUtilities.m5131b(str);
+            ArrayList<String> arrayListM5131b2 = AMapLocationUtilities.m5131b(this.f5835F);
             if (arrayListM5131b.size() < 8 || arrayListM5131b2.size() < 8) {
                 return false;
             }
-            return C1841ew.m5119a(this.f5835F, str);
+            return AMapLocationUtilities.m5119a(this.f5835F, str);
         } catch (Throwable unused) {
             return false;
         }
@@ -434,8 +434,8 @@ public final class GpsLocation {
         if (aMapLocation.getErrorCode() != 15 || AMapLocationClientOption.AMapLocationMode.Device_Sensors.equals(this.f5841c.getLocationMode())) {
             if (this.f5841c.getLocationMode().equals(AMapLocationClientOption.AMapLocationMode.Device_Sensors) && this.f5841c.getDeviceModeDistanceFilter() > 0.0f) {
                 m5214d(aMapLocation);
-            } else if (C1841ew.m5127b() - this.f5854v >= this.f5841c.getInterval() - 200) {
-                this.f5854v = C1841ew.m5127b();
+            } else if (AMapLocationUtilities.m5127b() - this.f5854v >= this.f5841c.getInterval() - 200) {
+                this.f5854v = AMapLocationUtilities.m5127b();
                 m5214d(aMapLocation);
             }
         }
@@ -486,7 +486,7 @@ public final class GpsLocation {
 
     /* renamed from: g */
     private AMapLocation m5217g(AMapLocation aMapLocation) {
-        if (!C1841ew.m5116a(aMapLocation) || this.f5831B < 3) {
+        if (!AMapLocationUtilities.m5116a(aMapLocation) || this.f5831B < 3) {
             return aMapLocation;
         }
         if (aMapLocation.getAccuracy() < 0.0f || aMapLocation.getAccuracy() == Float.MAX_VALUE) {
@@ -516,18 +516,18 @@ public final class GpsLocation {
                 looperMyLooper = this.f5857z.getMainLooper();
             }
             Looper looper = looperMyLooper;
-            this.f5830A = C1841ew.m5127b();
+            this.f5830A = AMapLocationUtilities.m5127b();
             if (!m5209a(this.f5840b)) {
                 m5201a(8, 14, "no gps provider#1402", 0L);
                 return;
             }
             try {
-                if (C1841ew.m5107a() - f5826q >= 259200000) {
+                if (AMapLocationUtilities.m5107a() - f5826q >= 259200000) {
                     this.f5840b.sendExtraCommand("gps", "force_xtra_injection", null);
-                    f5826q = C1841ew.m5107a();
-                    SharedPreferences.Editor editorM5090a = C1840ev.m5090a(this.f5857z, "pref");
-                    C1840ev.m5096a(editorM5090a, "lagt", f5826q);
-                    C1840ev.m5093a(editorM5090a);
+                    f5826q = AMapLocationUtilities.m5107a();
+                    SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(this.f5857z, "pref");
+                    AMapLocationPreferences.m5096a(editorM5090a, "lagt", f5826q);
+                    AMapLocationPreferences.m5093a(editorM5090a);
                 }
             } catch (Throwable unused) {
             }
@@ -561,18 +561,18 @@ public final class GpsLocation {
 
     /* renamed from: h */
     private void m5219h() {
-        if (C1841ew.m5127b() - f5824k > 5000 || !C1841ew.m5116a(f5823j)) {
+        if (AMapLocationUtilities.m5127b() - f5824k > 5000 || !AMapLocationUtilities.m5116a(f5823j)) {
             return;
         }
         if (this.f5841c.isMockEnable() || !f5823j.isMock()) {
-            this.f5842d = C1841ew.m5127b();
+            this.f5842d = AMapLocationUtilities.m5127b();
             m5213c(f5823j);
         }
     }
 
     /* renamed from: h */
     public static void m5220h(AMapLocation aMapLocation) {
-        if (C1841ew.m5116a(aMapLocation) && AuthUtil.m5004r()) {
+        if (AMapLocationUtilities.m5116a(aMapLocation) && AuthUtil.m5004r()) {
             long time = aMapLocation.getTime();
             long jCurrentTimeMillis = System.currentTimeMillis();
             long jM5030a = DateUtil.m5030a(time, jCurrentTimeMillis, AuthUtil.m5005s());
@@ -586,7 +586,7 @@ public final class GpsLocation {
     /* renamed from: i */
     public static boolean m5221i() {
         try {
-            return ((Boolean) Reflect.m5054a(C1094l1.m2251t("KY29tLmFtYXAuYXBpLm5hdmkuQU1hcE5hdmk="), C1094l1.m2251t("UaXNOYXZpU3RhcnRlZA=="), (Object[]) null, (Class<?>[]) null)).booleanValue();
+            return ((Boolean) Reflect.m5054a(AMapCoreUtilities.m2251t("KY29tLmFtYXAuYXBpLm5hdmkuQU1hcE5hdmk="), AMapCoreUtilities.m2251t("UaXNOYXZpU3RhcnRlZA=="), (Object[]) null, (Class<?>[]) null)).booleanValue();
         } catch (Throwable unused) {
             return false;
         }
@@ -597,14 +597,14 @@ public final class GpsLocation {
         float f;
         float f2;
         try {
-            if (C1841ew.m5116a(this.f5847i) && AuthUtil.m4996j() && m5221i()) {
-                JSONObject jSONObject = new JSONObject((String) Reflect.m5054a(C1094l1.m2251t("KY29tLmFtYXAuYXBpLm5hdmkuQU1hcE5hdmk="), C1094l1.m2251t("UZ2V0TmF2aUxvY2F0aW9u"), (Object[]) null, (Class<?>[]) null));
+            if (AMapLocationUtilities.m5116a(this.f5847i) && AuthUtil.m4996j() && m5221i()) {
+                JSONObject jSONObject = new JSONObject((String) Reflect.m5054a(AMapCoreUtilities.m2251t("KY29tLmFtYXAuYXBpLm5hdmkuQU1hcE5hdmk="), AMapCoreUtilities.m2251t("UZ2V0TmF2aUxvY2F0aW9u"), (Object[]) null, (Class<?>[]) null));
                 long jOptLong = jSONObject.optLong("time");
                 if (!this.f5838I) {
                     this.f5838I = true;
                     ReportUtil.m5077a("useNaviLoc", "use NaviLoc");
                 }
-                if (C1841ew.m5107a() - jOptLong <= 5500) {
+                if (AMapLocationUtilities.m5107a() - jOptLong <= 5500) {
                     double dOptDouble = jSONObject.optDouble(DispatchConstants.LATITUDE, 0.0d);
                     double dOptDouble2 = jSONObject.optDouble(DispatchConstants.LONGTITUDE, 0.0d);
                     float f3 = 0.0f;
@@ -633,7 +633,7 @@ public final class GpsLocation {
                     aMapLocation.setSpeed(f3);
                     aMapLocation.setTime(jOptLong);
                     aMapLocation.setCoordType(AMapLocation.COORD_TYPE_GCJ02);
-                    if (C1841ew.m5103a(aMapLocation, this.f5847i) <= 300.0f) {
+                    if (AMapLocationUtilities.m5103a(aMapLocation, this.f5847i) <= 300.0f) {
                         synchronized (this.f5851p) {
                             this.f5847i.setLongitude(dOptDouble2);
                             this.f5847i.setLatitude(dOptDouble);
@@ -733,7 +733,7 @@ public final class GpsLocation {
             this.f5841c = new AMapLocationClientOption();
         }
         try {
-            f5826q = C1840ev.m5089a(this.f5857z, "pref", "lagt", f5826q);
+            f5826q = AMapLocationPreferences.m5089a(this.f5857z, "pref", "lagt", f5826q);
         } catch (Throwable unused) {
         }
         m5218g();
@@ -759,7 +759,7 @@ public final class GpsLocation {
 
     /* renamed from: b */
     public final boolean m5228b() {
-        return C1841ew.m5127b() - this.f5842d <= 2800;
+        return AMapLocationUtilities.m5127b() - this.f5842d <= 2800;
     }
 
     /* renamed from: c */
@@ -792,6 +792,6 @@ public final class GpsLocation {
     /* renamed from: f */
     public final boolean m5232f() {
         AMapLocationClientOption aMapLocationClientOption = this.f5841c;
-        return (aMapLocationClientOption == null || aMapLocationClientOption.isOnceLocation() || C1841ew.m5127b() - this.f5842d <= InactivityTimer.INACTIVITY_DELAY_MS) ? false : true;
+        return (aMapLocationClientOption == null || aMapLocationClientOption.isOnceLocation() || AMapLocationUtilities.m5127b() - this.f5842d <= InactivityTimer.INACTIVITY_DELAY_MS) ? false : true;
     }
 }

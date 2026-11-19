@@ -11,11 +11,11 @@ import java.util.List;
 public class HCService extends Service {
 
     /* renamed from: a */
-    public IHCAPI.a f1639a = new BinderC0626a(this);
+    public IHCAPI.a f1639a = new HcServiceBinder(this);
 
     /* renamed from: com.android.hccontrol.custom.lingc.HCService$a */
-    public class BinderC0626a extends IHCAPI.a {
-        public BinderC0626a(HCService hCService) {
+    public class HcServiceBinder extends IHCAPI.a {
+        public HcServiceBinder(HCService hCService) {
         }
 
         @Override // com.huawei.hem.InterfaceC1320u1

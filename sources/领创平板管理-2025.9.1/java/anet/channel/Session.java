@@ -2,8 +2,8 @@ package anet.channel;
 
 import android.content.Context;
 import android.text.TextUtils;
-import anet.channel.entity.C0346a;
-import anet.channel.entity.C0347b;
+import anet.channel.entity.SessionConnectionInfo;
+import anet.channel.entity.SessionEventDetails;
 import anet.channel.entity.ConnType;
 import anet.channel.entity.EventCb;
 import anet.channel.request.Cancelable;
@@ -112,7 +112,7 @@ public abstract class Session implements Comparable<Session> {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.Session$a */
-    public static class C0302a {
+    public static class SessionStatusNames {
         public static final int AUTHING = 3;
         public static final int AUTH_FAIL = 5;
         public static final int AUTH_SUCC = 4;
@@ -131,7 +131,7 @@ public abstract class Session implements Comparable<Session> {
         }
     }
 
-    public Session(Context context, C0346a c0346a) {
+    public Session(Context context, SessionConnectionInfo c0346a) {
         boolean z = false;
         this.f107m = false;
         this.f95a = context;
@@ -219,8 +219,8 @@ public abstract class Session implements Comparable<Session> {
         return this.f106l;
     }
 
-    public void handleCallbacks(int i, C0347b c0347b) {
-        f94v.submit(new RunnableC0312b(this, i, c0347b));
+    public void handleCallbacks(int i, SessionEventDetails c0347b) {
+        f94v.submit(new SessionEventDispatchTask(this, i, c0347b));
     }
 
     public void handleResponseCode(Request request, int i) {
@@ -267,8 +267,8 @@ public abstract class Session implements Comparable<Session> {
 
     public abstract boolean isAvailable();
 
-    public synchronized void notifyStatus(int i, C0347b c0347b) {
-        ALog.m339e("awcn.Session", "notifyStatus", this.f110p, "status", C0302a.m34a(i));
+    public synchronized void notifyStatus(int i, SessionEventDetails c0347b) {
+        ALog.m339e("awcn.Session", "notifyStatus", this.f110p, "status", SessionStatusNames.m34a(i));
         if (i == this.f108n) {
             ALog.m340i("awcn.Session", "ignore notifyStatus", this.f110p, new Object[0]);
             return;

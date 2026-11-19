@@ -134,7 +134,7 @@ public final class AmapSensorManager implements SensorEventListener {
     /* renamed from: b */
     private void m4726b(float[] fArr) {
         if (fArr != null) {
-            this.f5468f = C1841ew.m5102a(SensorManager.getAltitude(this.f5482t, fArr[0]));
+            this.f5468f = AMapLocationUtilities.m5102a(SensorManager.getAltitude(this.f5482t, fArr[0]));
         }
     }
 

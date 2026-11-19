@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -323,14 +323,14 @@ public class AppCompatTextViewAutoSizeHelper {
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
-        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, C0200R.styleable.AppCompatTextView, i, 0);
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextView_autoSizeTextType)) {
-            this.mAutoSizeTextType = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.AppCompatTextView_autoSizeTextType, 0);
+        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.AppCompatTextView, i, 0);
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeTextType)) {
+            this.mAutoSizeTextType = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeTextType, 0);
         }
-        float dimension = typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextView_autoSizeStepGranularity) ? typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.AppCompatTextView_autoSizeStepGranularity, -1.0f) : -1.0f;
-        float dimension2 = typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextView_autoSizeMinTextSize) ? typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.AppCompatTextView_autoSizeMinTextSize, -1.0f) : -1.0f;
-        float dimension3 = typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.AppCompatTextView_autoSizeMaxTextSize, -1.0f) : -1.0f;
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
+        float dimension = typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeStepGranularity) ? typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeStepGranularity, -1.0f) : -1.0f;
+        float dimension2 = typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeMinTextSize) ? typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeMinTextSize, -1.0f) : -1.0f;
+        float dimension3 = typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeMaxTextSize) ? typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.AppCompatTextView_autoSizeMaxTextSize, -1.0f) : -1.0f;
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
             TypedArray typedArrayObtainTypedArray = typedArrayObtainStyledAttributes.getResources().obtainTypedArray(resourceId);
             setupAutoSizeUniformPresetSizes(typedArrayObtainTypedArray);
             typedArrayObtainTypedArray.recycle();

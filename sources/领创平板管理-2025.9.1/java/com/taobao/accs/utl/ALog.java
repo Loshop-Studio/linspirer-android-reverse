@@ -112,7 +112,7 @@ public class ALog {
     @Deprecated
     public static void setLogLevel(Level level) {
         LogLevel logLevel = LogLevel.ERROR;
-        switch (C1974b.f6388b[level.ordinal()]) {
+        switch (AccsLogLevelSwitch.f6388b[level.ordinal()]) {
             case 1:
             case 2:
                 logLevel = LogLevel.DEBUG;
@@ -134,7 +134,7 @@ public class ALog {
     @Deprecated
     public static void setLogger(ALog.ILog iLog) {
         if (iLog != null) {
-            AccsLogger.addILogger(new C1973a(iLog));
+            AccsLogger.addILogger(new AccsPlatformLogger(iLog));
         }
     }
 

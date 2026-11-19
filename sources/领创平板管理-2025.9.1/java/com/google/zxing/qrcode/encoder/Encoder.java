@@ -22,7 +22,7 @@ public final class Encoder {
     public static final String DEFAULT_BYTE_MODE_ENCODING = "ISO-8859-1";
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1 */
-    public static /* synthetic */ class C08031 {
+    public static /* synthetic */ class QREncodeModeSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
 
         static {

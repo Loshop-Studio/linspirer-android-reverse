@@ -2,7 +2,7 @@ package android.support.v7.widget.helper;
 
 import android.graphics.Canvas;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.recyclerview.C0203R;
+import android.support.v7.recyclerview.SupportRecyclerviewResources;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -27,21 +27,21 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
 
     @Override // android.support.v7.widget.helper.ItemTouchUIUtil
     public void clearView(View view) {
-        Object tag = view.getTag(C0203R.id.item_touch_helper_previous_elevation);
+        Object tag = view.getTag(SupportRecyclerviewResources.id.item_touch_helper_previous_elevation);
         if (tag != null && (tag instanceof Float)) {
             ViewCompat.setElevation(view, ((Float) tag).floatValue());
         }
-        view.setTag(C0203R.id.item_touch_helper_previous_elevation, null);
+        view.setTag(SupportRecyclerviewResources.id.item_touch_helper_previous_elevation, null);
         view.setTranslationX(0.0f);
         view.setTranslationY(0.0f);
     }
 
     @Override // android.support.v7.widget.helper.ItemTouchUIUtil
     public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f, float f2, int i, boolean z) {
-        if (z && view.getTag(C0203R.id.item_touch_helper_previous_elevation) == null) {
+        if (z && view.getTag(SupportRecyclerviewResources.id.item_touch_helper_previous_elevation) == null) {
             Float fValueOf = Float.valueOf(ViewCompat.getElevation(view));
             ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
-            view.setTag(C0203R.id.item_touch_helper_previous_elevation, fValueOf);
+            view.setTag(SupportRecyclerviewResources.id.item_touch_helper_previous_elevation, fValueOf);
         }
         view.setTranslationX(f);
         view.setTranslationY(f2);

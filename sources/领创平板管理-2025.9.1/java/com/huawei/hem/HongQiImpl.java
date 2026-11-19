@@ -40,12 +40,12 @@ public class HongQiImpl extends AndroidImpl {
     public List<String> mo1311M0() {
         try {
             ArrayList<StopApplication> arrayListM2826a = f4016c.m2826a();
-            if (!AbstractC1102l9.m2272M(arrayListM2826a)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayListM2826a)) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < arrayListM2826a.size(); i++) {
                     String pname = arrayListM2826a.get(i).getPname();
                     if (!TextUtils.isEmpty(pname)) {
-                        arrayList.addAll(AbstractC1102l9.m2277R(pname, ","));
+                        arrayList.addAll(MobileSdkPlatformUtilities.m2277R(pname, ","));
                     }
                 }
                 return arrayList;

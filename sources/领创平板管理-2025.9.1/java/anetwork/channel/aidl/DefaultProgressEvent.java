@@ -8,7 +8,7 @@ import com.huawei.hem.CompilerOutline;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class DefaultProgressEvent implements Parcelable, NetworkEvent.ProgressEvent {
-    public static final Parcelable.Creator<DefaultProgressEvent> CREATOR = new C0438b();
+    public static final Parcelable.Creator<DefaultProgressEvent> CREATOR = new ProgressEventParcelCreator();
 
     /* renamed from: a */
     public int f610a;

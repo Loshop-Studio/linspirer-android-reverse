@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
@@ -33,7 +33,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     public AppCompatSeekBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.seekBarStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.seekBarStyle);
     }
 
     public AppCompatSeekBar(Context context, AttributeSet attributeSet, int i) {

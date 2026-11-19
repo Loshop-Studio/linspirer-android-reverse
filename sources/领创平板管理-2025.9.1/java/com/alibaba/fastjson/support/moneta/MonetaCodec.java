@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.ObjectSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -43,7 +43,7 @@ public class MonetaCodec implements ObjectSerializer, ObjectDeserializer {
         }
         SerializeWriter serializeWriter = jSONSerializer.out;
         serializeWriter.writeFieldValue('{', "numberStripped", money.getNumberStripped());
-        serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "currency", money.getCurrency().getCurrencyCode());
+        serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "currency", money.getCurrency().getCurrencyCode());
         serializeWriter.write(125);
     }
 }

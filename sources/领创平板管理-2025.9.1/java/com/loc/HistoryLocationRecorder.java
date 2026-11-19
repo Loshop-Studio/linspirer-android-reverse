@@ -4,7 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -60,7 +60,7 @@ public final class HistoryLocationRecorder {
         this.f5571d = handler;
         String path = context.getFilesDir().getPath();
         if (this.f5572e == null) {
-            this.f5572e = C1841ew.m5156m(context);
+            this.f5572e = AMapLocationUtilities.m5156m(context);
         }
         try {
             this.f5569b = new File(path, "hisloc");
@@ -79,10 +79,10 @@ public final class HistoryLocationRecorder {
     private void m4821a() {
         LinkedList<HistoryLocation> linkedList = this.f5568a;
         if (linkedList == null || linkedList.size() <= 0) {
-            Iterator<String> it = C1841ew.m5111a(this.f5569b).iterator();
+            Iterator<String> it = AMapLocationUtilities.m5111a(this.f5569b).iterator();
             while (it.hasNext()) {
                 try {
-                    String str = new String(C1823ee.m4877b(C0994h1.m1934e(it.next()), this.f5572e), "UTF-8");
+                    String str = new String(AMapLocationCipher.m4877b(AMapEncryptionUtilities.m1934e(it.next()), this.f5572e), "UTF-8");
                     HistoryLocation c1819ea = new HistoryLocation();
                     c1819ea.m4820a(new JSONObject(str));
                     this.f5568a.add(c1819ea);
@@ -102,7 +102,7 @@ public final class HistoryLocationRecorder {
         Iterator<HistoryLocation> it = this.f5568a.iterator();
         while (it.hasNext()) {
             try {
-                sb.append(C0994h1.m1933d(C1823ee.m4874a(it.next().m4819a().getBytes("UTF-8"), this.f5572e)) + "\n");
+                sb.append(AMapEncryptionUtilities.m1933d(AMapLocationCipher.m4874a(it.next().m4819a().getBytes("UTF-8"), this.f5572e)) + "\n");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -111,7 +111,7 @@ public final class HistoryLocationRecorder {
         if (TextUtils.isEmpty(string)) {
             return;
         }
-        C1841ew.m5112a(this.f5569b, string);
+        AMapLocationUtilities.m5112a(this.f5569b, string);
     }
 
     /* renamed from: b */
@@ -165,7 +165,7 @@ public final class HistoryLocationRecorder {
         }
         if (c1819ea2 != null) {
             new Location("gps");
-            if (c1819ea.f5563d - c1819ea2.f5563d < 20000 && C1841ew.m5105a(new double[]{c1819ea.f5561b, c1819ea.f5562c, c1819ea2.f5561b, c1819ea2.f5562c}) < 20.0f) {
+            if (c1819ea.f5563d - c1819ea2.f5563d < 20000 && AMapLocationUtilities.m5105a(new double[]{c1819ea.f5561b, c1819ea.f5562c, c1819ea2.f5561b, c1819ea2.f5562c}) < 20.0f) {
                 return;
             }
         }

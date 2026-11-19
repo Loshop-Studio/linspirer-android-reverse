@@ -9,7 +9,7 @@ import android.support.annotation.Size;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v7.widget.ActivityChooserView;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -66,7 +66,7 @@ public final class LocaleListHelper {
             localeArr2[i] = locale2;
             sb.append(LocaleHelper.toLanguageTag(locale2));
             if (i < localeArr.length - 1) {
-                sb.append(AbstractC1604b.COMMA);
+                sb.append(UpdateJsonBean.COMMA);
             }
             hashSet.add(locale2);
         }
@@ -362,7 +362,7 @@ public final class LocaleListHelper {
             }
             sbM1765j.append(localeArr[i]);
             if (i < this.mList.length - 1) {
-                sbM1765j.append(AbstractC1604b.COMMA);
+                sbM1765j.append(UpdateJsonBean.COMMA);
             }
             i++;
         }
@@ -439,7 +439,7 @@ public final class LocaleListHelper {
             for (int i8 = 0; i8 < i2; i8++) {
                 sb.append(LocaleHelper.toLanguageTag(localeArr[i8]));
                 if (i8 < i2 - 1) {
-                    sb.append(AbstractC1604b.COMMA);
+                    sb.append(UpdateJsonBean.COMMA);
                 }
             }
             this.mList = localeArr;

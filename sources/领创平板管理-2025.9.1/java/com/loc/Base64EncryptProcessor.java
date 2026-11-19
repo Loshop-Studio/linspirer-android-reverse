@@ -1,7 +1,7 @@
 package com.loc;
 
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: Base64EncryptProcessor.java */
 /* renamed from: com.loc.af */
@@ -17,6 +17,6 @@ public final class Base64EncryptProcessor extends EncryptProcessor {
     @Override // com.loc.AbstractC1717ag
     /* renamed from: a */
     public final byte[] mo3997a(byte[] bArr) {
-        return C1094l1.m2245n(C0994h1.m1935f(bArr));
+        return AMapCoreUtilities.m2245n(AMapEncryptionUtilities.m1935f(bArr));
     }
 }

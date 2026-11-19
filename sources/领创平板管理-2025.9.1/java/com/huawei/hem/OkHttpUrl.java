@@ -87,7 +87,7 @@ public final class OkHttpUrl {
         @Nullable
         /* renamed from: b */
         public static String m3165b(String str, int i, int i2) {
-            return C1314tk.m2746a(OkHttpUrl.m3153j(str, i, i2, false));
+            return OkHttpCommonUtilities.m2746a(OkHttpUrl.m3153j(str, i, i2, false));
         }
 
         /* renamed from: a */
@@ -228,7 +228,7 @@ public final class OkHttpUrl {
                                     sbM1766k.append(str.length());
                                     throw new IllegalArgumentException(sbM1766k.toString());
                                 }
-                                if (charset.equals(C0888co.f2363a)) {
+                                if (charset.equals(OkioByteUtilities.f2363a)) {
                                     c1016hn2.m1994X(str, iCharCount, iCharCount2);
                                 } else {
                                     byte[] bytes = str.substring(iCharCount, iCharCount2).getBytes(charset);
@@ -359,7 +359,7 @@ public final class OkHttpUrl {
     /* renamed from: m */
     public static boolean m3155m(String str, int i, int i2) {
         int i3 = i + 2;
-        return i3 < i2 && str.charAt(i) == '%' && C1314tk.m2751f(str.charAt(i + 1)) != -1 && C1314tk.m2751f(str.charAt(i3)) != -1;
+        return i3 < i2 && str.charAt(i) == '%' && OkHttpCommonUtilities.m2751f(str.charAt(i + 1)) != -1 && OkHttpCommonUtilities.m2751f(str.charAt(i3)) != -1;
     }
 
     /* renamed from: n */
@@ -396,7 +396,7 @@ public final class OkHttpUrl {
     public String m3158e() {
         int iIndexOf = this.f4318h.indexOf(47, this.f4311a.length() + 3);
         String str = this.f4318h;
-        return this.f4318h.substring(iIndexOf, C1314tk.m2754i(str, iIndexOf, str.length(), "?#"));
+        return this.f4318h.substring(iIndexOf, OkHttpCommonUtilities.m2754i(str, iIndexOf, str.length(), "?#"));
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -407,11 +407,11 @@ public final class OkHttpUrl {
     public List<String> m3159f() {
         int iIndexOf = this.f4318h.indexOf(47, this.f4311a.length() + 3);
         String str = this.f4318h;
-        int iM2754i = C1314tk.m2754i(str, iIndexOf, str.length(), "?#");
+        int iM2754i = OkHttpCommonUtilities.m2754i(str, iIndexOf, str.length(), "?#");
         ArrayList arrayList = new ArrayList();
         while (iIndexOf < iM2754i) {
             int i = iIndexOf + 1;
-            int iM2753h = C1314tk.m2753h(this.f4318h, i, iM2754i, '/');
+            int iM2753h = OkHttpCommonUtilities.m2753h(this.f4318h, i, iM2754i, '/');
             arrayList.add(this.f4318h.substring(i, iM2753h));
             iIndexOf = iM2753h;
         }
@@ -426,7 +426,7 @@ public final class OkHttpUrl {
         }
         int iIndexOf = this.f4318h.indexOf(63) + 1;
         String str = this.f4318h;
-        return this.f4318h.substring(iIndexOf, C1314tk.m2753h(str, iIndexOf, str.length(), '#'));
+        return this.f4318h.substring(iIndexOf, OkHttpCommonUtilities.m2753h(str, iIndexOf, str.length(), '#'));
     }
 
     /* renamed from: h */
@@ -436,7 +436,7 @@ public final class OkHttpUrl {
         }
         int length = this.f4311a.length() + 3;
         String str = this.f4318h;
-        return this.f4318h.substring(length, C1314tk.m2754i(str, length, str.length(), ":@"));
+        return this.f4318h.substring(length, OkHttpCommonUtilities.m2754i(str, length, str.length(), ":@"));
     }
 
     public int hashCode() {

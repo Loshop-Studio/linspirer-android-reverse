@@ -10,11 +10,11 @@ import com.taobao.accs.ACCSManager;
 import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.client.GlobalClientInfo;
 import com.taobao.accs.common.Constants;
-import com.taobao.accs.net.AbstractC1940b;
+import com.taobao.accs.net.AccsConnectionBase;
 import com.taobao.accs.p072ut.monitor.NetPerformanceMonitor;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.AdapterUtilityImpl;
-import com.taobao.accs.utl.C1979g;
+import com.taobao.accs.utl.AccsFrameOutputStream;
 import com.taobao.accs.utl.JsonUtility;
 import com.taobao.accs.utl.RomInfoCollecter;
 import com.taobao.accs.utl.UtilityImpl;
@@ -73,7 +73,7 @@ public class Message {
     public transient NetPerformanceMonitor f6100W;
 
     /* renamed from: Y */
-    public C1915a f6102Y;
+    public AccsMessageKey f6102Y;
 
     /* renamed from: f */
     public URL f6106f;
@@ -193,7 +193,7 @@ public class Message {
     public int f6095R = 0;
 
     /* renamed from: S */
-    public int f6096S = AbstractC1940b.ACCS_RECEIVE_TIMEOUT;
+    public int f6096S = AccsConnectionBase.ACCS_RECEIVE_TIMEOUT;
 
     /* renamed from: V */
     public String f6099V = null;
@@ -215,7 +215,7 @@ public class Message {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.data.Message$a */
-    public static class C1915a {
+    public static class AccsMessageKey {
 
         /* renamed from: a */
         public int f6127a;
@@ -223,7 +223,7 @@ public class Message {
         /* renamed from: b */
         public String f6128b;
 
-        public C1915a(int i, String str) {
+        public AccsMessageKey(int i, String str) {
             this.f6127a = i;
             this.f6128b = str;
         }
@@ -242,10 +242,10 @@ public class Message {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || C1915a.class != obj.getClass()) {
+            if (obj == null || AccsMessageKey.class != obj.getClass()) {
                 return false;
             }
-            C1915a c1915a = (C1915a) obj;
+            AccsMessageKey c1915a = (AccsMessageKey) obj;
             return this.f6127a == c1915a.m5521a() || this.f6128b.equals(c1915a.m5522b());
         }
 
@@ -256,7 +256,7 @@ public class Message {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.data.Message$b */
-    public static class C1916b {
+    public static class AccsAckTypeNames {
         public static final int INVALID = -1;
         public static final int NEED_ACK = 1;
         public static final int NO_ACK = 0;
@@ -274,7 +274,7 @@ public class Message {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.data.Message$c */
-    public static class C1917c {
+    public static class AccsFrameTypeNames {
         public static final int CONTROL = 0;
         public static final int DATA = 1;
         public static final int HANDSHAKE = 3;
@@ -309,7 +309,7 @@ public class Message {
             this.f6117q = str;
             long j = f6077b;
             f6077b = 1 + j;
-            this.f6102Y = new C1915a((int) j, str);
+            this.f6102Y = new AccsMessageKey((int) j, str);
         }
     }
 
@@ -334,7 +334,7 @@ public class Message {
     }
 
     /* renamed from: d */
-    public C1915a m5515d() {
+    public AccsMessageKey m5515d() {
         return this.f6102Y;
     }
 
@@ -437,7 +437,7 @@ public class Message {
     }
 
     /* renamed from: b */
-    public static Message m5502b(AbstractC1940b abstractC1940b, Intent intent) {
+    public static Message m5502b(AccsConnectionBase abstractC1940b, Intent intent) {
         Message messageM5494a = null;
         try {
             String stringExtra = intent.getStringExtra(Constants.KEY_PACKAGE_NAME);
@@ -458,7 +458,7 @@ public class Message {
     }
 
     /* renamed from: c */
-    public static Message m5504c(AbstractC1940b abstractC1940b, Intent intent) {
+    public static Message m5504c(AccsConnectionBase abstractC1940b, Intent intent) {
         Message messageM5503b = null;
         try {
             String stringExtra = intent.getStringExtra(Constants.KEY_PACKAGE_NAME);
@@ -479,7 +479,7 @@ public class Message {
     }
 
     /* renamed from: d */
-    public static Message m5506d(AbstractC1940b abstractC1940b, Intent intent) {
+    public static Message m5506d(AccsConnectionBase abstractC1940b, Intent intent) {
         Message messageM5505c = null;
         try {
             String stringExtra = intent.getStringExtra(Constants.KEY_PACKAGE_NAME);
@@ -500,7 +500,7 @@ public class Message {
     }
 
     /* renamed from: e */
-    public static Message m5507e(AbstractC1940b abstractC1940b, Intent intent) {
+    public static Message m5507e(AccsConnectionBase abstractC1940b, Intent intent) {
         Message messageM5492a = null;
         try {
             String stringExtra = intent.getStringExtra(Constants.KEY_PACKAGE_NAME);
@@ -572,7 +572,7 @@ public class Message {
         short length2 = (short) (length + (bArr == null ? 0 : bArr.length) + sM5510a + 2);
         this.f6110j = length2;
         this.f6109i = (short) (length2 + 2);
-        C1979g c1979g = new C1979g(this.f6109i + 2 + 4);
+        AccsFrameOutputStream c1979g = new AccsFrameOutputStream(this.f6109i + 2 + 4);
         if (ALog.isPrintLog(ALog.Level.D)) {
             ALog.m5726d(m5508j(), "Build Message", Constants.KEY_DATA_ID, new String(bytes));
         }
@@ -733,7 +733,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5485a(AbstractC1940b abstractC1940b, Context context, Intent intent) {
+    public static Message m5485a(AccsConnectionBase abstractC1940b, Context context, Intent intent) {
         Message messageM5484a = null;
         try {
             String stringExtra = intent.getStringExtra(Constants.KEY_PACKAGE_NAME);
@@ -779,7 +779,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5489a(AbstractC1940b abstractC1940b, Intent intent) {
+    public static Message m5489a(AccsConnectionBase abstractC1940b, Intent intent) {
         StringBuilder sbM1765j = CompilerOutline.m1765j("buildUnbindApp1");
         sbM1765j.append(UtilityImpl.m5740a(new Exception()));
         ALog.m5728e("Msg", sbM1765j.toString(), new Object[0]);
@@ -799,7 +799,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5490a(AbstractC1940b abstractC1940b, String str) {
+    public static Message m5490a(AccsConnectionBase abstractC1940b, String str) {
         Message message = null;
         try {
             ALog.m5728e("Msg", "buildUnbindApp" + UtilityImpl.m5740a(new Exception()), new Object[0]);
@@ -880,12 +880,12 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5486a(AbstractC1940b abstractC1940b, Context context, String str, ACCSManager.AccsRequest accsRequest) {
+    public static Message m5486a(AccsConnectionBase abstractC1940b, Context context, String str, ACCSManager.AccsRequest accsRequest) {
         return m5487a(abstractC1940b, context, str, accsRequest, true);
     }
 
     /* renamed from: a */
-    public static Message m5487a(AbstractC1940b abstractC1940b, Context context, String str, ACCSManager.AccsRequest accsRequest, boolean z) {
+    public static Message m5487a(AccsConnectionBase abstractC1940b, Context context, String str, ACCSManager.AccsRequest accsRequest, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -929,7 +929,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5488a(AbstractC1940b abstractC1940b, Context context, String str, String str2, ACCSManager.AccsRequest accsRequest, boolean z) {
+    public static Message m5488a(AccsConnectionBase abstractC1940b, Context context, String str, String str2, ACCSManager.AccsRequest accsRequest, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -973,7 +973,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static void m5500a(AbstractC1940b abstractC1940b, Message message, ACCSManager.AccsRequest accsRequest) {
+    public static void m5500a(AccsConnectionBase abstractC1940b, Message message, ACCSManager.AccsRequest accsRequest) {
         URL url = accsRequest.host;
         if (url == null) {
             try {
@@ -989,7 +989,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static void m5499a(AbstractC1940b abstractC1940b, Message message) {
+    public static void m5499a(AccsConnectionBase abstractC1940b, Message message) {
         try {
             message.f6106f = new URL(abstractC1940b.mo5634b((String) null));
         } catch (Exception e) {
@@ -998,7 +998,7 @@ public class Message {
     }
 
     /* renamed from: a */
-    public static Message m5491a(AbstractC1940b abstractC1940b, String str, String str2, String str3, boolean z, short s, String str4, Map<Integer, String> map) {
+    public static Message m5491a(AccsConnectionBase abstractC1940b, String str, String str2, String str3, boolean z, short s, String str4, Map<Integer, String> map) {
         Message message = new Message();
         message.f6093P = 1;
         message.m5501a(s, z);

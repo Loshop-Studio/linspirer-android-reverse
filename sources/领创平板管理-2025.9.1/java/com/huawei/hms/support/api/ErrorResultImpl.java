@@ -22,12 +22,12 @@ public abstract class ErrorResultImpl<R extends Result> extends PendingResult<R>
     public int f4543b;
 
     /* renamed from: com.huawei.hms.support.api.ErrorResultImpl$a */
-    public class RunnableC1560a implements Runnable {
+    public class DeliverHmsErrorResult implements Runnable {
 
         /* renamed from: a */
         public final /* synthetic */ ResultCallback f4544a;
 
-        public RunnableC1560a(ResultCallback resultCallback) {
+        public DeliverHmsErrorResult(ResultCallback resultCallback) {
             this.f4544a = resultCallback;
         }
 
@@ -102,6 +102,6 @@ public abstract class ErrorResultImpl<R extends Result> extends PendingResult<R>
         if (looper == null) {
             looper = Looper.myLooper();
         }
-        new Handler(looper).post(new RunnableC1560a(resultCallback));
+        new Handler(looper).post(new DeliverHmsErrorResult(resultCallback));
     }
 }

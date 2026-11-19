@@ -7,5 +7,5 @@ import android.support.annotation.NonNull;
 /* loaded from: classes.dex */
 public interface LifecycleOwner {
     @NonNull
-    AbstractC0992h getLifecycle();
+    ArchitectureLifecycle getLifecycle();
 }

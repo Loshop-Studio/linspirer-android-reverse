@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.model.RubbishFileInfo;
 import com.bumptech.glide.Glide;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.RubbishRecyclerViewAdapterCheckedChangeListener;
 import com.huawei.hem.DataCleanUtil;
 import com.huawei.hem.LauncherOnClickListener;
@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
+public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<RubbishRowHolder> {
 
     /* renamed from: a */
     public Context f1870a;
@@ -41,7 +41,7 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
     public LauncherOnClickListener f1873d;
 
     /* renamed from: com.android.launcher3.adapter.RubbishRecyclerViewAdapter$a */
-    public class C0649a extends RecyclerView.ViewHolder {
+    public class RubbishRowHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a */
         public CheckBox f1874a;
@@ -55,7 +55,7 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
         /* renamed from: d */
         public LinearLayout f1877d;
 
-        public C0649a(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, View view) {
+        public RubbishRowHolder(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, View view) {
             super(view);
             this.f1874a = (CheckBox) view.findViewById(R.id.rubbish_checkbox);
             this.f1875b = (TextView) view.findViewById(R.id.rubbish_textView);
@@ -72,13 +72,13 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
 
     @NonNull
     /* renamed from: a */
-    public C0649a m1234a(@NonNull ViewGroup viewGroup) {
-        return new C0649a(this, this.f1872c.inflate(R.layout.fragment_rubbish_adapter, viewGroup, false));
+    public RubbishRowHolder m1234a(@NonNull ViewGroup viewGroup) {
+        return new RubbishRowHolder(this, this.f1872c.inflate(R.layout.fragment_rubbish_adapter, viewGroup, false));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (AbstractC1102l9.m2273N(this.f1871b)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1871b)) {
             return 0;
         }
         return this.f1871b.size();
@@ -86,7 +86,7 @@ public class RubbishRecyclerViewAdapter extends RecyclerView.Adapter<C0649a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, @SuppressLint({RecyclerView.TAG}) int i) {
-        C0649a c0649a = (C0649a) viewHolder;
+        RubbishRowHolder c0649a = (RubbishRowHolder) viewHolder;
         RubbishFileInfo rubbishFileInfo = this.f1871b.get(i);
         String filePath = rubbishFileInfo.getFilePath();
         if (!TextUtils.isEmpty(filePath)) {

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.taobao.accs.utl.BaseMonitor;
-import com.taobao.agoo.p074a.p075a.AbstractC2002b;
+import com.taobao.agoo.p074a.p075a.AgooCommandFields;
 import java.util.ArrayList;
 
 /* compiled from: FnfSDKProxy.java */
@@ -55,7 +55,7 @@ public class FnfSDKProxy {
                 return;
             }
             if ("com.fnf.iptables.BRODCAST_IPTABLE_CMD".equals(intent.getAction())) {
-                intent.getStringExtra(AbstractC2002b.JSON_CMD);
+                intent.getStringExtra(AgooCommandFields.JSON_CMD);
                 if (intent.getIntExtra("state", 0) != 1) {
                     String stringExtra2 = intent.getStringExtra(BaseMonitor.COUNT_ERROR);
                     OnGetIPTablesMessage interfaceC1125m62 = FnfSDKProxy.this.f3155d;

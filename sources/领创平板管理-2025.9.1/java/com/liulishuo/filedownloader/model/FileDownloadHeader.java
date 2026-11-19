@@ -7,13 +7,13 @@ import java.util.List;
 
 /* loaded from: classes.dex */
 public class FileDownloadHeader implements Parcelable {
-    public static final Parcelable.Creator<FileDownloadHeader> CREATOR = new C1707a();
+    public static final Parcelable.Creator<FileDownloadHeader> CREATOR = new DownloadHeaderParcelCreator();
 
     /* renamed from: a */
     public HashMap<String, List<String>> f4833a;
 
     /* renamed from: com.liulishuo.filedownloader.model.FileDownloadHeader$a */
-    public static class C1707a implements Parcelable.Creator<FileDownloadHeader> {
+    public static class DownloadHeaderParcelCreator implements Parcelable.Creator<FileDownloadHeader> {
         @Override // android.os.Parcelable.Creator
         public FileDownloadHeader createFromParcel(Parcel parcel) {
             return new FileDownloadHeader(parcel);

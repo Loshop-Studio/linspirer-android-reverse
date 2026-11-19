@@ -1,7 +1,7 @@
 package anet.channel.strategy;
 
 import android.text.TextUtils;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.util.HttpConstant;
 import com.huawei.hem.CompilerOutline;
 import java.io.Serializable;
@@ -44,7 +44,7 @@ public class ConnProtocol implements Serializable {
         return CompilerOutline.m1762g(sb, "_", str3);
     }
 
-    public static ConnProtocol valueOf(C0407l.a aVar) {
+    public static ConnProtocol valueOf(AmdcStrategyResultParser.a aVar) {
         if (aVar == null) {
             return null;
         }

@@ -3,7 +3,7 @@ package okhttp3.internal.publicsuffix;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hem.Timeout;
 import com.huawei.hem.GzipSource;
-import com.huawei.hem.C1267rn;
+import com.huawei.hem.OkioStreamFactory;
 import com.huawei.hem.RealBufferedSource;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -123,7 +123,7 @@ public final class PublicSuffixDatabase {
         if (resourceAsStream == null) {
             return;
         }
-        RealBufferedSource c1367vn = new RealBufferedSource(new GzipSource(C1267rn.m2674f(resourceAsStream, new Timeout())));
+        RealBufferedSource c1367vn = new RealBufferedSource(new GzipSource(OkioStreamFactory.m2674f(resourceAsStream, new Timeout())));
         try {
             byte[] bArr = new byte[c1367vn.readInt()];
             c1367vn.m2881c(bArr);

@@ -2,7 +2,7 @@ package com.huawei.hms.framework.network.grs;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import com.huawei.hem.C0821a9;
+import com.huawei.hem.GrsPluginInterceptor;
 import com.huawei.hms.framework.common.StringUtils;
 import com.huawei.hms.framework.network.restclient.hwhttp.plugin.BasePlugin;
 import com.huawei.hms.framework.network.restclient.hwhttp.plugin.PluginInterceptor;
@@ -21,7 +21,7 @@ public class GrsManager implements BasePlugin {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile GrsManager instance;
     public GrsConfig grsConfig;
-    public C0821a9 grsInterceptor;
+    public GrsPluginInterceptor grsInterceptor;
 
     public static GrsManager getInstance() {
         if (instance == null) {
@@ -48,7 +48,7 @@ public class GrsManager implements BasePlugin {
 
     public PluginInterceptor getInterceptor() {
         if (this.grsInterceptor == null) {
-            this.grsInterceptor = new C0821a9();
+            this.grsInterceptor = new GrsPluginInterceptor();
         }
         return this.grsInterceptor;
     }

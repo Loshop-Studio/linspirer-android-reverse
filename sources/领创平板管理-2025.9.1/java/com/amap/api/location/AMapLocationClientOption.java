@@ -127,7 +127,7 @@ public class AMapLocationClientOption implements Parcelable, Cloneable {
     public static long SCAN_WIFI_INTERVAL = 30000;
 
     /* renamed from: com.amap.api.location.AMapLocationClientOption$2 */
-    public static /* synthetic */ class C06162 {
+    public static /* synthetic */ class LocationPurposeSwitch {
 
         /* renamed from: a */
         public static final /* synthetic */ int[] f1550a;
@@ -516,7 +516,7 @@ public class AMapLocationClientOption implements Parcelable, Cloneable {
         String str;
         this.f1529E = aMapLocationPurpose;
         if (aMapLocationPurpose != null) {
-            int i = C06162.f1550a[aMapLocationPurpose.ordinal()];
+            int i = LocationPurposeSwitch.f1550a[aMapLocationPurpose.ordinal()];
             if (i == 1) {
                 this.f1539o = AMapLocationMode.Hight_Accuracy;
                 this.f1534j = true;

@@ -17,12 +17,12 @@ public interface ZxkExecutorInterface extends IInterface {
 
         /* compiled from: ZxkExecutorInterface.java */
         /* renamed from: com.huawei.hem.q1$a$a, reason: collision with other inner class name */
-        public static class C2077a implements ZxkExecutorInterface {
+        public static class ZxkExecutorBinderProxy implements ZxkExecutorInterface {
 
             /* renamed from: a */
             public IBinder f3485a;
 
-            public C2077a(IBinder iBinder) {
+            public ZxkExecutorBinderProxy(IBinder iBinder) {
                 this.f3485a = iBinder;
             }
 
@@ -101,7 +101,7 @@ public interface ZxkExecutorInterface extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.android.aidl.zxkexecutor.ZxkExecutorInterface");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ZxkExecutorInterface)) ? new C2077a(iBinder) : (ZxkExecutorInterface) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ZxkExecutorInterface)) ? new ZxkExecutorBinderProxy(iBinder) : (ZxkExecutorInterface) iInterfaceQueryLocalInterface;
         }
     }
 

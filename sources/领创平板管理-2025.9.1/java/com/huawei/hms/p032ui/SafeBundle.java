@@ -2,7 +2,7 @@ package com.huawei.hms.p032ui;
 
 import android.os.Bundle;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hms.base.p031ui.C1529a;
+import com.huawei.hms.base.p031ui.HmsSafeLogMask;
 
 /* loaded from: classes.dex */
 public class SafeBundle {
@@ -18,7 +18,7 @@ public class SafeBundle {
         try {
             return this.f4579a.containsKey(str);
         } catch (Exception unused) {
-            C1529a.m3379a("SafeBundle", "containsKey exception. key:");
+            HmsSafeLogMask.m3379a("SafeBundle", "containsKey exception. key:");
             return false;
         }
     }
@@ -29,7 +29,7 @@ public class SafeBundle {
         } catch (Exception e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("get exception: ");
             sbM1765j.append(e.getMessage());
-            C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
+            HmsSafeLogMask.m3380a("SafeBundle", sbM1765j.toString(), true);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class SafeBundle {
         } catch (Exception e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("getString exception: ");
             sbM1765j.append(e.getMessage());
-            C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
+            HmsSafeLogMask.m3380a("SafeBundle", sbM1765j.toString(), true);
             return "";
         }
     }
@@ -57,7 +57,7 @@ public class SafeBundle {
         try {
             return this.f4579a.isEmpty();
         } catch (Exception unused) {
-            C1529a.m3379a("SafeBundle", "isEmpty exception");
+            HmsSafeLogMask.m3379a("SafeBundle", "isEmpty exception");
             return true;
         }
     }
@@ -66,7 +66,7 @@ public class SafeBundle {
         try {
             return this.f4579a.size();
         } catch (Exception unused) {
-            C1529a.m3379a("SafeBundle", "size exception");
+            HmsSafeLogMask.m3379a("SafeBundle", "size exception");
             return 0;
         }
     }
@@ -85,7 +85,7 @@ public class SafeBundle {
         } catch (Exception e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("getInt exception: ");
             sbM1765j.append(e.getMessage());
-            C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
+            HmsSafeLogMask.m3380a("SafeBundle", sbM1765j.toString(), true);
             return i;
         }
     }
@@ -96,7 +96,7 @@ public class SafeBundle {
         } catch (Exception e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("getString exception: ");
             sbM1765j.append(e.getMessage());
-            C1529a.m3380a("SafeBundle", sbM1765j.toString(), true);
+            HmsSafeLogMask.m3380a("SafeBundle", sbM1765j.toString(), true);
             return str2;
         }
     }

@@ -25,9 +25,9 @@ public class HttpCore {
             }
         }
         OkHttpClient.b bVar = new OkHttpClient.b();
-        bVar.f2462t = C1314tk.m2747b("timeout", 30L, TimeUnit.SECONDS);
-        bVar.f2463u = C1314tk.m2747b("timeout", 30L, TimeUnit.SECONDS);
-        bVar.f2464v = C1314tk.m2747b("timeout", 30L, TimeUnit.SECONDS);
+        bVar.f2462t = OkHttpCommonUtilities.m2747b("timeout", 30L, TimeUnit.SECONDS);
+        bVar.f2463u = OkHttpCommonUtilities.m2747b("timeout", 30L, TimeUnit.SECONDS);
+        bVar.f2464v = OkHttpCommonUtilities.m2747b("timeout", 30L, TimeUnit.SECONDS);
         bVar.f2459q = true;
         f3619b = new OkHttpClient(bVar);
     }

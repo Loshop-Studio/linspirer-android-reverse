@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
 import android.text.TextUtils;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public final class AdiuStorageModel {
 
     /* renamed from: a */
-    public static final String f5884a = C1094l1.m2251t("SU2hhcmVkUHJlZmVyZW5jZUFkaXU");
+    public static final String f5884a = AMapCoreUtilities.m2251t("SU2hhcmVkUHJlZmVyZW5jZUFkaXU");
 
     /* renamed from: f */
     public static AdiuStorageModel f5885f;

@@ -1,7 +1,7 @@
 package android.arch.lifecycle;
 
 import android.support.annotation.RestrictTo;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.MethodCallsLogger;
 import com.huawei.hem.GeneratedAdapter;
 import com.huawei.hem.LifecycleOwner;
@@ -19,7 +19,7 @@ public class CompositeGeneratedAdaptersObserver implements GenericLifecycleObser
 
     @Override // android.arch.lifecycle.GenericLifecycleObserver
     /* renamed from: d */
-    public void mo0d(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) {
+    public void mo0d(LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar) {
         MethodCallsLogger c1143n = new MethodCallsLogger();
         for (GeneratedAdapter interfaceC0967g : this.f1a) {
             interfaceC0967g.m1844a(interfaceC1042j, aVar, false, c1143n);

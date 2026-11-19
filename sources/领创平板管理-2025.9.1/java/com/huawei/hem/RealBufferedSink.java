@@ -1,7 +1,7 @@
 package com.huawei.hem;
 
 import android.support.v4.media.session.PlaybackStateCompat;
-import com.huawei.hem.C1267rn;
+import com.huawei.hem.OkioStreamFactory;
 import java.nio.ByteBuffer;
 
 /* compiled from: RealBufferedSink.java */
@@ -112,7 +112,7 @@ public final class RealBufferedSink implements BufferedSink {
         if (th == null) {
             return;
         }
-        C0888co.m1546e(th);
+        OkioByteUtilities.m1546e(th);
         throw null;
     }
 
@@ -171,7 +171,7 @@ public final class RealBufferedSink implements BufferedSink {
     public long mo2009q(Source interfaceC0836ao) {
         long j = 0;
         while (true) {
-            long jMo1380e = ((C1267rn.a) interfaceC0836ao).mo1380e(this.f3906a, PlaybackStateCompat.ACTION_PLAY_FROM_URI);
+            long jMo1380e = ((OkioStreamFactory.a) interfaceC0836ao).mo1380e(this.f3906a, PlaybackStateCompat.ACTION_PLAY_FROM_URI);
             if (jMo1380e == -1) {
                 return j;
             }

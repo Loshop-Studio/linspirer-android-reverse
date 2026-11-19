@@ -17,12 +17,12 @@ public interface ITools extends IInterface {
 
         /* compiled from: ITools.java */
         /* renamed from: com.huawei.hem.qb$a$a, reason: collision with other inner class name */
-        public static class C2078a implements ITools {
+        public static class ToolsServiceBinderProxy implements ITools {
 
             /* renamed from: a */
             public IBinder f3516a;
 
-            public C2078a(IBinder iBinder) {
+            public ToolsServiceBinderProxy(IBinder iBinder) {
                 this.f3516a = iBinder;
             }
 
@@ -801,7 +801,7 @@ public interface ITools extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.kte.interfacesettings.aidl.ITools");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ITools)) ? new C2078a(iBinder) : (ITools) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ITools)) ? new ToolsServiceBinderProxy(iBinder) : (ITools) iInterfaceQueryLocalInterface;
         }
     }
 

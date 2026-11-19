@@ -43,10 +43,10 @@ public final class Status extends Result implements Parcelable {
     public static final Status RESULT_TIMEOUT = new Status(15);
     public static final Status MessageNotFound = new Status(404);
     public static final Status CoreException = new Status(500);
-    public static final Parcelable.Creator<Status> CREATOR = new C1565a();
+    public static final Parcelable.Creator<Status> CREATOR = new HmsStatusParcelCreator();
 
     /* renamed from: com.huawei.hms.support.api.client.Status$a */
-    public static class C1565a implements Parcelable.Creator {
+    public static class HmsStatusParcelCreator implements Parcelable.Creator {
         @Override // android.os.Parcelable.Creator
         public Object createFromParcel(Parcel parcel) {
             return new Status(parcel.readInt(), parcel.readString(), PendingIntent.readPendingIntentOrNullFromParcel(parcel));

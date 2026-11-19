@@ -101,13 +101,13 @@ public final class CgiManager {
         @Override // android.telephony.TelephonyManager.CellInfoCallback
         public final void onCellInfo(List<CellInfo> list) {
             try {
-                if (C1841ew.m5127b() - CgiManager.this.f5517n < 500) {
+                if (AMapLocationUtilities.m5127b() - CgiManager.this.f5517n < 500) {
                     return;
                 }
                 CgiManager.m4754b(CgiManager.this);
                 CgiManager.this.m4749a(CgiManager.this.m4763s());
                 CgiManager.this.m4767a(list);
-                CgiManager.this.f5517n = C1841ew.m5127b();
+                CgiManager.this.f5517n = AMapLocationUtilities.m5127b();
             } catch (SecurityException e) {
                 CgiManager.this.f5510g = e.getMessage();
             } catch (Throwable th) {
@@ -128,12 +128,12 @@ public final class CgiManager {
                 if (CgiManager.this.f5522s != null) {
                     CgiManager.this.f5522s.m4654c();
                 }
-                if (C1841ew.m5127b() - CgiManager.this.f5517n < 500) {
+                if (AMapLocationUtilities.m5127b() - CgiManager.this.f5517n < 500) {
                     return;
                 }
                 CgiManager.this.m4749a(CgiManager.this.m4763s());
                 CgiManager.this.m4767a(list);
-                CgiManager.this.f5517n = C1841ew.m5127b();
+                CgiManager.this.f5517n = AMapLocationUtilities.m5127b();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -141,13 +141,13 @@ public final class CgiManager {
 
         @Override // android.telephony.PhoneStateListener
         public final void onCellLocationChanged(CellLocation cellLocation) {
-            if (C1841ew.m5127b() - CgiManager.this.f5517n < 500) {
+            if (AMapLocationUtilities.m5127b() - CgiManager.this.f5517n < 500) {
                 return;
             }
             try {
                 CgiManager.this.m4749a(cellLocation);
                 CgiManager.this.m4767a(CgiManager.this.m4764t());
-                CgiManager.this.f5517n = C1841ew.m5127b();
+                CgiManager.this.f5517n = AMapLocationUtilities.m5127b();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -200,7 +200,7 @@ public final class CgiManager {
         this.f5516m = null;
         this.f5511h = context;
         if (this.f5505b == null) {
-            this.f5505b = (TelephonyManager) C1841ew.m5108a(context, "phone");
+            this.f5505b = (TelephonyManager) AMapLocationUtilities.m5108a(context, "phone");
         }
         m4758n();
         CellAgeEstimator c1815dx = new CellAgeEstimator(context, "cellAge", handler);
@@ -226,7 +226,7 @@ public final class CgiManager {
             CellIdentityCdma cellIdentity = cellInfoCdma.getCellIdentity();
             if (cellIdentity.getSystemId() > 0 && cellIdentity.getNetworkId() >= 0 && cellIdentity.getBasestationId() >= 0) {
                 CellIdentityCdma cellIdentity2 = cellInfoCdma.getCellIdentity();
-                String[] strArrM5124a = C1841ew.m5124a(this.f5505b);
+                String[] strArrM5124a = AMapLocationUtilities.m5124a(this.f5505b);
                 int i2 = 0;
                 try {
                     i = Integer.parseInt(strArrM5124a[0]);
@@ -383,13 +383,13 @@ public final class CgiManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public synchronized void m4749a(CellLocation cellLocation) {
-        String[] strArrM5124a = C1841ew.m5124a(this.f5505b);
+        String[] strArrM5124a = AMapLocationUtilities.m5124a(this.f5505b);
         this.f5504a.clear();
         if (cellLocation instanceof GsmCellLocation) {
             GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
             Cgi c1816dy = new Cgi(1, true);
-            c1816dy.f5484a = C1841ew.m5144e(strArrM5124a[0]);
-            c1816dy.f5485b = C1841ew.m5144e(strArrM5124a[1]);
+            c1816dy.f5484a = AMapLocationUtilities.m5144e(strArrM5124a[0]);
+            c1816dy.f5485b = AMapLocationUtilities.m5144e(strArrM5124a[1]);
             c1816dy.f5486c = gsmCellLocation.getLac();
             c1816dy.f5487d = gsmCellLocation.getCid();
             if (this.f5507d != null) {
@@ -456,7 +456,7 @@ public final class CgiManager {
                 this.f5513j = true;
             }
         }
-        this.f5517n = C1841ew.m5127b();
+        this.f5517n = AMapLocationUtilities.m5127b();
     }
 
     /* renamed from: b */
@@ -515,7 +515,7 @@ public final class CgiManager {
 
     /* renamed from: r */
     private boolean m4762r() {
-        return !this.f5508e && C1841ew.m5127b() - this.f5517n >= 45000;
+        return !this.f5508e && AMapLocationUtilities.m5127b() - this.f5517n >= 45000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -533,7 +533,7 @@ public final class CgiManager {
     public List<CellInfo> m4764t() {
         List<CellInfo> allCellInfo;
         try {
-            if (C1841ew.m5137c() < 18 || this.f5505b == null) {
+            if (AMapLocationUtilities.m5137c() < 18 || this.f5505b == null) {
                 return null;
             }
             try {
@@ -702,7 +702,7 @@ public final class CgiManager {
     /* renamed from: a */
     public final void m4769a(boolean z, boolean z2) {
         try {
-            this.f5508e = C1841ew.m5113a(this.f5511h);
+            this.f5508e = AMapLocationUtilities.m5113a(this.f5511h);
             if (m4762r()) {
                 m4753b(z, z2);
                 m4749a(m4763s());
@@ -888,7 +888,7 @@ public final class CgiManager {
         } catch (Throwable unused) {
         }
         try {
-            int iM5106a = C1841ew.m5106a(C1841ew.m5138c(this.f5511h));
+            int iM5106a = AMapLocationUtilities.m5106a(AMapLocationUtilities.m5138c(this.f5511h));
             return iM5106a == 0 || iM5106a == 4 || iM5106a == 2 || iM5106a == 5 || iM5106a == 3;
         } catch (Throwable unused2) {
             return false;

@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Log;
-import com.huawei.hem.InterfaceC0916e0;
-import com.huawei.hem.InterfaceC0993h0;
+import com.huawei.hem.SamsungCustomInterface;
+import com.huawei.hem.SamsungKnoxRemoteInterface;
 import java.util.List;
 
 /* loaded from: classes.dex */
@@ -22,16 +22,16 @@ public class ISamsungDevice {
     public Context f2056c;
 
     /* renamed from: d */
-    public InterfaceC0993h0 f2057d;
+    public SamsungKnoxRemoteInterface f2057d;
 
     /* renamed from: e */
-    public ServiceConnectionC0717X f2058e;
+    public SamsungKnoxServiceConnection f2058e;
 
     /* renamed from: f */
-    public InterfaceC0916e0 f2059f;
+    public SamsungCustomInterface f2059f;
 
     /* renamed from: g */
-    public ServiceConnectionC0716W f2060g;
+    public SamsungCustomServiceConnection f2060g;
 
     /* renamed from: h */
     public Object f2061h;
@@ -61,11 +61,11 @@ public class ISamsungDevice {
         this.f2062i = 200L;
         this.f2056c = context;
         byte b = 0;
-        this.f2058e = new ServiceConnectionC0717X(this, b);
+        this.f2058e = new SamsungKnoxServiceConnection(this, b);
         Intent intent = new Intent();
         intent.setClassName("com.samsung.knoxinterfaceagent", "com.samsung.knoxinterfaceagent.RemoteKnoxService");
         this.f2056c.bindService(intent, this.f2058e, 1);
-        this.f2060g = new ServiceConnectionC0716W(this, b);
+        this.f2060g = new SamsungCustomServiceConnection(this, b);
         Intent intent2 = new Intent();
         intent2.setClassName("com.samsung.customee", "com.samsung.customee.CustomDeviceService");
         this.f2056c.bindService(intent2, this.f2060g, 1);
@@ -77,7 +77,7 @@ public class ISamsungDevice {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void checkCustomService() {
-        InterfaceC0916e0 interfaceC0916e0;
+        SamsungCustomInterface interfaceC0916e0;
         synchronized (this.f2061h) {
             interfaceC0916e0 = this.f2059f;
         }
@@ -96,7 +96,7 @@ public class ISamsungDevice {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void checkRemoteService() {
-        InterfaceC0993h0 interfaceC0993h0;
+        SamsungKnoxRemoteInterface interfaceC0993h0;
         synchronized (this.f2061h) {
             interfaceC0993h0 = this.f2057d;
         }
@@ -115,10 +115,10 @@ public class ISamsungDevice {
 
     private boolean setSdCardState(boolean z) {
         Log.e(this.f2054a, "setSdCardState:".concat(String.valueOf(z)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "setSdCardState: start a new Thread");
-            new Thread(new RunnableC0696C(this, z)).start();
+            new Thread(new SamsungSetSdCardStateTask(this, z)).start();
             return true;
         }
         try {
@@ -133,10 +133,10 @@ public class ISamsungDevice {
 
     public void addNetworkAccessAppWhiteList(List list) {
         Log.e(this.f2054a, "addNetworkAccessAppWhiteList:".concat(String.valueOf(list)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "addNetworkAccessAppWhiteList: start a new Thread");
-            new Thread(new RunnableC0697D(this, list)).start();
+            new Thread(new SamsungAddNetworkAccessAppWhiteListTask(this, list)).start();
             return;
         }
         try {
@@ -149,10 +149,10 @@ public class ISamsungDevice {
 
     public void allowFirmwareDownload() {
         Log.e(this.f2054a, "allowFirmwareDownload");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "allowFirmwareDownload: start a new Thread");
-            new Thread(new RunnableC0698E(this)).start();
+            new Thread(new SamsungAllowFirmwareDownloadTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1913f();
@@ -164,7 +164,7 @@ public class ISamsungDevice {
 
     public List appWhiteListRead() {
         Log.e(this.f2054a, "appWhiteListRead:" + Thread.currentThread().getId());
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             return null;
         }
@@ -180,10 +180,10 @@ public class ISamsungDevice {
 
     public boolean appWhiteListWrite(List list) {
         Log.e(this.f2054a, "appWhiteListWrite:".concat(String.valueOf(list)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "appWhiteListWrite: start a new Thread");
-            new Thread(new RunnableC0735r(this, list)).start();
+            new Thread(new SamsungAppWhiteListWriteTask(this, list)).start();
             return true;
         }
         try {
@@ -198,10 +198,10 @@ public class ISamsungDevice {
 
     public void clearLockedScreenPassword() {
         Log.e(this.f2054a, "clearLockedScreenPassword");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "clearLockedScreenPassword: start a new Thread");
-            new Thread(new RunnableC0733p(this)).start();
+            new Thread(new SamsungClearLockedScreenPasswordTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1890C2();
@@ -213,10 +213,10 @@ public class ISamsungDevice {
 
     public void disableApp(String str) {
         Log.e(this.f2054a, "disableApp:".concat(String.valueOf(str)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableApp: start a new Thread");
-            new Thread(new RunnableC0714U(this, str)).start();
+            new Thread(new SamsungDisableAppTask(this, str)).start();
         } else {
             try {
                 interfaceC0993h0.mo1904b(str);
@@ -228,10 +228,10 @@ public class ISamsungDevice {
 
     public void disableAppDetail() {
         Log.e(this.f2054a, "disableAppDetail");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "disableAppDetail: start a new Thread");
-            new Thread(new RunnableC0710Q(this)).start();
+            new Thread(new SamsungDisableAppDetailTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1630h();
@@ -243,10 +243,10 @@ public class ISamsungDevice {
 
     public void disableBack() {
         Log.e(this.f2054a, "disableBack");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableBack: start a new Thread");
-            new Thread(new RunnableC0721d(this)).start();
+            new Thread(new SamsungDisableBackTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1912e2();
@@ -258,10 +258,10 @@ public class ISamsungDevice {
 
     public void disableBluetooth() {
         Log.e(this.f2054a, "disableBluetooth");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableBluetooth: start a new Thread");
-            new Thread(new RunnableC0701H(this)).start();
+            new Thread(new SamsungDisableBluetoothTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1908d();
@@ -273,10 +273,10 @@ public class ISamsungDevice {
 
     public void disableCamera() {
         Log.e(this.f2054a, "disableCamera");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableCamera: start a new Thread");
-            new Thread(new RunnableC0712S(this)).start();
+            new Thread(new SamsungDisableCameraTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1889B0();
@@ -288,10 +288,10 @@ public class ISamsungDevice {
 
     public void disableGPS() {
         Log.e(this.f2054a, "disableGPS");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableGPS: start a new Thread");
-            new Thread(new RunnableC0737t(this)).start();
+            new Thread(new SamsungDisableGPSTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1893L2();
@@ -303,10 +303,10 @@ public class ISamsungDevice {
 
     public void disableHome() {
         Log.e(this.f2054a, "disableHome");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableHome: start a new Thread");
-            new Thread(new RunnableC0719b(this)).start();
+            new Thread(new SamsungDisableHomeTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1915h0();
@@ -318,10 +318,10 @@ public class ISamsungDevice {
 
     public void disableHomeLongFunc() {
         Log.e(this.f2054a, "disableHomeLongFunc");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "disableHomeLongFunc: start a new Thread");
-            new Thread(new RunnableC0709P(this)).start();
+            new Thread(new SamsungDisableHomeLongFuncTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1626Q1();
@@ -333,10 +333,10 @@ public class ISamsungDevice {
 
     public void disableLockScreenIcon() {
         Log.e(this.f2054a, "disableLockScreenIcon");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "disableLockScreenIcon: start a new Thread");
-            new Thread(new RunnableC0705L(this)).start();
+            new Thread(new SamsungDisableLockScreenIconTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1633p();
@@ -348,10 +348,10 @@ public class ISamsungDevice {
 
     public void disableLongPressPower() {
         Log.e(this.f2054a, "disableLongPressPower");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableLongPressPower: start a new Thread");
-            new Thread(new RunnableC0730m(this)).start();
+            new Thread(new SamsungDisableLongPressPowerTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1894M1();
@@ -363,10 +363,10 @@ public class ISamsungDevice {
 
     public void disableOtgStorage() {
         Log.e(this.f2054a, "disableOtgStorage");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableOtgStorage: start a new Thread");
-            new Thread(new RunnableC0694A(this)).start();
+            new Thread(new SamsungDisableOtgStorageTask(this)).start();
             return;
         }
         try {
@@ -378,10 +378,10 @@ public class ISamsungDevice {
 
     public void disableRecent() {
         Log.e(this.f2054a, "disableRecent");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableRecent: start a new Thread");
-            new Thread(new RunnableC0723f(this)).start();
+            new Thread(new SamsungDisableRecentTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1898U();
@@ -393,10 +393,10 @@ public class ISamsungDevice {
 
     public void disableScreensHots() {
         Log.e(this.f2054a, "disableScreensHots");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "disableScreensHots: start a new Thread");
-            new Thread(new RunnableC0703J(this)).start();
+            new Thread(new SamsungDisableScreenshotsTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1627Z();
@@ -413,10 +413,10 @@ public class ISamsungDevice {
 
     public void disableSettingSectionMenu() {
         Log.e(this.f2054a, "disableSettingSectionMenu");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "disableSettingSectionMenu: start a new Thread");
-            new Thread(new RunnableC0707N(this)).start();
+            new Thread(new SamsungDisableSettingSectionMenuTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1628f();
@@ -428,10 +428,10 @@ public class ISamsungDevice {
 
     public void disableShortPressPower() {
         Log.e(this.f2054a, "disableShortPressPower");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableShortPressPower: start a new Thread");
-            new Thread(new RunnableC0727j(this)).start();
+            new Thread(new SamsungDisableShortPressPowerTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1892K();
@@ -443,10 +443,10 @@ public class ISamsungDevice {
 
     public void disableStatusBar() {
         Log.e(this.f2054a, "disableStatusBar");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableStatusBar: start a new Thread");
-            new Thread(new RunnableC0743z(this)).start();
+            new Thread(new SamsungDisableStatusBarTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1922q();
@@ -458,10 +458,10 @@ public class ISamsungDevice {
 
     public void disableUsb() {
         Log.e(this.f2054a, "disableUsb");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableUsb: start a new Thread");
-            new Thread(new RunnableC0729l(this)).start();
+            new Thread(new SamsungDisableUsbTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1903b();
@@ -473,10 +473,10 @@ public class ISamsungDevice {
 
     public void disableVolume() {
         Log.e(this.f2054a, "disableVolume");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disableVolume: start a new Thread");
-            new Thread(new RunnableC0725h(this)).start();
+            new Thread(new SamsungDisableVolumeTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1899V1();
@@ -488,10 +488,10 @@ public class ISamsungDevice {
 
     public void disallowFirmwareDownload() {
         Log.e(this.f2054a, "disallowFirmwareDownload");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "disallowFirmwareDownload: start a new Thread");
-            new Thread(new RunnableC0699F(this)).start();
+            new Thread(new SamsungDisallowFirmwareDownloadTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1917j();
@@ -503,10 +503,10 @@ public class ISamsungDevice {
 
     public void enableApp(String str) {
         Log.e(this.f2054a, "enableApp:".concat(String.valueOf(str)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableApp: start a new Thread");
-            new Thread(new RunnableC0713T(this, str)).start();
+            new Thread(new SamsungEnableAppTask(this, str)).start();
         } else {
             try {
                 interfaceC0993h0.mo1902a(str);
@@ -518,10 +518,10 @@ public class ISamsungDevice {
 
     public void enableAppDetail() {
         Log.e(this.f2054a, "enableAppDetail");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "enableAppDetail: start a new Thread");
-            new Thread(new RunnableC0708O(this)).start();
+            new Thread(new SamsungEnableAppDetailTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1631j();
@@ -533,10 +533,10 @@ public class ISamsungDevice {
 
     public void enableBack() {
         Log.e(this.f2054a, "enableBack");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableBack: start a new Thread");
-            new Thread(new RunnableC0720c(this)).start();
+            new Thread(new SamsungEnableBackTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1919m1();
@@ -548,10 +548,10 @@ public class ISamsungDevice {
 
     public void enableBluetooth() {
         Log.e(this.f2054a, "enableBluetooth");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableBluetooth: start a new Thread");
-            new Thread(new RunnableC0740w(this)).start();
+            new Thread(new SamsungEnableBluetoothTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1905c();
@@ -563,10 +563,10 @@ public class ISamsungDevice {
 
     public void enableCamera() {
         Log.e(this.f2054a, "enableCamera");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableCamera: start a new Thread");
-            new Thread(new RunnableC0711R(this)).start();
+            new Thread(new SamsungEnableCameraTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1911e();
@@ -578,10 +578,10 @@ public class ISamsungDevice {
 
     public void enableGPS() {
         Log.e(this.f2054a, "enableGPS");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableGPS: start a new Thread");
-            new Thread(new RunnableC0736s(this)).start();
+            new Thread(new SamsungEnableGPSTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1896R1();
@@ -593,10 +593,10 @@ public class ISamsungDevice {
 
     public void enableHome() {
         Log.e(this.f2054a, "enableHome");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableHome: start a new Thread");
-            new Thread(new RunnableC0715V(this)).start();
+            new Thread(new SamsungEnableHomeTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1920n3();
@@ -608,10 +608,10 @@ public class ISamsungDevice {
 
     public void enableLockScreenIcon() {
         Log.e(this.f2054a, "enableLockScreenIcon");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "enableLockScreenIcon: start a new Thread");
-            new Thread(new RunnableC0704K(this)).start();
+            new Thread(new SamsungEnableLockScreenIconTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1632m();
@@ -623,10 +623,10 @@ public class ISamsungDevice {
 
     public void enableLongPressPower() {
         Log.e(this.f2054a, "enableLongPressPower");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableLongPressPower: start a new Thread");
-            new Thread(new RunnableC0728k(this)).start();
+            new Thread(new SamsungEnableLongPressPowerTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1895R0();
@@ -638,10 +638,10 @@ public class ISamsungDevice {
 
     public void enableOtgStorage() {
         Log.e(this.f2054a, "enableOtgStorage");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableOtgStorage: start a new Thread");
-            new Thread(new RunnableC0695B(this)).start();
+            new Thread(new SamsungEnableOtgStorageTask(this)).start();
             return;
         }
         try {
@@ -653,10 +653,10 @@ public class ISamsungDevice {
 
     public void enableRecent() {
         Log.e(this.f2054a, "enableRecent");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableRecent: start a new Thread");
-            new Thread(new RunnableC0722e(this)).start();
+            new Thread(new SamsungEnableRecentTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1907c3();
@@ -668,10 +668,10 @@ public class ISamsungDevice {
 
     public void enableScreensHots() {
         Log.e(this.f2054a, "enableScreensHots");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "enableScreensHots: start a new Thread");
-            new Thread(new RunnableC0702I(this)).start();
+            new Thread(new SamsungEnableScreenshotsTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1629g3();
@@ -688,10 +688,10 @@ public class ISamsungDevice {
 
     public void enableSettingSectionMenu() {
         Log.e(this.f2054a, "enableSettingSectionMenu");
-        InterfaceC0916e0 interfaceC0916e0 = this.f2059f;
+        SamsungCustomInterface interfaceC0916e0 = this.f2059f;
         if (interfaceC0916e0 == null) {
             Log.w(this.f2054a, "enableSettingSectionMenu: start a new Thread");
-            new Thread(new RunnableC0706M(this)).start();
+            new Thread(new SamsungEnableSettingSectionMenuTask(this)).start();
         } else {
             try {
                 interfaceC0916e0.mo1634q();
@@ -703,10 +703,10 @@ public class ISamsungDevice {
 
     public void enableShortPressPower() {
         Log.e(this.f2054a, "enableShortPressPower");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableShortPressPower: start a new Thread");
-            new Thread(new RunnableC0726i(this)).start();
+            new Thread(new SamsungEnableShortPressPowerTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1897R2();
@@ -718,10 +718,10 @@ public class ISamsungDevice {
 
     public void enableStatusBar() {
         Log.e(this.f2054a, "enableStatusBar");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableStatusBar: start a new Thread");
-            new Thread(new RunnableC0742y(this)).start();
+            new Thread(new SamsungEnableStatusBarTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1921p();
@@ -733,10 +733,10 @@ public class ISamsungDevice {
 
     public void enableUsb() {
         Log.e(this.f2054a, "enableUsb");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableUsb: start a new Thread");
-            new Thread(new RunnableC0718a(this)).start();
+            new Thread(new SamsungEnableUsbTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1901a();
@@ -748,10 +748,10 @@ public class ISamsungDevice {
 
     public void enableVolume() {
         Log.e(this.f2054a, "enableVolume");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "enableVolume: start a new Thread");
-            new Thread(new RunnableC0724g(this)).start();
+            new Thread(new SamsungEnableVolumeTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1910d1();
@@ -763,7 +763,7 @@ public class ISamsungDevice {
 
     public List getNetworkAccessAppWhiteList() {
         Log.e(this.f2054a, "getNetworkAccessAppWhiteList:" + Thread.currentThread().getId());
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.e(this.f2054a, "getNetworkAccessAppWhiteList:service is not be initialized until now");
             return null;
@@ -780,10 +780,10 @@ public class ISamsungDevice {
 
     public void hideWifiAdvanced() {
         Log.e(this.f2054a, "hideWifiAdvanced");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "hideWifiAdvanced: start a new Thread");
-            new Thread(new RunnableC0741x(this)).start();
+            new Thread(new SamsungHideWifiAdvancedTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1914h();
@@ -802,10 +802,10 @@ public class ISamsungDevice {
 
     public void modifySystemTime(long j) {
         Log.e(this.f2054a, "modifySystemTime:".concat(String.valueOf(j)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "modifySystemTime: start a new Thread");
-            new Thread(new RunnableC0738u(this, j)).start();
+            new Thread(new SamsungModifySystemTimeTask(this, j)).start();
         } else {
             try {
                 interfaceC0993h0.mo1900Y2(j);
@@ -817,10 +817,10 @@ public class ISamsungDevice {
 
     public void resetFactory() {
         Log.e(this.f2054a, "resetFactory");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "resetFactory: start a new Thread");
-            new Thread(new RunnableC0734q(this)).start();
+            new Thread(new SamsungResetFactoryTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1927x();
@@ -832,10 +832,10 @@ public class ISamsungDevice {
 
     public void showWifiAdvanced() {
         Log.e(this.f2054a, "showWifiAdvanced");
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "showWifiAdvanced: start a new Thread");
-            new Thread(new RunnableC0739v(this)).start();
+            new Thread(new SamsungShowWifiAdvancedTask(this)).start();
         } else {
             try {
                 interfaceC0993h0.mo1924r3();
@@ -847,10 +847,10 @@ public class ISamsungDevice {
 
     public void silentInstall(String str) {
         Log.e(this.f2054a, "silentInstall:".concat(String.valueOf(str)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "silentInstall: start a new Thread");
-            new Thread(new RunnableC0731n(this, str)).start();
+            new Thread(new SamsungSilentInstallTask(this, str)).start();
         } else {
             try {
                 interfaceC0993h0.mo1906c(str);
@@ -862,10 +862,10 @@ public class ISamsungDevice {
 
     public void silentUnInstall(String str) {
         Log.e(this.f2054a, "silentUnInstall:".concat(String.valueOf(str)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "silentUnInstall: start a new Thread");
-            new Thread(new RunnableC0732o(this, str)).start();
+            new Thread(new SamsungSilentUninstallTask(this, str)).start();
         } else {
             try {
                 interfaceC0993h0.mo1909d(str);
@@ -877,7 +877,7 @@ public class ISamsungDevice {
 
     public List urlWhiteListRead() {
         Log.e(this.f2054a, "urlWhiteListRead:" + Thread.currentThread().getId());
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             return null;
         }
@@ -893,10 +893,10 @@ public class ISamsungDevice {
 
     public boolean urlWhiteListWrite(List list) {
         Log.e(this.f2054a, "urlWhiteListWrite_2:".concat(String.valueOf(list)));
-        InterfaceC0993h0 interfaceC0993h0 = this.f2057d;
+        SamsungKnoxRemoteInterface interfaceC0993h0 = this.f2057d;
         if (interfaceC0993h0 == null) {
             Log.w(this.f2054a, "urlWhiteListWrite_2: start a new Thread");
-            new Thread(new RunnableC0700G(this, list)).start();
+            new Thread(new SamsungUrlWhiteListWriteTask(this, list)).start();
             return true;
         }
         try {

@@ -15,28 +15,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadPoolExecutorFactory {
 
     /* renamed from: a */
-    public static ScheduledThreadPoolExecutor f560a = new ScheduledThreadPoolExecutor(1, new ThreadFactoryC0415b("AWCN Scheduler"));
+    public static ScheduledThreadPoolExecutor f560a = new ScheduledThreadPoolExecutor(1, new NetworkPriorityThreadFactory("AWCN Scheduler"));
 
     /* renamed from: b */
-    public static ThreadPoolExecutor f561b = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN Worker(H)"));
+    public static ThreadPoolExecutor f561b = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN Worker(H)"));
 
     /* renamed from: c */
-    public static ThreadPoolExecutor f562c = new C0416a(16, 16, 60, TimeUnit.SECONDS, new PriorityBlockingQueue(), new ThreadFactoryC0415b("AWCN Worker(M)"));
+    public static ThreadPoolExecutor f562c = new PrioritizedNetworkExecutor(16, 16, 60, TimeUnit.SECONDS, new PriorityBlockingQueue(), new NetworkPriorityThreadFactory("AWCN Worker(M)"));
 
     /* renamed from: d */
-    public static ThreadPoolExecutor f563d = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN Worker(L)"));
+    public static ThreadPoolExecutor f563d = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN Worker(L)"));
 
     /* renamed from: e */
-    public static ThreadPoolExecutor f564e = new ThreadPoolExecutor(32, 32, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN Worker(Backup)"));
+    public static ThreadPoolExecutor f564e = new ThreadPoolExecutor(32, 32, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN Worker(Backup)"));
 
     /* renamed from: f */
-    public static ThreadPoolExecutor f565f = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN Detector"));
+    public static ThreadPoolExecutor f565f = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN Detector"));
 
     /* renamed from: g */
-    public static ThreadPoolExecutor f566g = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN HR"));
+    public static ThreadPoolExecutor f566g = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN HR"));
 
     /* renamed from: h */
-    public static ThreadPoolExecutor f567h = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactoryC0415b("AWCN Cookie"));
+    public static ThreadPoolExecutor f567h = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingDeque(), new NetworkPriorityThreadFactory("AWCN Cookie"));
 
     /* compiled from: Taobao */
     public static class Priority {
@@ -47,7 +47,7 @@ public class ThreadPoolExecutorFactory {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.thread.ThreadPoolExecutorFactory$a */
-    public static class RunnableC0414a implements Comparable<RunnableC0414a>, Runnable {
+    public static class NetworkPriorityRunnable implements Comparable<NetworkPriorityRunnable>, Runnable {
 
         /* renamed from: a */
         public Runnable f568a;
@@ -58,7 +58,7 @@ public class ThreadPoolExecutorFactory {
         /* renamed from: c */
         public long f570c;
 
-        public RunnableC0414a(Runnable runnable, int i) {
+        public NetworkPriorityRunnable(Runnable runnable, int i) {
             this.f568a = null;
             this.f569b = 0;
             this.f570c = System.currentTimeMillis();
@@ -69,7 +69,7 @@ public class ThreadPoolExecutorFactory {
 
         @Override // java.lang.Comparable
         /* renamed from: a, reason: merged with bridge method [inline-methods] */
-        public int compareTo(RunnableC0414a runnableC0414a) {
+        public int compareTo(NetworkPriorityRunnable runnableC0414a) {
             int i = this.f569b;
             int i2 = runnableC0414a.f569b;
             return i != i2 ? i - i2 : (int) (runnableC0414a.f570c - this.f570c);
@@ -83,7 +83,7 @@ public class ThreadPoolExecutorFactory {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.thread.ThreadPoolExecutorFactory$b */
-    public static class ThreadFactoryC0415b implements ThreadFactory {
+    public static class NetworkPriorityThreadFactory implements ThreadFactory {
 
         /* renamed from: a */
         public AtomicInteger f571a = new AtomicInteger(0);
@@ -91,7 +91,7 @@ public class ThreadPoolExecutorFactory {
         /* renamed from: b */
         public String f572b;
 
-        public ThreadFactoryC0415b(String str) {
+        public NetworkPriorityThreadFactory(String str) {
             this.f572b = str;
         }
 
@@ -149,7 +149,7 @@ public class ThreadPoolExecutorFactory {
         if (i < Priority.HIGH || i > Priority.LOW) {
             i = Priority.LOW;
         }
-        return i == Priority.HIGH ? f561b.submit(runnable) : i == Priority.LOW ? f563d.submit(runnable) : f562c.submit(new RunnableC0414a(runnable, i));
+        return i == Priority.HIGH ? f561b.submit(runnable) : i == Priority.LOW ? f563d.submit(runnable) : f562c.submit(new NetworkPriorityRunnable(runnable, i));
     }
 
     public static Future<?> submitScheduledTask(Runnable runnable) {

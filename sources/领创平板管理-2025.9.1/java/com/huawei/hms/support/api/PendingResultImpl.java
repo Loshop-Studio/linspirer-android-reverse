@@ -45,8 +45,8 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
     public boolean isNeedReport = true;
 
     /* renamed from: com.huawei.hms.support.api.PendingResultImpl$a */
-    public class C1561a implements DatagramTransport.InterfaceC1571a {
-        public C1561a() {
+    public class AwaitResultTransportCallback implements DatagramTransport.DatagramResultCallback {
+        public AwaitResultTransportCallback() {
         }
 
         @Override // com.huawei.hms.support.api.transport.DatagramTransport.InterfaceC1571a
@@ -58,12 +58,12 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
     }
 
     /* renamed from: com.huawei.hms.support.api.PendingResultImpl$b */
-    public class C1562b implements DatagramTransport.InterfaceC1571a {
+    public class TimedAwaitTransportCallback implements DatagramTransport.DatagramResultCallback {
 
         /* renamed from: a */
         public final /* synthetic */ AtomicBoolean f4547a;
 
-        public C1562b(AtomicBoolean atomicBoolean) {
+        public TimedAwaitTransportCallback(AtomicBoolean atomicBoolean) {
             this.f4547a = atomicBoolean;
         }
 
@@ -78,15 +78,15 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
     }
 
     /* renamed from: com.huawei.hms.support.api.PendingResultImpl$c */
-    public class C1563c implements DatagramTransport.InterfaceC1571a {
+    public class AsyncResultTransportCallback implements DatagramTransport.DatagramResultCallback {
 
         /* renamed from: a */
-        public final /* synthetic */ HandlerC1564d f4549a;
+        public final /* synthetic */ PendingResultDeliveryHandler f4549a;
 
         /* renamed from: b */
         public final /* synthetic */ ResultCallback f4550b;
 
-        public C1563c(HandlerC1564d handlerC1564d, ResultCallback resultCallback) {
+        public AsyncResultTransportCallback(PendingResultDeliveryHandler handlerC1564d, ResultCallback resultCallback) {
             this.f4549a = handlerC1564d;
             this.f4550b = resultCallback;
         }
@@ -95,7 +95,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         /* renamed from: a */
         public void mo3452a(int i, IMessageEntity iMessageEntity) {
             PendingResultImpl.this.setResult(i, iMessageEntity);
-            HandlerC1564d handlerC1564d = this.f4549a;
+            PendingResultDeliveryHandler handlerC1564d = this.f4549a;
             ResultCallback resultCallback = this.f4550b;
             Result result = PendingResultImpl.this.result;
             if (handlerC1564d == null) {
@@ -106,8 +106,8 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
     }
 
     /* renamed from: com.huawei.hms.support.api.PendingResultImpl$d */
-    public static class HandlerC1564d<R extends Result> extends Handler {
-        public HandlerC1564d(Looper looper) {
+    public static class PendingResultDeliveryHandler<R extends Result> extends Handler {
+        public PendingResultDeliveryHandler(Looper looper) {
             super(looper);
         }
 
@@ -251,7 +251,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         if (this.isNeedReport) {
             biReportEvent(0, 1);
         }
-        this.transport.send(apiClient, new C1561a());
+        this.transport.send(apiClient, new AwaitResultTransportCallback());
         try {
             this.countLatch.await();
         } catch (InterruptedException unused) {
@@ -318,7 +318,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         if (looper == null) {
             looper = Looper.myLooper();
         }
-        HandlerC1564d handlerC1564d = new HandlerC1564d(looper);
+        PendingResultDeliveryHandler handlerC1564d = new PendingResultDeliveryHandler(looper);
         WeakReference<ApiClient> weakReference = this.api;
         if (weakReference == null) {
             HMSLog.m3461e(TAG, "api is null");
@@ -334,7 +334,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
             if (this.isNeedReport) {
                 biReportEvent(0, 1);
             }
-            this.transport.post(apiClient, new C1563c(handlerC1564d, resultCallback));
+            this.transport.post(apiClient, new AsyncResultTransportCallback(handlerC1564d, resultCallback));
         }
     }
 
@@ -375,7 +375,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         if (this.isNeedReport) {
             biReportEvent(0, 1);
         }
-        this.transport.post(apiClient, new C1562b(atomicBoolean));
+        this.transport.post(apiClient, new TimedAwaitTransportCallback(atomicBoolean));
         try {
             if (!this.countLatch.await(j, timeUnit)) {
                 atomicBoolean.set(true);

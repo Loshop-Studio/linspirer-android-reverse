@@ -2,9 +2,9 @@ package com.loc;
 
 import anet.channel.util.HttpConstant;
 import com.huawei.hem.IPV6Request;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import com.huawei.hem.ConstConfig;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import com.loc.AMapNetworkRequest;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,13 +41,13 @@ public final class LogUpdateRequest extends IPV6Request {
     /* renamed from: b */
     public final String mo1737b() {
         String str = ConstConfig.f3229b;
-        String strM2251t = C1094l1.m2251t("IaHR0cDovL2xvZ3MuYW1hcC5jb20vd3MvbG9nL3VwbG9hZD9wcm9kdWN0PSVzJnR5cGU9JXMmcGxhdGZvcm09JXMmY2hhbm5lbD0lcyZzaWduPSVz");
+        String strM2251t = AMapCoreUtilities.m2251t("IaHR0cDovL2xvZ3MuYW1hcC5jb20vd3MvbG9nL3VwbG9hZD9wcm9kdWN0PSVzJnR5cGU9JXMmcGxhdGZvcm09JXMmY2hhbm5lbD0lcyZzaWduPSVz");
         String str2 = ConstConfig.f3228a;
-        byte[] bArrM2245n = C1094l1.m2245n("9aj&#k81");
+        byte[] bArrM2245n = AMapCoreUtilities.m2245n("9aj&#k81");
         byte[] bArr = new byte[bArrM2245n.length + 50];
         System.arraycopy(this.f5955a, 0, bArr, 0, 50);
         System.arraycopy(bArrM2245n, 0, bArr, 50, bArrM2245n.length);
-        return String.format(strM2251t, "1", this.f5956b, "1", "open", C1219q0.m2508d(bArr));
+        return String.format(strM2251t, "1", this.f5956b, "1", "open", AgooNotificationHandler.m2508d(bArr));
     }
 
     @Override // com.loc.AbstractC1728ar

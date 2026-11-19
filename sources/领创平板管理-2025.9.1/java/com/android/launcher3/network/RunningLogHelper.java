@@ -14,7 +14,7 @@ import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C0930ee;
+import com.huawei.hem.LauncherFileUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.PostBuilder;
@@ -26,7 +26,7 @@ import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class RunningLogHelper {
     public static void UploadRunningLog(Context context, String str) {
-        if (!C0930ee.m1680e(str)) {
+        if (!LauncherFileUtil.m1680e(str)) {
             LTKDateUtil.m1403m("upload file:" + str + "not exsit");
             LTKDateUtil.m1413w(context, context.getResources().getString(R.string.log_report_faile), 0);
             return;
@@ -52,7 +52,7 @@ public class RunningLogHelper {
                 FileUpload data = fileUploadResponse.getData();
                 if (data != null) {
                     reportLogs(context, data.getFileNewPath());
-                    C0930ee.m1679d(file.getAbsolutePath());
+                    LauncherFileUtil.m1679d(file.getAbsolutePath());
                     LTKDateUtil.m1413w(context, context.getResources().getString(R.string.log_report_success), 0);
                     return;
                 }
@@ -109,7 +109,7 @@ public class RunningLogHelper {
     public static void uploadFile(final Context context, File[] fileArr) {
         try {
             for (final File file : fileArr) {
-                if (C0930ee.m1681f(file.getAbsolutePath())) {
+                if (LauncherFileUtil.m1681f(file.getAbsolutePath())) {
                     UploadBuilder c1380wb = new UploadBuilder(new HttpCore());
                     if (c1380wb.f4014e == null) {
                         c1380wb.f4014e = new LinkedHashMap();

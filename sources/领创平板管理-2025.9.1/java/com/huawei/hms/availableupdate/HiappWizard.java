@@ -24,7 +24,7 @@ import java.util.List;
 public class HiappWizard extends AbsUpdateWizard {
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: a */
-    public void mo3307a(AbstractC1510o abstractC1510o) {
+    public void mo3307a(UpdateAlertDialog abstractC1510o) {
         HMSLog.m3463i("HiappWizard", "Enter onCancel.");
         if (abstractC1510o instanceof InstallConfirm) {
             m3359d();
@@ -33,7 +33,7 @@ public class HiappWizard extends AbsUpdateWizard {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: b */
-    public void mo3310b(AbstractC1510o abstractC1510o) {
+    public void mo3310b(UpdateAlertDialog abstractC1510o) {
         HMSLog.m3463i("HiappWizard", "Enter onDoWork.");
         if (abstractC1510o instanceof InstallConfirm) {
             abstractC1510o.m3344b();
@@ -179,10 +179,10 @@ public class HiappWizard extends AbsUpdateWizard {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: a */
-    public void mo3293a(Class<? extends AbstractC1510o> cls) throws IllegalAccessException, InstantiationException {
+    public void mo3293a(Class<? extends UpdateAlertDialog> cls) throws IllegalAccessException, InstantiationException {
         m3332a();
         try {
-            AbstractC1510o abstractC1510oNewInstance = cls.newInstance();
+            UpdateAlertDialog abstractC1510oNewInstance = cls.newInstance();
             if (!TextUtils.isEmpty(this.f4495h) && (abstractC1510oNewInstance instanceof InstallConfirm)) {
                 String string = ResourceLoaderUtil.getString("hms_update_title");
                 this.f4495h = string;

@@ -78,7 +78,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
     };
 
     /* renamed from: android.support.v4.content.ModernAsyncTask$4 */
-    public static /* synthetic */ class C00694 {
+    public static /* synthetic */ class AsyncTaskStatusSwitch {
         public static final /* synthetic */ int[] $SwitchMap$androidx$loader$content$ModernAsyncTask$Status;
 
         static {

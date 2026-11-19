@@ -1,13 +1,13 @@
 package com.alibaba.fastjson.serializer;
 
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.util.IdentityHashMap;
 
 /* loaded from: classes.dex */
 public abstract class AfterFilter implements SerializeFilter {
     public static final ThreadLocal<JSONSerializer> serializerLocal = new ThreadLocal<>();
     public static final ThreadLocal<Character> seperatorLocal = new ThreadLocal<>();
-    public static final Character COMMA = Character.valueOf(AbstractC1604b.COMMA);
+    public static final Character COMMA = Character.valueOf(UpdateJsonBean.COMMA);
 
     public final char writeAfter(JSONSerializer jSONSerializer, Object obj, char c) {
         JSONSerializer jSONSerializer2 = serializerLocal.get();

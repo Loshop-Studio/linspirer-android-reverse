@@ -101,7 +101,7 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: b */
-    public void mo3310b(AbstractC1510o abstractC1510o) throws IllegalAccessException, InstantiationException {
+    public void mo3310b(UpdateAlertDialog abstractC1510o) throws IllegalAccessException, InstantiationException {
         HMSLog.m3463i("UpdateWizard", "Enter onDoWork.");
         if (abstractC1510o instanceof InstallConfirm) {
             abstractC1510o.m3344b();
@@ -109,24 +109,24 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
             m3306a(this);
             return;
         }
-        if (abstractC1510o instanceof C1517v) {
+        if (abstractC1510o instanceof MarketAbortConfirmationDialog) {
             abstractC1510o.m3344b();
             m3315g();
             return;
         }
-        if (abstractC1510o instanceof C1516u) {
+        if (abstractC1510o instanceof MarketRetryConfirmationDialog) {
             mo3293a(DownloadProgress.class);
             m3314f();
             return;
         }
-        if (abstractC1510o instanceof C1515t) {
+        if (abstractC1510o instanceof MeteredUpdateConfirmationDialog) {
             mo3293a(DownloadProgress.class);
             m3314f();
-        } else if (abstractC1510o instanceof C1493b0) {
+        } else if (abstractC1510o instanceof UpdateCheckFailureDialog) {
             m3313e();
-        } else if (abstractC1510o instanceof C1495c0) {
+        } else if (abstractC1510o instanceof MarketDownloadFailureDialog) {
             m3313e();
-        } else if (abstractC1510o instanceof C1497d0) {
+        } else if (abstractC1510o instanceof MarketInsufficientSpaceDialog) {
             m3313e();
         }
     }
@@ -146,7 +146,7 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
         String netType = activityM3338b != null ? SystemUtils.getNetType(activityM3338b.getBaseContext()) : "";
         HMSLog.m3463i("UpdateWizard", "current network is " + netType);
         if (!"WIFI".equals(netType)) {
-            mo3293a(C1515t.class);
+            mo3293a(MeteredUpdateConfirmationDialog.class);
             HMSLog.m3463i("UpdateWizard", "current network is not wifi");
         } else {
             mo3293a(DownloadProgress.class);
@@ -168,7 +168,7 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
     public final void m3314f() throws IllegalAccessException, InstantiationException {
         Activity activityM3338b = m3338b();
         if (activityM3338b == null || activityM3338b.isFinishing()) {
-            mo3293a(C1495c0.class);
+            mo3293a(MarketDownloadFailureDialog.class);
         } else if (m3309a(activityM3338b)) {
             m3311c();
             ThreadWrapper c1494c = new ThreadWrapper(new UpdateDownload(activityM3338b));
@@ -281,10 +281,10 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
                 case 1201:
                 case 1202:
                 case 1203:
-                    mo3293a(C1493b0.class);
+                    mo3293a(UpdateCheckFailureDialog.class);
                     break;
                 default:
-                    mo3293a(C1493b0.class);
+                    mo3293a(UpdateCheckFailureDialog.class);
                     break;
             }
         }
@@ -319,21 +319,21 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
             if (i != 2101) {
                 switch (i) {
                     case 2201:
-                        mo3293a(C1495c0.class);
+                        mo3293a(MarketDownloadFailureDialog.class);
                         break;
                     case 2202:
-                        mo3293a(C1516u.class);
+                        mo3293a(MarketRetryConfirmationDialog.class);
                         break;
                     case 2203:
                     case 2204:
-                        mo3293a(C1497d0.class);
+                        mo3293a(MarketInsufficientSpaceDialog.class);
                         break;
                 }
                 return;
             }
             return;
         }
-        AbstractC1510o abstractC1510o = this.f4491d;
+        UpdateAlertDialog abstractC1510o = this.f4491d;
         if (abstractC1510o == null || !(abstractC1510o instanceof DownloadProgress)) {
             return;
         }
@@ -375,7 +375,7 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: a */
-    public void mo3307a(AbstractC1510o abstractC1510o) throws IllegalAccessException, InstantiationException {
+    public void mo3307a(UpdateAlertDialog abstractC1510o) throws IllegalAccessException, InstantiationException {
         HMSLog.m3463i("UpdateWizard", "Enter onCancel.");
         if (abstractC1510o instanceof InstallConfirm) {
             m3315g();
@@ -388,15 +388,15 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
         }
         if (abstractC1510o instanceof DownloadProgress) {
             m3311c();
-            mo3293a(C1517v.class);
+            mo3293a(MarketAbortConfirmationDialog.class);
             return;
         }
-        if (abstractC1510o instanceof C1517v) {
+        if (abstractC1510o instanceof MarketAbortConfirmationDialog) {
             mo3293a(DownloadProgress.class);
             m3314f();
-        } else if (abstractC1510o instanceof C1516u) {
+        } else if (abstractC1510o instanceof MarketRetryConfirmationDialog) {
             m3315g();
-        } else if (abstractC1510o instanceof C1515t) {
+        } else if (abstractC1510o instanceof MeteredUpdateConfirmationDialog) {
             m3315g();
         } else {
             m3313e();
@@ -405,11 +405,11 @@ public class UpdateWizard extends AbsUpdateWizard implements IUpdateCallback {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: a */
-    public void mo3293a(Class<? extends AbstractC1510o> cls) throws IllegalAccessException, InstantiationException {
+    public void mo3293a(Class<? extends UpdateAlertDialog> cls) throws IllegalAccessException, InstantiationException {
         if (m3309a(m3338b())) {
             m3332a();
             try {
-                AbstractC1510o abstractC1510oNewInstance = cls.newInstance();
+                UpdateAlertDialog abstractC1510oNewInstance = cls.newInstance();
                 if (!TextUtils.isEmpty(this.f4495h) && (abstractC1510oNewInstance instanceof InstallConfirm)) {
                     String string = ResourceLoaderUtil.getString("hms_update_title");
                     this.f4495h = string;

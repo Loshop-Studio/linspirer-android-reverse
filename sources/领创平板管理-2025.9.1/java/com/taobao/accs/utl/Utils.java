@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Person;
 import android.text.TextUtils;
 import com.taobao.accs.common.Constants;
-import com.taobao.accs.p071b.C1902a;
+import com.taobao.accs.p071b.AccsClassLoaderProvider;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
@@ -135,7 +135,7 @@ public class Utils {
     public static boolean isMainProcess(Context context) {
         boolean zBooleanValue;
         try {
-            Class<?> clsLoadClass = C1902a.m5469a().m5470b().loadClass("com.taobao.accs.utl.UtilityImpl");
+            Class<?> clsLoadClass = AccsClassLoaderProvider.m5469a().m5470b().loadClass("com.taobao.accs.utl.UtilityImpl");
             zBooleanValue = ((Boolean) clsLoadClass.getMethod("isMainProcess", Context.class).invoke(clsLoadClass, context)).booleanValue();
         } catch (Throwable th) {
             ALog.m5727e(TAG, "killservice", th, new Object[0]);
@@ -158,7 +158,7 @@ public class Utils {
 
     public static void killService(Context context) {
         try {
-            Class<?> clsLoadClass = C1902a.m5469a().m5470b().loadClass("com.taobao.accs.utl.UtilityImpl");
+            Class<?> clsLoadClass = AccsClassLoaderProvider.m5469a().m5470b().loadClass("com.taobao.accs.utl.UtilityImpl");
             clsLoadClass.getMethod("killService", Context.class).invoke(clsLoadClass, context);
         } catch (Throwable th) {
             ALog.m5727e(TAG, "killService", th, new Object[0]);
@@ -167,7 +167,7 @@ public class Utils {
 
     public static void setAgooAppkey(Context context, String str) {
         try {
-            Class<?> clsLoadClass = C1902a.m5469a().m5470b().loadClass("org.android.agoo.common.Config");
+            Class<?> clsLoadClass = AccsClassLoaderProvider.m5469a().m5470b().loadClass("org.android.agoo.common.Config");
             clsLoadClass.getMethod("setAgooAppKey", Context.class, String.class).invoke(clsLoadClass, context, str);
         } catch (Throwable th) {
             ALog.m5727e(TAG, "setAgooAppkey", th, new Object[0]);

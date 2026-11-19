@@ -129,7 +129,7 @@ public final class SDKLogHandler extends BasicLogHandler implements Thread.Uncau
             if (f5957e != null) {
                 f5957e.shutdown();
             }
-            C1720aj.m4001a();
+            AMapDiskLruCache.m4001a();
         } catch (Throwable th) {
             th.printStackTrace();
         }

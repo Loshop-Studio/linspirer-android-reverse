@@ -67,7 +67,7 @@ public final class RouteSelector {
             this.f2979e = Collections.singletonList(proxy);
         } else {
             List<Proxy> listSelect = c0961fj.f2668g.select(c1463zj.m3164p());
-            this.f2979e = (listSelect == null || listSelect.isEmpty()) ? C1314tk.m2760o(Proxy.NO_PROXY) : C1314tk.m2759n(listSelect);
+            this.f2979e = (listSelect == null || listSelect.isEmpty()) ? OkHttpCommonUtilities.m2760o(Proxy.NO_PROXY) : OkHttpCommonUtilities.m2759n(listSelect);
         }
         this.f2980f = 0;
     }

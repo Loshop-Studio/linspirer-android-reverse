@@ -57,7 +57,7 @@ public class ChannelService extends BaseService {
         @Override // android.app.Service
         public int onStartCommand(Intent intent, int i, int i2) {
             try {
-                ThreadPoolExecutorFactory.execute(new RunnableC1901b(this));
+                ThreadPoolExecutorFactory.execute(new ChannelForegroundNotificationTask(this));
             } catch (Throwable th) {
                 ALog.m5727e(ChannelService.TAG, " onStartCommand", th, new Object[0]);
             }

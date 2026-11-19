@@ -24,7 +24,7 @@ public class UmidtokenInfo {
     public static boolean f1587c = true;
 
     /* renamed from: com.amap.api.location.UmidtokenInfo$a */
-    public static class C0620a implements AMapLocationListener {
+    public static class UmidLocationCallback implements AMapLocationListener {
         @Override // com.amap.api.location.AMapLocationListener
         public final void onLocationChanged(AMapLocation aMapLocation) {
             try {
@@ -51,7 +51,7 @@ public class UmidtokenInfo {
             f1586b = str;
             DeviceInfo.f1607d = str;
             if (f1588d == null && f1587c) {
-                C0620a c0620a = new C0620a();
+                UmidLocationCallback c0620a = new UmidLocationCallback();
                 f1588d = new AMapLocationClient(context);
                 AMapLocationClientOption aMapLocationClientOption = new AMapLocationClientOption();
                 aMapLocationClientOption.setOnceLocation(true);

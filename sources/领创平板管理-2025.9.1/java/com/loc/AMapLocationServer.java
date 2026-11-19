@@ -85,9 +85,9 @@ public final class AMapLocationServer extends AMapLocation {
             String str2 = strArrSplit[i];
             if (!TextUtils.isEmpty(str2)) {
                 String[] strArrSplit2 = str2.split(",");
-                setLongitude(C1841ew.m5136c(strArrSplit2[0]));
-                setLatitude(C1841ew.m5136c(strArrSplit2[1]));
-                setAccuracy(C1841ew.m5144e(strArrSplit2[2]));
+                setLongitude(AMapLocationUtilities.m5136c(strArrSplit2[0]));
+                setLatitude(AMapLocationUtilities.m5136c(strArrSplit2[1]));
+                setAccuracy(AMapLocationUtilities.m5144e(strArrSplit2[2]));
                 break;
             }
             i++;
@@ -142,16 +142,16 @@ public final class AMapLocationServer extends AMapLocation {
             m4676i(jSONObject.optString("mcell", this.f5447n));
             m4682a(jSONObject.optBoolean("isReversegeo", this.f5438e));
             m4693f(jSONObject.optString("geoLanguage", this.f5439f));
-            if (C1841ew.m5120a(jSONObject, "poiid")) {
+            if (AMapLocationUtilities.m5120a(jSONObject, "poiid")) {
                 setBuildingId(jSONObject.optString("poiid"));
             }
-            if (C1841ew.m5120a(jSONObject, "pid")) {
+            if (AMapLocationUtilities.m5120a(jSONObject, "pid")) {
                 setBuildingId(jSONObject.optString("pid"));
             }
-            if (C1841ew.m5120a(jSONObject, "floor")) {
+            if (AMapLocationUtilities.m5120a(jSONObject, "floor")) {
                 setFloor(jSONObject.optString("floor"));
             }
-            if (C1841ew.m5120a(jSONObject, "flr")) {
+            if (AMapLocationUtilities.m5120a(jSONObject, "flr")) {
                 setFloor(jSONObject.optString("flr"));
             }
         } catch (Throwable th) {
@@ -255,9 +255,9 @@ public final class AMapLocationServer extends AMapLocation {
         }
         AMapLocationServer c1812du = new AMapLocationServer("");
         c1812du.setProvider(getProvider());
-        c1812du.setLongitude(C1841ew.m5136c(strArrSplit[0]));
-        c1812du.setLatitude(C1841ew.m5136c(strArrSplit[1]));
-        c1812du.setAccuracy(C1841ew.m5141d(strArrSplit[2]));
+        c1812du.setLongitude(AMapLocationUtilities.m5136c(strArrSplit[0]));
+        c1812du.setLatitude(AMapLocationUtilities.m5136c(strArrSplit[1]));
+        c1812du.setAccuracy(AMapLocationUtilities.m5141d(strArrSplit[2]));
         c1812du.setCityCode(getCityCode());
         c1812du.setAdCode(getAdCode());
         c1812du.setCountry(getCountry());
@@ -266,7 +266,7 @@ public final class AMapLocationServer extends AMapLocation {
         c1812du.setTime(getTime());
         c1812du.m4691e(m4690e());
         c1812du.m4687c(String.valueOf(m4686c()));
-        if (C1841ew.m5117a(c1812du)) {
+        if (AMapLocationUtilities.m5117a(c1812du)) {
             return c1812du;
         }
         return null;
@@ -308,7 +308,7 @@ public final class AMapLocationServer extends AMapLocation {
                 json.put("mcell", this.f5447n);
                 json.put("desc", this.f5437d);
                 json.put("address", getAddress());
-                if (this.f5446m != null && C1841ew.m5120a(json, "offpct")) {
+                if (this.f5446m != null && AMapLocationUtilities.m5120a(json, "offpct")) {
                     json.put("offpct", this.f5446m.getString("offpct"));
                 }
             } else if (i != 2 && i != 3) {

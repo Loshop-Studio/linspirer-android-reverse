@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -15,7 +15,7 @@ public final class RSAUtil {
     /* renamed from: a */
     public static PublicKey m5278a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance(C1094l1.m2251t("EUlNB")).generatePublic(new X509EncodedKeySpec(Base64Util.m5264a(str)));
+            return KeyFactory.getInstance(AMapCoreUtilities.m2251t("EUlNB")).generatePublic(new X509EncodedKeySpec(Base64Util.m5264a(str)));
         } catch (NullPointerException unused) {
             throw new Exception("公钥数据为空");
         } catch (NoSuchAlgorithmException unused2) {
@@ -28,7 +28,7 @@ public final class RSAUtil {
     /* renamed from: a */
     public static byte[] m5279a(byte[] bArr, PublicKey publicKey) {
         try {
-            Cipher cipher = Cipher.getInstance(C1094l1.m2251t("CUlNBL0VDQi9QS0NTMVBhZGRpbmc"));
+            Cipher cipher = Cipher.getInstance(AMapCoreUtilities.m2251t("CUlNBL0VDQi9QS0NTMVBhZGRpbmc"));
             cipher.init(1, publicKey);
             return cipher.doFinal(bArr);
         } catch (Throwable unused) {

@@ -109,7 +109,7 @@ public final class ExchangeFinder {
                 z2 = false;
             }
         }
-        C1314tk.m2750e(socketM2211h);
+        OkHttpCommonUtilities.m2750e(socketM2211h);
         if (c0963fl != null && this.f2555e == null) {
             throw null;
         }
@@ -260,7 +260,7 @@ public final class ExchangeFinder {
                 socket = null;
             }
         }
-        C1314tk.m2750e(socket);
+        OkHttpCommonUtilities.m2750e(socket);
         if (this.f2555e != null) {
             return c0963fl2;
         }
@@ -278,7 +278,7 @@ public final class ExchangeFinder {
                 }
                 boolean z3 = false;
                 if (!c0963flM1684a.f2684e.isClosed() && !c0963flM1684a.f2684e.isInputShutdown() && !c0963flM1684a.f2684e.isOutputShutdown()) {
-                    C0834am c0834am = c0963flM1684a.f2687h;
+                    OkHttp2Connection c0834am = c0963flM1684a.f2687h;
                     if (c0834am != null) {
                         long jNanoTime = System.nanoTime();
                         synchronized (c0834am) {
@@ -339,7 +339,7 @@ public final class ExchangeFinder {
     /* renamed from: d */
     public final boolean m1687d() {
         RealConnection c0963fl = this.f2551a.f3126i;
-        return c0963fl != null && c0963fl.f2691l == 0 && C1314tk.m2768w(c0963fl.f2682c.f3353a.f2662a, this.f2552b.f2662a);
+        return c0963fl != null && c0963fl.f2691l == 0 && OkHttpCommonUtilities.m2768w(c0963fl.f2682c.f3353a.f2662a, this.f2552b.f2662a);
     }
 
     /* renamed from: e */

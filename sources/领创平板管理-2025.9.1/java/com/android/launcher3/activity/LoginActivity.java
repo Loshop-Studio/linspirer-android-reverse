@@ -18,7 +18,7 @@ import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseFragmentActivity;
 import com.android.launcher3.fragment.login.BaseLoginFragment;
 import com.android.launcher3.fragment.login.InitUserLoginFragment;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.CompilerOutline;
@@ -130,7 +130,7 @@ public class LoginActivity extends BaseFragmentActivity {
             if (LTKDateUtil.f2294f.mo2064i0()) {
                 WifiManager wifiManager = (WifiManager) GuardSecureApplication.f1640b.getApplicationContext().getSystemService(UtilityImpl.NET_TYPE_WIFI);
                 List<WifiConfiguration> configuredNetworks = wifiManager.getConfiguredNetworks();
-                if (AbstractC1102l9.m2273N(configuredNetworks)) {
+                if (MobileSdkPlatformUtilities.m2273N(configuredNetworks)) {
                     return;
                 }
                 for (WifiConfiguration wifiConfiguration : configuredNetworks) {

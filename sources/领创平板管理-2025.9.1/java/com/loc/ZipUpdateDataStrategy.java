@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: ZipUpdateDataStrategy.java */
 /* renamed from: com.loc.bh */
@@ -9,6 +9,6 @@ public final class ZipUpdateDataStrategy extends UpdateDataStrategy {
     @Override // com.loc.AbstractC1744bg
     /* renamed from: a */
     public final byte[] mo4202a(byte[] bArr) {
-        return C1094l1.m2253v(bArr);
+        return AMapCoreUtilities.m2253v(bArr);
     }
 }

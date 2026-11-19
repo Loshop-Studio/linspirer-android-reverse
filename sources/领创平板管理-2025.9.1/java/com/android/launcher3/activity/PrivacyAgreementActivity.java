@@ -15,12 +15,12 @@ import com.huawei.hem.ViewControlUtil;
 public class PrivacyAgreementActivity extends BaseActivity {
 
     /* renamed from: com.android.launcher3.activity.PrivacyAgreementActivity$a */
-    public class C0640a extends WebViewClient {
+    public class PrivacyPageWebClient extends WebViewClient {
 
         /* renamed from: a */
         public final /* synthetic */ String f1770a;
 
-        public C0640a(PrivacyAgreementActivity privacyAgreementActivity, String str) {
+        public PrivacyPageWebClient(PrivacyAgreementActivity privacyAgreementActivity, String str) {
             this.f1770a = str;
         }
 
@@ -51,7 +51,7 @@ public class PrivacyAgreementActivity extends BaseActivity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         webView.loadUrl("file:///android_asset/protocal.html");
-        webView.setWebViewClient(new C0640a(this, "file:///android_asset/protocal.html"));
+        webView.setWebViewClient(new PrivacyPageWebClient(this, "file:///android_asset/protocal.html"));
     }
 
     public void onClick(View view) {

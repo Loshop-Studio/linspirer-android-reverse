@@ -10,7 +10,7 @@ import android.os.Parcel;
 /* loaded from: classes.dex */
 public interface IAIDLInvoke extends IInterface {
     /* renamed from: a */
-    void mo3393a(C1541b c1541b, IAIDLCallback interfaceC1542c);
+    void mo3393a(HmsAidlDataBuffer c1541b, IAIDLCallback interfaceC1542c);
 
     /* compiled from: IAIDLInvoke.java */
     /* renamed from: com.huawei.hms.core.aidl.d$a */
@@ -18,7 +18,7 @@ public interface IAIDLInvoke extends IInterface {
 
         /* compiled from: IAIDLInvoke.java */
         /* renamed from: com.huawei.hms.core.aidl.d$a$a, reason: collision with other inner class name */
-        public static class C2085a implements IAIDLInvoke {
+        public static class HmsAidlInvokeProxy implements IAIDLInvoke {
 
             /* renamed from: b */
             public static IAIDLInvoke f4532b;
@@ -26,13 +26,13 @@ public interface IAIDLInvoke extends IInterface {
             /* renamed from: a */
             public IBinder f4533a;
 
-            public C2085a(IBinder iBinder) {
+            public HmsAidlInvokeProxy(IBinder iBinder) {
                 this.f4533a = iBinder;
             }
 
             @Override // com.huawei.hms.core.aidl.InterfaceC1543d
             /* renamed from: a */
-            public void mo3393a(C1541b c1541b, IAIDLCallback interfaceC1542c) {
+            public void mo3393a(HmsAidlDataBuffer c1541b, IAIDLCallback interfaceC1542c) {
                 Parcel parcelObtain = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken("com.huawei.hms.core.aidl.IAIDLInvoke");
@@ -64,12 +64,12 @@ public interface IAIDLInvoke extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.huawei.hms.core.aidl.IAIDLInvoke");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAIDLInvoke)) ? new C2085a(iBinder) : (IAIDLInvoke) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAIDLInvoke)) ? new HmsAidlInvokeProxy(iBinder) : (IAIDLInvoke) iInterfaceQueryLocalInterface;
         }
 
         /* renamed from: a */
         public static IAIDLInvoke m3394a() {
-            return C2085a.f4532b;
+            return HmsAidlInvokeProxy.f4532b;
         }
     }
 }

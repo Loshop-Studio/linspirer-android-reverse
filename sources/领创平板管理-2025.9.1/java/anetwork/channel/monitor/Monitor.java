@@ -1,9 +1,9 @@
 package anetwork.channel.monitor;
 
 import android.content.Context;
-import anet.channel.monitor.C0360a;
-import anet.channel.monitor.C0361b;
-import anet.channel.monitor.C0365f;
+import anet.channel.monitor.BandwidthListenerRegistry;
+import anet.channel.monitor.BandwidthSampler;
+import anet.channel.monitor.BandwidthQualityThreshold;
 import anet.channel.monitor.INetworkQualityChangeListener;
 import anet.channel.monitor.NetworkSpeed;
 import anet.channel.util.ALog;
@@ -22,7 +22,7 @@ public class Monitor {
     public static NetworkSpeed getNetSpeed() {
         NetworkSpeed networkSpeed = NetworkSpeed.Fast;
         try {
-            return NetworkSpeed.valueOfCode(C0361b.m150a().m156b());
+            return NetworkSpeed.valueOfCode(BandwidthSampler.m150a().m156b());
         } catch (Throwable th) {
             ALog.m338e(TAG, "getNetworkSpeed failed", null, th, new Object[0]);
             return networkSpeed;
@@ -30,7 +30,7 @@ public class Monitor {
     }
 
     public static double getNetSpeedValue() {
-        return C0361b.m150a().m157c();
+        return BandwidthSampler.m150a().m157c();
     }
 
     @Deprecated
@@ -40,17 +40,17 @@ public class Monitor {
 
     public static synchronized void init() {
         if (isInit.compareAndSet(false, true)) {
-            C0361b.m150a().m158d();
+            BandwidthSampler.m150a().m158d();
         }
     }
 
     public static void removeListener(INetworkQualityChangeListener iNetworkQualityChangeListener) {
-        C0360a.m145a().m147a(iNetworkQualityChangeListener);
+        BandwidthListenerRegistry.m145a().m147a(iNetworkQualityChangeListener);
     }
 
     public static void start() {
         try {
-            C0361b.m150a().m158d();
+            BandwidthSampler.m150a().m158d();
         } catch (Throwable th) {
             ALog.m338e(TAG, "start failed", null, th, new Object[0]);
         }
@@ -58,14 +58,14 @@ public class Monitor {
 
     public static void stop() {
         try {
-            C0361b.m150a().m159e();
+            BandwidthSampler.m150a().m159e();
         } catch (Throwable th) {
             ALog.m338e(TAG, "stop failed", null, th, new Object[0]);
         }
     }
 
-    public static void addListener(INetworkQualityChangeListener iNetworkQualityChangeListener, C0365f c0365f) {
-        C0360a.m145a().m148a(iNetworkQualityChangeListener, c0365f);
+    public static void addListener(INetworkQualityChangeListener iNetworkQualityChangeListener, BandwidthQualityThreshold c0365f) {
+        BandwidthListenerRegistry.m145a().m148a(iNetworkQualityChangeListener, c0365f);
     }
 
     @Deprecated

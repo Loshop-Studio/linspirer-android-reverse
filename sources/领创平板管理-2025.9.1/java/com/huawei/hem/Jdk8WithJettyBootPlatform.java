@@ -50,7 +50,7 @@ public class Jdk8WithJettyBootPlatform extends Platform {
             String name = method.getName();
             Class<?> returnType = method.getReturnType();
             if (objArr == null) {
-                objArr = C1314tk.f3816b;
+                objArr = OkHttpCommonUtilities.f3816b;
             }
             if (name.equals("supports") && Boolean.TYPE == returnType) {
                 return Boolean.TRUE;

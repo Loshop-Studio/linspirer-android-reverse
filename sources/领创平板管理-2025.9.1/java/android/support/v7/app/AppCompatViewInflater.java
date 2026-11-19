@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatButton;
@@ -161,9 +161,9 @@ public class AppCompatViewInflater {
     }
 
     public static Context themifyContext(Context context, AttributeSet attributeSet, boolean z, boolean z2) {
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0200R.styleable.View, 0, 0);
-        int resourceId = z ? typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.View_android_theme, 0) : 0;
-        if (z2 && resourceId == 0 && (resourceId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.View_theme, 0)) != 0) {
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.View, 0, 0);
+        int resourceId = z ? typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.View_android_theme, 0) : 0;
+        if (z2 && resourceId == 0 && (resourceId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.View_theme, 0)) != 0) {
             Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
         }
         typedArrayObtainStyledAttributes.recycle();

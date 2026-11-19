@@ -1,6 +1,6 @@
 package com.huawei.hem;
 
-import com.huawei.hem.C1135mg;
+import com.huawei.hem.DownloadSnapshotThreadPool;
 import com.liulishuo.filedownloader.message.MessageSnapshot;
 import java.util.Iterator;
 
@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class MessageSnapshotFlow {
 
     /* renamed from: a */
-    public volatile C1135mg f2951a;
+    public volatile DownloadSnapshotThreadPool f2951a;
 
     /* renamed from: b */
     public volatile b f2952b;
@@ -40,20 +40,20 @@ public class MessageSnapshotFlow {
             return;
         }
         if (this.f2951a != null) {
-            C1135mg c1135mg = this.f2951a;
-            C1135mg.a aVar = null;
+            DownloadSnapshotThreadPool c1135mg = this.f2951a;
+            DownloadSnapshotThreadPool.a aVar = null;
             if (c1135mg == null) {
                 throw null;
             }
             try {
                 synchronized (c1135mg.f3262a) {
                     int i = messageSnapshot.f4819a;
-                    Iterator<C1135mg.a> it = c1135mg.f3262a.iterator();
+                    Iterator<DownloadSnapshotThreadPool.a> it = c1135mg.f3262a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        C1135mg.a next = it.next();
+                        DownloadSnapshotThreadPool.a next = it.next();
                         if (next.f3264a.contains(Integer.valueOf(i))) {
                             aVar = next;
                             break;
@@ -61,12 +61,12 @@ public class MessageSnapshotFlow {
                     }
                     if (aVar == null) {
                         int size = 0;
-                        Iterator<C1135mg.a> it2 = c1135mg.f3262a.iterator();
+                        Iterator<DownloadSnapshotThreadPool.a> it2 = c1135mg.f3262a.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
-                            C1135mg.a next2 = it2.next();
+                            DownloadSnapshotThreadPool.a next2 = it2.next();
                             if (next2.f3264a.size() <= 0) {
                                 aVar = next2;
                                 break;
@@ -79,7 +79,7 @@ public class MessageSnapshotFlow {
                     aVar.f3264a.add(Integer.valueOf(i));
                 }
             } finally {
-                aVar.f3265b.execute(new RunnableC1109lg(aVar, messageSnapshot));
+                aVar.f3265b.execute(new DispatchDownloadSnapshotTask(aVar, messageSnapshot));
             }
         }
     }

@@ -13,13 +13,13 @@ import java.lang.reflect.InvocationTargetException;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ParcelImpl implements Parcelable {
-    public static final Parcelable.Creator<ParcelImpl> CREATOR = new C0301a();
+    public static final Parcelable.Creator<ParcelImpl> CREATOR = new ParcelImplCreator();
 
     /* renamed from: a */
     public final VersionedParcelable f43a;
 
     /* renamed from: androidx.versionedparcelable.ParcelImpl$a */
-    public static class C0301a implements Parcelable.Creator<ParcelImpl> {
+    public static class ParcelImplCreator implements Parcelable.Creator<ParcelImpl> {
         @Override // android.os.Parcelable.Creator
         public ParcelImpl createFromParcel(Parcel parcel) {
             return new ParcelImpl(parcel);

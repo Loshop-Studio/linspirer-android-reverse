@@ -63,7 +63,7 @@ public class GlobalClientInfo {
         if (f6059a == null) {
             f6059a = context.getApplicationContext();
         }
-        ThreadPoolExecutorFactory.execute(new RunnableC1913d(this));
+        ThreadPoolExecutorFactory.execute(new InitializeAccsClientInfoTask(this));
     }
 
     public static Context getContext() {

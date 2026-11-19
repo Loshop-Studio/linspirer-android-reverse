@@ -11,7 +11,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.NestedScrollView;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -112,11 +112,11 @@ public class AlertController {
     };
 
     /* renamed from: android.support.v7.app.AlertController$2 */
-    public class C01762 implements NestedScrollView.OnScrollChangeListener {
+    public class AlertNestedScrollIndicatorListener implements NestedScrollView.OnScrollChangeListener {
         public final /* synthetic */ View val$bottom;
         public final /* synthetic */ View val$top;
 
-        public C01762(View view, View view2) {
+        public AlertNestedScrollIndicatorListener(View view, View view2) {
             this.val$top = view;
             this.val$bottom = view2;
         }
@@ -128,11 +128,11 @@ public class AlertController {
     }
 
     /* renamed from: android.support.v7.app.AlertController$3 */
-    public class RunnableC01773 implements Runnable {
+    public class RefreshNestedScrollIndicators implements Runnable {
         public final /* synthetic */ View val$bottom;
         public final /* synthetic */ View val$top;
 
-        public RunnableC01773(View view, View view2) {
+        public RefreshNestedScrollIndicators(View view, View view2) {
             this.val$top = view;
             this.val$bottom = view2;
         }
@@ -144,11 +144,11 @@ public class AlertController {
     }
 
     /* renamed from: android.support.v7.app.AlertController$4 */
-    public class C01784 implements AbsListView.OnScrollListener {
+    public class AlertListScrollIndicatorListener implements AbsListView.OnScrollListener {
         public final /* synthetic */ View val$bottom;
         public final /* synthetic */ View val$top;
 
-        public C01784(View view, View view2) {
+        public AlertListScrollIndicatorListener(View view, View view2) {
             this.val$top = view;
             this.val$bottom = view2;
         }
@@ -164,11 +164,11 @@ public class AlertController {
     }
 
     /* renamed from: android.support.v7.app.AlertController$5 */
-    public class RunnableC01795 implements Runnable {
+    public class RefreshListScrollIndicators implements Runnable {
         public final /* synthetic */ View val$bottom;
         public final /* synthetic */ View val$top;
 
-        public RunnableC01795(View view, View view2) {
+        public RefreshListScrollIndicators(View view, View view2) {
             this.val$top = view;
             this.val$bottom = view2;
         }
@@ -430,9 +430,9 @@ public class AlertController {
 
         public RecycleListView(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0200R.styleable.RecycleListView);
-            this.mPaddingBottomNoButtons = typedArrayObtainStyledAttributes.getDimensionPixelOffset(C0200R.styleable.RecycleListView_paddingBottomNoButtons, -1);
-            this.mPaddingTopNoTitle = typedArrayObtainStyledAttributes.getDimensionPixelOffset(C0200R.styleable.RecycleListView_paddingTopNoTitle, -1);
+            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.RecycleListView);
+            this.mPaddingBottomNoButtons = typedArrayObtainStyledAttributes.getDimensionPixelOffset(SupportAppcompatResources.styleable.RecycleListView_paddingBottomNoButtons, -1);
+            this.mPaddingTopNoTitle = typedArrayObtainStyledAttributes.getDimensionPixelOffset(SupportAppcompatResources.styleable.RecycleListView_paddingTopNoTitle, -1);
         }
     }
 
@@ -441,15 +441,15 @@ public class AlertController {
         this.mDialog = appCompatDialog;
         this.mWindow = window;
         this.mHandler = new ButtonHandler(appCompatDialog);
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(null, C0200R.styleable.AlertDialog, C0200R.attr.alertDialogStyle, 0);
-        this.mAlertDialogLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_android_layout, 0);
-        this.mButtonPanelSideLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_buttonPanelSideLayout, 0);
-        this.mListLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_listLayout, 0);
-        this.mMultiChoiceItemLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_multiChoiceItemLayout, 0);
-        this.mSingleChoiceItemLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_singleChoiceItemLayout, 0);
-        this.mListItemLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AlertDialog_listItemLayout, 0);
-        this.mShowTitle = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AlertDialog_showTitle, true);
-        this.mButtonIconDimen = typedArrayObtainStyledAttributes.getDimensionPixelSize(C0200R.styleable.AlertDialog_buttonIconDimen, 0);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(null, SupportAppcompatResources.styleable.AlertDialog, SupportAppcompatResources.attr.alertDialogStyle, 0);
+        this.mAlertDialogLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_android_layout, 0);
+        this.mButtonPanelSideLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_buttonPanelSideLayout, 0);
+        this.mListLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_listLayout, 0);
+        this.mMultiChoiceItemLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_multiChoiceItemLayout, 0);
+        this.mSingleChoiceItemLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_singleChoiceItemLayout, 0);
+        this.mListItemLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AlertDialog_listItemLayout, 0);
+        this.mShowTitle = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AlertDialog_showTitle, true);
+        this.mButtonIconDimen = typedArrayObtainStyledAttributes.getDimensionPixelSize(SupportAppcompatResources.styleable.AlertDialog_buttonIconDimen, 0);
         typedArrayObtainStyledAttributes.recycle();
         appCompatDialog.supportRequestWindowFeature(1);
     }
@@ -514,8 +514,8 @@ public class AlertController {
     }
 
     private void setScrollIndicators(ViewGroup viewGroup, View view, int i, int i2) {
-        View viewFindViewById = this.mWindow.findViewById(C0200R.id.scrollIndicatorUp);
-        View viewFindViewById2 = this.mWindow.findViewById(C0200R.id.scrollIndicatorDown);
+        View viewFindViewById = this.mWindow.findViewById(SupportAppcompatResources.id.scrollIndicatorUp);
+        View viewFindViewById2 = this.mWindow.findViewById(SupportAppcompatResources.id.scrollIndicatorDown);
         ViewCompat.setScrollIndicators(view, i, i2);
         if (viewFindViewById != null) {
             viewGroup.removeView(viewFindViewById);
@@ -592,7 +592,7 @@ public class AlertController {
     }
 
     private void setupContent(ViewGroup viewGroup) {
-        NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(C0200R.id.scrollView);
+        NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(SupportAppcompatResources.id.scrollView);
         this.mScrollView = nestedScrollView;
         nestedScrollView.setFocusable(false);
         this.mScrollView.setNestedScrollingEnabled(false);
@@ -631,7 +631,7 @@ public class AlertController {
             viewGroup.setVisibility(8);
             return;
         }
-        FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(C0200R.id.custom);
+        FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(SupportAppcompatResources.id.custom);
         frameLayout.addView(viewInflate, new ViewGroup.LayoutParams(-1, -1));
         if (this.mViewSpacingSpecified) {
             frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -644,17 +644,17 @@ public class AlertController {
     private void setupTitle(ViewGroup viewGroup) {
         if (this.mCustomTitleView != null) {
             viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
-            this.mWindow.findViewById(C0200R.id.title_template).setVisibility(8);
+            this.mWindow.findViewById(SupportAppcompatResources.id.title_template).setVisibility(8);
             return;
         }
         this.mIconView = (ImageView) this.mWindow.findViewById(R.id.icon);
         if (!(!TextUtils.isEmpty(this.mTitle)) || !this.mShowTitle) {
-            this.mWindow.findViewById(C0200R.id.title_template).setVisibility(8);
+            this.mWindow.findViewById(SupportAppcompatResources.id.title_template).setVisibility(8);
             this.mIconView.setVisibility(8);
             viewGroup.setVisibility(8);
             return;
         }
-        TextView textView = (TextView) this.mWindow.findViewById(C0200R.id.alertTitle);
+        TextView textView = (TextView) this.mWindow.findViewById(SupportAppcompatResources.id.alertTitle);
         this.mTitleView = textView;
         textView.setText(this.mTitle);
         int i = this.mIconId;
@@ -676,15 +676,15 @@ public class AlertController {
         View viewFindViewById;
         ListAdapter listAdapter;
         View viewFindViewById2;
-        View viewFindViewById3 = this.mWindow.findViewById(C0200R.id.parentPanel);
-        View viewFindViewById4 = viewFindViewById3.findViewById(C0200R.id.topPanel);
-        View viewFindViewById5 = viewFindViewById3.findViewById(C0200R.id.contentPanel);
-        View viewFindViewById6 = viewFindViewById3.findViewById(C0200R.id.buttonPanel);
-        ViewGroup viewGroup = (ViewGroup) viewFindViewById3.findViewById(C0200R.id.customPanel);
+        View viewFindViewById3 = this.mWindow.findViewById(SupportAppcompatResources.id.parentPanel);
+        View viewFindViewById4 = viewFindViewById3.findViewById(SupportAppcompatResources.id.topPanel);
+        View viewFindViewById5 = viewFindViewById3.findViewById(SupportAppcompatResources.id.contentPanel);
+        View viewFindViewById6 = viewFindViewById3.findViewById(SupportAppcompatResources.id.buttonPanel);
+        ViewGroup viewGroup = (ViewGroup) viewFindViewById3.findViewById(SupportAppcompatResources.id.customPanel);
         setupCustomContent(viewGroup);
-        View viewFindViewById7 = viewGroup.findViewById(C0200R.id.topPanel);
-        View viewFindViewById8 = viewGroup.findViewById(C0200R.id.contentPanel);
-        View viewFindViewById9 = viewGroup.findViewById(C0200R.id.buttonPanel);
+        View viewFindViewById7 = viewGroup.findViewById(SupportAppcompatResources.id.topPanel);
+        View viewFindViewById8 = viewGroup.findViewById(SupportAppcompatResources.id.contentPanel);
+        View viewFindViewById9 = viewGroup.findViewById(SupportAppcompatResources.id.buttonPanel);
         ViewGroup viewGroupResolvePanel = resolvePanel(viewFindViewById7, viewFindViewById4);
         ViewGroup viewGroupResolvePanel2 = resolvePanel(viewFindViewById8, viewFindViewById5);
         ViewGroup viewGroupResolvePanel3 = resolvePanel(viewFindViewById9, viewFindViewById6);
@@ -694,7 +694,7 @@ public class AlertController {
         boolean z = viewGroup.getVisibility() != 8;
         boolean z2 = (viewGroupResolvePanel == null || viewGroupResolvePanel.getVisibility() == 8) ? 0 : 1;
         boolean z3 = (viewGroupResolvePanel3 == null || viewGroupResolvePanel3.getVisibility() == 8) ? false : true;
-        if (!z3 && viewGroupResolvePanel2 != null && (viewFindViewById2 = viewGroupResolvePanel2.findViewById(C0200R.id.textSpacerNoButtons)) != null) {
+        if (!z3 && viewGroupResolvePanel2 != null && (viewFindViewById2 = viewGroupResolvePanel2.findViewById(SupportAppcompatResources.id.textSpacerNoButtons)) != null) {
             viewFindViewById2.setVisibility(0);
         }
         if (z2 != 0) {
@@ -702,11 +702,11 @@ public class AlertController {
             if (nestedScrollView != null) {
                 nestedScrollView.setClipToPadding(true);
             }
-            View viewFindViewById10 = (this.mMessage == null && this.mListView == null) ? null : viewGroupResolvePanel.findViewById(C0200R.id.titleDividerNoCustom);
+            View viewFindViewById10 = (this.mMessage == null && this.mListView == null) ? null : viewGroupResolvePanel.findViewById(SupportAppcompatResources.id.titleDividerNoCustom);
             if (viewFindViewById10 != null) {
                 viewFindViewById10.setVisibility(0);
             }
-        } else if (viewGroupResolvePanel2 != null && (viewFindViewById = viewGroupResolvePanel2.findViewById(C0200R.id.textSpacerNoTitle)) != null) {
+        } else if (viewGroupResolvePanel2 != null && (viewFindViewById = viewGroupResolvePanel2.findViewById(SupportAppcompatResources.id.textSpacerNoTitle)) != null) {
             viewFindViewById.setVisibility(0);
         }
         ListView listView = this.mListView;
@@ -736,7 +736,7 @@ public class AlertController {
 
     public static boolean shouldCenterSingleButton(Context context) {
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(C0200R.attr.alertDialogCenterButtons, typedValue, true);
+        context.getTheme().resolveAttribute(SupportAppcompatResources.attr.alertDialogCenterButtons, typedValue, true);
         return typedValue.data != 0;
     }
 

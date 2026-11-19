@@ -20,10 +20,10 @@ import com.taobao.accs.common.Constants;
 import com.taobao.accs.internal.AccsJobService;
 import com.taobao.accs.utl.AccsLogger;
 import com.taobao.accs.utl.AdapterUtilityImpl;
-import com.taobao.accs.utl.C1975c;
-import com.taobao.accs.utl.C1981i;
-import com.taobao.accs.utl.C1983k;
-import com.taobao.accs.utl.C1984l;
+import com.taobao.accs.utl.LegacyAppReceiverAdapter;
+import com.taobao.accs.utl.AccsLogConfiguration;
+import com.taobao.accs.utl.AccsLogAdapter;
+import com.taobao.accs.utl.AccsNetworkLogger;
 import com.taobao.accs.utl.UtilityImpl;
 import com.taobao.accs.utl.Utils;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class ACCSClient {
 
     public static void changeNetworkSdkLoggerToAccs() {
         defaultLog.mo664d("changeNetworkSdkLoggerToAccs");
-        ALog.setLog(new C1983k(new C1984l(), C1981i.m5789a()));
+        ALog.setLog(new AccsLogAdapter(new AccsNetworkLogger(), AccsLogConfiguration.m5789a()));
     }
 
     public static void enableChannelProcess(Context context, boolean z) {
@@ -210,7 +210,7 @@ public class ACCSClient {
             iACCSManager.bindApp(mContext, this.mConfig.getAppKey(), this.mConfig.getAppSecret(), str, iAppReceiver);
         } else {
             this.log.mo666e("bindApp mAccsManager null");
-            C1975c.m5776a(AccsErrorCode.ERROR_SHOULD_NEVER_HAPPEN.copy().detail("bindApp accs is null").build(), iAppReceiver, null);
+            LegacyAppReceiverAdapter.m5776a(AccsErrorCode.ERROR_SHOULD_NEVER_HAPPEN.copy().detail("bindApp accs is null").build(), iAppReceiver, null);
         }
     }
 

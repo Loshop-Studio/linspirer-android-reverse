@@ -214,7 +214,7 @@ public class AndroidPlatform extends Platform {
         try {
             socket.connect(inetSocketAddress, i);
         } catch (AssertionError e) {
-            if (!C1314tk.m2765t(e)) {
+            if (!OkHttpCommonUtilities.m2765t(e)) {
                 throw e;
             }
             throw new IOException(e);

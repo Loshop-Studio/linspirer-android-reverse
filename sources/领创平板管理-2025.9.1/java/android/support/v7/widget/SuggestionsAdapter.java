@@ -15,7 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.ResourceCursorAdapter;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
@@ -71,7 +71,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view.findViewById(R.id.text2);
             this.mIcon1 = (ImageView) view.findViewById(R.id.icon1);
             this.mIcon2 = (ImageView) view.findViewById(R.id.icon2);
-            this.mIconRefine = (ImageView) view.findViewById(C0200R.id.edit_query);
+            this.mIconRefine = (ImageView) view.findViewById(SupportAppcompatResources.id.edit_query);
         }
     }
 
@@ -104,7 +104,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     private CharSequence formatUrl(CharSequence charSequence) {
         if (this.mUrlColor == null) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(C0200R.attr.textColorSearchUrl, typedValue, true);
+            this.mContext.getTheme().resolveAttribute(SupportAppcompatResources.attr.textColorSearchUrl, typedValue, true);
             this.mUrlColor = this.mContext.getResources().getColorStateList(typedValue.resourceId);
         }
         SpannableString spannableString = new SpannableString(charSequence);
@@ -470,7 +470,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         View viewNewView = super.newView(context, cursor, viewGroup);
         viewNewView.setTag(new ChildViewCache(viewNewView));
-        ((ImageView) viewNewView.findViewById(C0200R.id.edit_query)).setImageResource(this.mCommitIconResId);
+        ((ImageView) viewNewView.findViewById(SupportAppcompatResources.id.edit_query)).setImageResource(this.mCommitIconResId);
         return viewNewView;
     }
 

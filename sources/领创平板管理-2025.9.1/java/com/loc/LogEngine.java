@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.loc.C1720aj;
+import com.loc.AMapDiskLruCache;
 import java.io.File;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ import org.json.JSONObject;
 public final class LogEngine {
     /* renamed from: a */
     public static int m4166a(LogConfig c1730at) {
-        C1720aj c1720aj = null;
+        AMapDiskLruCache c1720aj = null;
         try {
             try {
                 if (c1730at.f5059f.m4213c()) {
                     c1730at.f5059f.mo4212a(true);
-                    C1720aj c1720ajM3999a = C1720aj.m3999a(new File(c1730at.f5054a), c1730at.f5055b);
+                    AMapDiskLruCache c1720ajM3999a = AMapDiskLruCache.m3999a(new File(c1730at.f5054a), c1730at.f5055b);
                     try {
                         ArrayList arrayList = new ArrayList();
                         byte[] bArrM4170a = m4170a(c1720ajM3999a, c1730at, arrayList);
@@ -86,7 +86,7 @@ public final class LogEngine {
     }
 
     /* renamed from: a */
-    public static void m4167a(C1720aj c1720aj, List<String> list) {
+    public static void m4167a(AMapDiskLruCache c1720aj, List<String> list) {
         if (c1720aj != null) {
             try {
                 Iterator<String> it = list.iterator();
@@ -102,7 +102,7 @@ public final class LogEngine {
 
     /* renamed from: a */
     public static void m4168a(String str, byte[] bArr, LogConfig c1730at) throws Throwable {
-        C1720aj c1720ajM3999a;
+        AMapDiskLruCache c1720ajM3999a;
         OutputStream outputStreamM4035a = null;
         try {
             if (m4169a(c1730at.f5054a, str)) {
@@ -112,11 +112,11 @@ public final class LogEngine {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            c1720ajM3999a = C1720aj.m3999a(file, c1730at.f5055b);
+            c1720ajM3999a = AMapDiskLruCache.m3999a(file, c1730at.f5055b);
             try {
                 c1720ajM3999a.m4025a(c1730at.f5057d);
                 byte[] bArrM3998b = c1730at.f5058e.m3998b(bArr);
-                C1720aj.a aVarM4026b = c1720ajM3999a.m4026b(str);
+                AMapDiskLruCache.a aVarM4026b = c1720ajM3999a.m4026b(str);
                 outputStreamM4035a = aVarM4026b.m4035a();
                 outputStreamM4035a.write(bArrM3998b);
                 aVarM4026b.m4036b();
@@ -168,7 +168,7 @@ public final class LogEngine {
     }
 
     /* renamed from: a */
-    public static byte[] m4170a(C1720aj c1720aj, LogConfig c1730at, List<String> list) {
+    public static byte[] m4170a(AMapDiskLruCache c1720aj, LogConfig c1730at, List<String> list) {
         try {
             File fileM4027b = c1720aj.m4027b();
             if (fileM4027b != null && fileM4027b.exists()) {
@@ -176,7 +176,7 @@ public final class LogEngine {
                 for (String str : fileM4027b.list()) {
                     if (str.contains(".0")) {
                         String str2 = str.split("\\.")[0];
-                        byte[] bArrM4196a = C1736az.m4196a(c1720aj, str2);
+                        byte[] bArrM4196a = AMapLogCacheUtilities.m4196a(c1720aj, str2);
                         length += bArrM4196a.length;
                         list.add(str2);
                         if (length > c1730at.f5059f.mo4211b()) {

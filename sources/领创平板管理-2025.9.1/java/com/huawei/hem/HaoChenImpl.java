@@ -42,7 +42,7 @@ public class HaoChenImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -406,7 +406,7 @@ public class HaoChenImpl extends AndroidImpl {
     public void mo1342Q0(List<String> list) {
         try {
             LTKDateUtil.m1403m("HaoChenImpl ----removeDisallowedUninstallPackages");
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             IHCAPI interfaceC1320u1 = f3782c.f3744a;
@@ -496,7 +496,7 @@ public class HaoChenImpl extends AndroidImpl {
         IHCAPI interfaceC1320u1;
         LTKDateUtil.m1403m("HaoChenImpl ---setSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList) && (interfaceC1320u1 = f3782c.f3744a) != null) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList) && (interfaceC1320u1 = f3782c.f3744a) != null) {
                 try {
                     interfaceC1320u1.mo1135e0(arrayList, true);
                 } catch (RemoteException e) {
@@ -931,7 +931,7 @@ public class HaoChenImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -953,7 +953,7 @@ public class HaoChenImpl extends AndroidImpl {
     public boolean mo1350l(List<String> list) {
         LTKDateUtil.m1403m("HaoChenImpl ---setAppWhiteWithHash");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return false;
             }
             IHCAPI interfaceC1320u1 = f3782c.f3744a;
@@ -1035,7 +1035,7 @@ public class HaoChenImpl extends AndroidImpl {
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("HaoChenImpl ---setAppWhiteList");
         try {
-            if (!AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(list)) {
                 IHCAPI interfaceC1320u1 = f3782c.f3744a;
                 if (interfaceC1320u1 != null) {
                     try {

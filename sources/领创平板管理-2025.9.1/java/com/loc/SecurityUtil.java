@@ -2,9 +2,9 @@ package com.loc;
 
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
+import com.huawei.hem.AgooNotificationHandler;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -42,7 +42,7 @@ public final class SecurityUtil {
     public static String m5281a() {
         SecureRandom secureRandom = new SecureRandom();
         try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(C1094l1.m2251t("EQUVT"));
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(AMapCoreUtilities.m2251t("EQUVT"));
             keyGenerator.init(128, secureRandom);
             return Base64Util.m5262a(keyGenerator.generateKey().getEncoded());
         } catch (Throwable unused) {
@@ -67,7 +67,7 @@ public final class SecurityUtil {
 
     /* renamed from: a */
     public static String m5283a(String str) {
-        return C1219q0.m2507c(str);
+        return AgooNotificationHandler.m2507c(str);
     }
 
     /* renamed from: a */
@@ -85,11 +85,11 @@ public final class SecurityUtil {
     public static byte[] m5285a(byte[] bArr) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         try {
             if (f5914a == null) {
-                f5914a = C1094l1.m2251t("YAAAAAAAAAAAAAAAAAAAAAA").getBytes();
+                f5914a = AMapCoreUtilities.m2251t("YAAAAAAAAAAAAAAAAAAAAAA").getBytes();
             }
             IvParameterSpec ivParameterSpec = new IvParameterSpec(f5914a);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(m5284a(m5288b()).getBytes("UTF-8"), C1094l1.m2251t("EQUVT"));
-            Cipher cipher = Cipher.getInstance(C1094l1.m2251t("CQUVTL0NCQy9QS0NTNVBhZGRpbmc"));
+            SecretKeySpec secretKeySpec = new SecretKeySpec(m5284a(m5288b()).getBytes("UTF-8"), AMapCoreUtilities.m2251t("EQUVT"));
+            Cipher cipher = Cipher.getInstance(AMapCoreUtilities.m2251t("CQUVTL0NCQy9QS0NTNVBhZGRpbmc"));
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Exception e) {
@@ -129,7 +129,7 @@ public final class SecurityUtil {
             if (i >= strArr.length) {
                 return iArr2;
             }
-            byte[] bArrM1934e = C0994h1.m1934e(strArr[i]);
+            byte[] bArrM1934e = AMapEncryptionUtilities.m1934e(strArr[i]);
             iArr2[i] = ((bArrM1934e[0] & Base64.EQUALS_SIGN_ENC) << 24) | (bArrM1934e[3] & Base64.EQUALS_SIGN_ENC) | ((bArrM1934e[2] & Base64.EQUALS_SIGN_ENC) << 8) | ((bArrM1934e[1] & Base64.EQUALS_SIGN_ENC) << 16);
             i++;
         }

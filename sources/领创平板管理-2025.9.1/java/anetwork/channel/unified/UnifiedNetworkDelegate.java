@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import anet.channel.bytes.ByteArray;
-import anet.channel.bytes.C0317a;
+import anet.channel.bytes.AwcnByteArrayPool;
 import anet.channel.util.ALog;
 import anet.channel.util.ErrorConstant;
 import anet.channel.util.StringUtils;
@@ -18,8 +18,8 @@ import anetwork.channel.aidl.RemoteNetwork;
 import anetwork.channel.aidl.adapter.ConnectionDelegate;
 import anetwork.channel.aidl.adapter.ParcelableFutureResponse;
 import anetwork.channel.aidl.adapter.ParcelableNetworkListenerWrapper;
-import anetwork.channel.entity.C0454c;
-import anetwork.channel.entity.C0458g;
+import anetwork.channel.entity.NetworkListenerDispatcher;
+import anetwork.channel.entity.UnifiedRequestConfig;
 import anetwork.channel.http.NetworkSdkSetting;
 import java.io.ByteArrayOutputStream;
 
@@ -42,7 +42,7 @@ public abstract class UnifiedNetworkDelegate extends RemoteNetwork.Stub {
             ParcelableInputStream inputStream = connectionDelegate.getInputStream();
             if (inputStream != null) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(inputStream.length() > 0 ? inputStream.length() : 1024);
-                ByteArray byteArrayM70a = C0317a.a.f177a.m70a(2048);
+                ByteArray byteArrayM70a = AwcnByteArrayPool.a.f177a.m70a(2048);
                 while (true) {
                     int i = inputStream.read(byteArrayM70a.getBuffer());
                     if (i == -1) {
@@ -77,7 +77,7 @@ public abstract class UnifiedNetworkDelegate extends RemoteNetwork.Stub {
     @Override // anetwork.channel.aidl.RemoteNetwork
     public ParcelableFuture asyncSend(ParcelableRequest parcelableRequest, ParcelableNetworkListener parcelableNetworkListener) throws RemoteException {
         try {
-            return asyncSend(new C0458g(parcelableRequest, this.type, false), parcelableNetworkListener);
+            return asyncSend(new UnifiedRequestConfig(parcelableRequest, this.type, false), parcelableNetworkListener);
         } catch (Exception e) {
             ALog.m338e(TAG, "asyncSend failed", parcelableRequest.seqNo, e, new Object[0]);
             throw new RemoteException(e.getMessage());
@@ -87,7 +87,7 @@ public abstract class UnifiedNetworkDelegate extends RemoteNetwork.Stub {
     @Override // anetwork.channel.aidl.RemoteNetwork
     public Connection getConnection(ParcelableRequest parcelableRequest) throws RemoteException {
         try {
-            C0458g c0458g = new C0458g(parcelableRequest, this.type, true);
+            UnifiedRequestConfig c0458g = new UnifiedRequestConfig(parcelableRequest, this.type, true);
             ConnectionDelegate connectionDelegate = new ConnectionDelegate(c0458g);
             connectionDelegate.setFuture(asyncSend(c0458g, new ParcelableNetworkListenerWrapper(connectionDelegate, null, null)));
             return connectionDelegate;
@@ -102,7 +102,7 @@ public abstract class UnifiedNetworkDelegate extends RemoteNetwork.Stub {
         return convertToSync(parcelableRequest);
     }
 
-    private ParcelableFuture asyncSend(C0458g c0458g, ParcelableNetworkListener parcelableNetworkListener) {
-        return new ParcelableFutureResponse(new C0470k(c0458g, new C0454c(parcelableNetworkListener, c0458g)).m462a());
+    private ParcelableFuture asyncSend(UnifiedRequestConfig c0458g, ParcelableNetworkListener parcelableNetworkListener) {
+        return new ParcelableFutureResponse(new UnifiedRequestCoordinator(c0458g, new NetworkListenerDispatcher(parcelableNetworkListener, c0458g)).m462a());
     }
 }

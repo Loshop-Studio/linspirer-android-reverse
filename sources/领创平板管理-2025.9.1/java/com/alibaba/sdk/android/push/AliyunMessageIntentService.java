@@ -2,8 +2,8 @@ package com.alibaba.sdk.android.push;
 
 import android.app.Notification;
 import android.content.Context;
-import com.alibaba.sdk.android.push.notification.C0589d;
-import com.alibaba.sdk.android.push.notification.C0590e;
+import com.alibaba.sdk.android.push.notification.AliyunNotificationPresenter;
+import com.alibaba.sdk.android.push.notification.PushNotificationPlatform;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
 import com.alibaba.sdk.android.push.notification.NotificationConfigure;
 import com.alibaba.sdk.android.push.notification.PushData;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 /* loaded from: classes.dex */
 public abstract class AliyunMessageIntentService extends AgooMessageIntentService {
-    public C0589d mMessageNotification = new C0589d();
+    public AliyunNotificationPresenter mMessageNotification = new AliyunNotificationPresenter();
 
     public Notification customNotificationUI(Context context, PushData pushData) {
         return null;
@@ -76,6 +76,6 @@ public abstract class AliyunMessageIntentService extends AgooMessageIntentServic
 
     @Override // com.huawei.hem.InterfaceC1119m0
     public boolean showNotificationNow(Context context, Map<String, String> map) {
-        return C0589d.m948a(map) || !C0590e.m954a(context);
+        return AliyunNotificationPresenter.m948a(map) || !PushNotificationPlatform.m954a(context);
     }
 }

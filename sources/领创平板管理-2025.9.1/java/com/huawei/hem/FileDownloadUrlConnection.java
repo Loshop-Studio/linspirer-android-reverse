@@ -22,7 +22,7 @@ public class FileDownloadUrlConnection implements FileDownloadConnection {
 
     /* compiled from: FileDownloadUrlConnection.java */
     /* renamed from: com.huawei.hem.hf$b */
-    public static class b implements InterfaceC0881ch {
+    public static class b implements DownloadConnectionFactory {
 
         /* renamed from: a */
         public final a f2866a = null;

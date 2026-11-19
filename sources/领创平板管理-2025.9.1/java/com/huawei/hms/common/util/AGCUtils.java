@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.huawei.hem.AbstractC1275s6;
+import com.huawei.hem.AppGalleryConfigReader;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.HMSPackageManager;
 
@@ -124,7 +124,7 @@ public class AGCUtils {
         }
         String strMo2681c = null;
         try {
-            strMo2681c = AbstractC1275s6.m2679a(context).mo2681c("client/app_id");
+            strMo2681c = AppGalleryConfigReader.m2679a(context).mo2681c("client/app_id");
         } catch (NullPointerException unused) {
             HMSLog.m3461e("AGCUtils", "Get appId with AGConnectServicesConfig failed");
         }
@@ -141,7 +141,7 @@ public class AGCUtils {
         }
         String strMo2681c = null;
         try {
-            strMo2681c = AbstractC1275s6.m2679a(context).mo2681c("client/cp_id");
+            strMo2681c = AppGalleryConfigReader.m2679a(context).mo2681c("client/cp_id");
         } catch (NullPointerException unused) {
             HMSLog.m3461e("AGCUtils", "Get cpid with AGConnectServicesConfig failed");
         }

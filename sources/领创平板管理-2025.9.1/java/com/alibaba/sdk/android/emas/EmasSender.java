@@ -146,12 +146,12 @@ public class EmasSender {
     }
 
     /* renamed from: com.alibaba.sdk.android.emas.EmasSender$a */
-    public static class HandlerC0520a extends Handler {
+    public static class EmasSenderMessageHandler extends Handler {
 
         /* renamed from: a */
         public final WeakReference<EmasSender> f914a;
 
-        public HandlerC0520a(Looper looper, EmasSender emasSender) {
+        public EmasSenderMessageHandler(Looper looper, EmasSender emasSender) {
             super(looper);
             this.f914a = new WeakReference<>(emasSender);
         }
@@ -184,7 +184,7 @@ public class EmasSender {
     }
 
     /* renamed from: com.alibaba.sdk.android.emas.EmasSender$b */
-    public class RunnableC0521b implements Runnable {
+    public class EmasUploadLogTask implements Runnable {
 
         /* renamed from: a */
         public final Map<String, String> f916a;
@@ -207,7 +207,7 @@ public class EmasSender {
         /* renamed from: g */
         public final String f922g;
 
-        public RunnableC0521b(long j, String str, int i, String str2, String str3, String str4, Map<String, String> map) {
+        public EmasUploadLogTask(long j, String str, int i, String str2, String str3, String str4, Map<String, String> map) {
             this.f917b = j;
             this.f919d = str;
             this.f918d = i;
@@ -256,7 +256,7 @@ public class EmasSender {
         if (TextUtils.isEmpty(this.mSendManager.m650a().getAppKey()) || TextUtils.isEmpty(this.mSendManager.m650a().getChangeHost())) {
             LogUtil.m996d("EmasSender send failed. appkey or host is empty.");
         } else {
-            this.mPackDataExecutor.submit(new RunnableC0521b(j, str, i, str2, str3, str4, map));
+            this.mPackDataExecutor.submit(new EmasUploadLogTask(j, str, i, str2, str3, str4, map));
         }
     }
 
@@ -307,6 +307,6 @@ public class EmasSender {
             });
             builder.context.registerActivityLifecycleCallbacks(c0530i);
         }
-        sHandler = new HandlerC0520a(Looper.getMainLooper(), this);
+        sHandler = new EmasSenderMessageHandler(Looper.getMainLooper(), this);
     }
 }

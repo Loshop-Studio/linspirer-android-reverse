@@ -32,15 +32,15 @@ public class AvailableAdapter {
     public AvailableCallBack f4339b;
 
     /* renamed from: c */
-    public SystemObserver f4340c = new C1471a();
+    public SystemObserver f4340c = new HmsAvailabilityObserver();
 
     public interface AvailableCallBack {
         void onComplete(int i);
     }
 
     /* renamed from: com.huawei.hms.adapter.AvailableAdapter$a */
-    public class C1471a implements SystemObserver {
-        public C1471a() {
+    public class HmsAvailabilityObserver implements SystemObserver {
+        public HmsAvailabilityObserver() {
         }
 
         @Override // com.huawei.hms.adapter.sysobs.SystemObserver

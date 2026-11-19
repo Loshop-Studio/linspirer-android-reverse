@@ -34,7 +34,7 @@ public class BarConfig {
 
     @TargetApi(14)
     private int getActionBarHeight(Activity activity) {
-        View viewFindViewById = activity.getWindow().findViewById(C0808R.id.action_bar_container);
+        View viewFindViewById = activity.getWindow().findViewById(GyfImmersionbarResources.id.action_bar_container);
         int measuredHeight = viewFindViewById != null ? viewFindViewById.getMeasuredHeight() : 0;
         if (measuredHeight != 0) {
             return measuredHeight;

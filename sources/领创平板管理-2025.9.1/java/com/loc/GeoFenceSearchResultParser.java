@@ -39,7 +39,7 @@ public final class GeoFenceSearchResultParser {
             longitude = dPoint2.getLongitude() + (longitude3 * d);
             latitude = dPoint2.getLatitude() + (d * latitude3);
         }
-        return C1841ew.m5104a(new DPoint(dPoint.getLatitude(), dPoint.getLongitude()), new DPoint(latitude, longitude));
+        return AMapLocationUtilities.m5104a(new DPoint(dPoint.getLatitude(), dPoint.getLongitude()), new DPoint(latitude, longitude));
     }
 
     /* renamed from: a */
@@ -110,7 +110,7 @@ public final class GeoFenceSearchResultParser {
 
     /* renamed from: a */
     public static synchronized long m4275a() {
-        long jM5127b = C1841ew.m5127b();
+        long jM5127b = AMapLocationUtilities.m5127b();
         if (jM5127b > f5191a) {
             f5191a = jM5127b;
         } else {

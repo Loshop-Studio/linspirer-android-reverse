@@ -2,7 +2,7 @@ package com.bumptech.glide.load.model;
 
 import android.text.TextUtils;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -144,7 +144,7 @@ public final class LazyHeaders implements Headers {
             for (int i = 0; i < value.size(); i++) {
                 sb.append(value.get(i).buildHeader());
                 if (i != value.size() - 1) {
-                    sb.append(AbstractC1604b.COMMA);
+                    sb.append(UpdateJsonBean.COMMA);
                 }
             }
             map.put(entry.getKey(), sb.toString());

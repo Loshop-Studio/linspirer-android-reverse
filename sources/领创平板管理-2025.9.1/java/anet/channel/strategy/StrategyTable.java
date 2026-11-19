@@ -3,12 +3,12 @@ package anet.channel.strategy;
 import android.text.TextUtils;
 import anet.channel.GlobalAppRuntimeInfo;
 import anet.channel.entity.ConnType;
-import anet.channel.p006e.C0339a;
+import anet.channel.p006e.ConnectionProtocolDetector;
 import anet.channel.status.NetworkStatusHelper;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.strategy.dispatch.AmdcRuntimeInfo;
 import anet.channel.strategy.dispatch.HttpDispatcher;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.strategy.utils.SerialLruCache;
 import anet.channel.util.ALog;
 import anet.channel.util.AppLifecycle;
@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StrategyTable implements Serializable {
 
     /* renamed from: e */
-    public static Comparator<StrategyCollection> f473e = new C0410o();
+    public static Comparator<StrategyCollection> f473e = new StrategyCollectionComparator();
 
     /* renamed from: a */
     public String f474a;
@@ -147,7 +147,7 @@ public class StrategyTable implements Serializable {
 
     public List<IConnStrategy> queryByHost(String str) {
         StrategyCollection strategyCollection;
-        if (TextUtils.isEmpty(str) || !C0413c.m333c(str)) {
+        if (TextUtils.isEmpty(str) || !AmdcStringEncoding.m333c(str)) {
             return Collections.EMPTY_LIST;
         }
         m281c();
@@ -164,8 +164,8 @@ public class StrategyTable implements Serializable {
         return strategyCollection.queryStrategyList();
     }
 
-    public void update(C0407l.d dVar) {
-        C0407l.b[] bVarArr;
+    public void update(AmdcStrategyResultParser.d dVar) {
+        AmdcStrategyResultParser.b[] bVarArr;
         ALog.m340i("awcn.StrategyTable", "update strategyTable with httpDns response", this.f474a, new Object[0]);
         try {
             this.f475b = dVar.f543a;
@@ -178,7 +178,7 @@ public class StrategyTable implements Serializable {
             return;
         }
         synchronized (this.f478f) {
-            for (C0407l.b bVar : bVarArr) {
+            for (AmdcStrategyResultParser.b bVar : bVarArr) {
                 if (bVar != null && bVar.f529a != null) {
                     if (bVar.f538j) {
                         this.f478f.remove(bVar.f529a);
@@ -289,10 +289,10 @@ public class StrategyTable implements Serializable {
         }
         String str2 = iConnStrategy.getProtocol().protocol;
         if (ConnType.HTTP3.equals(str2) || ConnType.HTTP3_PLAIN.equals(str2)) {
-            C0339a.m119a(connEvent.isSuccess);
+            ConnectionProtocolDetector.m119a(connEvent.isSuccess);
             ALog.m339e("awcn.StrategyTable", "enable http3", null, "uniqueId", this.f474a, "enable", Boolean.valueOf(connEvent.isSuccess));
         }
-        if (!connEvent.isSuccess && C0413c.m332b(iConnStrategy.getIp())) {
+        if (!connEvent.isSuccess && AmdcStringEncoding.m332b(iConnStrategy.getIp())) {
             this.f476c.put(str, Long.valueOf(System.currentTimeMillis()));
             ALog.m339e("awcn.StrategyTable", "disable ipv6", null, "uniqueId", this.f474a, Constants.KEY_HOST, str);
         }

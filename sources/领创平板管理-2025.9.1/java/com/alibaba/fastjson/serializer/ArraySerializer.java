@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.lang.reflect.Type;
 
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class ArraySerializer implements ObjectSerializer {
             serializeWriter.append('[');
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 != 0) {
-                    serializeWriter.append(AbstractC1604b.COMMA);
+                    serializeWriter.append(UpdateJsonBean.COMMA);
                 }
                 Object obj3 = objArr[i2];
                 if (obj3 == null) {

@@ -7,7 +7,7 @@ import com.google.zxing.common.StringUtils;
 import com.google.zxing.datamatrix.encoder.HighLevelEncoder;
 import com.google.zxing.oned.rss.expanded.decoders.DecodedChar;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +21,7 @@ public final class DecodedBitStreamParser {
     public static final char[] TEXT_SHIFT3_SET_CHARS;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1 */
-    public static /* synthetic */ class C07881 {
+    public static /* synthetic */ class DataMatrixDecodeModeSwitch {
 
         /* renamed from: $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode */
         public static final /* synthetic */ int[] f2133xb73eb560;
@@ -72,7 +72,7 @@ public final class DecodedBitStreamParser {
     }
 
     static {
-        char[] cArr = {'!', '\"', '#', DecodedChar.FNC1, '%', '&', '\'', '(', ')', '*', '+', AbstractC1604b.COMMA, '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
+        char[] cArr = {'!', '\"', '#', DecodedChar.FNC1, '%', '&', '\'', '(', ')', '*', '+', UpdateJsonBean.COMMA, '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;

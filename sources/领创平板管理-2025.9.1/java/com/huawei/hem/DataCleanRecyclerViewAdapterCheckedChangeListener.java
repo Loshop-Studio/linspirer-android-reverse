@@ -9,7 +9,7 @@ import com.android.launcher3.adapter.DataCleanRecyclerViewAdapter;
 public class DataCleanRecyclerViewAdapterCheckedChangeListener implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a */
-    public final /* synthetic */ DataCleanRecyclerViewAdapter.C0646a f4041a;
+    public final /* synthetic */ DataCleanRecyclerViewAdapter.DataCleanRowHolder f4041a;
 
     /* renamed from: b */
     public final /* synthetic */ int f4042b;
@@ -17,7 +17,7 @@ public class DataCleanRecyclerViewAdapterCheckedChangeListener implements Compou
     /* renamed from: c */
     public final /* synthetic */ DataCleanRecyclerViewAdapter f4043c;
 
-    public DataCleanRecyclerViewAdapterCheckedChangeListener(DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter, DataCleanRecyclerViewAdapter.C0646a c0646a, int i) {
+    public DataCleanRecyclerViewAdapterCheckedChangeListener(DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter, DataCleanRecyclerViewAdapter.DataCleanRowHolder c0646a, int i) {
         this.f4043c = dataCleanRecyclerViewAdapter;
         this.f4041a = c0646a;
         this.f4042b = i;

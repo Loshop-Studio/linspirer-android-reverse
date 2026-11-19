@@ -15,7 +15,7 @@ import com.android.launcher3.network.response.ExceptionHandler;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.view.DialogUtil;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.LauncherDeviceUtils;
@@ -96,7 +96,7 @@ public class CommonLoginRequestHelper extends BaseLoginRequestHelper {
                         c1424y5.f4140N = true;
                     }
                     CommonLoginRequestHelper.this.userInfoUtil.m3030Y(email);
-                    if (AbstractC1102l9.m2273N(userInfo.getGroupInfo())) {
+                    if (MobileSdkPlatformUtilities.m2273N(userInfo.getGroupInfo())) {
                         CommonLoginRequestHelper.this.userInfoUtil.m3069s0("");
                     } else {
                         CommonLoginRequestHelper.this.userInfoUtil.m3069s0(userInfo.getGroupInfo().get(0).getName());

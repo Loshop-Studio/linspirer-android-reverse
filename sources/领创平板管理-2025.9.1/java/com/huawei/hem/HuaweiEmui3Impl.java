@@ -48,7 +48,7 @@ public class HuaweiEmui3Impl extends AndroidImpl {
     /* renamed from: A0 */
     public void mo1334A0(List<String> list) {
         List<String> listMo1339L0 = mo1339L0();
-        if (!AbstractC1102l9.m2273N(listMo1339L0)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1339L0)) {
             mo1342Q0(listMo1339L0);
         }
         try {
@@ -61,7 +61,7 @@ public class HuaweiEmui3Impl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         Iterator<String> it = list.iterator();
@@ -315,11 +315,11 @@ public class HuaweiEmui3Impl extends AndroidImpl {
                 return;
             }
             ArrayList superWhiteListForHwSystemManger = f3787e.getSuperWhiteListForHwSystemManger(f3786d);
-            if (!AbstractC1102l9.m2272M(superWhiteListForHwSystemManger)) {
+            if (!MobileSdkPlatformUtilities.m2272M(superWhiteListForHwSystemManger)) {
                 LTKDateUtil.m1403m("super applist:" + superWhiteListForHwSystemManger.toString());
                 f3787e.removeSuperWhiteListForHwSystemManger(f3786d, superWhiteListForHwSystemManger);
             }
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 f3787e.setSuperWhiteListForHwSystemManger(f3786d, arrayList);
             }
             LTKDateUtil.m1403m("set super white list for hw system manager");
@@ -691,7 +691,7 @@ public class HuaweiEmui3Impl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         Iterator<String> it = list.iterator();

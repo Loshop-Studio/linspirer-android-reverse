@@ -12,7 +12,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.ActionProvider;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuItemWrapperICS;
 import android.support.v7.widget.DrawableUtils;
@@ -216,40 +216,40 @@ public class SupportMenuInflater extends MenuInflater {
         }
 
         public void readGroup(AttributeSet attributeSet) {
-            TypedArray typedArrayObtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, C0200R.styleable.MenuGroup);
-            this.groupId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.MenuGroup_android_id, 0);
-            this.groupCategory = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuGroup_android_menuCategory, 0);
-            this.groupOrder = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuGroup_android_orderInCategory, 0);
-            this.groupCheckable = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuGroup_android_checkableBehavior, 0);
-            this.groupVisible = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuGroup_android_visible, true);
-            this.groupEnabled = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuGroup_android_enabled, true);
+            TypedArray typedArrayObtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.MenuGroup);
+            this.groupId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.MenuGroup_android_id, 0);
+            this.groupCategory = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuGroup_android_menuCategory, 0);
+            this.groupOrder = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuGroup_android_orderInCategory, 0);
+            this.groupCheckable = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuGroup_android_checkableBehavior, 0);
+            this.groupVisible = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuGroup_android_visible, true);
+            this.groupEnabled = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuGroup_android_enabled, true);
             typedArrayObtainStyledAttributes.recycle();
         }
 
         public void readItem(AttributeSet attributeSet) {
-            TypedArray typedArrayObtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, C0200R.styleable.MenuItem);
-            this.itemId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.MenuItem_android_id, 0);
-            this.itemCategoryOrder = (typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_android_menuCategory, this.groupCategory) & (-65536)) | (typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & 65535);
-            this.itemTitle = typedArrayObtainStyledAttributes.getText(C0200R.styleable.MenuItem_android_title);
-            this.itemTitleCondensed = typedArrayObtainStyledAttributes.getText(C0200R.styleable.MenuItem_android_titleCondensed);
-            this.itemIconResId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.MenuItem_android_icon, 0);
-            this.itemAlphabeticShortcut = getShortcut(typedArrayObtainStyledAttributes.getString(C0200R.styleable.MenuItem_android_alphabeticShortcut));
-            this.itemAlphabeticModifiers = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_alphabeticModifiers, 4096);
-            this.itemNumericShortcut = getShortcut(typedArrayObtainStyledAttributes.getString(C0200R.styleable.MenuItem_android_numericShortcut));
-            this.itemNumericModifiers = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_numericModifiers, 4096);
-            if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.MenuItem_android_checkable)) {
-                this.itemCheckable = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuItem_android_checkable, false) ? 1 : 0;
+            TypedArray typedArrayObtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.MenuItem);
+            this.itemId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.MenuItem_android_id, 0);
+            this.itemCategoryOrder = (typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_android_menuCategory, this.groupCategory) & (-65536)) | (typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_android_orderInCategory, this.groupOrder) & 65535);
+            this.itemTitle = typedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.MenuItem_android_title);
+            this.itemTitleCondensed = typedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.MenuItem_android_titleCondensed);
+            this.itemIconResId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.MenuItem_android_icon, 0);
+            this.itemAlphabeticShortcut = getShortcut(typedArrayObtainStyledAttributes.getString(SupportAppcompatResources.styleable.MenuItem_android_alphabeticShortcut));
+            this.itemAlphabeticModifiers = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_alphabeticModifiers, 4096);
+            this.itemNumericShortcut = getShortcut(typedArrayObtainStyledAttributes.getString(SupportAppcompatResources.styleable.MenuItem_android_numericShortcut));
+            this.itemNumericModifiers = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_numericModifiers, 4096);
+            if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.MenuItem_android_checkable)) {
+                this.itemCheckable = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuItem_android_checkable, false) ? 1 : 0;
             } else {
                 this.itemCheckable = this.groupCheckable;
             }
-            this.itemChecked = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuItem_android_checked, false);
-            this.itemVisible = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuItem_android_visible, this.groupVisible);
-            this.itemEnabled = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.MenuItem_android_enabled, this.groupEnabled);
-            this.itemShowAsAction = typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_showAsAction, -1);
-            this.itemListenerMethodName = typedArrayObtainStyledAttributes.getString(C0200R.styleable.MenuItem_android_onClick);
-            this.itemActionViewLayout = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.MenuItem_actionLayout, 0);
-            this.itemActionViewClassName = typedArrayObtainStyledAttributes.getString(C0200R.styleable.MenuItem_actionViewClass);
-            String string = typedArrayObtainStyledAttributes.getString(C0200R.styleable.MenuItem_actionProviderClass);
+            this.itemChecked = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuItem_android_checked, false);
+            this.itemVisible = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuItem_android_visible, this.groupVisible);
+            this.itemEnabled = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.MenuItem_android_enabled, this.groupEnabled);
+            this.itemShowAsAction = typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_showAsAction, -1);
+            this.itemListenerMethodName = typedArrayObtainStyledAttributes.getString(SupportAppcompatResources.styleable.MenuItem_android_onClick);
+            this.itemActionViewLayout = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.MenuItem_actionLayout, 0);
+            this.itemActionViewClassName = typedArrayObtainStyledAttributes.getString(SupportAppcompatResources.styleable.MenuItem_actionViewClass);
+            String string = typedArrayObtainStyledAttributes.getString(SupportAppcompatResources.styleable.MenuItem_actionProviderClass);
             this.itemActionProviderClassName = string;
             boolean z = string != null;
             if (z && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
@@ -260,15 +260,15 @@ public class SupportMenuInflater extends MenuInflater {
                 }
                 this.itemActionProvider = null;
             }
-            this.itemContentDescription = typedArrayObtainStyledAttributes.getText(C0200R.styleable.MenuItem_contentDescription);
-            this.itemTooltipText = typedArrayObtainStyledAttributes.getText(C0200R.styleable.MenuItem_tooltipText);
-            if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.MenuItem_iconTintMode)) {
-                this.itemIconTintMode = DrawableUtils.parseTintMode(typedArrayObtainStyledAttributes.getInt(C0200R.styleable.MenuItem_iconTintMode, -1), this.itemIconTintMode);
+            this.itemContentDescription = typedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.MenuItem_contentDescription);
+            this.itemTooltipText = typedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.MenuItem_tooltipText);
+            if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.MenuItem_iconTintMode)) {
+                this.itemIconTintMode = DrawableUtils.parseTintMode(typedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.MenuItem_iconTintMode, -1), this.itemIconTintMode);
             } else {
                 this.itemIconTintMode = null;
             }
-            if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.MenuItem_iconTint)) {
-                this.itemIconTintList = typedArrayObtainStyledAttributes.getColorStateList(C0200R.styleable.MenuItem_iconTint);
+            if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.MenuItem_iconTint)) {
+                this.itemIconTintList = typedArrayObtainStyledAttributes.getColorStateList(SupportAppcompatResources.styleable.MenuItem_iconTint);
             } else {
                 this.itemIconTintList = null;
             }

@@ -1,7 +1,7 @@
 package com.p076ut.device;
 
 import android.content.Context;
-import com.p061ta.utdid2.device.C1892d;
+import com.p061ta.utdid2.device.UtdidValueGenerator;
 
 /* loaded from: classes.dex */
 public class UTDevice {
@@ -10,6 +10,6 @@ public class UTDevice {
     }
 
     public static void setExtendFactor(String str) {
-        C1892d.setExtendFactor(str);
+        UtdidValueGenerator.setExtendFactor(str);
     }
 }

@@ -6,7 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.zxing.client.android.Intents;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import java.util.Arrays;
 import java.util.Collection;
@@ -100,7 +100,7 @@ public class IntentIntegrator {
             StringBuilder sb = new StringBuilder();
             for (String str : this.desiredBarcodeFormats) {
                 if (sb.length() > 0) {
-                    sb.append(AbstractC1604b.COMMA);
+                    sb.append(UpdateJsonBean.COMMA);
                 }
                 sb.append(str);
             }

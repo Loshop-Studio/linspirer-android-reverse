@@ -12,7 +12,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.AutoSizeableTextView;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -66,10 +66,10 @@ public class AppCompatTextHelper {
 
     private void updateTypefaceAndStyle(Context context, TintTypedArray tintTypedArray) {
         String string;
-        this.mStyle = tintTypedArray.getInt(C0200R.styleable.TextAppearance_android_textStyle, this.mStyle);
-        if (tintTypedArray.hasValue(C0200R.styleable.TextAppearance_android_fontFamily) || tintTypedArray.hasValue(C0200R.styleable.TextAppearance_fontFamily)) {
+        this.mStyle = tintTypedArray.getInt(SupportAppcompatResources.styleable.TextAppearance_android_textStyle, this.mStyle);
+        if (tintTypedArray.hasValue(SupportAppcompatResources.styleable.TextAppearance_android_fontFamily) || tintTypedArray.hasValue(SupportAppcompatResources.styleable.TextAppearance_fontFamily)) {
             this.mFontTypeface = null;
-            int i = tintTypedArray.hasValue(C0200R.styleable.TextAppearance_fontFamily) ? C0200R.styleable.TextAppearance_fontFamily : C0200R.styleable.TextAppearance_android_fontFamily;
+            int i = tintTypedArray.hasValue(SupportAppcompatResources.styleable.TextAppearance_fontFamily) ? SupportAppcompatResources.styleable.TextAppearance_fontFamily : SupportAppcompatResources.styleable.TextAppearance_android_fontFamily;
             if (!context.isRestricted()) {
                 final WeakReference weakReference = new WeakReference(this.mView);
                 try {
@@ -94,9 +94,9 @@ public class AppCompatTextHelper {
             this.mFontTypeface = Typeface.create(string, this.mStyle);
             return;
         }
-        if (tintTypedArray.hasValue(C0200R.styleable.TextAppearance_android_typeface)) {
+        if (tintTypedArray.hasValue(SupportAppcompatResources.styleable.TextAppearance_android_typeface)) {
             this.mAsyncFontPending = false;
-            int i2 = tintTypedArray.getInt(C0200R.styleable.TextAppearance_android_typeface, 1);
+            int i2 = tintTypedArray.getInt(SupportAppcompatResources.styleable.TextAppearance_android_typeface, 1);
             if (i2 == 1) {
                 this.mFontTypeface = Typeface.SANS_SERIF;
             } else if (i2 == 2) {
@@ -162,36 +162,36 @@ public class AppCompatTextHelper {
         boolean z2;
         Context context = this.mView.getContext();
         AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, C0200R.styleable.AppCompatTextHelper, i, 0);
-        int resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_textAppearance, -1);
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableLeft)) {
-            this.mDrawableLeftTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableLeft, 0));
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, SupportAppcompatResources.styleable.AppCompatTextHelper, i, 0);
+        int resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_textAppearance, -1);
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableLeft)) {
+            this.mDrawableLeftTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableLeft, 0));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableTop)) {
-            this.mDrawableTopTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableTop, 0));
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableTop)) {
+            this.mDrawableTopTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableTop, 0));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableRight)) {
-            this.mDrawableRightTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableRight, 0));
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableRight)) {
+            this.mDrawableRightTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableRight, 0));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableBottom)) {
-            this.mDrawableBottomTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableBottom, 0));
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableBottom)) {
+            this.mDrawableBottomTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableBottom, 0));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableStart)) {
-            this.mDrawableStartTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableStart, 0));
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableStart)) {
+            this.mDrawableStartTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableStart, 0));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTextHelper_android_drawableEnd)) {
-            this.mDrawableEndTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTextHelper_android_drawableEnd, 0));
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableEnd)) {
+            this.mDrawableEndTint = createTintInfo(context, appCompatDrawableManager, tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTextHelper_android_drawableEnd, 0));
         }
         tintTypedArrayObtainStyledAttributes.recycle();
         boolean z3 = this.mView.getTransformationMethod() instanceof PasswordTransformationMethod;
         boolean z4 = true;
         if (resourceId != -1) {
-            TintTypedArray tintTypedArrayObtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(context, resourceId, C0200R.styleable.TextAppearance);
-            if (z3 || !tintTypedArrayObtainStyledAttributes2.hasValue(C0200R.styleable.TextAppearance_textAllCaps)) {
+            TintTypedArray tintTypedArrayObtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(context, resourceId, SupportAppcompatResources.styleable.TextAppearance);
+            if (z3 || !tintTypedArrayObtainStyledAttributes2.hasValue(SupportAppcompatResources.styleable.TextAppearance_textAllCaps)) {
                 z = false;
                 z2 = false;
             } else {
-                z = tintTypedArrayObtainStyledAttributes2.getBoolean(C0200R.styleable.TextAppearance_textAllCaps, false);
+                z = tintTypedArrayObtainStyledAttributes2.getBoolean(SupportAppcompatResources.styleable.TextAppearance_textAllCaps, false);
                 z2 = true;
             }
             updateTypefaceAndStyle(context, tintTypedArrayObtainStyledAttributes2);
@@ -200,13 +200,13 @@ public class AppCompatTextHelper {
             z = false;
             z2 = false;
         }
-        TintTypedArray tintTypedArrayObtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, C0200R.styleable.TextAppearance, i, 0);
-        if (z3 || !tintTypedArrayObtainStyledAttributes3.hasValue(C0200R.styleable.TextAppearance_textAllCaps)) {
+        TintTypedArray tintTypedArrayObtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, SupportAppcompatResources.styleable.TextAppearance, i, 0);
+        if (z3 || !tintTypedArrayObtainStyledAttributes3.hasValue(SupportAppcompatResources.styleable.TextAppearance_textAllCaps)) {
             z4 = z2;
         } else {
-            z = tintTypedArrayObtainStyledAttributes3.getBoolean(C0200R.styleable.TextAppearance_textAllCaps, false);
+            z = tintTypedArrayObtainStyledAttributes3.getBoolean(SupportAppcompatResources.styleable.TextAppearance_textAllCaps, false);
         }
-        if (Build.VERSION.SDK_INT >= 28 && tintTypedArrayObtainStyledAttributes3.hasValue(C0200R.styleable.TextAppearance_android_textSize) && tintTypedArrayObtainStyledAttributes3.getDimensionPixelSize(C0200R.styleable.TextAppearance_android_textSize, -1) == 0) {
+        if (Build.VERSION.SDK_INT >= 28 && tintTypedArrayObtainStyledAttributes3.hasValue(SupportAppcompatResources.styleable.TextAppearance_android_textSize) && tintTypedArrayObtainStyledAttributes3.getDimensionPixelSize(SupportAppcompatResources.styleable.TextAppearance_android_textSize, -1) == 0) {
             this.mView.setTextSize(0, 0.0f);
         }
         updateTypefaceAndStyle(context, tintTypedArrayObtainStyledAttributes3);
@@ -238,10 +238,10 @@ public class AppCompatTextHelper {
                 }
             }
         }
-        TintTypedArray tintTypedArrayObtainStyledAttributes4 = TintTypedArray.obtainStyledAttributes(context, attributeSet, C0200R.styleable.AppCompatTextView);
-        int dimensionPixelSize = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(C0200R.styleable.AppCompatTextView_firstBaselineToTopHeight, -1);
-        int dimensionPixelSize2 = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(C0200R.styleable.AppCompatTextView_lastBaselineToBottomHeight, -1);
-        int dimensionPixelSize3 = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(C0200R.styleable.AppCompatTextView_lineHeight, -1);
+        TintTypedArray tintTypedArrayObtainStyledAttributes4 = TintTypedArray.obtainStyledAttributes(context, attributeSet, SupportAppcompatResources.styleable.AppCompatTextView);
+        int dimensionPixelSize = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(SupportAppcompatResources.styleable.AppCompatTextView_firstBaselineToTopHeight, -1);
+        int dimensionPixelSize2 = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(SupportAppcompatResources.styleable.AppCompatTextView_lastBaselineToBottomHeight, -1);
+        int dimensionPixelSize3 = tintTypedArrayObtainStyledAttributes4.getDimensionPixelSize(SupportAppcompatResources.styleable.AppCompatTextView_lineHeight, -1);
         tintTypedArrayObtainStyledAttributes4.recycle();
         if (dimensionPixelSize != -1) {
             TextViewCompat.setFirstBaselineToTopHeight(this.mView, dimensionPixelSize);
@@ -273,11 +273,11 @@ public class AppCompatTextHelper {
     }
 
     public void onSetTextAppearance(Context context, int i) {
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i, C0200R.styleable.TextAppearance);
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.TextAppearance_textAllCaps)) {
-            setAllCaps(tintTypedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.TextAppearance_textAllCaps, false));
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i, SupportAppcompatResources.styleable.TextAppearance);
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.TextAppearance_textAllCaps)) {
+            setAllCaps(tintTypedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.TextAppearance_textAllCaps, false));
         }
-        if (tintTypedArrayObtainStyledAttributes.hasValue(C0200R.styleable.TextAppearance_android_textSize) && tintTypedArrayObtainStyledAttributes.getDimensionPixelSize(C0200R.styleable.TextAppearance_android_textSize, -1) == 0) {
+        if (tintTypedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.TextAppearance_android_textSize) && tintTypedArrayObtainStyledAttributes.getDimensionPixelSize(SupportAppcompatResources.styleable.TextAppearance_android_textSize, -1) == 0) {
             this.mView.setTextSize(0, 0.0f);
         }
         updateTypefaceAndStyle(context, tintTypedArrayObtainStyledAttributes);

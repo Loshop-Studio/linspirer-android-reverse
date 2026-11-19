@@ -9,7 +9,7 @@ public abstract class NamedRunnable implements Runnable {
     public final String f3721a;
 
     public NamedRunnable(String str, Object... objArr) {
-        this.f3721a = C1314tk.m2756k(str, objArr);
+        this.f3721a = OkHttpCommonUtilities.m2756k(str, objArr);
     }
 
     /* renamed from: a */

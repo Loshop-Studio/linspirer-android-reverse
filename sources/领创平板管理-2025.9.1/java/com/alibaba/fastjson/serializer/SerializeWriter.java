@@ -8,7 +8,7 @@ import com.alibaba.fastjson.util.RyuDouble;
 import com.alibaba.fastjson.util.RyuFloat;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
@@ -1223,7 +1223,7 @@ public final class SerializeWriter extends Writer {
                 this.buf[i3] = '[';
             } else {
                 i = i3 + 1;
-                this.buf[i3] = AbstractC1604b.COMMA;
+                this.buf[i3] = UpdateJsonBean.COMMA;
             }
             int i7 = i + 1;
             this.buf[i] = '\"';

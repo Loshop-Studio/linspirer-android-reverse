@@ -1,9 +1,9 @@
 package anet.channel.strategy;
 
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public interface IStrategyListener {
-    void onStrategyUpdated(C0407l.d dVar);
+    void onStrategyUpdated(AmdcStrategyResultParser.d dVar);
 }

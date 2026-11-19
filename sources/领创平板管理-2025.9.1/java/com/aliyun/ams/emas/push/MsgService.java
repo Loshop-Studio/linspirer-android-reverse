@@ -2,9 +2,9 @@ package com.aliyun.ams.emas.push;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import com.huawei.hem.C0813a1;
+import com.huawei.hem.AgooNotificationIntentBridge;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1344v0;
+import com.huawei.hem.AgooRegistrationPreferences;
 import com.taobao.accs.data.MsgDistributeService;
 import com.taobao.accs.utl.ALog;
 
@@ -13,7 +13,7 @@ import com.taobao.accs.utl.ALog;
 public class MsgService extends MsgDistributeService {
 
     /* renamed from: b */
-    public C0813a1 f1445b = new C0813a1();
+    public AgooNotificationIntentBridge f1445b = new AgooNotificationIntentBridge();
 
     @Override // com.taobao.accs.data.MsgDistributeService, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
@@ -26,7 +26,7 @@ public class MsgService extends MsgDistributeService {
             return super.onStartCommand(intent, i, i2);
         }
         ALog.m5726d("MPS:MsgService", CompilerOutline.m1760e("MsgService onStartCommand begin...action=", action), new Object[0]);
-        if (!TextUtils.equals(action, C1344v0.f3911b)) {
+        if (!TextUtils.equals(action, AgooRegistrationPreferences.f3911b)) {
             return super.onStartCommand(intent, i, i2);
         }
         this.f1445b.m1295a(intent, getApplicationContext(), 0);

@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
-import android.support.compat.C0005R;
+import android.support.compat.SupportCompatResources;
 import android.support.v4.app.Person;
 import android.support.v4.text.BidiFormatter;
 import android.text.SpannableStringBuilder;
@@ -592,8 +592,8 @@ public class NotificationCompat {
                 return bitmap;
             }
             Resources resources = this.mContext.getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(C0005R.dimen.compat_notification_large_icon_max_width);
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(C0005R.dimen.compat_notification_large_icon_max_height);
+            int dimensionPixelSize = resources.getDimensionPixelSize(SupportCompatResources.dimen.compat_notification_large_icon_max_width);
+            int dimensionPixelSize2 = resources.getDimensionPixelSize(SupportCompatResources.dimen.compat_notification_large_icon_max_height);
             if (bitmap.getWidth() <= dimensionPixelSize && bitmap.getHeight() <= dimensionPixelSize2) {
                 return bitmap;
             }
@@ -979,31 +979,31 @@ public class NotificationCompat {
             ArrayList<Action> arrayList;
             int iMin;
             boolean z2 = true;
-            RemoteViews remoteViewsApplyStandardTemplate = applyStandardTemplate(true, C0005R.layout.notification_template_custom_big, false);
-            remoteViewsApplyStandardTemplate.removeAllViews(C0005R.id.actions);
+            RemoteViews remoteViewsApplyStandardTemplate = applyStandardTemplate(true, SupportCompatResources.layout.notification_template_custom_big, false);
+            remoteViewsApplyStandardTemplate.removeAllViews(SupportCompatResources.id.actions);
             if (!z || (arrayList = this.mBuilder.mActions) == null || (iMin = Math.min(arrayList.size(), 3)) <= 0) {
                 z2 = false;
             } else {
                 for (int i = 0; i < iMin; i++) {
-                    remoteViewsApplyStandardTemplate.addView(C0005R.id.actions, generateActionButton(this.mBuilder.mActions.get(i)));
+                    remoteViewsApplyStandardTemplate.addView(SupportCompatResources.id.actions, generateActionButton(this.mBuilder.mActions.get(i)));
                 }
             }
             int i2 = z2 ? 0 : 8;
-            remoteViewsApplyStandardTemplate.setViewVisibility(C0005R.id.actions, i2);
-            remoteViewsApplyStandardTemplate.setViewVisibility(C0005R.id.action_divider, i2);
+            remoteViewsApplyStandardTemplate.setViewVisibility(SupportCompatResources.id.actions, i2);
+            remoteViewsApplyStandardTemplate.setViewVisibility(SupportCompatResources.id.action_divider, i2);
             buildIntoRemoteViews(remoteViewsApplyStandardTemplate, remoteViews);
             return remoteViewsApplyStandardTemplate;
         }
 
         private RemoteViews generateActionButton(Action action) {
             boolean z = action.actionIntent == null;
-            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), z ? C0005R.layout.notification_action_tombstone : C0005R.layout.notification_action);
-            remoteViews.setImageViewBitmap(C0005R.id.action_image, createColoredBitmap(action.getIcon(), this.mBuilder.mContext.getResources().getColor(C0005R.color.notification_action_color_filter)));
-            remoteViews.setTextViewText(C0005R.id.action_text, action.title);
+            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), z ? SupportCompatResources.layout.notification_action_tombstone : SupportCompatResources.layout.notification_action);
+            remoteViews.setImageViewBitmap(SupportCompatResources.id.action_image, createColoredBitmap(action.getIcon(), this.mBuilder.mContext.getResources().getColor(SupportCompatResources.color.notification_action_color_filter)));
+            remoteViews.setTextViewText(SupportCompatResources.id.action_text, action.title);
             if (!z) {
-                remoteViews.setOnClickPendingIntent(C0005R.id.action_container, action.actionIntent);
+                remoteViews.setOnClickPendingIntent(SupportCompatResources.id.action_container, action.actionIntent);
             }
-            remoteViews.setContentDescription(C0005R.id.action_container, action.title);
+            remoteViews.setContentDescription(SupportCompatResources.id.action_container, action.title);
             return remoteViews;
         }
 
@@ -1084,8 +1084,8 @@ public class NotificationCompat {
 
         private int calculateTopPadding() throws Resources.NotFoundException {
             Resources resources = this.mBuilder.mContext.getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(C0005R.dimen.notification_top_pad);
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(C0005R.dimen.notification_top_pad_large_text);
+            int dimensionPixelSize = resources.getDimensionPixelSize(SupportCompatResources.dimen.notification_top_pad);
+            int dimensionPixelSize2 = resources.getDimensionPixelSize(SupportCompatResources.dimen.notification_top_pad_large_text);
             float fConstrain = (constrain(resources.getConfiguration().fontScale, 1.0f, 1.3f) - 1.0f) / 0.29999995f;
             return Math.round((fConstrain * dimensionPixelSize2) + ((1.0f - fConstrain) * dimensionPixelSize));
         }
@@ -1095,7 +1095,7 @@ public class NotificationCompat {
         }
 
         private Bitmap createIconWithBackground(int i, int i2, int i3, int i4) throws Resources.NotFoundException {
-            int i5 = C0005R.drawable.notification_icon_background;
+            int i5 = SupportCompatResources.drawable.notification_icon_background;
             if (i4 == 0) {
                 i4 = 0;
             }
@@ -1112,9 +1112,9 @@ public class NotificationCompat {
         }
 
         private void hideNormalContent(RemoteViews remoteViews) {
-            remoteViews.setViewVisibility(C0005R.id.title, 8);
-            remoteViews.setViewVisibility(C0005R.id.text2, 8);
-            remoteViews.setViewVisibility(C0005R.id.text, 8);
+            remoteViews.setViewVisibility(SupportCompatResources.id.title, 8);
+            remoteViews.setViewVisibility(SupportCompatResources.id.text2, 8);
+            remoteViews.setViewVisibility(SupportCompatResources.id.text, 8);
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -1157,10 +1157,10 @@ public class NotificationCompat {
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public void buildIntoRemoteViews(RemoteViews remoteViews, RemoteViews remoteViews2) {
             hideNormalContent(remoteViews);
-            remoteViews.removeAllViews(C0005R.id.notification_main_column);
-            remoteViews.addView(C0005R.id.notification_main_column, remoteViews2.clone());
-            remoteViews.setViewVisibility(C0005R.id.notification_main_column, 0);
-            remoteViews.setViewPadding(C0005R.id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
+            remoteViews.removeAllViews(SupportCompatResources.id.notification_main_column);
+            remoteViews.addView(SupportCompatResources.id.notification_main_column, remoteViews2.clone());
+            remoteViews.setViewVisibility(SupportCompatResources.id.notification_main_column, 0);
+            remoteViews.setViewPadding(SupportCompatResources.id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

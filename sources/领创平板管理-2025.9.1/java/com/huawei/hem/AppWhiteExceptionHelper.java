@@ -35,7 +35,7 @@ public class AppWhiteExceptionHelper {
     public AppWhiteExceptionHelper(a aVar) {
         List<ItemApp> list = DBController.m2715a().m2717c().queryBuilder().where(ItemAppDao.Properties.Exception_white_url.m5870eq(1), new WhereCondition[0]).list();
         ArrayList arrayList = new ArrayList();
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             Iterator<ItemApp> it = list.iterator();
             while (it.hasNext()) {
                 arrayList.add(it.next().getPackagename());
@@ -55,7 +55,7 @@ public class AppWhiteExceptionHelper {
         arrayList.add("com.ndwill.swd.appstore");
         arrayList.add("com.huawei.alliance.enterprise");
         ArrayList arrayList2 = new ArrayList();
-        if (AbstractC1102l9.m2273N(arrayList2)) {
+        if (MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             LTKDateUtil.m1403m("AppWhiteExceptionHelper read isv set app exception list is null");
         } else {
             StringBuilder sbM1765j = CompilerOutline.m1765j("AppWhiteExceptionHelper read isv set app exception list:");
@@ -68,16 +68,16 @@ public class AppWhiteExceptionHelper {
         if (TextUtils.isEmpty(c1424y5.f4187r)) {
             c1424y5.f4187r = c1424y5.f4130D.f2199a.getString("app_net_white", "");
         }
-        List<String> listM2277R = AbstractC1102l9.m2277R(c1424y5.f4187r, ",");
-        if (!AbstractC1102l9.m2273N(listM2277R)) {
+        List<String> listM2277R = MobileSdkPlatformUtilities.m2277R(c1424y5.f4187r, ",");
+        if (!MobileSdkPlatformUtilities.m2273N(listM2277R)) {
             arrayList.addAll(listM2277R);
         }
         if (UserInfoUtil.b.f4202a.m3022Q()) {
-            arrayList.addAll(C1219q0.m2501C());
+            arrayList.addAll(AgooNotificationHandler.m2501C());
         }
         ArrayList arrayList3 = new ArrayList(new HashSet(arrayList));
         List<String> listMo1307G0 = LTKDateUtil.f2294f.mo1307G0();
-        if (!AbstractC1102l9.m2273N(listMo1307G0) && listMo1307G0.toString().equals(arrayList3.toString())) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1307G0) && listMo1307G0.toString().equals(arrayList3.toString())) {
             LTKDateUtil.m1403m("AppWhiteExceptionHelper  app network white is the same");
             return;
         }

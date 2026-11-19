@@ -23,7 +23,7 @@ public class TaidianImpl extends AndroidImpl {
     public static TaidianImpl f2944b = new TaidianImpl();
 
     /* renamed from: c */
-    public static C1412xi f2945c;
+    public static TaidianCustomApi f2945c;
 
     /* renamed from: d */
     public static Context f2946d;
@@ -47,7 +47,7 @@ public class TaidianImpl extends AndroidImpl {
             for (String str : string.split(";")) {
                 arrayList.add(str);
             }
-            if (!AbstractC1102l9.m2273N(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(arrayList)) {
                 return arrayList;
             }
         } catch (Throwable th) {
@@ -131,7 +131,7 @@ public class TaidianImpl extends AndroidImpl {
         LTKDateUtil.m1403m(sbM1765j3.toString());
         String[] strArr = new String[arrayListM1772q.size()];
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             String[] strArr2 = (String[]) arrayListM1772q.toArray(strArr);
             if (c1412xi == null) {
                 throw null;
@@ -152,7 +152,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: b0 */
     public void mo1318b0(List<String> list) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -168,7 +168,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: c */
     public void mo1319c(boolean z) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -189,7 +189,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBack() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -204,14 +204,14 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBluetooth() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
             Intent intent = new Intent();
             intent.setAction("roco.disable.bluetooth");
             c1412xi.f4079a.sendBroadcast(intent);
-            new Thread(new RunnableC1387wi(c1412xi)).start();
+            new Thread(new TaidianDisableBluetoothTask(c1412xi)).start();
         } catch (Throwable th) {
             CompilerOutline.m1746D(th, CompilerOutline.m1765j("TaidianImpl ,disableBluetooth-error:"));
         }
@@ -220,7 +220,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableCamera() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -235,7 +235,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableGPS() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -250,7 +250,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableHome() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -265,7 +265,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableLongPressPower() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -290,7 +290,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableRecent() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -305,7 +305,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableShortPressPower() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -320,7 +320,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableUsb() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -335,7 +335,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableVolume() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -351,7 +351,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: e */
     public void mo1320e(String str) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -367,7 +367,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBack() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -382,14 +382,14 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBluetooth() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
             Intent intent = new Intent();
             intent.setAction("roco.enable.bluetooth");
             c1412xi.f4079a.sendBroadcast(intent);
-            new Thread(new RunnableC1362vi(c1412xi)).start();
+            new Thread(new TaidianEnableBluetoothTask(c1412xi)).start();
         } catch (Throwable th) {
             CompilerOutline.m1746D(th, CompilerOutline.m1765j("TaidianImpl ,enableBluetooth-error:"));
         }
@@ -398,7 +398,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableCamera() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -413,7 +413,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableGPS() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -428,7 +428,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableHome() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -443,7 +443,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableLongPressPower() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -468,7 +468,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableRecent() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -483,7 +483,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableShortPressPower() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -498,7 +498,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableUsb() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -513,7 +513,7 @@ public class TaidianImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableVolume() {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -529,7 +529,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: r */
     public void mo1327r(List<String> list) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -587,7 +587,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: y0 */
     public void mo1331y0(String str) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }
@@ -604,7 +604,7 @@ public class TaidianImpl extends AndroidImpl {
     /* renamed from: z0 */
     public void mo1332z0(boolean z) {
         try {
-            C1412xi c1412xi = f2945c;
+            TaidianCustomApi c1412xi = f2945c;
             if (c1412xi == null) {
                 throw null;
             }

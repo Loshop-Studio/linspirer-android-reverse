@@ -22,11 +22,11 @@ public class EyeDialogActivity extends BaseActivity {
     public int f1736c;
 
     /* renamed from: d */
-    public BroadcastReceiver f1737d = new C0636a();
+    public BroadcastReceiver f1737d = new EyeDialogCloseReceiver();
 
     /* renamed from: com.android.launcher3.activity.EyeDialogActivity$a */
-    public class C0636a extends BroadcastReceiver {
-        public C0636a() {
+    public class EyeDialogCloseReceiver extends BroadcastReceiver {
+        public EyeDialogCloseReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver

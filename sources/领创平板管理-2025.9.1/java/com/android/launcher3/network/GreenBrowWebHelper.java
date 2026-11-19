@@ -12,7 +12,7 @@ import com.android.launcher3.network.params.Params;
 import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.LTKListResponseListener;
 import com.android.launcher3.network.response.Response;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.HttpCore;
@@ -55,7 +55,7 @@ public class GreenBrowWebHelper {
                 public void handleResult(List<UrlInfo> list) {
                     Context context = GreenBrowWebHelper.this.mContext;
                     Intent intent = new Intent("com.android.laucher3.mdm.syncbrowerurl");
-                    if (!AbstractC1102l9.m2273N(list)) {
+                    if (!MobileSdkPlatformUtilities.m2273N(list)) {
                         Bundle bundle = new Bundle();
                         for (int i = 0; i < list.size(); i++) {
                             String name = list.get(i).getName();

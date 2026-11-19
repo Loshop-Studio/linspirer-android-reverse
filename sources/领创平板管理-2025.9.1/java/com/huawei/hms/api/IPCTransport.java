@@ -2,7 +2,7 @@ package com.huawei.hms.api;
 
 import android.os.Bundle;
 import com.huawei.hms.core.aidl.CodecLookup;
-import com.huawei.hms.core.aidl.C1541b;
+import com.huawei.hms.core.aidl.HmsAidlDataBuffer;
 import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.IAIDLCallback;
@@ -39,7 +39,7 @@ public class IPCTransport implements DatagramTransport {
         if (!(apiClient instanceof HuaweiApiClientImpl)) {
             if (apiClient instanceof AidlApiClient) {
                 AidlApiClient aidlApiClient = (AidlApiClient) apiClient;
-                C1541b c1541b = new C1541b(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
+                HmsAidlDataBuffer c1541b = new HmsAidlDataBuffer(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
                 c1541b.m3390a(CodecLookup.m3386a(c1541b.m3392c()).m3401a(this.f4423b, new Bundle()));
                 try {
                     aidlApiClient.getService().mo3393a(c1541b, interfaceC1542c);
@@ -50,7 +50,7 @@ public class IPCTransport implements DatagramTransport {
             }
             return CommonCode.ErrorCode.INTERNAL_ERROR;
         }
-        C1541b c1541b2 = new C1541b(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
+        HmsAidlDataBuffer c1541b2 = new HmsAidlDataBuffer(this.f4422a, ProtocolNegotiate.getInstance().getVersion());
         MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b2.m3392c());
         c1541b2.m3390a(c1544eM3386a.m3401a(this.f4423b, new Bundle()));
         RequestHeader requestHeader = new RequestHeader();
@@ -76,12 +76,12 @@ public class IPCTransport implements DatagramTransport {
     }
 
     @Override // com.huawei.hms.support.api.transport.DatagramTransport
-    public final void post(ApiClient apiClient, DatagramTransport.InterfaceC1571a interfaceC1571a) {
+    public final void post(ApiClient apiClient, DatagramTransport.DatagramResultCallback interfaceC1571a) {
         send(apiClient, interfaceC1571a);
     }
 
     @Override // com.huawei.hms.support.api.transport.DatagramTransport
-    public final void send(ApiClient apiClient, DatagramTransport.InterfaceC1571a interfaceC1571a) {
+    public final void send(ApiClient apiClient, DatagramTransport.DatagramResultCallback interfaceC1571a) {
         int iM3246a = m3246a(apiClient, new IPCCallback(this.f4424c, interfaceC1571a));
         if (iM3246a != 0) {
             interfaceC1571a.mo3452a(iM3246a, null);

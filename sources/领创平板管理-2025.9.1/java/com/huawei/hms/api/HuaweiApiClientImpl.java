@@ -21,7 +21,7 @@ import com.huawei.hms.api.HuaweiApiClient;
 import com.huawei.hms.common.api.ConnectionPostProcessor;
 import com.huawei.hms.common.internal.AutoLifecycleFragment;
 import com.huawei.hms.core.aidl.CodecLookup;
-import com.huawei.hms.core.aidl.C1541b;
+import com.huawei.hms.core.aidl.HmsAidlDataBuffer;
 import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.IAIDLCallback;
@@ -163,8 +163,8 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     public final Object f4399r = new Object();
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$a */
-    public class C1480a implements CheckUpdateCallBack {
-        public C1480a() {
+    public class HmsClientUpdateCheckCallback implements CheckUpdateCallBack {
+        public HmsClientUpdateCheckCallback() {
         }
 
         @Override // com.huawei.updatesdk.service.otaupdate.CheckUpdateCallBack
@@ -217,8 +217,8 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$b */
-    public class C1481b implements Handler.Callback {
-        public C1481b() {
+    public class HmsClientStateFiveTimeout implements Handler.Callback {
+        public HmsClientStateFiveTimeout() {
         }
 
         @Override // android.os.Handler.Callback
@@ -236,8 +236,8 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$c */
-    public class C1482c implements Handler.Callback {
-        public C1482c() {
+    public class HmsClientStateTwoTimeout implements Handler.Callback {
+        public HmsClientStateTwoTimeout() {
         }
 
         @Override // android.os.Handler.Callback
@@ -255,17 +255,17 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$d */
-    public class BinderC1483d extends IAIDLCallback.a {
+    public class HmsAsyncResponseBinder extends IAIDLCallback.a {
 
         /* renamed from: a */
         public final /* synthetic */ ResultCallback f4411a;
 
-        public BinderC1483d(HuaweiApiClientImpl huaweiApiClientImpl, ResultCallback resultCallback) {
+        public HmsAsyncResponseBinder(HuaweiApiClientImpl huaweiApiClientImpl, ResultCallback resultCallback) {
             this.f4411a = resultCallback;
         }
 
         @Override // com.huawei.hms.core.aidl.InterfaceC1542c
-        public void call(C1541b c1541b) {
+        public void call(HmsAidlDataBuffer c1541b) {
             if (c1541b == null) {
                 HMSLog.m3463i("HuaweiApiClientImpl", "Exit asyncRequest onResult -1");
                 this.f4411a.onResult(new BundleResult(-1, null));
@@ -281,8 +281,8 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$e */
-    public static class C1484e extends PendingResultImpl<Status, IMessageEntity> {
-        public C1484e(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
+    public static class HmsReconnectPendingResult extends PendingResultImpl<Status, IMessageEntity> {
+        public HmsReconnectPendingResult(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
             super(apiClient, str, iMessageEntity);
         }
 
@@ -293,7 +293,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$f */
-    public class C1485f implements ResultCallback<ResolveResult<ConnectResp>> {
+    public class HmsConnectResultCallback implements ResultCallback<ResolveResult<ConnectResp>> {
 
         /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$f$a */
         public class a implements Runnable {
@@ -311,7 +311,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             }
         }
 
-        public C1485f() {
+        public HmsConnectResultCallback() {
         }
 
         @Override // com.huawei.hms.support.api.client.ResultCallback
@@ -320,13 +320,13 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             new Handler(Looper.getMainLooper()).post(new a(resolveResult));
         }
 
-        public /* synthetic */ C1485f(HuaweiApiClientImpl huaweiApiClientImpl, C1480a c1480a) {
+        public /* synthetic */ HmsConnectResultCallback(HuaweiApiClientImpl huaweiApiClientImpl, HmsClientUpdateCheckCallback c1480a) {
             this();
         }
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$g */
-    public class C1486g implements ResultCallback<ResolveResult<DisconnectResp>> {
+    public class HmsDisconnectResultCallback implements ResultCallback<ResolveResult<DisconnectResp>> {
 
         /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$g$a */
         public class a implements Runnable {
@@ -344,7 +344,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             }
         }
 
-        public C1486g() {
+        public HmsDisconnectResultCallback() {
         }
 
         @Override // com.huawei.hms.support.api.client.ResultCallback
@@ -353,14 +353,14 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             new Handler(Looper.getMainLooper()).post(new a(resolveResult));
         }
 
-        public /* synthetic */ C1486g(HuaweiApiClientImpl huaweiApiClientImpl, C1480a c1480a) {
+        public /* synthetic */ HmsDisconnectResultCallback(HuaweiApiClientImpl huaweiApiClientImpl, HmsClientUpdateCheckCallback c1480a) {
             this();
         }
     }
 
     /* renamed from: com.huawei.hms.api.HuaweiApiClientImpl$h */
-    public class C1487h implements ResultCallback<ResolveResult<JosGetNoticeResp>> {
-        public C1487h() {
+    public class HmsNoticeResultCallback implements ResultCallback<ResolveResult<JosGetNoticeResp>> {
+        public HmsNoticeResultCallback() {
         }
 
         @Override // com.huawei.hms.support.api.client.ResultCallback
@@ -381,7 +381,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             }
         }
 
-        public /* synthetic */ C1487h(HuaweiApiClientImpl huaweiApiClientImpl, C1480a c1480a) {
+        public /* synthetic */ HmsNoticeResultCallback(HuaweiApiClientImpl huaweiApiClientImpl, HmsClientUpdateCheckCallback c1480a) {
             this();
         }
     }
@@ -440,7 +440,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
 
     /* renamed from: g */
     private void m3234g() {
-        this.f4381A = new C1480a();
+        this.f4381A = new HmsClientUpdateCheckCallback();
     }
 
     /* renamed from: h */
@@ -464,7 +464,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         if (handler != null) {
             handler.removeMessages(2);
         } else {
-            this.f4405x = new Handler(Looper.getMainLooper(), new C1481b());
+            this.f4405x = new Handler(Looper.getMainLooper(), new HmsClientStateFiveTimeout());
         }
         this.f4405x.sendEmptyMessageDelayed(2, 5000L);
     }
@@ -475,7 +475,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             if (this.f4406y != null) {
                 this.f4406y.removeMessages(3);
             } else {
-                this.f4406y = new Handler(Looper.getMainLooper(), new C1482c());
+                this.f4406y = new Handler(Looper.getMainLooper(), new HmsClientStateTwoTimeout());
             }
             HMSLog.m3458d("HuaweiApiClientImpl", "sendEmptyMessageDelayed for onConnectionResult 3 seconds. the result is : " + this.f4406y.sendEmptyMessageDelayed(3, TooltipCompatHandler.HOVER_HIDE_TIMEOUT_SHORT_MS));
         }
@@ -484,18 +484,18 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
     /* renamed from: k */
     private void m3238k() {
         HMSLog.m3463i("HuaweiApiClientImpl", "Enter sendConnectApiServceRequest.");
-        ConnectService.connect(this, m3227c()).setResultCallback(new C1485f(this, null));
+        ConnectService.connect(this, m3227c()).setResultCallback(new HmsConnectResultCallback(this, null));
     }
 
     /* renamed from: l */
     private void m3239l() {
-        ConnectService.disconnect(this, m3230d()).setResultCallback(new C1486g(this, null));
+        ConnectService.disconnect(this, m3230d()).setResultCallback(new HmsDisconnectResultCallback(this, null));
     }
 
     /* renamed from: m */
     private void m3240m() {
         HMSLog.m3463i("HuaweiApiClientImpl", "Enter sendForceConnectApiServceRequest.");
-        ConnectService.forceConnect(this, m3227c()).setResultCallback(new C1485f(this, null));
+        ConnectService.forceConnect(this, m3227c()).setResultCallback(new HmsConnectResultCallback(this, null));
     }
 
     /* renamed from: n */
@@ -503,7 +503,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         if (this.f4391j) {
             HMSLog.m3463i("HuaweiApiClientImpl", "Connect notice has been shown.");
         } else if (HuaweiApiAvailability.getInstance().isHuaweiMobileNoticeAvailable(this.f4383b) == 0) {
-            ConnectService.getNotice(this, 0, "5.2.0.300").setResultCallback(new C1487h(this, null));
+            ConnectService.getNotice(this, 0, "5.2.0.300").setResultCallback(new HmsNoticeResultCallback(this, null));
         }
     }
 
@@ -523,14 +523,14 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
             HMSLog.m3461e("HuaweiApiClientImpl", "client is unConnect.");
             return CommonCode.ErrorCode.CLIENT_API_INVALID;
         }
-        C1541b c1541b = new C1541b(str, i);
+        HmsAidlDataBuffer c1541b = new HmsAidlDataBuffer(str, i);
         MessageCodec c1544eM3386a = CodecLookup.m3386a(c1541b.m3392c());
         c1541b.m3390a(bundle);
         RequestHeader requestHeader = new RequestHeader(getAppID(), getPackageName(), 50200300, getSessionId());
         requestHeader.setApiNameList(getApiNameList());
         c1541b.f4527b = c1544eM3386a.m3401a(requestHeader, new Bundle());
         try {
-            getService().mo3393a(c1541b, new BinderC1483d(this, resultCallback));
+            getService().mo3393a(c1541b, new HmsAsyncResponseBinder(this, resultCallback));
             return 0;
         } catch (RemoteException e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("remote exception:");
@@ -625,7 +625,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
 
     @Override // com.huawei.hms.api.HuaweiApiClient
     public PendingResult<Status> discardAndReconnect() {
-        return new C1484e(this, null, null);
+        return new HmsReconnectPendingResult(this, null, null);
     }
 
     @Override // com.huawei.hms.api.HuaweiApiClient

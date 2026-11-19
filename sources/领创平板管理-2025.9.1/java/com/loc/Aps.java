@@ -17,8 +17,8 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.AMapCoreException;
 import com.huawei.hem.AuthConfigManager;
-import com.huawei.hem.C1094l1;
-import com.taobao.accs.net.C1958t;
+import com.huawei.hem.AMapCoreUtilities;
+import com.taobao.accs.net.JobSchedulerHeartbeatManager;
 import com.taobao.accs.utl.UtilityImpl;
 import java.util.ArrayList;
 import org.android.agoo.common.AgooConstants;
@@ -73,7 +73,7 @@ public final class Aps {
     public CgiManager f5375d = null;
 
     /* renamed from: e */
-    public C1824ef f5376e = null;
+    public AMapLocationCache f5376e = null;
 
     /* renamed from: f */
     public Parser f5377f = null;
@@ -276,7 +276,7 @@ public final class Aps {
                     } else {
                         c1806do.m4593f("#0501");
                         this.f5386o.append("您连接的是一个需要登录的网络，请确认已经登入网络#0501");
-                        ReportUtil.m5076a((String) null, C1958t.DEAMON_JOB_ID);
+                        ReportUtil.m5076a((String) null, JobSchedulerHeartbeatManager.DEAMON_JOB_ID);
                     }
                     c1812du.setLocationDetail(this.f5386o.toString());
                     return c1812du;
@@ -319,8 +319,8 @@ public final class Aps {
             this.f5367O = true;
             return false;
         }
-        if (C1841ew.m5127b() - j < 800) {
-            if ((C1841ew.m5117a(this.f5381j) ? C1841ew.m5107a() - this.f5381j.getTime() : 0L) <= 10000) {
+        if (AMapLocationUtilities.m5127b() - j < 800) {
+            if ((AMapLocationUtilities.m5117a(this.f5381j) ? AMapLocationUtilities.m5107a() - this.f5381j.getTime() : 0L) <= 10000) {
                 return true;
             }
         }
@@ -336,7 +336,7 @@ public final class Aps {
         String str2;
         try {
             if (TextUtils.isEmpty(this.f5370R)) {
-                this.f5370R = C1094l1.m2247p(DeviceInfo.m1078l(this.f5372a) + "," + DeviceInfo.m1083q(this.f5372a));
+                this.f5370R = AMapCoreUtilities.m2247p(DeviceInfo.m1078l(this.f5372a) + "," + DeviceInfo.m1083q(this.f5372a));
             }
             StringBuilder sb3 = this.f5386o;
             sb3.append("#id:");
@@ -346,7 +346,7 @@ public final class Aps {
         AMapLocationServer c1812du = new AMapLocationServer("");
         try {
             byte[] bArrM4611l = m4611l();
-            long jM5127b = C1841ew.m5127b();
+            long jM5127b = AMapLocationUtilities.m5127b();
             this.f5382k = jM5127b;
             c1806do.m4579a(jM5127b);
             try {
@@ -363,7 +363,7 @@ public final class Aps {
                 String strM4932a = AuthConfigManager.m1731y() ? null : AMapDnsManager.m4919a(this.f5372a).m4932a(c1830elM4942a, i);
                 c1806do.m4580a(i == AMapDnsManager.f5631b ? "v6" : "v4");
                 ResponseEntity c1729asM4941a = this.f5385n.m4941a(c1830elM4942a);
-                long jM5127b2 = C1841ew.m5127b();
+                long jM5127b2 = AMapLocationUtilities.m5127b();
                 if (!TextUtils.isEmpty(strM4932a)) {
                     if (c1729asM4941a.f5053f) {
                         AMapDnsManager.m4919a(this.f5372a).m4934a(false, i);
@@ -399,7 +399,7 @@ public final class Aps {
                 if (c1812duM4599a != null) {
                     return c1812duM4599a;
                 }
-                byte[] bArrM4876b = C1823ee.m4876b(c1729asM4941a.f5048a);
+                byte[] bArrM4876b = AMapLocationCipher.m4876b(c1729asM4941a.f5048a);
                 if (bArrM4876b == null) {
                     c1812du.setErrorCode(5);
                     c1806do.m4593f("#0503");
@@ -409,7 +409,7 @@ public final class Aps {
                     return c1812du;
                 }
                 AMapLocationServer c1812duM4960a = this.f5377f.m4960a(c1812du, bArrM4876b, c1806do);
-                if (C1841ew.m5117a(c1812duM4960a)) {
+                if (AMapLocationUtilities.m5117a(c1812duM4960a)) {
                     m4605c(c1812duM4960a);
                     c1812duM4960a.setOffset(this.f5388q);
                     c1812duM4960a.m4682a(this.f5387p);
@@ -435,12 +435,12 @@ public final class Aps {
                 c1812duM4960a.setLocationDetail(this.f5386o.toString());
                 return c1812duM4960a;
             } catch (Throwable th) {
-                C1841ew.m5127b();
+                AMapLocationUtilities.m5127b();
                 c1806do.m4589d("FAIL");
                 AMapDnsManager.m4919a(this.f5372a).m4934a(false, AMapDnsManager.f5630a);
                 CoreUtil.m5014a(th, "Aps", "getApsLoc req");
                 ReportUtil.m5079a("/mobile/binary", th);
-                if (C1841ew.m5143d(this.f5372a)) {
+                if (AMapLocationUtilities.m5143d(this.f5372a)) {
                     if (th instanceof AMapCoreException) {
                         AMapCoreException c0891d1 = th;
                         if (c0891d1.m1553a().contains("网络异常状态码")) {
@@ -452,7 +452,7 @@ public final class Aps {
                             c1812duM4598a.m4697h(this.f5394w.toString());
                             return c1812duM4598a;
                         }
-                        if (c0891d1.m1560f() == 23 || Math.abs((C1841ew.m5127b() - this.f5382k) - this.f5380i.getHttpTimeOut()) < 500) {
+                        if (c0891d1.m1560f() == 23 || Math.abs((AMapLocationUtilities.m5127b() - this.f5382k) - this.f5380i.getHttpTimeOut()) < 500) {
                             c1806do.m4593f("#0402");
                             sb2 = this.f5386o;
                             str = "网络异常，连接超时#0402";
@@ -489,7 +489,7 @@ public final class Aps {
     /* renamed from: b */
     private void m4603b(Context context) {
         try {
-            if (context.checkCallingOrSelfPermission(C1094l1.m2251t("EYW5kcm9pZC5wZXJtaXNzaW9uLldSSVRFX1NFQ1VSRV9TRVRUSU5HUw==")) == 0) {
+            if (context.checkCallingOrSelfPermission(AMapCoreUtilities.m2251t("EYW5kcm9pZC5wZXJtaXNzaW9uLldSSVRFX1NFQ1VSRV9TRVRUSU5HUw==")) == 0) {
                 this.f5384m = true;
             }
         } catch (Throwable unused) {
@@ -639,7 +639,7 @@ public final class Aps {
 
     /* renamed from: m */
     private boolean m4612m() {
-        return this.f5382k == 0 || C1841ew.m5127b() - this.f5382k > 20000;
+        return this.f5382k == 0 || AMapLocationUtilities.m5127b() - this.f5382k > 20000;
     }
 
     /* renamed from: n */
@@ -734,7 +734,7 @@ public final class Aps {
         } else {
             if (!TextUtils.isEmpty(this.f5366N)) {
                 AMapLocationServer c1812duM4893a = this.f5376e.m4893a(this.f5372a, this.f5366N, this.f5394w, true, z);
-                if (C1841ew.m5117a(c1812duM4893a)) {
+                if (AMapLocationUtilities.m5117a(c1812duM4893a)) {
                     m4606d(c1812duM4893a);
                 }
                 return c1812duM4893a;
@@ -763,7 +763,7 @@ public final class Aps {
             return m4598a(this.f5397z, this.f5386o.toString());
         }
         AMapLocationServer c1812duM4602b = m4602b(z, c1806do);
-        if (C1841ew.m5117a(c1812duM4602b) && !f5356S) {
+        if (AMapLocationUtilities.m5117a(c1812duM4602b) && !f5356S) {
             this.f5376e.m4899a(this.f5394w.toString());
             this.f5376e.m4898a(this.f5375d.m4772d());
             m4606d(c1812duM4602b);
@@ -777,7 +777,7 @@ public final class Aps {
         this.f5385n = LocNetManager.m4940a(this.f5372a);
         m4607h();
         if (this.f5373b == null) {
-            this.f5373b = (ConnectivityManager) C1841ew.m5108a(this.f5372a, "connectivity");
+            this.f5373b = (ConnectivityManager) AMapLocationUtilities.m5108a(this.f5372a, "connectivity");
         }
         if (this.f5383l == null) {
             this.f5383l = new Req();
@@ -793,16 +793,16 @@ public final class Aps {
             this.f5359D = new LocFilter();
             Context applicationContext = context.getApplicationContext();
             this.f5372a = applicationContext;
-            C1841ew.m5129b(applicationContext);
+            AMapLocationUtilities.m5129b(applicationContext);
             if (this.f5374c == null) {
-                this.f5374c = new WifiManagerWrapper(this.f5372a, (WifiManager) C1841ew.m5108a(this.f5372a, UtilityImpl.NET_TYPE_WIFI), this.f5368P);
+                this.f5374c = new WifiManagerWrapper(this.f5372a, (WifiManager) AMapLocationUtilities.m5108a(this.f5372a, UtilityImpl.NET_TYPE_WIFI), this.f5368P);
             }
             if (this.f5375d == null) {
                 this.f5375d = new CgiManager(this.f5372a, this.f5368P);
             }
             this.f5369Q = new HistoryLocationRecorder(context, this.f5368P);
             if (this.f5376e == null) {
-                this.f5376e = new C1824ef();
+                this.f5376e = new AMapLocationCache();
             }
             if (this.f5377f == null) {
                 this.f5377f = new Parser();
@@ -846,7 +846,7 @@ public final class Aps {
             c1822ed.m4853a(this.f5380i.isWifiScan(), this.f5380i.isMockEnable(), AMapLocationClientOption.isOpenAlwaysScanWifi(), aMapLocationClientOption.getScanWifiInterval());
         }
         m4607h();
-        C1824ef c1824ef = this.f5376e;
+        AMapLocationCache c1824ef = this.f5376e;
         if (c1824ef != null) {
             c1824ef.m4897a(this.f5380i);
         }
@@ -912,7 +912,7 @@ public final class Aps {
 
     /* renamed from: b */
     public final void m4630b(AMapLocationServer c1812du) {
-        if (C1841ew.m5117a(c1812du)) {
+        if (AMapLocationUtilities.m5117a(c1812du)) {
             this.f5376e.m4900a(this.f5366N, this.f5394w, c1812du, this.f5372a, true);
         }
     }

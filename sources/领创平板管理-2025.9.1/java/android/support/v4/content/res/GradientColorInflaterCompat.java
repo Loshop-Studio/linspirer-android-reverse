@@ -10,7 +10,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-import android.support.compat.C0005R;
+import android.support.compat.SupportCompatResources;
 import android.util.AttributeSet;
 import android.util.Xml;
 import java.io.IOException;
@@ -49,20 +49,20 @@ public final class GradientColorInflaterCompat {
         if (!name.equals("gradient")) {
             throw new XmlPullParserException(xmlPullParser.getPositionDescription() + ": invalid gradient color tag " + name);
         }
-        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, C0005R.styleable.GradientColor);
-        float namedFloat = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "startX", C0005R.styleable.GradientColor_android_startX, 0.0f);
-        float namedFloat2 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "startY", C0005R.styleable.GradientColor_android_startY, 0.0f);
-        float namedFloat3 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "endX", C0005R.styleable.GradientColor_android_endX, 0.0f);
-        float namedFloat4 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "endY", C0005R.styleable.GradientColor_android_endY, 0.0f);
-        float namedFloat5 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "centerX", C0005R.styleable.GradientColor_android_centerX, 0.0f);
-        float namedFloat6 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "centerY", C0005R.styleable.GradientColor_android_centerY, 0.0f);
-        int namedInt = TypedArrayUtils.getNamedInt(typedArrayObtainAttributes, xmlPullParser, "type", C0005R.styleable.GradientColor_android_type, 0);
-        int namedColor = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "startColor", C0005R.styleable.GradientColor_android_startColor, 0);
+        TypedArray typedArrayObtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, SupportCompatResources.styleable.GradientColor);
+        float namedFloat = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "startX", SupportCompatResources.styleable.GradientColor_android_startX, 0.0f);
+        float namedFloat2 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "startY", SupportCompatResources.styleable.GradientColor_android_startY, 0.0f);
+        float namedFloat3 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "endX", SupportCompatResources.styleable.GradientColor_android_endX, 0.0f);
+        float namedFloat4 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "endY", SupportCompatResources.styleable.GradientColor_android_endY, 0.0f);
+        float namedFloat5 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "centerX", SupportCompatResources.styleable.GradientColor_android_centerX, 0.0f);
+        float namedFloat6 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "centerY", SupportCompatResources.styleable.GradientColor_android_centerY, 0.0f);
+        int namedInt = TypedArrayUtils.getNamedInt(typedArrayObtainAttributes, xmlPullParser, "type", SupportCompatResources.styleable.GradientColor_android_type, 0);
+        int namedColor = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "startColor", SupportCompatResources.styleable.GradientColor_android_startColor, 0);
         boolean zHasAttribute = TypedArrayUtils.hasAttribute(xmlPullParser, "centerColor");
-        int namedColor2 = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "centerColor", C0005R.styleable.GradientColor_android_centerColor, 0);
-        int namedColor3 = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "endColor", C0005R.styleable.GradientColor_android_endColor, 0);
-        int namedInt2 = TypedArrayUtils.getNamedInt(typedArrayObtainAttributes, xmlPullParser, "tileMode", C0005R.styleable.GradientColor_android_tileMode, 0);
-        float namedFloat7 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "gradientRadius", C0005R.styleable.GradientColor_android_gradientRadius, 0.0f);
+        int namedColor2 = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "centerColor", SupportCompatResources.styleable.GradientColor_android_centerColor, 0);
+        int namedColor3 = TypedArrayUtils.getNamedColor(typedArrayObtainAttributes, xmlPullParser, "endColor", SupportCompatResources.styleable.GradientColor_android_endColor, 0);
+        int namedInt2 = TypedArrayUtils.getNamedInt(typedArrayObtainAttributes, xmlPullParser, "tileMode", SupportCompatResources.styleable.GradientColor_android_tileMode, 0);
+        float namedFloat7 = TypedArrayUtils.getNamedFloat(typedArrayObtainAttributes, xmlPullParser, "gradientRadius", SupportCompatResources.styleable.GradientColor_android_gradientRadius, 0.0f);
         typedArrayObtainAttributes.recycle();
         ColorStops colorStopsCheckColors = checkColors(inflateChildElements(resources, xmlPullParser, attributeSet, theme), namedColor, namedColor3, zHasAttribute, namedColor2);
         if (namedInt != 1) {

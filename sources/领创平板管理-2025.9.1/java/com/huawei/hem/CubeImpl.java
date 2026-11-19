@@ -16,7 +16,7 @@ public class CubeImpl extends AndroidImpl {
     public static CubeImpl f3300b = new CubeImpl();
 
     /* renamed from: c */
-    public static C1110lh f3301c;
+    public static RocoDeviceManager f3301c;
 
     /* compiled from: CubeImpl.java */
     /* renamed from: com.huawei.hem.nc$a */
@@ -36,7 +36,7 @@ public class CubeImpl extends AndroidImpl {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            C1110lh c1110lh = CubeImpl.f3301c;
+            RocoDeviceManager c1110lh = CubeImpl.f3301c;
             List list = this.f3302a;
             if (c1110lh == null) {
                 throw null;
@@ -81,7 +81,7 @@ public class CubeImpl extends AndroidImpl {
     public List<String> mo1307G0() {
         ArrayList arrayList = new ArrayList();
         try {
-            if (!AbstractC1102l9.m2273N(f3301c.m2318c())) {
+            if (!MobileSdkPlatformUtilities.m2273N(f3301c.m2318c())) {
                 arrayList.addAll(f3301c.m2318c());
             }
         } catch (Throwable th) {
@@ -105,7 +105,7 @@ public class CubeImpl extends AndroidImpl {
     public List<String> mo1311M0() {
         ArrayList arrayList = new ArrayList();
         try {
-            if (!AbstractC1102l9.m2273N(f3301c.m2316a())) {
+            if (!MobileSdkPlatformUtilities.m2273N(f3301c.m2316a())) {
                 arrayList.addAll(f3301c.m2316a());
             }
         } catch (Throwable th) {
@@ -165,7 +165,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBack() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -180,14 +180,14 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBluetooth() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
             Intent intent = new Intent();
             intent.setAction("roco.disable.bluetooth");
             c1110lh.f3187a.sendBroadcast(intent);
-            new Thread(new RunnableC1085kh(c1110lh)).start();
+            new Thread(new RocoDisableBluetoothTask(c1110lh)).start();
         } catch (Throwable th) {
             CompilerOutline.m1746D(th, CompilerOutline.m1765j("CubeImpl,disableBluetooth-error:"));
         }
@@ -196,7 +196,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableCamera() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -211,7 +211,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableFireWall() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -226,7 +226,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableGPS() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -241,7 +241,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableHome() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -256,7 +256,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableLongPressPower() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -271,7 +271,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableMobileData() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -295,7 +295,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableRecent() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -310,7 +310,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableShortPressPower() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -325,7 +325,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableSpeech() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -340,7 +340,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableUsb() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             Settings.System.putInt(c1110lh.f3188b, "roco_custom_usb_controller", 0);
             Intent intent = new Intent();
             intent.setAction("roco.usb.disable");
@@ -353,7 +353,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableVolume() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -369,7 +369,7 @@ public class CubeImpl extends AndroidImpl {
     /* renamed from: e */
     public void mo1320e(String str) {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -385,7 +385,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBack() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -400,14 +400,14 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBluetooth() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
             Intent intent = new Intent();
             intent.setAction("roco.enable.bluetooth");
             c1110lh.f3187a.sendBroadcast(intent);
-            new Thread(new RunnableC1060jh(c1110lh)).start();
+            new Thread(new RocoEnableBluetoothTask(c1110lh)).start();
         } catch (Throwable th) {
             CompilerOutline.m1746D(th, CompilerOutline.m1765j("CubeImpl,enableBluetooth-error:"));
         }
@@ -416,7 +416,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableCamera() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -431,7 +431,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableFireWall() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -446,7 +446,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableGPS() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -461,7 +461,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableHome() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -476,7 +476,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableLongPressPower() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -491,7 +491,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableMobileData() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -515,7 +515,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableRecent() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -530,7 +530,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableShortPressPower() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -545,7 +545,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableSpeech() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -560,7 +560,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableUsb() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             Settings.System.putInt(c1110lh.f3188b, "roco_custom_usb_controller", 1);
             Intent intent = new Intent();
             intent.setAction("roco.usb.enable");
@@ -573,7 +573,7 @@ public class CubeImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableVolume() {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -610,7 +610,7 @@ public class CubeImpl extends AndroidImpl {
     /* renamed from: t */
     public void mo1329t(boolean z) {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }
@@ -627,7 +627,7 @@ public class CubeImpl extends AndroidImpl {
     public List<String> mo1330t0() {
         ArrayList arrayList = new ArrayList();
         try {
-            if (!AbstractC1102l9.m2273N(f3301c.m2322g())) {
+            if (!MobileSdkPlatformUtilities.m2273N(f3301c.m2322g())) {
                 arrayList.addAll(f3301c.m2322g());
             }
         } catch (Throwable th) {
@@ -640,7 +640,7 @@ public class CubeImpl extends AndroidImpl {
     /* renamed from: y0 */
     public void mo1331y0(String str) {
         try {
-            C1110lh c1110lh = f3301c;
+            RocoDeviceManager c1110lh = f3301c;
             if (c1110lh == null) {
                 throw null;
             }

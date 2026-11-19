@@ -20,7 +20,7 @@ import com.android.launcher3.view.DialogUtil;
 import com.android.launcher3.view.GestureLockLayout;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.CheckPwdGestureActivityGestureCallback;
 import com.huawei.hem.HttpCore;
@@ -28,9 +28,9 @@ import com.huawei.hem.CheckPwdGestureActivityResponseListener;
 import com.huawei.hem.PostBuilder;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
-import com.huawei.hem.ViewOnClickListenerC1246r2;
-import com.huawei.hem.ViewOnClickListenerC1271s2;
-import com.huawei.hem.ViewOnClickListenerC1296t2;
+import com.huawei.hem.GestureSubmitClickListener;
+import com.huawei.hem.GestureLoginModeClickListener;
+import com.huawei.hem.GestureAdminModeClickListener;
 
 /* loaded from: classes.dex */
 public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
@@ -141,9 +141,9 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
         this.f1825n = findViewById(R.id.divider);
         this.f1829r.setText(this.f1831t);
         CheckPwdGestureActivityGestureCallback c1221q2 = new CheckPwdGestureActivityGestureCallback(this);
-        this.f1824m.setOnClickListener(new ViewOnClickListenerC1246r2(this));
-        this.f1819h.setOnClickListener(new ViewOnClickListenerC1271s2(this));
-        this.f1830s.setOnClickListener(new ViewOnClickListenerC1296t2(this));
+        this.f1824m.setOnClickListener(new GestureSubmitClickListener(this));
+        this.f1819h.setOnClickListener(new GestureLoginModeClickListener(this));
+        this.f1830s.setOnClickListener(new GestureAdminModeClickListener(this));
         this.f1820i.setGestureFinishedCallback(c1221q2);
         this.f1820i.switchToCheckMode(m1225h(m1224g()), 1000);
     }
@@ -186,7 +186,7 @@ public class CheckPwdGestureActivity extends BaseGesturePwdActivity {
             finish();
             return;
         }
-        if (!new C0876cc(this).m1505a()) {
+        if (!new LauncherNetworkUtil(this).m1505a()) {
             LTKDateUtil.m1403m("CheckPwdGestureActivity -- check local StuLoginPassword .");
             if (!LTKDateUtil.m1401k(string).equals(this.f1826o.m3013H())) {
                 LTKDateUtil.m1413w(this, getResources().getString(R.string.text_gesture_wrong_password_input_again), 0);

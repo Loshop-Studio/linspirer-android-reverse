@@ -15,15 +15,15 @@ import com.taobao.accs.IChannelInit;
 import com.taobao.accs.client.AdapterGlobalClientInfo;
 import com.taobao.accs.client.GlobalClientInfo;
 import com.taobao.accs.common.Constants;
-import com.taobao.accs.data.C1924g;
+import com.taobao.accs.data.AccsMessageDistributor;
 import com.taobao.accs.data.Message;
-import com.taobao.accs.net.AbstractC1940b;
-import com.taobao.accs.net.C1961w;
-import com.taobao.accs.p072ut.p073a.C1967c;
+import com.taobao.accs.net.AccsConnectionBase;
+import com.taobao.accs.net.AccsSpdyConnection;
+import com.taobao.accs.p072ut.p073a.AccsMonitorStatistics;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.AppMonitorAdapter;
 import com.taobao.accs.utl.BaseMonitor;
-import com.taobao.accs.utl.C1978f;
+import com.taobao.accs.utl.AccsLibraryLoadState;
 import com.taobao.accs.utl.UTMini;
 import com.taobao.accs.utl.UtilityImpl;
 import java.net.URL;
@@ -36,7 +36,7 @@ import org.android.agoo.message.MessageService;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
-public class ServiceImpl extends AbstractC1931d {
+public class ServiceImpl extends AccsElectionServiceBase {
 
     /* renamed from: b */
     public Service f6173b;
@@ -60,7 +60,7 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: b */
     private void m5600b(Intent intent) {
-        AbstractC1940b abstractC1940b;
+        AccsConnectionBase abstractC1940b;
         Message.ReqType reqType;
         URL url;
         Message messageM5488a;
@@ -82,7 +82,7 @@ public class ServiceImpl extends AbstractC1931d {
         if (intExtra <= 0 || TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        AbstractC1940b abstractC1940bM5605a = AbstractC1931d.m5605a(this.f6174c, stringExtra5, true);
+        AccsConnectionBase abstractC1940bM5605a = AccsElectionServiceBase.m5605a(this.f6174c, stringExtra5, true);
         if (abstractC1940bM5605a == null) {
             ALog.m5728e("ServiceImpl", "no connection", Constants.KEY_CONFIG_TAG, stringExtra5, "command", Integer.valueOf(intExtra));
             return;
@@ -119,7 +119,7 @@ public class ServiceImpl extends AbstractC1931d {
                 }
                 if (byteArrayExtra != null) {
                     try {
-                        url = new URL("https://" + ((C1961w) abstractC1940b).m5708r());
+                        url = new URL("https://" + ((AccsSpdyConnection) abstractC1940b).m5708r());
                     } catch (Exception unused2) {
                         url = null;
                     }
@@ -135,7 +135,7 @@ public class ServiceImpl extends AbstractC1931d {
             } else if (intExtra == 106) {
                 intent.setAction(Constants.ACTION_RECEIVE);
                 intent.putExtra("command", -1);
-                C1924g.m5570a(this.f6174c, intent);
+                AccsMessageDistributor.m5570a(this.f6174c, intent);
                 return;
             }
             messageM5492a = null;
@@ -168,11 +168,11 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: c */
     private void m5601c() {
-        ConcurrentHashMap<String, AbstractC1940b> concurrentHashMap = AbstractC1931d.f6183a;
+        ConcurrentHashMap<String, AccsConnectionBase> concurrentHashMap = AccsElectionServiceBase.f6183a;
         if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
             return;
         }
-        Iterator<Map.Entry<String, AbstractC1940b>> it = AbstractC1931d.f6183a.entrySet().iterator();
+        Iterator<Map.Entry<String, AccsConnectionBase>> it = AccsElectionServiceBase.f6183a.entrySet().iterator();
         while (it.hasNext()) {
             it.next().getValue().mo5635b();
         }
@@ -180,13 +180,13 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: d */
     private void m5602d() {
-        ConcurrentHashMap<String, AbstractC1940b> concurrentHashMap = AbstractC1931d.f6183a;
+        ConcurrentHashMap<String, AccsConnectionBase> concurrentHashMap = AccsElectionServiceBase.f6183a;
         if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
             return;
         }
-        Iterator<Map.Entry<String, AbstractC1940b>> it = AbstractC1931d.f6183a.entrySet().iterator();
+        Iterator<Map.Entry<String, AccsConnectionBase>> it = AccsElectionServiceBase.f6183a.entrySet().iterator();
         while (it.hasNext()) {
-            C1967c c1967cMo5639c = it.next().getValue().mo5639c();
+            AccsMonitorStatistics c1967cMo5639c = it.next().getValue().mo5639c();
             if (c1967cMo5639c != null) {
                 c1967cMo5639c.f6341h = this.f6175d;
                 c1967cMo5639c.m5719a();
@@ -196,11 +196,11 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: e */
     private void m5603e() {
-        ConcurrentHashMap<String, AbstractC1940b> concurrentHashMap = AbstractC1931d.f6183a;
+        ConcurrentHashMap<String, AccsConnectionBase> concurrentHashMap = AccsElectionServiceBase.f6183a;
         if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
             return;
         }
-        Iterator<Map.Entry<String, AbstractC1940b>> it = AbstractC1931d.f6183a.entrySet().iterator();
+        Iterator<Map.Entry<String, AccsConnectionBase>> it = AccsElectionServiceBase.f6183a.entrySet().iterator();
         while (it.hasNext()) {
             it.next().getValue().mo5642e();
         }
@@ -221,7 +221,7 @@ public class ServiceImpl extends AbstractC1931d {
                     ALog.m5726d("ServiceImpl", "onHostStartCommand", Person.KEY_KEY, str, " value", extras.get(str));
                 }
             }
-            int iM5782c = C1978f.m5782c();
+            int iM5782c = AccsLibraryLoadState.m5782c();
             if (iM5782c > 3) {
                 try {
                     ALog.m5728e("ServiceImpl", "onHostStartCommand load SO fail 4 times, don't auto restart", new Object[0]);
@@ -369,9 +369,9 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: b */
     private synchronized void m5599b() {
-        if (AbstractC1931d.f6183a != null && AbstractC1931d.f6183a.size() != 0) {
-            for (Map.Entry<String, AbstractC1940b> entry : AbstractC1931d.f6183a.entrySet()) {
-                AbstractC1940b value = entry.getValue();
+        if (AccsElectionServiceBase.f6183a != null && AccsElectionServiceBase.f6183a.size() != 0) {
+            for (Map.Entry<String, AccsConnectionBase> entry : AccsElectionServiceBase.f6183a.entrySet()) {
+                AccsConnectionBase value = entry.getValue();
                 if (value == null) {
                     ALog.m5728e("ServiceImpl", "tryConnect connection null", "appkey", value.m5646i());
                     return;
@@ -390,11 +390,11 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: a */
     private void m5597a(Message message, boolean z) {
-        ConcurrentHashMap<String, AbstractC1940b> concurrentHashMap = AbstractC1931d.f6183a;
+        ConcurrentHashMap<String, AccsConnectionBase> concurrentHashMap = AccsElectionServiceBase.f6183a;
         if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
             return;
         }
-        Iterator<Map.Entry<String, AbstractC1940b>> it = AbstractC1931d.f6183a.entrySet().iterator();
+        Iterator<Map.Entry<String, AccsConnectionBase>> it = AccsElectionServiceBase.f6183a.entrySet().iterator();
         while (it.hasNext()) {
             it.next().getValue().m5638b(message, z);
         }
@@ -402,13 +402,13 @@ public class ServiceImpl extends AbstractC1931d {
 
     /* renamed from: a */
     private void m5598a(boolean z, boolean z2) {
-        ConcurrentHashMap<String, AbstractC1940b> concurrentHashMap = AbstractC1931d.f6183a;
+        ConcurrentHashMap<String, AccsConnectionBase> concurrentHashMap = AccsElectionServiceBase.f6183a;
         if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
             return;
         }
-        Iterator<Map.Entry<String, AbstractC1940b>> it = AbstractC1931d.f6183a.entrySet().iterator();
+        Iterator<Map.Entry<String, AccsConnectionBase>> it = AccsElectionServiceBase.f6183a.entrySet().iterator();
         while (it.hasNext()) {
-            AbstractC1940b value = it.next().getValue();
+            AccsConnectionBase value = it.next().getValue();
             value.mo5631a(z, z2);
             ALog.m5729i("ServiceImpl", "ping connection", "appkey", value.m5646i());
         }

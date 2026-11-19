@@ -17,7 +17,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public static JichengshixunImpl f4214b = new JichengshixunImpl();
 
     /* renamed from: c */
-    public static C0870c6 f4215c;
+    public static JichengDevicePolicyManager f4215c;
 
     /* compiled from: JichengshixunImpl.java */
     /* renamed from: com.huawei.hem.yc$a */
@@ -81,7 +81,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public void mo1334A0(List<String> list) {
         LTKDateUtil.m1403m("JichengshixunImpl --addDisallowedUninstallPackages");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Iterator<String> it = list.iterator();
@@ -122,7 +122,7 @@ public class JichengshixunImpl extends AndroidImpl {
         sbM1765j.append(list.toString());
         LTKDateUtil.m1403m(sbM1765j.toString());
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f4215c.m1480g();
@@ -140,11 +140,11 @@ public class JichengshixunImpl extends AndroidImpl {
     public void mo1306F(String str) {
         LTKDateUtil.m1403m("JichengshixunImpl --actionSilentInstall");
         try {
-            C0870c6 c0870c6 = f4215c;
+            JichengDevicePolicyManager c0870c6 = f4215c;
             if (c0870c6 == null) {
                 throw null;
             }
-            C0870c6.m1442a("installApplication filePath" + str);
+            JichengDevicePolicyManager.m1442a("installApplication filePath" + str);
             c0870c6.m1501z(str, false);
         } catch (Throwable th) {
             CompilerOutline.m1745C(th, CompilerOutline.m1765j("JichengshixunImpl --actionSilentInstall--error:"));
@@ -168,7 +168,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public void mo1308I0(List<String> list) {
         LTKDateUtil.m1403m("JichengshixunImpl --setNetworkAccessAppWhiteList");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Iterator<String> it = list.iterator();
@@ -381,11 +381,11 @@ public class JichengshixunImpl extends AndroidImpl {
         LTKDateUtil.m1403m("JichengshixunImpl --disableGPS");
         try {
             f4215c.m1457O(true);
-            C0870c6 c0870c6 = f4215c;
+            JichengDevicePolicyManager c0870c6 = f4215c;
             if (c0870c6 == null) {
                 throw null;
             }
-            C0870c6.m1442a("turnOffLocation");
+            JichengDevicePolicyManager.m1442a("turnOffLocation");
             Intent intent = new Intent();
             intent.setAction("com.imt.mdm.trunongps");
             intent.putExtra("on", false);
@@ -574,11 +574,11 @@ public class JichengshixunImpl extends AndroidImpl {
         LTKDateUtil.m1403m("JichengshixunImpl --enableGPS");
         try {
             f4215c.m1457O(false);
-            C0870c6 c0870c6 = f4215c;
+            JichengDevicePolicyManager c0870c6 = f4215c;
             if (c0870c6 == null) {
                 throw null;
             }
-            C0870c6.m1442a("turnOnLocation");
+            JichengDevicePolicyManager.m1442a("turnOnLocation");
             Intent intent = new Intent();
             intent.setAction("com.imt.mdm.trunongps");
             intent.putExtra("on", true);
@@ -829,7 +829,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("JichengshixunImpl --setAppWhiteList");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 f4215c.m1444B();
                 return true;
             }
@@ -850,7 +850,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public void mo1329t(boolean z) {
         LTKDateUtil.m1403m("JichengshixunImpl --actionResetFactory");
         try {
-            C0870c6 c0870c6 = f4215c;
+            JichengDevicePolicyManager c0870c6 = f4215c;
             if (c0870c6 == null) {
                 throw null;
             }
@@ -865,7 +865,7 @@ public class JichengshixunImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: t0 */
     public List<String> mo1330t0() {
-        C0870c6 c0870c6;
+        JichengDevicePolicyManager c0870c6;
         String strSubstring;
         LTKDateUtil.m1403m("JichengshixunImpl --getUrlWhiteList");
         ArrayList arrayList = new ArrayList();
@@ -877,9 +877,9 @@ public class JichengshixunImpl extends AndroidImpl {
         if (c0870c6 == null) {
             throw null;
         }
-        C0870c6.m1442a("getNetworkAccessWhitelist");
+        JichengDevicePolicyManager.m1442a("getNetworkAccessWhitelist");
         ArrayList arrayList2 = new ArrayList(c0870c6.m1483h0());
-        if (!AbstractC1102l9.m2273N(arrayList2)) {
+        if (!MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 String str = (String) it.next();
@@ -903,7 +903,7 @@ public class JichengshixunImpl extends AndroidImpl {
     public void mo2079v0(List<String> list) {
         LTKDateUtil.m1403m("JichengshixunImpl --actionClearCache");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Iterator<String> it = list.iterator();

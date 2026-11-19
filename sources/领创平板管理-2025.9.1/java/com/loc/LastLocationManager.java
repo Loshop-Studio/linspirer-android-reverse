@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.amap.api.location.AMapLocation;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import java.util.List;
 import org.json.JSONObject;
 
@@ -46,10 +46,10 @@ public final class LastLocationManager {
 
     /* renamed from: e */
     private void m5244e() {
-        if (f5872b == null || C1841ew.m5127b() - f5874g > 180000) {
+        if (f5872b == null || AMapLocationUtilities.m5127b() - f5874g > 180000) {
             LastLocationInfo c1825egM5245f = m5245f();
-            f5874g = C1841ew.m5127b();
-            if (c1825egM5245f == null || !C1841ew.m5116a(c1825egM5245f.m4906a())) {
+            f5874g = AMapLocationUtilities.m5127b();
+            if (c1825egM5245f == null || !AMapLocationUtilities.m5116a(c1825egM5245f.m4906a())) {
                 return;
             }
             f5872b = c1825egM5245f;
@@ -81,10 +81,10 @@ public final class LastLocationManager {
         } else {
             c1825eg = (LastLocationInfo) listM5363a.get(0);
             try {
-                byte[] bArrM1934e = C0994h1.m1934e(c1825eg.m4912c());
-                String str2 = (bArrM1934e == null || bArrM1934e.length <= 0 || (bArrM4877b2 = C1823ee.m4877b(bArrM1934e, this.f5875a)) == null || bArrM4877b2.length <= 0) ? null : new String(bArrM4877b2, "UTF-8");
-                byte[] bArrM1934e2 = C0994h1.m1934e(c1825eg.m4910b());
-                if (bArrM1934e2 != null && bArrM1934e2.length > 0 && (bArrM4877b = C1823ee.m4877b(bArrM1934e2, this.f5875a)) != null && bArrM4877b.length > 0) {
+                byte[] bArrM1934e = AMapEncryptionUtilities.m1934e(c1825eg.m4912c());
+                String str2 = (bArrM1934e == null || bArrM1934e.length <= 0 || (bArrM4877b2 = AMapLocationCipher.m4877b(bArrM1934e, this.f5875a)) == null || bArrM4877b2.length <= 0) ? null : new String(bArrM4877b2, "UTF-8");
+                byte[] bArrM1934e2 = AMapEncryptionUtilities.m1934e(c1825eg.m4910b());
+                if (bArrM1934e2 != null && bArrM1934e2.length > 0 && (bArrM4877b = AMapLocationCipher.m4877b(bArrM1934e2, this.f5875a)) != null && bArrM4877b.length > 0) {
                     str = new String(bArrM4877b, "UTF-8");
                 }
                 c1825eg.m4909a(str);
@@ -98,7 +98,7 @@ public final class LastLocationManager {
         if (!TextUtils.isEmpty(str)) {
             AMapLocation aMapLocation = new AMapLocation("");
             CoreUtil.m5012a(aMapLocation, new JSONObject(str));
-            if (C1841ew.m5133b(aMapLocation)) {
+            if (AMapLocationUtilities.m5133b(aMapLocation)) {
                 c1825eg.m4908a(aMapLocation);
             }
         }
@@ -115,13 +115,13 @@ public final class LastLocationManager {
             if (f5872b != null && f5872b.m4906a() != null) {
                 boolean zM5119a = false;
                 if (TextUtils.isEmpty(str)) {
-                    long jM5127b = C1841ew.m5127b() - f5872b.m4913d();
+                    long jM5127b = AMapLocationUtilities.m5127b() - f5872b.m4913d();
                     if (jM5127b >= 0 && jM5127b <= j) {
                         zM5119a = true;
                     }
                     aMapLocation.setTrustedLevel(3);
                 } else {
-                    zM5119a = C1841ew.m5119a(f5872b.m4910b(), str);
+                    zM5119a = AMapLocationUtilities.m5119a(f5872b.m4910b(), str);
                     aMapLocation.setTrustedLevel(2);
                 }
                 if (!zM5119a) {
@@ -153,7 +153,7 @@ public final class LastLocationManager {
         }
         try {
             if (this.f5875a == null) {
-                this.f5875a = C1823ee.m4871a("MD5", DeviceInfo.m1091y(this.f5880i));
+                this.f5875a = AMapLocationCipher.m4871a("MD5", DeviceInfo.m1091y(this.f5880i));
             }
             if (f5873e == null) {
                 f5873e = new DBOperation(this.f5880i, DBOperation.m5350a((Class<? extends DBCreator>) SdCardDbCreator.class));
@@ -166,7 +166,7 @@ public final class LastLocationManager {
 
     /* renamed from: a */
     public final boolean m5248a(AMapLocation aMapLocation, String str) {
-        if (this.f5880i != null && aMapLocation != null && C1841ew.m5116a(aMapLocation) && aMapLocation.getLocationType() != 2 && !aMapLocation.isMock() && !aMapLocation.isFixLastLocation()) {
+        if (this.f5880i != null && aMapLocation != null && AMapLocationUtilities.m5116a(aMapLocation) && aMapLocation.getLocationType() != 2 && !aMapLocation.isMock() && !aMapLocation.isFixLastLocation()) {
             LastLocationInfo c1825eg = new LastLocationInfo();
             c1825eg.m4908a(aMapLocation);
             if (aMapLocation.getLocationType() == 1) {
@@ -176,12 +176,12 @@ public final class LastLocationManager {
             }
             try {
                 f5872b = c1825eg;
-                f5874g = C1841ew.m5127b();
+                f5874g = AMapLocationUtilities.m5127b();
                 this.f5876c = c1825eg;
-                if (this.f5877d != null && C1841ew.m5103a(this.f5877d.m4906a(), c1825eg.m4906a()) <= 500.0f) {
+                if (this.f5877d != null && AMapLocationUtilities.m5103a(this.f5877d.m4906a(), c1825eg.m4906a()) <= 500.0f) {
                     return false;
                 }
-                if (C1841ew.m5127b() - this.f5878f > 30000) {
+                if (AMapLocationUtilities.m5127b() - this.f5878f > 30000) {
                     return true;
                 }
             } catch (Throwable th) {
@@ -195,7 +195,7 @@ public final class LastLocationManager {
     public final AMapLocation m5249b() {
         m5244e();
         LastLocationInfo c1825eg = f5872b;
-        if (c1825eg != null && C1841ew.m5116a(c1825eg.m4906a())) {
+        if (c1825eg != null && AMapLocationUtilities.m5116a(c1825eg.m4906a())) {
             return f5872b.m4906a();
         }
         return null;
@@ -219,15 +219,15 @@ public final class LastLocationManager {
         String strM1933d;
         try {
             m5247a();
-            if (this.f5876c != null && C1841ew.m5116a(this.f5876c.m4906a()) && f5873e != null && this.f5876c != this.f5877d && this.f5876c.m4913d() == 0) {
+            if (this.f5876c != null && AMapLocationUtilities.m5116a(this.f5876c.m4906a()) && f5873e != null && this.f5876c != this.f5877d && this.f5876c.m4913d() == 0) {
                 String str = this.f5876c.m4906a().toStr();
                 String strM4910b = this.f5876c.m4910b();
                 this.f5877d = this.f5876c;
                 if (TextUtils.isEmpty(str)) {
                     strM1933d = null;
                 } else {
-                    String strM1933d2 = C0994h1.m1933d(C1823ee.m4874a(str.getBytes("UTF-8"), this.f5875a));
-                    strM1933d = TextUtils.isEmpty(strM4910b) ? null : C0994h1.m1933d(C1823ee.m4874a(strM4910b.getBytes("UTF-8"), this.f5875a));
+                    String strM1933d2 = AMapEncryptionUtilities.m1933d(AMapLocationCipher.m4874a(str.getBytes("UTF-8"), this.f5875a));
+                    strM1933d = TextUtils.isEmpty(strM4910b) ? null : AMapEncryptionUtilities.m1933d(AMapLocationCipher.m4874a(strM4910b.getBytes("UTF-8"), this.f5875a));
                     str = strM1933d2;
                 }
                 if (TextUtils.isEmpty(str)) {
@@ -235,12 +235,12 @@ public final class LastLocationManager {
                 }
                 LastLocationInfo c1825eg = new LastLocationInfo();
                 c1825eg.m4911b(str);
-                c1825eg.m4907a(C1841ew.m5127b());
+                c1825eg.m4907a(AMapLocationUtilities.m5127b());
                 c1825eg.m4909a(strM1933d);
                 f5873e.m5364a(c1825eg, "_id=1");
-                this.f5878f = C1841ew.m5127b();
+                this.f5878f = AMapLocationUtilities.m5127b();
                 if (f5872b != null) {
-                    f5872b.m4907a(C1841ew.m5127b());
+                    f5872b.m4907a(AMapLocationUtilities.m5127b());
                 }
             }
         } catch (Throwable th) {

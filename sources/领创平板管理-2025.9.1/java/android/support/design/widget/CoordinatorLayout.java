@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
-import android.support.coordinatorlayout.C0006R;
+import android.support.coordinatorlayout.SupportCoordinatorlayoutResources;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.ObjectsCompat;
@@ -1355,7 +1355,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, C0006R.attr.coordinatorLayoutStyle);
+        this(context, attributeSet, SupportCoordinatorlayoutResources.attr.coordinatorLayoutStyle);
     }
 
     @Override // android.view.ViewGroup
@@ -1479,11 +1479,11 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         this.mTempIntPair = new int[2];
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0006R.styleable.CoordinatorLayout, 0, C0006R.style.Widget_Support_CoordinatorLayout);
+            typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportCoordinatorlayoutResources.styleable.CoordinatorLayout, 0, SupportCoordinatorlayoutResources.style.Widget_Support_CoordinatorLayout);
         } else {
-            typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0006R.styleable.CoordinatorLayout, i, 0);
+            typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportCoordinatorlayoutResources.styleable.CoordinatorLayout, i, 0);
         }
-        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C0006R.styleable.CoordinatorLayout_keylines, 0);
+        int resourceId = typedArrayObtainStyledAttributes.getResourceId(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_keylines, 0);
         if (resourceId != 0) {
             Resources resources = context.getResources();
             this.mKeylines = resources.getIntArray(resourceId);
@@ -1493,7 +1493,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 this.mKeylines[i2] = (int) (r1[i2] * f);
             }
         }
-        this.mStatusBarBackground = typedArrayObtainStyledAttributes.getDrawable(C0006R.styleable.CoordinatorLayout_statusBarBackground);
+        this.mStatusBarBackground = typedArrayObtainStyledAttributes.getDrawable(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_statusBarBackground);
         typedArrayObtainStyledAttributes.recycle();
         setupForInsets();
         super.setOnHierarchyChangeListener(new HierarchyChangeListener());
@@ -1797,17 +1797,17 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.insetEdge = 0;
             this.dodgeInsetEdges = 0;
             this.mLastChildRect = new Rect();
-            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0006R.styleable.CoordinatorLayout_Layout);
-            this.gravity = typedArrayObtainStyledAttributes.getInteger(C0006R.styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
-            this.mAnchorId = typedArrayObtainStyledAttributes.getResourceId(C0006R.styleable.CoordinatorLayout_Layout_layout_anchor, -1);
-            this.anchorGravity = typedArrayObtainStyledAttributes.getInteger(C0006R.styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
-            this.keyline = typedArrayObtainStyledAttributes.getInteger(C0006R.styleable.CoordinatorLayout_Layout_layout_keyline, -1);
-            this.insetEdge = typedArrayObtainStyledAttributes.getInt(C0006R.styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
-            this.dodgeInsetEdges = typedArrayObtainStyledAttributes.getInt(C0006R.styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
-            boolean zHasValue = typedArrayObtainStyledAttributes.hasValue(C0006R.styleable.CoordinatorLayout_Layout_layout_behavior);
+            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout);
+            this.gravity = typedArrayObtainStyledAttributes.getInteger(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
+            this.mAnchorId = typedArrayObtainStyledAttributes.getResourceId(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_anchor, -1);
+            this.anchorGravity = typedArrayObtainStyledAttributes.getInteger(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
+            this.keyline = typedArrayObtainStyledAttributes.getInteger(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_keyline, -1);
+            this.insetEdge = typedArrayObtainStyledAttributes.getInt(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
+            this.dodgeInsetEdges = typedArrayObtainStyledAttributes.getInt(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
+            boolean zHasValue = typedArrayObtainStyledAttributes.hasValue(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_behavior);
             this.mBehaviorResolved = zHasValue;
             if (zHasValue) {
-                this.mBehavior = CoordinatorLayout.parseBehavior(context, attributeSet, typedArrayObtainStyledAttributes.getString(C0006R.styleable.CoordinatorLayout_Layout_layout_behavior));
+                this.mBehavior = CoordinatorLayout.parseBehavior(context, attributeSet, typedArrayObtainStyledAttributes.getString(SupportCoordinatorlayoutResources.styleable.CoordinatorLayout_Layout_layout_behavior));
             }
             typedArrayObtainStyledAttributes.recycle();
             Behavior behavior = this.mBehavior;

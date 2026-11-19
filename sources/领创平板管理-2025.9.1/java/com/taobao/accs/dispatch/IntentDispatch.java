@@ -3,8 +3,8 @@ package com.taobao.accs.dispatch;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.taobao.accs.messenger.C1932a;
-import com.taobao.accs.messenger.C1936e;
+import com.taobao.accs.messenger.AccsMessengerServiceBinder;
+import com.taobao.accs.messenger.AccsIntentDeliveryScheduler;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.Utils;
 
@@ -12,7 +12,7 @@ import com.taobao.accs.utl.Utils;
 /* loaded from: classes.dex */
 public class IntentDispatch {
     public static final String TAG = "IntentDispatch";
-    public static C1936e binderDispatcher;
+    public static AccsIntentDeliveryScheduler binderDispatcher;
 
     public static void dispatchIntent(Context context, Intent intent, String str) {
         if (context == null || intent == null) {
@@ -26,7 +26,7 @@ public class IntentDispatch {
                 applicationContext.startService(intent);
             } else {
                 if (binderDispatcher == null) {
-                    binderDispatcher = new C1936e(new C1932a(applicationContext));
+                    binderDispatcher = new AccsIntentDeliveryScheduler(new AccsMessengerServiceBinder(applicationContext));
                 }
                 binderDispatcher.m5622a(str, intent);
             }

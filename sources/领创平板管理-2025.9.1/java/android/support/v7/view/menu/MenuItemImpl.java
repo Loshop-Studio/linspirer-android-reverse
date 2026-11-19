@@ -12,7 +12,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.internal.view.SupportMenuItem;
 import android.support.v4.view.ActionProvider;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.menu.MenuView;
 import android.util.Log;
@@ -249,23 +249,23 @@ public final class MenuItemImpl implements SupportMenuItem {
         Resources resources = this.mMenu.getContext().getResources();
         StringBuilder sb = new StringBuilder();
         if (ViewConfiguration.get(this.mMenu.getContext()).hasPermanentMenuKey()) {
-            sb.append(resources.getString(C0200R.string.abc_prepend_shortcut_label));
+            sb.append(resources.getString(SupportAppcompatResources.string.abc_prepend_shortcut_label));
         }
         int i = this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticModifiers : this.mShortcutNumericModifiers;
-        appendModifier(sb, i, 65536, resources.getString(C0200R.string.abc_menu_meta_shortcut_label));
-        appendModifier(sb, i, 4096, resources.getString(C0200R.string.abc_menu_ctrl_shortcut_label));
-        appendModifier(sb, i, 2, resources.getString(C0200R.string.abc_menu_alt_shortcut_label));
-        appendModifier(sb, i, 1, resources.getString(C0200R.string.abc_menu_shift_shortcut_label));
-        appendModifier(sb, i, 4, resources.getString(C0200R.string.abc_menu_sym_shortcut_label));
-        appendModifier(sb, i, 8, resources.getString(C0200R.string.abc_menu_function_shortcut_label));
+        appendModifier(sb, i, 65536, resources.getString(SupportAppcompatResources.string.abc_menu_meta_shortcut_label));
+        appendModifier(sb, i, 4096, resources.getString(SupportAppcompatResources.string.abc_menu_ctrl_shortcut_label));
+        appendModifier(sb, i, 2, resources.getString(SupportAppcompatResources.string.abc_menu_alt_shortcut_label));
+        appendModifier(sb, i, 1, resources.getString(SupportAppcompatResources.string.abc_menu_shift_shortcut_label));
+        appendModifier(sb, i, 4, resources.getString(SupportAppcompatResources.string.abc_menu_sym_shortcut_label));
+        appendModifier(sb, i, 8, resources.getString(SupportAppcompatResources.string.abc_menu_function_shortcut_label));
         if (shortcut == '\b') {
-            sb.append(resources.getString(C0200R.string.abc_menu_delete_shortcut_label));
+            sb.append(resources.getString(SupportAppcompatResources.string.abc_menu_delete_shortcut_label));
         } else if (shortcut == '\n') {
-            sb.append(resources.getString(C0200R.string.abc_menu_enter_shortcut_label));
+            sb.append(resources.getString(SupportAppcompatResources.string.abc_menu_enter_shortcut_label));
         } else if (shortcut != ' ') {
             sb.append(shortcut);
         } else {
-            sb.append(resources.getString(C0200R.string.abc_menu_space_shortcut_label));
+            sb.append(resources.getString(SupportAppcompatResources.string.abc_menu_space_shortcut_label));
         }
         return sb.toString();
     }

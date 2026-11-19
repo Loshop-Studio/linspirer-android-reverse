@@ -25,7 +25,7 @@ public abstract class BaseIntentService extends Service {
     public MessageService messageService;
     public NotifManager notifyManager;
     public Context mContext = null;
-    public Messenger messenger = new Messenger(new HandlerC2016h(this));
+    public Messenger messenger = new Messenger(new AgooServiceMessageHandler(this));
 
     private final String getTrace(Context context, long j) {
         String str = TextUtils.isEmpty(null) ? "unknow" : null;
@@ -85,7 +85,7 @@ public abstract class BaseIntentService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         if (OrangeAdapter.isBindService(this) && Utils.isTarget26(this)) {
-            getApplicationContext().bindService(new Intent(this, getClass()), new ServiceConnectionC2018j(this), 1);
+            getApplicationContext().bindService(new Intent(this, getClass()), new AgooIntentServiceConnection(this), 1);
         }
         return this.messenger.getBinder();
     }
@@ -93,7 +93,7 @@ public abstract class BaseIntentService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        ThreadPoolExecutorFactory.execute(new RunnableC2019k(this));
+        ThreadPoolExecutorFactory.execute(new InitializeAgooIntentServiceTask(this));
     }
 
     @Deprecated
@@ -148,7 +148,7 @@ public abstract class BaseIntentService extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        ThreadPoolExecutorFactory.execute(new RunnableC2020l(this, intent));
+        ThreadPoolExecutorFactory.execute(new DeliverAgooStartIntentTask(this, intent));
         return 2;
     }
 }

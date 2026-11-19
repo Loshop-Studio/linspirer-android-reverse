@@ -138,7 +138,7 @@ public class ConnType {
     }
 
     public int getType() {
-        return (equals(HTTP) || equals(HTTPS)) ? C0348c.f256b : C0348c.f255a;
+        return (equals(HTTP) || equals(HTTPS)) ? SessionTypeFlags.f256b : SessionTypeFlags.f255a;
     }
 
     @Deprecated

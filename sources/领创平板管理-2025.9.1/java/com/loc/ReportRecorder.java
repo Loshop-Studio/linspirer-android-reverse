@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.amap.api.location.AMapLocation;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -54,7 +54,7 @@ public final class ReportRecorder {
         this.f5782g = applicationContext;
         String path = applicationContext.getFilesDir().getPath();
         if (this.f5781e == null) {
-            this.f5781e = C1841ew.m5156m(this.f5782g);
+            this.f5781e = AMapLocationUtilities.m5156m(this.f5782g);
         }
         try {
             this.f5780d = new File(path, "reportRecorder");
@@ -75,14 +75,14 @@ public final class ReportRecorder {
     /* renamed from: b */
     private boolean m5058b(Context context) {
         if (this.f5778b == null) {
-            this.f5778b = C1840ev.m5092a(context, "pref", "lastavedate", MessageService.MSG_DB_READY_REPORT);
+            this.f5778b = AMapLocationPreferences.m5092a(context, "pref", "lastavedate", MessageService.MSG_DB_READY_REPORT);
         }
         if (this.f5778b.equals(this.f5777a)) {
             return false;
         }
-        SharedPreferences.Editor editorM5090a = C1840ev.m5090a(context, "pref");
-        C1840ev.m5097a(editorM5090a, "lastavedate", this.f5777a);
-        C1840ev.m5093a(editorM5090a);
+        SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(context, "pref");
+        AMapLocationPreferences.m5097a(editorM5090a, "lastavedate", this.f5777a);
+        AMapLocationPreferences.m5093a(editorM5090a);
         this.f5778b = this.f5777a;
         return true;
     }
@@ -92,11 +92,11 @@ public final class ReportRecorder {
         if (this.f5779c == null || this.f5779c.size() <= 0) {
             try {
                 this.f5777a = new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
-                Iterator<String> it = C1841ew.m5111a(this.f5780d).iterator();
+                Iterator<String> it = AMapLocationUtilities.m5111a(this.f5780d).iterator();
                 while (it.hasNext()) {
                     try {
                         try {
-                            String[] strArrSplit = new String(C1823ee.m4877b(C0994h1.m1934e(it.next()), this.f5781e), "UTF-8").split(",");
+                            String[] strArrSplit = new String(AMapLocationCipher.m4877b(AMapEncryptionUtilities.m1934e(it.next()), this.f5781e), "UTF-8").split(",");
                             if (strArrSplit != null && strArrSplit.length > 1) {
                                 this.f5779c.put(strArrSplit[0], Long.valueOf(Long.parseLong(strArrSplit[1])));
                             }
@@ -119,7 +119,7 @@ public final class ReportRecorder {
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, Long> entry : this.f5779c.entrySet()) {
                 try {
-                    sb.append(C0994h1.m1933d(C1823ee.m4874a((entry.getKey() + "," + entry.getValue()).getBytes("UTF-8"), this.f5781e)) + "\n");
+                    sb.append(AMapEncryptionUtilities.m1933d(AMapLocationCipher.m4874a((entry.getKey() + "," + entry.getValue()).getBytes("UTF-8"), this.f5781e)) + "\n");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -128,7 +128,7 @@ public final class ReportRecorder {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            C1841ew.m5112a(this.f5780d, string);
+            AMapLocationUtilities.m5112a(this.f5780d, string);
         } catch (Throwable th) {
             th.printStackTrace();
         }

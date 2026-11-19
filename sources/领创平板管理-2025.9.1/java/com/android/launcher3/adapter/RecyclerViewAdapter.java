@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListenerC0648a> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<LauncherAppRowHolder> {
 
     /* renamed from: a */
     public Context f1862a;
@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
     public AppStoreInstalledCheckListener f1865d;
 
     /* renamed from: com.android.launcher3.adapter.RecyclerViewAdapter$a */
-    public class ViewOnClickListenerC0648a extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class LauncherAppRowHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         /* renamed from: a */
         public ImageView f1866a;
@@ -51,7 +51,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
         /* renamed from: c */
         public TextView f1868c;
 
-        public ViewOnClickListenerC0648a(@NonNull View view) {
+        public LauncherAppRowHolder(@NonNull View view) {
             super(view);
             this.f1868c = (TextView) view.findViewById(R.id.app_tips);
             this.f1866a = (ImageView) view.findViewById(R.id.appitem_icon);
@@ -99,9 +99,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
     }
 
     /* renamed from: a */
-    public ViewOnClickListenerC0648a m1233a(ViewGroup viewGroup) {
+    public LauncherAppRowHolder m1233a(ViewGroup viewGroup) {
         View viewInflate = LayoutInflater.from(this.f1862a).inflate(R.layout.layout_appitem, viewGroup, false);
-        ViewOnClickListenerC0648a viewOnClickListenerC0648a = new ViewOnClickListenerC0648a(viewInflate);
+        LauncherAppRowHolder viewOnClickListenerC0648a = new LauncherAppRowHolder(viewInflate);
         int height = viewGroup.getHeight();
         viewInflate.getLayoutParams().height = height / (24 / this.f1864c);
         return viewOnClickListenerC0648a;
@@ -118,7 +118,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewOnClickListene
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        ViewOnClickListenerC0648a viewOnClickListenerC0648a = (ViewOnClickListenerC0648a) viewHolder;
+        LauncherAppRowHolder viewOnClickListenerC0648a = (LauncherAppRowHolder) viewHolder;
         AppItem appItem = this.f1863b.get(i);
         viewOnClickListenerC0648a.f1867b.setText(appItem.getName());
         int tipCount = appItem.getTipCount();

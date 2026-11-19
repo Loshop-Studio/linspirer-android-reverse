@@ -11,13 +11,13 @@ import anet.channel.RequestCb;
 import anet.channel.Session;
 import anet.channel.appmonitor.AppMonitor;
 import anet.channel.bytes.ByteArray;
-import anet.channel.bytes.C0317a;
-import anet.channel.entity.C0346a;
-import anet.channel.entity.C0347b;
+import anet.channel.bytes.AwcnByteArrayPool;
+import anet.channel.entity.SessionConnectionInfo;
+import anet.channel.entity.SessionEventDetails;
 import anet.channel.heartbeat.HeartbeatManager;
 import anet.channel.heartbeat.IHeartbeat;
-import anet.channel.heartbeat.RunnableC0356c;
-import anet.channel.request.C0369c;
+import anet.channel.heartbeat.SessionIdleTimer;
+import anet.channel.request.SpdyStreamCancellation;
 import anet.channel.request.Cancelable;
 import anet.channel.request.Request;
 import anet.channel.security.ISecurity;
@@ -28,9 +28,9 @@ import anet.channel.statist.SessionStatistic;
 import anet.channel.status.NetworkStatusHelper;
 import anet.channel.strategy.ConnEvent;
 import anet.channel.strategy.StrategyCenter;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.util.ALog;
-import anet.channel.util.C0422c;
+import anet.channel.util.NetworkAddressRegistry;
 import anet.channel.util.ErrorConstant;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpHelper;
@@ -106,7 +106,7 @@ public class TnetSpdySession extends Session implements SessionCb {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.session.TnetSpdySession$a */
-    public class C0374a extends C0375a {
+    public class SpdyRequestStreamCallback extends SpdySessionCallbackAdapter {
 
         /* renamed from: b */
         public Request f389b;
@@ -120,7 +120,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         /* renamed from: e */
         public long f392e = 0;
 
-        public C0374a(Request request, RequestCb requestCb) {
+        public SpdyRequestStreamCallback(Request request, RequestCb requestCb) {
             this.f389b = request;
             this.f390c = requestCb;
         }
@@ -175,7 +175,7 @@ public class TnetSpdySession extends Session implements SessionCb {
                 iHeartbeat.reSchedule();
             }
             if (this.f390c != null) {
-                ByteArray byteArrayM71a = C0317a.a.f177a.m71a(spdyByteArray.getByteArray(), spdyByteArray.getDataLength());
+                ByteArray byteArrayM71a = AwcnByteArrayPool.a.f177a.m71a(spdyByteArray.getByteArray(), spdyByteArray.getDataLength());
                 spdyByteArray.recycle();
                 this.f390c.onDataReceive(byteArrayM71a, z);
             }
@@ -243,7 +243,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         }
     }
 
-    public TnetSpdySession(Context context, C0346a c0346a) {
+    public TnetSpdySession(Context context, SessionConnectionInfo c0346a) {
         super(context, c0346a);
         this.f386y = false;
         this.f375A = 0L;
@@ -296,9 +296,9 @@ public class TnetSpdySession extends Session implements SessionCb {
             if (this.f384w == null) {
                 m215c();
             }
-            if (C0422c.m347a() && C0413c.m331a(this.f99e)) {
+            if (NetworkAddressRegistry.m347a() && AmdcStringEncoding.m331a(this.f99e)) {
                 try {
-                    this.f100f = C0422c.m345a(this.f99e);
+                    this.f100f = NetworkAddressRegistry.m345a(this.f99e);
                 } catch (Exception unused) {
                 }
             }
@@ -322,7 +322,7 @@ public class TnetSpdySession extends Session implements SessionCb {
             this.f385x = spdySessionCreateSession;
             if (spdySessionCreateSession.getRefCount() > 1) {
                 ALog.m339e("awcn.TnetSpdySession", "get session ref count > 1!!!", this.f110p, new Object[0]);
-                notifyStatus(0, new C0347b(1));
+                notifyStatus(0, new SessionEventDetails(1));
                 m223b();
                 return;
             }
@@ -344,7 +344,7 @@ public class TnetSpdySession extends Session implements SessionCb {
 
     @Override // anet.channel.Session
     public Runnable getRecvTimeOutRunnable() {
-        return new RunnableC0382h(this);
+        return new SpdySessionTimeoutTask(this);
     }
 
     @Override // org.android.spdy.SessionCb
@@ -393,7 +393,7 @@ public class TnetSpdySession extends Session implements SessionCb {
             }
         }
         if (AwcnConfig.isIdleSessionCloseEnable() && this.f378D == null) {
-            this.f378D = new RunnableC0356c();
+            this.f378D = new SessionIdleTimer();
         }
     }
 
@@ -438,7 +438,7 @@ public class TnetSpdySession extends Session implements SessionCb {
     public Cancelable request(Request request, RequestCb requestCb) throws JSONException {
         String str;
         SpdyRequest spdyRequest;
-        C0369c c0369c = C0369c.NULL;
+        SpdyStreamCancellation c0369c = SpdyStreamCancellation.NULL;
         RequestStatistic requestStatistic = request != null ? request.f328a : new RequestStatistic(this.f98d, null);
         requestStatistic.setConnType(this.f104j);
         if (requestStatistic.start == 0) {
@@ -495,11 +495,11 @@ public class TnetSpdySession extends Session implements SessionCb {
             SpdyDataProvider spdyDataProvider = new SpdyDataProvider(request.getBodyBytes());
             request.f328a.sendStart = System.currentTimeMillis();
             request.f328a.processTime = request.f328a.sendStart - request.f328a.start;
-            int iSubmitRequest = this.f385x.submitRequest(spdyRequest, spdyDataProvider, this, new C0374a(request, requestCb));
+            int iSubmitRequest = this.f385x.submitRequest(spdyRequest, spdyDataProvider, this, new SpdyRequestStreamCallback(request, requestCb));
             if (ALog.isPrintLog(1)) {
                 ALog.m337d("awcn.TnetSpdySession", str, request.getSeq(), "streamId", Integer.valueOf(iSubmitRequest));
             }
-            C0369c c0369c2 = new C0369c(this.f385x, iSubmitRequest, request.getSeq());
+            SpdyStreamCancellation c0369c2 = new SpdyStreamCancellation(this.f385x, iSubmitRequest, request.getSeq());
             try {
                 this.f111q.requestCount++;
                 this.f111q.stdRCount++;
@@ -513,7 +513,7 @@ public class TnetSpdySession extends Session implements SessionCb {
                 c0369c = c0369c2;
                 if (e.SpdyErrorGetCode() == -1104 || e.SpdyErrorGetCode() == -1103) {
                     ALog.m339e("awcn.TnetSpdySession", "Send request on closed session!!!", this.f110p, new Object[0]);
-                    notifyStatus(6, new C0347b(2));
+                    notifyStatus(6, new SessionEventDetails(2));
                 }
                 requestCb.onFinish(-300, ErrorConstant.formatMsg(-300, String.valueOf(e.SpdyErrorGetCode())), requestStatistic);
                 return c0369c;
@@ -634,7 +634,7 @@ public class TnetSpdySession extends Session implements SessionCb {
             connEvent.isSuccess = false;
             StrategyCenter.getInstance().notifyConnEvent(this.f98d, this.f105k, connEvent);
         }
-        notifyStatus(6, new C0347b(2));
+        notifyStatus(6, new SessionEventDetails(2));
         if (superviseConnectInfo != null) {
             SessionStatistic sessionStatistic = this.f111q;
             sessionStatistic.requestCount = superviseConnectInfo.reused_counter;
@@ -660,7 +660,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         }
         this.f111q.lastPingInterval = (int) (System.currentTimeMillis() - this.f387z);
         AppMonitor.getInstance().commitStat(this.f111q);
-        if (C0413c.m332b(this.f111q.f416ip)) {
+        if (AmdcStringEncoding.m332b(this.f111q.f416ip)) {
             AppMonitor.getInstance().commitStat(new SessionMonitor(this.f111q));
         }
         AppMonitor.getInstance().commitAlarm(this.f111q.getAlarmObject());
@@ -674,7 +674,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         sessionStatistic.sslCalTime = superviseConnectInfo.doHandshakeTime;
         sessionStatistic.netType = NetworkStatusHelper.getNetworkSubType();
         this.f375A = System.currentTimeMillis();
-        notifyStatus(0, new C0347b(1));
+        notifyStatus(0, new SessionEventDetails(1));
         m223b();
         ALog.m339e("awcn.TnetSpdySession", "spdySessionConnectCB connect", this.f110p, "connectTime", Integer.valueOf(superviseConnectInfo.connectTime), "sslTime", Integer.valueOf(superviseConnectInfo.handshakeTime));
         if (this.f104j.isHTTP3()) {
@@ -694,14 +694,14 @@ public class TnetSpdySession extends Session implements SessionCb {
                 ALog.m338e("awcn.TnetSpdySession", "[spdySessionFailedError]session clean up failed!", null, e, new Object[0]);
             }
         }
-        notifyStatus(2, new C0347b(256, i, "tnet connect fail"));
+        notifyStatus(2, new SessionEventDetails(256, i, "tnet connect fail"));
         ALog.m339e("awcn.TnetSpdySession", null, this.f110p, " errorId:", Integer.valueOf(i));
         SessionStatistic sessionStatistic = this.f111q;
         sessionStatistic.errorCode = i;
         sessionStatistic.ret = 0;
         sessionStatistic.netType = NetworkStatusHelper.getNetworkSubType();
         AppMonitor.getInstance().commitStat(this.f111q);
-        if (C0413c.m332b(this.f111q.f416ip)) {
+        if (AmdcStringEncoding.m332b(this.f111q.f416ip)) {
             AppMonitor.getInstance().commitStat(new SessionMonitor(this.f111q));
         }
         AppMonitor.getInstance().commitAlarm(this.f111q.getAlarmObject());
@@ -742,7 +742,7 @@ public class TnetSpdySession extends Session implements SessionCb {
             } catch (SpdyErrorException e) {
                 if (e.SpdyErrorGetCode() == -1104 || e.SpdyErrorGetCode() == -1103) {
                     ALog.m339e("awcn.TnetSpdySession", "Send request on closed session!!!", this.f110p, new Object[0]);
-                    notifyStatus(6, new C0347b(2));
+                    notifyStatus(6, new SessionEventDetails(2));
                 }
                 ALog.m338e("awcn.TnetSpdySession", "ping", this.f110p, e, new Object[0]);
             } catch (Exception e2) {
@@ -757,7 +757,7 @@ public class TnetSpdySession extends Session implements SessionCb {
         this.f384w = SpdyAgent.getInstance(this.f95a, SpdyVersion.SPDY3, SpdySessionKind.NONE_SESSION);
         ISecurity iSecurity = this.f381G;
         if (iSecurity != null && !iSecurity.isSecOff()) {
-            this.f384w.setAccsSslCallback(new C0384j(this));
+            this.f384w.setAccsSslCallback(new SpdyPublicKeyCallback(this));
         }
         if (AwcnConfig.isTnetHeaderCacheEnable()) {
             return;
@@ -774,7 +774,7 @@ public class TnetSpdySession extends Session implements SessionCb {
     public void m223b() {
         IAuth iAuth = this.f379E;
         if (iAuth != null) {
-            iAuth.auth(this, new C0383i(this));
+            iAuth.auth(this, new SpdySessionAuthCallback(this));
             return;
         }
         notifyStatus(4, null);

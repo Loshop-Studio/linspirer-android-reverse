@@ -10,7 +10,7 @@ import org.android.agoo.common.AgooConstants;
 
 /* loaded from: classes.dex */
 public class FileDownloadModel implements Parcelable {
-    public static final Parcelable.Creator<FileDownloadModel> CREATOR = new C1708a();
+    public static final Parcelable.Creator<FileDownloadModel> CREATOR = new DownloadModelParcelCreator();
 
     /* renamed from: a */
     public int f4834a;
@@ -49,7 +49,7 @@ public class FileDownloadModel implements Parcelable {
     public boolean f4845l;
 
     /* renamed from: com.liulishuo.filedownloader.model.FileDownloadModel$a */
-    public static class C1708a implements Parcelable.Creator<FileDownloadModel> {
+    public static class DownloadModelParcelCreator implements Parcelable.Creator<FileDownloadModel> {
         @Override // android.os.Parcelable.Creator
         public FileDownloadModel createFromParcel(Parcel parcel) {
             return new FileDownloadModel(parcel);

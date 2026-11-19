@@ -14,11 +14,11 @@ import com.android.launcher3.network.params.UploadAppItem;
 import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.AppUploadSPHelper;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.PostBuilder;
 import com.huawei.hem.LauncherMenuHelper;
@@ -48,16 +48,16 @@ public class UploadAppHelper {
         try {
             LTKDateUtil.m1403m("UploadAppHelper  get alread install apps ");
             List<String> listMo1311M0 = LTKDateUtil.f2294f.mo1311M0();
-            if (AbstractC1102l9.m2273N(listMo1311M0)) {
-                listMo1311M0 = C1219q0.m2504F();
+            if (MobileSdkPlatformUtilities.m2273N(listMo1311M0)) {
+                listMo1311M0 = AgooNotificationHandler.m2504F();
             }
-            if (AbstractC1102l9.m2273N(listMo1311M0)) {
+            if (MobileSdkPlatformUtilities.m2273N(listMo1311M0)) {
                 listMo1311M0 = new ArrayList<>();
             }
             ArrayList arrayList2 = new ArrayList();
             for (String str : listMo1311M0) {
                 if (str.contains(";")) {
-                    arrayList2.add(AbstractC1102l9.m2276Q(str, ";")[0]);
+                    arrayList2.add(MobileSdkPlatformUtilities.m2276Q(str, ";")[0]);
                 }
             }
             PackageManager packageManager = context.getPackageManager();
@@ -112,7 +112,7 @@ public class UploadAppHelper {
     private void uploadAppList() {
         try {
             List<UploadAppItem> uploadApps = getUploadApps(this.mContext);
-            if (AbstractC1102l9.m2273N(uploadApps)) {
+            if (MobileSdkPlatformUtilities.m2273N(uploadApps)) {
                 LTKDateUtil.m1403m("UploadAppHelper  no need upload apps");
                 return;
             }

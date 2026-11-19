@@ -228,7 +228,7 @@ public class SilentUpdateWizard extends AbsUpdateWizard {
             if (this.f4491d == null) {
                 mo3293a(DownloadProgress.class);
             }
-            AbstractC1510o abstractC1510o = this.f4491d;
+            UpdateAlertDialog abstractC1510o = this.f4491d;
             if (abstractC1510o != null) {
                 ((DownloadProgress) abstractC1510o).m3356b(i);
             }
@@ -258,7 +258,7 @@ public class SilentUpdateWizard extends AbsUpdateWizard {
             }
             if (i == 2) {
                 this.f4465k.removeCallbacksAndMessages(null);
-                AbstractC1510o abstractC1510o = this.f4491d;
+                UpdateAlertDialog abstractC1510o = this.f4491d;
                 if (abstractC1510o != null) {
                     ((DownloadProgress) abstractC1510o).m3356b(100);
                 }
@@ -291,9 +291,9 @@ public class SilentUpdateWizard extends AbsUpdateWizard {
 
     @Override // com.huawei.hms.availableupdate.AbstractC1509n
     /* renamed from: a */
-    public void mo3293a(Class<? extends AbstractC1510o> cls) throws IllegalAccessException, InstantiationException {
+    public void mo3293a(Class<? extends UpdateAlertDialog> cls) throws IllegalAccessException, InstantiationException {
         try {
-            AbstractC1510o abstractC1510oNewInstance = cls.newInstance();
+            UpdateAlertDialog abstractC1510oNewInstance = cls.newInstance();
             if (this.f4466l > 0 && (abstractC1510oNewInstance instanceof DownloadProgress)) {
                 ((DownloadProgress) abstractC1510oNewInstance).m3355a(this.f4466l);
             }

@@ -51,7 +51,7 @@ public final class BeepManager {
             }
         });
         try {
-            AssetFileDescriptor assetFileDescriptorOpenRawResourceFd = this.context.getResources().openRawResourceFd(C0787R.raw.zxing_beep);
+            AssetFileDescriptor assetFileDescriptorOpenRawResourceFd = this.context.getResources().openRawResourceFd(ZxingClientAndroidResources.raw.zxing_beep);
             try {
                 mediaPlayer.setDataSource(assetFileDescriptorOpenRawResourceFd.getFileDescriptor(), assetFileDescriptorOpenRawResourceFd.getStartOffset(), assetFileDescriptorOpenRawResourceFd.getLength());
                 assetFileDescriptorOpenRawResourceFd.close();

@@ -18,10 +18,10 @@ import com.android.launcher3.network.SynchronizeTimeUtil;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C1023i5;
+import com.huawei.hem.TimeReceiverViolationCallback;
 import com.huawei.hem.EyeProtectedHelper;
 import com.huawei.hem.WorkspaceTacticsHelper;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
 
@@ -87,7 +87,7 @@ public class TimeReceiver extends BroadcastReceiver {
             }
             if (LTKDateUtil.f2292d && LTKDateUtil.f2291c + 3600000 <= System.currentTimeMillis()) {
                 LTKDateUtil.m1412v(false);
-                RunningLogHelper.UploadRunningLog(context, C1395x1.f4038a + "log/");
+                RunningLogHelper.UploadRunningLog(context, LauncherConstants.f4038a + "log/");
             }
             if (LauncherDeviceUtils.m1589f().equals("BVE-W10")) {
                 long jM1596m = LauncherDeviceUtils.m1596m();
@@ -100,14 +100,14 @@ public class TimeReceiver extends BroadcastReceiver {
                 }
                 int i5 = (int) ((blockSizeLong * 100) / jM1596m);
                 if (i5 > 6) {
-                    if (C1395x1.f4040c == 1 || i5 > 10) {
+                    if (LauncherConstants.f4040c == 1 || i5 > 10) {
                         if (i5 > 10) {
-                            C1395x1.f4040c = 0;
+                            LauncherConstants.f4040c = 0;
                             return;
                         }
                         return;
                     } else {
-                        C1395x1.f4040c = 1;
+                        LauncherConstants.f4040c = 1;
                         LTKDateUtil.m1403m("TimeReceiver min 10");
                         Bundle bundle2 = new Bundle();
                         bundle2.putInt("action", 6);
@@ -116,13 +116,13 @@ public class TimeReceiver extends BroadcastReceiver {
                         return;
                     }
                 }
-                LTKDateUtil.m1403m("TimeReceiver min  6" + C1395x1.f4040c + " " + m1282a());
-                if (m1282a() || C1395x1.f4040c == -1) {
+                LTKDateUtil.m1403m("TimeReceiver min  6" + LauncherConstants.f4040c + " " + m1282a());
+                if (m1282a() || LauncherConstants.f4040c == -1) {
                     return;
                 }
-                C1395x1.f4040c = 2;
+                LauncherConstants.f4040c = 2;
                 UserInfoUtil.b.f4202a.m3039d0(9, true);
-                IllegalHelper.getInstance().setIllegalCallBack(new C1023i5(this, context));
+                IllegalHelper.getInstance().setIllegalCallBack(new TimeReceiverViolationCallback(this, context));
                 IllegalHelper.getInstance().recordInternalStorageOverFlow(String.format(context.getString(R.string.internal_storage_size), "7G"));
             }
         }

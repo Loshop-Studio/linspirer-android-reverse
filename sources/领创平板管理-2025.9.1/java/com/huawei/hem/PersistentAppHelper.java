@@ -20,7 +20,7 @@ public class PersistentAppHelper {
         arrayList.add("com.android.launcher3");
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add("com.zykj.manage");
-        if (!AbstractC1102l9.m2273N(arrayList2)) {
+        if (!MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             arrayList.addAll(arrayList2);
         }
         f4269a.addAll(arrayList);
@@ -28,7 +28,7 @@ public class PersistentAppHelper {
         StringBuilder sbM1765j = CompilerOutline.m1765j("PersistentAppHelper read last alive apps:");
         sbM1765j.append(arrayList.toString());
         LTKDateUtil.m1403m(sbM1765j.toString());
-        if (AbstractC1102l9.m2273N(listMo1352o)) {
+        if (MobileSdkPlatformUtilities.m2273N(listMo1352o)) {
             String strM3034b = UserInfoUtil.b.f4202a.m3034b();
             if (!TextUtils.isEmpty(strM3034b) && !"null".equals(strM3034b)) {
                 arrayList.add(strM3034b);

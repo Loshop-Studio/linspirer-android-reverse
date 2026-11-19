@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 
 /* loaded from: classes.dex */
 public final class SMSParsedResult extends ParsedResult {
@@ -42,7 +42,7 @@ public final class SMSParsedResult extends ParsedResult {
             if (z) {
                 z = false;
             } else {
-                sbM1765j.append(AbstractC1604b.COMMA);
+                sbM1765j.append(UpdateJsonBean.COMMA);
             }
             sbM1765j.append(this.numbers[i]);
             String[] strArr = this.vias;

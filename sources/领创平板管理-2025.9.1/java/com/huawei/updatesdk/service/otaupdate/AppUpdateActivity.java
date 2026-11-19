@@ -28,28 +28,28 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p035a.C1581a;
-import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
-import com.huawei.updatesdk.p034a.p035a.p040d.p041h.C1594c;
-import com.huawei.updatesdk.p034a.p035a.p040d.p042i.C1597a;
-import com.huawei.updatesdk.p034a.p043b.p044a.C1598a;
-import com.huawei.updatesdk.p034a.p043b.p045b.AbstractC1599a;
-import com.huawei.updatesdk.p034a.p043b.p045b.C1600b;
-import com.huawei.updatesdk.p048b.p054d.AsyncTaskC1624c;
-import com.huawei.updatesdk.p048b.p054d.C1622a;
-import com.huawei.updatesdk.p048b.p054d.C1623b;
-import com.huawei.updatesdk.p048b.p054d.C1627f;
-import com.huawei.updatesdk.p048b.p055e.C1632e;
-import com.huawei.updatesdk.p048b.p056f.C1635c;
-import com.huawei.updatesdk.p048b.p056f.InterfaceC1634b;
-import com.huawei.updatesdk.p048b.p058h.C1640b;
-import com.huawei.updatesdk.p048b.p058h.C1641c;
-import com.huawei.updatesdk.p048b.p058h.C1642d;
-import com.huawei.updatesdk.p048b.p059i.C1643a;
-import com.huawei.updatesdk.p048b.p059i.InterfaceC1644b;
+import com.huawei.updatesdk.p034a.p035a.UpdateSdkLog;
+import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.UpdateLogWriter;
+import com.huawei.updatesdk.p034a.p035a.p040d.p041h.UpdateDeviceInfoUtil;
+import com.huawei.updatesdk.p034a.p035a.p040d.p042i.UpdateNetworkInfo;
+import com.huawei.updatesdk.p034a.p043b.p044a.UpdateApplicationContext;
+import com.huawei.updatesdk.p034a.p043b.p045b.UpdateBroadcastReceiver;
+import com.huawei.updatesdk.p034a.p043b.p045b.SafeUpdateIntent;
+import com.huawei.updatesdk.p048b.p054d.DownloadMarketPackageTask;
+import com.huawei.updatesdk.p048b.p054d.MarketInstallStatus;
+import com.huawei.updatesdk.p048b.p054d.DownloadMarketTaskData;
+import com.huawei.updatesdk.p048b.p054d.MarketDetailsQuery;
+import com.huawei.updatesdk.p048b.p055e.UpdateInitializerRegistry;
+import com.huawei.updatesdk.p048b.p056f.UpdateEventDispatcher;
+import com.huawei.updatesdk.p048b.p056f.UpdateEventListener;
+import com.huawei.updatesdk.p048b.p058h.UpdatePackageInfo;
+import com.huawei.updatesdk.p048b.p058h.UpdateResourceLookup;
+import com.huawei.updatesdk.p048b.p058h.UpdateProgressFormatter;
+import com.huawei.updatesdk.p048b.p059i.UpdateAlertDialogPresenter;
+import com.huawei.updatesdk.p048b.p059i.UpdateDialogActions;
 import com.huawei.updatesdk.service.appmgr.bean.ApkUpgradeInfo;
-import com.huawei.updatesdk.service.appmgr.bean.C1650c;
-import com.huawei.updatesdk.service.otaupdate.C1673c;
+import com.huawei.updatesdk.service.appmgr.bean.MarketPackageDetails;
+import com.huawei.updatesdk.service.otaupdate.AutoUpdateCoordinator;
 import com.taobao.accs.AccsClientConfig;
 import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
@@ -57,7 +57,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeoutException;
 
 /* loaded from: classes.dex */
-public class AppUpdateActivity extends Activity implements InterfaceC1672b, InterfaceC1634b {
+public class AppUpdateActivity extends Activity implements MarketDetailsCallback, UpdateEventListener {
 
     /* renamed from: a */
     public String f4745a;
@@ -66,10 +66,10 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     public AlertDialog f4746b;
 
     /* renamed from: c */
-    public C1643a f4747c;
+    public UpdateAlertDialogPresenter f4747c;
 
     /* renamed from: d */
-    public C1643a f4748d;
+    public UpdateAlertDialogPresenter f4748d;
 
     /* renamed from: e */
     public ProgressBar f4749e;
@@ -78,10 +78,10 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     public TextView f4750f;
 
     /* renamed from: l */
-    public AsyncTaskC1624c f4756l;
+    public DownloadMarketPackageTask f4756l;
 
     /* renamed from: q */
-    public C1669q f4761q;
+    public UpdatedPackageReceiver f4761q;
 
     /* renamed from: g */
     public boolean f4751g = false;
@@ -114,8 +114,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     public boolean f4762r = false;
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$a */
-    public class DialogInterfaceOnKeyListenerC1653a implements DialogInterface.OnKeyListener {
-        public DialogInterfaceOnKeyListenerC1653a() {
+    public class OtaPromptKeyListener implements DialogInterface.OnKeyListener {
+        public OtaPromptKeyListener() {
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
@@ -130,15 +130,15 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$b */
-    public class C1654b implements InterfaceC1644b {
+    public class MobileDownloadDialogActions implements UpdateDialogActions {
 
         /* renamed from: a */
-        public final /* synthetic */ C1650c f4764a;
+        public final /* synthetic */ MarketPackageDetails f4764a;
 
         /* renamed from: b */
-        public final /* synthetic */ C1643a f4765b;
+        public final /* synthetic */ UpdateAlertDialogPresenter f4765b;
 
-        public C1654b(C1650c c1650c, C1643a c1643a) {
+        public MobileDownloadDialogActions(MarketPackageDetails c1650c, UpdateAlertDialogPresenter c1643a) {
             this.f4764a = c1650c;
             this.f4765b = c1643a;
         }
@@ -165,8 +165,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$c */
-    public class C1655c implements C1643a.d {
-        public C1655c() {
+    public class MobileDownloadDialogCallback implements UpdateAlertDialogPresenter.d {
+        public MobileDownloadDialogCallback() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.C1643a.d
@@ -177,12 +177,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$d */
-    public class DialogInterfaceOnKeyListenerC1656d implements DialogInterface.OnKeyListener {
+    public class MobileDownloadKeyListener implements DialogInterface.OnKeyListener {
 
         /* renamed from: a */
-        public final /* synthetic */ C1643a f4768a;
+        public final /* synthetic */ UpdateAlertDialogPresenter f4768a;
 
-        public DialogInterfaceOnKeyListenerC1656d(C1643a c1643a) {
+        public MobileDownloadKeyListener(UpdateAlertDialogPresenter c1643a) {
             this.f4768a = c1643a;
         }
 
@@ -204,12 +204,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$e */
-    public class RunnableC1657e implements Runnable {
+    public class MarketInstallStateTask implements Runnable {
 
         /* renamed from: a */
-        public final /* synthetic */ C1600b f4770a;
+        public final /* synthetic */ SafeUpdateIntent f4770a;
 
-        public RunnableC1657e(C1600b c1600b) {
+        public MarketInstallStateTask(SafeUpdateIntent c1600b) {
             this.f4770a = c1600b;
         }
 
@@ -220,14 +220,14 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 return;
             }
             int i = bundleM3601b.getInt("INSTALL_STATE");
-            C1674d.m3873a().m3875a(AppUpdateActivity.this.m3822a(i, bundleM3601b.getInt("INSTALL_TYPE"), -1));
+            MarketUpdateCallbackDispatcher.m3873a().m3875a(AppUpdateActivity.this.m3822a(i, bundleM3601b.getInt("INSTALL_TYPE"), -1));
             AppUpdateActivity.this.m3848c(i);
         }
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$f */
-    public class C1658f implements InterfaceC1644b {
-        public C1658f() {
+    public class CancelDownloadDialogActions implements UpdateDialogActions {
+        public CancelDownloadDialogActions() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.InterfaceC1644b
@@ -258,8 +258,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$g */
-    public class C1659g implements C1643a.d {
-        public C1659g() {
+    public class CancelDownloadDialogCallback implements UpdateAlertDialogPresenter.d {
+        public CancelDownloadDialogCallback() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.C1643a.d
@@ -270,12 +270,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$h */
-    public class ViewOnClickListenerC1660h implements View.OnClickListener {
+    public class ProgressDialogCancelClick implements View.OnClickListener {
 
         /* renamed from: a */
         public final /* synthetic */ String f4774a;
 
-        public ViewOnClickListenerC1660h(String str) {
+        public ProgressDialogCancelClick(String str) {
             this.f4774a = str;
         }
 
@@ -286,15 +286,15 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$i */
-    public class C1661i implements InterfaceC1644b {
+    public class MarketInstallDialogActions implements UpdateDialogActions {
 
         /* renamed from: a */
-        public final /* synthetic */ C1650c f4776a;
+        public final /* synthetic */ MarketPackageDetails f4776a;
 
         /* renamed from: b */
-        public final /* synthetic */ C1643a f4777b;
+        public final /* synthetic */ UpdateAlertDialogPresenter f4777b;
 
-        public C1661i(C1650c c1650c, C1643a c1643a) {
+        public MarketInstallDialogActions(MarketPackageDetails c1650c, UpdateAlertDialogPresenter c1643a) {
             this.f4776a = c1650c;
             this.f4777b = c1643a;
         }
@@ -302,11 +302,11 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         @Override // com.huawei.updatesdk.p048b.p059i.InterfaceC1644b
         /* renamed from: a */
         public void mo3796a() {
-            if (!C1597a.m3589d(AppUpdateActivity.this)) {
+            if (!UpdateNetworkInfo.m3589d(AppUpdateActivity.this)) {
                 AppUpdateActivity appUpdateActivity = AppUpdateActivity.this;
-                Toast.makeText(appUpdateActivity, C1641c.m3774c(appUpdateActivity, "upsdk_no_available_network_prompt_toast"), 0).show();
+                Toast.makeText(appUpdateActivity, UpdateResourceLookup.m3774c(appUpdateActivity, "upsdk_no_available_network_prompt_toast"), 0).show();
                 AppUpdateActivity.this.finish();
-            } else if (C1597a.m3588c(AppUpdateActivity.this) != 1) {
+            } else if (UpdateNetworkInfo.m3588c(AppUpdateActivity.this) != 1) {
                 AppUpdateActivity.this.m3850c(this.f4776a);
             } else {
                 AppUpdateActivity.this.m3854d(this.f4776a);
@@ -329,8 +329,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$j */
-    public class C1662j implements C1643a.d {
-        public C1662j() {
+    public class MarketInstallDialogCallback implements UpdateAlertDialogPresenter.d {
+        public MarketInstallDialogCallback() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.C1643a.d
@@ -341,12 +341,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$k */
-    public class DialogInterfaceOnKeyListenerC1663k implements DialogInterface.OnKeyListener {
+    public class MarketInstallKeyListener implements DialogInterface.OnKeyListener {
 
         /* renamed from: a */
-        public final /* synthetic */ C1643a f4780a;
+        public final /* synthetic */ UpdateAlertDialogPresenter f4780a;
 
-        public DialogInterfaceOnKeyListenerC1663k(C1643a c1643a) {
+        public MarketInstallKeyListener(UpdateAlertDialogPresenter c1643a) {
             this.f4780a = c1643a;
         }
 
@@ -368,20 +368,20 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$l */
-    public class C1664l implements InterfaceC1644b {
-        public C1664l() {
+    public class OtaPromptDialogActions implements UpdateDialogActions {
+        public OtaPromptDialogActions() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.InterfaceC1644b
         /* renamed from: a */
         public void mo3796a() {
             AppUpdateActivity.this.f4759o = 101;
-            if (C1597a.m3589d(AppUpdateActivity.this)) {
+            if (UpdateNetworkInfo.m3589d(AppUpdateActivity.this)) {
                 AppUpdateActivity.this.m3856e();
                 return;
             }
             AppUpdateActivity appUpdateActivity = AppUpdateActivity.this;
-            Toast.makeText(appUpdateActivity, C1641c.m3774c(appUpdateActivity, "upsdk_no_available_network_prompt_toast"), 0).show();
+            Toast.makeText(appUpdateActivity, UpdateResourceLookup.m3774c(appUpdateActivity, "upsdk_no_available_network_prompt_toast"), 0).show();
             AppUpdateActivity.this.f4757m = 2;
             AppUpdateActivity.this.finish();
         }
@@ -396,15 +396,15 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 AppUpdateActivity.this.finish();
                 return;
             }
-            C1673c c1673c = new C1673c();
+            AutoUpdateCoordinator c1673c = new AutoUpdateCoordinator();
             AppUpdateActivity appUpdateActivity = AppUpdateActivity.this;
-            c1673c.m3870a(appUpdateActivity, appUpdateActivity.f4745a, AppUpdateActivity.this.new C1666n());
+            c1673c.m3870a(appUpdateActivity, appUpdateActivity.f4745a, AppUpdateActivity.this.new AutoUpdateDecisionCallback());
         }
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$m */
-    public class C1665m implements C1643a.d {
-        public C1665m() {
+    public class OtaPromptDialogCallback implements UpdateAlertDialogPresenter.d {
+        public OtaPromptDialogCallback() {
         }
 
         @Override // com.huawei.updatesdk.p048b.p059i.C1643a.d
@@ -415,8 +415,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$n */
-    public class C1666n implements C1673c.a {
-        public C1666n() {
+    public class AutoUpdateDecisionCallback implements AutoUpdateCoordinator.a {
+        public AutoUpdateDecisionCallback() {
         }
 
         @Override // com.huawei.updatesdk.service.otaupdate.C1673c.a
@@ -430,7 +430,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 } catch (ActivityNotFoundException e) {
                     StringBuilder sbM1765j = CompilerOutline.m1765j("goHiappUpgrade error: ");
                     sbM1765j.append(e.toString());
-                    C1584a.m3516b("AppUpdateActivity", sbM1765j.toString());
+                    UpdateLogWriter.m3516b("AppUpdateActivity", sbM1765j.toString());
                 }
             }
             AppUpdateActivity.this.finish();
@@ -438,11 +438,11 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$o */
-    public static class DialogInterfaceOnDismissListenerC1667o implements DialogInterface.OnDismissListener {
-        public DialogInterfaceOnDismissListenerC1667o() {
+    public static class UpdatePromptDismissListener implements DialogInterface.OnDismissListener {
+        public UpdatePromptDismissListener() {
         }
 
-        public /* synthetic */ DialogInterfaceOnDismissListenerC1667o(RunnableC1657e runnableC1657e) {
+        public /* synthetic */ UpdatePromptDismissListener(MarketInstallStateTask runnableC1657e) {
             this();
         }
 
@@ -450,16 +450,16 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         public void onDismiss(DialogInterface dialogInterface) {
             Intent intent = new Intent();
             intent.putExtra(UpdateKey.DIALOG_STATUS, UpdateDialogStatusCode.DISMISS);
-            C1674d.m3873a().m3877b(intent);
+            MarketUpdateCallbackDispatcher.m3873a().m3877b(intent);
         }
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$p */
-    public static class DialogInterfaceOnShowListenerC1668p implements DialogInterface.OnShowListener {
-        public DialogInterfaceOnShowListenerC1668p() {
+    public static class UpdatePromptShowListener implements DialogInterface.OnShowListener {
+        public UpdatePromptShowListener() {
         }
 
-        public /* synthetic */ DialogInterfaceOnShowListenerC1668p(RunnableC1657e runnableC1657e) {
+        public /* synthetic */ UpdatePromptShowListener(MarketInstallStateTask runnableC1657e) {
             this();
         }
 
@@ -467,22 +467,22 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         public void onShow(DialogInterface dialogInterface) {
             Intent intent = new Intent();
             intent.putExtra(UpdateKey.DIALOG_STATUS, UpdateDialogStatusCode.SHOW);
-            C1674d.m3873a().m3877b(intent);
+            MarketUpdateCallbackDispatcher.m3873a().m3877b(intent);
         }
     }
 
     /* renamed from: com.huawei.updatesdk.service.otaupdate.AppUpdateActivity$q */
-    public class C1669q extends AbstractC1599a {
-        public C1669q() {
+    public class UpdatedPackageReceiver extends UpdateBroadcastReceiver {
+        public UpdatedPackageReceiver() {
         }
 
-        public /* synthetic */ C1669q(AppUpdateActivity appUpdateActivity, RunnableC1657e runnableC1657e) {
+        public /* synthetic */ UpdatedPackageReceiver(AppUpdateActivity appUpdateActivity, MarketInstallStateTask runnableC1657e) {
             this();
         }
 
         @Override // com.huawei.updatesdk.p034a.p043b.p045b.AbstractC1599a
         /* renamed from: a */
-        public void mo3594a(Context context, C1600b c1600b) {
+        public void mo3594a(Context context, SafeUpdateIntent c1600b) {
             if (c1600b.m3603d()) {
                 if (AppUpdateActivity.this.f4747c != null) {
                     AppUpdateActivity.this.f4747c.m3784a();
@@ -495,8 +495,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 }
                 String strSubstring = dataString.substring(8);
                 if ("android.intent.action.PACKAGE_ADDED".equals(strM3597a) && TextUtils.equals(AppUpdateActivity.this.f4745a, strSubstring)) {
-                    C1674d.m3873a().m3875a(AppUpdateActivity.this.m3822a(6, 0, -1));
-                    C1640b.m3762a();
+                    MarketUpdateCallbackDispatcher.m3873a().m3875a(AppUpdateActivity.this.m3822a(6, 0, -1));
+                    UpdatePackageInfo.m3762a();
                     AppUpdateActivity appUpdateActivity = AppUpdateActivity.this;
                     appUpdateActivity.m3835a(appUpdateActivity.f4753i.getPackage_(), AppUpdateActivity.this.f4753i.getDetailId_());
                     if (AppUpdateActivity.this.f4754j) {
@@ -544,15 +544,15 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
             this.f4746b.dismiss();
             this.f4746b = null;
         } catch (IllegalArgumentException unused) {
-            C1584a.m3514a("AppUpdateActivity", "progressDialog dismiss IllegalArgumentException");
+            UpdateLogWriter.m3514a("AppUpdateActivity", "progressDialog dismiss IllegalArgumentException");
         }
     }
 
     /* renamed from: a */
     private void m3825a(View view) {
-        if (C1594c.m3578i()) {
+        if (UpdateDeviceInfoUtil.m3578i()) {
             try {
-                ScrollView scrollView = (ScrollView) view.findViewById(C1641c.m3770a(this, "scroll_layout"));
+                ScrollView scrollView = (ScrollView) view.findViewById(UpdateResourceLookup.m3770a(this, "scroll_layout"));
                 TypedValue typedValue = new TypedValue();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getTheme().resolveAttribute(R.attr.dialogPreferredPadding, typedValue, true);
@@ -560,23 +560,23 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
                 int iComplexToDimensionPixelSize = TypedValue.complexToDimensionPixelSize(typedValue.data, displayMetrics);
                 scrollView.setPadding(iComplexToDimensionPixelSize, 0, iComplexToDimensionPixelSize, 0);
             } catch (Exception e) {
-                C1584a.m3516b("AppUpdateActivity", e.toString());
+                UpdateLogWriter.m3516b("AppUpdateActivity", e.toString());
             }
         }
     }
 
     /* renamed from: a */
-    private void m3826a(C1600b c1600b) {
+    private void m3826a(SafeUpdateIntent c1600b) {
         Bundle bundleM3601b = c1600b.m3601b();
         if (bundleM3601b != null) {
             int i = bundleM3601b.getInt("download_status_param", -1);
-            C1674d.m3873a().m3875a(m3822a(-1, -1, i));
-            if (C1622a.m3696a(i)) {
+            MarketUpdateCallbackDispatcher.m3873a().m3875a(m3822a(-1, -1, i));
+            if (MarketInstallStatus.m3696a(i)) {
                 return;
             }
             m3824a();
-            if (C1622a.m3697b(i)) {
-                Toast.makeText(this, getString(C1641c.m3774c(this, "upsdk_third_app_dl_install_failed")), 0).show();
+            if (MarketInstallStatus.m3697b(i)) {
+                Toast.makeText(this, getString(UpdateResourceLookup.m3774c(this, "upsdk_third_app_dl_install_failed")), 0).show();
                 finish();
             }
         }
@@ -597,7 +597,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         } else {
             longSize_ = apkUpgradeInfo.getObbSize_() + apkUpgradeInfo.getLongSize_();
         }
-        String strM3778a = C1642d.m3778a(this, longSize_);
+        String strM3778a = UpdateProgressFormatter.m3778a(this, longSize_);
         SpannableString spannableString = new SpannableString(strM3778a);
         spannableString.setSpan(new StrikethroughSpan(), 0, strM3778a.length(), 33);
         spannableString.setSpan(new TextAppearanceSpan("HwChinese-medium", 0, (int) textView.getTextSize(), null, null), 0, spannableString.length(), 33);
@@ -616,11 +616,11 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         } catch (ActivityNotFoundException e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("goHiappUpgrade error: ");
             sbM1765j.append(e.toString());
-            C1584a.m3516b("AppUpdateActivity", sbM1765j.toString());
+            UpdateLogWriter.m3516b("AppUpdateActivity", sbM1765j.toString());
             this.f4752h = true;
             Intent intent2 = new Intent();
             intent2.putExtra("status", 8);
-            C1674d.m3873a().m3877b(intent2);
+            MarketUpdateCallbackDispatcher.m3873a().m3877b(intent2);
             m3840b(this.f4753i);
         }
     }
@@ -647,13 +647,13 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         } catch (Exception e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("openMarketUpdateDetail error: ");
             sbM1765j.append(e.toString());
-            C1581a.m3500a("AppUpdateActivity", sbM1765j.toString());
-            C1627f.m3724a(this);
-            C1627f.m3725a(this.f4762r);
+            UpdateSdkLog.m3500a("AppUpdateActivity", sbM1765j.toString());
+            MarketDetailsQuery.m3724a(this);
+            MarketDetailsQuery.m3725a(this.f4762r);
             Intent intent2 = new Intent();
             intent2.putExtra("status", 8);
-            C1674d.m3873a().m3877b(intent2);
-            C1643a c1643a = this.f4748d;
+            MarketUpdateCallbackDispatcher.m3873a().m3877b(intent2);
+            UpdateAlertDialogPresenter c1643a = this.f4748d;
             if (c1643a != null) {
                 c1643a.m3784a();
             }
@@ -665,71 +665,71 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
         intentFilter.addDataScheme("package");
-        C1669q c1669q = new C1669q(this, null);
+        UpdatedPackageReceiver c1669q = new UpdatedPackageReceiver(this, null);
         this.f4761q = c1669q;
-        AbstractC1671a.m3867a(this, intentFilter, c1669q);
+        UpdateActivityUtilities.m3867a(this, intentFilter, c1669q);
     }
 
     /* renamed from: b */
-    private void m3839b(C1600b c1600b) {
+    private void m3839b(SafeUpdateIntent c1600b) {
         if (this.f4749e == null) {
             return;
         }
-        this.f4749e.setProgress(C1642d.m3776a(c1600b.m3600b("download_apk_already", 0), c1600b.m3600b("download_apk_size", 0)));
-        this.f4750f.setText(C1642d.m3777a((int) ((this.f4749e.getProgress() / this.f4749e.getMax()) * 100.0f)));
+        this.f4749e.setProgress(UpdateProgressFormatter.m3776a(c1600b.m3600b("download_apk_already", 0), c1600b.m3600b("download_apk_size", 0)));
+        this.f4750f.setText(UpdateProgressFormatter.m3777a((int) ((this.f4749e.getProgress() / this.f4749e.getMax()) * 100.0f)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
     public void m3840b(ApkUpgradeInfo apkUpgradeInfo) {
-        C1581a.m3501b("AppUpdateActivity", "showOtaDialog");
+        UpdateSdkLog.m3501b("AppUpdateActivity", "showOtaDialog");
         if (apkUpgradeInfo == null) {
             finish();
             return;
         }
-        String string = getString(C1641c.m3774c(this, "upsdk_ota_title"));
-        String string2 = getString(C1641c.m3774c(this, "upsdk_ota_notify_updatebtn"));
-        String string3 = getString(C1641c.m3774c(this, "upsdk_ota_cancel"));
+        String string = getString(UpdateResourceLookup.m3774c(this, "upsdk_ota_title"));
+        String string2 = getString(UpdateResourceLookup.m3774c(this, "upsdk_ota_notify_updatebtn"));
+        String string3 = getString(UpdateResourceLookup.m3774c(this, "upsdk_ota_cancel"));
         m3843b(string);
         if (1 == apkUpgradeInfo.getIsCompulsoryUpdate_()) {
-            string3 = getString(C1641c.m3774c(this, "upsdk_ota_force_cancel_new"));
+            string3 = getString(UpdateResourceLookup.m3774c(this, "upsdk_ota_force_cancel_new"));
             if (this.f4755k) {
                 this.f4748d.m3794c();
             }
             this.f4751g = true;
         }
-        this.f4748d.m3791a(new C1664l());
+        this.f4748d.m3791a(new OtaPromptDialogActions());
         m3847c();
-        this.f4748d.m3790a(new C1665m());
+        this.f4748d.m3790a(new OtaPromptDialogCallback());
         if (this.f4751g) {
             this.f4748d.m3792a(false);
         } else {
-            this.f4748d.m3786a(new DialogInterfaceOnKeyListenerC1653a());
+            this.f4748d.m3786a(new OtaPromptKeyListener());
         }
-        this.f4748d.m3789a(C1643a.c.CONFIRM, string2);
-        this.f4748d.m3789a(C1643a.c.CANCEL, string3);
+        this.f4748d.m3789a(UpdateAlertDialogPresenter.c.CONFIRM, string2);
+        this.f4748d.m3789a(UpdateAlertDialogPresenter.c.CANCEL, string3);
     }
 
     /* renamed from: b */
-    private void m3841b(C1650c c1650c) {
-        C1643a c1643aM3780a = C1643a.m3780a(this, null, getString(C1641c.m3774c(this, "upsdk_appstore_install"), new Object[]{c1650c.m3802a()}));
-        c1643aM3780a.m3791a(new C1661i(c1650c, c1643aM3780a));
-        String string = getString(C1641c.m3774c(this, "upsdk_app_download_info_new"));
-        c1643aM3780a.m3790a(new C1662j());
-        c1643aM3780a.m3789a(C1643a.c.CONFIRM, string);
-        c1643aM3780a.m3786a(new DialogInterfaceOnKeyListenerC1663k(c1643aM3780a));
+    private void m3841b(MarketPackageDetails c1650c) {
+        UpdateAlertDialogPresenter c1643aM3780a = UpdateAlertDialogPresenter.m3780a(this, null, getString(UpdateResourceLookup.m3774c(this, "upsdk_appstore_install"), new Object[]{c1650c.m3802a()}));
+        c1643aM3780a.m3791a(new MarketInstallDialogActions(c1650c, c1643aM3780a));
+        String string = getString(UpdateResourceLookup.m3774c(this, "upsdk_app_download_info_new"));
+        c1643aM3780a.m3790a(new MarketInstallDialogCallback());
+        c1643aM3780a.m3789a(UpdateAlertDialogPresenter.c.CONFIRM, string);
+        c1643aM3780a.m3786a(new MarketInstallKeyListener(c1643aM3780a));
     }
 
     /* renamed from: b */
     private void m3843b(String str) {
-        View viewInflate = LayoutInflater.from(this).inflate(C1641c.m3773b(this, "upsdk_ota_update_view"), (ViewGroup) null);
-        ((TextView) viewInflate.findViewById(C1641c.m3770a(this, "content_textview"))).setText(TextUtils.isEmpty(this.f4753i.getNewFeatures_()) ? getString(C1641c.m3774c(this, "upsdk_choice_update")) : this.f4753i.getNewFeatures_());
-        ((TextView) viewInflate.findViewById(C1641c.m3770a(this, "version_textview"))).setText(this.f4753i.getVersion_());
-        ((TextView) viewInflate.findViewById(C1641c.m3770a(this, "appsize_textview"))).setText(C1642d.m3778a(this, m3821a(this.f4753i)));
-        ((TextView) viewInflate.findViewById(C1641c.m3770a(this, "name_textview"))).setText(this.f4753i.getName_());
-        m3827a(this.f4753i, (TextView) viewInflate.findViewById(C1641c.m3770a(this, "allsize_textview")));
+        View viewInflate = LayoutInflater.from(this).inflate(UpdateResourceLookup.m3773b(this, "upsdk_ota_update_view"), (ViewGroup) null);
+        ((TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "content_textview"))).setText(TextUtils.isEmpty(this.f4753i.getNewFeatures_()) ? getString(UpdateResourceLookup.m3774c(this, "upsdk_choice_update")) : this.f4753i.getNewFeatures_());
+        ((TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "version_textview"))).setText(this.f4753i.getVersion_());
+        ((TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "appsize_textview"))).setText(UpdateProgressFormatter.m3778a(this, m3821a(this.f4753i)));
+        ((TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "name_textview"))).setText(this.f4753i.getName_());
+        m3827a(this.f4753i, (TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "allsize_textview")));
         m3825a(viewInflate);
-        C1643a c1643aM3780a = C1643a.m3780a(this, str, null);
+        UpdateAlertDialogPresenter c1643aM3780a = UpdateAlertDialogPresenter.m3780a(this, str, null);
         this.f4748d = c1643aM3780a;
         c1643aM3780a.m3788a(viewInflate);
     }
@@ -738,31 +738,31 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     private void m3844b(String str, String str2) {
         AlertDialog alertDialog = this.f4746b;
         if (alertDialog == null || !alertDialog.isShowing()) {
-            this.f4746b = (C1594c.m3578i() ? new AlertDialog.Builder(this) : ((getResources().getConfiguration().uiMode & 48) != 32 || Build.VERSION.SDK_INT < 29) ? new AlertDialog.Builder(this, R.style.Theme.DeviceDefault.Light.Dialog.Alert) : new AlertDialog.Builder(this, R.style.Theme.DeviceDefault.Dialog.Alert)).create();
-            View viewInflate = LayoutInflater.from(this).inflate(C1641c.m3773b(this, "upsdk_app_dl_progress_dialog"), (ViewGroup) null);
-            ((TextView) viewInflate.findViewById(C1641c.m3770a(this, "third_app_warn_text"))).setText(getString(C1641c.m3774c(this, "upsdk_app_download_installing"), new Object[]{str2}));
-            ProgressBar progressBar = (ProgressBar) viewInflate.findViewById(C1641c.m3770a(this, "third_app_dl_progressbar"));
+            this.f4746b = (UpdateDeviceInfoUtil.m3578i() ? new AlertDialog.Builder(this) : ((getResources().getConfiguration().uiMode & 48) != 32 || Build.VERSION.SDK_INT < 29) ? new AlertDialog.Builder(this, R.style.Theme.DeviceDefault.Light.Dialog.Alert) : new AlertDialog.Builder(this, R.style.Theme.DeviceDefault.Dialog.Alert)).create();
+            View viewInflate = LayoutInflater.from(this).inflate(UpdateResourceLookup.m3773b(this, "upsdk_app_dl_progress_dialog"), (ViewGroup) null);
+            ((TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "third_app_warn_text"))).setText(getString(UpdateResourceLookup.m3774c(this, "upsdk_app_download_installing"), new Object[]{str2}));
+            ProgressBar progressBar = (ProgressBar) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "third_app_dl_progressbar"));
             this.f4749e = progressBar;
             progressBar.setMax(100);
-            this.f4750f = (TextView) viewInflate.findViewById(C1641c.m3770a(this, "third_app_dl_progress_text"));
-            viewInflate.findViewById(C1641c.m3770a(this, "cancel_bg")).setOnClickListener(new ViewOnClickListenerC1660h(str));
+            this.f4750f = (TextView) viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "third_app_dl_progress_text"));
+            viewInflate.findViewById(UpdateResourceLookup.m3770a(this, "cancel_bg")).setOnClickListener(new ProgressDialogCancelClick(str));
             this.f4746b.setView(viewInflate);
             this.f4746b.setCancelable(false);
             this.f4746b.setCanceledOnTouchOutside(false);
-            if (!AbstractC1671a.m3868a(this)) {
+            if (!UpdateActivityUtilities.m3868a(this)) {
                 this.f4746b.show();
             }
-            this.f4750f.setText(C1642d.m3777a(0));
+            this.f4750f.setText(UpdateProgressFormatter.m3777a(0));
         }
     }
 
     /* renamed from: c */
     private void m3847c() {
-        C1643a c1643a = this.f4748d;
+        UpdateAlertDialogPresenter c1643a = this.f4748d;
         if (c1643a != null) {
-            RunnableC1657e runnableC1657e = null;
-            c1643a.m3785a(new DialogInterfaceOnDismissListenerC1667o(runnableC1657e));
-            this.f4748d.m3787a(new DialogInterfaceOnShowListenerC1668p(runnableC1657e));
+            MarketInstallStateTask runnableC1657e = null;
+            c1643a.m3785a(new UpdatePromptDismissListener(runnableC1657e));
+            this.f4748d.m3787a(new UpdatePromptShowListener(runnableC1657e));
         }
     }
 
@@ -770,12 +770,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     /* renamed from: c */
     public void m3848c(int i) {
         if (i == 5 || i == 4) {
-            Toast.makeText(this, getString(C1641c.m3774c(this, "upsdk_third_app_dl_install_failed")), 0).show();
-            C1640b.m3762a();
+            Toast.makeText(this, getString(UpdateResourceLookup.m3774c(this, "upsdk_third_app_dl_install_failed")), 0).show();
+            UpdatePackageInfo.m3762a();
             finish();
         }
         if (i == 7) {
-            C1640b.m3762a();
+            UpdatePackageInfo.m3762a();
             if (this.f4751g) {
                 m3840b(this.f4753i);
             } else {
@@ -785,51 +785,51 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     }
 
     /* renamed from: c */
-    private void m3849c(C1600b c1600b) {
-        new Handler(Looper.getMainLooper()).post(new RunnableC1657e(c1600b));
+    private void m3849c(SafeUpdateIntent c1600b) {
+        new Handler(Looper.getMainLooper()).post(new MarketInstallStateTask(c1600b));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: c */
-    public void m3850c(C1650c c1650c) {
-        C1643a c1643aM3780a = C1643a.m3780a(this, null, getString(C1641c.m3774c(this, "upsdk_mobile_dld_warn"), new Object[]{C1642d.m3778a(this, c1650c.m3804c())}));
-        c1643aM3780a.m3791a(new C1654b(c1650c, c1643aM3780a));
-        String string = getString(C1641c.m3774c(this, "upsdk_app_download_info_new"));
-        c1643aM3780a.m3790a(new C1655c());
-        c1643aM3780a.m3789a(C1643a.c.CONFIRM, string);
-        c1643aM3780a.m3786a(new DialogInterfaceOnKeyListenerC1656d(c1643aM3780a));
+    public void m3850c(MarketPackageDetails c1650c) {
+        UpdateAlertDialogPresenter c1643aM3780a = UpdateAlertDialogPresenter.m3780a(this, null, getString(UpdateResourceLookup.m3774c(this, "upsdk_mobile_dld_warn"), new Object[]{UpdateProgressFormatter.m3778a(this, c1650c.m3804c())}));
+        c1643aM3780a.m3791a(new MobileDownloadDialogActions(c1650c, c1643aM3780a));
+        String string = getString(UpdateResourceLookup.m3774c(this, "upsdk_app_download_info_new"));
+        c1643aM3780a.m3790a(new MobileDownloadDialogCallback());
+        c1643aM3780a.m3789a(UpdateAlertDialogPresenter.c.CONFIRM, string);
+        c1643aM3780a.m3786a(new MobileDownloadKeyListener(c1643aM3780a));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: c */
     public void m3851c(String str) {
-        C1643a c1643aM3780a = C1643a.m3780a(this, null, getString(C1641c.m3774c(this, "upsdk_third_app_dl_cancel_download_prompt_ex")));
+        UpdateAlertDialogPresenter c1643aM3780a = UpdateAlertDialogPresenter.m3780a(this, null, getString(UpdateResourceLookup.m3774c(this, "upsdk_third_app_dl_cancel_download_prompt_ex")));
         this.f4747c = c1643aM3780a;
-        c1643aM3780a.m3791a(new C1658f());
-        String string = getString(C1641c.m3774c(this, "upsdk_third_app_dl_sure_cancel_download"));
-        this.f4747c.m3790a(new C1659g());
-        this.f4747c.m3789a(C1643a.c.CONFIRM, string);
+        c1643aM3780a.m3791a(new CancelDownloadDialogActions());
+        String string = getString(UpdateResourceLookup.m3774c(this, "upsdk_third_app_dl_sure_cancel_download"));
+        this.f4747c.m3790a(new CancelDownloadDialogCallback());
+        this.f4747c.m3789a(UpdateAlertDialogPresenter.c.CONFIRM, string);
     }
 
     /* renamed from: d */
     private void m3853d() {
-        AbstractC1671a.m3866a(this, this.f4761q);
-        C1635c.m3743a().mo3741b(this);
-        AsyncTaskC1624c asyncTaskC1624c = this.f4756l;
+        UpdateActivityUtilities.m3866a(this, this.f4761q);
+        UpdateEventDispatcher.m3743a().mo3741b(this);
+        DownloadMarketPackageTask asyncTaskC1624c = this.f4756l;
         if (asyncTaskC1624c != null) {
             asyncTaskC1624c.m3717b();
         }
-        C1627f.m3724a((InterfaceC1672b) null);
+        MarketDetailsQuery.m3724a((MarketDetailsCallback) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: d */
-    public void m3854d(C1650c c1650c) {
+    public void m3854d(MarketPackageDetails c1650c) {
         m3838b();
         m3844b(c1650c.m3805d(), c1650c.m3802a());
-        C1623b c1623b = new C1623b(c1650c.m3803b(), c1650c.m3804c(), c1650c.m3806e());
+        DownloadMarketTaskData c1623b = new DownloadMarketTaskData(c1650c.m3803b(), c1650c.m3804c(), c1650c.m3806e());
         c1623b.m3701a(c1650c.m3805d());
-        AsyncTaskC1624c asyncTaskC1624c = new AsyncTaskC1624c(c1623b);
+        DownloadMarketPackageTask asyncTaskC1624c = new DownloadMarketPackageTask(c1623b);
         this.f4756l = asyncTaskC1624c;
         asyncTaskC1624c.executeOnExecutor(Executors.newSingleThreadExecutor(), new Void[0]);
     }
@@ -837,26 +837,26 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: e */
     public void m3856e() {
-        if (C1640b.m3767c(this, this.f4745a)) {
+        if (UpdatePackageInfo.m3767c(this, this.f4745a)) {
             m3835a(this.f4753i.getPackage_(), this.f4753i.getDetailId_());
             return;
         }
-        C1627f.m3724a(this);
-        C1627f.m3725a(this.f4762r);
+        MarketDetailsQuery.m3724a(this);
+        MarketDetailsQuery.m3725a(this.f4762r);
         this.f4748d.m3784a();
     }
 
     @Override // com.huawei.updatesdk.service.otaupdate.InterfaceC1672b
     /* renamed from: a */
     public void mo3862a(int i) {
-        Toast.makeText(this, getString(C1641c.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
-        C1674d.m3873a().m3874a(i);
+        Toast.makeText(this, getString(UpdateResourceLookup.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
+        MarketUpdateCallbackDispatcher.m3873a().m3874a(i);
         finish();
     }
 
     @Override // com.huawei.updatesdk.p048b.p056f.InterfaceC1634b
     /* renamed from: a */
-    public void mo3742a(int i, C1600b c1600b) {
+    public void mo3742a(int i, SafeUpdateIntent c1600b) {
         if (c1600b == null) {
             return;
         }
@@ -871,12 +871,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
 
     @Override // com.huawei.updatesdk.service.otaupdate.InterfaceC1672b
     /* renamed from: a */
-    public void mo3863a(C1650c c1650c) {
+    public void mo3863a(MarketPackageDetails c1650c) {
         if (c1650c == null || !c1650c.m3807f()) {
-            Toast.makeText(this, getString(C1641c.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
+            Toast.makeText(this, getString(UpdateResourceLookup.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
             finish();
         } else {
-            C1635c.m3743a().mo3740a(this);
+            UpdateEventDispatcher.m3743a().mo3740a(this);
             this.f4745a = c1650c.m3805d();
             m3841b(c1650c);
         }
@@ -885,8 +885,8 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     @Override // com.huawei.updatesdk.service.otaupdate.InterfaceC1672b
     /* renamed from: b */
     public void mo3864b(int i) {
-        Toast.makeText(this, getString(C1641c.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
-        C1674d.m3873a().m3874a(i);
+        Toast.makeText(this, getString(UpdateResourceLookup.m3774c(this, "upsdk_getting_message_fail_prompt_toast")), 0).show();
+        MarketUpdateCallbackDispatcher.m3873a().m3874a(i);
         finish();
     }
 
@@ -901,7 +901,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         this.f4760p.putExtra(UpdateKey.FAIL_CODE, this.f4758n);
         this.f4760p.putExtra(UpdateKey.MUST_UPDATE, this.f4751g);
         this.f4760p.putExtra(UpdateKey.BUTTON_STATUS, this.f4759o);
-        C1674d.m3873a().m3877b(this.f4760p);
+        MarketUpdateCallbackDispatcher.m3873a().m3877b(this.f4760p);
         super.finish();
     }
 
@@ -909,7 +909,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     public void onActivityResult(int i, int i2, Intent intent) {
         if (i == 1002) {
             if (intent != null) {
-                C1600b c1600bM3595a = C1600b.m3595a(intent);
+                SafeUpdateIntent c1600bM3595a = SafeUpdateIntent.m3595a(intent);
                 this.f4757m = i2;
                 this.f4758n = c1600bM3595a.m3596a("installResultCode", -99);
                 this.f4751g = c1600bM3595a.m3599a(UpdateKey.MUST_UPDATE, false);
@@ -926,10 +926,10 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         requestWindowFeature(1);
-        C1594c.m3568d().m3581a(getWindow());
+        UpdateDeviceInfoUtil.m3568d().m3581a(getWindow());
         super.onCreate(bundle);
-        Bundle bundleM3601b = C1600b.m3595a(getIntent()).m3601b();
-        C1598a.m3590a(this);
+        Bundle bundleM3601b = SafeUpdateIntent.m3595a(getIntent()).m3601b();
+        UpdateApplicationContext.m3590a(this);
         if (bundleM3601b != null) {
             try {
                 serializable = bundleM3601b.getSerializable("app_update_parm");
@@ -937,19 +937,19 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
             } catch (Exception e) {
                 StringBuilder sbM1765j = CompilerOutline.m1765j("Type Conversion Error: ");
                 sbM1765j.append(e.toString());
-                C1581a.m3500a("AppUpdateActivity", sbM1765j.toString());
+                UpdateSdkLog.m3500a("AppUpdateActivity", sbM1765j.toString());
                 super.finish();
                 return;
             }
         } else {
             serializable = null;
         }
-        String strMo3731b = C1632e.m3738a(this.f4762r ? "apptouch" : AccsClientConfig.DEFAULT_CONFIGTAG).mo3731b();
+        String strMo3731b = UpdateInitializerRegistry.m3738a(this.f4762r ? "apptouch" : AccsClientConfig.DEFAULT_CONFIGTAG).mo3731b();
         this.f4745a = strMo3731b;
         if (TextUtils.isEmpty(strMo3731b)) {
             StringBuilder sbM1765j2 = CompilerOutline.m1765j("finish activity and appStorePkgName is: ");
             sbM1765j2.append(this.f4745a);
-            C1581a.m3500a("AppUpdateActivity", sbM1765j2.toString());
+            UpdateSdkLog.m3500a("AppUpdateActivity", sbM1765j2.toString());
             super.finish();
             return;
         }
@@ -963,7 +963,7 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
         if (this.f4753i.getIsCompulsoryUpdate_() == 1) {
             this.f4754j = true;
         }
-        if (this.f4753i.getDevType_() == 1 && C1640b.m3761a(this, this.f4745a) == C1640b.b.INSTALLED) {
+        if (this.f4753i.getDevType_() == 1 && UpdatePackageInfo.m3761a(this, this.f4745a) == UpdatePackageInfo.b.INSTALLED) {
             m3834a(this.f4753i.getPackage_());
         } else {
             m3840b(this.f4753i);
@@ -972,12 +972,12 @@ public class AppUpdateActivity extends Activity implements InterfaceC1672b, Inte
 
     @Override // android.app.Activity
     public void onDestroy() {
-        C1643a c1643a = this.f4747c;
+        UpdateAlertDialogPresenter c1643a = this.f4747c;
         if (c1643a != null) {
             c1643a.m3784a();
             this.f4747c = null;
         }
-        C1643a c1643a2 = this.f4748d;
+        UpdateAlertDialogPresenter c1643a2 = this.f4748d;
         if (c1643a2 != null) {
             c1643a2.m3784a();
             this.f4748d = null;

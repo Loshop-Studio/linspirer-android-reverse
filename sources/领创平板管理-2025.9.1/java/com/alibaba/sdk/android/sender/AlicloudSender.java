@@ -38,7 +38,7 @@ public class AlicloudSender {
     public static Map<String, SdkInfo> f1342c;
 
     /* renamed from: d */
-    public static Map<String, C0593a> f1343d;
+    public static Map<String, SenderSdkVersionRecord> f1343d;
 
     /* renamed from: g */
     public static SendService f1346g;
@@ -63,7 +63,7 @@ public class AlicloudSender {
     public static final SimpleDateFormat f1349j = new SimpleDateFormat("yyyyMMdd");
 
     /* renamed from: com.alibaba.sdk.android.sender.AlicloudSender$a */
-    public static class C0593a {
+    public static class SenderSdkVersionRecord {
 
         /* renamed from: a */
         public int f1353a;
@@ -74,7 +74,7 @@ public class AlicloudSender {
         /* renamed from: c */
         public String f1355c;
 
-        public C0593a() {
+        public SenderSdkVersionRecord() {
             this.f1353a = -1;
             this.f1354b = "";
             this.f1355c = "";
@@ -137,14 +137,14 @@ public class AlicloudSender {
     }
 
     /* renamed from: a */
-    public static void m961a(Context context, Map<String, C0593a> map) throws JSONException {
+    public static void m961a(Context context, Map<String, SenderSdkVersionRecord> map) throws JSONException {
         SharedPreferences.Editor editorRemove;
         if (map == null || map.isEmpty()) {
             editorRemove = context.getSharedPreferences("sp_emas_info", 0).edit().remove("emas_sdk_info");
         } else {
             JSONArray jSONArray = new JSONArray();
             for (String str : map.keySet()) {
-                C0593a c0593a = map.get(str);
+                SenderSdkVersionRecord c0593a = map.get(str);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(AgooConstants.MESSAGE_ID, str);
@@ -221,7 +221,7 @@ public class AlicloudSender {
     public static void m963b(final Context context, final SdkInfo sdkInfo) {
         final String str = f1349j.format(new Date(System.currentTimeMillis()));
         try {
-            C0593a c0593a = f1343d.get(sdkInfo.m972a());
+            SenderSdkVersionRecord c0593a = f1343d.get(sdkInfo.m972a());
             if (c0593a == null || !TextUtils.equals(str, c0593a.f1354b) || !TextUtils.equals(sdkInfo.m973b(), c0593a.f1355c) || c0593a.f1353a != 0) {
                 f1341b.execute(new Runnable() { // from class: com.alibaba.sdk.android.sender.AlicloudSender.2
                     @Override // java.lang.Runnable
@@ -238,9 +238,9 @@ public class AlicloudSender {
 
     /* renamed from: b */
     public static void m964b(Context context, SdkInfo sdkInfo, String str) throws JSONException {
-        C0593a c0593a = f1343d.get(sdkInfo.m972a());
+        SenderSdkVersionRecord c0593a = f1343d.get(sdkInfo.m972a());
         if (c0593a == null) {
-            c0593a = new C0593a();
+            c0593a = new SenderSdkVersionRecord();
             f1343d.put(sdkInfo.m972a(), c0593a);
         }
         HashMap map = new HashMap();
@@ -273,7 +273,7 @@ public class AlicloudSender {
     }
 
     /* renamed from: c */
-    public static Map<String, C0593a> m965c(Context context) throws JSONException {
+    public static Map<String, SenderSdkVersionRecord> m965c(Context context) throws JSONException {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         String string = context.getSharedPreferences("sp_emas_info", 0).getString("emas_sdk_info", "");
         if (!TextUtils.isEmpty(string)) {
@@ -283,7 +283,7 @@ public class AlicloudSender {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         String string2 = jSONObject.getString(AgooConstants.MESSAGE_ID);
-                        C0593a c0593a = new C0593a();
+                        SenderSdkVersionRecord c0593a = new SenderSdkVersionRecord();
                         c0593a.f1354b = jSONObject.getString("time");
                         c0593a.f1353a = jSONObject.getInt("statu");
                         c0593a.f1355c = jSONObject.getString("version");

@@ -1,9 +1,9 @@
 package anet.channel.statist;
 
 import anet.channel.status.NetworkStatusHelper;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.strategy.ConnProtocol;
-import anet.channel.util.C0422c;
+import anet.channel.util.NetworkAddressRegistry;
 
 /* compiled from: Taobao */
 @Monitor(module = "networkPrefer", monitorPoint = "horseRace")
@@ -63,9 +63,9 @@ public class HorseRaceStat extends StatObject {
     public volatile String bssid = NetworkStatusHelper.getWifiBSSID();
 
     @Dimension
-    public volatile int ipStackType = C0422c.m351c();
+    public volatile int ipStackType = NetworkAddressRegistry.m351c();
 
-    public HorseRaceStat(String str, C0407l.e eVar) {
+    public HorseRaceStat(String str, AmdcStrategyResultParser.e eVar) {
         this.host = str;
         this.f411ip = eVar.f551a;
         this.port = eVar.f552b.f521a;

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseFragment;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.CompilerOutline;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -61,8 +61,8 @@ public class KeyInfoFragment extends BaseFragment {
     public String f1990u;
 
     /* renamed from: com.android.launcher3.fragment.home.KeyInfoFragment$a */
-    public class AsyncTaskC0662a extends AsyncTask {
-        public AsyncTaskC0662a() {
+    public class KeyInfoNetworkTask extends AsyncTask {
+        public KeyInfoNetworkTask() {
         }
 
         @Override // android.os.AsyncTask
@@ -72,7 +72,7 @@ public class KeyInfoFragment extends BaseFragment {
             InputStream inputStream;
             StringBuilder sb;
             KeyInfoFragment keyInfoFragment = KeyInfoFragment.this;
-            new C0876cc(keyInfoFragment.f1800a);
+            new LauncherNetworkUtil(keyInfoFragment.f1800a);
             String strGroup = "";
             InputStream inputStream2 = null;
             try {

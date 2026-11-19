@@ -8,13 +8,13 @@ import java.io.OutputStream;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class ByteArrayEntry implements BodyEntry {
-    public static final Parcelable.Creator<ByteArrayEntry> CREATOR = new C0367a();
+    public static final Parcelable.Creator<ByteArrayEntry> CREATOR = new ByteArrayEntryCreator();
     public byte[] bytes;
     public String contentType;
     public int count;
     public int offset;
 
-    public /* synthetic */ ByteArrayEntry(C0367a c0367a) {
+    public /* synthetic */ ByteArrayEntry(ByteArrayEntryCreator c0367a) {
         this();
     }
 

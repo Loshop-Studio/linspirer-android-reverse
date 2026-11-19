@@ -20,7 +20,7 @@ public class AccsState {
     public static final String SDK_VERSION = "sv";
 
     /* renamed from: a */
-    public HashMap<String, C1896c> f6035a = new HashMap<>();
+    public HashMap<String, AccsStateEventHistory> f6035a = new HashMap<>();
 
     /* renamed from: b */
     public long f6036b = -1;
@@ -30,7 +30,7 @@ public class AccsState {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.AccsState$a */
-    public static class C1894a {
+    public static class AccsStateHolder {
 
         /* renamed from: a */
         public static final AccsState f6038a = new AccsState();
@@ -38,7 +38,7 @@ public class AccsState {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.AccsState$b */
-    public static class C1895b {
+    public static class AccsStateEventRecord {
 
         /* renamed from: a */
         public long f6039a;
@@ -49,7 +49,7 @@ public class AccsState {
         /* renamed from: c */
         public String f6041c;
 
-        public C1895b(long j, String str, String str2) {
+        public AccsStateEventRecord(long j, String str, String str2) {
             this.f6039a = j;
             this.f6040b = str;
             this.f6041c = str2;
@@ -67,33 +67,33 @@ public class AccsState {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.AccsState$c */
-    public static class C1896c {
+    public static class AccsStateEventHistory {
         public static final int MAX_HISTORY = 5;
 
         /* renamed from: a */
-        public HashMap<String, C1895b> f6042a;
+        public HashMap<String, AccsStateEventRecord> f6042a;
 
         /* renamed from: b */
-        public HashMap<String, ArrayList<C1895b>> f6043b;
+        public HashMap<String, ArrayList<AccsStateEventRecord>> f6043b;
 
-        public C1896c() {
+        public AccsStateEventHistory() {
             this.f6042a = new HashMap<>();
             this.f6043b = new HashMap<>();
         }
 
         /* renamed from: a */
         public void m5457a(String str, Object obj, long j) {
-            this.f6042a.put(str, new C1895b(j, str, m5455a(obj)));
+            this.f6042a.put(str, new AccsStateEventRecord(j, str, m5455a(obj)));
         }
 
         /* renamed from: b */
         public void m5460b(String str, Object obj, long j) {
-            ArrayList<C1895b> arrayList = this.f6043b.get(str);
+            ArrayList<AccsStateEventRecord> arrayList = this.f6043b.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
                 this.f6043b.put(str, arrayList);
             }
-            arrayList.add(new C1895b(j, str, m5455a(obj)));
+            arrayList.add(new AccsStateEventRecord(j, str, m5455a(obj)));
             while (arrayList.size() > 5) {
                 arrayList.remove(0);
             }
@@ -114,16 +114,16 @@ public class AccsState {
             JSONArray jSONArray = new JSONArray();
             Iterator it = new ArrayList(this.f6042a.values()).iterator();
             while (it.hasNext()) {
-                jSONArray.put(((C1895b) it.next()).m5454a());
+                jSONArray.put(((AccsStateEventRecord) it.next()).m5454a());
             }
             ArrayList arrayList = new ArrayList();
-            Iterator<ArrayList<C1895b>> it2 = this.f6043b.values().iterator();
+            Iterator<ArrayList<AccsStateEventRecord>> it2 = this.f6043b.values().iterator();
             while (it2.hasNext()) {
                 arrayList.addAll(it2.next());
             }
             Iterator it3 = arrayList.iterator();
             while (it3.hasNext()) {
-                jSONArray.put(((C1895b) it3.next()).m5454a());
+                jSONArray.put(((AccsStateEventRecord) it3.next()).m5454a());
             }
             return jSONArray;
         }
@@ -131,13 +131,13 @@ public class AccsState {
         /* renamed from: b */
         public JSONArray m5459b(String str) {
             JSONArray jSONArray = new JSONArray();
-            C1895b c1895b = this.f6042a.get(str);
+            AccsStateEventRecord c1895b = this.f6042a.get(str);
             if (c1895b != null) {
                 jSONArray.put(c1895b.m5454a());
             }
-            ArrayList<C1895b> arrayList = this.f6043b.get(str);
+            ArrayList<AccsStateEventRecord> arrayList = this.f6043b.get(str);
             if (arrayList != null) {
-                Iterator<C1895b> it = arrayList.iterator();
+                Iterator<AccsStateEventRecord> it = arrayList.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().m5454a());
                 }
@@ -147,7 +147,7 @@ public class AccsState {
     }
 
     public static AccsState getInstance() {
-        return C1894a.f6038a;
+        return AccsStateHolder.f6038a;
     }
 
     /* renamed from: a */
@@ -170,7 +170,7 @@ public class AccsState {
             Iterator it = new ArrayList(this.f6035a.entrySet()).iterator();
             while (it.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
-                jSONObject.put((String) entry.getKey(), ((C1896c) entry.getValue()).m5456a());
+                jSONObject.put((String) entry.getKey(), ((AccsStateEventHistory) entry.getValue()).m5456a());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -188,8 +188,8 @@ public class AccsState {
             Iterator it = new ArrayList(this.f6035a.entrySet()).iterator();
             while (it.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
-                if (((C1896c) entry.getValue()).m5458a(str)) {
-                    jSONObject.put((String) entry.getKey(), ((C1896c) entry.getValue()).m5459b(str));
+                if (((AccsStateEventHistory) entry.getValue()).m5458a(str)) {
+                    jSONObject.put((String) entry.getKey(), ((AccsStateEventHistory) entry.getValue()).m5459b(str));
                 }
             }
         } catch (Throwable th) {
@@ -209,12 +209,12 @@ public class AccsState {
     }
 
     /* renamed from: a */
-    private C1896c m5444a(String str) {
-        C1896c c1896c = this.f6035a.get(str);
+    private AccsStateEventHistory m5444a(String str) {
+        AccsStateEventHistory c1896c = this.f6035a.get(str);
         if (c1896c != null) {
             return c1896c;
         }
-        C1896c c1896c2 = new C1896c();
+        AccsStateEventHistory c1896c2 = new AccsStateEventHistory();
         this.f6035a.put(str, c1896c2);
         return c1896c2;
     }
@@ -234,15 +234,15 @@ public class AccsState {
     }
 
     /* renamed from: a */
-    private boolean m5446a(HashMap<String, C1896c> map) {
+    private boolean m5446a(HashMap<String, AccsStateEventHistory> map) {
         return map.size() > 0;
     }
 
     /* renamed from: a */
-    private boolean m5447a(HashMap<String, C1896c> map, String str) {
+    private boolean m5447a(HashMap<String, AccsStateEventHistory> map, String str) {
         Iterator it = new ArrayList(map.values()).iterator();
         while (it.hasNext()) {
-            if (((C1896c) it.next()).m5458a(str)) {
+            if (((AccsStateEventHistory) it.next()).m5458a(str)) {
                 return true;
             }
         }

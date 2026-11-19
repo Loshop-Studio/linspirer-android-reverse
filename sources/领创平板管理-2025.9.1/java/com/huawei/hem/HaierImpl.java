@@ -19,7 +19,7 @@ public class HaierImpl extends AndroidImpl {
     public static HaierImpl f3686b = new HaierImpl();
 
     /* renamed from: c */
-    public static C1200p6 f3687c;
+    public static HaierDevicePolicyManager f3687c;
 
     /* compiled from: HaierImpl.java */
     /* renamed from: com.huawei.hem.sc$a */
@@ -34,7 +34,7 @@ public class HaierImpl extends AndroidImpl {
 
         @Override // java.lang.Runnable
         public void run() {
-            C1200p6 c1200p6 = HaierImpl.f3687c;
+            HaierDevicePolicyManager c1200p6 = HaierImpl.f3687c;
             List<String> list = this.f3688a;
             ApiManager apiManager = c1200p6.f3438a;
             if (apiManager == null) {
@@ -57,7 +57,7 @@ public class HaierImpl extends AndroidImpl {
 
         @Override // java.lang.Runnable
         public void run() {
-            C1200p6 c1200p6 = HaierImpl.f3687c;
+            HaierDevicePolicyManager c1200p6 = HaierImpl.f3687c;
             List<String> list = this.f3689a;
             ApiManager apiManager = c1200p6.f3438a;
             if (apiManager == null) {
@@ -86,7 +86,7 @@ public class HaierImpl extends AndroidImpl {
     /* renamed from: E0 */
     public void mo1336E0(List<String> list) {
         LTKDateUtil.m1403m("HaierImpl -- setPersistentApp ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1390A("HaierImpl -- setPersistentApp , but it is null ");
             return;
         }
@@ -147,7 +147,7 @@ public class HaierImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: I0 */
     public void mo1308I0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1390A("HaierImpl -- setNetworkAccessAppWhiteList ,but pkgList is null .");
             return;
         }
@@ -314,7 +314,7 @@ public class HaierImpl extends AndroidImpl {
     public boolean mo1316V(List<String> list) {
         LTKDateUtil.m1403m("HaierImpl -- setUrlWhiteList ");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("HaierImpl -- setUrlWhiteList ，urlWhiteList is null，not need to add");
             } else {
                 new Thread(new a(this, list)).start();
@@ -372,7 +372,7 @@ public class HaierImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: d */
     public void mo1506d(ArrayList<String> arrayList) {
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             return;
         }
         LTKDateUtil.m1403m("HaierImpl -- setSuperWhiteListForSys ");
@@ -907,7 +907,7 @@ public class HaierImpl extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("HaierImpl -- setAppWhiteList and WhiteNetAppList ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return false;
         }
         try {

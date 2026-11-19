@@ -3,7 +3,7 @@ package com.huawei.hem;
 import anet.channel.util.HttpConstant;
 import com.huawei.hem.OkHttpClient;
 import com.huawei.hem.OkHttpResponse;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -34,7 +34,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
     public long f3880f = 262144;
 
     /* renamed from: g */
-    public C1438yj f3881g;
+    public OkHttpHeaderList f3881g;
 
     /* compiled from: Http1ExchangeCodec.java */
     /* renamed from: com.huawei.hem.ul$b */
@@ -166,7 +166,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
             if (this.f3883b) {
                 return;
             }
-            if (this.f3890f && !C1314tk.m2755j(this, 100, TimeUnit.MILLISECONDS)) {
+            if (this.f3890f && !OkHttpCommonUtilities.m2755j(this, 100, TimeUnit.MILLISECONDS)) {
                 Http1ExchangeCodec.this.f3876b.m1833i();
                 m2822a();
             }
@@ -243,7 +243,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
             if (this.f3883b) {
                 return;
             }
-            if (this.f3892d != 0 && !C1314tk.m2755j(this, 100, TimeUnit.MILLISECONDS)) {
+            if (this.f3892d != 0 && !OkHttpCommonUtilities.m2755j(this, 100, TimeUnit.MILLISECONDS)) {
                 Http1ExchangeCodec.this.f3876b.m1833i();
                 m2822a();
             }
@@ -323,7 +323,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
             if (this.f3895b) {
                 throw new IllegalStateException("closed");
             }
-            C1314tk.m2748c(c1016hn.f2884b, 0L, j);
+            OkHttpCommonUtilities.m2748c(c1016hn.f2884b, 0L, j);
             Http1ExchangeCodec.this.f3878d.mo1619p(c1016hn, j);
         }
     }
@@ -406,7 +406,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
         if (!c0988gk.f2785a.f4311a.equals(HttpConstant.HTTPS) && type == Proxy.Type.HTTP) {
             sb.append(c0988gk.f2785a);
         } else {
-            sb.append(C1339uk.m2816b(c0988gk.f2785a));
+            sb.append(OkHttpVersionInfo.m2816b(c0988gk.f2785a));
         }
         sb.append(" HTTP/1.1");
         m2821m(c0988gk.f2787c, sb.toString());
@@ -422,7 +422,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
     public void cancel() throws IOException {
         RealConnection c0963fl = this.f3876b;
         if (c0963fl != null) {
-            C1314tk.m2750e(c0963fl.f2683d);
+            OkHttpCommonUtilities.m2750e(c0963fl.f2683d);
         }
     }
 
@@ -556,14 +556,14 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
     }
 
     /* renamed from: l */
-    public final C1438yj m2820l() {
-        C1438yj.a aVar = new C1438yj.a();
+    public final OkHttpHeaderList m2820l() {
+        OkHttpHeaderList.a aVar = new OkHttpHeaderList.a();
         while (true) {
             String strM2819k = m2819k();
             if (strM2819k.length() == 0) {
-                return new C1438yj(aVar);
+                return new OkHttpHeaderList(aVar);
             }
-            if (((OkHttpClient.a) AbstractC1264rk.f3645a) == null) {
+            if (((OkHttpClient.a) OkHttpInternalAccess.f3645a) == null) {
                 throw null;
             }
             int iIndexOf = strM2819k.indexOf(":", 1);
@@ -581,7 +581,7 @@ public final class Http1ExchangeCodec implements ExchangeCodec {
     }
 
     /* renamed from: m */
-    public void m2821m(C1438yj c1438yj, String str) {
+    public void m2821m(OkHttpHeaderList c1438yj, String str) {
         if (this.f3879e != 0) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("state: ");
             sbM1765j.append(this.f3879e);

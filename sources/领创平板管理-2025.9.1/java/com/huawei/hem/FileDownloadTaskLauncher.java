@@ -28,7 +28,7 @@ public class FileDownloadTaskLauncher {
             MessageSnapshotFlow c1059jg = MessageSnapshotFlow.a.f2953a;
             MessageSnapshotGate c0879cf = new MessageSnapshotGate();
             c1059jg.f2952b = c0879cf;
-            c1059jg.f2951a = new C1135mg(5, c0879cf);
+            c1059jg.f2951a = new DownloadSnapshotThreadPool(5, c0879cf);
         }
     }
 

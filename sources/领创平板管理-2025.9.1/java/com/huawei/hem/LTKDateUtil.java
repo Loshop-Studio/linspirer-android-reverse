@@ -244,7 +244,7 @@ public class LTKDateUtil {
         m1395e("1191ADF1-8489-D8DA-5E9B-755A8B674394");
         try {
             Cipher cipherM1402l = m1402l(2);
-            return cipherM1402l == null ? str : new String(cipherM1402l.doFinal(C0940eo.m1689e(str.getBytes())));
+            return cipherM1402l == null ? str : new String(cipherM1402l.doFinal(HemBase64Codec.m1689e(str.getBytes())));
         } catch (BadPaddingException e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("logout two:");
             sbM1765j.append(e.getMessage());
@@ -381,7 +381,7 @@ public class LTKDateUtil {
         String string;
         try {
             m1403m("APKUtil verifyDownloadedApk " + str);
-            if (!C0930ee.m1681f(str)) {
+            if (!LauncherFileUtil.m1681f(str)) {
                 m1403m(" not exist" + str);
                 return false;
             }

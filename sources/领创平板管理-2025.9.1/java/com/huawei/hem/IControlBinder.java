@@ -16,12 +16,12 @@ public interface IControlBinder extends IInterface {
 
         /* compiled from: IControlBinder.java */
         /* renamed from: com.huawei.hem.mh$a$a, reason: collision with other inner class name */
-        public static class C2076a implements IControlBinder {
+        public static class SeewoControlBinderProxy implements IControlBinder {
 
             /* renamed from: a */
             public IBinder f3267a;
 
-            public C2076a(IBinder iBinder) {
+            public SeewoControlBinderProxy(IBinder iBinder) {
                 this.f3267a = iBinder;
             }
 
@@ -398,7 +398,7 @@ public interface IControlBinder extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.seewo.aidlinterface.IControlBinder");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IControlBinder)) ? new C2076a(iBinder) : (IControlBinder) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IControlBinder)) ? new SeewoControlBinderProxy(iBinder) : (IControlBinder) iInterfaceQueryLocalInterface;
         }
     }
 

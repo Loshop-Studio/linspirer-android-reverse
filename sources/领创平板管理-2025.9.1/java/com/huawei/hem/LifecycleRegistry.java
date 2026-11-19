@@ -3,7 +3,7 @@ package com.huawei.hem;
 import android.arch.lifecycle.GenericLifecycleObserver;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.SafeIterableMap;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /* compiled from: LifecycleRegistry.java */
 /* renamed from: com.huawei.hem.k */
 /* loaded from: classes.dex */
-public class LifecycleRegistry extends AbstractC0992h {
+public class LifecycleRegistry extends ArchitectureLifecycle {
 
     /* renamed from: c */
     public final WeakReference<LifecycleOwner> f2995c;
@@ -29,29 +29,29 @@ public class LifecycleRegistry extends AbstractC0992h {
     public boolean f2998f = false;
 
     /* renamed from: g */
-    public ArrayList<AbstractC0992h.b> f2999g = new ArrayList<>();
+    public ArrayList<ArchitectureLifecycle.b> f2999g = new ArrayList<>();
 
     /* renamed from: b */
-    public AbstractC0992h.b f2994b = AbstractC0992h.b.INITIALIZED;
+    public ArchitectureLifecycle.b f2994b = ArchitectureLifecycle.b.INITIALIZED;
 
     /* compiled from: LifecycleRegistry.java */
     /* renamed from: com.huawei.hem.k$a */
     public static class a {
 
         /* renamed from: a */
-        public AbstractC0992h.b f3000a;
+        public ArchitectureLifecycle.b f3000a;
 
         /* renamed from: b */
         public GenericLifecycleObserver f3001b;
 
-        public a(LifecycleObserver interfaceC1017i, AbstractC0992h.b bVar) {
+        public a(LifecycleObserver interfaceC1017i, ArchitectureLifecycle.b bVar) {
             this.f3001b = Lifecycling.m2342c(interfaceC1017i);
             this.f3000a = bVar;
         }
 
         /* renamed from: a */
-        public void m2155a(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) {
-            AbstractC0992h.b bVarM2147b = LifecycleRegistry.m2147b(aVar);
+        public void m2155a(LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar) {
+            ArchitectureLifecycle.b bVarM2147b = LifecycleRegistry.m2147b(aVar);
             this.f3000a = LifecycleRegistry.m2148d(this.f3000a, bVarM2147b);
             this.f3001b.mo0d(interfaceC1042j, aVar);
             this.f3000a = bVarM2147b;
@@ -63,43 +63,43 @@ public class LifecycleRegistry extends AbstractC0992h {
     }
 
     /* renamed from: b */
-    public static AbstractC0992h.b m2147b(AbstractC0992h.a aVar) {
+    public static ArchitectureLifecycle.b m2147b(ArchitectureLifecycle.a aVar) {
         int iOrdinal = aVar.ordinal();
         if (iOrdinal != 0) {
             if (iOrdinal != 1) {
                 if (iOrdinal == 2) {
-                    return AbstractC0992h.b.RESUMED;
+                    return ArchitectureLifecycle.b.RESUMED;
                 }
                 if (iOrdinal != 3) {
                     if (iOrdinal != 4) {
                         if (iOrdinal == 5) {
-                            return AbstractC0992h.b.DESTROYED;
+                            return ArchitectureLifecycle.b.DESTROYED;
                         }
                         throw new IllegalArgumentException("Unexpected event value " + aVar);
                     }
                 }
             }
-            return AbstractC0992h.b.STARTED;
+            return ArchitectureLifecycle.b.STARTED;
         }
-        return AbstractC0992h.b.CREATED;
+        return ArchitectureLifecycle.b.CREATED;
     }
 
     /* renamed from: d */
-    public static AbstractC0992h.b m2148d(@NonNull AbstractC0992h.b bVar, @Nullable AbstractC0992h.b bVar2) {
+    public static ArchitectureLifecycle.b m2148d(@NonNull ArchitectureLifecycle.b bVar, @Nullable ArchitectureLifecycle.b bVar2) {
         return (bVar2 == null || bVar2.compareTo(bVar) >= 0) ? bVar : bVar2;
     }
 
     /* renamed from: h */
-    public static AbstractC0992h.a m2149h(AbstractC0992h.b bVar) {
+    public static ArchitectureLifecycle.a m2149h(ArchitectureLifecycle.b bVar) {
         int iOrdinal = bVar.ordinal();
         if (iOrdinal == 0 || iOrdinal == 1) {
-            return AbstractC0992h.a.ON_CREATE;
+            return ArchitectureLifecycle.a.ON_CREATE;
         }
         if (iOrdinal == 2) {
-            return AbstractC0992h.a.ON_START;
+            return ArchitectureLifecycle.a.ON_START;
         }
         if (iOrdinal == 3) {
-            return AbstractC0992h.a.ON_RESUME;
+            return ArchitectureLifecycle.a.ON_RESUME;
         }
         if (iOrdinal == 4) {
             throw new IllegalArgumentException();
@@ -108,11 +108,11 @@ public class LifecycleRegistry extends AbstractC0992h {
     }
 
     /* renamed from: a */
-    public final AbstractC0992h.b m2150a(LifecycleObserver interfaceC1017i) {
+    public final ArchitectureLifecycle.b m2150a(LifecycleObserver interfaceC1017i) {
         FastSafeIterableMap<LifecycleObserver, a> c0889d = this.f2993a;
-        AbstractC0992h.b bVar = null;
+        ArchitectureLifecycle.b bVar = null;
         SafeIterableMap.d<LifecycleObserver, a> dVar = c0889d.f2364e.containsKey(interfaceC1017i) ? c0889d.f2364e.get(interfaceC1017i).f2496d : null;
-        AbstractC0992h.b bVar2 = dVar != null ? dVar.getValue().f3000a : null;
+        ArchitectureLifecycle.b bVar2 = dVar != null ? dVar.getValue().f3000a : null;
         if (!this.f2999g.isEmpty()) {
             bVar = this.f2999g.get(r0.size() - 1);
         }
@@ -120,12 +120,12 @@ public class LifecycleRegistry extends AbstractC0992h {
     }
 
     /* renamed from: c */
-    public void m2151c(@NonNull AbstractC0992h.a aVar) {
+    public void m2151c(@NonNull ArchitectureLifecycle.a aVar) {
         m2152e(m2147b(aVar));
     }
 
     /* renamed from: e */
-    public final void m2152e(AbstractC0992h.b bVar) {
+    public final void m2152e(ArchitectureLifecycle.b bVar) {
         if (this.f2994b == bVar) {
             return;
         }

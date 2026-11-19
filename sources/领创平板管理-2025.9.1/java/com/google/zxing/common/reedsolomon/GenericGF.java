@@ -1,6 +1,6 @@
 package com.google.zxing.common.reedsolomon;
 
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 
 /* loaded from: classes.dex */
 public final class GenericGF {
@@ -108,6 +108,6 @@ public final class GenericGF {
     }
 
     public String toString() {
-        return "GF(0x" + Integer.toHexString(this.primitive) + AbstractC1604b.COMMA + this.size + ')';
+        return "GF(0x" + Integer.toHexString(this.primitive) + UpdateJsonBean.COMMA + this.size + ')';
     }
 }

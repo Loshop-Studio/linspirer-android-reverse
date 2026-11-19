@@ -33,7 +33,7 @@ public class BaseLoginRequestHelper extends BaseRequestHelper {
         LauncherMenuHelper.m2974U(context, LauncherNew.class);
         WallpaperHelper.getInstance().startCheck();
         ComponentHelper.m2652a().m2653b();
-        C1323u4.m2784c(context).m2785d();
+        SogouInputSettingsHelper.m2784c(context).m2785d();
         DeviceInfoUploadHelper.uploadInfo();
         LicenseHelper.getInstance().startCheck(context, true, true);
         AppTimeLimitHelper.getInstance().request();
@@ -51,7 +51,7 @@ public class BaseLoginRequestHelper extends BaseRequestHelper {
         try {
             Cipher cipherM1402l = LTKDateUtil.m1402l(1);
             if (cipherM1402l != null) {
-                str4 = new String(C0940eo.m1690f(cipherM1402l.doFinal(str4.getBytes())));
+                str4 = new String(HemBase64Codec.m1690f(cipherM1402l.doFinal(str4.getBytes())));
             }
         } catch (BadPaddingException e) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("loginold two:");
@@ -67,6 +67,6 @@ public class BaseLoginRequestHelper extends BaseRequestHelper {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("logoutold throwable:"));
         }
         contentValues.put("swdid", str4);
-        contentResolver.insert(UserDeviceInfoProvider.C0650a.f1902a, contentValues);
+        contentResolver.insert(UserDeviceInfoProvider.DeviceInfoTableColumns.f1902a, contentValues);
     }
 }

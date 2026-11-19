@@ -17,7 +17,7 @@ import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.ExceptionHandler;
 import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.LauncherDeviceUtils;
@@ -185,13 +185,13 @@ public class InitLoginHelper extends BaseLoginRequestHelper {
         String string = null;
         if (intent.hasExtra("interestClass")) {
             String[] stringArrayExtra = intent.getStringArrayExtra("interestClass");
-            if (!AbstractC1102l9.m2274O(stringArrayExtra)) {
+            if (!MobileSdkPlatformUtilities.m2274O(stringArrayExtra)) {
                 string = JSON.toJSON(stringArrayExtra).toString();
                 CompilerOutline.m1779x("InitLoginHelperinterest class:", string);
             }
         }
         String[] stringArrayExtra2 = intent.getStringArrayExtra("interestClass");
-        String string2 = !AbstractC1102l9.m2274O(stringArrayExtra2) ? JSON.toJSON(stringArrayExtra2).toString() : string;
+        String string2 = !MobileSdkPlatformUtilities.m2274O(stringArrayExtra2) ? JSON.toJSON(stringArrayExtra2).toString() : string;
         StringBuilder sbM1770o = CompilerOutline.m1770o("InitLoginHelper -- account: ", stringExtra, " , username: ", stringExtra2, " , schoolid: ");
         sbM1770o.append(stringExtra3);
         sbM1770o.append(" , classname: ");

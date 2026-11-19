@@ -8,11 +8,11 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.huawei.hem.AMapCoreException;
 import com.huawei.hem.AuthConfigManager;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import com.huawei.hem.ConstConfig;
-import com.huawei.hem.C1170o1;
+import com.huawei.hem.AMapSharedPreferences;
 import com.huawei.hms.framework.network.grs.GrsManager;
 import com.incar.mdm.MdmPolicyManager;
 import java.net.URL;
@@ -147,11 +147,11 @@ public final class HttpLimitUtil {
                             String strM2236e = "";
                             try {
                                 try {
-                                    bArrM1932c = C0994h1.m1932c(C1170o1.m2425g(context), C1094l1.m2255x(context.getSharedPreferences("Yb3Blbl9odHRwX2NvbnRyb2w", 0).getString(str2, "")), C1170o1.m2427i(context));
+                                    bArrM1932c = AMapEncryptionUtilities.m1932c(AMapSharedPreferences.m2425g(context), AMapCoreUtilities.m2255x(context.getSharedPreferences("Yb3Blbl9odHRwX2NvbnRyb2w", 0).getString(str2, "")), AMapSharedPreferences.m2427i(context));
                                 } catch (Exception unused) {
                                     bArrM1932c = new byte[0];
                                 }
-                                strM2236e = C1094l1.m2236e(bArrM1932c);
+                                strM2236e = AMapCoreUtilities.m2236e(bArrM1932c);
                             } catch (Throwable unused2) {
                             }
                             if (!TextUtils.isEmpty(strM2236e)) {
@@ -403,7 +403,7 @@ public final class HttpLimitUtil {
         }
         long jCurrentTimeMillis = System.currentTimeMillis();
         if (!TextUtils.isEmpty(aVar.f4947a) && aVar.f4948b > 0) {
-            long timeInMillis = jCurrentTimeMillis - C1094l1.m2238g(aVar.f4947a, "HH:mm:ss").getTimeInMillis();
+            long timeInMillis = jCurrentTimeMillis - AMapCoreUtilities.m2238g(aVar.f4947a, "HH:mm:ss").getTimeInMillis();
             if (timeInMillis > 0 && timeInMillis < aVar.f4948b * 1000) {
                 if (aVar.f4949c == 0.0d) {
                     return true;
@@ -613,12 +613,12 @@ public final class HttpLimitUtil {
                 try {
                     SharedPreferences.Editor editorEdit = context.getSharedPreferences("Yb3Blbl9odHRwX2NvbnRyb2w", 0).edit();
                     try {
-                        bArrM1936g = C0994h1.m1936g(C1170o1.m2425g(context), C1094l1.m2245n(string), C1170o1.m2427i(context));
+                        bArrM1936g = AMapEncryptionUtilities.m1936g(AMapSharedPreferences.m2425g(context), AMapCoreUtilities.m2245n(string), AMapSharedPreferences.m2427i(context));
                     } catch (Throwable unused) {
                         bArrM1936g = new byte[0];
                     }
-                    editorEdit.putString(strM2156a, C1094l1.m2230C(bArrM1936g));
-                    C1170o1.m2421c(editorEdit);
+                    editorEdit.putString(strM2156a, AMapCoreUtilities.m2230C(bArrM1936g));
+                    AMapSharedPreferences.m2421c(editorEdit);
                 } catch (Throwable unused2) {
                 }
             }
@@ -634,7 +634,7 @@ public final class HttpLimitUtil {
             if (f4941a.containsKey(str)) {
                 f4941a.remove(str);
             }
-            SharedPreferences.Editor editorM2420b = C1170o1.m2420b(AuthConfigManager.f2586c, "Yb3Blbl9odHRwX2NvbnRyb2w");
+            SharedPreferences.Editor editorM2420b = AMapSharedPreferences.m2420b(AuthConfigManager.f2586c, "Yb3Blbl9odHRwX2NvbnRyb2w");
             if (editorM2420b != null) {
                 try {
                     if (!TextUtils.isEmpty(str)) {
@@ -644,7 +644,7 @@ public final class HttpLimitUtil {
                     BasicLogHandler.m5312a(th, "sp", "rk");
                 }
             }
-            C1170o1.m2421c(editorM2420b);
+            AMapSharedPreferences.m2421c(editorM2420b);
         } catch (Throwable th2) {
             BasicLogHandler.m5312a(th2, "hlUtil", "rc");
         }

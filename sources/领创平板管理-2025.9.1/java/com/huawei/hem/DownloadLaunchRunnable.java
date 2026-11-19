@@ -140,7 +140,7 @@ public class DownloadLaunchRunnable implements Runnable, FileDownloadProcessCall
         int i = fileDownloadModel.f4834a;
         String str = fileDownloadModel.f4835b;
         String str2 = fileDownloadModel.f4836c;
-        InterfaceC0855bh interfaceC0855bh = c1209pf.f3457b;
+        DownloadConnectionCountPolicy interfaceC0855bh = c1209pf.f3457b;
         if (interfaceC0855bh == null) {
             synchronized (c1209pf) {
                 if (c1209pf.f3457b == null) {

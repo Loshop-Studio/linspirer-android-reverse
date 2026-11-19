@@ -66,7 +66,7 @@ public class HuaweiEmui10Impl extends HuaweiBaseImpl {
     public List<String> mo1307G0() {
         try {
             ArrayList networkAccessAppList = HuaweiBaseImpl.f3526g.getNetworkAccessAppList(HuaweiBaseImpl.f3522c, true);
-            if (!AbstractC1102l9.m2272M(networkAccessAppList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(networkAccessAppList)) {
                 LTKDateUtil.m1403m("HuaweiEmui10Impl ---getNetworkAccessAppWhiteList:" + networkAccessAppList.size());
                 return networkAccessAppList;
             }
@@ -102,7 +102,7 @@ public class HuaweiEmui10Impl extends HuaweiBaseImpl {
     /* renamed from: I0 */
     public void mo1308I0(List<String> list) {
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             HuaweiBaseImpl.f3526g.addNetworkAccessAppList(HuaweiBaseImpl.f3522c, (ArrayList) list, true);
@@ -188,7 +188,7 @@ public class HuaweiEmui10Impl extends HuaweiBaseImpl {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("HuaweiEmui10Impl  ---removeNetworkList-error:"));
         }
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("HuaweiEmui10Impl  -- setUrlWhiteList-none url need add");
             } else {
                 ArrayList arrayList = new ArrayList();
@@ -515,11 +515,11 @@ public class HuaweiEmui10Impl extends HuaweiBaseImpl {
             LTKDateUtil.m1403m("HuaweiEmui10Impl ---getNetworkList:");
             List networkList = HuaweiBaseImpl.f3526g.getNetworkList(HuaweiBaseImpl.f3522c, true, true);
             ArrayList arrayList = new ArrayList();
-            if (!AbstractC1102l9.m2273N(networkList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(networkList)) {
                 arrayList.addAll(networkList);
             }
             List networkList2 = HuaweiBaseImpl.f3526g.getNetworkList(HuaweiBaseImpl.f3522c, true, false);
-            if (!AbstractC1102l9.m2273N(networkList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(networkList)) {
                 arrayList.addAll(networkList2);
             }
             return arrayList;

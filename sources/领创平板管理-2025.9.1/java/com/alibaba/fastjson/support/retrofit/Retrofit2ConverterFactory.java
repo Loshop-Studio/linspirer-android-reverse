@@ -6,8 +6,8 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.huawei.hem.AbstractC1063jk;
-import com.huawei.hem.AbstractC1139mk;
+import com.huawei.hem.OkHttpRequestBody;
+import com.huawei.hem.OkHttpResponseBody;
 import com.huawei.hem.OkHttpMediaType;
 import com.huawei.hem.CompilerOutline;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     @Deprecated
     public static final Feature[] EMPTY_SERIALIZER_FEATURES = new Feature[0];
 
-    public final class RequestBodyConverter<T> implements Converter<T, AbstractC1063jk> {
+    public final class RequestBodyConverter<T> implements Converter<T, OkHttpRequestBody> {
         public RequestBodyConverter() {
         }
 
@@ -49,9 +49,9 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
             return convert((RequestBodyConverter<T>) obj);
         }
 
-        public AbstractC1063jk convert(T t) throws IOException {
+        public OkHttpRequestBody convert(T t) throws IOException {
             try {
-                return AbstractC1063jk.m2135d(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytesWithFastJsonConfig(Retrofit2ConverterFactory.this.fastJsonConfig.getCharset(), t, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeConfig(), Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeFilters(), Retrofit2ConverterFactory.this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializerFeatures()));
+                return OkHttpRequestBody.m2135d(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytesWithFastJsonConfig(Retrofit2ConverterFactory.this.fastJsonConfig.getCharset(), t, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeConfig(), Retrofit2ConverterFactory.this.fastJsonConfig.getSerializeFilters(), Retrofit2ConverterFactory.this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, Retrofit2ConverterFactory.this.fastJsonConfig.getSerializerFeatures()));
             } catch (Exception e) {
                 StringBuilder sbM1765j = CompilerOutline.m1765j("Could not write JSON: ");
                 sbM1765j.append(e.getMessage());
@@ -60,14 +60,14 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         }
     }
 
-    public final class ResponseBodyConverter<T> implements Converter<AbstractC1139mk, T> {
+    public final class ResponseBodyConverter<T> implements Converter<OkHttpResponseBody, T> {
         public Type type;
 
         public ResponseBodyConverter(Type type) {
             this.type = type;
         }
 
-        public T convert(AbstractC1139mk abstractC1139mk) throws IOException {
+        public T convert(OkHttpResponseBody abstractC1139mk) throws IOException {
             try {
                 try {
                     return (T) JSON.parseObject(abstractC1139mk.m2394c(), Retrofit2ConverterFactory.this.fastJsonConfig.getCharset(), this.type, Retrofit2ConverterFactory.this.fastJsonConfig.getParserConfig(), Retrofit2ConverterFactory.this.fastJsonConfig.getParseProcess(), JSON.DEFAULT_PARSER_FEATURE, Retrofit2ConverterFactory.this.fastJsonConfig.getFeatures());
@@ -119,11 +119,11 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         return this.fastJsonConfig.getSerializerFeatures();
     }
 
-    public Converter<Object, AbstractC1063jk> requestBodyConverter(Type type, Annotation[] annotationArr, Annotation[] annotationArr2, Retrofit retrofit) {
+    public Converter<Object, OkHttpRequestBody> requestBodyConverter(Type type, Annotation[] annotationArr, Annotation[] annotationArr2, Retrofit retrofit) {
         return new RequestBodyConverter();
     }
 
-    public Converter<AbstractC1139mk, Object> responseBodyConverter(Type type, Annotation[] annotationArr, Retrofit retrofit) {
+    public Converter<OkHttpResponseBody, Object> responseBodyConverter(Type type, Annotation[] annotationArr, Retrofit retrofit) {
         return new ResponseBodyConverter(type);
     }
 

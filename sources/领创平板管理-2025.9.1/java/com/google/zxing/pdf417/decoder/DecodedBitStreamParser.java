@@ -48,7 +48,7 @@ public final class DecodedBitStreamParser {
     public static final Charset DEFAULT_ENCODING = Charset.forName(Encoder.DEFAULT_BYTE_MODE_ENCODING);
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1 */
-    public static /* synthetic */ class C07931 {
+    public static /* synthetic */ class Pdf417DecodeModeSwitch {
 
         /* renamed from: $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode */
         public static final /* synthetic */ int[] f2147x45bba1d;

@@ -17,12 +17,12 @@ public interface IAFWService extends IInterface {
 
         /* compiled from: IAFWService.java */
         /* renamed from: com.huawei.hem.c0$a$a, reason: collision with other inner class name */
-        public static class C2068a implements IAFWService {
+        public static class AfwServiceBinderProxy implements IAFWService {
 
             /* renamed from: a */
             public IBinder f2316a;
 
-            public C2068a(IBinder iBinder) {
+            public AfwServiceBinderProxy(IBinder iBinder) {
                 this.f2316a = iBinder;
             }
 
@@ -170,7 +170,7 @@ public interface IAFWService extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("cn.com.microtrust.firewall.aidl.IAFWService");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAFWService)) ? new C2068a(iBinder) : (IAFWService) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAFWService)) ? new AfwServiceBinderProxy(iBinder) : (IAFWService) iInterfaceQueryLocalInterface;
         }
     }
 

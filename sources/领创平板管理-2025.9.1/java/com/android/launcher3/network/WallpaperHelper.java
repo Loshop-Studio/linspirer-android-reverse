@@ -8,11 +8,11 @@ import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.huawei.hem.FileDownloadListener;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0930ee;
+import com.huawei.hem.LauncherFileUtil;
 import com.huawei.hem.DownloadTask;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.FileDownloader;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.BaseDownloadTask;
@@ -29,8 +29,8 @@ public class WallpaperHelper {
     public HttpCore httpCore = new HttpCore();
 
     /* renamed from: com.android.launcher3.network.WallpaperHelper$1 */
-    public class C06881 extends LTKResponseListener<String> {
-        public C06881(Class cls) {
+    public class WallpaperListResponseCallback extends LTKResponseListener<String> {
+        public WallpaperListResponseCallback(Class cls) {
             super(cls);
         }
 
@@ -60,7 +60,7 @@ public class WallpaperHelper {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        C0930ee.m1678c(new File(str));
+        LauncherFileUtil.m1678c(new File(str));
     }
 
     private void downloadLauncherBg(String str, final String str2) {
@@ -125,7 +125,7 @@ public class WallpaperHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void loadCacheFile() {
         String strM3017L = this.userInfoUtil.m3017L();
-        if (TextUtils.isEmpty(strM3017L) || !C0930ee.m1680e(strM3017L)) {
+        if (TextUtils.isEmpty(strM3017L) || !LauncherFileUtil.m1680e(strM3017L)) {
             return;
         }
         sendBroadcast(strM3017L);
@@ -138,7 +138,7 @@ public class WallpaperHelper {
     public void needLoading(String str) {
         LTKDateUtil.m1403m("WallpaperHelper -- need downloading wallpaper .");
         LauncherMenuHelper.m3001v(null, true);
-        if (TextUtils.isEmpty(C1395x1.f4038a)) {
+        if (TextUtils.isEmpty(LauncherConstants.f4038a)) {
             LTKDateUtil.m1390A("WallpaperHelperdownload path empty cannot load wallpaper");
             return;
         }
@@ -150,9 +150,9 @@ public class WallpaperHelper {
             return;
         }
         String[] strArrSplit = str.split(GrsManager.SEPARATOR);
-        String str2 = C1395x1.f4038a + strArrSplit[strArrSplit.length - 1];
+        String str2 = LauncherConstants.f4038a + strArrSplit[strArrSplit.length - 1];
         LTKDateUtil.m1403m("WallpaperHelper -- local wallpaper path: " + str2);
-        if (C0930ee.m1680e(str2)) {
+        if (LauncherFileUtil.m1680e(str2)) {
             sendBroadcast(str2);
             this.userInfoUtil.m3073u0(str2);
         } else {

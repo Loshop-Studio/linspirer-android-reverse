@@ -2,7 +2,7 @@ package org.greenrobot.greendao.internal;
 
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.Property;
 
@@ -22,7 +22,7 @@ public class SqlUtils {
         for (int i = 0; i < length; i++) {
             appendColumn(sb, str, strArr[i]);
             if (i < length - 1) {
-                sb.append(AbstractC1604b.COMMA);
+                sb.append(UpdateJsonBean.COMMA);
             }
         }
         return sb;
@@ -32,7 +32,7 @@ public class SqlUtils {
         for (int i = 0; i < strArr.length; i++) {
             appendColumn(sb, str, strArr[i]).append("=?");
             if (i < strArr.length - 1) {
-                sb.append(AbstractC1604b.COMMA);
+                sb.append(UpdateJsonBean.COMMA);
             }
         }
         return sb;
@@ -42,7 +42,7 @@ public class SqlUtils {
         for (int i = 0; i < strArr.length; i++) {
             appendColumn(sb, strArr[i]).append("=?");
             if (i < strArr.length - 1) {
-                sb.append(AbstractC1604b.COMMA);
+                sb.append(UpdateJsonBean.COMMA);
             }
         }
         return sb;
@@ -171,7 +171,7 @@ public class SqlUtils {
             sb.append(strArr[i]);
             sb.append('\"');
             if (i < length - 1) {
-                sb.append(AbstractC1604b.COMMA);
+                sb.append(UpdateJsonBean.COMMA);
             }
         }
         return sb;

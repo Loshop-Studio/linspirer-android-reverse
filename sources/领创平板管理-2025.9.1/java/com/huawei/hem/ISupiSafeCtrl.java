@@ -17,12 +17,12 @@ public interface ISupiSafeCtrl extends IInterface {
 
         /* compiled from: ISupiSafeCtrl.java */
         /* renamed from: com.huawei.hem.ui$a$a, reason: collision with other inner class name */
-        public static class C2081a implements ISupiSafeCtrl {
+        public static class SupiControlBinderProxy implements ISupiSafeCtrl {
 
             /* renamed from: a */
             public IBinder f3873a;
 
-            public C2081a(IBinder iBinder) {
+            public SupiControlBinderProxy(IBinder iBinder) {
                 this.f3873a = iBinder;
             }
 
@@ -311,7 +311,7 @@ public interface ISupiSafeCtrl extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.supi.mdm.ISupiSafeCtrl");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ISupiSafeCtrl)) ? new C2081a(iBinder) : (ISupiSafeCtrl) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof ISupiSafeCtrl)) ? new SupiControlBinderProxy(iBinder) : (ISupiSafeCtrl) iInterfaceQueryLocalInterface;
         }
     }
 

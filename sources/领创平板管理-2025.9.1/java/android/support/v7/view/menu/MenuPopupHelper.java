@@ -10,7 +10,7 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.menu.MenuPresenter;
 import android.view.Display;
 import android.view.View;
@@ -36,7 +36,7 @@ public class MenuPopupHelper implements MenuHelper {
     public MenuPresenter.Callback mPresenterCallback;
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, C0200R.attr.popupMenuStyle, 0);
+        this(context, menuBuilder, null, false, SupportAppcompatResources.attr.popupMenuStyle, 0);
     }
 
     @NonNull
@@ -44,7 +44,7 @@ public class MenuPopupHelper implements MenuHelper {
         Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         defaultDisplay.getRealSize(point);
-        MenuPopup cascadingMenuPopup = Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(C0200R.dimen.abc_cascading_menus_min_smallest_width) ? new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly) : new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
+        MenuPopup cascadingMenuPopup = Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(SupportAppcompatResources.dimen.abc_cascading_menus_min_smallest_width) ? new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly) : new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
         cascadingMenuPopup.addMenu(this.mMenu);
         cascadingMenuPopup.setOnDismissListener(this.mInternalOnDismissListener);
         cascadingMenuPopup.setAnchorView(this.mAnchorView);
@@ -152,7 +152,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view) {
-        this(context, menuBuilder, view, false, C0200R.attr.popupMenuStyle, 0);
+        this(context, menuBuilder, view, false, SupportAppcompatResources.attr.popupMenuStyle, 0);
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i) {

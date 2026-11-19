@@ -17,7 +17,7 @@ import com.android.launcher3.network.CommonLoginRequestHelper;
 import com.android.launcher3.network.DeviceLogHelper;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
@@ -141,7 +141,7 @@ public class CommonLoginFragment extends BaseLoginFragment {
             c0824ac.f2200b.commit();
         }
         this.f1802c.m3041e0(false);
-        NetworkInfo networkInfo = new C0876cc(this.f1800a).f2337a;
+        NetworkInfo networkInfo = new LauncherNetworkUtil(this.f1800a).f2337a;
         if (networkInfo != null ? networkInfo.isAvailable() : false) {
             LTKDateUtil.m1403m("CommonLoginFragmentparepare to on line login");
             CommonLoginRequestHelper.getInstance().onlineLogin(this.f1800a, strTrim, strTrim2, this.f2019t.isChecked());

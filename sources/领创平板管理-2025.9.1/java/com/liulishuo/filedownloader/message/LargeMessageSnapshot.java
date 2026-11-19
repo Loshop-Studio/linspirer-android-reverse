@@ -32,7 +32,7 @@ public abstract class LargeMessageSnapshot extends MessageSnapshot {
         }
     }
 
-    public static class WarnMessageSnapshot extends PendingMessageSnapshot implements MessageSnapshot.InterfaceC1705b {
+    public static class WarnMessageSnapshot extends PendingMessageSnapshot implements MessageSnapshot.SnapshotFlagContract {
         public WarnMessageSnapshot(int i, long j, long j2) {
             super(i, j, j2);
         }

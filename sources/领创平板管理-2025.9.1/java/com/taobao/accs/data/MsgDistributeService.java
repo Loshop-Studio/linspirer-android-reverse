@@ -14,7 +14,7 @@ import com.taobao.accs.utl.ALog;
 public class MsgDistributeService extends Service {
 
     /* renamed from: a */
-    public Messenger f6130a = new Messenger(new HandlerC1926i(this));
+    public Messenger f6130a = new Messenger(new AccsDistributionHandler(this));
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -37,9 +37,9 @@ public class MsgDistributeService extends Service {
             ALog.m5729i("MsgDistributeService", "onStartCommand", "action", intent.getAction());
             if (TextUtils.isEmpty(intent.getAction()) || !TextUtils.equals(intent.getAction(), Constants.ACTION_SEND)) {
                 ALog.m5729i("MsgDistributeService", "onStartCommand distribute message", new Object[0]);
-                C1924g.m5570a(getApplicationContext(), intent);
+                AccsMessageDistributor.m5570a(getApplicationContext(), intent);
             } else if (getPackageName().equals(intent.getStringExtra(Constants.KEY_PACKAGE_NAME))) {
-                ThreadPoolExecutorFactory.getScheduledExecutor().execute(new RunnableC1927j(this, intent));
+                ThreadPoolExecutorFactory.getScheduledExecutor().execute(new DeliverAccsServiceMessageTask(this, intent));
             }
         } catch (Throwable th) {
             ALog.m5727e("MsgDistributeService", "onStartCommand", th, new Object[0]);

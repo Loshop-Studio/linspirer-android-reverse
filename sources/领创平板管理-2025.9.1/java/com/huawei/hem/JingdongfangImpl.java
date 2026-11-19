@@ -29,7 +29,7 @@ public class JingdongfangImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -1004,7 +1004,7 @@ public class JingdongfangImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {

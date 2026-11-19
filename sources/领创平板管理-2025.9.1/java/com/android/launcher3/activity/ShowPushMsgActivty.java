@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.p027db.model.PushMsg;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.ViewControlUtil;
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class ShowPushMsgActivty extends BaseActivity implements View.OnClickList
     public void mo1171c() {
         List<PushMsg> list = (List) getIntent().getExtras().getSerializable("command");
         this.f1797e = list;
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         m1213f();

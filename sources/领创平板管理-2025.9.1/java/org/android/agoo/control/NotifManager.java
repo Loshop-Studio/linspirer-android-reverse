@@ -218,7 +218,7 @@ public class NotifManager {
     }
 
     public void reportThirdPushToken(String str, String str2, String str3, String str4, boolean z) {
-        ThreadPoolExecutorFactory.schedule(new RunnableC2021m(this, str, str3, str2, str4, z), 10L, TimeUnit.SECONDS);
+        ThreadPoolExecutorFactory.schedule(new ReportThirdPartyPushTokenTask(this, str, str3, str2, str4, z), 10L, TimeUnit.SECONDS);
     }
 
     public void reportThirdPushToken(String str, String str2, String str3, boolean z) {

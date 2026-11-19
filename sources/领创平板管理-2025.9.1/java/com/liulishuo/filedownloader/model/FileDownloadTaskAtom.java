@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 /* loaded from: classes.dex */
 public class FileDownloadTaskAtom implements Parcelable {
-    public static final Parcelable.Creator<FileDownloadTaskAtom> CREATOR = new C1709a();
+    public static final Parcelable.Creator<FileDownloadTaskAtom> CREATOR = new DownloadAtomParcelCreator();
 
     /* renamed from: a */
     public String f4846a;
@@ -17,7 +17,7 @@ public class FileDownloadTaskAtom implements Parcelable {
     public long f4848c;
 
     /* renamed from: com.liulishuo.filedownloader.model.FileDownloadTaskAtom$a */
-    public static class C1709a implements Parcelable.Creator<FileDownloadTaskAtom> {
+    public static class DownloadAtomParcelCreator implements Parcelable.Creator<FileDownloadTaskAtom> {
         @Override // android.os.Parcelable.Creator
         public FileDownloadTaskAtom createFromParcel(Parcel parcel) {
             return new FileDownloadTaskAtom(parcel);

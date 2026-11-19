@@ -28,7 +28,7 @@ public final class Http2 {
             if (i2 >= strArr.length) {
                 break;
             }
-            strArr[i2] = C1314tk.m2756k("%8s", Integer.toBinaryString(i2)).replace(' ', TransactionIdCreater.FILL_BYTE);
+            strArr[i2] = OkHttpCommonUtilities.m2756k("%8s", Integer.toBinaryString(i2)).replace(' ', TransactionIdCreater.FILL_BYTE);
             i2++;
         }
         String[] strArr2 = f4329c;
@@ -170,11 +170,11 @@ public final class Http2 {
 
     /* renamed from: b */
     public static IllegalArgumentException m3176b(String str, Object... objArr) {
-        throw new IllegalArgumentException(C1314tk.m2756k(str, objArr));
+        throw new IllegalArgumentException(OkHttpCommonUtilities.m2756k(str, objArr));
     }
 
     /* renamed from: c */
     public static IOException m3177c(String str, Object... objArr) {
-        throw new IOException(C1314tk.m2756k(str, objArr));
+        throw new IOException(OkHttpCommonUtilities.m2756k(str, objArr));
     }
 }

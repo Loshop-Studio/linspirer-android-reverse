@@ -151,7 +151,7 @@ public class WorkspaceTacticsHelper {
     /* renamed from: b */
     public final void m2855b() {
         List<WeekTactics> listLoadAll = DBController.m2715a().f3750b.getWeekTacticsDao().loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             this.f3921b = null;
             m2856c();
         } else {

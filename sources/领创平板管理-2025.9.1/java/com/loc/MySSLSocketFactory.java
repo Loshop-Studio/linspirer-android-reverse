@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.SSLSessionCache;
 import android.os.Build;
 import com.huawei.hem.AuthConfigManager;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -115,11 +115,11 @@ public final class MySSLSocketFactory extends SSLSocketFactory {
         }
         try {
             SSLSessionContext clientSessionContext = sSLContext.getClientSessionContext();
-            Field declaredField = sSLSessionCache.getClass().getDeclaredField(C1094l1.m2251t("UbVNlc3Npb25DYWNoZQ"));
+            Field declaredField = sSLSessionCache.getClass().getDeclaredField(AMapCoreUtilities.m2251t("UbVNlc3Npb25DYWNoZQ"));
             declaredField.setAccessible(true);
             Object obj = declaredField.get(sSLSessionCache);
             Method[] methods = clientSessionContext.getClass().getMethods();
-            String strM2251t = C1094l1.m2251t("Yc2V0UGVyc2lzdGVudENhY2hl");
+            String strM2251t = AMapCoreUtilities.m2251t("Yc2V0UGVyc2lzdGVudENhY2hl");
             for (Method method : methods) {
                 if (method.getName().equals(strM2251t)) {
                     method.invoke(clientSessionContext, obj);
@@ -141,7 +141,7 @@ public final class MySSLSocketFactory extends SSLSocketFactory {
             }
             if (i2 <= 17 || Build.VERSION.SDK_INT <= i2) {
                 try {
-                    socket.getClass().getMethod(C1094l1.m2251t("Cc2V0VXNlU2Vzc2lvblRpY2tldHM"), Boolean.TYPE).invoke(socket, Boolean.TRUE);
+                    socket.getClass().getMethod(AMapCoreUtilities.m2251t("Cc2V0VXNlU2Vzc2lvblRpY2tldHM"), Boolean.TYPE).invoke(socket, Boolean.TRUE);
                 } catch (Throwable th) {
                     SDKLogHandler.m5333b(th, "myssl", "sust");
                 }
@@ -162,7 +162,7 @@ public final class MySSLSocketFactory extends SSLSocketFactory {
                 return;
             }
             try {
-                sSLSessionCache.getClass().getMethod(C1094l1.m2251t("MaW5zdGFsbA"), SSLSessionCache.class, SSLContext.class).invoke(sSLSessionCache, sSLSessionCache, this.f5015c);
+                sSLSessionCache.getClass().getMethod(AMapCoreUtilities.m2251t("MaW5zdGFsbA"), SSLSessionCache.class, SSLContext.class).invoke(sSLSessionCache, sSLSessionCache, this.f5015c);
             } catch (Throwable th) {
                 SDKLogHandler.m5333b(th, "myssl", "isc1");
                 m4129a(sSLSessionCache);

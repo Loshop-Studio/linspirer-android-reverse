@@ -17,12 +17,12 @@ public interface IFileDownloadIPCCallback extends IInterface {
 
         /* compiled from: IFileDownloadIPCCallback.java */
         /* renamed from: com.huawei.hem.fg$a$a, reason: collision with other inner class name */
-        public static class C2072a implements IFileDownloadIPCCallback {
+        public static class DownloadCallbackBinderProxy implements IFileDownloadIPCCallback {
 
             /* renamed from: a */
             public IBinder f2659a;
 
-            public C2072a(IBinder iBinder) {
+            public DownloadCallbackBinderProxy(IBinder iBinder) {
                 this.f2659a = iBinder;
             }
 
@@ -60,7 +60,7 @@ public interface IFileDownloadIPCCallback extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.liulishuo.filedownloader.i.IFileDownloadIPCCallback");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IFileDownloadIPCCallback)) ? new C2072a(iBinder) : (IFileDownloadIPCCallback) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IFileDownloadIPCCallback)) ? new DownloadCallbackBinderProxy(iBinder) : (IFileDownloadIPCCallback) iInterfaceQueryLocalInterface;
         }
 
         @Override // android.os.IInterface

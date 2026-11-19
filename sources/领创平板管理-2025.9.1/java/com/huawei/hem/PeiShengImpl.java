@@ -14,17 +14,17 @@ public class PeiShengImpl extends AndroidImpl {
     public static PeiShengImpl f2338b = new PeiShengImpl();
 
     /* renamed from: c */
-    public static C1035ih f2339c;
+    public static PeishengPolicyManager f2339c;
 
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
             List<String> listM2113a = f2339c.m2113a();
-            if (AbstractC1102l9.m2273N(listM2113a)) {
+            if (MobileSdkPlatformUtilities.m2273N(listM2113a)) {
                 return;
             }
             listM2113a.removeAll(list);
@@ -167,7 +167,7 @@ public class PeiShengImpl extends AndroidImpl {
         EduManager eduManager;
         LTKDateUtil.m1403m("PeiShengImpl --setSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList) && (eduManager = f2339c.f2923a) != null) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList) && (eduManager = f2339c.f2923a) != null) {
                 eduManager.AppTrustedListSet(arrayList);
             }
         } catch (Throwable th) {
@@ -306,7 +306,7 @@ public class PeiShengImpl extends AndroidImpl {
         LTKDateUtil.m1403m("PeiShengImpl --actionDisableApp");
         try {
             List<String> listM2113a = f2339c.m2113a();
-            if (AbstractC1102l9.m2273N(listM2113a)) {
+            if (MobileSdkPlatformUtilities.m2273N(listM2113a)) {
                 listM2113a = new ArrayList<>();
             }
             listM2113a.add(str);
@@ -448,12 +448,12 @@ public class PeiShengImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
             List<String> listM2113a = f2339c.m2113a();
-            if (AbstractC1102l9.m2273N(listM2113a)) {
+            if (MobileSdkPlatformUtilities.m2273N(listM2113a)) {
                 listM2113a = new ArrayList<>();
             }
             listM2113a.addAll(list);
@@ -535,7 +535,7 @@ public class PeiShengImpl extends AndroidImpl {
         CompilerOutline.m1779x("PeiShengImpl --actionEnableApp packageName:", str);
         try {
             List<String> listM2113a = f2339c.m2113a();
-            if (!AbstractC1102l9.m2273N(listM2113a)) {
+            if (!MobileSdkPlatformUtilities.m2273N(listM2113a)) {
                 listM2113a.remove(str);
             }
             f2339c.m2114b(listM2113a);

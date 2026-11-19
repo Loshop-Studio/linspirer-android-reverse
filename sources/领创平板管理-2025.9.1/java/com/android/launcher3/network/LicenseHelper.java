@@ -16,7 +16,7 @@ import com.android.launcher3.network.response.Response;
 import com.android.launcher3.view.DialogUtil;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C1095l2;
+import com.huawei.hem.LicenseActivityResultCallback;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.PostBuilder;
 import com.huawei.hem.LauncherMenuHelper;
@@ -87,21 +87,21 @@ public class LicenseHelper {
                         LicenseHelper.this.userInfoUtil.m3045g0("");
                         i = R.string.device_logout_note;
                         if (LicenseHelper.this.mLicenseCallBack != null) {
-                            ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2258a();
+                            ((LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack).m2258a();
                         }
                     } else if (code == -22600) {
                         LicenseHelper.this.userInfoUtil.m3045g0("");
                         i = R.string.license_upper_limit_note;
                         if (LicenseHelper.this.mLicenseCallBack != null) {
-                            ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2258a();
+                            ((LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack).m2258a();
                         }
                     } else if (code == -22400 || code == -21600) {
                         LicenseHelper.this.userInfoUtil.m3045g0("");
                         if (LicenseHelper.this.mLicenseCallBack != null) {
-                            ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2258a();
+                            ((LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack).m2258a();
                         }
                     } else if (LicenseHelper.this.mLicenseCallBack != null) {
-                        ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2259b();
+                        ((LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack).m2259b();
                     }
                     LTKDateUtil.m1414x(LicenseHelper.this.mContext, i);
                 }
@@ -109,7 +109,7 @@ public class LicenseHelper {
                 @Override // com.android.launcher3.network.response.BaseResponse
                 public void onFailureByNet(Object obj) {
                     if (LicenseHelper.this.mLicenseCallBack != null) {
-                        ((C1095l2) LicenseHelper.this.mLicenseCallBack).m2259b();
+                        ((LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack).m2259b();
                     }
                 }
 
@@ -119,7 +119,7 @@ public class LicenseHelper {
                     LTKDateUtil.m1403m("LicenseHelper  license.register , Request Successfully");
                     LicenseHelper.this.userInfoUtil.m3045g0(str);
                     if (LicenseHelper.this.mLicenseCallBack != null) {
-                        C1095l2 c1095l2 = (C1095l2) LicenseHelper.this.mLicenseCallBack;
+                        LicenseActivityResultCallback c1095l2 = (LicenseActivityResultCallback) LicenseHelper.this.mLicenseCallBack;
                         if (c1095l2 == null) {
                             throw null;
                         }
@@ -138,7 +138,7 @@ public class LicenseHelper {
             e.printStackTrace();
             LicenseCallBack interfaceC1021i3 = this.mLicenseCallBack;
             if (interfaceC1021i3 != null) {
-                ((C1095l2) interfaceC1021i3).m2259b();
+                ((LicenseActivityResultCallback) interfaceC1021i3).m2259b();
             }
         }
     }

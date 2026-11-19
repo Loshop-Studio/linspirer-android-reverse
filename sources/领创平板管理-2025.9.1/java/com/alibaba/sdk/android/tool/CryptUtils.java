@@ -17,7 +17,7 @@ public class CryptUtils {
     public static String aesDecrypt(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                return aesDecryptByBytes(C0609a.m1009a(str2), str);
+                return aesDecryptByBytes(SdkGzipCodec.m1009a(str2), str);
             } catch (Exception unused) {
             }
         }
@@ -34,7 +34,7 @@ public class CryptUtils {
     public static String aesEncrypt(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                return C0609a.m1014b(aesEncryptToBytes(str, str2));
+                return SdkGzipCodec.m1014b(aesEncryptToBytes(str, str2));
             } catch (Exception unused) {
             }
         }

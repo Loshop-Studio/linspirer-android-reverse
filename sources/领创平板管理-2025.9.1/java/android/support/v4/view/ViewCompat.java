@@ -18,7 +18,7 @@ import android.support.annotation.Px;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.UiThread;
-import android.support.compat.C0005R;
+import android.support.compat.SupportCompatResources;
 import android.support.v4.util.ArrayMap;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
@@ -174,12 +174,12 @@ public class ViewCompat {
 
         /* renamed from: at */
         public static UnhandledKeyEventManager m18at(View view) {
-            UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view.getTag(C0005R.id.tag_unhandled_key_event_manager);
+            UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view.getTag(SupportCompatResources.id.tag_unhandled_key_event_manager);
             if (unhandledKeyEventManager != null) {
                 return unhandledKeyEventManager;
             }
             UnhandledKeyEventManager unhandledKeyEventManager2 = new UnhandledKeyEventManager();
-            view.setTag(C0005R.id.tag_unhandled_key_event_manager, unhandledKeyEventManager2);
+            view.setTag(SupportCompatResources.id.tag_unhandled_key_event_manager, unhandledKeyEventManager2);
             return unhandledKeyEventManager2;
         }
 
@@ -211,7 +211,7 @@ public class ViewCompat {
         }
 
         private boolean onUnhandledKeyEvent(@NonNull View view, @NonNull KeyEvent keyEvent) {
-            ArrayList arrayList = (ArrayList) view.getTag(C0005R.id.tag_unhandled_key_listeners);
+            ArrayList arrayList = (ArrayList) view.getTag(SupportCompatResources.id.tag_unhandled_key_listeners);
             if (arrayList == null) {
                 return false;
             }
@@ -321,20 +321,20 @@ public class ViewCompat {
 
     public static void addOnUnhandledKeyEventListener(@NonNull View view, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         if (Build.VERSION.SDK_INT >= 28) {
-            Map arrayMap = (Map) view.getTag(C0005R.id.tag_unhandled_key_listeners);
+            Map arrayMap = (Map) view.getTag(SupportCompatResources.id.tag_unhandled_key_listeners);
             if (arrayMap == null) {
                 arrayMap = new ArrayMap();
-                view.setTag(C0005R.id.tag_unhandled_key_listeners, arrayMap);
+                view.setTag(SupportCompatResources.id.tag_unhandled_key_listeners, arrayMap);
             }
             OnUnhandledKeyEventListenerWrapper onUnhandledKeyEventListenerWrapper = new OnUnhandledKeyEventListenerWrapper(onUnhandledKeyEventListenerCompat);
             arrayMap.put(onUnhandledKeyEventListenerCompat, onUnhandledKeyEventListenerWrapper);
             view.addOnUnhandledKeyEventListener(onUnhandledKeyEventListenerWrapper);
             return;
         }
-        ArrayList arrayList = (ArrayList) view.getTag(C0005R.id.tag_unhandled_key_listeners);
+        ArrayList arrayList = (ArrayList) view.getTag(SupportCompatResources.id.tag_unhandled_key_listeners);
         if (arrayList == null) {
             arrayList = new ArrayList();
-            view.setTag(C0005R.id.tag_unhandled_key_listeners, arrayList);
+            view.setTag(SupportCompatResources.id.tag_unhandled_key_listeners, arrayList);
         }
         arrayList.add(onUnhandledKeyEventListenerCompat);
         if (arrayList.size() == 1) {
@@ -864,14 +864,14 @@ public class ViewCompat {
     public static void removeOnUnhandledKeyEventListener(@NonNull View view, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         View.OnUnhandledKeyEventListener onUnhandledKeyEventListener;
         if (Build.VERSION.SDK_INT >= 28) {
-            Map map = (Map) view.getTag(C0005R.id.tag_unhandled_key_listeners);
+            Map map = (Map) view.getTag(SupportCompatResources.id.tag_unhandled_key_listeners);
             if (map == null || (onUnhandledKeyEventListener = (View.OnUnhandledKeyEventListener) map.get(onUnhandledKeyEventListenerCompat)) == null) {
                 return;
             }
             view.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
             return;
         }
-        ArrayList arrayList = (ArrayList) view.getTag(C0005R.id.tag_unhandled_key_listeners);
+        ArrayList arrayList = (ArrayList) view.getTag(SupportCompatResources.id.tag_unhandled_key_listeners);
         if (arrayList != null) {
             arrayList.remove(onUnhandledKeyEventListenerCompat);
             if (arrayList.size() == 0) {

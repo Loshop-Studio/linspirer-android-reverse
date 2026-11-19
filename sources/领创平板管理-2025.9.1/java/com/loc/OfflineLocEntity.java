@@ -3,7 +3,7 @@ package com.loc;
 import android.content.Context;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: OfflineLocEntity.java */
 /* renamed from: com.loc.av */
@@ -52,6 +52,6 @@ public final class OfflineLocEntity {
 
     /* renamed from: a */
     public final byte[] m4172a() {
-        return C1094l1.m2245n(m4171a(this.f5063a, this.f5064b, this.f5065c));
+        return AMapCoreUtilities.m2245n(m4171a(this.f5063a, this.f5064b, this.f5065c));
     }
 }

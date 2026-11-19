@@ -14,7 +14,7 @@ import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.p027db.model.UserEvent;
 import com.android.launcher3.p027db.model.UserEventDao;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.DBController;
@@ -69,7 +69,7 @@ public class DeviceLogHelper {
         userEvent.setUserName(this.mUserInfoUtil.m3052k());
         userEvent.setEventTime(LTKDateUtil.m1399i());
         List<UserEvent> listLoadAll = this.mUserEventDao.loadAll();
-        if (!AbstractC1102l9.m2273N(listLoadAll) && listLoadAll.size() >= 500) {
+        if (!MobileSdkPlatformUtilities.m2273N(listLoadAll) && listLoadAll.size() >= 500) {
             LTKDateUtil.m1403m("DeviceLogHelper  db cache is too large");
             this.mUserEventDao.deleteAll();
         }
@@ -183,7 +183,7 @@ public class DeviceLogHelper {
             return;
         }
         List<UserEvent> listLoadAll = this.mUserEventDao.loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             LTKDateUtil.m1403m("DeviceLogHelper logs empty no need upload");
             return;
         }

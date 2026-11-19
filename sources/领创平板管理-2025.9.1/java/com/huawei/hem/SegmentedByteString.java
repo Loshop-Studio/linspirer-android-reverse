@@ -15,7 +15,7 @@ public final class SegmentedByteString extends ByteString {
 
     public SegmentedByteString(OkioBuffer c1016hn, int i) {
         super(null);
-        C0888co.m1543b(c1016hn.f2884b, 0L, i);
+        OkioByteUtilities.m1543b(c1016hn.f2884b, 0L, i);
         OkioSegment c1392wn = c1016hn.f2883a;
         int i2 = 0;
         int i3 = 0;
@@ -93,7 +93,7 @@ public final class SegmentedByteString extends ByteString {
 
     @Override // com.huawei.hem.C1091kn
     public byte getByte(int i) {
-        C0888co.m1543b(this.directory[this.segments.length - 1], i, 1L);
+        OkioByteUtilities.m1543b(this.directory[this.segments.length - 1], i, 1L);
         int iM3133d = m3133d(i);
         int i2 = iM3133d == 0 ? 0 : this.directory[iM3133d - 1];
         int[] iArr = this.directory;
@@ -307,7 +307,7 @@ public final class SegmentedByteString extends ByteString {
             int iMin = Math.min(i3, ((this.directory[iM3133d] - i4) + i4) - i);
             int[] iArr = this.directory;
             byte[][] bArr2 = this.segments;
-            if (!C0888co.m1542a(bArr2[iM3133d], (i - i4) + iArr[bArr2.length + iM3133d], bArr, i2, iMin)) {
+            if (!OkioByteUtilities.m1542a(bArr2[iM3133d], (i - i4) + iArr[bArr2.length + iM3133d], bArr, i2, iMin)) {
                 return false;
             }
             i += iMin;

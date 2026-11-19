@@ -51,7 +51,7 @@ public final class Http2Header {
     }
 
     public String toString() {
-        return C1314tk.m2756k("%s: %s", this.f4091a.utf8(), this.f4092b.utf8());
+        return OkHttpCommonUtilities.m2756k("%s: %s", this.f4091a.utf8(), this.f4092b.utf8());
     }
 
     public Http2Header(ByteString c1091kn, String str) {

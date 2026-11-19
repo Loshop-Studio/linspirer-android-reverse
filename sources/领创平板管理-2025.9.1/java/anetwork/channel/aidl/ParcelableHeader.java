@@ -10,7 +10,7 @@ import java.util.Map;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class ParcelableHeader implements Parcelable {
-    public static Parcelable.Creator<ParcelableHeader> CREATOR = new C0440d();
+    public static Parcelable.Creator<ParcelableHeader> CREATOR = new NetworkHeaderParcelCreator();
     public Map<String, List<String>> header;
     public int responseCode;
 

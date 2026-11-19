@@ -15,7 +15,7 @@ public class TianZhiWYImp extends AndroidImpl {
     public static TianZhiWYImp f3077b = new TianZhiWYImp();
 
     /* renamed from: c */
-    public static C0896d6 f3078c;
+    public static TianzhiApiManager f3078c;
 
     /* renamed from: d */
     public static Context f3079d;
@@ -24,7 +24,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: F */
     public void mo1306F(String str) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -41,7 +41,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: G0 */
     public List<String> mo1307G0() {
-        C0896d6 c0896d6;
+        TianzhiApiManager c0896d6;
         List<String> listMo1645H0;
         try {
             c0896d6 = f3078c;
@@ -57,7 +57,7 @@ public class TianZhiWYImp extends AndroidImpl {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (!AbstractC1102l9.m2273N(listMo1645H0)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1645H0)) {
             return listMo1645H0;
         }
         return new ArrayList();
@@ -67,7 +67,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: I0 */
     public void mo1308I0(List<String> list) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -84,7 +84,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: M0 */
     public List<String> mo1311M0() {
-        C0896d6 c0896d6;
+        TianzhiApiManager c0896d6;
         List<String> listMo1666u3;
         try {
             c0896d6 = f3078c;
@@ -100,7 +100,7 @@ public class TianZhiWYImp extends AndroidImpl {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (!AbstractC1102l9.m2273N(listMo1666u3)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1666u3)) {
             return listMo1666u3;
         }
         return new ArrayList();
@@ -110,7 +110,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: N */
     public boolean mo1312N(long j) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -134,7 +134,7 @@ public class TianZhiWYImp extends AndroidImpl {
         arrayList.add("com.android.launcher3");
         arrayList.add("com.ndwill.swd.appstore");
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -152,7 +152,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: Q */
     public void mo1314Q(String str) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -170,7 +170,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: V */
     public boolean mo1316V(List<String> list) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -190,7 +190,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: b0 */
     public void mo1318b0(List<String> list) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -208,7 +208,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: c */
     public void mo1319c(boolean z) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -225,7 +225,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBack() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -242,7 +242,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBluetooth() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -259,7 +259,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableCamera() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -276,7 +276,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableGPS() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -293,7 +293,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableHome() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -310,7 +310,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableLongPressPower() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -327,7 +327,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableMobileData() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -354,7 +354,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableRecent() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -371,7 +371,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableShortPressPower() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -388,7 +388,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableSpeech() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -405,7 +405,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableUsb() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -422,7 +422,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableVolume() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -440,7 +440,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: e */
     public void mo1320e(String str) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -457,7 +457,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBack() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -474,7 +474,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBluetooth() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -491,7 +491,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableCamera() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -508,7 +508,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableGPS() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -525,7 +525,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableHome() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -542,7 +542,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableLongPressPower() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -559,7 +559,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableMobileData() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -586,7 +586,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableRecent() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -603,7 +603,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableShortPressPower() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -620,7 +620,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableSpeech() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -637,7 +637,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableUsb() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -654,7 +654,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableVolume() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -672,7 +672,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: h */
     public void mo1323h() {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -690,7 +690,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: r */
     public void mo1327r(List<String> list) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -708,7 +708,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -758,7 +758,7 @@ public class TianZhiWYImp extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: t0 */
     public List<String> mo1330t0() {
-        C0896d6 c0896d6;
+        TianzhiApiManager c0896d6;
         List<String> listMo1651P1;
         try {
             c0896d6 = f3078c;
@@ -774,7 +774,7 @@ public class TianZhiWYImp extends AndroidImpl {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (!AbstractC1102l9.m2273N(listMo1651P1)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1651P1)) {
             return listMo1651P1;
         }
         return new ArrayList();
@@ -784,7 +784,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: y0 */
     public void mo1331y0(String str) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }
@@ -802,7 +802,7 @@ public class TianZhiWYImp extends AndroidImpl {
     /* renamed from: z0 */
     public void mo1332z0(boolean z) {
         try {
-            C0896d6 c0896d6 = f3078c;
+            TianzhiApiManager c0896d6 = f3078c;
             if (c0896d6 == null) {
                 throw null;
             }

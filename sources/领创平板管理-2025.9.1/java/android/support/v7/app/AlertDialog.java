@@ -15,7 +15,7 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.support.v7.app.AlertController;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
@@ -347,7 +347,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return i;
         }
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(C0200R.attr.alertDialogTheme, typedValue, true);
+        context.getTheme().resolveAttribute(SupportAppcompatResources.attr.alertDialogTheme, typedValue, true);
         return typedValue.resourceId;
     }
 

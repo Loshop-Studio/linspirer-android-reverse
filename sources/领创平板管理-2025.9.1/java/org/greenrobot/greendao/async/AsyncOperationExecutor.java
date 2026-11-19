@@ -30,7 +30,7 @@ public class AsyncOperationExecutor implements Runnable, Handler.Callback {
     public volatile int waitForMergeMillis = 50;
 
     /* renamed from: org.greenrobot.greendao.async.AsyncOperationExecutor$1 */
-    public static /* synthetic */ class C20291 {
+    public static /* synthetic */ class AsyncDaoOperationTypeSwitch {
 
         /* renamed from: $SwitchMap$org$greenrobot$greendao$async$AsyncOperation$OperationType */
         public static final /* synthetic */ int[] f6506x3b8ffa8;

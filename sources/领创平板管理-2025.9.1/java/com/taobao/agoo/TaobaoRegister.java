@@ -9,11 +9,11 @@ import com.aliyun.ams.emas.push.AgooInnerService;
 import com.aliyun.ams.emas.push.MsgService;
 import com.aliyun.ams.emas.push.notification.CPushMessage;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1169o0;
-import com.huawei.hem.C1319u0;
-import com.huawei.hem.C1344v0;
-import com.huawei.hem.InterfaceC1068k0;
-import com.huawei.hem.InterfaceC1144n0;
+import com.huawei.hem.AgooRegistrationListeners;
+import com.huawei.hem.AgooPushRuntimeSettings;
+import com.huawei.hem.AgooRegistrationPreferences;
+import com.huawei.hem.AgooResultListener;
+import com.huawei.hem.AgooArrivalReporter;
 import com.taobao.accs.ACCSClient;
 import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsClientConfig;
@@ -25,11 +25,11 @@ import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.AdapterUtilityImpl;
 import com.taobao.accs.utl.UTMini;
 import com.taobao.accs.utl.UtilityImpl;
-import com.taobao.agoo.p074a.C2000a;
-import com.taobao.agoo.p074a.C2005b;
-import com.taobao.agoo.p074a.p075a.C2001a;
-import com.taobao.agoo.p074a.p075a.C2003c;
-import com.taobao.agoo.p074a.p075a.C2004d;
+import com.taobao.agoo.p074a.AgooBindCache;
+import com.taobao.agoo.p074a.AgooDeviceCommandListener;
+import com.taobao.agoo.p074a.p075a.AgooAliasCommand;
+import com.taobao.agoo.p074a.p075a.AgooRegisterCommand;
+import com.taobao.agoo.p074a.p075a.AgooSwitchCommand;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -48,53 +48,53 @@ public final class TaobaoRegister {
     public static final String PROPERTY_APP_NOTIFICATION_VIBRATE = "app_notification_vibrate";
     public static final String SERVICEID = "agooSend";
     public static final String TAG = "TaobaoRegister";
-    public static C2005b mRequestListener;
+    public static AgooDeviceCommandListener mRequestListener;
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$a */
-    public static class C1991a implements InterfaceC1992b {
+    public static class AddAgooAliasOperation implements AgooAliasOperation {
 
         /* renamed from: a */
         public final String f6405a;
 
-        public /* synthetic */ C1991a(String str, C2007c c2007c) {
+        public /* synthetic */ AddAgooAliasOperation(String str, AgooRegistrationReceiver c2007c) {
             this(str);
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5809b(str, str2, this.f6405a);
+            return AgooAliasCommand.m5809b(str, str2, this.f6405a);
         }
 
-        public C1991a(String str) {
+        public AddAgooAliasOperation(String str) {
             this.f6405a = str;
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$b */
-    public interface InterfaceC1992b {
+    public interface AgooAliasOperation {
         /* renamed from: a */
         byte[] mo5797a(String str, String str2);
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$c */
-    public static class C1993c implements InterfaceC1992b {
-        public C1993c() {
+    public static class ListAgooAliasesOperation implements AgooAliasOperation {
+        public ListAgooAliasesOperation() {
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5808b(str, str2);
+            return AgooAliasCommand.m5808b(str, str2);
         }
 
-        public /* synthetic */ C1993c(C2007c c2007c) {
+        public /* synthetic */ ListAgooAliasesOperation(AgooRegistrationReceiver c2007c) {
             this();
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$d */
-    public static class C1994d implements InterfaceC1992b {
+    public static class RemoveAgooAliasOperation implements AgooAliasOperation {
 
         /* renamed from: a */
         public final String f6406a;
@@ -102,86 +102,86 @@ public final class TaobaoRegister {
         /* renamed from: b */
         public final String f6407b;
 
-        public /* synthetic */ C1994d(String str, String str2, C2007c c2007c) {
+        public /* synthetic */ RemoveAgooAliasOperation(String str, String str2, AgooRegistrationReceiver c2007c) {
             this(str, str2);
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5807a(str, str2, this.f6406a, this.f6407b);
+            return AgooAliasCommand.m5807a(str, str2, this.f6406a, this.f6407b);
         }
 
-        public C1994d(String str, String str2) {
+        public RemoveAgooAliasOperation(String str, String str2) {
             this.f6406a = str;
             this.f6407b = str2;
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$e */
-    public static class C1995e implements InterfaceC1992b {
-        public C1995e() {
+    public static class ClearAgooAliasesOperation implements AgooAliasOperation {
+        public ClearAgooAliasesOperation() {
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5805a(str, str2);
+            return AgooAliasCommand.m5805a(str, str2);
         }
 
-        public /* synthetic */ C1995e(C2007c c2007c) {
+        public /* synthetic */ ClearAgooAliasesOperation(AgooRegistrationReceiver c2007c) {
             this();
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$f */
-    public static class C1996f implements InterfaceC1992b {
+    public static class BindAliasToCurrentDeviceOperation implements AgooAliasOperation {
 
         /* renamed from: a */
         public final String f6408a;
 
-        public C1996f(String str) {
+        public BindAliasToCurrentDeviceOperation(String str) {
             this.f6408a = str;
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5806a(str, str2, this.f6408a);
+            return AgooAliasCommand.m5806a(str, str2, this.f6408a);
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$g */
-    public static class C1997g implements InterfaceC1992b {
+    public static class ResetAgooAliasBindingOperation implements AgooAliasOperation {
 
         /* renamed from: a */
         public final String f6409a;
 
-        public C1997g(String str) {
+        public ResetAgooAliasBindingOperation(String str) {
             this.f6409a = str;
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5811d(str, str2, this.f6409a);
+            return AgooAliasCommand.m5811d(str, str2, this.f6409a);
         }
     }
 
     /* renamed from: com.taobao.agoo.TaobaoRegister$h */
-    public static class C1998h implements InterfaceC1992b {
+    public static class ReplaceCurrentDeviceAliasOperation implements AgooAliasOperation {
 
         /* renamed from: a */
         public final String f6410a;
 
-        public C1998h(String str) {
+        public ReplaceCurrentDeviceAliasOperation(String str) {
             this.f6410a = str;
         }
 
         @Override // com.taobao.agoo.TaobaoRegister.InterfaceC1992b
         /* renamed from: a */
         public byte[] mo5797a(String str, String str2) {
-            return C2001a.m5810c(str, str2, this.f6410a);
+            return AgooAliasCommand.m5810c(str, str2, this.f6410a);
         }
     }
 
@@ -193,10 +193,10 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "addAlias", "alias", str);
         ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null && str != null) {
-            doAliasOperation("addAlias", context, iCallbackCheckNull, new C1991a(str, null));
+            doAliasOperation("addAlias", context, iCallbackCheckNull, new AddAgooAliasOperation(str, null));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("addAlias " + context + " " + str).build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("addAlias " + context + " " + str).build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
@@ -218,21 +218,21 @@ public final class TaobaoRegister {
     }
 
     public static void clearNotificationCreatedByAliyun(Context context) {
-        if (C1169o0.f3364a == null) {
-            C1169o0.f3364a = new C1169o0();
+        if (AgooRegistrationListeners.f3364a == null) {
+            AgooRegistrationListeners.f3364a = new AgooRegistrationListeners();
         }
-        if (C1169o0.f3364a == null) {
+        if (AgooRegistrationListeners.f3364a == null) {
             throw null;
         }
         NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-        while (!C1169o0.f3365b.isEmpty()) {
-            notificationManager.cancel(C1169o0.f3365b.get(r0.size() - 1).intValue());
-            C1169o0.f3365b.remove(r0.size() - 1);
+        while (!AgooRegistrationListeners.f3365b.isEmpty()) {
+            notificationManager.cancel(AgooRegistrationListeners.f3365b.get(r0.size() - 1).intValue());
+            AgooRegistrationListeners.f3365b.remove(r0.size() - 1);
         }
     }
 
     public static void clickMessage(CPushMessage cPushMessage) {
-        C1319u0 c1319u0 = C1344v0.f3913d;
+        AgooPushRuntimeSettings c1319u0 = AgooRegistrationPreferences.f3913d;
         if (c1319u0 == null) {
             throw null;
         }
@@ -246,7 +246,7 @@ public final class TaobaoRegister {
         }
         try {
             Intent intent = new Intent();
-            intent.setAction(C1344v0.f3911b);
+            intent.setAction(AgooRegistrationPreferences.f3911b);
             intent.setClassName(c1319u0.f3831a.getPackageName(), MsgService.class.getName());
             intent.putExtra(AgooConstants.ACTION_TYPE, AgooConstants.MESSAGE_TYPE_OPEN);
             intent.putExtra("msgId", cPushMessage.f1447a);
@@ -258,7 +258,7 @@ public final class TaobaoRegister {
     }
 
     public static void dismissMessage(CPushMessage cPushMessage) {
-        C1319u0 c1319u0 = C1344v0.f3913d;
+        AgooPushRuntimeSettings c1319u0 = AgooRegistrationPreferences.f3913d;
         if (c1319u0 == null) {
             throw null;
         }
@@ -272,7 +272,7 @@ public final class TaobaoRegister {
         }
         try {
             Intent intent = new Intent();
-            intent.setAction(C1344v0.f3911b);
+            intent.setAction(AgooRegistrationPreferences.f3911b);
             intent.setClassName(c1319u0.f3831a.getPackageName(), MsgService.class.getName());
             intent.putExtra(AgooConstants.ACTION_TYPE, AgooConstants.MESSAGE_TYPE_DELETE);
             intent.putExtra("msgId", cPushMessage.f1447a);
@@ -283,7 +283,7 @@ public final class TaobaoRegister {
         }
     }
 
-    public static void doAliasOperation(String str, Context context, ICallback iCallback, InterfaceC1992b interfaceC1992b) {
+    public static void doAliasOperation(String str, Context context, ICallback iCallback, AgooAliasOperation interfaceC1992b) {
         ErrorCode errorCodeBuild;
         ALog.m5729i(TAG, str, new Object[0]);
         String deviceToken = Config.getDeviceToken(context);
@@ -291,11 +291,11 @@ public final class TaobaoRegister {
         if (TextUtils.isEmpty(strM5830b) || TextUtils.isEmpty(deviceToken) || context == null) {
             if (iCallback != null) {
                 if (context == null) {
-                    errorCodeBuild = C1999a.INVALID_ARG.copy().detail(str + " context is null").build();
+                    errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail(str + " context is null").build();
                 } else if (TextUtils.isEmpty(deviceToken)) {
-                    errorCodeBuild = C1999a.INVALID_ARG.copy().detail(str + " deviceId is null").build();
+                    errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail(str + " deviceId is null").build();
                 } else {
-                    errorCodeBuild = C1999a.INVALID_ARG.copy().detail(str + " appKey is null").build();
+                    errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail(str + " appKey is null").build();
                 }
                 iCallback.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
             }
@@ -304,12 +304,12 @@ public final class TaobaoRegister {
         }
         try {
             if (mRequestListener == null) {
-                mRequestListener = new C2005b(context.getApplicationContext());
+                mRequestListener = new AgooDeviceCommandListener(context.getApplicationContext());
             }
             IACCSManager accsInstance = ACCSManager.getAccsInstance(context, strM5830b, Config.m5832c(context));
-            if (!C2005b.f6439b.m5804b(context.getPackageName())) {
+            if (!AgooDeviceCommandListener.f6439b.m5804b(context.getPackageName())) {
                 if (iCallback != null) {
-                    iCallback.onFailure(C1999a.AGOO_NOT_BIND.getCode(), C1999a.AGOO_NOT_BIND.getMsg());
+                    iCallback.onFailure(AgooErrorCatalog.AGOO_NOT_BIND.getCode(), AgooErrorCatalog.AGOO_NOT_BIND.getMsg());
                     return;
                 }
                 return;
@@ -318,7 +318,7 @@ public final class TaobaoRegister {
             String strSendRequest = accsInstance.sendRequest(context, new ACCSManager.AccsRequest(null, "AgooDeviceCmd", interfaceC1992b.mo5797a(strM5830b, deviceToken), null));
             if (TextUtils.isEmpty(strSendRequest)) {
                 if (iCallback != null) {
-                    iCallback.onFailure(C1999a.ACCS_CHECK_ERROR.getCode(), C1999a.ACCS_CHECK_ERROR.getMsg());
+                    iCallback.onFailure(AgooErrorCatalog.ACCS_CHECK_ERROR.getCode(), AgooErrorCatalog.ACCS_CHECK_ERROR.getMsg());
                 }
             } else if (iCallback != null) {
                 mRequestListener.f6440a.put(strSendRequest, iCallback);
@@ -336,9 +336,9 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "listAlias", new Object[0]);
         ICallback iCallbackCheckNull = checkNull(iListAliasCallback);
         if (context != null) {
-            doAliasOperation("listAlias", context, iCallbackCheckNull, new C1993c(null));
+            doAliasOperation("listAlias", context, iCallbackCheckNull, new ListAgooAliasesOperation(null));
         } else {
-            ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("listAlias context is null").build();
+            ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("listAlias context is null").build();
             iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
         }
     }
@@ -353,7 +353,7 @@ public final class TaobaoRegister {
     }
 
     public static synchronized void removeAlias(final Context context, ICallback iCallback) {
-        ALog.m5729i(TAG, C2001a.JSON_CMD_REMOVEALIAS, new Object[0]);
+        ALog.m5729i(TAG, AgooAliasCommand.JSON_CMD_REMOVEALIAS, new Object[0]);
         final ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null) {
             doAliasOperation("removeAllAlias", context, new ICallback() { // from class: com.taobao.agoo.TaobaoRegister.5
@@ -362,21 +362,21 @@ public final class TaobaoRegister {
                     TaobaoRegister.doAliasOperation("listAlias", context, new IListAliasCallbackInner() { // from class: com.taobao.agoo.TaobaoRegister.5.1
                         @Override // com.taobao.agoo.ICallback
                         public void onFailure(String str3, String str4) {
-                            ArrayList<String> arrayListM5820a = C2006b.m5820a(context);
+                            ArrayList<String> arrayListM5820a = AgooLocalStorage.m5820a(context);
                             if (arrayListM5820a == null || arrayListM5820a.size() <= 0) {
-                                iCallbackCheckNull.onFailure(C1999a.REMOVE_ALIAS_FAIL_NO_ALIAS.getCode(), C1999a.REMOVE_ALIAS_FAIL_NO_ALIAS.getMsg());
+                                iCallbackCheckNull.onFailure(AgooErrorCatalog.REMOVE_ALIAS_FAIL_NO_ALIAS.getCode(), AgooErrorCatalog.REMOVE_ALIAS_FAIL_NO_ALIAS.getMsg());
                                 return;
                             }
                             String str5 = arrayListM5820a.get(0);
-                            String strM5818a = C2006b.m5818a(context, str5);
+                            String strM5818a = AgooLocalStorage.m5818a(context, str5);
                             if (strM5818a == null || strM5818a.isEmpty() || str5 == null) {
-                                iCallbackCheckNull.onFailure(C1999a.REMOVE_ALIAS_FAIL_NO_TOKEN.getCode(), C1999a.REMOVE_ALIAS_FAIL_NO_TOKEN.getMsg());
+                                iCallbackCheckNull.onFailure(AgooErrorCatalog.REMOVE_ALIAS_FAIL_NO_TOKEN.getCode(), AgooErrorCatalog.REMOVE_ALIAS_FAIL_NO_TOKEN.getMsg());
                                 return;
                             }
                             C19895 c19895 = C19895.this;
                             ICallback iCallback2 = iCallbackCheckNull;
                             iCallback2.extra = str5;
-                            TaobaoRegister.doAliasOperation(C2001a.JSON_CMD_REMOVEALIAS, context, iCallback2, new C1994d(str5, strM5818a, null));
+                            TaobaoRegister.doAliasOperation(AgooAliasCommand.JSON_CMD_REMOVEALIAS, context, iCallback2, new RemoveAgooAliasOperation(str5, strM5818a, null));
                         }
 
                         @Override // com.taobao.agoo.IListAliasCallbackInner
@@ -384,16 +384,16 @@ public final class TaobaoRegister {
                             C19895 c19895 = C19895.this;
                             TaobaoRegister.removeAliasInList(context, map, iCallbackCheckNull);
                         }
-                    }, new C1993c(null));
+                    }, new ListAgooAliasesOperation(null));
                 }
 
                 @Override // com.taobao.agoo.ICallback
                 public void onSuccess() {
                     iCallbackCheckNull.onSuccess();
                 }
-            }, new C1995e(null));
+            }, new ClearAgooAliasesOperation(null));
         } else {
-            ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("removeAlias before 2.4.x context is null").build();
+            ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("removeAlias before 2.4.x context is null").build();
             iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
         }
     }
@@ -406,7 +406,7 @@ public final class TaobaoRegister {
         final ArrayList arrayList = new ArrayList(map.keySet());
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         for (final String str : map.keySet()) {
-            doAliasOperation(C2001a.JSON_CMD_REMOVEALIAS, context, new ICallback() { // from class: com.taobao.agoo.TaobaoRegister.2
+            doAliasOperation(AgooAliasCommand.JSON_CMD_REMOVEALIAS, context, new ICallback() { // from class: com.taobao.agoo.TaobaoRegister.2
                 @Override // com.taobao.agoo.ICallback
                 public void onFailure(String str2, String str3) {
                     if (atomicBoolean.compareAndSet(false, true)) {
@@ -422,7 +422,7 @@ public final class TaobaoRegister {
                     }
                     iCallback.onSuccess();
                 }
-            }, new C1994d(str, map.get(str), null));
+            }, new RemoveAgooAliasOperation(str, map.get(str), null));
         }
     }
 
@@ -430,10 +430,10 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "removeAllAliasOnCurrentDevice ", new Object[0]);
         ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null) {
-            doAliasOperation("removeAllAliasOnCurrentDevice", context, iCallbackCheckNull, new C1995e(null));
+            doAliasOperation("removeAllAliasOnCurrentDevice", context, iCallbackCheckNull, new ClearAgooAliasesOperation(null));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("removeAllAliasOnCurrentDevice " + context).build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("removeAllAliasOnCurrentDevice " + context).build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
@@ -441,10 +441,10 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "removeAllAliasOnCurrentDeviceAndAddThisAlias alias : " + str, new Object[0]);
         ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null && str != null) {
-            doAliasOperation("removeAllAliasOnCurrentDeviceAndAddThisAlias", context, iCallbackCheckNull, new C1998h(str));
+            doAliasOperation("removeAllAliasOnCurrentDeviceAndAddThisAlias", context, iCallbackCheckNull, new ReplaceCurrentDeviceAliasOperation(str));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("removeAllAliasOnCurrentDeviceAndAddThisAlias context is null").build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("removeAllAliasOnCurrentDeviceAndAddThisAlias context is null").build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
@@ -452,15 +452,15 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "removeAllDeviceOnThisAliasAndBindCurrentDevice alias : " + str, new Object[0]);
         ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null && str != null) {
-            doAliasOperation("removeAllDeviceOnThisAliasAndBindCurrentDevice", context, iCallbackCheckNull, new C1996f(str));
+            doAliasOperation("removeAllDeviceOnThisAliasAndBindCurrentDevice", context, iCallbackCheckNull, new BindAliasToCurrentDeviceOperation(str));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("removeAllDeviceOnThisAliasAndBindCurrentDevice context is null").build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("removeAllDeviceOnThisAliasAndBindCurrentDevice context is null").build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
     public static void reset() {
-        C2000a c2000a = C2005b.f6439b;
+        AgooBindCache c2000a = AgooDeviceCommandListener.f6439b;
         if (c2000a != null) {
             c2000a.m5802a();
         }
@@ -476,10 +476,10 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "resetDeviceAndAliasToOne2One alias : " + str, new Object[0]);
         ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null && str != null) {
-            doAliasOperation("resetDeviceAndAliasToOne2One", context, iCallbackCheckNull, new C1997g(str));
+            doAliasOperation("resetDeviceAndAliasToOne2One", context, iCallbackCheckNull, new ResetAgooAliasBindingOperation(str));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("resetDeviceAndAliasToOne2One " + context + " " + str).build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("resetDeviceAndAliasToOne2One " + context + " " + str).build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
@@ -497,13 +497,13 @@ public final class TaobaoRegister {
         if (!TextUtils.isEmpty(strM5830b) && context != null && (!TextUtils.isEmpty(deviceToken) || !TextUtils.isEmpty(deviceId))) {
             IACCSManager accsInstance = ACCSManager.getAccsInstance(context, strM5830b, Config.m5832c(context));
             if (mRequestListener == null) {
-                mRequestListener = new C2005b(context.getApplicationContext());
+                mRequestListener = new AgooDeviceCommandListener(context.getApplicationContext());
             }
             accsInstance.registerDataListener(context, "AgooDeviceCmd", mRequestListener);
-            String strSendRequest = accsInstance.sendRequest(context, new ACCSManager.AccsRequest(null, "AgooDeviceCmd", C2004d.m5815a(strM5830b, deviceToken, deviceId, z), null));
+            String strSendRequest = accsInstance.sendRequest(context, new ACCSManager.AccsRequest(null, "AgooDeviceCmd", AgooSwitchCommand.m5815a(strM5830b, deviceToken, deviceId, z), null));
             if (TextUtils.isEmpty(strSendRequest)) {
                 if (iCallback != null) {
-                    iCallback.onFailure(C1999a.ACCS_CHECK_ERROR.getCode(), C1999a.ACCS_CHECK_ERROR.getMsg());
+                    iCallback.onFailure(AgooErrorCatalog.ACCS_CHECK_ERROR.getCode(), AgooErrorCatalog.ACCS_CHECK_ERROR.getMsg());
                 }
             } else if (iCallback != null) {
                 mRequestListener.f6440a.put(strSendRequest, iCallback);
@@ -511,10 +511,10 @@ public final class TaobaoRegister {
             return;
         }
         if (iCallback != null) {
-            ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("sendSwitch " + context + " " + strM5830b + " " + deviceToken + " " + deviceId).build();
+            ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("sendSwitch " + context + " " + strM5830b + " " + deviceToken + " " + deviceId).build();
             iCallback.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
         }
-        ALog.m5728e(TAG, "sendSwitch param null", "appkey", strM5830b, "deviceId", deviceToken, "context", context, C2004d.JSON_CMD_ENABLEPUSH, Boolean.valueOf(z));
+        ALog.m5728e(TAG, "sendSwitch param null", "appkey", strM5830b, "deviceId", deviceToken, "context", context, AgooSwitchCommand.JSON_CMD_ENABLEPUSH, Boolean.valueOf(z));
     }
 
     public static synchronized void setAccsConfigTag(Context context, String str) {
@@ -531,7 +531,7 @@ public final class TaobaoRegister {
         if (!TextUtils.isEmpty(appSecret)) {
             AdapterGlobalClientInfo.mSecurityType = 2;
         }
-        C1344v0.m2852a(context);
+        AgooRegistrationPreferences.m2852a(context);
     }
 
     public static void setAgooMsgReceiveService(String str) {
@@ -548,7 +548,7 @@ public final class TaobaoRegister {
                     ICallback iCallback2 = iCallbackCheckNull;
                     String str4 = str;
                     iCallback2.extra = str4;
-                    TaobaoRegister.doAliasOperation(C2001a.JSON_CMD_ADDALIAS, context, iCallback2, new C1991a(str4, null));
+                    TaobaoRegister.doAliasOperation(AgooAliasCommand.JSON_CMD_ADDALIAS, context, iCallback2, new AddAgooAliasOperation(str4, null));
                 }
 
                 @Override // com.taobao.agoo.IListAliasCallbackInner
@@ -562,14 +562,14 @@ public final class TaobaoRegister {
                         @Override // com.taobao.agoo.ICallback
                         public void onSuccess() {
                             C19884 c19884 = C19884.this;
-                            TaobaoRegister.doAliasOperation(C2001a.JSON_CMD_ADDALIAS, context, iCallbackCheckNull, new C1991a(str, null));
+                            TaobaoRegister.doAliasOperation(AgooAliasCommand.JSON_CMD_ADDALIAS, context, iCallbackCheckNull, new AddAgooAliasOperation(str, null));
                         }
                     });
                 }
-            }, new C1993c(null));
+            }, new ListAgooAliasesOperation(null));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("setAlias " + context + " " + str).build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("setAlias " + context + " " + str).build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 
@@ -577,15 +577,15 @@ public final class TaobaoRegister {
     public static void setBuilderSound(Context context, String str) {
     }
 
-    public static void setDoNotDisturb(int i, int i2, int i3, int i4, InterfaceC1068k0 interfaceC1068k0) {
-        C1319u0 c1319u0 = C1344v0.f3913d;
+    public static void setDoNotDisturb(int i, int i2, int i3, int i4, AgooResultListener interfaceC1068k0) {
+        AgooPushRuntimeSettings c1319u0 = AgooRegistrationPreferences.f3913d;
         if (c1319u0 == null) {
             throw null;
         }
         ALog.m5726d("MPS:CloudPushService", "setDoNotDisturb " + i + ":" + i2 + "-" + i3 + ":" + i4, new Object[0]);
         if (i < 0 || i > 23 || i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i4 < 0 || i4 > 59) {
             if (interfaceC1068k0 != null) {
-                interfaceC1068k0.onFailed(C1999a.INVALID_ARG.getCode(), C1999a.INVALID_ARG.getMsg());
+                interfaceC1068k0.onFailed(AgooErrorCatalog.INVALID_ARG.getCode(), AgooErrorCatalog.INVALID_ARG.getMsg());
                 return;
             }
             return;
@@ -601,7 +601,7 @@ public final class TaobaoRegister {
     }
 
     public static void setDoNotDisturbMode(boolean z) {
-        C1344v0.f3913d.f3836f = z;
+        AgooRegistrationPreferences.f3913d.f3836f = z;
     }
 
     public static void setEnv(Context context, @AccsClientConfig.ENV int i) {
@@ -622,11 +622,11 @@ public final class TaobaoRegister {
 
     public static void setPushMsgReceiveService(Class cls) {
         AdapterGlobalClientInfo.mAgooCustomServiceName = AgooInnerService.class.getName();
-        C1344v0.f3912c = cls;
+        AgooRegistrationPreferences.f3912c = cls;
     }
 
-    public static void setReportPushArrive(InterfaceC1144n0 interfaceC1144n0) {
-        C1344v0.f3914e = interfaceC1144n0;
+    public static void setReportPushArrive(AgooArrivalReporter interfaceC1144n0) {
+        AgooRegistrationPreferences.f3914e = interfaceC1144n0;
     }
 
     @Deprecated
@@ -652,7 +652,7 @@ public final class TaobaoRegister {
     public static synchronized void register(Context context, String str, String str2, String str3, String str4, IRegister iRegister) {
         if (context != null) {
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                ALog.m5729i(TAG, C2003c.JSON_CMD_REGISTER, Constants.KEY_APP_KEY, str2, Constants.KEY_CONFIG_TAG, str);
+                ALog.m5729i(TAG, AgooRegisterCommand.JSON_CMD_REGISTER, Constants.KEY_APP_KEY, str2, Constants.KEY_CONFIG_TAG, str);
                 Context applicationContext = context.getApplicationContext();
                 Config.f6457a = str;
                 Config.setAgooAppKey(context, str2);
@@ -660,7 +660,7 @@ public final class TaobaoRegister {
                 if (!TextUtils.isEmpty(str3)) {
                     AdapterGlobalClientInfo.mSecurityType = 2;
                 }
-                C1344v0.m2852a(context);
+                AgooRegistrationPreferences.m2852a(context);
                 AccsClientConfig configByTag = AccsClientConfig.getConfigByTag(str);
                 if (configByTag == null) {
                     new AccsClientConfig.Builder().setAppKey(str2).setAppSecret(str3).setTag(str).build();
@@ -668,7 +668,7 @@ public final class TaobaoRegister {
                     AdapterGlobalClientInfo.mAuthCode = configByTag.getAuthCode();
                 }
                 IACCSManager accsInstance = ACCSManager.getAccsInstance(context, str2, str);
-                accsInstance.bindApp(applicationContext, str2, str3, str4, new C2007c(iRegister, applicationContext, accsInstance, str2, str4));
+                accsInstance.bindApp(applicationContext, str2, str3, str4, new AgooRegistrationReceiver(iRegister, applicationContext, accsInstance, str2, str4));
                 return;
             }
         }
@@ -680,7 +680,7 @@ public final class TaobaoRegister {
         ALog.m5729i(TAG, "removeAlias " + str, new Object[0]);
         final ICallback iCallbackCheckNull = checkNull(iCallback);
         if (context != null && str != null) {
-            doAliasOperation(C2001a.JSON_CMD_REMOVEALIAS, context, new ICallback() { // from class: com.taobao.agoo.TaobaoRegister.6
+            doAliasOperation(AgooAliasCommand.JSON_CMD_REMOVEALIAS, context, new ICallback() { // from class: com.taobao.agoo.TaobaoRegister.6
                 @Override // com.taobao.agoo.ICallback
                 public void onFailure(final String str2, final String str3) {
                     TaobaoRegister.doAliasOperation("listAlias", context, new IListAliasCallbackInner() { // from class: com.taobao.agoo.TaobaoRegister.6.1
@@ -696,20 +696,20 @@ public final class TaobaoRegister {
                                 iCallbackCheckNull.onFailure(str2, str3);
                             } else {
                                 C19906 c19906 = C19906.this;
-                                TaobaoRegister.doAliasOperation(C2001a.JSON_CMD_REMOVEALIAS, context, iCallbackCheckNull, new C1994d(str, str4, null));
+                                TaobaoRegister.doAliasOperation(AgooAliasCommand.JSON_CMD_REMOVEALIAS, context, iCallbackCheckNull, new RemoveAgooAliasOperation(str, str4, null));
                             }
                         }
-                    }, new C1993c(null));
+                    }, new ListAgooAliasesOperation(null));
                 }
 
                 @Override // com.taobao.agoo.ICallback
                 public void onSuccess() {
                     iCallbackCheckNull.onSuccess();
                 }
-            }, new C1994d(str, null, 0 == true ? 1 : 0));
+            }, new RemoveAgooAliasOperation(str, null, 0 == true ? 1 : 0));
             return;
         }
-        ErrorCode errorCodeBuild = C1999a.INVALID_ARG.copy().detail("removeAlias " + context + " " + str).build();
+        ErrorCode errorCodeBuild = AgooErrorCatalog.INVALID_ARG.copy().detail("removeAlias " + context + " " + str).build();
         iCallbackCheckNull.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
     }
 

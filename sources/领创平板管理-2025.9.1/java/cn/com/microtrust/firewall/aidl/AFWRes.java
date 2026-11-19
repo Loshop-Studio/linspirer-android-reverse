@@ -7,7 +7,7 @@ import java.util.List;
 
 /* loaded from: classes.dex */
 public class AFWRes implements Parcelable {
-    public static final Parcelable.Creator<AFWRes> CREATOR = new C0475a();
+    public static final Parcelable.Creator<AFWRes> CREATOR = new AfwResultCreator();
 
     /* renamed from: a */
     public boolean f809a;
@@ -16,7 +16,7 @@ public class AFWRes implements Parcelable {
     public List<String> f810b;
 
     /* renamed from: cn.com.microtrust.firewall.aidl.AFWRes$a */
-    public static class C0475a implements Parcelable.Creator<AFWRes> {
+    public static class AfwResultCreator implements Parcelable.Creator<AFWRes> {
         @Override // android.os.Parcelable.Creator
         public AFWRes createFromParcel(Parcel parcel) {
             return new AFWRes(parcel, null);
@@ -47,7 +47,7 @@ public class AFWRes implements Parcelable {
         }
     }
 
-    public AFWRes(Parcel parcel, C0475a c0475a) {
+    public AFWRes(Parcel parcel, AfwResultCreator c0475a) {
         ArrayList arrayList = new ArrayList();
         this.f810b = arrayList;
         parcel.readStringList(arrayList);

@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.SupportMenuInflater;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPopupHelper;
@@ -113,7 +113,7 @@ public class PopupMenu {
     }
 
     public PopupMenu(@NonNull Context context, @NonNull View view, int i) {
-        this(context, view, i, C0200R.attr.popupMenuStyle, 0);
+        this(context, view, i, SupportAppcompatResources.attr.popupMenuStyle, 0);
     }
 
     public PopupMenu(@NonNull Context context, @NonNull View view, int i, @AttrRes int i2, @StyleRes int i3) {

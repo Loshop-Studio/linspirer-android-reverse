@@ -25,7 +25,7 @@ import android.support.v4.util.ArrayMap;
 import android.support.v4.util.LongSparseArray;
 import android.support.v4.util.LruCache;
 import android.support.v4.util.SparseArrayCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.graphics.drawable.AnimatedStateListDrawableCompat;
 import android.util.AttributeSet;
@@ -54,12 +54,12 @@ public final class AppCompatDrawableManager {
     public TypedValue mTypedValue;
     public static final PorterDuff.Mode DEFAULT_MODE = PorterDuff.Mode.SRC_IN;
     public static final ColorFilterLruCache COLOR_FILTER_CACHE = new ColorFilterLruCache(6);
-    public static final int[] COLORFILTER_TINT_COLOR_CONTROL_NORMAL = {C0200R.drawable.abc_textfield_search_default_mtrl_alpha, C0200R.drawable.abc_textfield_default_mtrl_alpha, C0200R.drawable.abc_ab_share_pack_mtrl_alpha};
-    public static final int[] TINT_COLOR_CONTROL_NORMAL = {C0200R.drawable.abc_ic_commit_search_api_mtrl_alpha, C0200R.drawable.abc_seekbar_tick_mark_material, C0200R.drawable.abc_ic_menu_share_mtrl_alpha, C0200R.drawable.abc_ic_menu_copy_mtrl_am_alpha, C0200R.drawable.abc_ic_menu_cut_mtrl_alpha, C0200R.drawable.abc_ic_menu_selectall_mtrl_alpha, C0200R.drawable.abc_ic_menu_paste_mtrl_am_alpha};
-    public static final int[] COLORFILTER_COLOR_CONTROL_ACTIVATED = {C0200R.drawable.abc_textfield_activated_mtrl_alpha, C0200R.drawable.abc_textfield_search_activated_mtrl_alpha, C0200R.drawable.abc_cab_background_top_mtrl_alpha, C0200R.drawable.abc_text_cursor_material, C0200R.drawable.abc_text_select_handle_left_mtrl_dark, C0200R.drawable.abc_text_select_handle_middle_mtrl_dark, C0200R.drawable.abc_text_select_handle_right_mtrl_dark, C0200R.drawable.abc_text_select_handle_left_mtrl_light, C0200R.drawable.abc_text_select_handle_middle_mtrl_light, C0200R.drawable.abc_text_select_handle_right_mtrl_light};
-    public static final int[] COLORFILTER_COLOR_BACKGROUND_MULTIPLY = {C0200R.drawable.abc_popup_background_mtrl_mult, C0200R.drawable.abc_cab_background_internal_bg, C0200R.drawable.abc_menu_hardkey_panel_mtrl_mult};
-    public static final int[] TINT_COLOR_CONTROL_STATE_LIST = {C0200R.drawable.abc_tab_indicator_material, C0200R.drawable.abc_textfield_search_material};
-    public static final int[] TINT_CHECKABLE_BUTTON_LIST = {C0200R.drawable.abc_btn_check_material, C0200R.drawable.abc_btn_radio_material};
+    public static final int[] COLORFILTER_TINT_COLOR_CONTROL_NORMAL = {SupportAppcompatResources.drawable.abc_textfield_search_default_mtrl_alpha, SupportAppcompatResources.drawable.abc_textfield_default_mtrl_alpha, SupportAppcompatResources.drawable.abc_ab_share_pack_mtrl_alpha};
+    public static final int[] TINT_COLOR_CONTROL_NORMAL = {SupportAppcompatResources.drawable.abc_ic_commit_search_api_mtrl_alpha, SupportAppcompatResources.drawable.abc_seekbar_tick_mark_material, SupportAppcompatResources.drawable.abc_ic_menu_share_mtrl_alpha, SupportAppcompatResources.drawable.abc_ic_menu_copy_mtrl_am_alpha, SupportAppcompatResources.drawable.abc_ic_menu_cut_mtrl_alpha, SupportAppcompatResources.drawable.abc_ic_menu_selectall_mtrl_alpha, SupportAppcompatResources.drawable.abc_ic_menu_paste_mtrl_am_alpha};
+    public static final int[] COLORFILTER_COLOR_CONTROL_ACTIVATED = {SupportAppcompatResources.drawable.abc_textfield_activated_mtrl_alpha, SupportAppcompatResources.drawable.abc_textfield_search_activated_mtrl_alpha, SupportAppcompatResources.drawable.abc_cab_background_top_mtrl_alpha, SupportAppcompatResources.drawable.abc_text_cursor_material, SupportAppcompatResources.drawable.abc_text_select_handle_left_mtrl_dark, SupportAppcompatResources.drawable.abc_text_select_handle_middle_mtrl_dark, SupportAppcompatResources.drawable.abc_text_select_handle_right_mtrl_dark, SupportAppcompatResources.drawable.abc_text_select_handle_left_mtrl_light, SupportAppcompatResources.drawable.abc_text_select_handle_middle_mtrl_light, SupportAppcompatResources.drawable.abc_text_select_handle_right_mtrl_light};
+    public static final int[] COLORFILTER_COLOR_BACKGROUND_MULTIPLY = {SupportAppcompatResources.drawable.abc_popup_background_mtrl_mult, SupportAppcompatResources.drawable.abc_cab_background_internal_bg, SupportAppcompatResources.drawable.abc_menu_hardkey_panel_mtrl_mult};
+    public static final int[] TINT_COLOR_CONTROL_STATE_LIST = {SupportAppcompatResources.drawable.abc_tab_indicator_material, SupportAppcompatResources.drawable.abc_textfield_search_material};
+    public static final int[] TINT_CHECKABLE_BUTTON_LIST = {SupportAppcompatResources.drawable.abc_btn_check_material, SupportAppcompatResources.drawable.abc_btn_radio_material};
 
     @RequiresApi(11)
     public static class AsldcInflateDelegate implements InflateDelegate {
@@ -167,7 +167,7 @@ public final class AppCompatDrawableManager {
             return;
         }
         this.mHasCheckedVectorDrawableSetup = true;
-        Drawable drawable = getDrawable(context, C0200R.drawable.abc_vector_test);
+        Drawable drawable = getDrawable(context, SupportAppcompatResources.drawable.abc_vector_test);
         if (drawable == null || !isVectorDrawable(drawable)) {
             this.mHasCheckedVectorDrawableSetup = false;
             throw new IllegalStateException("This app has been built with an incorrect configuration. Please configure your build for VectorDrawableCompat.");
@@ -179,8 +179,8 @@ public final class AppCompatDrawableManager {
     }
 
     private ColorStateList createButtonColorStateList(@NonNull Context context, @ColorInt int i) {
-        int themeAttrColor = ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlHighlight);
-        return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, C0200R.attr.colorButtonNormal), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
+        int themeAttrColor = ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlHighlight);
+        return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, SupportAppcompatResources.attr.colorButtonNormal), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
     }
 
     public static long createCacheKey(TypedValue typedValue) {
@@ -188,11 +188,11 @@ public final class AppCompatDrawableManager {
     }
 
     private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
-        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorAccent));
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorAccent));
     }
 
     private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
-        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorButtonNormal));
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorButtonNormal));
     }
 
     private Drawable createDrawableIfNeeded(@NonNull Context context, @DrawableRes int i) throws Resources.NotFoundException {
@@ -206,8 +206,8 @@ public final class AppCompatDrawableManager {
         if (cachedDrawable != null) {
             return cachedDrawable;
         }
-        if (i == C0200R.drawable.abc_cab_background_top_material) {
-            cachedDrawable = new LayerDrawable(new Drawable[]{getDrawable(context, C0200R.drawable.abc_cab_background_internal_bg), getDrawable(context, C0200R.drawable.abc_cab_background_top_mtrl_alpha)});
+        if (i == SupportAppcompatResources.drawable.abc_cab_background_top_material) {
+            cachedDrawable = new LayerDrawable(new Drawable[]{getDrawable(context, SupportAppcompatResources.drawable.abc_cab_background_internal_bg), getDrawable(context, SupportAppcompatResources.drawable.abc_cab_background_top_mtrl_alpha)});
         }
         if (cachedDrawable != null) {
             cachedDrawable.setChangingConfigurations(typedValue.changingConfigurations);
@@ -219,19 +219,19 @@ public final class AppCompatDrawableManager {
     private ColorStateList createSwitchThumbColorStateList(Context context) {
         int[][] iArr = new int[3][];
         int[] iArr2 = new int[3];
-        ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, C0200R.attr.colorSwitchThumbNormal);
+        ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, SupportAppcompatResources.attr.colorSwitchThumbNormal);
         if (themeAttrColorStateList == null || !themeAttrColorStateList.isStateful()) {
             iArr[0] = ThemeUtils.DISABLED_STATE_SET;
-            iArr2[0] = ThemeUtils.getDisabledThemeAttrColor(context, C0200R.attr.colorSwitchThumbNormal);
+            iArr2[0] = ThemeUtils.getDisabledThemeAttrColor(context, SupportAppcompatResources.attr.colorSwitchThumbNormal);
             iArr[1] = ThemeUtils.CHECKED_STATE_SET;
-            iArr2[1] = ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlActivated);
+            iArr2[1] = ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlActivated);
             iArr[2] = ThemeUtils.EMPTY_STATE_SET;
-            iArr2[2] = ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorSwitchThumbNormal);
+            iArr2[2] = ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorSwitchThumbNormal);
         } else {
             iArr[0] = ThemeUtils.DISABLED_STATE_SET;
             iArr2[0] = themeAttrColorStateList.getColorForState(iArr[0], 0);
             iArr[1] = ThemeUtils.CHECKED_STATE_SET;
-            iArr2[1] = ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlActivated);
+            iArr2[1] = ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlActivated);
             iArr[2] = ThemeUtils.EMPTY_STATE_SET;
             iArr2[2] = themeAttrColorStateList.getDefaultColor();
         }
@@ -290,7 +290,7 @@ public final class AppCompatDrawableManager {
     }
 
     public static PorterDuff.Mode getTintMode(int i) {
-        if (i == C0200R.drawable.abc_switch_thumb_material) {
+        if (i == SupportAppcompatResources.drawable.abc_switch_thumb_material) {
             return PorterDuff.Mode.MULTIPLY;
         }
         return null;
@@ -401,23 +401,23 @@ public final class AppCompatDrawableManager {
             DrawableCompat.setTintMode(drawableWrap, tintMode);
             return drawableWrap;
         }
-        if (i == C0200R.drawable.abc_seekbar_track_material) {
+        if (i == SupportAppcompatResources.drawable.abc_seekbar_track_material) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
-            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.background), ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlNormal), DEFAULT_MODE);
-            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.secondaryProgress), ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlNormal), DEFAULT_MODE);
-            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.progress), ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlActivated), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.background), ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlNormal), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.secondaryProgress), ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlNormal), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(R.id.progress), ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlActivated), DEFAULT_MODE);
             return drawable;
         }
-        if (i != C0200R.drawable.abc_ratingbar_material && i != C0200R.drawable.abc_ratingbar_indicator_material && i != C0200R.drawable.abc_ratingbar_small_material) {
+        if (i != SupportAppcompatResources.drawable.abc_ratingbar_material && i != SupportAppcompatResources.drawable.abc_ratingbar_indicator_material && i != SupportAppcompatResources.drawable.abc_ratingbar_small_material) {
             if (tintDrawableUsingColorFilter(context, i, drawable) || !z) {
                 return drawable;
             }
             return null;
         }
         LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
-        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.background), ThemeUtils.getDisabledThemeAttrColor(context, C0200R.attr.colorControlNormal), DEFAULT_MODE);
-        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.secondaryProgress), ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlActivated), DEFAULT_MODE);
-        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.progress), ThemeUtils.getThemeAttrColor(context, C0200R.attr.colorControlActivated), DEFAULT_MODE);
+        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.background), ThemeUtils.getDisabledThemeAttrColor(context, SupportAppcompatResources.attr.colorControlNormal), DEFAULT_MODE);
+        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.secondaryProgress), ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlActivated), DEFAULT_MODE);
+        setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(R.id.progress), ThemeUtils.getThemeAttrColor(context, SupportAppcompatResources.attr.colorControlActivated), DEFAULT_MODE);
         return drawable;
     }
 
@@ -497,28 +497,28 @@ public final class AppCompatDrawableManager {
         ColorStateList tintListFromCache;
         tintListFromCache = getTintListFromCache(context, i);
         if (tintListFromCache == null) {
-            if (i == C0200R.drawable.abc_edit_text_material) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_edittext);
-            } else if (i == C0200R.drawable.abc_switch_track_mtrl_alpha) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_switch_track);
-            } else if (i == C0200R.drawable.abc_switch_thumb_material) {
+            if (i == SupportAppcompatResources.drawable.abc_edit_text_material) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_edittext);
+            } else if (i == SupportAppcompatResources.drawable.abc_switch_track_mtrl_alpha) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_switch_track);
+            } else if (i == SupportAppcompatResources.drawable.abc_switch_thumb_material) {
                 tintListFromCache = createSwitchThumbColorStateList(context);
-            } else if (i == C0200R.drawable.abc_btn_default_mtrl_shape) {
+            } else if (i == SupportAppcompatResources.drawable.abc_btn_default_mtrl_shape) {
                 tintListFromCache = createDefaultButtonColorStateList(context);
-            } else if (i == C0200R.drawable.abc_btn_borderless_material) {
+            } else if (i == SupportAppcompatResources.drawable.abc_btn_borderless_material) {
                 tintListFromCache = createBorderlessButtonColorStateList(context);
-            } else if (i == C0200R.drawable.abc_btn_colored_material) {
+            } else if (i == SupportAppcompatResources.drawable.abc_btn_colored_material) {
                 tintListFromCache = createColoredButtonColorStateList(context);
-            } else if (i == C0200R.drawable.abc_spinner_mtrl_am_alpha || i == C0200R.drawable.abc_spinner_textfield_background_material) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_spinner);
+            } else if (i == SupportAppcompatResources.drawable.abc_spinner_mtrl_am_alpha || i == SupportAppcompatResources.drawable.abc_spinner_textfield_background_material) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_spinner);
             } else if (arrayContains(TINT_COLOR_CONTROL_NORMAL, i)) {
-                tintListFromCache = ThemeUtils.getThemeAttrColorStateList(context, C0200R.attr.colorControlNormal);
+                tintListFromCache = ThemeUtils.getThemeAttrColorStateList(context, SupportAppcompatResources.attr.colorControlNormal);
             } else if (arrayContains(TINT_COLOR_CONTROL_STATE_LIST, i)) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_default);
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_default);
             } else if (arrayContains(TINT_CHECKABLE_BUTTON_LIST, i)) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_btn_checkable);
-            } else if (i == C0200R.drawable.abc_seekbar_thumb_material) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, C0200R.color.abc_tint_seek_thumb);
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_btn_checkable);
+            } else if (i == SupportAppcompatResources.drawable.abc_seekbar_thumb_material) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, SupportAppcompatResources.color.abc_tint_seek_thumb);
             }
             if (tintListFromCache != null) {
                 addTintListToCache(context, i, tintListFromCache);

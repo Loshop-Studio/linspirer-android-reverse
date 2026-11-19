@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.alibaba.fastjson.asm.Label;
 import com.huawei.hms.framework.network.grs.GrsManager;
-import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.C1584a;
+import com.huawei.updatesdk.p034a.p035a.p037c.p038a.p039a.UpdateLogWriter;
 import java.io.File;
 
 /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class UpdateSdkFileProvider extends ContentProvider {
     public static final String AUTHORITIES_SUFFIX = ".updateSdk.fileProvider";
     public static final String[] COLUMNS = {"_display_name", "_size"};
     public static final String TAG = "UpdateSdkFileProvider";
-    public static InterfaceC1645a mWStrategy;
+    public static UpdateContentUriStrategy mWStrategy;
     public String authority;
 
     public static File buildPath(File file, String... strArr) {
@@ -44,9 +44,9 @@ public class UpdateSdkFileProvider extends ContentProvider {
         return strArr2;
     }
 
-    public static synchronized InterfaceC1645a createWiseDistPathStrategy(Context context, String str) {
+    public static synchronized UpdateContentUriStrategy createWiseDistPathStrategy(Context context, String str) {
         if (mWStrategy == null) {
-            mWStrategy = new C1646b(str);
+            mWStrategy = new UpdateFilePathStrategy(str);
             if (context.getFilesDir() != null) {
                 mWStrategy.mo3800a("updatesdkapk", buildPath(context.getFilesDir(), GrsManager.SEPARATOR));
             }
@@ -103,7 +103,7 @@ public class UpdateSdkFileProvider extends ContentProvider {
         if (fileMo3799a.getName().endsWith("apk")) {
             return ParcelFileDescriptor.open(fileMo3799a, Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        C1584a.m3516b(TAG, "can not open this file.");
+        UpdateLogWriter.m3516b(TAG, "can not open this file.");
         return null;
     }
 

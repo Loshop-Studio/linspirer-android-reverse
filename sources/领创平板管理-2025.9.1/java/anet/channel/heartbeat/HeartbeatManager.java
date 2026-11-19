@@ -4,10 +4,10 @@ package anet.channel.heartbeat;
 /* loaded from: classes.dex */
 public class HeartbeatManager {
     public static IHeartbeat getDefaultBackgroundAccsHeartbeat() {
-        return new RunnableC0354a();
+        return new SessionPingHeartbeat();
     }
 
     public static IHeartbeat getDefaultHeartbeat() {
-        return new RunnableC0355b();
+        return new DefaultSessionHeartbeat();
     }
 }

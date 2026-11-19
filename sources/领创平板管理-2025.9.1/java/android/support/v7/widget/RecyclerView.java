@@ -34,7 +34,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v7.recyclerview.C0203R;
+import android.support.v7.recyclerview.SupportRecyclerviewResources;
 import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.AdapterHelper;
 import android.support.v7.widget.ChildHelper;
@@ -859,11 +859,11 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
         public static Properties getProperties(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
             Properties properties = new Properties();
-            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0203R.styleable.RecyclerView, i, i2);
-            properties.orientation = typedArrayObtainStyledAttributes.getInt(C0203R.styleable.RecyclerView_android_orientation, 1);
-            properties.spanCount = typedArrayObtainStyledAttributes.getInt(C0203R.styleable.RecyclerView_spanCount, 1);
-            properties.reverseLayout = typedArrayObtainStyledAttributes.getBoolean(C0203R.styleable.RecyclerView_reverseLayout, false);
-            properties.stackFromEnd = typedArrayObtainStyledAttributes.getBoolean(C0203R.styleable.RecyclerView_stackFromEnd, false);
+            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportRecyclerviewResources.styleable.RecyclerView, i, i2);
+            properties.orientation = typedArrayObtainStyledAttributes.getInt(SupportRecyclerviewResources.styleable.RecyclerView_android_orientation, 1);
+            properties.spanCount = typedArrayObtainStyledAttributes.getInt(SupportRecyclerviewResources.styleable.RecyclerView_spanCount, 1);
+            properties.reverseLayout = typedArrayObtainStyledAttributes.getBoolean(SupportRecyclerviewResources.styleable.RecyclerView_reverseLayout, false);
+            properties.stackFromEnd = typedArrayObtainStyledAttributes.getBoolean(SupportRecyclerviewResources.styleable.RecyclerView_stackFromEnd, false);
             typedArrayObtainStyledAttributes.recycle();
             return properties;
         }
@@ -5604,7 +5604,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             throw new IllegalArgumentException(CompilerOutline.m1753K(this, CompilerOutline.m1765j("Trying to set fast scroller without both required drawables.")));
         }
         Resources resources = getContext().getResources();
-        new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(C0203R.dimen.fastscroll_default_thickness), resources.getDimensionPixelSize(C0203R.dimen.fastscroll_minimum_range), resources.getDimensionPixelOffset(C0203R.dimen.fastscroll_margin));
+        new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(SupportRecyclerviewResources.dimen.fastscroll_default_thickness), resources.getDimensionPixelSize(SupportRecyclerviewResources.dimen.fastscroll_minimum_range), resources.getDimensionPixelOffset(SupportRecyclerviewResources.dimen.fastscroll_margin));
     }
 
     public void invalidateGlows() {
@@ -6952,15 +6952,15 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         this.mAccessibilityManager = (AccessibilityManager) getContext().getSystemService("accessibility");
         setAccessibilityDelegateCompat(new RecyclerViewAccessibilityDelegate(this));
         if (attributeSet != null) {
-            TypedArray typedArrayObtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, C0203R.styleable.RecyclerView, i, 0);
-            String string = typedArrayObtainStyledAttributes2.getString(C0203R.styleable.RecyclerView_layoutManager);
-            if (typedArrayObtainStyledAttributes2.getInt(C0203R.styleable.RecyclerView_android_descendantFocusability, -1) == -1) {
+            TypedArray typedArrayObtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, SupportRecyclerviewResources.styleable.RecyclerView, i, 0);
+            String string = typedArrayObtainStyledAttributes2.getString(SupportRecyclerviewResources.styleable.RecyclerView_layoutManager);
+            if (typedArrayObtainStyledAttributes2.getInt(SupportRecyclerviewResources.styleable.RecyclerView_android_descendantFocusability, -1) == -1) {
                 setDescendantFocusability(262144);
             }
-            boolean z2 = typedArrayObtainStyledAttributes2.getBoolean(C0203R.styleable.RecyclerView_fastScrollEnabled, false);
+            boolean z2 = typedArrayObtainStyledAttributes2.getBoolean(SupportRecyclerviewResources.styleable.RecyclerView_fastScrollEnabled, false);
             this.mEnableFastScroller = z2;
             if (z2) {
-                initFastScroller((StateListDrawable) typedArrayObtainStyledAttributes2.getDrawable(C0203R.styleable.RecyclerView_fastScrollVerticalThumbDrawable), typedArrayObtainStyledAttributes2.getDrawable(C0203R.styleable.RecyclerView_fastScrollVerticalTrackDrawable), (StateListDrawable) typedArrayObtainStyledAttributes2.getDrawable(C0203R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable), typedArrayObtainStyledAttributes2.getDrawable(C0203R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable));
+                initFastScroller((StateListDrawable) typedArrayObtainStyledAttributes2.getDrawable(SupportRecyclerviewResources.styleable.RecyclerView_fastScrollVerticalThumbDrawable), typedArrayObtainStyledAttributes2.getDrawable(SupportRecyclerviewResources.styleable.RecyclerView_fastScrollVerticalTrackDrawable), (StateListDrawable) typedArrayObtainStyledAttributes2.getDrawable(SupportRecyclerviewResources.styleable.RecyclerView_fastScrollHorizontalThumbDrawable), typedArrayObtainStyledAttributes2.getDrawable(SupportRecyclerviewResources.styleable.RecyclerView_fastScrollHorizontalTrackDrawable));
             }
             typedArrayObtainStyledAttributes2.recycle();
             createLayoutManager(context, string, attributeSet, i, 0);

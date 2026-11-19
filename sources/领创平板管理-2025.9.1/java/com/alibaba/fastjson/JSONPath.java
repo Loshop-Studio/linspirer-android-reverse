@@ -51,7 +51,7 @@ public class JSONPath implements JSONAware {
     public SerializeConfig serializeConfig;
 
     /* renamed from: com.alibaba.fastjson.JSONPath$1 */
-    public static /* synthetic */ class C04771 {
+    public static /* synthetic */ class JsonPathOperatorSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$JSONPath$Operator;
 
         static {

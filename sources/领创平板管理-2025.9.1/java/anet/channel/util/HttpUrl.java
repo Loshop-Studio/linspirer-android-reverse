@@ -1,6 +1,6 @@
 package anet.channel.util;
 
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -81,7 +81,7 @@ public class HttpUrl {
             while (iIndexOf < this.url.length() && this.url.charAt(iIndexOf) != '/') {
                 iIndexOf++;
             }
-            boolean zM332b = C0413c.m332b(str);
+            boolean zM332b = AmdcStringEncoding.m332b(str);
             StringBuilder sb = new StringBuilder(str.length() + this.url.length());
             sb.append(this.scheme);
             sb.append(HttpConstant.SCHEME_SPLIT);

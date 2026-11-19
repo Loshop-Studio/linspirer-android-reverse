@@ -23,7 +23,7 @@ public class GuideSetUpObserver extends ContentObserver {
         super.onChange(z);
         try {
             if (Settings.Secure.getInt(this.f2638a.getContentResolver(), "device_provisioned", 0) != 0) {
-                LTKDateUtil.f2294f.mo1313O("com.android.launcher3", C1219q0.m2522r(LauncherDeviceUtils.m1589f()));
+                LTKDateUtil.f2294f.mo1313O("com.android.launcher3", AgooNotificationHandler.m2522r(LauncherDeviceUtils.m1589f()));
             }
         } catch (Throwable unused) {
         }

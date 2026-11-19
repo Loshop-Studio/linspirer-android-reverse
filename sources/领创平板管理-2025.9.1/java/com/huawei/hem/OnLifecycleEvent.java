@@ -1,6 +1,6 @@
 package com.huawei.hem;
 
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 /* renamed from: com.huawei.hem.q */
 /* loaded from: classes.dex */
 public @interface OnLifecycleEvent {
-    AbstractC0992h.a value();
+    ArchitectureLifecycle.a value();
 }

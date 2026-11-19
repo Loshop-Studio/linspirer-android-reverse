@@ -40,8 +40,8 @@ public final class ApsServiceCore {
     public final void m5196a() {
         try {
             ApsManager.m4806f();
-            this.f5820a.f5540j = C1841ew.m5127b();
-            this.f5820a.f5541k = C1841ew.m5107a();
+            this.f5820a.f5540j = AMapLocationUtilities.m5127b();
+            this.f5820a.f5541k = AMapLocationUtilities.m5107a();
             this.f5820a.m4810a();
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "ApsServiceCore", "onCreate");

@@ -4,7 +4,7 @@ import anet.channel.util.HttpConstant;
 import com.huawei.hem.OkHttpClient;
 import com.huawei.hem.OkHttpResponse;
 import com.huawei.hem.Http2Stream;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import com.huawei.hem.OkHttpInterceptor;
 import com.taobao.accs.common.Constants;
 import java.io.IOException;
@@ -21,10 +21,10 @@ import java.util.concurrent.TimeUnit;
 public final class Http2ExchangeCodec implements ExchangeCodec {
 
     /* renamed from: g */
-    public static final List<String> f2985g = C1314tk.m2760o("connection", Constants.KEY_HOST, "keep-alive", "proxy-connection", "te", "transfer-encoding", "encoding", "upgrade", ":method", ":path", ":scheme", ":authority");
+    public static final List<String> f2985g = OkHttpCommonUtilities.m2760o("connection", Constants.KEY_HOST, "keep-alive", "proxy-connection", "te", "transfer-encoding", "encoding", "upgrade", ":method", ":path", ":scheme", ":authority");
 
     /* renamed from: h */
-    public static final List<String> f2986h = C1314tk.m2760o("connection", Constants.KEY_HOST, "keep-alive", "proxy-connection", "te", "transfer-encoding", "encoding", "upgrade");
+    public static final List<String> f2986h = OkHttpCommonUtilities.m2760o("connection", Constants.KEY_HOST, "keep-alive", "proxy-connection", "te", "transfer-encoding", "encoding", "upgrade");
 
     /* renamed from: a */
     public final OkHttpInterceptor.a f2987a;
@@ -33,7 +33,7 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
     public final RealConnection f2988b;
 
     /* renamed from: c */
-    public final C0834am f2989c;
+    public final OkHttp2Connection f2989c;
 
     /* renamed from: d */
     public volatile Http2Stream f2990d;
@@ -44,7 +44,7 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
     /* renamed from: f */
     public volatile boolean f2992f;
 
-    public Http2ExchangeCodec(OkHttpClient c0910dk, RealConnection c0963fl, OkHttpInterceptor.a aVar, C0834am c0834am) {
+    public Http2ExchangeCodec(OkHttpClient c0910dk, RealConnection c0963fl, OkHttpInterceptor.a aVar, OkHttp2Connection c0834am) {
         this.f2988b = c0963fl;
         this.f2987a = aVar;
         this.f2989c = c0834am;
@@ -67,10 +67,10 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
             return;
         }
         boolean z2 = c0988gk.f2788d != null;
-        C1438yj c1438yj = c0988gk.f2787c;
+        OkHttpHeaderList c1438yj = c0988gk.f2787c;
         ArrayList arrayList = new ArrayList(c1438yj.m3113g() + 4);
         arrayList.add(new Http2Header(Http2Header.f4087f, c0988gk.f2786b));
-        arrayList.add(new Http2Header(Http2Header.f4088g, C1339uk.m2816b(c0988gk.f2785a)));
+        arrayList.add(new Http2Header(Http2Header.f4088g, OkHttpVersionInfo.m2816b(c0988gk.f2785a)));
         String strM3110c = c0988gk.f2787c.m3110c(HttpConstant.HOST);
         if (strM3110c != null) {
             arrayList.add(new Http2Header(Http2Header.f4090i, strM3110c));
@@ -83,7 +83,7 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
                 arrayList.add(new Http2Header(lowerCase, c1438yj.m3114h(i2)));
             }
         }
-        C0834am c0834am = this.f2989c;
+        OkHttp2Connection c0834am = this.f2989c;
         boolean z3 = !z2;
         synchronized (c0834am.f2238v) {
             synchronized (c0834am) {
@@ -150,7 +150,7 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
     @Override // com.huawei.hem.InterfaceC1165nl
     /* renamed from: g */
     public OkHttpResponse.a mo2145g(boolean z) throws NumberFormatException, IOException {
-        C1438yj c1438yjRemoveFirst;
+        OkHttpHeaderList c1438yjRemoveFirst;
         Http2Stream c1116lm = this.f2990d;
         synchronized (c1116lm) {
             c1116lm.f3209i.m1837i();
@@ -183,7 +183,7 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
             } else if (f2986h.contains(strM3111d)) {
                 continue;
             } else {
-                if (((OkHttpClient.a) AbstractC1264rk.f3645a) == null) {
+                if (((OkHttpClient.a) OkHttpInternalAccess.f3645a) == null) {
                     throw null;
                 }
                 arrayList.add(strM3111d);
@@ -198,11 +198,11 @@ public final class Http2ExchangeCodec implements ExchangeCodec {
         aVar.f3107c = c1315tlM2772a.f3827b;
         aVar.f3108d = c1315tlM2772a.f3828c;
         String[] strArr = (String[]) arrayList.toArray(new String[arrayList.size()]);
-        C1438yj.a aVar2 = new C1438yj.a();
+        OkHttpHeaderList.a aVar2 = new OkHttpHeaderList.a();
         Collections.addAll(aVar2.f4230a, strArr);
         aVar.f3110f = aVar2;
         if (z) {
-            if (((OkHttpClient.a) AbstractC1264rk.f3645a) == null) {
+            if (((OkHttpClient.a) OkHttpInternalAccess.f3645a) == null) {
                 throw null;
             }
             if (aVar.f3107c == 100) {

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.google.zxing.client.android.InactivityTimer;
 import com.huawei.hem.AuthConfigManager;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import com.taobao.accs.AccsState;
 import com.taobao.accs.utl.BaseMonitor;
 import java.util.ArrayList;
@@ -162,7 +162,7 @@ public final class AuthUtil {
                 try {
                     long jOptInt = jSONObjectOptJSONObject.optInt("at", 123) * 60 * 1000;
                     f5727a = jOptInt;
-                    C1840ev.m5096a(editor, "13S_at", jOptInt);
+                    AMapLocationPreferences.m5096a(editor, "13S_at", jOptInt);
                 } catch (Throwable th) {
                     CoreUtil.m5014a(th, "AuthUtil", "requestSdkAuthInterval");
                 }
@@ -170,22 +170,22 @@ public final class AuthUtil {
                 try {
                     boolean zM1723q = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("nla"), true);
                     f5716D = zM1723q;
-                    C1840ev.m5098a(editor, "13S_nla", zM1723q);
+                    AMapLocationPreferences.m5098a(editor, "13S_nla", zM1723q);
                 } catch (Throwable unused) {
                 }
                 try {
                     boolean zM1723q2 = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("asw"), true);
                     f5718F = zM1723q2;
-                    C1840ev.m5098a(editor, "asw", zM1723q2);
+                    AMapLocationPreferences.m5098a(editor, "asw", zM1723q2);
                 } catch (Throwable unused2) {
                 }
                 try {
                     JSONArray jSONArrayOptJSONArray = jSONObjectOptJSONObject.optJSONArray("mlpl");
                     if (jSONArrayOptJSONArray == null || jSONArrayOptJSONArray.length() <= 0 || context == null) {
                         f5717E = false;
-                        C1840ev.m5094a(editor, "13S_mlpl");
+                        AMapLocationPreferences.m5094a(editor, "13S_mlpl");
                     } else {
-                        C1840ev.m5097a(editor, "13S_mlpl", C1094l1.m2247p(jSONArrayOptJSONArray.toString()));
+                        AMapLocationPreferences.m5097a(editor, "13S_mlpl", AMapCoreUtilities.m2247p(jSONArrayOptJSONArray.toString()));
                         f5717E = m4978a(context, jSONArrayOptJSONArray);
                     }
                 } catch (Throwable unused3) {
@@ -203,7 +203,7 @@ public final class AuthUtil {
             if (aVar != null) {
                 boolean z = aVar.f2617a;
                 f5735i = z;
-                C1840ev.m5098a(editor, "exception", z);
+                AMapLocationPreferences.m5098a(editor, "exception", z);
                 JSONObject jSONObject = aVar.f2618b;
                 if (jSONObject != null) {
                     f5736j = jSONObject.optInt("fn", f5736j);
@@ -222,12 +222,12 @@ public final class AuthUtil {
                 }
                 OfflineLocManager.m4174a(f5736j, f5738l, f5739m, f5740n);
                 StatisticsManager.m4187a(f5738l, f5740n);
-                C1840ev.m5095a(editor, "fn", f5736j);
-                C1840ev.m5095a(editor, "mpn", f5737k);
-                C1840ev.m5098a(editor, "igu", f5738l);
-                C1840ev.m5095a(editor, "ms", f5739m);
-                C1840ev.m5095a(editor, "rot", f5741o);
-                C1840ev.m5095a(editor, "pms", f5740n);
+                AMapLocationPreferences.m5095a(editor, "fn", f5736j);
+                AMapLocationPreferences.m5095a(editor, "mpn", f5737k);
+                AMapLocationPreferences.m5098a(editor, "igu", f5738l);
+                AMapLocationPreferences.m5095a(editor, "ms", f5739m);
+                AMapLocationPreferences.m5095a(editor, "rot", f5741o);
+                AMapLocationPreferences.m5095a(editor, "pms", f5740n);
             }
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "AuthUtil", "loadConfigDataUploadException");
@@ -246,10 +246,10 @@ public final class AuthUtil {
                 }
                 f5751y = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("fa"), false);
                 f5752z = Math.min(1.0d, Math.max(0.2d, jSONObjectOptJSONObject.optDouble("ms", 0.618d)));
-                C1840ev.m5098a(editor, "ca", f5749w);
-                C1840ev.m5096a(editor, "ct", f5750x);
-                C1840ev.m5098a(editor, "11G_fa", f5751y);
-                C1840ev.m5097a(editor, "11G_ms", String.valueOf(f5752z));
+                AMapLocationPreferences.m5098a(editor, "ca", f5749w);
+                AMapLocationPreferences.m5096a(editor, "ct", f5750x);
+                AMapLocationPreferences.m5098a(editor, "11G_fa", f5751y);
+                AMapLocationPreferences.m5097a(editor, "11G_ms", String.valueOf(f5752z));
             }
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "AuthUtil", "loadConfigDataCacheAble");
@@ -266,7 +266,7 @@ public final class AuthUtil {
         if (!f5749w) {
             return false;
         }
-        long jM5107a = C1841ew.m5107a() - j;
+        long jM5107a = AMapLocationUtilities.m5107a() - j;
         long j2 = f5750x;
         return j2 < 0 || jM5107a < j2;
     }
@@ -275,7 +275,7 @@ public final class AuthUtil {
     public static boolean m4977a(Context context, AuthConfigManager.c cVar) {
         SharedPreferences.Editor editorM5090a;
         try {
-            editorM5090a = C1840ev.m5090a(context, "pref");
+            editorM5090a = AMapLocationPreferences.m5090a(context, "pref");
         } catch (Throwable unused) {
             editorM5090a = null;
         }
@@ -286,7 +286,7 @@ public final class AuthUtil {
             if (jSONObject == null) {
                 if (editorM5090a != null) {
                     try {
-                        C1840ev.m5093a(editorM5090a);
+                        AMapLocationPreferences.m5093a(editorM5090a);
                     } catch (Throwable unused2) {
                     }
                 }
@@ -302,7 +302,7 @@ public final class AuthUtil {
             m4981b(jSONObject, editorM5090a);
             if (editorM5090a != null) {
                 try {
-                    C1840ev.m5093a(editorM5090a);
+                    AMapLocationPreferences.m5093a(editorM5090a);
                 } catch (Throwable unused3) {
                 }
             }
@@ -312,7 +312,7 @@ public final class AuthUtil {
                 return false;
             }
             try {
-                C1840ev.m5093a(editorM5090a);
+                AMapLocationPreferences.m5093a(editorM5090a);
                 return false;
             } catch (Throwable unused5) {
                 return false;
@@ -326,7 +326,7 @@ public final class AuthUtil {
             try {
                 if (jSONArray.length() > 0 && context != null) {
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        if (C1841ew.m5132b(context, jSONArray.getString(i))) {
+                        if (AMapLocationUtilities.m5132b(context, jSONArray.getString(i))) {
                             return true;
                         }
                     }
@@ -349,18 +349,18 @@ public final class AuthUtil {
         }
         f5748v = true;
         try {
-            f5735i = C1840ev.m5099a(context, "pref", "exception", f5735i);
+            f5735i = AMapLocationPreferences.m5099a(context, "pref", "exception", f5735i);
             m4983c(context);
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "AuthUtil", "loadLastAbleState p1");
         }
         try {
-            f5736j = C1840ev.m5088a(context, "pref", "fn", f5736j);
-            f5737k = C1840ev.m5088a(context, "pref", "mpn", f5737k);
-            f5738l = C1840ev.m5099a(context, "pref", "igu", f5738l);
-            f5739m = C1840ev.m5088a(context, "pref", "ms", f5739m);
-            f5741o = C1840ev.m5088a(context, "pref", "rot", 0);
-            int iM5088a = C1840ev.m5088a(context, "pref", "pms", 0);
+            f5736j = AMapLocationPreferences.m5088a(context, "pref", "fn", f5736j);
+            f5737k = AMapLocationPreferences.m5088a(context, "pref", "mpn", f5737k);
+            f5738l = AMapLocationPreferences.m5099a(context, "pref", "igu", f5738l);
+            f5739m = AMapLocationPreferences.m5088a(context, "pref", "ms", f5739m);
+            f5741o = AMapLocationPreferences.m5088a(context, "pref", "rot", 0);
+            int iM5088a = AMapLocationPreferences.m5088a(context, "pref", "pms", 0);
             f5740n = iM5088a;
             OfflineLocManager.m4174a(f5736j, f5738l, f5739m, iM5088a);
             StatisticsManager.m4187a(f5738l, f5740n);
@@ -368,74 +368,74 @@ public final class AuthUtil {
             CoreUtil.m5014a(th2, "AuthUtil", "loadLastAbleState p2");
         }
         try {
-            f5749w = C1840ev.m5099a(context, "pref", "ca", f5749w);
-            f5750x = C1840ev.m5089a(context, "pref", "ct", f5750x);
-            f5751y = C1840ev.m5099a(context, "pref", "11G_fa", f5751y);
-            double dDoubleValue = Double.valueOf(C1840ev.m5092a(context, "pref", "11G_ms", String.valueOf(f5752z))).doubleValue();
+            f5749w = AMapLocationPreferences.m5099a(context, "pref", "ca", f5749w);
+            f5750x = AMapLocationPreferences.m5089a(context, "pref", "ct", f5750x);
+            f5751y = AMapLocationPreferences.m5099a(context, "pref", "11G_fa", f5751y);
+            double dDoubleValue = Double.valueOf(AMapLocationPreferences.m5092a(context, "pref", "11G_ms", String.valueOf(f5752z))).doubleValue();
             f5752z = dDoubleValue;
             f5752z = Math.max(0.2d, dDoubleValue);
         } catch (Throwable th3) {
             CoreUtil.m5014a(th3, "AuthUtil", "loadLastAbleState p3");
         }
         try {
-            f5729c = C1840ev.m5099a(context, "pref", "fr", f5729c);
+            f5729c = AMapLocationPreferences.m5099a(context, "pref", "fr", f5729c);
         } catch (Throwable th4) {
             CoreUtil.m5014a(th4, "AuthUtil", "loadLastAbleState p4");
         }
         try {
-            f5718F = C1840ev.m5099a(context, "pref", "asw", f5718F);
+            f5718F = AMapLocationPreferences.m5099a(context, "pref", "asw", f5718F);
         } catch (Throwable th5) {
             CoreUtil.m5014a(th5, "AuthUtil", "loadLastAbleState p5");
         }
         try {
-            f5719G = C1840ev.m5089a(context, "pref", "awsi", f5719G);
+            f5719G = AMapLocationPreferences.m5089a(context, "pref", "awsi", f5719G);
         } catch (Throwable th6) {
             CoreUtil.m5014a(th6, "AuthUtil", "loadLastAbleState p6");
         }
         try {
-            f5720H = C1840ev.m5099a(context, "pref", "15ua", f5720H);
-            f5721I = C1840ev.m5088a(context, "pref", "15un", f5721I);
-            f5726N = C1840ev.m5089a(context, "pref", "15ust", f5726N);
+            f5720H = AMapLocationPreferences.m5099a(context, "pref", "15ua", f5720H);
+            f5721I = AMapLocationPreferences.m5088a(context, "pref", "15un", f5721I);
+            f5726N = AMapLocationPreferences.m5089a(context, "pref", "15ust", f5726N);
         } catch (Throwable th7) {
             CoreUtil.m5014a(th7, "AuthUtil", "loadLastAbleState p7");
         }
         try {
-            f5722J = C1840ev.m5099a(context, "pref", "ok9", f5722J);
-            f5723K = C1840ev.m5088a(context, "pref", "ok10", f5723K);
-            f5725M = C1840ev.m5092a(context, "pref", "ok11", f5725M);
+            f5722J = AMapLocationPreferences.m5099a(context, "pref", "ok9", f5722J);
+            f5723K = AMapLocationPreferences.m5088a(context, "pref", "ok10", f5723K);
+            f5725M = AMapLocationPreferences.m5092a(context, "pref", "ok11", f5725M);
         } catch (Throwable th8) {
             CoreUtil.m5014a(th8, "AuthUtil", "loadLastAbleState p8");
         }
         try {
-            f5730d = C1840ev.m5099a(context, "pref", "17ya", false);
-            f5731e = C1840ev.m5099a(context, "pref", "17ym", false);
-            f5733g = C1840ev.m5088a(context, "pref", "17yi", 2) * 60 * 60 * 1000;
-            f5732f = C1840ev.m5088a(context, "pref", "17yx", 100) * 1024;
+            f5730d = AMapLocationPreferences.m5099a(context, "pref", "17ya", false);
+            f5731e = AMapLocationPreferences.m5099a(context, "pref", "17ym", false);
+            f5733g = AMapLocationPreferences.m5088a(context, "pref", "17yi", 2) * 60 * 60 * 1000;
+            f5732f = AMapLocationPreferences.m5088a(context, "pref", "17yx", 100) * 1024;
         } catch (Throwable th9) {
             CoreUtil.m5014a(th9, "AuthUtil", "loadLastAbleState p9");
         }
         try {
-            f5728b = C1841ew.m5127b();
-            f5727a = C1840ev.m5089a(context, "pref", "13S_at", f5727a);
-            f5716D = C1840ev.m5099a(context, "pref", "13S_nla", f5716D);
-            f5713A = C1840ev.m5099a(context, "pref", "13J_able", f5713A);
-            f5714B = C1840ev.m5088a(context, "pref", "13J_c", f5714B);
+            f5728b = AMapLocationUtilities.m5127b();
+            f5727a = AMapLocationPreferences.m5089a(context, "pref", "13S_at", f5727a);
+            f5716D = AMapLocationPreferences.m5099a(context, "pref", "13S_nla", f5716D);
+            f5713A = AMapLocationPreferences.m5099a(context, "pref", "13J_able", f5713A);
+            f5714B = AMapLocationPreferences.m5088a(context, "pref", "13J_c", f5714B);
         } catch (Throwable th10) {
             CoreUtil.m5014a(th10, "AuthUtil", "loadLastAbleState p10");
         }
         AuthConfigManager.m1726t(context);
         try {
-            String strM5092a = C1840ev.m5092a(context, "pref", "13S_mlpl", (String) null);
+            String strM5092a = AMapLocationPreferences.m5092a(context, "pref", "13S_mlpl", (String) null);
             if (!TextUtils.isEmpty(strM5092a)) {
-                f5717E = m4978a(context, new JSONArray(C1094l1.m2251t(strM5092a)));
+                f5717E = m4978a(context, new JSONArray(AMapCoreUtilities.m2251t(strM5092a)));
             }
         } catch (Throwable th11) {
             CoreUtil.m5014a(th11, "AuthUtil", "loadLastAbleState p11");
         }
         try {
-            boolean zM5099a = C1840ev.m5099a(context, "pref", "197a", false);
-            String strM5092a2 = C1840ev.m5092a(context, "pref", "197dv", "");
-            String strM5092a3 = C1840ev.m5092a(context, "pref", "197tv", "");
+            boolean zM5099a = AMapLocationPreferences.m5099a(context, "pref", "197a", false);
+            String strM5092a2 = AMapLocationPreferences.m5092a(context, "pref", "197dv", "");
+            String strM5092a3 = AMapLocationPreferences.m5092a(context, "pref", "197tv", "");
             if (zM5099a && CoreUtil.f5754a.equals(strM5092a2)) {
                 for (String str : CoreUtil.f5755b) {
                     if (str.equals(strM5092a3)) {
@@ -457,13 +457,13 @@ public final class AuthUtil {
             JSONObject jSONObject2 = jSONObject.getJSONObject("197");
             if (jSONObject2 != null) {
                 boolean zM1723q = AuthConfigManager.m1723q(jSONObject2.optString("able"), false);
-                C1840ev.m5098a(editor, "197a", zM1723q);
+                AMapLocationPreferences.m5098a(editor, "197a", zM1723q);
                 if (zM1723q) {
-                    C1840ev.m5097a(editor, "197dv", jSONObject2.optString(AccsState.SDK_VERSION, ""));
-                    C1840ev.m5097a(editor, "197tv", jSONObject2.optString("tv", ""));
+                    AMapLocationPreferences.m5097a(editor, "197dv", jSONObject2.optString(AccsState.SDK_VERSION, ""));
+                    AMapLocationPreferences.m5097a(editor, "197tv", jSONObject2.optString("tv", ""));
                 } else {
-                    C1840ev.m5097a(editor, "197dv", "");
-                    C1840ev.m5097a(editor, "197tv", "");
+                    AMapLocationPreferences.m5097a(editor, "197dv", "");
+                    AMapLocationPreferences.m5097a(editor, "197tv", "");
                 }
             }
         } catch (Throwable unused) {
@@ -498,8 +498,8 @@ public final class AuthUtil {
                 if (zM1723q) {
                     f5714B = jSONObjectOptJSONObject.optInt("c", f5714B);
                 }
-                C1840ev.m5098a(editor, "13J_able", f5713A);
-                C1840ev.m5095a(editor, "13J_c", f5714B);
+                AMapLocationPreferences.m5098a(editor, "13J_able", f5713A);
+                AMapLocationPreferences.m5095a(editor, "13J_c", f5714B);
             }
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "AuthUtil", "loadConfigDataGpsGeoAble");
@@ -519,7 +519,7 @@ public final class AuthUtil {
         try {
             boolean zM1723q = AuthConfigManager.m1723q(jSONObject.optString(AccsState.RECENT_ERRORS), true);
             f5729c = zM1723q;
-            C1840ev.m5098a(editor, "fr", zM1723q);
+            AMapLocationPreferences.m5098a(editor, "fr", zM1723q);
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "AuthUtil", "checkReLocationAble");
         }
@@ -536,7 +536,7 @@ public final class AuthUtil {
                 } else {
                     f5719G = -1L;
                 }
-                C1840ev.m5096a(editor, "awsi", f5719G);
+                AMapLocationPreferences.m5096a(editor, "awsi", f5719G);
             }
         } catch (Throwable unused) {
         }
@@ -557,18 +557,18 @@ public final class AuthUtil {
             if (jSONObject2 != null) {
                 boolean zM1723q = AuthConfigManager.m1723q(jSONObject2.optString("able"), false);
                 f5730d = zM1723q;
-                C1840ev.m5098a(editor, "17ya", zM1723q);
+                AMapLocationPreferences.m5098a(editor, "17ya", zM1723q);
                 boolean zM1723q2 = AuthConfigManager.m1723q(jSONObject2.optString("mup"), false);
                 f5731e = zM1723q2;
-                C1840ev.m5098a(editor, "17ym", zM1723q2);
+                AMapLocationPreferences.m5098a(editor, "17ym", zM1723q2);
                 int iOptInt = jSONObject2.optInt("max", 20);
                 if (iOptInt > 0) {
-                    C1840ev.m5095a(editor, "17yx", iOptInt);
+                    AMapLocationPreferences.m5095a(editor, "17yx", iOptInt);
                     f5732f = iOptInt * 1024;
                 }
                 int iOptInt2 = jSONObject2.optInt("inv", 3);
                 if (iOptInt2 > 0) {
-                    C1840ev.m5095a(editor, "17yi", iOptInt2);
+                    AMapLocationPreferences.m5095a(editor, "17yi", iOptInt2);
                     f5733g = iOptInt2 * 60 * 60 * 1000;
                 }
             }
@@ -594,9 +594,9 @@ public final class AuthUtil {
                 boolean zM1723q = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("able"), true);
                 int iOptInt = jSONObjectOptJSONObject.optInt("yn", f5721I);
                 f5726N = jSONObjectOptJSONObject.optLong("sysTime", f5726N);
-                C1840ev.m5098a(editor, "15ua", zM1723q);
-                C1840ev.m5095a(editor, "15un", iOptInt);
-                C1840ev.m5096a(editor, "15ust", f5726N);
+                AMapLocationPreferences.m5098a(editor, "15ua", zM1723q);
+                AMapLocationPreferences.m5095a(editor, "15un", iOptInt);
+                AMapLocationPreferences.m5096a(editor, "15ust", f5726N);
             }
         } catch (Throwable unused) {
         }
@@ -613,12 +613,12 @@ public final class AuthUtil {
             if (jSONObjectOptJSONObject != null) {
                 boolean zM1723q = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("able"), false);
                 f5722J = zM1723q;
-                C1840ev.m5098a(editor, "ok9", zM1723q);
+                AMapLocationPreferences.m5098a(editor, "ok9", zM1723q);
                 if (zM1723q) {
                     String strOptString = jSONObjectOptJSONObject.optString(BaseMonitor.ALARM_POINT_AUTH);
                     String strOptString2 = jSONObjectOptJSONObject.optString("ht");
                     f5725M = strOptString2;
-                    C1840ev.m5097a(editor, "ok11", strOptString2);
+                    AMapLocationPreferences.m5097a(editor, "ok11", strOptString2);
                     AuthConfigManager.m1723q(strOptString, false);
                     f5724L = AuthConfigManager.m1723q(jSONObjectOptJSONObject.optString("nr"), false);
                     String strOptString3 = jSONObjectOptJSONObject.optString("tm");
@@ -626,7 +626,7 @@ public final class AuthUtil {
                         return;
                     }
                     f5723K = i;
-                    C1840ev.m5095a(editor, "ok10", i);
+                    AMapLocationPreferences.m5095a(editor, "ok10", i);
                 }
             }
         } catch (Throwable unused) {
@@ -680,7 +680,7 @@ public final class AuthUtil {
 
     /* renamed from: q */
     public static String m5003q() {
-        return C1094l1.m2251t(f5725M);
+        return AMapCoreUtilities.m2251t(f5725M);
     }
 
     /* renamed from: r */

@@ -31,7 +31,7 @@ public class UserDeviceInfoProvider extends ContentProvider {
     public UserInfoDBHelper f1901a;
 
     /* renamed from: com.android.launcher3.db.provider.UserDeviceInfoProvider$a */
-    public static final class C0650a implements BaseColumns {
+    public static final class DeviceInfoTableColumns implements BaseColumns {
 
         /* renamed from: a */
         public static final Uri f1902a = Uri.parse("content://com.drupe.swd.launcher.huoshan.mdm.provider.CommonLoginContentProvider/users");
@@ -75,7 +75,7 @@ public class UserDeviceInfoProvider extends ContentProvider {
         if (jInsert <= 0) {
             return null;
         }
-        Uri uriWithAppendedId = ContentUris.withAppendedId(C0650a.f1902a, jInsert);
+        Uri uriWithAppendedId = ContentUris.withAppendedId(DeviceInfoTableColumns.f1902a, jInsert);
         getContext().getContentResolver().notifyChange(uri, null);
         return uriWithAppendedId;
     }

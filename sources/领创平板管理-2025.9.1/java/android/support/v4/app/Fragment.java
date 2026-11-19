@@ -32,7 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.LifecycleRegistry;
 import com.huawei.hem.MutableLiveData;
@@ -451,7 +451,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @Override // com.huawei.hem.InterfaceC1042j
-    public AbstractC0992h getLifecycle() {
+    public ArchitectureLifecycle getLifecycle() {
         return this.mLifecycleRegistry;
     }
 
@@ -948,7 +948,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (!this.mCalled) {
             throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onCreate()"));
         }
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_CREATE);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_CREATE);
     }
 
     public boolean performCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
@@ -972,7 +972,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mPerformedCreateView = true;
         this.mViewLifecycleOwner = new LifecycleOwner() { // from class: android.support.v4.app.Fragment.3
             @Override // com.huawei.hem.InterfaceC1042j
-            public AbstractC0992h getLifecycle() {
+            public ArchitectureLifecycle getLifecycle() {
                 Fragment fragment = Fragment.this;
                 if (fragment.mViewLifecycleRegistry == null) {
                     fragment.mViewLifecycleRegistry = new LifecycleRegistry(fragment.mViewLifecycleOwner);
@@ -995,7 +995,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void performDestroy() {
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_DESTROY);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_DESTROY);
         FragmentManagerImpl fragmentManagerImpl = this.mChildFragmentManager;
         if (fragmentManagerImpl != null) {
             fragmentManagerImpl.dispatchDestroy();
@@ -1012,7 +1012,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void performDestroyView() {
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_DESTROY);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_DESTROY);
         }
         FragmentManagerImpl fragmentManagerImpl = this.mChildFragmentManager;
         if (fragmentManagerImpl != null) {
@@ -1095,9 +1095,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void performPause() {
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_PAUSE);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_PAUSE);
         }
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_PAUSE);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_PAUSE);
         FragmentManagerImpl fragmentManagerImpl = this.mChildFragmentManager;
         if (fragmentManagerImpl != null) {
             fragmentManagerImpl.dispatchPause();
@@ -1148,9 +1148,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             fragmentManagerImpl2.dispatchResume();
             this.mChildFragmentManager.execPendingActions();
         }
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_RESUME);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_RESUME);
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_RESUME);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_RESUME);
         }
     }
 
@@ -1180,17 +1180,17 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (fragmentManagerImpl2 != null) {
             fragmentManagerImpl2.dispatchStart();
         }
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_START);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_START);
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_START);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_START);
         }
     }
 
     public void performStop() {
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_STOP);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_STOP);
         }
-        this.mLifecycleRegistry.m2151c(AbstractC0992h.a.ON_STOP);
+        this.mLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_STOP);
         FragmentManagerImpl fragmentManagerImpl = this.mChildFragmentManager;
         if (fragmentManagerImpl != null) {
             fragmentManagerImpl.dispatchStop();
@@ -1280,7 +1280,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             throw new SuperNotCalledException(CompilerOutline.m1758c("Fragment ", this, " did not call through to super.onViewStateRestored()"));
         }
         if (this.mView != null) {
-            this.mViewLifecycleRegistry.m2151c(AbstractC0992h.a.ON_CREATE);
+            this.mViewLifecycleRegistry.m2151c(ArchitectureLifecycle.a.ON_CREATE);
         }
     }
 

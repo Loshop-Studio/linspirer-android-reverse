@@ -21,7 +21,7 @@ import com.android.launcher3.p027db.model.ScreenPartSettings;
 import com.android.launcher3.receiver.LinspirerLauncherReceiver;
 import com.android.launcher3.view.CommonDialog;
 import com.bumptech.glide.Glide;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ISVCustomer;
 import com.huawei.hem.DBController;
@@ -70,11 +70,11 @@ public abstract class BaseHomeFragment extends BaseFragment implements OnMainScr
     public int f1917s = 0;
 
     /* renamed from: t */
-    public BroadcastReceiver f1918t = new C0651a();
+    public BroadcastReceiver f1918t = new HomeActionReceiver();
 
     /* renamed from: com.android.launcher3.fragment.home.BaseHomeFragment$a */
-    public class C0651a extends BroadcastReceiver {
-        public C0651a() {
+    public class HomeActionReceiver extends BroadcastReceiver {
+        public HomeActionReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -102,8 +102,8 @@ public abstract class BaseHomeFragment extends BaseFragment implements OnMainScr
     }
 
     /* renamed from: com.android.launcher3.fragment.home.BaseHomeFragment$b */
-    public class C0652b implements CommonDialog.DialogButtonOnClickListener {
-        public C0652b() {
+    public class HomeDialogConfirmListener implements CommonDialog.DialogButtonOnClickListener {
+        public HomeDialogConfirmListener() {
         }
 
         @Override // com.android.launcher3.view.CommonDialog.DialogButtonOnClickListener
@@ -123,8 +123,8 @@ public abstract class BaseHomeFragment extends BaseFragment implements OnMainScr
     }
 
     /* renamed from: com.android.launcher3.fragment.home.BaseHomeFragment$c */
-    public class C0653c implements CommonDialog.DialogButtonOnClickListener {
-        public C0653c() {
+    public class HomeDialogChoiceListener implements CommonDialog.DialogButtonOnClickListener {
+        public HomeDialogChoiceListener() {
         }
 
         @Override // com.android.launcher3.view.CommonDialog.DialogButtonOnClickListener
@@ -149,7 +149,7 @@ public abstract class BaseHomeFragment extends BaseFragment implements OnMainScr
         this.f1914p = hiScreenHelper;
         hiScreenHelper.setOnMainScreenChangeListener(this);
         List<ScreenPartSettings> listLoadAll = DBController.m2715a().f3750b.getScreenPartSettingsDao().loadAll();
-        if (AbstractC1102l9.m2273N(listLoadAll)) {
+        if (MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             LTKDateUtil.m1403m("BaseHomeFragment has no hiboard cache");
             return;
         }
@@ -167,19 +167,19 @@ public abstract class BaseHomeFragment extends BaseFragment implements OnMainScr
     public void m1236j() {
         CommonDialog commonDialog = new CommonDialog();
         commonDialog.initDialog(this.f1800a, R.string.text_logout_title_tips, R.string.text_sure, R.string.text_cancel, 0.4d, 0.55d, true);
-        commonDialog.setDialogOnClickEvent(new C0652b());
+        commonDialog.setDialogOnClickEvent(new HomeDialogConfirmListener());
     }
 
     /* renamed from: k */
     public void m1237k() {
         CommonDialog commonDialog = new CommonDialog();
         commonDialog.initDialog(this.f1800a, R.string.text_confirm_logout_tips, R.string.text_sure, R.string.text_cancel, 0.4d, 0.45d, false);
-        commonDialog.setDialogOnClickEvent(new C0653c());
+        commonDialog.setDialogOnClickEvent(new HomeDialogChoiceListener());
     }
 
     /* renamed from: l */
     public boolean m1238l() {
-        return !AbstractC1102l9.m2273N(this.f1916r);
+        return !MobileSdkPlatformUtilities.m2273N(this.f1916r);
     }
 
     /* renamed from: m */

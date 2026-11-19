@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 /* compiled from: DownloadProgress.java */
 /* renamed from: com.huawei.hms.availableupdate.w */
 /* loaded from: classes.dex */
-public class DownloadProgress extends AbstractC1510o {
+public class DownloadProgress extends UpdateAlertDialog {
 
     /* renamed from: c */
     public ProgressBar f4502c;

@@ -20,7 +20,7 @@ import java.util.Map;
 public final class MultiFormatWriter implements Writer {
 
     /* renamed from: com.google.zxing.MultiFormatWriter$1 */
-    public static /* synthetic */ class C07791 {
+    public static /* synthetic */ class BarcodeWriterFormatSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$BarcodeFormat;
 
         static {

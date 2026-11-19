@@ -16,12 +16,12 @@ public class RubbishRecyclerViewAdapterClickListener implements View.OnClickList
     public final /* synthetic */ RubbishFileInfo f2270b;
 
     /* renamed from: c */
-    public final /* synthetic */ RubbishRecyclerViewAdapter.C0649a f2271c;
+    public final /* synthetic */ RubbishRecyclerViewAdapter.RubbishRowHolder f2271c;
 
     /* renamed from: d */
     public final /* synthetic */ RubbishRecyclerViewAdapter f2272d;
 
-    public RubbishRecyclerViewAdapterClickListener(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, int i, RubbishFileInfo rubbishFileInfo, RubbishRecyclerViewAdapter.C0649a c0649a) {
+    public RubbishRecyclerViewAdapterClickListener(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, int i, RubbishFileInfo rubbishFileInfo, RubbishRecyclerViewAdapter.RubbishRowHolder c0649a) {
         this.f2272d = rubbishRecyclerViewAdapter;
         this.f2269a = i;
         this.f2270b = rubbishFileInfo;

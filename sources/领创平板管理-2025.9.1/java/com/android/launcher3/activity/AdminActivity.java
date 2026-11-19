@@ -15,7 +15,7 @@ import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.FileConfig;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
 import java.io.File;
@@ -87,7 +87,7 @@ public class AdminActivity extends BaseActivity implements View.OnClickListener,
         }
         FileConfig.b bVar = new FileConfig.b(this);
         bVar.f2651e = true;
-        bVar.f2649c = new File(CompilerOutline.m1762g(new StringBuilder(), C1395x1.f4038a, "log/")).getAbsolutePath();
+        bVar.f2649c = new File(CompilerOutline.m1762g(new StringBuilder(), LauncherConstants.f4038a, "log/")).getAbsolutePath();
         if (TextUtils.isEmpty(bVar.f2650d)) {
             Context context = bVar.f2647a;
             ApplicationInfo applicationInfo = context.getApplicationInfo();
@@ -139,7 +139,7 @@ public class AdminActivity extends BaseActivity implements View.OnClickListener,
                 LauncherMenuHelper.m2975V(this, LicenseActivity.class, bundle3);
                 break;
             case R.id.uploadlog /* 2131165551 */:
-                RunningLogHelper.UploadRunningLog(this, C1395x1.f4038a + "log/");
+                RunningLogHelper.UploadRunningLog(this, LauncherConstants.f4038a + "log/");
                 break;
             case R.id.whiteurl_read /* 2131165568 */:
                 LauncherMenuHelper.m2974U(this, ReadWebSiteWhiteActivity.class);

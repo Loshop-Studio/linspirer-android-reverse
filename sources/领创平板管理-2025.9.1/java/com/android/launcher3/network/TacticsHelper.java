@@ -32,14 +32,14 @@ import com.android.launcher3.p027db.model.ItemAppDao;
 import com.android.launcher3.p027db.model.ManageDevice;
 import com.android.launcher3.p027db.model.ManageDeviceDao;
 import com.android.launcher3.p027db.model.WeekTacticsDao;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.LauncherDeviceUtils;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.AppUpdateCheckHelper;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.EyeProtectedHelper;
 import com.huawei.hem.DBController;
@@ -191,19 +191,19 @@ public class TacticsHelper {
         Context context = this.mContext;
         HashMap map = new HashMap();
         map.put("logout_status", Integer.valueOf(logout_status));
-        Iterator it = ((ArrayList) C1219q0.m2529y()).iterator();
+        Iterator it = ((ArrayList) AgooNotificationHandler.m2529y()).iterator();
         while (it.hasNext()) {
             map.put((String) it.next(), Integer.valueOf(gallery_status));
         }
-        Iterator it2 = ((ArrayList) C1219q0.m2528x()).iterator();
+        Iterator it2 = ((ArrayList) AgooNotificationHandler.m2528x()).iterator();
         while (it2.hasNext()) {
             map.put((String) it2.next(), Integer.valueOf(alarm_clock_status));
         }
-        Iterator it3 = ((ArrayList) C1219q0.m2527w()).iterator();
+        Iterator it3 = ((ArrayList) AgooNotificationHandler.m2527w()).iterator();
         while (it3.hasNext()) {
             map.put((String) it3.next(), Integer.valueOf(camera_status));
         }
-        Iterator it4 = ((ArrayList) C1219q0.m2526v()).iterator();
+        Iterator it4 = ((ArrayList) AgooNotificationHandler.m2526v()).iterator();
         while (it4.hasNext()) {
             map.put((String) it4.next(), Integer.valueOf(calendar_status));
         }
@@ -324,11 +324,11 @@ public class TacticsHelper {
                 c0824ac.f2200b.putInt("bluetooth", 0);
                 c0824ac.f2200b.commit();
             }
-            C1219q0.m2521q(this.mContext, "command_bluetooth", 0);
-            C1219q0.m2521q(this.mContext, "command_connect_usb", 0);
-            C1219q0.m2521q(this.mContext, "command_wifi_switch", 1);
-            C1219q0.m2521q(this.mContext, "command_recording", 1);
-            C1219q0.m2521q(this.mContext, "command_camera", 1);
+            AgooNotificationHandler.m2521q(this.mContext, "command_bluetooth", 0);
+            AgooNotificationHandler.m2521q(this.mContext, "command_connect_usb", 0);
+            AgooNotificationHandler.m2521q(this.mContext, "command_wifi_switch", 1);
+            AgooNotificationHandler.m2521q(this.mContext, "command_recording", 1);
+            AgooNotificationHandler.m2521q(this.mContext, "command_camera", 1);
             return;
         }
         ManageDevice deviceManage = tacticDevice.getDeviceManage();
@@ -340,11 +340,11 @@ public class TacticsHelper {
             c0824ac2.f2200b.putInt("bluetooth", zIsCommand_bluetooth ? 1 : 0);
             c0824ac2.f2200b.commit();
         }
-        C1219q0.m2521q(this.mContext, "command_bluetooth", deviceManage.isCommand_bluetooth() ? 1 : 0);
-        C1219q0.m2521q(this.mContext, "command_connect_usb", deviceManage.isCommand_connect_usb() ? 1 : 0);
-        C1219q0.m2521q(this.mContext, "command_wifi_switch", deviceManage.isCommand_wifi_switch() ? 1 : 0);
-        C1219q0.m2521q(this.mContext, "command_recording", deviceManage.isCommand_recording() ? 1 : 0);
-        C1219q0.m2521q(this.mContext, "command_camera", deviceManage.isCommand_camera() ? 1 : 0);
+        AgooNotificationHandler.m2521q(this.mContext, "command_bluetooth", deviceManage.isCommand_bluetooth() ? 1 : 0);
+        AgooNotificationHandler.m2521q(this.mContext, "command_connect_usb", deviceManage.isCommand_connect_usb() ? 1 : 0);
+        AgooNotificationHandler.m2521q(this.mContext, "command_wifi_switch", deviceManage.isCommand_wifi_switch() ? 1 : 0);
+        AgooNotificationHandler.m2521q(this.mContext, "command_recording", deviceManage.isCommand_recording() ? 1 : 0);
+        AgooNotificationHandler.m2521q(this.mContext, "command_camera", deviceManage.isCommand_camera() ? 1 : 0);
     }
 
     private void handleDuration(DeviceUse deviceUse) {
@@ -465,8 +465,8 @@ public class TacticsHelper {
                 c0824ac.f2200b.commit();
             }
             if (this.userInfoUtil.m3077x() == -1) {
-                if (!C1219q0.m2524t()) {
-                    List<String> listM2500B = C1219q0.m2500B();
+                if (!AgooNotificationHandler.m2524t()) {
+                    List<String> listM2500B = AgooNotificationHandler.m2500B();
                     if (i == 1) {
                         LTKDateUtil.f2294f.mo1304B0(listM2500B);
                     } else {
@@ -480,7 +480,7 @@ public class TacticsHelper {
             }
         }
         if (iM3011F == -1 && this.userInfoUtil.m3010E() == -1) {
-            if (C1219q0.m2525u()) {
+            if (AgooNotificationHandler.m2525u()) {
                 if (i == 1) {
                     LTKDateUtil.f2294f.mo1322g0();
                     return;
@@ -489,7 +489,7 @@ public class TacticsHelper {
                     return;
                 }
             }
-            List<String> listM2499A = C1219q0.m2499A();
+            List<String> listM2499A = AgooNotificationHandler.m2499A();
             if (i == 1) {
                 LTKDateUtil.f2294f.mo1304B0(listM2499A);
             } else {
@@ -549,7 +549,7 @@ public class TacticsHelper {
         }
         ArrayList<String> arrayListMo1347a0 = LTKDateUtil.f2294f.mo1347a0();
         StringBuilder sbM1765j = CompilerOutline.m1765j("TacticsHelper last wifi ssids:");
-        sbM1765j.append(AbstractC1102l9.m2272M(arrayListMo1347a0) ? "null" : arrayListMo1347a0);
+        sbM1765j.append(MobileSdkPlatformUtilities.m2272M(arrayListMo1347a0) ? "null" : arrayListMo1347a0);
         LTKDateUtil.m1403m(sbM1765j.toString());
         LTKDateUtil.f2294f.mo1349j0(arrayListMo1347a0);
         if (z) {
@@ -583,7 +583,7 @@ public class TacticsHelper {
         ArrayList arrayList = new ArrayList();
         arrayList.add("com.android.launcher3");
         arrayList.add("com.ndwill.swd.appstore");
-        if (!AbstractC1102l9.m2273N(null)) {
+        if (!MobileSdkPlatformUtilities.m2273N(null)) {
             arrayList.addAll(null);
         }
         LTKDateUtil.f2294f.mo2076s0(arrayList);
@@ -606,7 +606,7 @@ public class TacticsHelper {
         itemAppDao.deleteAll();
         if (lTKTactics.isApp_status()) {
             List<ItemApp> totalApps = lTKTactics.getTotalApps();
-            if (!AbstractC1102l9.m2273N(totalApps)) {
+            if (!MobileSdkPlatformUtilities.m2273N(totalApps)) {
                 itemAppDao.insertInTx(totalApps);
             }
         }

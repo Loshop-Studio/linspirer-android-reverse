@@ -15,12 +15,12 @@ public class ThreadPoolFactory {
     public static AmsLogger logger = AmsLogger.getLogger(TAG);
 
     /* renamed from: com.alibaba.sdk.android.push.common.util.ThreadPoolFactory$a */
-    public static class ThreadFactoryC0561a implements ThreadFactory {
+    public static class PushNamedThreadFactory implements ThreadFactory {
 
         /* renamed from: a */
         public String f1152a;
 
-        public ThreadFactoryC0561a(String str) {
+        public PushNamedThreadFactory(String str) {
             this.f1152a = str;
         }
 
@@ -44,7 +44,7 @@ public class ThreadPoolFactory {
         if (scheduleThreadPoolExecutor == null) {
             synchronized (ThreadPoolFactory.class) {
                 if (scheduleThreadPoolExecutor == null) {
-                    scheduleThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new ThreadFactoryC0561a(TAG));
+                    scheduleThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new PushNamedThreadFactory(TAG));
                     scheduleThreadPoolExecutor.setKeepAliveTime(60L, TimeUnit.SECONDS);
                     scheduleThreadPoolExecutor.allowCoreThreadTimeOut(true);
                 }

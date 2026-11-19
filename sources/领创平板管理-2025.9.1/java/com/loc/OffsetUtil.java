@@ -92,7 +92,7 @@ public final class OffsetUtil {
             if (!CoreUtil.m5015a(dPoint.getLatitude(), dPoint.getLongitude())) {
                 return dPoint;
             }
-            double[] dArrM5158a = C1842ex.m5158a(dPoint.getLongitude(), dPoint.getLatitude());
+            double[] dArrM5158a = CoordinateOffsetMath.m5158a(dPoint.getLongitude(), dPoint.getLatitude());
             return new DPoint(dArrM5158a[1], dArrM5158a[0]);
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "OffsetUtil", "cover part2");

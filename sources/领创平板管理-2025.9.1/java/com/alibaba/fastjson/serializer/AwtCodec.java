@@ -7,7 +7,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import com.loc.AMapLog;
 import java.awt.Color;
 import java.awt.Font;
@@ -250,18 +250,18 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
         if (obj instanceof Point) {
             Point point = (Point) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Point.class, '{'), "x", point.x);
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "y", point.y);
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "y", point.y);
         } else if (obj instanceof Font) {
             Font font = (Font) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Font.class, '{'), "name", font.getName());
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "style", font.getStyle());
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "size", font.getSize());
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "style", font.getStyle());
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "size", font.getSize());
         } else if (obj instanceof Rectangle) {
             Rectangle rectangle = (Rectangle) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Rectangle.class, '{'), "x", rectangle.x);
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "y", rectangle.y);
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "width", rectangle.width);
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "height", rectangle.height);
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "y", rectangle.y);
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "width", rectangle.width);
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "height", rectangle.height);
         } else {
             if (!(obj instanceof Color)) {
                 StringBuilder sbM1765j = CompilerOutline.m1765j("not support awt class : ");
@@ -270,10 +270,10 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
             }
             Color color = (Color) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), "r", color.getRed());
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, AMapLog.f5946f, color.getGreen());
-            serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "b", color.getBlue());
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, AMapLog.f5946f, color.getGreen());
+            serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "b", color.getBlue());
             if (color.getAlpha() > 0) {
-                serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "alpha", color.getAlpha());
+                serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "alpha", color.getAlpha());
             }
         }
         serializeWriter.write(125);
@@ -286,6 +286,6 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
         serializeWriter.write(123);
         serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
         serializeWriter.writeString(cls.getName());
-        return AbstractC1604b.COMMA;
+        return UpdateJsonBean.COMMA;
     }
 }

@@ -27,7 +27,7 @@ public class ThreadWrapper implements IOtaUpdate {
 
         /* compiled from: ThreadWrapper.java */
         /* renamed from: com.huawei.hms.availableupdate.c$a$a, reason: collision with other inner class name */
-        public class RunnableC2083a implements Runnable {
+        public class UpdateWrappedRunnable implements Runnable {
 
             /* renamed from: a */
             public final /* synthetic */ int f4443a;
@@ -35,7 +35,7 @@ public class ThreadWrapper implements IOtaUpdate {
             /* renamed from: b */
             public final /* synthetic */ UpdateInfo f4444b;
 
-            public RunnableC2083a(int i, UpdateInfo c1502g) {
+            public UpdateWrappedRunnable(int i, UpdateInfo c1502g) {
                 this.f4443a = i;
                 this.f4444b = c1502g;
             }
@@ -82,7 +82,7 @@ public class ThreadWrapper implements IOtaUpdate {
         @Override // com.huawei.hms.availableupdate.InterfaceC1500f
         /* renamed from: a */
         public void mo3279a(int i, UpdateInfo c1502g) {
-            new Handler(Looper.getMainLooper()).post(new RunnableC2083a(i, c1502g));
+            new Handler(Looper.getMainLooper()).post(new UpdateWrappedRunnable(i, c1502g));
         }
 
         @Override // com.huawei.hms.availableupdate.InterfaceC1500f

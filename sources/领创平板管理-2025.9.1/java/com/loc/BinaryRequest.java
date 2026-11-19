@@ -4,10 +4,10 @@ import android.content.Context;
 import android.support.v4.app.Person;
 import com.huawei.hem.IPV6Request;
 import com.huawei.hem.AppInfo;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapCoreUtilities;
+import com.huawei.hem.AgooNotificationHandler;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public abstract class BinaryRequest extends IPV6Request {
     public static byte[] m4069A() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            byteArrayOutputStream.write(C1094l1.m2245n("PANDORA$"));
+            byteArrayOutputStream.write(AMapCoreUtilities.m2245n("PANDORA$"));
             byteArrayOutputStream.write(new byte[]{1});
             byteArrayOutputStream.write(new byte[]{0});
             return byteArrayOutputStream.toByteArray();
@@ -67,7 +67,7 @@ public abstract class BinaryRequest extends IPV6Request {
             byteArrayOutputStream.write(new byte[]{3});
             if (mo4074h()) {
                 try {
-                    bArrM2515k = C1219q0.m2515k(C1219q0.m2517m(this.f4939a, mo4076j(), this.f4940b != null && "navi".equals(this.f4940b.m2156a())));
+                    bArrM2515k = AgooNotificationHandler.m2515k(AgooNotificationHandler.m2517m(this.f4939a, mo4076j(), this.f4940b != null && "navi".equals(this.f4940b.m2156a())));
                 } catch (Throwable th) {
                     BasicLogHandler.m5312a(th, "CI", "gz");
                     bArrM2515k = null;
@@ -77,14 +77,14 @@ public abstract class BinaryRequest extends IPV6Request {
             } else {
                 byteArrayOutputStream.write(new byte[]{0, 0});
             }
-            byte[] bArrM2245n = C1094l1.m2245n(mo1740f());
+            byte[] bArrM2245n = AMapCoreUtilities.m2245n(mo1740f());
             if (bArrM2245n == null || bArrM2245n.length <= 0) {
                 byteArrayOutputStream.write(new byte[]{0, 0});
             } else {
                 byteArrayOutputStream.write(m4073a(bArrM2245n));
                 byteArrayOutputStream.write(bArrM2245n);
             }
-            byte[] bArrM2245n2 = C1094l1.m2245n(mo4075i());
+            byte[] bArrM2245n2 = AMapCoreUtilities.m2245n(mo4075i());
             if (bArrM2245n2 == null || bArrM2245n2.length <= 0) {
                 byteArrayOutputStream.write(new byte[]{0, 0});
             } else {
@@ -156,7 +156,7 @@ public abstract class BinaryRequest extends IPV6Request {
             byte[] bArrMo1738b_ = mo1738b_();
             if (bArrMo1738b_ != null && bArrMo1738b_.length != 0) {
                 byteArrayOutputStream.write(new byte[]{1});
-                byte[] bArrM1930a = C0994h1.m1930a(bArrMo1738b_);
+                byte[] bArrM1930a = AMapEncryptionUtilities.m1930a(bArrMo1738b_);
                 byteArrayOutputStream.write(m4073a(bArrM1930a));
                 byteArrayOutputStream.write(bArrM1930a);
                 return byteArrayOutputStream.toByteArray();
@@ -190,7 +190,7 @@ public abstract class BinaryRequest extends IPV6Request {
 
     /* renamed from: a */
     public static byte[] m4073a(byte[] bArr) {
-        return C1094l1.m2244m(bArr.length);
+        return AMapCoreUtilities.m2244m(bArr.length);
     }
 
     /* renamed from: a_ */
@@ -203,8 +203,8 @@ public abstract class BinaryRequest extends IPV6Request {
     /* renamed from: d */
     public Map<String, String> mo4055d() {
         String strM1641g = AppInfo.m1641g(this.f4939a);
-        String strM2505a = C1219q0.m2505a();
-        String strM2506b = C1219q0.m2506b(this.f4939a, strM2505a, "key=".concat(String.valueOf(strM1641g)));
+        String strM2505a = AgooNotificationHandler.m2505a();
+        String strM2506b = AgooNotificationHandler.m2506b(this.f4939a, strM2505a, "key=".concat(String.valueOf(strM1641g)));
         HashMap map = new HashMap();
         map.put("ts", strM2505a);
         map.put(Person.KEY_KEY, strM1641g);

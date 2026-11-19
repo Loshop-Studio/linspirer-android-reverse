@@ -15,7 +15,7 @@ public final class SystemManager {
     public static final Object f4346b = new Object();
 
     /* renamed from: c */
-    public static SystemNotifier f4347c = new C1474a();
+    public static SystemNotifier f4347c = new SystemObserverDispatcher();
 
     public static SystemManager getInstance() {
         return f4345a;
@@ -34,7 +34,7 @@ public final class SystemManager {
     }
 
     /* renamed from: com.huawei.hms.adapter.sysobs.SystemManager$a */
-    public static class C1474a implements SystemNotifier {
+    public static class SystemObserverDispatcher implements SystemNotifier {
 
         /* renamed from: a */
         public final List<SystemObserver> f4348a = new ArrayList();

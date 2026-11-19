@@ -612,9 +612,9 @@ public final class AmapLocationManager {
                 }
             }
             if ("gps".equalsIgnoreCase(aMapLocation.getProvider()) || !this.f5247d.m5228b()) {
-                aMapLocation.setAltitude(C1841ew.m5135c(aMapLocation.getAltitude()));
-                aMapLocation.setBearing(C1841ew.m5102a(aMapLocation.getBearing()));
-                aMapLocation.setSpeed(C1841ew.m5102a(aMapLocation.getSpeed()));
+                aMapLocation.setAltitude(AMapLocationUtilities.m5135c(aMapLocation.getAltitude()));
+                aMapLocation.setBearing(AMapLocationUtilities.m5102a(aMapLocation.getBearing()));
+                aMapLocation.setSpeed(AMapLocationUtilities.m5102a(aMapLocation.getSpeed()));
                 Iterator<AMapLocationListener> it = this.f5248e.iterator();
                 while (it.hasNext()) {
                     try {
@@ -650,8 +650,8 @@ public final class AmapLocationManager {
             this.f5264v.setGPSSatellites(this.f5247d.m5231e());
             this.f5264v.setGpsStatus(this.f5247d.m5230d());
         }
-        this.f5264v.setWifiAble(C1841ew.m5151h(this.f5236B));
-        this.f5264v.setNetworkType(C1841ew.m5152i(this.f5236B));
+        this.f5264v.setWifiAble(AMapLocationUtilities.m5151h(this.f5236B));
+        this.f5264v.setNetworkType(AMapLocationUtilities.m5152i(this.f5236B));
         if (aMapLocation.getLocationType() == 1 || "gps".equalsIgnoreCase(aMapLocation.getProvider())) {
             this.f5264v.setNetUseTime(0L);
         }
@@ -664,7 +664,7 @@ public final class AmapLocationManager {
             if (this.f5238D) {
                 m4453a(aMapLocation, this.f5268z);
                 if (c1806do != null) {
-                    c1806do.m4588d(C1841ew.m5127b());
+                    c1806do.m4588d(AMapLocationUtilities.m5127b());
                 }
                 ReportUtil.m5070a(this.f5236B, aMapLocation, c1806do);
                 ReportUtil.m5069a(this.f5236B, aMapLocation);
@@ -940,7 +940,7 @@ public final class AmapLocationManager {
             Bundle bundle = new Bundle();
             AMapLocation aMapLocation = new AMapLocation("");
             aMapLocation.setErrorCode(10);
-            aMapLocation.setLocationDetail(!C1841ew.m5155l(this.f5236B.getApplicationContext()) ? "请检查配置文件是否配置服务，并且manifest中service标签是否配置在application标签内#1003" : "启动ApsServcie失败#1001");
+            aMapLocation.setLocationDetail(!AMapLocationUtilities.m5155l(this.f5236B.getApplicationContext()) ? "请检查配置文件是否配置服务，并且manifest中service标签是否配置在application标签内#1003" : "启动ApsServcie失败#1001");
             bundle.putParcelable("loc", aMapLocation);
             messageObtain.setData(bundle);
             messageObtain.what = 1;
@@ -949,7 +949,7 @@ public final class AmapLocationManager {
             z = true;
         }
         if (!z) {
-            ReportUtil.m5076a((String) null, !C1841ew.m5155l(this.f5236B.getApplicationContext()) ? 2103 : 2101);
+            ReportUtil.m5076a((String) null, !AMapLocationUtilities.m5155l(this.f5236B.getApplicationContext()) ? 2103 : 2101);
         }
         return z;
     }
@@ -1164,7 +1164,7 @@ public final class AmapLocationManager {
 
     /* renamed from: u */
     private boolean m4499u() {
-        if (C1841ew.m5154k(this.f5236B)) {
+        if (AMapLocationUtilities.m5154k(this.f5236B)) {
             int iM5055b = -1;
             try {
                 iM5055b = Reflect.m5055b(((Application) this.f5236B.getApplicationContext()).getBaseContext(), "checkSelfPermission", "android.permission.FOREGROUND_SERVICE");

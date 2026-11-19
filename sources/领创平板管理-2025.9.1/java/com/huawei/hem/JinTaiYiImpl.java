@@ -76,7 +76,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -91,7 +91,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     public void mo1336E0(List<String> list) {
         LTKDateUtil.m1403m("JinTaiYiImpl ---setPersistentApp");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             for (int i = 0; i < list.size(); i++) {
@@ -119,7 +119,7 @@ public class JinTaiYiImpl extends AndroidImpl {
         LTKDateUtil.m1403m("JinTaiYiImpl ---getNetworkAccessAppWhiteList");
         try {
             List<String> listMo2603b0 = f4302d.mo2603b0();
-            return !AbstractC1102l9.m2273N(listMo2603b0) ? listMo2603b0 : new ArrayList();
+            return !MobileSdkPlatformUtilities.m2273N(listMo2603b0) ? listMo2603b0 : new ArrayList();
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("JinTaiYiImpl ---getNetworkAccessAppWhiteList error:");
             sbM1765j.append(th.getMessage());
@@ -133,7 +133,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     public void mo1308I0(List<String> list) {
         LTKDateUtil.m1403m("JinTaiYiImpl ----setNetworkAccessAppWhiteList");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f4302d.mo2591L0(null, 7, false);
@@ -221,7 +221,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     public boolean mo1316V(List<String> list) {
         LTKDateUtil.m1403m("JinTaiYiImpl ----setUrlWhiteList");
         try {
-            if (!AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(list)) {
                 f4302d.mo2590K2(null, 7, false);
                 LTKDateUtil.m1403m("JinTaiYiImpl --清除后的网址白名单大小:" + mo1330t0().size());
                 for (int i = 0; i < list.size(); i++) {
@@ -286,7 +286,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     /* renamed from: d */
     public void mo1506d(ArrayList<String> arrayList) {
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             for (int i = 0; i < arrayList.size(); i++) {
@@ -621,7 +621,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -637,7 +637,7 @@ public class JinTaiYiImpl extends AndroidImpl {
         LTKDateUtil.m1403m("JinTaiYiImpl ----getPersistentApp");
         try {
             List<String> listMo2608o = f4302d.mo2608o();
-            return !AbstractC1102l9.m2273N(listMo2608o) ? listMo2608o : new ArrayList();
+            return !MobileSdkPlatformUtilities.m2273N(listMo2608o) ? listMo2608o : new ArrayList();
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("JinTaiYiImpl ----getPersistentApp error:");
             sbM1765j.append(th.getMessage());
@@ -650,7 +650,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     public void removePersistentApp(List<String> list) {
         LTKDateUtil.m1403m("JinTaiYiImpl ---removePersistentApp");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             Iterator<String> it = list.iterator();
@@ -666,7 +666,7 @@ public class JinTaiYiImpl extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("JinTaiYiImpl ---setAppWhiteList");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             try {
                 f4302d.clearAppInstallWhiteList();
                 return false;
@@ -701,7 +701,7 @@ public class JinTaiYiImpl extends AndroidImpl {
         LTKDateUtil.m1403m("JinTaiYiImpl ---getUrlWhiteList");
         try {
             List<String> listMo2610q3 = f4302d.mo2610q3();
-            return !AbstractC1102l9.m2273N(listMo2610q3) ? listMo2610q3 : new ArrayList();
+            return !MobileSdkPlatformUtilities.m2273N(listMo2610q3) ? listMo2610q3 : new ArrayList();
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("JinTaiYiImpl ---getUrlWhiteList error:");
             sbM1765j.append(th.getMessage());

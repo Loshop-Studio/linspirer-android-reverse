@@ -12,8 +12,8 @@ import android.telephony.TelephonyManager;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.AppInfo;
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
 import com.loc.FpsCollector;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -132,7 +132,7 @@ public final class CollectionManager implements INetwork {
                 if (this.f5415c != null && CollectionManager.this.f5410j) {
                     Bundle extras = this.f5415c.getExtras();
                     int i = extras != null ? extras.getInt("satellites") : 0;
-                    if (C1841ew.m5115a(this.f5415c, i)) {
+                    if (AMapLocationUtilities.m5115a(this.f5415c, i)) {
                         return;
                     }
                     if (CollectionManager.this.f5402b != null && !CollectionManager.this.f5402b.f5601r) {
@@ -171,7 +171,7 @@ public final class CollectionManager implements INetwork {
                     Context context = CollectionManager.this.f5401a;
                     String networkOperatorName = "";
                     try {
-                        if (DeviceInfo.m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+                        if (DeviceInfo.m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
                             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                             if (telephonyManager != null) {
                                 networkOperatorName = telephonyManager.getNetworkOperatorName();
@@ -183,7 +183,7 @@ public final class CollectionManager implements INetwork {
                     }
                     aVar.f5184h = networkOperatorName;
                     aVar.f5181e = CollectionManager.this.f5402b.m4865k();
-                    aVar.f5186j = C1841ew.m5113a(CollectionManager.this.f5401a);
+                    aVar.f5186j = AMapLocationUtilities.m5113a(CollectionManager.this.f5401a);
                     aVar.f5185i = listM4765a;
                     CollectionData c1765caM4412a = OpenSdkCollectionManagerProxy.m4412a(aVar);
                     if (c1765caM4412a == null) {
@@ -204,11 +204,11 @@ public final class CollectionManager implements INetwork {
 
         /* renamed from: c */
         private void m4660c() {
-            C1720aj c1720ajM3999a = null;
+            AMapDiskLruCache c1720ajM3999a = null;
             try {
                 long unused = CollectionManager.f5400k = System.currentTimeMillis();
                 if (CollectionManager.this.f5405e.f5059f.m4213c()) {
-                    c1720ajM3999a = C1720aj.m3999a(new File(CollectionManager.this.f5405e.f5054a), CollectionManager.this.f5405e.f5055b);
+                    c1720ajM3999a = AMapDiskLruCache.m3999a(new File(CollectionManager.this.f5405e.f5054a), CollectionManager.this.f5405e.f5055b);
                     ArrayList arrayList = new ArrayList();
                     byte[] bArrM4648f = CollectionManager.m4648f();
                     if (bArrM4648f == null) {
@@ -222,7 +222,7 @@ public final class CollectionManager implements INetwork {
                     List listM4643b = CollectionManager.m4643b(c1720ajM3999a, CollectionManager.this.f5405e, arrayList, bArrM4648f);
                     if (listM4643b != null && listM4643b.size() != 0) {
                         CollectionManager.this.f5405e.f5059f.mo4212a(true);
-                        if (OpenSdkCollectionManagerProxy.m4414a(C1094l1.m2250s(OpenSdkCollectionManagerProxy.m4416a(C1823ee.m4873a(bArrM4648f), C0994h1.m1936g(bArrM4648f, OpenSdkCollectionManagerProxy.m4415a(), C1094l1.m2252u()), listM4643b)))) {
+                        if (OpenSdkCollectionManagerProxy.m4414a(AMapCoreUtilities.m2250s(OpenSdkCollectionManagerProxy.m4416a(AMapLocationCipher.m4873a(bArrM4648f), AMapEncryptionUtilities.m1936g(bArrM4648f, OpenSdkCollectionManagerProxy.m4415a(), AMapCoreUtilities.m2252u()), listM4643b)))) {
                             CollectionManager.m4644b(c1720ajM3999a, arrayList);
                         }
                     }
@@ -279,7 +279,7 @@ public final class CollectionManager implements INetwork {
         this.f5401a = context;
         LogConfig c1730at = new LogConfig();
         this.f5405e = c1730at;
-        C1736az.m4195a(this.f5401a, c1730at, AMapLog.f5951k, 100, 1024000, MessageService.MSG_DB_READY_REPORT);
+        AMapLogCacheUtilities.m4195a(this.f5401a, c1730at, AMapLog.f5951k, 100, 1024000, MessageService.MSG_DB_READY_REPORT);
         LogConfig c1730at2 = this.f5405e;
         int i = AuthUtil.f5733g;
         boolean z = AuthUtil.f5731e;
@@ -323,7 +323,7 @@ public final class CollectionManager implements INetwork {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static java.util.List<com.loc.CollectionData> m4643b(com.loc.C1720aj r17, com.loc.LogConfig r18, java.util.List<java.lang.String> r19, byte[] r20) {
+    public static java.util.List<com.loc.CollectionData> m4643b(com.loc.AMapDiskLruCache r17, com.loc.LogConfig r18, java.util.List<java.lang.String> r19, byte[] r20) {
         /*
             Method dump skipped, instructions count: 266
             To view this dump add '--comments-level debug' option
@@ -332,7 +332,7 @@ public final class CollectionManager implements INetwork {
     }
 
     /* renamed from: b */
-    public static void m4644b(C1720aj c1720aj, List<String> list) {
+    public static void m4644b(AMapDiskLruCache c1720aj, List<String> list) {
         if (c1720aj != null) {
             try {
                 Iterator<String> it = list.iterator();
@@ -383,7 +383,7 @@ public final class CollectionManager implements INetwork {
                     CollectionData c1765ca = (CollectionData) it.next();
                     byte[] bArrM4280b = c1765ca.m4280b();
                     if (bArrM4280b.length >= 10 && bArrM4280b.length <= 65535) {
-                        byte[] bArrM1936g = C0994h1.m1936g(bArrM4641a, bArrM4280b, C1094l1.m2252u());
+                        byte[] bArrM1936g = AMapEncryptionUtilities.m1936g(bArrM4641a, bArrM4280b, AMapCoreUtilities.m2252u());
                         byteArrayOutputStream.write(m4647c(bArrM1936g.length));
                         byteArrayOutputStream.write(bArrM1936g);
                         byteArrayOutputStream.write(m4645b(c1765ca.m4279a()));
@@ -398,9 +398,9 @@ public final class CollectionManager implements INetwork {
 
     @Override // com.loc.InterfaceC1802dk
     /* renamed from: a */
-    public final HttpResponse mo4571a(C1800di c1800di) {
+    public final HttpResponse mo4571a(AMapCollectionHttpRequest c1800di) {
         try {
-            C1828ej c1828ej = new C1828ej();
+            AMapIpv6HttpRequest c1828ej = new AMapIpv6HttpRequest();
             c1828ej.m4935a(c1800di.f5325b);
             c1828ej.m4937b(c1800di.f5324a);
             c1828ej.m4936a(c1800di.f5327d);

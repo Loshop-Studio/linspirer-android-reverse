@@ -10,7 +10,7 @@ import android.support.v4.util.SimpleArrayMap;
 import android.support.v4.view.KeyEventDispatcher;
 import android.view.KeyEvent;
 import android.view.View;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.LifecycleRegistry;
 import com.huawei.hem.LifecycleOwner;
 
@@ -49,7 +49,7 @@ public class SupportActivity extends Activity implements LifecycleOwner, KeyEven
         return (T) this.mExtraDataMap.get(cls);
     }
 
-    public AbstractC0992h getLifecycle() {
+    public ArchitectureLifecycle getLifecycle() {
         return this.mLifecycleRegistry;
     }
 
@@ -62,7 +62,7 @@ public class SupportActivity extends Activity implements LifecycleOwner, KeyEven
     @Override // android.app.Activity
     @CallSuper
     public void onSaveInstanceState(Bundle bundle) {
-        this.mLifecycleRegistry.m2152e(AbstractC0992h.b.CREATED);
+        this.mLifecycleRegistry.m2152e(ArchitectureLifecycle.b.CREATED);
         super.onSaveInstanceState(bundle);
     }
 

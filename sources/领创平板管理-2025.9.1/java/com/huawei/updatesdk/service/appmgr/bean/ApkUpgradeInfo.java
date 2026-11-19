@@ -3,13 +3,13 @@ package com.huawei.updatesdk.service.appmgr.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.Serializable;
 
 /* loaded from: classes.dex */
-public class ApkUpgradeInfo extends AbstractC1604b implements Serializable, Parcelable {
+public class ApkUpgradeInfo extends UpdateJsonBean implements Serializable, Parcelable {
     public static final int APP_MUST_UPDATE = 1;
-    public static final Parcelable.Creator<ApkUpgradeInfo> CREATOR = new C1647a();
+    public static final Parcelable.Creator<ApkUpgradeInfo> CREATOR = new ApkUpgradeInfoCreator();
     public static final int HUAWEI_OFFICIAL_APP = 1;
     public static final int NOT_AUTOUPDATE = 0;
     public static final String TAG = "ApkUpgradeInfo";
@@ -46,7 +46,7 @@ public class ApkUpgradeInfo extends AbstractC1604b implements Serializable, Parc
     public String version_;
 
     /* renamed from: com.huawei.updatesdk.service.appmgr.bean.ApkUpgradeInfo$a */
-    public static class C1647a implements Parcelable.Creator<ApkUpgradeInfo> {
+    public static class ApkUpgradeInfoCreator implements Parcelable.Creator<ApkUpgradeInfo> {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ApkUpgradeInfo createFromParcel(Parcel parcel) {

@@ -26,7 +26,7 @@ public final class Transmitter {
     public final EventListener f3121d;
 
     /* renamed from: e */
-    public final C0965fn f3122e = new a();
+    public final OkioAsyncTimeout f3122e = new a();
 
     /* renamed from: f */
     @Nullable
@@ -62,7 +62,7 @@ public final class Transmitter {
 
     /* compiled from: Transmitter.java */
     /* renamed from: com.huawei.hem.kl$a */
-    public class a extends C0965fn {
+    public class a extends OkioAsyncTimeout {
         public a() {
         }
 
@@ -88,7 +88,7 @@ public final class Transmitter {
 
     public Transmitter(OkHttpClient c0910dk, Call interfaceC1087kj) {
         this.f3118a = c0910dk;
-        AbstractC1264rk abstractC1264rk = AbstractC1264rk.f3645a;
+        OkHttpInternalAccess abstractC1264rk = OkHttpInternalAccess.f3645a;
         ConnectionPool c1188oj = c0910dk.f2435s;
         if (((OkHttpClient.a) abstractC1264rk) == null) {
             throw null;
@@ -120,7 +120,7 @@ public final class Transmitter {
         if (c0911dl != null) {
             c0911dl.f2470e.cancel();
         } else if (c0963fl != null) {
-            C1314tk.m2750e(c0963fl.f2683d);
+            OkHttpCommonUtilities.m2750e(c0963fl.f2683d);
         }
     }
 
@@ -193,7 +193,7 @@ public final class Transmitter {
             }
             z2 = this.f3132o && this.f3127j == null;
         }
-        C1314tk.m2750e(socketM2211h);
+        OkHttpCommonUtilities.m2750e(socketM2211h);
         if (c0963fl != null && this.f3121d == null) {
             throw null;
         }

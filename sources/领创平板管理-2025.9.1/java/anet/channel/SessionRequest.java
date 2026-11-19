@@ -6,22 +6,22 @@ import android.os.Build;
 import android.support.v4.text.BidiFormatter;
 import android.text.TextUtils;
 import anet.channel.appmonitor.AppMonitor;
-import anet.channel.entity.C0346a;
-import anet.channel.entity.C0348c;
+import anet.channel.entity.SessionConnectionInfo;
+import anet.channel.entity.SessionTypeFlags;
 import anet.channel.entity.ConnType;
 import anet.channel.entity.EventType;
-import anet.channel.session.C0378d;
+import anet.channel.session.AwcnHttpSession;
 import anet.channel.session.TnetSpdySession;
 import anet.channel.statist.AlarmObject;
 import anet.channel.statist.SessionConnStat;
 import anet.channel.status.NetworkStatusHelper;
 import anet.channel.strategy.IConnStrategy;
 import anet.channel.strategy.StrategyCenter;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.thread.ThreadPoolExecutorFactory;
 import anet.channel.util.ALog;
-import anet.channel.util.C0422c;
-import anet.channel.util.C0428i;
+import anet.channel.util.NetworkAddressRegistry;
+import anet.channel.util.SessionSequenceGenerator;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpUrl;
 import com.taobao.accs.common.Constants;
@@ -44,7 +44,7 @@ public class SessionRequest {
     public SessionCenter f133a;
 
     /* renamed from: b */
-    public C0338e f134b;
+    public SessionPool f134b;
 
     /* renamed from: c */
     public SessionInfo f135c;
@@ -68,7 +68,7 @@ public class SessionRequest {
     public volatile boolean f138f = false;
 
     /* renamed from: g */
-    public HashMap<SessionGetCallback, RunnableC0306c> f139g = new HashMap<>();
+    public HashMap<SessionGetCallback, SessionAcquireTimeoutTask> f139g = new HashMap<>();
 
     /* renamed from: h */
     public SessionConnStat f140h = null;
@@ -87,7 +87,7 @@ public class SessionRequest {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.SessionRequest$a */
-    public class C0304a implements IConnCb {
+    public class SessionConnectionResultCallback implements IConnCb {
 
         /* renamed from: a */
         public boolean f145a = false;
@@ -96,12 +96,12 @@ public class SessionRequest {
         public Context f147c;
 
         /* renamed from: d */
-        public List<C0346a> f148d;
+        public List<SessionConnectionInfo> f148d;
 
         /* renamed from: e */
-        public C0346a f149e;
+        public SessionConnectionInfo f149e;
 
-        public C0304a(Context context, List<C0346a> list, C0346a c0346a) {
+        public SessionConnectionResultCallback(Context context, List<SessionConnectionInfo> list, SessionConnectionInfo c0346a) {
             this.f147c = context;
             this.f148d = list;
             this.f149e = c0346a;
@@ -133,7 +133,7 @@ public class SessionRequest {
                     if (SessionRequest.this.f135c != null && SessionRequest.this.f135c.isAccs) {
                         accsReconnectionDelayPeriod = AwcnConfig.getAccsReconnectionDelayPeriod();
                     }
-                    ThreadPoolExecutorFactory.submitScheduledTask(new RunnableC0357i(this, session), (long) (Math.random() * accsReconnectionDelayPeriod), TimeUnit.MILLISECONDS);
+                    ThreadPoolExecutorFactory.submitScheduledTask(new SessionConnectionSelectionTask(this, session), (long) (Math.random() * accsReconnectionDelayPeriod), TimeUnit.MILLISECONDS);
                 } catch (Exception unused) {
                 }
             }
@@ -158,8 +158,8 @@ public class SessionRequest {
                 SessionRequest.this.m64c();
                 SessionRequest.this.m57a(session, i, i2);
                 synchronized (SessionRequest.this.f139g) {
-                    for (Map.Entry<SessionGetCallback, RunnableC0306c> entry : SessionRequest.this.f139g.entrySet()) {
-                        RunnableC0306c value = entry.getValue();
+                    for (Map.Entry<SessionGetCallback, SessionAcquireTimeoutTask> entry : SessionRequest.this.f139g.entrySet()) {
+                        SessionAcquireTimeoutTask value = entry.getValue();
                         if (value.f153b.compareAndSet(false, true)) {
                             ThreadPoolExecutorFactory.removeScheduleTask(value);
                             entry.getKey().onSessionGetFail();
@@ -172,35 +172,35 @@ public class SessionRequest {
             if (ALog.isPrintLog(1)) {
                 ALog.m337d("awcn.SessionRequest", "use next connInfo to create session", this.f149e.m139h(), Constants.KEY_HOST, SessionRequest.this.m53a());
             }
-            C0346a c0346a = this.f149e;
+            SessionConnectionInfo c0346a = this.f149e;
             if (c0346a.f248b == c0346a.f249c && (i2 == -2003 || i2 == -2410)) {
-                ListIterator<C0346a> listIterator = this.f148d.listIterator();
+                ListIterator<SessionConnectionInfo> listIterator = this.f148d.listIterator();
                 while (listIterator.hasNext()) {
                     if (session.getIp().equals(listIterator.next().f247a.getIp())) {
                         listIterator.remove();
                     }
                 }
             }
-            if (C0413c.m332b(session.getIp())) {
-                ListIterator<C0346a> listIterator2 = this.f148d.listIterator();
+            if (AmdcStringEncoding.m332b(session.getIp())) {
+                ListIterator<SessionConnectionInfo> listIterator2 = this.f148d.listIterator();
                 while (listIterator2.hasNext()) {
-                    if (C0413c.m332b(listIterator2.next().f247a.getIp())) {
+                    if (AmdcStringEncoding.m332b(listIterator2.next().f247a.getIp())) {
                         listIterator2.remove();
                     }
                 }
             }
             if (!this.f148d.isEmpty()) {
-                C0346a c0346aRemove = this.f148d.remove(0);
+                SessionConnectionInfo c0346aRemove = this.f148d.remove(0);
                 SessionRequest sessionRequest2 = SessionRequest.this;
                 Context context = this.f147c;
-                sessionRequest2.m48a(context, c0346aRemove, sessionRequest2.new C0304a(context, this.f148d, c0346aRemove), c0346aRemove.m139h());
+                sessionRequest2.m48a(context, c0346aRemove, sessionRequest2.new SessionConnectionResultCallback(context, this.f148d, c0346aRemove), c0346aRemove.m139h());
                 return;
             }
             SessionRequest.this.m64c();
             SessionRequest.this.m57a(session, i, i2);
             synchronized (SessionRequest.this.f139g) {
-                for (Map.Entry<SessionGetCallback, RunnableC0306c> entry2 : SessionRequest.this.f139g.entrySet()) {
-                    RunnableC0306c value2 = entry2.getValue();
+                for (Map.Entry<SessionGetCallback, SessionAcquireTimeoutTask> entry2 : SessionRequest.this.f139g.entrySet()) {
+                    SessionAcquireTimeoutTask value2 = entry2.getValue();
                     if (value2.f153b.compareAndSet(false, true)) {
                         ThreadPoolExecutorFactory.removeScheduleTask(value2);
                         entry2.getKey().onSessionGetFail();
@@ -222,8 +222,8 @@ public class SessionRequest {
                 SessionRequest.this.f134b.m111a(SessionRequest.this, session);
                 SessionRequest.this.m56a(session);
                 synchronized (SessionRequest.this.f139g) {
-                    for (Map.Entry<SessionGetCallback, RunnableC0306c> entry : SessionRequest.this.f139g.entrySet()) {
-                        RunnableC0306c value = entry.getValue();
+                    for (Map.Entry<SessionGetCallback, SessionAcquireTimeoutTask> entry : SessionRequest.this.f139g.entrySet()) {
+                        SessionAcquireTimeoutTask value = entry.getValue();
                         if (value.f153b.compareAndSet(false, true)) {
                             ThreadPoolExecutorFactory.removeScheduleTask(value);
                             entry.getKey().onSessionGetSuccess(session);
@@ -241,12 +241,12 @@ public class SessionRequest {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.SessionRequest$b */
-    public class RunnableC0305b implements Runnable {
+    public class SessionConnectTimeoutTask implements Runnable {
 
         /* renamed from: a */
         public String f150a;
 
-        public RunnableC0305b(String str) {
+        public SessionConnectTimeoutTask(String str) {
             this.f150a = null;
             this.f150a = str;
         }
@@ -272,7 +272,7 @@ public class SessionRequest {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.SessionRequest$c */
-    public class RunnableC0306c implements Runnable {
+    public class SessionAcquireTimeoutTask implements Runnable {
 
         /* renamed from: a */
         public SessionGetCallback f152a;
@@ -280,7 +280,7 @@ public class SessionRequest {
         /* renamed from: b */
         public AtomicBoolean f153b = new AtomicBoolean(false);
 
-        public RunnableC0306c(SessionGetCallback sessionGetCallback) {
+        public SessionAcquireTimeoutTask(SessionGetCallback sessionGetCallback) {
             this.f152a = null;
             this.f152a = sessionGetCallback;
         }
@@ -315,13 +315,13 @@ public class SessionRequest {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = C0428i.m364a(null);
+            str = SessionSequenceGenerator.m364a(null);
         }
         ALog.m337d("awcn.SessionRequest", "SessionRequest start", str, Constants.KEY_HOST, this.f141i, "type", Integer.valueOf(i));
         if (this.f136d) {
             ALog.m337d("awcn.SessionRequest", "session connecting", str, Constants.KEY_HOST, m53a());
             if (m61b() == i) {
-                RunnableC0306c runnableC0306c = new RunnableC0306c(sessionGetCallback);
+                SessionAcquireTimeoutTask runnableC0306c = new SessionAcquireTimeoutTask(sessionGetCallback);
                 synchronized (this.f139g) {
                     this.f139g.put(sessionGetCallback, runnableC0306c);
                 }
@@ -332,7 +332,7 @@ public class SessionRequest {
             return;
         }
         m60a(true);
-        this.f143k = ThreadPoolExecutorFactory.submitScheduledTask(new RunnableC0305b(str), 45L, TimeUnit.SECONDS);
+        this.f143k = ThreadPoolExecutorFactory.submitScheduledTask(new SessionConnectTimeoutTask(str), 45L, TimeUnit.SECONDS);
         SessionConnStat sessionConnStat = new SessionConnStat();
         this.f140h = sessionConnStat;
         sessionConnStat.start = System.currentTimeMillis();
@@ -349,11 +349,11 @@ public class SessionRequest {
             m64c();
             throw new NoAvailStrategyException("no avalible strategy");
         }
-        List<C0346a> listM47a = m47a(listM46a, str);
+        List<SessionConnectionInfo> listM47a = m47a(listM46a, str);
         try {
-            C0346a c0346aRemove = listM47a.remove(0);
-            m48a(context, c0346aRemove, new C0304a(context, listM47a, c0346aRemove), c0346aRemove.m139h());
-            RunnableC0306c runnableC0306c2 = new RunnableC0306c(sessionGetCallback);
+            SessionConnectionInfo c0346aRemove = listM47a.remove(0);
+            m48a(context, c0346aRemove, new SessionConnectionResultCallback(context, listM47a, c0346aRemove), c0346aRemove.m139h());
+            SessionAcquireTimeoutTask runnableC0306c2 = new SessionAcquireTimeoutTask(sessionGetCallback);
             synchronized (this.f139g) {
                 this.f139g.put(sessionGetCallback, runnableC0306c2);
             }
@@ -422,14 +422,14 @@ public class SessionRequest {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = C0428i.m364a(null);
+            str = SessionSequenceGenerator.m364a(null);
         }
         ALog.m337d("awcn.SessionRequest", "SessionRequest start", str, Constants.KEY_HOST, this.f141i, "type", Integer.valueOf(i));
         if (this.f136d) {
             ALog.m337d("awcn.SessionRequest", "session connecting", str, Constants.KEY_HOST, m53a());
             if (sessionGetCallback != null) {
                 if (m61b() == i) {
-                    RunnableC0306c runnableC0306c = new RunnableC0306c(sessionGetCallback);
+                    SessionAcquireTimeoutTask runnableC0306c = new SessionAcquireTimeoutTask(sessionGetCallback);
                     synchronized (this.f139g) {
                         this.f139g.put(sessionGetCallback, runnableC0306c);
                     }
@@ -441,7 +441,7 @@ public class SessionRequest {
             return;
         }
         m60a(true);
-        this.f143k = ThreadPoolExecutorFactory.submitScheduledTask(new RunnableC0305b(str), 45L, TimeUnit.SECONDS);
+        this.f143k = ThreadPoolExecutorFactory.submitScheduledTask(new SessionConnectTimeoutTask(str), 45L, TimeUnit.SECONDS);
         SessionConnStat sessionConnStat = new SessionConnStat();
         this.f140h = sessionConnStat;
         sessionConnStat.start = System.currentTimeMillis();
@@ -454,12 +454,12 @@ public class SessionRequest {
         }
         List<IConnStrategy> listM46a = m46a(i, str);
         if (!listM46a.isEmpty()) {
-            List<C0346a> listM47a = m47a(listM46a, str);
+            List<SessionConnectionInfo> listM47a = m47a(listM46a, str);
             try {
-                C0346a c0346aRemove = listM47a.remove(0);
-                m48a(context, c0346aRemove, new C0304a(context, listM47a, c0346aRemove), c0346aRemove.m139h());
+                SessionConnectionInfo c0346aRemove = listM47a.remove(0);
+                m48a(context, c0346aRemove, new SessionConnectionResultCallback(context, listM47a, c0346aRemove), c0346aRemove.m139h());
                 if (sessionGetCallback != null) {
-                    RunnableC0306c runnableC0306c2 = new RunnableC0306c(sessionGetCallback);
+                    SessionAcquireTimeoutTask runnableC0306c2 = new SessionAcquireTimeoutTask(sessionGetCallback);
                     synchronized (this.f139g) {
                         this.f139g.put(sessionGetCallback, runnableC0306c2);
                     }
@@ -539,7 +539,7 @@ public class SessionRequest {
             intent.putExtra(Constants.KEY_CONNECT_AVAILABLE, zIsAvailable);
             intent.putExtra(Constants.KEY_TYPE_INAPP, true);
             if (Build.VERSION.SDK_INT >= 26) {
-                context.bindService(intent, new ServiceConnectionC0353h(this, intent, context), 1);
+                context.bindService(intent, new SessionRequestMessengerConnection(this, intent, context), 1);
             } else {
                 context.startService(intent);
             }
@@ -584,14 +584,14 @@ public class SessionRequest {
         connStrategyListByHost = StrategyCenter.getInstance().getConnStrategyListByHost(httpUrl.host());
         if (!connStrategyListByHost.isEmpty()) {
             boolean zEqualsIgnoreCase = HttpConstant.HTTPS.equalsIgnoreCase(httpUrl.scheme());
-            boolean zM350b = C0422c.m350b();
+            boolean zM350b = NetworkAddressRegistry.m350b();
             ListIterator<IConnStrategy> listIterator = connStrategyListByHost.listIterator();
             while (listIterator.hasNext()) {
                 IConnStrategy next = listIterator.next();
                 ConnType connTypeValueOf = ConnType.valueOf(next.getProtocol());
                 if (connTypeValueOf != null) {
-                    if (connTypeValueOf.isSSL() == zEqualsIgnoreCase && (i == C0348c.f257c || connTypeValueOf.getType() == i)) {
-                        if (zM350b && C0413c.m332b(next.getIp())) {
+                    if (connTypeValueOf.isSSL() == zEqualsIgnoreCase && (i == SessionTypeFlags.f257c || connTypeValueOf.getType() == i)) {
+                        if (zM350b && AmdcStringEncoding.m332b(next.getIp())) {
                             listIterator.remove();
                         }
                     }
@@ -606,7 +606,7 @@ public class SessionRequest {
     }
 
     /* renamed from: a */
-    private List<C0346a> m47a(List<IConnStrategy> list, String str) {
+    private List<SessionConnectionInfo> m47a(List<IConnStrategy> list, String str) {
         if (list.isEmpty()) {
             return Collections.EMPTY_LIST;
         }
@@ -617,7 +617,7 @@ public class SessionRequest {
             int retryTimes = iConnStrategy.getRetryTimes();
             for (int i3 = 0; i3 <= retryTimes; i3++) {
                 i++;
-                C0346a c0346a = new C0346a(m53a(), str + "_" + i, iConnStrategy);
+                SessionConnectionInfo c0346a = new SessionConnectionInfo(m53a(), str + "_" + i, iConnStrategy);
                 c0346a.f248b = i3;
                 c0346a.f249c = retryTimes;
                 arrayList.add(c0346a);
@@ -628,7 +628,7 @@ public class SessionRequest {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public void m48a(Context context, C0346a c0346a, IConnCb iConnCb, String str) {
+    public void m48a(Context context, SessionConnectionInfo c0346a, IConnCb iConnCb, String str) {
         ConnType connTypeM134c = c0346a.m134c();
         if (context != null && !connTypeM134c.isHttpType()) {
             TnetSpdySession tnetSpdySession = new TnetSpdySession(context, c0346a);
@@ -637,7 +637,7 @@ public class SessionRequest {
             tnetSpdySession.setTnetPublicKey(this.f133a.f128g.m78c(this.f142j));
             this.f137e = tnetSpdySession;
         } else {
-            this.f137e = new C0378d(context, c0346a);
+            this.f137e = new AwcnHttpSession(context, c0346a);
         }
         ALog.m340i("awcn.SessionRequest", "create connection...", str, HttpConstant.HOST, m53a(), "Type", c0346a.m134c(), "IP", c0346a.m132a(), "Port", Integer.valueOf(c0346a.m133b()), "heartbeat", Integer.valueOf(c0346a.m138g()), "session", this.f137e);
         m49a(this.f137e, iConnCb, System.currentTimeMillis());
@@ -656,8 +656,8 @@ public class SessionRequest {
         if (iConnCb == null) {
             return;
         }
-        session.registerEventcb(EventType.ALL, new C0349f(this, iConnCb, j));
-        session.registerEventcb(BidiFormatter.DirectionalityEstimator.DIR_TYPE_CACHE_SIZE, new C0352g(this, session));
+        session.registerEventcb(EventType.ALL, new SessionRequestConnectionCallback(this, iConnCb, j));
+        session.registerEventcb(BidiFormatter.DirectionalityEstimator.DIR_TYPE_CACHE_SIZE, new SessionStrategyFeedbackCallback(this, session));
     }
 
     /* renamed from: a */

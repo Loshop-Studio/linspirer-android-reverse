@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 /* compiled from: RealResponseBody.java */
 /* renamed from: com.huawei.hem.rl */
 /* loaded from: classes.dex */
-public final class RealResponseBody extends AbstractC1139mk {
+public final class RealResponseBody extends OkHttpResponseBody {
 
     /* renamed from: a */
     @Nullable

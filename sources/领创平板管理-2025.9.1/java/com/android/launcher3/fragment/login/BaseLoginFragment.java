@@ -26,13 +26,13 @@ import com.android.launcher3.activity.CheckNetWorkActivity;
 import com.android.launcher3.activity.base.BaseFragment;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ViewControlUtil;
-import com.huawei.hem.C1022i4;
+import com.huawei.hem.LoginFragmentLinkSpan;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
-import com.huawei.hem.ViewOnClickListenerC1047j4;
-import com.huawei.hem.ViewOnClickListenerC1072k4;
-import com.huawei.hem.ViewOnClickListenerC1097l4;
-import com.huawei.hem.ViewOnClickListenerC1123m4;
+import com.huawei.hem.LoginMenuUpdateClickListener;
+import com.huawei.hem.LoginMenuNetworkClickListener;
+import com.huawei.hem.LoginMenuSyncTimeClickListener;
+import com.huawei.hem.LoginMenuCloseClickListener;
 import com.huawei.hem.license.HemLicenseManager;
 import com.huawei.hem.license.HemLicenseStatusListener;
 import java.util.ArrayList;
@@ -62,11 +62,11 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
     public int f2004j = 1;
 
     /* renamed from: p */
-    public BroadcastReceiver f2010p = new C0664a();
+    public BroadcastReceiver f2010p = new LoginFragmentPackageReceiver();
 
     /* renamed from: com.android.launcher3.fragment.login.BaseLoginFragment$a */
-    public class C0664a extends BroadcastReceiver {
-        public C0664a() {
+    public class LoginFragmentPackageReceiver extends BroadcastReceiver {
+        public LoginFragmentPackageReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -112,7 +112,7 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
         spannableStringBuilder.append((CharSequence) spannableString);
         spannableStringBuilder.append((CharSequence) "《");
         SpannableString spannableString2 = new SpannableString(getString(R.string.text_privacy_agreement));
-        spannableString2.setSpan(new C1022i4(this), 0, spannableString2.length(), 33);
+        spannableString2.setSpan(new LoginFragmentLinkSpan(this), 0, spannableString2.length(), 33);
         spannableString2.setSpan(new ForegroundColorSpan(-1), 0, spannableString2.length(), 33);
         spannableStringBuilder.append((CharSequence) spannableString2);
         spannableStringBuilder.append((CharSequence) "》");
@@ -187,10 +187,10 @@ public abstract class BaseLoginFragment extends BaseFragment implements View.OnC
                     popupWindow.setFocusable(true);
                     popupWindow.setBackgroundDrawable(null);
                     popupWindow.showAtLocation(imageView, 8388693, dimension3, dimension4);
-                    linearLayout.setOnClickListener(new ViewOnClickListenerC1047j4(this, popupWindow));
-                    linearLayout2.setOnClickListener(new ViewOnClickListenerC1072k4(this, popupWindow));
-                    linearLayout3.setOnClickListener(new ViewOnClickListenerC1097l4(this, popupWindow));
-                    imageView2.setOnClickListener(new ViewOnClickListenerC1123m4(this, popupWindow));
+                    linearLayout.setOnClickListener(new LoginMenuUpdateClickListener(this, popupWindow));
+                    linearLayout2.setOnClickListener(new LoginMenuNetworkClickListener(this, popupWindow));
+                    linearLayout3.setOnClickListener(new LoginMenuSyncTimeClickListener(this, popupWindow));
+                    imageView2.setOnClickListener(new LoginMenuCloseClickListener(this, popupWindow));
                     break;
                 }
                 break;

@@ -23,12 +23,12 @@ public class SprdImpl extends AndroidImpl {
     public static Context f2657c;
 
     /* renamed from: d */
-    public static C1024i6 f2658d;
+    public static SprdDeviceUtilities f2658d;
 
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         Iterator<String> it = list.iterator();
@@ -42,7 +42,7 @@ public class SprdImpl extends AndroidImpl {
     public void mo1306F(String str) {
         LTKDateUtil.m1403m("SprdImpl ---actionSilentInstall");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -75,7 +75,7 @@ public class SprdImpl extends AndroidImpl {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add("iptables -F app");
-            if (!AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(list)) {
                 Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
                     int iM1396f = LTKDateUtil.m1396f(f2657c, it.next());
@@ -139,7 +139,7 @@ public class SprdImpl extends AndroidImpl {
     public boolean mo1312N(long j) {
         LTKDateUtil.m1403m("SprdImpl ---setSystemTime");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -164,7 +164,7 @@ public class SprdImpl extends AndroidImpl {
     public void mo1314Q(String str) {
         LTKDateUtil.m1403m("SprdImpl ---actionSilentUnInstall");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -242,7 +242,7 @@ public class SprdImpl extends AndroidImpl {
     public void mo1506d(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("SprdImpl ---setSuperWhiteListForSys");
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             for (int i = 0; i < arrayList.size(); i++) {
@@ -257,7 +257,7 @@ public class SprdImpl extends AndroidImpl {
     public void disableBack() {
         LTKDateUtil.m1403m("SprdImpl ---enableBack");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -304,7 +304,7 @@ public class SprdImpl extends AndroidImpl {
     public void disableHome() {
         LTKDateUtil.m1403m("SprdImpl ---disableHome");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -360,7 +360,7 @@ public class SprdImpl extends AndroidImpl {
     public void disableRecent() {
         LTKDateUtil.m1403m("SprdImpl ---disableRecent");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -418,7 +418,7 @@ public class SprdImpl extends AndroidImpl {
     public void enableBack() {
         LTKDateUtil.m1403m("SprdImpl ---enableBack");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -465,7 +465,7 @@ public class SprdImpl extends AndroidImpl {
     public void enableHome() {
         LTKDateUtil.m1403m("SprdImpl ---enableHome");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -521,7 +521,7 @@ public class SprdImpl extends AndroidImpl {
     public void enableRecent() {
         LTKDateUtil.m1403m("SprdImpl ---enableRecent");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -569,7 +569,7 @@ public class SprdImpl extends AndroidImpl {
     public void mo1324h0() {
         LTKDateUtil.m1403m("SprdImpl ---enableOTG");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }
@@ -598,13 +598,13 @@ public class SprdImpl extends AndroidImpl {
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("SprdImpl ---setAppWhiteList");
         try {
-            if (!AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(list)) {
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < list.size(); i++) {
                     sb.append(list.get(i));
                     sb.append(",");
                 }
-                C1024i6 c1024i6 = f2658d;
+                SprdDeviceUtilities c1024i6 = f2658d;
                 String string = sb.toString();
                 if (c1024i6 == null) {
                     throw null;
@@ -631,7 +631,7 @@ public class SprdImpl extends AndroidImpl {
     public void mo1329t(boolean z) {
         LTKDateUtil.m1403m("SprdImpl ---actionResetFactory");
         try {
-            C1024i6 c1024i6 = f2658d;
+            SprdDeviceUtilities c1024i6 = f2658d;
             if (c1024i6 == null) {
                 throw null;
             }

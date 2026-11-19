@@ -11,7 +11,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.ResultPoint;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 import com.google.zxing.client.android.DecodeFormatManager;
 import com.google.zxing.client.android.DecodeHintManager;
 import com.google.zxing.client.android.Intents;
@@ -62,23 +62,23 @@ public class DecoratedBarcodeView extends FrameLayout {
     }
 
     private void initialize(AttributeSet attributeSet) {
-        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, C0787R.styleable.zxing_view);
-        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C0787R.styleable.zxing_view_zxing_scanner_layout, C0787R.layout.zxing_barcode_scanner);
+        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ZxingClientAndroidResources.styleable.zxing_view);
+        int resourceId = typedArrayObtainStyledAttributes.getResourceId(ZxingClientAndroidResources.styleable.zxing_view_zxing_scanner_layout, ZxingClientAndroidResources.layout.zxing_barcode_scanner);
         typedArrayObtainStyledAttributes.recycle();
         FrameLayout.inflate(getContext(), resourceId, this);
-        BarcodeView barcodeView = (BarcodeView) findViewById(C0787R.id.zxing_barcode_surface);
+        BarcodeView barcodeView = (BarcodeView) findViewById(ZxingClientAndroidResources.id.zxing_barcode_surface);
         this.barcodeView = barcodeView;
         if (barcodeView == null) {
             throw new IllegalArgumentException("There is no a com.journeyapps.barcodescanner.BarcodeView on provided layout with the id \"zxing_barcode_surface\".");
         }
         barcodeView.initializeAttributes(attributeSet);
-        ViewfinderView viewfinderView = (ViewfinderView) findViewById(C0787R.id.zxing_viewfinder_view);
+        ViewfinderView viewfinderView = (ViewfinderView) findViewById(ZxingClientAndroidResources.id.zxing_viewfinder_view);
         this.viewFinder = viewfinderView;
         if (viewfinderView == null) {
             throw new IllegalArgumentException("There is no a com.journeyapps.barcodescanner.ViewfinderView on provided layout with the id \"zxing_viewfinder_view\".");
         }
         viewfinderView.setCameraPreview(this.barcodeView);
-        this.statusView = (TextView) findViewById(C0787R.id.zxing_status_view);
+        this.statusView = (TextView) findViewById(ZxingClientAndroidResources.id.zxing_status_view);
     }
 
     public void decodeContinuous(BarcodeCallback barcodeCallback) {
@@ -90,7 +90,7 @@ public class DecoratedBarcodeView extends FrameLayout {
     }
 
     public BarcodeView getBarcodeView() {
-        return (BarcodeView) findViewById(C0787R.id.zxing_barcode_surface);
+        return (BarcodeView) findViewById(ZxingClientAndroidResources.id.zxing_barcode_surface);
     }
 
     public TextView getStatusView() {

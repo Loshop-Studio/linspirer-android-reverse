@@ -2,7 +2,7 @@ package anetwork.channel.aidl.adapter;
 
 import anet.channel.bytes.ByteArray;
 import anetwork.channel.aidl.ParcelableInputStream;
-import anetwork.channel.entity.C0458g;
+import anetwork.channel.entity.UnifiedRequestConfig;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -85,7 +85,7 @@ public class ParcelableInputStreamImpl extends ParcelableInputStream.Stub {
         }
     }
 
-    public void init(C0458g c0458g, int i) {
+    public void init(UnifiedRequestConfig c0458g, int i) {
         this.contentLength = i;
         this.seqNo = c0458g.f740e;
         this.rto = c0458g.f739d;

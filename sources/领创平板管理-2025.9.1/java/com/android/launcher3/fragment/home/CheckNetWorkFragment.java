@@ -14,12 +14,12 @@ import com.android.launcher3.activity.CheckNetWorkActivity;
 import com.android.launcher3.activity.base.BaseFragment;
 import com.android.launcher3.adapter.CheckNetworkRecyclerViewAdapter;
 import com.android.launcher3.model.NetworkInfo;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.OnClickByNetworkListener;
-import com.taobao.agoo.p074a.p075a.AbstractC2002b;
+import com.taobao.agoo.p074a.p075a.AgooCommandFields;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -79,20 +79,20 @@ public class CheckNetWorkFragment extends BaseFragment {
     public ImageView f1939x;
 
     /* renamed from: z */
-    public AsyncTaskC0657d f1941z;
+    public NetworkEndpointCheckTask f1941z;
 
     /* renamed from: y */
     public int f1940y = 0;
 
     /* renamed from: A */
-    public Runnable f1922A = new RunnableC0654a();
+    public Runnable f1922A = new NetworkCheckProgressTicker();
 
     /* renamed from: B */
-    public Handler f1923B = new HandlerC0655b();
+    public Handler f1923B = new NetworkCheckProgressHandler();
 
     /* renamed from: com.android.launcher3.fragment.home.CheckNetWorkFragment$a */
-    public class RunnableC0654a implements Runnable {
-        public RunnableC0654a() {
+    public class NetworkCheckProgressTicker implements Runnable {
+        public NetworkCheckProgressTicker() {
         }
 
         @Override // java.lang.Runnable
@@ -103,8 +103,8 @@ public class CheckNetWorkFragment extends BaseFragment {
     }
 
     /* renamed from: com.android.launcher3.fragment.home.CheckNetWorkFragment$b */
-    public class HandlerC0655b extends Handler {
-        public HandlerC0655b() {
+    public class NetworkCheckProgressHandler extends Handler {
+        public NetworkCheckProgressHandler() {
         }
 
         @Override // android.os.Handler
@@ -142,14 +142,14 @@ public class CheckNetWorkFragment extends BaseFragment {
     }
 
     /* renamed from: com.android.launcher3.fragment.home.CheckNetWorkFragment$c */
-    public class C0656c implements OnClickByNetworkListener {
-        public C0656c() {
+    public class NetworkCheckActivityCallback implements OnClickByNetworkListener {
+        public NetworkCheckActivityCallback() {
         }
     }
 
     /* renamed from: com.android.launcher3.fragment.home.CheckNetWorkFragment$d */
-    public class AsyncTaskC0657d extends AsyncTask {
-        public AsyncTaskC0657d() {
+    public class NetworkEndpointCheckTask extends AsyncTask {
+        public NetworkEndpointCheckTask() {
         }
 
         @Override // android.os.AsyncTask
@@ -162,7 +162,7 @@ public class CheckNetWorkFragment extends BaseFragment {
             Runtime runtime;
             StringBuilder sb2;
             CheckNetWorkFragment checkNetWorkFragment = CheckNetWorkFragment.this;
-            if (AbstractC1102l9.m2273N(checkNetWorkFragment.f1926k)) {
+            if (MobileSdkPlatformUtilities.m2273N(checkNetWorkFragment.f1926k)) {
                 LTKDateUtil.m1403m("CheckNetWorkFragment--networks are empty");
                 return null;
             }
@@ -170,7 +170,7 @@ public class CheckNetWorkFragment extends BaseFragment {
                 checkNetWorkFragment.f1933r = new ArrayList();
                 checkNetWorkFragment.f1928m = networkInfo.getDomain();
                 checkNetWorkFragment.f1931p = networkInfo.getPortList();
-                new C0876cc(checkNetWorkFragment.f1800a);
+                new LauncherNetworkUtil(checkNetWorkFragment.f1800a);
                 String str2 = checkNetWorkFragment.f1928m;
                 ArrayList arrayList = new ArrayList();
                 try {
@@ -185,7 +185,7 @@ public class CheckNetWorkFragment extends BaseFragment {
                     CompilerOutline.m1776u(e2, CompilerOutline.m1765j("NetWorkUtilgetInetAddress error:"));
                 }
                 checkNetWorkFragment.f1932q = arrayList;
-                if (!AbstractC1102l9.m2273N(arrayList)) {
+                if (!MobileSdkPlatformUtilities.m2273N(arrayList)) {
                     for (String str3 : checkNetWorkFragment.f1932q) {
                         try {
                             runtime = Runtime.getRuntime();
@@ -195,12 +195,12 @@ public class CheckNetWorkFragment extends BaseFragment {
                         } catch (Exception e3) {
                             CompilerOutline.m1776u(e3, CompilerOutline.m1765j("NetWorkUtilping error:"));
                         }
-                        String str4 = runtime.exec(sb2.toString()).waitFor() == 0 ? AbstractC2002b.JSON_SUCCESS : "fail";
+                        String str4 = runtime.exec(sb2.toString()).waitFor() == 0 ? AgooCommandFields.JSON_SUCCESS : "fail";
                         checkNetWorkFragment.f1934s = str4;
                         checkNetWorkFragment.f1933r.add(str4);
                     }
                 }
-                if (!AbstractC1102l9.m2273N(checkNetWorkFragment.f1931p)) {
+                if (!MobileSdkPlatformUtilities.m2273N(checkNetWorkFragment.f1931p)) {
                     for (int i = 0; i < checkNetWorkFragment.f1931p.size(); i++) {
                         String str5 = checkNetWorkFragment.f1928m;
                         int iIntValue = checkNetWorkFragment.f1931p.get(i).intValue();
@@ -209,7 +209,7 @@ public class CheckNetWorkFragment extends BaseFragment {
                             try {
                                 try {
                                     socket2.connect(new InetSocketAddress(str5, iIntValue), 5000);
-                                    str = socket2.isConnected() ? AbstractC2002b.JSON_SUCCESS : "fail";
+                                    str = socket2.isConnected() ? AgooCommandFields.JSON_SUCCESS : "fail";
                                     LTKDateUtil.m1403m("NetWorkUtilconnecting " + str5 + ":" + iIntValue + " " + str);
                                 } catch (Exception e4) {
                                     e = e4;
@@ -345,7 +345,7 @@ public class CheckNetWorkFragment extends BaseFragment {
         this.f1938w = (ImageView) view.findViewById(R.id.management_service_image);
         this.f1939x = (ImageView) view.findViewById(R.id.customer_service_image);
         m1246j();
-        ((CheckNetWorkActivity) getActivity()).f1680l = new C0656c();
+        ((CheckNetWorkActivity) getActivity()).f1680l = new NetworkCheckActivityCallback();
     }
 
     /* renamed from: j */
@@ -354,7 +354,7 @@ public class CheckNetWorkFragment extends BaseFragment {
         this.f1937v.setImageResource(R.drawable.icon_progress2_2);
         this.f1938w.setImageResource(R.drawable.icon_progress3_2);
         this.f1939x.setImageResource(R.drawable.icon_progress4_2);
-        if (!AbstractC1102l9.m2273N(this.f1926k)) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.f1926k)) {
             Iterator<NetworkInfo> it = this.f1926k.iterator();
             while (it.hasNext()) {
                 it.next().setResult(new ArrayList());
@@ -368,7 +368,7 @@ public class CheckNetWorkFragment extends BaseFragment {
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        AsyncTaskC0657d asyncTaskC0657d = this.f1941z;
+        NetworkEndpointCheckTask asyncTaskC0657d = this.f1941z;
         if (asyncTaskC0657d != null && !asyncTaskC0657d.isCancelled() && this.f1941z.getStatus() == AsyncTask.Status.RUNNING) {
             this.f1941z.cancel(true);
             this.f1941z = null;

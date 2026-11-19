@@ -179,7 +179,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (str == null) {
             throw new IllegalArgumentException("s == null");
         }
-        ByteString c1091kn = new ByteString(str.getBytes(C0888co.f2363a));
+        ByteString c1091kn = new ByteString(str.getBytes(OkioByteUtilities.f2363a));
         c1091kn.utf8 = str;
         return c1091kn;
     }
@@ -243,11 +243,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     public String base64() {
-        return C0991gn.m1888a(this.data, C0991gn.f2805a);
+        return OkioBase64Codec.m1888a(this.data, OkioBase64Codec.f2805a);
     }
 
     public String base64Url() {
-        return C0991gn.m1888a(this.data, C0991gn.f2806b);
+        return OkioBase64Codec.m1888a(this.data, OkioBase64Codec.f2806b);
     }
 
     /* renamed from: c */
@@ -460,7 +460,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.data, C0888co.f2363a);
+        String str2 = new String(this.data, OkioByteUtilities.f2363a);
         this.utf8 = str2;
         return str2;
     }
@@ -505,7 +505,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
         if (i >= 0) {
             byte[] bArr2 = this.data;
-            if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && C0888co.m1542a(bArr2, i, bArr, i2, i3)) {
+            if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && OkioByteUtilities.m1542a(bArr2, i, bArr, i2, i3)) {
                 return true;
             }
         }
@@ -542,7 +542,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     /* renamed from: of */
     public static ByteString m2225of(byte[] bArr, int i, int i2) {
         if (bArr != null) {
-            C0888co.m1543b(bArr.length, i, i2);
+            OkioByteUtilities.m1543b(bArr.length, i, i2);
             byte[] bArr2 = new byte[i2];
             System.arraycopy(bArr, i, bArr2, 0, i2);
             return new ByteString(bArr2);
@@ -566,7 +566,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     public int indexOf(byte[] bArr, int i) {
         int length = this.data.length - bArr.length;
         for (int iMax = Math.max(i, 0); iMax <= length; iMax++) {
-            if (C0888co.m1542a(this.data, iMax, bArr, 0, bArr.length)) {
+            if (OkioByteUtilities.m1542a(this.data, iMax, bArr, 0, bArr.length)) {
                 return iMax;
             }
         }
@@ -575,7 +575,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
 
     public int lastIndexOf(byte[] bArr, int i) {
         for (int iMin = Math.min(i, this.data.length - bArr.length); iMin >= 0; iMin--) {
-            if (C0888co.m1542a(this.data, iMin, bArr, 0, bArr.length)) {
+            if (OkioByteUtilities.m1542a(this.data, iMin, bArr, 0, bArr.length)) {
                 return iMin;
             }
         }

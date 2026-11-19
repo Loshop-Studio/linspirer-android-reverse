@@ -32,7 +32,7 @@ public class FDServiceSeparateHandler extends IFileDownloadIPCService.a implemen
         this.f3640b = c1310tg;
         MessageSnapshotFlow c1059jg = MessageSnapshotFlow.a.f2953a;
         c1059jg.f2952b = this;
-        c1059jg.f2951a = new C1135mg(5, this);
+        c1059jg.f2951a = new DownloadSnapshotThreadPool(5, this);
     }
 
     @Override // com.huawei.hem.InterfaceC0984gg

@@ -8,7 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
 import android.support.v7.app.ActionBar;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.ActionBarPolicy;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
@@ -101,11 +101,11 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         public TextView mTextView;
 
         public TabView(Context context, ActionBar.Tab tab, boolean z) {
-            super(context, null, C0200R.attr.actionBarTabStyle);
+            super(context, null, SupportAppcompatResources.attr.actionBarTabStyle);
             int[] iArr = {R.attr.background};
             this.BG_ATTRS = iArr;
             this.mTab = tab;
-            TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, iArr, C0200R.attr.actionBarTabStyle, 0);
+            TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, iArr, SupportAppcompatResources.attr.actionBarTabStyle, 0);
             if (tintTypedArrayObtainStyledAttributes.hasValue(0)) {
                 setBackgroundDrawable(tintTypedArrayObtainStyledAttributes.getDrawable(0));
             }
@@ -210,7 +210,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             boolean z = !TextUtils.isEmpty(text);
             if (z) {
                 if (this.mTextView == null) {
-                    AppCompatTextView appCompatTextView = new AppCompatTextView(getContext(), null, C0200R.attr.actionBarTabTextStyle);
+                    AppCompatTextView appCompatTextView = new AppCompatTextView(getContext(), null, SupportAppcompatResources.attr.actionBarTabTextStyle);
                     appCompatTextView.setEllipsize(TextUtils.TruncateAt.END);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.gravity = 16;
@@ -283,14 +283,14 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     private Spinner createSpinner() {
-        AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, C0200R.attr.actionDropDownStyle);
+        AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, SupportAppcompatResources.attr.actionDropDownStyle);
         appCompatSpinner.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));
         appCompatSpinner.setOnItemSelectedListener(this);
         return appCompatSpinner;
     }
 
     private LinearLayoutCompat createTabLayout() {
-        LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(getContext(), null, C0200R.attr.actionBarTabBarStyle);
+        LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(getContext(), null, SupportAppcompatResources.attr.actionBarTabBarStyle);
         linearLayoutCompat.setMeasureWithLargestChildEnabled(true);
         linearLayoutCompat.setGravity(17);
         linearLayoutCompat.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));

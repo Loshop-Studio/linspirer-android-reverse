@@ -9,7 +9,7 @@ public class StrategyCenter {
         if (instance == null) {
             synchronized (StrategyCenter.class) {
                 if (instance == null) {
-                    instance = new C0402g();
+                    instance = new NetworkStrategyCenter();
                 }
             }
         }

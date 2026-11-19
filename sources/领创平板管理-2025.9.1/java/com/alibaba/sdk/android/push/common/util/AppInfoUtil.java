@@ -10,8 +10,8 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
-import com.alibaba.sdk.android.push.common.p018a.C0558b;
-import com.alibaba.sdk.android.push.common.p018a.EnumC0557a;
+import com.alibaba.sdk.android.push.common.p018a.PushNotificationDefaults;
+import com.alibaba.sdk.android.push.common.p018a.PushServiceComponent;
 import com.huawei.hem.CompilerOutline;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -37,7 +37,7 @@ public class AppInfoUtil {
 
     public static String getChannelServiceData(Context context, int i) throws PackageManager.NameNotFoundException {
         try {
-            ServiceInfo serviceInfo = context.getPackageManager().getServiceInfo(new ComponentName(context.getPackageName(), EnumC0557a.CHANNEL_SERVICE.m749a()), 131584);
+            ServiceInfo serviceInfo = context.getPackageManager().getServiceInfo(new ComponentName(context.getPackageName(), PushServiceComponent.CHANNEL_SERVICE.m749a()), 131584);
             if (i != 1) {
                 return null;
             }
@@ -45,7 +45,7 @@ public class AppInfoUtil {
         } catch (PackageManager.NameNotFoundException unused) {
             AmsLogger amsLogger = sLogger;
             StringBuilder sbM1765j = CompilerOutline.m1765j("Meta data name ");
-            sbM1765j.append(EnumC0557a.CHANNEL_SERVICE.m749a());
+            sbM1765j.append(PushServiceComponent.CHANNEL_SERVICE.m749a());
             sbM1765j.append(" not found!");
             amsLogger.m501e(sbM1765j.toString());
             return null;
@@ -188,7 +188,7 @@ public class AppInfoUtil {
 
     public static boolean isChannelProcess(Context context) {
         try {
-            String str = context.getPackageName() + C0558b.m755d();
+            String str = context.getPackageName() + PushNotificationDefaults.m755d();
             String processName = getProcessName(context);
             if (str.equals("")) {
                 return false;

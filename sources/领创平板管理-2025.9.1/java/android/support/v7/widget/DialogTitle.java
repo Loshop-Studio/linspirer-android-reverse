@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.RestrictTo;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.ActionMode;
@@ -28,8 +28,8 @@ public class DialogTitle extends TextView {
         }
         setSingleLine(false);
         setMaxLines(2);
-        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(null, C0200R.styleable.TextAppearance, R.attr.textAppearanceMedium, R.style.TextAppearance.Medium);
-        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C0200R.styleable.TextAppearance_android_textSize, 0);
+        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(null, SupportAppcompatResources.styleable.TextAppearance, R.attr.textAppearanceMedium, R.style.TextAppearance.Medium);
+        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(SupportAppcompatResources.styleable.TextAppearance_android_textSize, 0);
         if (dimensionPixelSize != 0) {
             setTextSize(0, dimensionPixelSize);
         }

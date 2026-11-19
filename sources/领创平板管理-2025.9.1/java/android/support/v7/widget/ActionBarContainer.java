@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.ActionMode;
@@ -83,8 +83,8 @@ public class ActionBarContainer extends FrameLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.mActionBarView = findViewById(C0200R.id.action_bar);
-        this.mContextView = findViewById(C0200R.id.action_context_bar);
+        this.mActionBarView = findViewById(SupportAppcompatResources.id.action_bar);
+        this.mContextView = findViewById(SupportAppcompatResources.id.action_context_bar);
     }
 
     @Override // android.view.View
@@ -351,14 +351,14 @@ public class ActionBarContainer extends FrameLayout {
     public ActionBarContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         ViewCompat.setBackground(this, new ActionBarBackgroundDrawable(this));
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0200R.styleable.ActionBar);
-        this.mBackground = typedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_background);
-        this.mStackedBackground = typedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_backgroundStacked);
-        this.mHeight = typedArrayObtainStyledAttributes.getDimensionPixelSize(C0200R.styleable.ActionBar_height, -1);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.ActionBar);
+        this.mBackground = typedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_background);
+        this.mStackedBackground = typedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_backgroundStacked);
+        this.mHeight = typedArrayObtainStyledAttributes.getDimensionPixelSize(SupportAppcompatResources.styleable.ActionBar_height, -1);
         boolean z = true;
-        if (getId() == C0200R.id.split_action_bar) {
+        if (getId() == SupportAppcompatResources.id.split_action_bar) {
             this.mIsSplit = true;
-            this.mSplitBackground = typedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_backgroundSplit);
+            this.mSplitBackground = typedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_backgroundSplit);
         }
         typedArrayObtainStyledAttributes.recycle();
         if (!this.mIsSplit ? this.mBackground != null || this.mStackedBackground != null : this.mSplitBackground != null) {

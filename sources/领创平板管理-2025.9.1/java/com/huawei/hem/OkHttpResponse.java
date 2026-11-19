@@ -1,6 +1,6 @@
 package com.huawei.hem;
 
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import java.io.Closeable;
 import java.io.IOException;
 import javax.annotation.Nullable;
@@ -27,11 +27,11 @@ public final class OkHttpResponse implements Closeable {
     public final Handshake f3095e;
 
     /* renamed from: f */
-    public final C1438yj f3096f;
+    public final OkHttpHeaderList f3096f;
 
     /* renamed from: g */
     @Nullable
-    public final AbstractC1139mk f3097g;
+    public final OkHttpResponseBody f3097g;
 
     /* renamed from: h */
     @Nullable
@@ -65,11 +65,11 @@ public final class OkHttpResponse implements Closeable {
         this.f3093c = aVar.f3107c;
         this.f3094d = aVar.f3108d;
         this.f3095e = aVar.f3109e;
-        C1438yj.a aVar2 = aVar.f3110f;
+        OkHttpHeaderList.a aVar2 = aVar.f3110f;
         if (aVar2 == null) {
             throw null;
         }
-        this.f3096f = new C1438yj(aVar2);
+        this.f3096f = new OkHttpHeaderList(aVar2);
         this.f3097g = aVar.f3111g;
         this.f3098h = aVar.f3112h;
         this.f3099i = aVar.f3113i;
@@ -92,7 +92,7 @@ public final class OkHttpResponse implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        AbstractC1139mk abstractC1139mk = this.f3097g;
+        OkHttpResponseBody abstractC1139mk = this.f3097g;
         if (abstractC1139mk == null) {
             throw new IllegalStateException("response is not eligible for a body and must not be closed");
         }
@@ -135,11 +135,11 @@ public final class OkHttpResponse implements Closeable {
         public Handshake f3109e;
 
         /* renamed from: f */
-        public C1438yj.a f3110f;
+        public OkHttpHeaderList.a f3110f;
 
         /* renamed from: g */
         @Nullable
-        public AbstractC1139mk f3111g;
+        public OkHttpResponseBody f3111g;
 
         /* renamed from: h */
         @Nullable
@@ -165,17 +165,17 @@ public final class OkHttpResponse implements Closeable {
 
         public a() {
             this.f3107c = -1;
-            this.f3110f = new C1438yj.a();
+            this.f3110f = new OkHttpHeaderList.a();
         }
 
         /* renamed from: a */
         public a m2199a(String str, String str2) {
-            C1438yj.a aVar = this.f3110f;
+            OkHttpHeaderList.a aVar = this.f3110f;
             if (aVar == null) {
                 throw null;
             }
-            C1438yj.m3107a(str);
-            C1438yj.m3108b(str2, str);
+            OkHttpHeaderList.m3107a(str);
+            OkHttpHeaderList.m3108b(str2, str);
             aVar.f4230a.add(str);
             aVar.f4230a.add(str2.trim());
             return this;
@@ -226,7 +226,7 @@ public final class OkHttpResponse implements Closeable {
         }
 
         /* renamed from: e */
-        public a m2203e(C1438yj c1438yj) {
+        public a m2203e(OkHttpHeaderList c1438yj) {
             this.f3110f = c1438yj.m3112e();
             return this;
         }

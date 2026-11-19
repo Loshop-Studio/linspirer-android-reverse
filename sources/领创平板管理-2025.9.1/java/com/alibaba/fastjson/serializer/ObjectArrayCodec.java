@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.IOException;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
@@ -209,7 +209,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
                             cls = cls2;
                         }
                     }
-                    serializeWriter.append(AbstractC1604b.COMMA);
+                    serializeWriter.append(UpdateJsonBean.COMMA);
                 }
             }
             Object obj4 = objArr[i2];

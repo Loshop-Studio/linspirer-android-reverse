@@ -40,11 +40,11 @@ public class CheckGrantedPermission {
                 }
                 i++;
             }
-            String[] strArrM2275P = AbstractC1102l9.m2275P(arrayList);
-            if (z && !AbstractC1102l9.m2274O(strArrM2275P)) {
+            String[] strArrM2275P = MobileSdkPlatformUtilities.m2275P(arrayList);
+            if (z && !MobileSdkPlatformUtilities.m2274O(strArrM2275P)) {
                 m2116b(activity, strArrM2275P);
             }
-            if (AbstractC1102l9.m2273N(this.f2931b)) {
+            if (MobileSdkPlatformUtilities.m2273N(this.f2931b)) {
                 return;
             }
             DeviceLogHelper.getInstance().recordPermissionEvent(this.f2931b.toString());
@@ -54,7 +54,7 @@ public class CheckGrantedPermission {
 
     /* renamed from: a */
     public void m2115a(Activity activity) {
-        if (!(AbstractC1102l9.m2273N(this.f2931b) || !(this.f2931b.contains("android.permission.ACCESS_COARSE_LOCATION") || this.f2931b.contains("android.permission.ACCESS_FINE_LOCATION"))) || ContextCompat.checkSelfPermission(activity, "android.permission.ACCESS_BACKGROUND_LOCATION") == 0) {
+        if (!(MobileSdkPlatformUtilities.m2273N(this.f2931b) || !(this.f2931b.contains("android.permission.ACCESS_COARSE_LOCATION") || this.f2931b.contains("android.permission.ACCESS_FINE_LOCATION"))) || ContextCompat.checkSelfPermission(activity, "android.permission.ACCESS_BACKGROUND_LOCATION") == 0) {
             return;
         }
         m2116b(activity, new String[]{"android.permission.ACCESS_BACKGROUND_LOCATION"});
@@ -80,7 +80,7 @@ public class CheckGrantedPermission {
             }
             i++;
         }
-        if (AbstractC1102l9.m2273N(this.f2931b)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f2931b)) {
             return;
         }
         DeviceLogHelper.getInstance().recordPermissionEvent(this.f2931b.toString());

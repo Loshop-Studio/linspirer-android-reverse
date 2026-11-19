@@ -2,7 +2,7 @@ package com.loc;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: HeaderAddStrategy.java */
 /* renamed from: com.loc.bc */
@@ -32,7 +32,7 @@ public final class HeaderAddStrategy extends UpdateDataStrategy {
     /* renamed from: b */
     private String m4204b() {
         try {
-            return String.format(C1094l1.m2251t(this.f5096b), this.f5098f);
+            return String.format(AMapCoreUtilities.m2251t(this.f5096b), this.f5098f);
         } catch (Throwable th) {
             th.printStackTrace();
             SDKLogHandler.m5333b(th, "ofm", "gpj");
@@ -43,10 +43,10 @@ public final class HeaderAddStrategy extends UpdateDataStrategy {
     @Override // com.loc.AbstractC1744bg
     /* renamed from: a */
     public final byte[] mo4202a(byte[] bArr) {
-        String strM2236e = C1094l1.m2236e(bArr);
+        String strM2236e = AMapCoreUtilities.m2236e(bArr);
         if (TextUtils.isEmpty(strM2236e)) {
             return null;
         }
-        return C1094l1.m2245n("{\"pinfo\":\"" + C1094l1.m2236e(this.f5097e.m3998b(C1094l1.m2245n(m4204b()))) + "\",\"els\":[" + strM2236e + "]}");
+        return AMapCoreUtilities.m2245n("{\"pinfo\":\"" + AMapCoreUtilities.m2236e(this.f5097e.m3998b(AMapCoreUtilities.m2245n(m4204b()))) + "\",\"els\":[" + strM2236e + "]}");
     }
 }

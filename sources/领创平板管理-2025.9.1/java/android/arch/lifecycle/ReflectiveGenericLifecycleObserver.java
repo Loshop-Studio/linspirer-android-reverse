@@ -1,6 +1,6 @@
 package android.arch.lifecycle;
 
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.ClassesInfoCache;
 import com.huawei.hem.LifecycleOwner;
 import java.lang.reflect.InvocationTargetException;
@@ -21,10 +21,10 @@ public class ReflectiveGenericLifecycleObserver implements GenericLifecycleObser
 
     @Override // android.arch.lifecycle.GenericLifecycleObserver
     /* renamed from: d */
-    public void mo0d(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public void mo0d(LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         ClassesInfoCache.a aVar2 = this.f11b;
         Object obj = this.f10a;
         ClassesInfoCache.a.m1696a(aVar2.f2580a.get(aVar), interfaceC1042j, aVar, obj);
-        ClassesInfoCache.a.m1696a(aVar2.f2580a.get(AbstractC0992h.a.ON_ANY), interfaceC1042j, aVar, obj);
+        ClassesInfoCache.a.m1696a(aVar2.f2580a.get(ArchitectureLifecycle.a.ON_ANY), interfaceC1042j, aVar, obj);
     }
 }

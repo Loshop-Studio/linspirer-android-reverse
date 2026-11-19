@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.AMapCoreException;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.io.ByteArrayOutputStream;
 
 /* compiled from: StatisticsEntity.java */
@@ -45,8 +45,8 @@ public final class StatisticsEntity {
     /* renamed from: b */
     private byte[] m4179b(String str) {
         byte[] bArrM2245n;
-        if (!TextUtils.isEmpty(str) && (bArrM2245n = C1094l1.m2245n(this.f5079e)) != null) {
-            return C1094l1.m2244m(bArrM2245n.length);
+        if (!TextUtils.isEmpty(str) && (bArrM2245n = AMapCoreUtilities.m2245n(this.f5079e)) != null) {
+            return AMapCoreUtilities.m2244m(bArrM2245n.length);
         }
         return new byte[]{0, 0};
     }
@@ -68,17 +68,17 @@ public final class StatisticsEntity {
             try {
                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                 try {
-                    C1094l1.m2241j(byteArrayOutputStream2, this.f5077c);
-                    C1094l1.m2241j(byteArrayOutputStream2, this.f5078d);
-                    C1094l1.m2241j(byteArrayOutputStream2, this.f5076b);
-                    C1094l1.m2241j(byteArrayOutputStream2, String.valueOf(DeviceInfo.m1087u(this.f5075a)));
+                    AMapCoreUtilities.m2241j(byteArrayOutputStream2, this.f5077c);
+                    AMapCoreUtilities.m2241j(byteArrayOutputStream2, this.f5078d);
+                    AMapCoreUtilities.m2241j(byteArrayOutputStream2, this.f5076b);
+                    AMapCoreUtilities.m2241j(byteArrayOutputStream2, String.valueOf(DeviceInfo.m1087u(this.f5075a)));
                     try {
                         iCurrentTimeMillis = (int) (System.currentTimeMillis() / 1000);
                     } catch (Throwable unused) {
                     }
                     byteArrayOutputStream2.write(m4178a(iCurrentTimeMillis));
                     byteArrayOutputStream2.write(m4179b(this.f5079e));
-                    byteArrayOutputStream2.write(C1094l1.m2245n(this.f5079e));
+                    byteArrayOutputStream2.write(AMapCoreUtilities.m2245n(this.f5079e));
                     byteArray = byteArrayOutputStream2.toByteArray();
                     byteArrayOutputStream2.close();
                 } catch (Throwable th) {

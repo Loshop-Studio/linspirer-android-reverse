@@ -17,10 +17,10 @@ public final class CollectionUploader {
         }
         byte[] bArr2 = null;
         try {
-            C1800di c1800di = new C1800di();
+            AMapCollectionHttpRequest c1800di = new AMapCollectionHttpRequest();
             c1800di.f5325b.put(HttpConstant.CONTENT_TYPE, "application/octet-stream");
-            c1800di.f5325b.put("aps_c_src", Base64.encodeToString(C1800di.m4569a().getBytes(), 2));
-            c1800di.f5325b.put("aps_c_key", Base64.encodeToString(C1800di.m4570b().getBytes(), 2));
+            c1800di.f5325b.put("aps_c_src", Base64.encodeToString(AMapCollectionHttpRequest.m4569a().getBytes(), 2));
+            c1800di.f5325b.put("aps_c_key", Base64.encodeToString(AMapCollectionHttpRequest.m4570b().getBytes(), 2));
             c1800di.f5327d = bArr;
             if (CollectionConfig.f5152a) {
                 str = "http://cgicol.amap.com/collection/collectData?src=baseCol&ver=v74&";

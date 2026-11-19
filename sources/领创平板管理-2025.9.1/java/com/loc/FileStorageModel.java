@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -21,13 +21,13 @@ import java.nio.channels.FileLock;
 public final class FileStorageModel {
 
     /* renamed from: a */
-    public static final String f5901a = C1094l1.m2251t("SYmFja3Vwcw");
+    public static final String f5901a = AMapCoreUtilities.m2251t("SYmFja3Vwcw");
 
     /* renamed from: b */
-    public static final String f5902b = C1094l1.m2251t("SLmFkaXU");
+    public static final String f5902b = AMapCoreUtilities.m2251t("SLmFkaXU");
 
     /* renamed from: c */
-    public static final String f5903c = C1094l1.m2251t("JIw");
+    public static final String f5903c = AMapCoreUtilities.m2251t("JIw");
 
     /* renamed from: a */
     public static String m5268a(Context context) {
@@ -37,10 +37,10 @@ public final class FileStorageModel {
         } else {
             StorageManager storageManager = (StorageManager) context.getSystemService("storage");
             try {
-                Class<?> cls = Class.forName(C1094l1.m2251t("SYW5kcm9pZC5vcy5zdG9yYWdlLlN0b3JhZ2VWb2x1bWU"));
-                Method method = storageManager.getClass().getMethod(C1094l1.m2251t("FZ2V0Vm9sdW1lTGlzdA"), new Class[0]);
-                Method method2 = cls.getMethod(C1094l1.m2251t("ZZ2V0UGF0aA"), new Class[0]);
-                Method method3 = cls.getMethod(C1094l1.m2251t("AaXNSZW1vdmFibGUK"), new Class[0]);
+                Class<?> cls = Class.forName(AMapCoreUtilities.m2251t("SYW5kcm9pZC5vcy5zdG9yYWdlLlN0b3JhZ2VWb2x1bWU"));
+                Method method = storageManager.getClass().getMethod(AMapCoreUtilities.m2251t("FZ2V0Vm9sdW1lTGlzdA"), new Class[0]);
+                Method method2 = cls.getMethod(AMapCoreUtilities.m2251t("ZZ2V0UGF0aA"), new Class[0]);
+                Method method3 = cls.getMethod(AMapCoreUtilities.m2251t("AaXNSZW1vdmFibGUK"), new Class[0]);
                 Object objInvoke = method.invoke(storageManager, new Object[0]);
                 int length = Array.getLength(objInvoke);
                 for (int i = 0; i < length; i++) {

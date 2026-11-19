@@ -73,7 +73,7 @@ public class ExceptionDetector {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.detect.ExceptionDetector$a */
-    public class C0323a {
+    public class ExceptionProbeState {
 
         /* renamed from: a */
         public String f192a;
@@ -93,17 +93,17 @@ public class ExceptionDetector {
         /* renamed from: f */
         public Future<PingResponse> f197f;
 
-        public C0323a() {
+        public ExceptionProbeState() {
         }
 
-        public /* synthetic */ C0323a(ExceptionDetector exceptionDetector, C0324a c0324a) {
+        public /* synthetic */ ExceptionProbeState(ExceptionDetector exceptionDetector, ExceptionDetectorNetworkListener c0324a) {
             this();
         }
     }
 
     /* renamed from: a */
     public void m90a() {
-        NetworkStatusHelper.addStatusChangeListener(new C0324a(this));
+        NetworkStatusHelper.addStatusChangeListener(new ExceptionDetectorNetworkListener(this));
     }
 
     /* renamed from: b */
@@ -128,9 +128,9 @@ public class ExceptionDetector {
         jSONObject.put("NetworkInfo", jSONObject2);
         String defaultGateway = status.isWifi() ? NetUtils.getDefaultGateway("114.114.114.114") : NetUtils.getPreferNextHop("114.114.114.114", 2);
         Future<PingResponse> futureLaunch = !TextUtils.isEmpty(defaultGateway) ? new PingTask(defaultGateway, 1000, 3, 0, 0).launch() : null;
-        C0323a c0323aM86a = m86a("guide-acs.m.taobao.com", this.f186b);
-        C0323a c0323aM86a2 = m86a("gw.alicdn.com", this.f188d);
-        C0323a c0323aM86a3 = m86a("msgacs.m.taobao.com", this.f187c);
+        ExceptionProbeState c0323aM86a = m86a("guide-acs.m.taobao.com", this.f186b);
+        ExceptionProbeState c0323aM86a2 = m86a("gw.alicdn.com", this.f188d);
+        ExceptionProbeState c0323aM86a3 = m86a("msgacs.m.taobao.com", this.f187c);
         JSONObject jSONObject3 = new JSONObject();
         jSONObject3.put("nextHop", defaultGateway);
         jSONObject3.put("ping", m89a(futureLaunch));
@@ -182,7 +182,7 @@ public class ExceptionDetector {
     /* renamed from: a */
     public void m91a(RequestStatistic requestStatistic) {
         if (AwcnConfig.isNetworkDetectEnable()) {
-            ThreadPoolExecutorFactory.submitDetectTask(new RunnableC0326c(this, requestStatistic));
+            ThreadPoolExecutorFactory.submitDetectTask(new RecordConnectionExceptionTask(this, requestStatistic));
         } else {
             ALog.m340i("anet.ExceptionDetector", "network detect closed.", null, new Object[0]);
         }
@@ -223,8 +223,8 @@ public class ExceptionDetector {
     }
 
     /* renamed from: a */
-    private C0323a m86a(String str, String str2) {
-        C0323a c0323a = new C0323a(this, null);
+    private ExceptionProbeState m86a(String str, String str2) {
+        ExceptionProbeState c0323a = new ExceptionProbeState(this, null);
         c0323a.f192a = str;
         try {
             c0323a.f193b = InetAddress.getByName(str).getHostAddress();
@@ -249,7 +249,7 @@ public class ExceptionDetector {
     }
 
     /* renamed from: a */
-    private JSONObject m88a(C0323a c0323a) throws JSONException {
+    private JSONObject m88a(ExceptionProbeState c0323a) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (c0323a != null && c0323a.f195d != null) {
             jSONObject.put(Constants.KEY_HOST, c0323a.f192a);

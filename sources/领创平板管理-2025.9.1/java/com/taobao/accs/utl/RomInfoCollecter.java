@@ -6,7 +6,7 @@ public abstract class RomInfoCollecter {
     public RomInfoCollecter mNextCollecter;
 
     public static RomInfoCollecter getCollecter() {
-        return new C1977e();
+        return new RomInfoCollectorAdapter();
     }
 
     public abstract String collect();

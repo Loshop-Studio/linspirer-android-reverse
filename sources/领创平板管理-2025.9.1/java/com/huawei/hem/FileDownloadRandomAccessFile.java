@@ -23,7 +23,7 @@ public class FileDownloadRandomAccessFile implements FileDownloadOutputStream {
 
     /* compiled from: FileDownloadRandomAccessFile.java */
     /* renamed from: com.huawei.hem.yg$a */
-    public static class a implements InterfaceC0933eh {
+    public static class a implements DownloadOutputStreamFactory {
     }
 
     public FileDownloadRandomAccessFile(File file) {

@@ -15,11 +15,11 @@ import com.android.launcher3.network.DeviceLogHelper;
 import com.android.launcher3.view.CircleProgressView;
 import com.android.launcher3.view.CommonDialog;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C0930ee;
+import com.huawei.hem.LauncherFileUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.CheckGrantedPermission;
 import com.huawei.hem.DataCleanUtil;
@@ -48,10 +48,10 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     public Button f1701f;
 
     /* renamed from: i */
-    public AsyncTaskC0634c f1704i;
+    public SelectedCategoryCleanupTask f1704i;
 
     /* renamed from: j */
-    public AsyncTaskC0635d f1705j;
+    public DataCleanScanTask f1705j;
 
     /* renamed from: k */
     public CircleProgressView f1706k;
@@ -72,8 +72,8 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     public int[] f1709n = {-16345601, -1445385, -1445385, -1445385, -16345601};
 
     /* renamed from: com.android.launcher3.activity.DataCleanActivity$a */
-    public class C0632a implements LauncherOnClickListener {
-        public C0632a() {
+    public class CleanCategorySelectionListener implements LauncherOnClickListener {
+        public CleanCategorySelectionListener() {
         }
 
         @Override // com.huawei.hem.InterfaceC1071k3
@@ -99,12 +99,12 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     }
 
     /* renamed from: com.android.launcher3.activity.DataCleanActivity$b */
-    public class C0633b implements CommonDialog.DialogButtonOnClickListener {
+    public class CategoryClearConfirmation implements CommonDialog.DialogButtonOnClickListener {
 
         /* renamed from: a */
         public final /* synthetic */ int f1711a;
 
-        public C0633b(int i) {
+        public CategoryClearConfirmation(int i) {
             this.f1711a = i;
         }
 
@@ -116,26 +116,26 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         public void clickConfirmButton(View view, String str) {
             if (this.f1711a == 0) {
                 DeviceLogHelper.getInstance().recordClearEvent();
-                DataCleanActivity.this.f1704i = DataCleanActivity.this.new AsyncTaskC0634c();
+                DataCleanActivity.this.f1704i = DataCleanActivity.this.new SelectedCategoryCleanupTask();
                 DataCleanActivity.this.f1704i.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
             }
         }
     }
 
     /* renamed from: com.android.launcher3.activity.DataCleanActivity$c */
-    public class AsyncTaskC0634c extends AsyncTask<String, Integer, String> {
-        public AsyncTaskC0634c() {
+    public class SelectedCategoryCleanupTask extends AsyncTask<String, Integer, String> {
+        public SelectedCategoryCleanupTask() {
         }
 
         @Override // android.os.AsyncTask
         public String doInBackground(String[] strArr) throws InterruptedException {
             File[] fileArrListFiles;
-            if (AbstractC1102l9.m2273N(DataCleanActivity.this.f1707l)) {
+            if (MobileSdkPlatformUtilities.m2273N(DataCleanActivity.this.f1707l)) {
                 return null;
             }
             if (DataCleanActivity.this.f1707l.get(0).isSelect()) {
                 for (int i = 0; i < DataCleanUtil.f3763j.length; i++) {
-                    C0930ee.m1677b(new File(DataCleanUtil.f3763j[i]));
+                    LauncherFileUtil.m1677b(new File(DataCleanUtil.f3763j[i]));
                 }
                 DataCleanUtil.f3755b.clear();
             }
@@ -145,9 +145,9 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
                     DataCleanActivity dataCleanActivity = DataCleanActivity.this;
                     if (file.exists() && (fileArrListFiles = file.listFiles()) != null) {
                         for (int i3 = 0; i3 < fileArrListFiles.length; i3++) {
-                            C0930ee.m1677b(fileArrListFiles[i3]);
-                            C0930ee.m1682g(dataCleanActivity, fileArrListFiles[i3].getAbsolutePath(), fileArrListFiles[i3].getName());
-                            C0930ee.m1678c(fileArrListFiles[i3]);
+                            LauncherFileUtil.m1677b(fileArrListFiles[i3]);
+                            LauncherFileUtil.m1682g(dataCleanActivity, fileArrListFiles[i3].getAbsolutePath(), fileArrListFiles[i3].getName());
+                            LauncherFileUtil.m1678c(fileArrListFiles[i3]);
                         }
                     }
                 }
@@ -156,34 +156,34 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
             if (DataCleanActivity.this.f1707l.get(2).isSelect()) {
                 for (int i4 = 0; i4 < DataCleanUtil.f3759f.size(); i4++) {
                     File file2 = new File(DataCleanUtil.f3759f.get(i4).getFilePath());
-                    C0930ee.m1678c(file2);
-                    C0930ee.m1682g(DataCleanActivity.this, file2.getAbsolutePath(), file2.getName());
+                    LauncherFileUtil.m1678c(file2);
+                    LauncherFileUtil.m1682g(DataCleanActivity.this, file2.getAbsolutePath(), file2.getName());
                 }
                 DataCleanUtil.f3759f.clear();
             }
             if (DataCleanActivity.this.f1707l.get(3).isSelect()) {
                 for (int i5 = 0; i5 < DataCleanUtil.f3756c.size(); i5++) {
-                    C0930ee.m1678c(new File(DataCleanUtil.f3756c.get(i5).getFilePath()));
+                    LauncherFileUtil.m1678c(new File(DataCleanUtil.f3756c.get(i5).getFilePath()));
                 }
                 DataCleanUtil.f3756c.clear();
             }
             if (DataCleanActivity.this.f1707l.get(4).isSelect()) {
                 for (int i6 = 0; i6 < DataCleanUtil.f3757d.size(); i6++) {
-                    C0930ee.m1678c(new File(DataCleanUtil.f3757d.get(i6).getFilePath()));
+                    LauncherFileUtil.m1678c(new File(DataCleanUtil.f3757d.get(i6).getFilePath()));
                 }
                 DataCleanUtil.f3757d.clear();
             }
             if (DataCleanActivity.this.f1707l.get(5).isSelect()) {
                 for (int i7 = 0; i7 < DataCleanUtil.f3758e.size(); i7++) {
-                    C0930ee.m1678c(new File(DataCleanUtil.f3758e.get(i7).getFilePath()));
+                    LauncherFileUtil.m1678c(new File(DataCleanUtil.f3758e.get(i7).getFilePath()));
                 }
                 DataCleanUtil.f3758e.clear();
             }
             if (DataCleanActivity.this.f1707l.get(6).isSelect()) {
                 for (int i8 = 0; i8 < DataCleanUtil.f3761h.size(); i8++) {
                     File file3 = new File(DataCleanUtil.f3761h.get(i8).getFilePath());
-                    C0930ee.m1678c(file3);
-                    C0930ee.m1682g(DataCleanActivity.this, file3.getAbsolutePath(), file3.getName());
+                    LauncherFileUtil.m1678c(file3);
+                    LauncherFileUtil.m1682g(DataCleanActivity.this, file3.getAbsolutePath(), file3.getName());
                 }
                 DataCleanUtil.f3761h.clear();
             }
@@ -234,8 +234,8 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
     }
 
     /* renamed from: com.android.launcher3.activity.DataCleanActivity$d */
-    public class AsyncTaskC0635d extends AsyncTask<String, Integer, String> {
-        public AsyncTaskC0635d() {
+    public class DataCleanScanTask extends AsyncTask<String, Integer, String> {
+        public DataCleanScanTask() {
         }
 
         @Override // android.os.AsyncTask
@@ -308,7 +308,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         int size5 = DataCleanUtil.f3757d.size();
         int size6 = DataCleanUtil.f3758e.size();
         int size7 = DataCleanUtil.f3761h.size();
-        if (AbstractC1102l9.m2273N(dataCleanActivity.f1707l)) {
+        if (MobileSdkPlatformUtilities.m2273N(dataCleanActivity.f1707l)) {
             LTKDateUtil.m1403m("DataCleanActivity-- scan categorys are empty");
         } else {
             for (int i = 0; i < dataCleanActivity.f1707l.size(); i++) {
@@ -356,7 +356,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         }
         DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter = this.f1708m;
         if (dataCleanRecyclerViewAdapter != null) {
-            dataCleanRecyclerViewAdapter.f1851d = new C0632a();
+            dataCleanRecyclerViewAdapter.f1851d = new CleanCategorySelectionListener();
         }
         new CheckGrantedPermission(this, true);
         m1214a();
@@ -398,7 +398,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         int i2 = i == 0 ? R.string.delete_file : R.string.must_select_a_file;
         CommonDialog commonDialog = new CommonDialog();
         commonDialog.initDialog(this, i2, R.string.bt_define, R.string.bt_cancel, 0.45d, 0.4d, false);
-        commonDialog.setDialogOnClickEvent(new C0633b(i));
+        commonDialog.setDialogOnClickEvent(new CategoryClearConfirmation(i));
     }
 
     /* renamed from: h */
@@ -426,7 +426,7 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         sbM1765j.append(this.f1703h);
         LTKDateUtil.m1403m(sbM1765j.toString());
         if (this.f1702g && this.f1703h) {
-            AsyncTaskC0635d asyncTaskC0635d = new AsyncTaskC0635d();
+            DataCleanScanTask asyncTaskC0635d = new DataCleanScanTask();
             this.f1705j = asyncTaskC0635d;
             asyncTaskC0635d.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
         }
@@ -481,13 +481,13 @@ public class DataCleanActivity extends BaseActivity implements View.OnClickListe
         super.onDestroy();
         LTKDateUtil.m1403m("DataCleanActivity-- onDestroy");
         m1189h(true);
-        AsyncTaskC0635d asyncTaskC0635d = this.f1705j;
+        DataCleanScanTask asyncTaskC0635d = this.f1705j;
         if (asyncTaskC0635d != null && !asyncTaskC0635d.isCancelled() && this.f1705j.getStatus() == AsyncTask.Status.RUNNING) {
             this.f1705j.cancel(true);
             this.f1705j = null;
             LTKDateUtil.m1403m("DataCleanActivity-- fileScanTask cancel");
         }
-        AsyncTaskC0634c asyncTaskC0634c = this.f1704i;
+        SelectedCategoryCleanupTask asyncTaskC0634c = this.f1704i;
         if (asyncTaskC0634c != null && !asyncTaskC0634c.isCancelled() && this.f1704i.getStatus() == AsyncTask.Status.RUNNING) {
             this.f1704i.cancel(true);
             this.f1704i = null;

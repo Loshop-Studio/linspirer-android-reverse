@@ -9,8 +9,8 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.huawei.hem.AMapCoreException;
 import com.huawei.hem.AppInfo;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapCoreUtilities;
+import com.huawei.hem.AgooNotificationHandler;
 import com.taobao.accs.common.Constants;
 import java.util.HashMap;
 import java.util.Locale;
@@ -152,12 +152,12 @@ public final class CoreUtil {
     /* renamed from: a */
     public static void m5011a(Context context) {
         try {
-            if (C1094l1.m2249r(context)) {
+            if (AMapCoreUtilities.m2249r(context)) {
                 f5756c = "http://abroad.apilocate.amap.com/mobile/binary";
                 return;
             }
             m5027f();
-            String strM4870a = C1823ee.m4870a(AppInfo.m1641g(context));
+            String strM4870a = AMapLocationCipher.m4870a(AppInfo.m1641g(context));
             f5765l = strM4870a;
             m5013a(strM4870a);
         } catch (Throwable th) {
@@ -255,7 +255,7 @@ public final class CoreUtil {
                 String str2 = f5766m.get(str);
                 String str3 = null;
                 if (str2 != null && str2.length() > 0) {
-                    str3 = new String(C1823ee.m4877b(m5022b(str2), str), "utf-8");
+                    str3 = new String(AMapLocationCipher.m4877b(m5022b(str2), str), "utf-8");
                 }
                 if (str3 == null || str3.length() <= 0 || !str3.contains("http:")) {
                     return;
@@ -454,7 +454,7 @@ public final class CoreUtil {
 
     /* renamed from: b */
     public static String m5021b(Context context) {
-        return C1219q0.m2507c(AppInfo.m1640f(context));
+        return AgooNotificationHandler.m2507c(AppInfo.m1640f(context));
     }
 
     /* renamed from: b */
@@ -467,7 +467,7 @@ public final class CoreUtil {
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {
             int i2 = i * 2;
-            bArr[i] = (byte) (C1841ew.m5147f(lowerCase.substring(i2, i2 + 2)) & 255);
+            bArr[i] = (byte) (AMapLocationUtilities.m5147f(lowerCase.substring(i2, i2 + 2)) & 255);
         }
         return bArr;
     }
@@ -490,7 +490,7 @@ public final class CoreUtil {
     /* renamed from: c */
     public static void m5024c(Context context) {
         try {
-            if (C1094l1.m2249r(context)) {
+            if (AMapCoreUtilities.m2249r(context)) {
                 f5756c = "http://abroad.apilocate.amap.com/mobile/binary";
                 f5757d = "http://abroad.apilocate.amap.com/mobile/binary";
             } else {

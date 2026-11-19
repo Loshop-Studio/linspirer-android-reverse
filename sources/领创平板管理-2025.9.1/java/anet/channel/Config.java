@@ -2,7 +2,7 @@ package anet.channel;
 
 import android.text.TextUtils;
 import anet.channel.entity.ENV;
-import anet.channel.security.C0372c;
+import anet.channel.security.NetworkSecurityFactoryHolder;
 import anet.channel.security.ISecurity;
 import anet.channel.util.ALog;
 import anet.channel.util.StringUtils;
@@ -70,9 +70,9 @@ public final class Config {
                     config2.f73b = this.f77a;
                 }
                 if (TextUtils.isEmpty(this.f81e)) {
-                    config2.f76e = C0372c.m205a().createSecurity(this.f80d);
+                    config2.f76e = NetworkSecurityFactoryHolder.m205a().createSecurity(this.f80d);
                 } else {
-                    config2.f76e = C0372c.m205a().createNonSecurity(this.f81e);
+                    config2.f76e = NetworkSecurityFactoryHolder.m205a().createNonSecurity(this.f81e);
                 }
                 synchronized (Config.f72a) {
                     Config.f72a.put(config2.f73b, config2);

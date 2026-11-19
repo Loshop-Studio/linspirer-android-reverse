@@ -6,9 +6,9 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1401x7;
+import com.huawei.hem.HmsTaskRegistry;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
@@ -157,7 +157,7 @@ public class HuaweiApiManager implements Handler.Callback {
                 sbM1765j.append(")");
                 ResponseHeader responseHeader = new ResponseHeader(1, CommonCode.ErrorCode.CLIENT_API_INVALID, sbM1765j.toString());
                 responseHeader.setTransactionId(apiCallWrapper.getTaskApiCall().getTransactionId());
-                AbstractC1102l9.m2290m(this.mApi.getContext(), responseHeader, String.valueOf(this.mApi.getKitSdkVersion()));
+                MobileSdkPlatformUtilities.m2290m(this.mApi.getContext(), responseHeader, String.valueOf(this.mApi.getKitSdkVersion()));
                 if (this.mConnectionResult.getResolution() != null && z) {
                     responseHeader.setParcelable(this.mConnectionResult.getResolution());
                     z = false;
@@ -222,7 +222,7 @@ public class HuaweiApiManager implements Handler.Callback {
                         HMSLog.m3461e(HuaweiApiManager.TAG, sbM1765j.toString());
                     }
                     if (this.isFirstRsp.compareAndSet(true, false)) {
-                        AbstractC1102l9.m2290m(ConnectionManager.this.mApi.getContext(), responseHeader, String.valueOf(ConnectionManager.this.mApi.getKitSdkVersion()));
+                        MobileSdkPlatformUtilities.m2290m(ConnectionManager.this.mApi.getContext(), responseHeader, String.valueOf(ConnectionManager.this.mApi.getKitSdkVersion()));
                     }
                     taskApiCallWrapper.getTaskApiCall().onResponse(ConnectionManager.this.mClient, responseHeader, str, taskApiCallWrapper.getTaskCompletionSource());
                 }
@@ -379,7 +379,7 @@ public class HuaweiApiManager implements Handler.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void innerDisconnect(HuaweiApi<?> huaweiApi, C1401x7<Boolean> c1401x7) {
+    public void innerDisconnect(HuaweiApi<?> huaweiApi, HmsTaskRegistry<Boolean> c1401x7) {
         ConnectionManager<?> connectionManager = this.mConnectionCache.get(huaweiApi.getConnectionManagerKey());
         if (connectionManager == null) {
             c1401x7.m2931b(Boolean.FALSE);
@@ -388,7 +388,7 @@ public class HuaweiApiManager implements Handler.Callback {
         }
     }
 
-    public void disconnectService(final HuaweiApi<?> huaweiApi, final C1401x7<Boolean> c1401x7) {
+    public void disconnectService(final HuaweiApi<?> huaweiApi, final HmsTaskRegistry<Boolean> c1401x7) {
         if (Looper.myLooper() == this.mHandler.getLooper()) {
             innerDisconnect(huaweiApi, c1401x7);
         } else {
@@ -413,7 +413,7 @@ public class HuaweiApiManager implements Handler.Callback {
         return false;
     }
 
-    public final <TOption extends Api.ApiOptions, TResult> void sendRequest(HuaweiApi<TOption> huaweiApi, TaskApiCall<? extends AnyClient, TResult> taskApiCall, C1401x7<TResult> c1401x7) {
+    public final <TOption extends Api.ApiOptions, TResult> void sendRequest(HuaweiApi<TOption> huaweiApi, TaskApiCall<? extends AnyClient, TResult> taskApiCall, HmsTaskRegistry<TResult> c1401x7) {
         TaskApiCallWrapper taskApiCallWrapper = new TaskApiCallWrapper(taskApiCall, c1401x7);
         Handler handler = this.mHandler;
         handler.sendMessage(handler.obtainMessage(4, new HandlerMessageWrapper(taskApiCallWrapper, this.mSerial.getAndIncrement(), huaweiApi)));

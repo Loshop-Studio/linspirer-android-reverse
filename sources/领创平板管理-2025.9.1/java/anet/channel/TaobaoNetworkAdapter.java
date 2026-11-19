@@ -5,16 +5,16 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import anet.channel.Config;
 import anet.channel.appmonitor.AppMonitor;
-import anet.channel.appmonitor.C0311a;
-import anet.channel.entity.C0348c;
+import anet.channel.appmonitor.AwcnAppMonitor;
+import anet.channel.entity.SessionTypeFlags;
 import anet.channel.entity.ConnType;
 import anet.channel.entity.ENV;
 import anet.channel.flow.NetworkAnalysis;
-import anet.channel.fulltrace.C0350a;
-import anet.channel.p002a.C0308a;
-import anet.channel.p002a.C0309b;
-import anet.channel.p004c.C0319a;
-import anet.channel.p005d.C0322a;
+import anet.channel.fulltrace.FullTraceAnalysisRegistry;
+import anet.channel.p002a.AwcnFullTraceAnalysis;
+import anet.channel.p002a.AwcnNetworkFlowAnalysis;
+import anet.channel.p004c.OrangeNetworkConfig;
+import anet.channel.p005d.TaobaoLogAdapter;
 import anet.channel.strategy.ConnProtocol;
 import anet.channel.strategy.StrategyTemplate;
 import anet.channel.thread.ThreadPoolExecutorFactory;
@@ -43,7 +43,7 @@ public class TaobaoNetworkAdapter implements Serializable {
             if (!z2) {
                 SessionCenter.getInstance(new Config.Builder().setAppkey(str2).setEnv(ENV.ONLINE).build()).registerSessionInfo(SessionInfo.create(str, z, false, null, null, null));
             } else {
-                SessionCenter.getInstance(new Config.Builder().setAppkey(str2).setEnv(ENV.ONLINE).build()).get(HttpUrl.parse(StringUtils.concatString(HttpConstant.HTTPS, HttpConstant.SCHEME_SPLIT, str)), C0348c.f255a, 0L);
+                SessionCenter.getInstance(new Config.Builder().setAppkey(str2).setEnv(ENV.ONLINE).build()).get(HttpUrl.parse(StringUtils.concatString(HttpConstant.HTTPS, HttpConstant.SCHEME_SPLIT, str)), SessionTypeFlags.f255a, 0L);
             }
         }
     }
@@ -63,12 +63,12 @@ public class TaobaoNetworkAdapter implements Serializable {
                 ALog.m339e("awcn.TaobaoNetworkAdapter", "channelLocalInstanceEnable", null, new Object[0]);
                 NetworkConfigCenter.setRemoteNetworkServiceEnable(false);
             }
-            ALog.setLog(new C0322a());
-            NetworkConfigCenter.setRemoteConfig(new C0319a());
-            AppMonitor.setInstance(new C0311a());
-            NetworkAnalysis.setInstance(new C0309b());
-            C0350a.m141a(new C0308a());
-            ThreadPoolExecutorFactory.submitPriorityTask(new RunnableC0358j(), ThreadPoolExecutorFactory.Priority.NORMAL);
+            ALog.setLog(new TaobaoLogAdapter());
+            NetworkConfigCenter.setRemoteConfig(new OrangeNetworkConfig());
+            AppMonitor.setInstance(new AwcnAppMonitor());
+            NetworkAnalysis.setInstance(new AwcnNetworkFlowAnalysis());
+            FullTraceAnalysisRegistry.m141a(new AwcnFullTraceAnalysis());
+            ThreadPoolExecutorFactory.submitPriorityTask(new InstallNetworkCacheTask(), ThreadPoolExecutorFactory.Priority.NORMAL);
             if (map != null) {
                 try {
                     if (AgooConstants.TAOBAO_PACKAGE.equals(map.get("process")) && ((Boolean) map.get("isDebuggable")).booleanValue()) {

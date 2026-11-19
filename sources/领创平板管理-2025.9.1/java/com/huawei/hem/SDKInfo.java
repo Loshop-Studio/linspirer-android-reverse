@@ -114,9 +114,9 @@ public final class SDKInfo {
         this.f3004c = aVar.f3017e ? 1 : 0;
         this.f3011j = aVar.f3018f;
         this.f3012k = aVar.f3019g;
-        this.f3003b = C1094l1.m2247p(str);
-        this.f3002a = C1094l1.m2247p(this.f3010i);
-        C1094l1.m2247p(this.f3009h);
+        this.f3003b = AMapCoreUtilities.m2247p(str);
+        this.f3002a = AMapCoreUtilities.m2247p(this.f3010i);
+        AMapCoreUtilities.m2247p(this.f3009h);
         String[] strArr = this.f3012k;
         if (strArr != null) {
             try {
@@ -130,14 +130,14 @@ public final class SDKInfo {
                 th.printStackTrace();
             }
         }
-        this.f3005d = C1094l1.m2247p(string);
-        this.f3006e = C1094l1.m2247p(this.f3011j);
+        this.f3005d = AMapCoreUtilities.m2247p(string);
+        this.f3006e = AMapCoreUtilities.m2247p(this.f3011j);
     }
 
     /* renamed from: a */
     public final String m2156a() {
         if (TextUtils.isEmpty(this.f3010i) && !TextUtils.isEmpty(this.f3002a)) {
-            this.f3010i = C1094l1.m2251t(this.f3002a);
+            this.f3010i = AMapCoreUtilities.m2251t(this.f3002a);
         }
         return this.f3010i;
     }
@@ -145,7 +145,7 @@ public final class SDKInfo {
     /* renamed from: b */
     public final String m2157b() {
         if (TextUtils.isEmpty(this.f3008g) && !TextUtils.isEmpty(this.f3003b)) {
-            this.f3008g = C1094l1.m2251t(this.f3003b);
+            this.f3008g = AMapCoreUtilities.m2251t(this.f3003b);
         }
         return this.f3008g;
     }
@@ -153,7 +153,7 @@ public final class SDKInfo {
     /* renamed from: c */
     public final String m2158c() {
         if (TextUtils.isEmpty(this.f3011j) && !TextUtils.isEmpty(this.f3006e)) {
-            this.f3011j = C1094l1.m2251t(this.f3006e);
+            this.f3011j = AMapCoreUtilities.m2251t(this.f3006e);
         }
         if (TextUtils.isEmpty(this.f3011j)) {
             this.f3011j = "standard";
@@ -167,7 +167,7 @@ public final class SDKInfo {
         String[] strArr = this.f3012k;
         if ((strArr == null || strArr.length == 0) && !TextUtils.isEmpty(this.f3005d)) {
             try {
-                strArrSplit = C1094l1.m2251t(this.f3005d).split(";");
+                strArrSplit = AMapCoreUtilities.m2251t(this.f3005d).split(";");
             } catch (Throwable th) {
                 th.printStackTrace();
                 strArrSplit = null;

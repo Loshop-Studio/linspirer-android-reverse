@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.view.menu.MenuView;
 import android.util.SparseArray;
@@ -134,7 +134,7 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
     @Override // android.support.v7.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         if (this.mMenuView == null) {
-            this.mMenuView = (ExpandedMenuView) this.mInflater.inflate(C0200R.layout.abc_expanded_menu_layout, viewGroup, false);
+            this.mMenuView = (ExpandedMenuView) this.mInflater.inflate(SupportAppcompatResources.layout.abc_expanded_menu_layout, viewGroup, false);
             if (this.mAdapter == null) {
                 this.mAdapter = new MenuAdapter();
             }

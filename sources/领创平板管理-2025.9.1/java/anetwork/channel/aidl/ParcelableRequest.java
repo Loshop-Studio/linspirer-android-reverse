@@ -14,7 +14,7 @@ import java.util.Map;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class ParcelableRequest implements Parcelable {
-    public static final Parcelable.Creator<ParcelableRequest> CREATOR = new C0441e();
+    public static final Parcelable.Creator<ParcelableRequest> CREATOR = new NetworkRequestParcelCreator();
     public boolean allowRedirect;
     public String bizId;
     public BodyEntry bodyEntry;

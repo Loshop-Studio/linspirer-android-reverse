@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import com.huawei.hem.AMapCoreException;
 import com.huawei.hem.AuthConfigManager;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
 import com.huawei.hem.XXTEA;
 import com.huawei.hms.framework.common.ContainerUtils;
 import com.loc.AMapNetworkRequest;
@@ -222,7 +222,7 @@ public final class HttpUrlUtil {
                     sb4.append("-#");
                 }
                 String str3 = (sb4.toString() + this.f4977c + "#") + this.f4981g;
-                String strM1933d = C0994h1.m1933d(XXTEA.m2454a(str3.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
+                String strM1933d = AMapEncryptionUtilities.m1933d(XXTEA.m2454a(str3.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
                 StringBuilder sb5 = new StringBuilder("上报异常数据");
                 sb5.append(str3);
                 sb5.append("加密后：");
@@ -328,7 +328,7 @@ public final class HttpUrlUtil {
             StringBuilder sbM1765j4 = CompilerOutline.m1765j(sbM1765j3.toString());
             sbM1765j4.append(this.f4992f);
             String string = sbM1765j4.toString();
-            String strM1933d = C0994h1.m1933d(XXTEA.m2454a(string.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
+            String strM1933d = AMapEncryptionUtilities.m1933d(XXTEA.m2454a(string.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
             StringBuilder sb = new StringBuilder("上报耗时数据");
             sb.append(string);
             sb.append("加密后：");
@@ -739,7 +739,7 @@ public final class HttpUrlUtil {
             if (TextUtils.isEmpty(fVar.f5007c.f4989c)) {
                 str = "";
             } else {
-                String strM1933d = C0994h1.m1933d(XXTEA.m2454a(fVar.f5007c.f4989c.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
+                String strM1933d = AMapEncryptionUtilities.m1933d(XXTEA.m2454a(fVar.f5007c.f4989c.getBytes(), "YXBtX25ldHdvcmtf".getBytes()));
                 StringBuilder sb = new StringBuilder("上报本次请求serverIp:");
                 sb.append(fVar.f5007c.f4989c);
                 sb.append("加密后：");
@@ -1104,7 +1104,7 @@ public final class HttpUrlUtil {
                         }
                         String strM4098a = m4098a(mapMo4055d);
                         if (!TextUtils.isEmpty(strM4098a)) {
-                            bArrMo4056e = C1094l1.m2245n(strM4098a);
+                            bArrMo4056e = AMapCoreUtilities.m2245n(strM4098a);
                         }
                     }
                     if (bArrMo4056e != null && bArrMo4056e.length > 0) {

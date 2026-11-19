@@ -22,13 +22,13 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Xml;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0865c1;
+import com.huawei.hem.DeviceInfoNetworkCallback;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
 import com.huawei.hem.ConstConfig;
-import com.huawei.hem.C1170o1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapSharedPreferences;
+import com.huawei.hem.AgooNotificationHandler;
 import com.loc.AMapNetworkRequest;
 import com.loc.ThreadTask;
 import com.loc.BaseNetManager;
@@ -93,7 +93,7 @@ public final class DeviceInfo {
     public static boolean f1602M = false;
 
     /* renamed from: N */
-    public static C0624d f1603N = null;
+    public static DeviceConnectivityRegistration f1603N = null;
 
     /* renamed from: a */
     public static String f1604a = "";
@@ -108,7 +108,7 @@ public final class DeviceInfo {
     public static String f1607d = null;
 
     /* renamed from: e */
-    public static InterfaceC0623c f1608e = null;
+    public static DeviceInfoProviderContract f1608e = null;
 
     /* renamed from: f */
     public static volatile boolean f1609f = false;
@@ -176,19 +176,19 @@ public final class DeviceInfo {
     public static class NetworkChangeReceiver extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (C1094l1.m2251t("WYW5kcm9pZC5uZXQuY29ubi5DT05ORUNUSVZJVFlfQ0hBTkdF").equals(intent.getAction())) {
+            if (AMapCoreUtilities.m2251t("WYW5kcm9pZC5uZXQuY29ubi5DT05ORUNUSVZJVFlfQ0hBTkdF").equals(intent.getAction())) {
                 DeviceInfo.m1082p();
             }
         }
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$a */
-    public static class C0621a extends ThreadTask {
+    public static class DeviceInfoBackgroundLookup extends ThreadTask {
 
         /* renamed from: a */
         public final /* synthetic */ Context f1630a;
 
-        public C0621a(Context context) {
+        public DeviceInfoBackgroundLookup(Context context) {
             this.f1630a = context;
         }
 
@@ -213,12 +213,12 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$b */
-    public static class C0622b extends ThreadTask {
+    public static class DeviceInfoContextRefresh extends ThreadTask {
 
         /* renamed from: a */
         public final /* synthetic */ Context f1631a;
 
-        public C0622b(Context context) {
+        public DeviceInfoContextRefresh(Context context) {
             this.f1631a = context;
         }
 
@@ -231,7 +231,7 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$c */
-    public interface InterfaceC0623c {
+    public interface DeviceInfoProviderContract {
         /* renamed from: a */
         AMapNetworkRequest mo1094a(byte[] bArr, Map<String, String> map);
 
@@ -249,7 +249,7 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$d */
-    public static class C0624d {
+    public static class DeviceConnectivityRegistration {
 
         /* renamed from: a */
         public static NetworkChangeReceiver f1632a;
@@ -265,7 +265,7 @@ public final class DeviceInfo {
     }
 
     /* renamed from: com.amap.apis.utils.core.DeviceInfo$e */
-    public static class ServiceConnectionC0625e implements ServiceConnection {
+    public static class DeviceIdServiceConnection implements ServiceConnection {
 
         /* renamed from: c */
         public static String f1636c;
@@ -276,7 +276,7 @@ public final class DeviceInfo {
         /* renamed from: b */
         public int f1638b;
 
-        public ServiceConnectionC0625e(Context context, int i) {
+        public DeviceIdServiceConnection(Context context, int i) {
             this.f1637a = context;
             this.f1638b = i;
         }
@@ -287,7 +287,7 @@ public final class DeviceInfo {
                 if (!TextUtils.isEmpty(f1636c)) {
                     return f1636c;
                 }
-                byte[] bArrDigest = MessageDigest.getInstance(C1094l1.m2251t("IU0hBMQ")).digest(this.f1637a.getPackageManager().getPackageInfo(this.f1637a.getPackageName(), 64).signatures[0].toByteArray());
+                byte[] bArrDigest = MessageDigest.getInstance(AMapCoreUtilities.m2251t("IU0hBMQ")).digest(this.f1637a.getPackageManager().getPackageInfo(this.f1637a.getPackageName(), 64).signatures[0].toByteArray());
                 StringBuffer stringBuffer = new StringBuffer();
                 for (byte b : bArrDigest) {
                     stringBuffer.append(Integer.toHexString((b & Base64.EQUALS_SIGN_ENC) | 256).substring(1, 3));
@@ -386,7 +386,7 @@ public final class DeviceInfo {
     public static String m1067a(Context context) {
         FileInputStream fileInputStream = null;
         try {
-            if (C1094l1.m2242k(context, "android.permission.READ_EXTERNAL_STORAGE") && "mounted".equals(Environment.getExternalStorageState())) {
+            if (AMapCoreUtilities.m2242k(context, "android.permission.READ_EXTERNAL_STORAGE") && "mounted".equals(Environment.getExternalStorageState())) {
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/.UTSystemConfig/Global/Alvin2.xml");
                 XmlPullParser xmlPullParserNewPullParser = Xml.newPullParser();
                 FileInputStream fileInputStream2 = new FileInputStream(file);
@@ -440,10 +440,10 @@ public final class DeviceInfo {
 
     /* renamed from: b */
     public static String m1068b(Context context) {
-        if (C1094l1.m2251t("IeGlhb21p").equalsIgnoreCase(Build.MANUFACTURER)) {
+        if (AMapCoreUtilities.m2251t("IeGlhb21p").equalsIgnoreCase(Build.MANUFACTURER)) {
             try {
-                Class<?> cls = Class.forName(C1094l1.m2251t("WY29tLmFuZHJvaWQuaWQuaW1wbC5JZFByb3ZpZGVySW1wbA"));
-                Object objInvoke = cls.getMethod(C1094l1.m2251t("MZ2V0T0FJRA"), Context.class).invoke(cls.newInstance(), context);
+                Class<?> cls = Class.forName(AMapCoreUtilities.m2251t("WY29tLmFuZHJvaWQuaWQuaW1wbC5JZFByb3ZpZGVySW1wbA"));
+                Object objInvoke = cls.getMethod(AMapCoreUtilities.m2251t("MZ2V0T0FJRA"), Context.class).invoke(cls.newInstance(), context);
                 if (objInvoke != null) {
                     String str = (String) objInvoke;
                     f1610g = str;
@@ -455,21 +455,21 @@ public final class DeviceInfo {
             }
             return f1610g;
         }
-        if (!C1094l1.m2251t("Idml2bw").equalsIgnoreCase(Build.MANUFACTURER)) {
-            if (C1094l1.m2251t("IaHVhd2Vp").equalsIgnoreCase(Build.MANUFACTURER)) {
+        if (!AMapCoreUtilities.m2251t("Idml2bw").equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (AMapCoreUtilities.m2251t("IaHVhd2Vp").equalsIgnoreCase(Build.MANUFACTURER)) {
                 return m1079m(context, 2);
             }
-            if (C1094l1.m2251t("Mc2Ftc3VuZw").equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (AMapCoreUtilities.m2251t("Mc2Ftc3VuZw").equalsIgnoreCase(Build.MANUFACTURER)) {
                 return m1079m(context, 4);
             }
-            if (C1094l1.m2251t("IT1BQTw").equalsIgnoreCase(Build.MANUFACTURER) || C1094l1.m2251t("MT25lUGx1cw").equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (AMapCoreUtilities.m2251t("IT1BQTw").equalsIgnoreCase(Build.MANUFACTURER) || AMapCoreUtilities.m2251t("MT25lUGx1cw").equalsIgnoreCase(Build.MANUFACTURER)) {
                 return m1079m(context, 5);
             }
             f1611h = true;
             return f1610g;
         }
         try {
-            Cursor cursorQuery = context.getContentResolver().query(Uri.parse(C1094l1.m2251t("QY29udGVudDovL2NvbS52aXZvLnZtcy5JZFByb3ZpZGVyL0lkZW50aWZpZXJJZC9PQUlE")), null, null, null, null);
+            Cursor cursorQuery = context.getContentResolver().query(Uri.parse(AMapCoreUtilities.m2251t("QY29udGVudDovL2NvbS52aXZvLnZtcy5JZFByb3ZpZGVyL0lkZW50aWZpZXJJZC9PQUlE")), null, null, null, null);
             if (cursorQuery != null) {
                 while (cursorQuery.moveToNext()) {
                     int columnCount = cursorQuery.getColumnCount();
@@ -478,7 +478,7 @@ public final class DeviceInfo {
                         if (i >= columnCount) {
                             break;
                         }
-                        if (C1094l1.m2251t("IdmFsdWU").equals(cursorQuery.getColumnName(i))) {
+                        if (AMapCoreUtilities.m2251t("IdmFsdWU").equals(cursorQuery.getColumnName(i))) {
                             f1610g = cursorQuery.getString(i);
                             break;
                         }
@@ -529,11 +529,11 @@ public final class DeviceInfo {
             return f1628y;
         }
         try {
-            String strM2426h = C1170o1.m2426h(context, "open_common", "a1", "");
+            String strM2426h = AMapSharedPreferences.m2426h(context, "open_common", "a1", "");
             if (TextUtils.isEmpty(strM2426h)) {
                 f1628y = "amap" + UUID.randomUUID().toString().replace("_", "").toLowerCase();
-                SharedPreferences.Editor editorM2420b = C1170o1.m2420b(context, "open_common");
-                String strM2247p = C1094l1.m2247p(f1628y);
+                SharedPreferences.Editor editorM2420b = AMapSharedPreferences.m2420b(context, "open_common");
+                String strM2247p = AMapCoreUtilities.m2247p(f1628y);
                 if (editorM2420b != null) {
                     try {
                         if (!TextUtils.isEmpty("a1") && !TextUtils.isEmpty(strM2247p)) {
@@ -543,9 +543,9 @@ public final class DeviceInfo {
                         BasicLogHandler.m5312a(th, "sp", "ps");
                     }
                 }
-                C1170o1.m2421c(editorM2420b);
+                AMapSharedPreferences.m2421c(editorM2420b);
             } else {
-                f1628y = C1094l1.m2251t(strM2426h);
+                f1628y = AMapCoreUtilities.m2251t(strM2426h);
             }
         } catch (Throwable unused) {
         }
@@ -572,14 +572,14 @@ public final class DeviceInfo {
             if (!f1595F) {
                 return "";
             }
-            if (!m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+            if (!m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
                 return f1594E;
             }
             TelephonyManager telephonyManager2 = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager2 == null) {
                 return "";
             }
-            Method methodM2237f = C1094l1.m2237f(telephonyManager2.getClass(), "UZ2V0U3Vic2NyaWJlcklk", new Class[0]);
+            Method methodM2237f = AMapCoreUtilities.m2237f(telephonyManager2.getClass(), "UZ2V0U3Vic2NyaWJlcklk", new Class[0]);
             if (methodM2237f != null) {
                 f1594E = (String) methodM2237f.invoke(telephonyManager2, new Object[0]);
             }
@@ -598,7 +598,7 @@ public final class DeviceInfo {
             return f1597H;
         }
         m1077k(context);
-        if (!m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+        if (!m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
             return f1597H;
         }
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
@@ -620,7 +620,7 @@ public final class DeviceInfo {
             return f1599J;
         }
         m1077k(context);
-        if (context == null || !m1080n(context, C1094l1.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF"))) {
+        if (context == null || !m1080n(context, AMapCoreUtilities.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF"))) {
             return f1599J;
         }
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -644,7 +644,7 @@ public final class DeviceInfo {
             return f1601L;
         }
         m1077k(context);
-        if (!m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+        if (!m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
             return f1601L;
         }
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
@@ -670,7 +670,7 @@ public final class DeviceInfo {
             strM1076j = "";
         }
         try {
-            string = !TextUtils.isEmpty(strM1076j) ? strM1076j : context.getSharedPreferences(C1094l1.m2251t("SU2hhcmVkUHJlZmVyZW5jZUFkaXU"), 0).getString(C1219q0.m2507c(C1094l1.m2251t("RYW1hcF9kZXZpY2VfYWRpdQ")), "");
+            string = !TextUtils.isEmpty(strM1076j) ? strM1076j : context.getSharedPreferences(AMapCoreUtilities.m2251t("SU2hhcmVkUHJlZmVyZW5jZUFkaXU"), 0).getString(AgooNotificationHandler.m2507c(AMapCoreUtilities.m2251t("RYW1hcF9kZXZpY2VfYWRpdQ")), "");
         } catch (Throwable unused2) {
         }
         if (TextUtils.isEmpty(string)) {
@@ -678,7 +678,7 @@ public final class DeviceInfo {
             return "";
         }
         try {
-            return new String(C0994h1.m1932c(C1094l1.m2251t("HYW1hcGFkaXVhbWFwYWRpdWFtYXBhZGl1YW1hcGFkaXU").getBytes("UTF-8"), C0994h1.m1934e(string), C1094l1.m2251t("MAAAAAAAAAAAAAAAAAAAAAA").getBytes("UTF-8")), "UTF-8");
+            return new String(AMapEncryptionUtilities.m1932c(AMapCoreUtilities.m2251t("HYW1hcGFkaXVhbWFwYWRpdWFtYXBhZGl1YW1hcGFkaXU").getBytes("UTF-8"), AMapEncryptionUtilities.m1934e(string), AMapCoreUtilities.m2251t("MAAAAAAAAAAAAAAAAAAAAAA").getBytes("UTF-8")), "UTF-8");
         } catch (Throwable unused3) {
             f1606c = false;
             return "";
@@ -692,14 +692,14 @@ public final class DeviceInfo {
         ByteArrayOutputStream byteArrayOutputStream;
         String str2;
         String[] strArrSplit;
-        String strM2507c = C1219q0.m2507c(C1094l1.m2251t("LYW1hcF9kZXZpY2VfYWRpdQ"));
+        String strM2507c = AgooNotificationHandler.m2507c(AMapCoreUtilities.m2251t("LYW1hcF9kZXZpY2VfYWRpdQ"));
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             StorageManager storageManager = (StorageManager) context.getSystemService("storage");
-            Class<?> cls = Class.forName(C1094l1.m2251t("SYW5kcm9pZC5vcy5zdG9yYWdlLlN0b3JhZ2VWb2x1bWU"));
-            Method method = storageManager.getClass().getMethod(C1094l1.m2251t("MZ2V0Vm9sdW1lTGlzdA"), new Class[0]);
-            Method method2 = cls.getMethod(C1094l1.m2251t("FZ2V0UGF0aA"), new Class[0]);
-            Method method3 = cls.getMethod(C1094l1.m2251t("DaXNSZW1vdmFibGU"), new Class[0]);
+            Class<?> cls = Class.forName(AMapCoreUtilities.m2251t("SYW5kcm9pZC5vcy5zdG9yYWdlLlN0b3JhZ2VWb2x1bWU"));
+            Method method = storageManager.getClass().getMethod(AMapCoreUtilities.m2251t("MZ2V0Vm9sdW1lTGlzdA"), new Class[0]);
+            Method method2 = cls.getMethod(AMapCoreUtilities.m2251t("FZ2V0UGF0aA"), new Class[0]);
+            Method method3 = cls.getMethod(AMapCoreUtilities.m2251t("DaXNSZW1vdmFibGU"), new Class[0]);
             Object objInvoke = method.invoke(storageManager, new Object[0]);
             int length = Array.getLength(objInvoke);
             for (int i = 0; i < length; i++) {
@@ -717,8 +717,8 @@ public final class DeviceInfo {
         }
         StringBuilder sbM1765j = CompilerOutline.m1765j(str);
         sbM1765j.append(File.separator);
-        sbM1765j.append(C1094l1.m2251t("KYmFja3Vwcw"));
-        File file = new File(sbM1765j.toString(), C1094l1.m2251t("MLmFkaXU"));
+        sbM1765j.append(AMapCoreUtilities.m2251t("KYmFja3Vwcw"));
+        File file = new File(sbM1765j.toString(), AMapCoreUtilities.m2251t("MLmFkaXU"));
         if (file.exists() && file.canRead()) {
             try {
                 if (file.length() == 0) {
@@ -757,7 +757,7 @@ public final class DeviceInfo {
                 } catch (Throwable unused5) {
                     randomAccessFile = null;
                 }
-                if (!TextUtils.isEmpty(str2) && str2.contains(C1094l1.m2251t("SIw")) && (strArrSplit = str2.split(C1094l1.m2251t("SIw"))) != null && strArrSplit.length == 2 && TextUtils.equals(strM2507c, strArrSplit[0])) {
+                if (!TextUtils.isEmpty(str2) && str2.contains(AMapCoreUtilities.m2251t("SIw")) && (strArrSplit = str2.split(AMapCoreUtilities.m2251t("SIw"))) != null && strArrSplit.length == 2 && TextUtils.equals(strM2507c, strArrSplit[0])) {
                     String str3 = strArrSplit[1];
                     try {
                         byteArrayOutputStream.close();
@@ -781,28 +781,28 @@ public final class DeviceInfo {
     }
 
     /* renamed from: k */
-    public static C0624d m1077k(Context context) {
+    public static DeviceConnectivityRegistration m1077k(Context context) {
         if (f1603N == null) {
             if (context == null) {
                 return null;
             }
-            C0624d c0624d = new C0624d();
+            DeviceConnectivityRegistration c0624d = new DeviceConnectivityRegistration();
             f1603N = c0624d;
             if (Build.VERSION.SDK_INT < 24) {
-                if (C0624d.f1632a == null) {
-                    C0624d.f1632a = new NetworkChangeReceiver();
+                if (DeviceConnectivityRegistration.f1632a == null) {
+                    DeviceConnectivityRegistration.f1632a = new NetworkChangeReceiver();
                     IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction(C1094l1.m2251t("WYW5kcm9pZC5uZXQuY29ubi5DT05ORUNUSVZJVFlfQ0hBTkdF"));
-                    context.registerReceiver(C0624d.f1632a, intentFilter);
+                    intentFilter.addAction(AMapCoreUtilities.m2251t("WYW5kcm9pZC5uZXQuY29ubi5DT05ORUNUSVZJVFlfQ0hBTkdF"));
+                    context.registerReceiver(DeviceConnectivityRegistration.f1632a, intentFilter);
                 }
-            } else if (m1080n(context, C1094l1.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) && C0624d.f1633b == null) {
+            } else if (m1080n(context, AMapCoreUtilities.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) && DeviceConnectivityRegistration.f1633b == null) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                C0624d.f1633b = connectivityManager;
+                DeviceConnectivityRegistration.f1633b = connectivityManager;
                 if (connectivityManager != null) {
-                    C0624d.f1634c = new NetworkRequest.Builder().addCapability(0).addCapability(1).build();
-                    C0865c1 c0865c1 = new C0865c1(c0624d);
-                    C0624d.f1635d = c0865c1;
-                    C0624d.f1633b.registerNetworkCallback(C0624d.f1634c, c0865c1);
+                    DeviceConnectivityRegistration.f1634c = new NetworkRequest.Builder().addCapability(0).addCapability(1).build();
+                    DeviceInfoNetworkCallback c0865c1 = new DeviceInfoNetworkCallback(c0624d);
+                    DeviceConnectivityRegistration.f1635d = c0865c1;
+                    DeviceConnectivityRegistration.f1633b.registerNetworkCallback(DeviceConnectivityRegistration.f1634c, c0865c1);
                 }
             }
         }
@@ -826,7 +826,7 @@ public final class DeviceInfo {
             return "";
         }
         f1609f = true;
-        ThreadPool.m4236a().m4242b(new C0621a(context));
+        ThreadPool.m4236a().m4242b(new DeviceInfoBackgroundLookup(context));
         return "";
     }
 
@@ -835,19 +835,19 @@ public final class DeviceInfo {
         try {
             Intent intent = new Intent();
             if (i == 2) {
-                intent.setAction(C1094l1.m2251t("WY29tLnVvZGlzLm9wZW5kZXZpY2UuT1BFTklEU19TRVJWSUNF"));
-                intent.setPackage(C1094l1.m2251t("UY29tLmh1YXdlaS5od2lk"));
+                intent.setAction(AMapCoreUtilities.m2251t("WY29tLnVvZGlzLm9wZW5kZXZpY2UuT1BFTklEU19TRVJWSUNF"));
+                intent.setPackage(AMapCoreUtilities.m2251t("UY29tLmh1YXdlaS5od2lk"));
             } else if (i == 4) {
-                intent.setClassName(C1094l1.m2251t("WY29tLnNhbXN1bmcuYW5kcm9pZC5kZXZpY2VpZHNlcnZpY2U"), C1094l1.m2251t("QY29tLnNhbXN1bmcuYW5kcm9pZC5kZXZpY2VpZHNlcnZpY2UuRGV2aWNlSWRTZXJ2aWNl"));
+                intent.setClassName(AMapCoreUtilities.m2251t("WY29tLnNhbXN1bmcuYW5kcm9pZC5kZXZpY2VpZHNlcnZpY2U"), AMapCoreUtilities.m2251t("QY29tLnNhbXN1bmcuYW5kcm9pZC5kZXZpY2VpZHNlcnZpY2UuRGV2aWNlSWRTZXJ2aWNl"));
             } else {
                 if (i != 5) {
                     f1611h = true;
                     return f1610g;
                 }
-                intent.setClassName(C1094l1.m2251t("YY29tLmhleXRhcC5vcGVuaWQ"), C1094l1.m2251t("SY29tLmhleXRhcC5vcGVuaWQuSWRlbnRpZnlTZXJ2aWNl"));
-                intent.setAction(C1094l1.m2251t("EYWN0aW9uLmNvbS5oZXl0YXAub3BlbmlkLk9QRU5fSURfU0VSVklDRQ"));
+                intent.setClassName(AMapCoreUtilities.m2251t("YY29tLmhleXRhcC5vcGVuaWQ"), AMapCoreUtilities.m2251t("SY29tLmhleXRhcC5vcGVuaWQuSWRlbnRpZnlTZXJ2aWNl"));
+                intent.setAction(AMapCoreUtilities.m2251t("EYWN0aW9uLmNvbS5oZXl0YXAub3BlbmlkLk9QRU5fSURfU0VSVklDRQ"));
             }
-            ServiceConnectionC0625e serviceConnectionC0625e = new ServiceConnectionC0625e(context, i);
+            DeviceIdServiceConnection serviceConnectionC0625e = new DeviceIdServiceConnection(context, i);
             if (context.bindService(intent, serviceConnectionC0625e, 1)) {
                 int i2 = 0;
                 while (i2 < 100 && TextUtils.isEmpty(f1610g)) {
@@ -876,7 +876,7 @@ public final class DeviceInfo {
         }
         if (TextUtils.isEmpty(f1610g) && !f1612i) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                ThreadPool.m4236a().m4242b(new C0622b(context));
+                ThreadPool.m4236a().m4242b(new DeviceInfoContextRefresh(context));
                 return f1610g;
             }
             f1612i = true;
@@ -907,7 +907,7 @@ public final class DeviceInfo {
         if (f1604a != null && !"".equals(f1604a)) {
             return f1604a;
         }
-        if (m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLldSSVRFX1NFVFRJTkdT"))) {
+        if (m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLldSSVRFX1NFVFRJTkdT"))) {
             f1604a = Settings.System.getString(context.getContentResolver(), "mqBRboGZkQPcAkyk");
         }
         if (!TextUtils.isEmpty(f1604a)) {
@@ -915,9 +915,9 @@ public final class DeviceInfo {
             return f1604a;
         }
         try {
-            strM2426h = C1170o1.m2426h(context, "Alvin2", "UTDID2", "");
+            strM2426h = AMapSharedPreferences.m2426h(context, "Alvin2", "UTDID2", "");
             if (TextUtils.isEmpty(strM2426h)) {
-                strM2426h = C1170o1.m2426h(context, "Alvin2", "UTDID", "");
+                strM2426h = AMapSharedPreferences.m2426h(context, "Alvin2", "UTDID", "");
             }
         } catch (Throwable unused) {
             strM2426h = "";
@@ -945,11 +945,11 @@ public final class DeviceInfo {
             return "";
         }
         if (TextUtils.isEmpty(f1615l) && !f1616m) {
-            if (!m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+            if (!m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
                 return "";
             }
             if (Build.VERSION.SDK_INT >= 26) {
-                String str = (String) C1094l1.m2237f(Build.class, "MZ2V0U2VyaWFs", new Class[0]).invoke(Build.class, new Object[0]);
+                String str = (String) AMapCoreUtilities.m2237f(Build.class, "MZ2V0U2VyaWFs", new Class[0]).invoke(Build.class, new Object[0]);
                 f1616m = true;
                 return str;
             }
@@ -965,7 +965,7 @@ public final class DeviceInfo {
     public static String m1085s(Context context) {
         if (TextUtils.isEmpty(f1614k) && !f1617n) {
             try {
-                String string = Settings.Secure.getString(context.getContentResolver(), C1094l1.m2251t(new String(ConstConfig.m2346c(13))));
+                String string = Settings.Secure.getString(context.getContentResolver(), AMapCoreUtilities.m2251t(new String(ConstConfig.m2346c(13))));
                 f1614k = string;
                 f1617n = true;
                 return string == null ? "" : string;
@@ -980,13 +980,13 @@ public final class DeviceInfo {
     public static String m1086t(Context context) {
         if (Build.VERSION.SDK_INT < 30 || context.getApplicationInfo().targetSdkVersion < 30) {
             try {
-                if ((f1618o == null || "".equals(f1618o)) && !f1619p && m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19XSUZJX1NUQVRF"))) {
+                if ((f1618o == null || "".equals(f1618o)) && !f1619p && m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19XSUZJX1NUQVRF"))) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService(UtilityImpl.NET_TYPE_WIFI);
                     if (wifiManager == null) {
                         return "";
                     }
                     f1618o = wifiManager.getConnectionInfo().getMacAddress();
-                    if (C1094l1.m2251t("YMDI6MDA6MDA6MDA6MDA6MDA").equals(f1618o) || C1094l1.m2251t("YMDA6MDA6MDA6MDA6MDA6MDA").equals(f1618o)) {
+                    if (AMapCoreUtilities.m2251t("YMDI6MDA6MDA6MDA6MDA6MDA").equals(f1618o) || AMapCoreUtilities.m2251t("YMDA6MDA6MDA6MDA6MDA6MDA").equals(f1618o)) {
                         f1618o = m1069c(context);
                     }
                     f1619p = true;
@@ -1010,7 +1010,7 @@ public final class DeviceInfo {
     /* renamed from: v */
     public static NetworkInfo m1088v(Context context) {
         ConnectivityManager connectivityManager;
-        if (m1080n(context, C1094l1.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
+        if (m1080n(context, AMapCoreUtilities.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;
@@ -1021,7 +1021,7 @@ public final class DeviceInfo {
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
         try {
-            return (!m1080n(context, C1094l1.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) ? "" : activeNetworkInfo.getTypeName();
+            return (!m1080n(context, AMapCoreUtilities.m2251t("AYW5kcm9pZC5wZXJtaXNzaW9uLkFDQ0VTU19ORVRXT1JLX1NUQVRF")) || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) ? "" : activeNetworkInfo.getTypeName();
         } catch (Throwable unused) {
             return "";
         }
@@ -1058,14 +1058,14 @@ public final class DeviceInfo {
         if (Build.VERSION.SDK_INT >= 29) {
             return "";
         }
-        if ((f1623t == null || "".equals(f1623t)) && !f1629z && m1080n(context, C1094l1.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
+        if ((f1623t == null || "".equals(f1623t)) && !f1629z && m1080n(context, AMapCoreUtilities.m2251t("WYW5kcm9pZC5wZXJtaXNzaW9uLlJFQURfUEhPTkVfU1RBVEU="))) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager == null) {
                 return "";
             }
-            Method methodM2237f = C1094l1.m2237f(telephonyManager.getClass(), "QZ2V0RGV2aWNlSWQ", new Class[0]);
+            Method methodM2237f = AMapCoreUtilities.m2237f(telephonyManager.getClass(), "QZ2V0RGV2aWNlSWQ", new Class[0]);
             if (Build.VERSION.SDK_INT >= 26) {
-                methodM2237f = C1094l1.m2237f(telephonyManager.getClass(), "QZ2V0SW1laQ==", new Class[0]);
+                methodM2237f = AMapCoreUtilities.m2237f(telephonyManager.getClass(), "QZ2V0SW1laQ==", new Class[0]);
             }
             if (methodM2237f != null) {
                 f1623t = (String) methodM2237f.invoke(telephonyManager, new Object[0]);

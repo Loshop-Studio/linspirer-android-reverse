@@ -10,7 +10,7 @@ import com.huawei.hem.CompilerOutline;
 public class JSONPatch {
 
     /* renamed from: com.alibaba.fastjson.JSONPatch$1 */
-    public static /* synthetic */ class C04761 {
+    public static /* synthetic */ class JsonPatchOperationSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$JSONPatch$OperationType;
 
         static {

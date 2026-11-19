@@ -21,7 +21,7 @@ public class ResourceConfigUtils {
         try {
             return context.getResources().getColor(iM1004a);
         } catch (Exception e) {
-            C0610b.m1022b("Res-Config", e.getMessage());
+            SdkToolLogger.m1022b("Res-Config", e.getMessage());
             return -1;
         }
     }
@@ -34,7 +34,7 @@ public class ResourceConfigUtils {
         try {
             return context.getResources().getStringArray(iM1004a);
         } catch (Exception e) {
-            C0610b.m1022b("Res-Config", e.getMessage());
+            SdkToolLogger.m1022b("Res-Config", e.getMessage());
             return null;
         }
     }
@@ -47,7 +47,7 @@ public class ResourceConfigUtils {
         try {
             return context.getResources().getString(iM1004a);
         } catch (Exception e) {
-            C0610b.m1022b("Res-Config", e.getMessage());
+            SdkToolLogger.m1022b("Res-Config", e.getMessage());
             return null;
         }
     }

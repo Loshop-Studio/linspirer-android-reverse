@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.android.launcher3.network.IllegalHelper;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
@@ -34,8 +34,8 @@ public class EduAppReceiver extends BroadcastReceiver {
     public UserInfoUtil f2037a;
 
     /* renamed from: com.android.launcher3.receiver.EduAppReceiver$a */
-    public class RunnableC0690a implements Runnable {
-        public RunnableC0690a() {
+    public class EduAppReceiverTask implements Runnable {
+        public EduAppReceiverTask() {
         }
 
         @Override // java.lang.Runnable
@@ -81,10 +81,10 @@ public class EduAppReceiver extends BroadcastReceiver {
     /* renamed from: d */
     public final void m1276d(ArrayList<String> arrayList) {
         ArrayList<String> arrayListMo1347a0 = LTKDateUtil.f2294f.mo1347a0();
-        if (!AbstractC1102l9.m2272M(arrayListMo1347a0)) {
+        if (!MobileSdkPlatformUtilities.m2272M(arrayListMo1347a0)) {
             LTKDateUtil.f2294f.mo1349j0(arrayListMo1347a0);
         }
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             return;
         }
         LTKDateUtil.f2294f.mo1354x(arrayList);

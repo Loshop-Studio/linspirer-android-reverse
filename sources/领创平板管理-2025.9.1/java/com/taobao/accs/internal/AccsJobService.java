@@ -39,7 +39,7 @@ public class AccsJobService extends JobService {
         } catch (Throwable th) {
             ALog.m5727e("AccsJobService", "onStartJob", th, new Object[0]);
         }
-        ThreadPoolExecutorFactory.getScheduledExecutor().schedule(new RunnableC1930c(this, jobParameters), 30000L, TimeUnit.MILLISECONDS);
+        ThreadPoolExecutorFactory.getScheduledExecutor().schedule(new FinishAccsJobTask(this, jobParameters), 30000L, TimeUnit.MILLISECONDS);
         return true;
     }
 

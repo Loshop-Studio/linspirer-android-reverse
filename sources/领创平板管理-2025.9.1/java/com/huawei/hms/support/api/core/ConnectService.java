@@ -26,8 +26,8 @@ import com.huawei.hms.support.log.HMSLog;
 public final class ConnectService {
 
     /* renamed from: com.huawei.hms.support.api.core.ConnectService$a */
-    public static class C1566a extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
-        public C1566a(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
+    public static class HmsConnectPendingResult extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
+        public HmsConnectPendingResult(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
             super(apiClient, str, iMessageEntity);
         }
 
@@ -46,8 +46,8 @@ public final class ConnectService {
     }
 
     /* renamed from: com.huawei.hms.support.api.core.ConnectService$b */
-    public static class C1567b extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
-        public C1567b(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
+    public static class HmsForceConnectPendingResult extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
+        public HmsForceConnectPendingResult(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
             super(apiClient, str, iMessageEntity);
         }
 
@@ -66,8 +66,8 @@ public final class ConnectService {
     }
 
     /* renamed from: com.huawei.hms.support.api.core.ConnectService$c */
-    public static class C1568c extends PendingResultImpl<ResolveResult<JosGetNoticeResp>, JosGetNoticeResp> {
-        public C1568c(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
+    public static class HmsNoticePendingResult extends PendingResultImpl<ResolveResult<JosGetNoticeResp>, JosGetNoticeResp> {
+        public HmsNoticePendingResult(ApiClient apiClient, String str, IMessageEntity iMessageEntity) {
             super(apiClient, str, iMessageEntity);
         }
 
@@ -92,7 +92,7 @@ public final class ConnectService {
     }
 
     public static PendingResult<ResolveResult<ConnectResp>> connect(ApiClient apiClient, ConnectInfo connectInfo) {
-        return new C1566a(apiClient, CoreNaming.CONNECT, connectInfo);
+        return new HmsConnectPendingResult(apiClient, CoreNaming.CONNECT, connectInfo);
     }
 
     public static ResolvePendingResult<DisconnectResp> disconnect(ApiClient apiClient, DisconnectInfo disconnectInfo) {
@@ -100,7 +100,7 @@ public final class ConnectService {
     }
 
     public static PendingResult<ResolveResult<ConnectResp>> forceConnect(ApiClient apiClient, ConnectInfo connectInfo) {
-        return new C1567b(apiClient, CoreNaming.FORECONNECT, connectInfo);
+        return new HmsForceConnectPendingResult(apiClient, CoreNaming.FORECONNECT, connectInfo);
     }
 
     public static PendingResult<ResolveResult<JosGetNoticeResp>> getNotice(ApiClient apiClient, int i, String str) {
@@ -110,6 +110,6 @@ public final class ConnectService {
         if (!TextUtils.isEmpty(apiClient.getCpID())) {
             josGetNoticeReq.setCpID(apiClient.getCpID());
         }
-        return new C1568c(apiClient, CoreNaming.GETNOTICE, josGetNoticeReq);
+        return new HmsNoticePendingResult(apiClient, CoreNaming.GETNOTICE, josGetNoticeReq);
     }
 }

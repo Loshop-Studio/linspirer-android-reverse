@@ -21,7 +21,7 @@ public abstract class FileUtil {
     public static ScheduledExecutorService f4590b = Executors.newSingleThreadScheduledExecutor();
 
     /* renamed from: com.huawei.hms.utils.FileUtil$a */
-    public static class RunnableC1576a implements Runnable {
+    public static class HmsWriteFileTask implements Runnable {
 
         /* renamed from: a */
         public final /* synthetic */ File f4591a;
@@ -32,7 +32,7 @@ public abstract class FileUtil {
         /* renamed from: c */
         public final /* synthetic */ String f4593c;
 
-        public RunnableC1576a(File file, long j, String str) {
+        public HmsWriteFileTask(File file, long j, String str) {
             this.f4591a = file;
             this.f4592b = j;
             this.f4593c = str;
@@ -94,7 +94,7 @@ public abstract class FileUtil {
     }
 
     public static void writeFile(File file, String str, long j) {
-        f4590b.execute(new RunnableC1576a(file, j, str));
+        f4590b.execute(new HmsWriteFileTask(file, j, str));
     }
 
     public static void writeFileReport(Context context, File file, File file2, String str, long j, int i) {

@@ -7,7 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import com.huawei.hem.AbstractC1376w7;
+import com.huawei.hem.HmsResultTaskBase;
 import com.huawei.hms.common.HuaweiApi;
 import com.huawei.hms.common.api.HuaweiApiCallable;
 import java.util.HashMap;
@@ -91,9 +91,9 @@ public abstract class HuaweiApiAvailability {
         SERVICES_VERSION_CODE = i;
     }
 
-    public abstract AbstractC1376w7<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
+    public abstract HmsResultTaskBase<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
 
-    public abstract AbstractC1376w7<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
+    public abstract HmsResultTaskBase<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
 
     public abstract PendingIntent getErrPendingIntent(Context context, int i, int i2);
 
@@ -105,7 +105,7 @@ public abstract class HuaweiApiAvailability {
 
     public abstract String getErrorString(int i);
 
-    public abstract AbstractC1376w7<Void> getHuaweiServicesReady(Activity activity);
+    public abstract HmsResultTaskBase<Void> getHuaweiServicesReady(Activity activity);
 
     public abstract Intent getResolveErrorIntent(Activity activity, int i);
 

@@ -33,7 +33,7 @@ import com.huawei.hem.CounterUtil;
 import com.huawei.hem.DBController;
 import com.huawei.hem.WorkspaceTacticsHelper;
 import com.huawei.hem.ImageCompressUtil;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.ScreenHelper;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
@@ -51,11 +51,11 @@ public class LauncherNew extends BaseFragmentActivity {
     public ISVCustomer f1643c;
 
     /* renamed from: d */
-    public BroadcastReceiver f1644d = new C0627a();
+    public BroadcastReceiver f1644d = new LauncherLoginCompletionReceiver();
 
     /* renamed from: com.android.launcher3.LauncherNew$a */
-    public class C0627a extends BroadcastReceiver {
-        public C0627a() {
+    public class LauncherLoginCompletionReceiver extends BroadcastReceiver {
+        public LauncherLoginCompletionReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -173,7 +173,7 @@ public class LauncherNew extends BaseFragmentActivity {
     @Override // com.android.launcher3.activity.base.BaseFragmentActivity
     /* renamed from: b */
     public void mo1165b() {
-        C1395x1.f4039b = "yes";
+        LauncherConstants.f4039b = "yes";
         this.f1643c = ISVCustomer.b.f3370a;
         if (this.f1812a.m3019N() == 1) {
             LTKDateUtil.m1403m("LauncherNew init data logined");

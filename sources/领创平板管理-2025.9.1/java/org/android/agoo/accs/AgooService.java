@@ -11,7 +11,7 @@ import com.taobao.accs.utl.AdapterUtilityImpl;
 import com.taobao.accs.utl.AppMonitorAdapter;
 import com.taobao.accs.utl.BaseMonitor;
 import com.taobao.accs.utl.UTMini;
-import com.taobao.agoo.C1999a;
+import com.taobao.agoo.AgooErrorCatalog;
 import java.nio.charset.Charset;
 import org.android.agoo.common.AgooConstants;
 import org.android.agoo.common.CallBack;
@@ -53,7 +53,7 @@ public class AgooService extends TaoBaseService {
             if (i == AccsErrorCode.SUCCESS.getCodeInt()) {
                 f6454a.onSuccess();
             } else {
-                ErrorCode errorCodeBuild = C1999a.m5798a(i, str2).build();
+                ErrorCode errorCodeBuild = AgooErrorCatalog.m5798a(i, str2).build();
                 f6454a.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
             }
         }
@@ -181,7 +181,7 @@ public class AgooService extends TaoBaseService {
             if (i == AccsErrorCode.SUCCESS.getCodeInt()) {
                 f6455b.onSuccess();
             } else {
-                ErrorCode errorCodeBuild = C1999a.m5798a(i, str2).build();
+                ErrorCode errorCodeBuild = AgooErrorCatalog.m5798a(i, str2).build();
                 f6455b.onFailure(errorCodeBuild.getCode(), errorCodeBuild.getMsg());
             }
         }

@@ -26,11 +26,11 @@ import com.android.launcher3.view.DialogUtil;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1148n4;
-import com.huawei.hem.C1198p4;
+import com.huawei.hem.AppUpdateListCallback;
+import com.huawei.hem.LauncherAppUpdateRequest;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.PostBuilder;
 import com.huawei.hem.UserInfoUtil;
@@ -100,10 +100,10 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         this.f1653c.setOnClickListener(this);
         this.f1654d.setOnClickListener(this);
         this.f1656f.setOnClickListener(this);
-        if (C1198p4.f3428d == null) {
-            C1198p4.f3428d = new C1198p4();
+        if (LauncherAppUpdateRequest.f3428d == null) {
+            LauncherAppUpdateRequest.f3428d = new LauncherAppUpdateRequest();
         }
-        C1198p4.f3428d.f3429a = this;
+        LauncherAppUpdateRequest.f3428d.f3429a = this;
     }
 
     /* renamed from: f */
@@ -226,18 +226,18 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                 return;
             }
         }
-        if (C1198p4.f3428d == null) {
-            C1198p4.f3428d = new C1198p4();
+        if (LauncherAppUpdateRequest.f3428d == null) {
+            LauncherAppUpdateRequest.f3428d = new LauncherAppUpdateRequest();
         }
-        C1198p4 c1198p4 = C1198p4.f3428d;
+        LauncherAppUpdateRequest c1198p4 = LauncherAppUpdateRequest.f3428d;
         if (c1198p4 == null) {
             throw null;
         }
-        C1198p4.f3427c = this;
+        LauncherAppUpdateRequest.f3427c = this;
         if (c1198p4.userInfoUtil.m3023R()) {
             return;
         }
-        if (!new C0876cc(c1198p4.mContext).m1505a()) {
+        if (!new LauncherNetworkUtil(c1198p4.mContext).m1505a()) {
             LTKDateUtil.m1415y(c1198p4.mContext, R.string.network_unable_note);
             return;
         }
@@ -258,7 +258,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             PostBuilder c1355vb = new PostBuilder(c1255rb);
             c1355vb.f3777a = RequestUrl.URL;
             c1355vb.f3947e = JSON.toJSONString(v2Params);
-            c1355vb.m2869b(new C1148n4(c1198p4, ItemApp.class));
+            c1355vb.m2869b(new AppUpdateListCallback(c1198p4, ItemApp.class));
         } catch (Exception e) {
             e.printStackTrace();
             DialogUtil.hideDialog();

@@ -23,13 +23,13 @@ public class ElinktekImpl extends AndroidImpl {
     public static ComponentName f3519d;
 
     /* renamed from: e */
-    public static C0831aj f3520e;
+    public static ElinktekDeviceUtilities f3520e;
 
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: F */
     public void mo1306F(String str) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -59,7 +59,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: N */
     public boolean mo1312N(long j) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -78,7 +78,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: O */
     public void mo1313O(String str, String str2) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             String str3 = str + GrsManager.SEPARATOR + f3519d.getClassName();
             if (c0831aj == null) {
                 throw null;
@@ -96,7 +96,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: Q */
     public void mo1314Q(String str) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -136,7 +136,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: b0 */
     public void mo1318b0(List<String> list) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -152,7 +152,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: c */
     public void mo1319c(boolean z) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -177,7 +177,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBluetooth() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -210,7 +210,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableGPS() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -234,7 +234,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableLongPressPower() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -267,7 +267,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableShortPressPower() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -282,7 +282,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableUsb() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -297,7 +297,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableVolume() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -313,7 +313,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: e */
     public void mo1320e(String str) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -338,7 +338,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBluetooth() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -362,7 +362,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableFireWall() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -377,7 +377,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableGPS() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -401,7 +401,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableLongPressPower() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -434,7 +434,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableShortPressPower() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -449,7 +449,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableUsb() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -464,7 +464,7 @@ public class ElinktekImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableVolume() {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -480,7 +480,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: r */
     public void mo1327r(List<String> list) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -508,7 +508,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: t */
     public void mo1329t(boolean z) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -537,7 +537,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: y0 */
     public void mo1331y0(String str) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }
@@ -554,7 +554,7 @@ public class ElinktekImpl extends AndroidImpl {
     /* renamed from: z0 */
     public void mo1332z0(boolean z) {
         try {
-            C0831aj c0831aj = f3520e;
+            ElinktekDeviceUtilities c0831aj = f3520e;
             if (c0831aj == null) {
                 throw null;
             }

@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.model.NetworkInfo;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a> {
+public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<CheckNetworkRowHolder> {
 
     /* renamed from: a */
     public Context f1842a;
@@ -29,7 +29,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
     public LayoutInflater f1844c;
 
     /* renamed from: com.android.launcher3.adapter.CheckNetworkRecyclerViewAdapter$a */
-    public class C0645a extends RecyclerView.ViewHolder {
+    public class CheckNetworkRowHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a */
         public ImageView f1845a;
@@ -40,7 +40,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
         /* renamed from: c */
         public TextView f1847c;
 
-        public C0645a(CheckNetworkRecyclerViewAdapter checkNetworkRecyclerViewAdapter, View view) {
+        public CheckNetworkRowHolder(CheckNetworkRecyclerViewAdapter checkNetworkRecyclerViewAdapter, View view) {
             super(view);
             this.f1845a = (ImageView) view.findViewById(R.id.result_imageview);
             this.f1846b = (TextView) view.findViewById(R.id.port_textview);
@@ -56,13 +56,13 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
 
     @NonNull
     /* renamed from: a */
-    public C0645a m1230a(@NonNull ViewGroup viewGroup) {
-        return new C0645a(this, this.f1844c.inflate(R.layout.fragment_check_network_adapter, viewGroup, false));
+    public CheckNetworkRowHolder m1230a(@NonNull ViewGroup viewGroup) {
+        return new CheckNetworkRowHolder(this, this.f1844c.inflate(R.layout.fragment_check_network_adapter, viewGroup, false));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (AbstractC1102l9.m2273N(this.f1843b)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1843b)) {
             return 0;
         }
         return this.f1843b.size();
@@ -70,7 +70,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        C0645a c0645a = (C0645a) viewHolder;
+        CheckNetworkRowHolder c0645a = (CheckNetworkRowHolder) viewHolder;
         StringBuilder sbM1765j = CompilerOutline.m1765j("CheckNetworkRecyclerViewAdapter--size:");
         sbM1765j.append(this.f1843b.size());
         LTKDateUtil.m1403m(sbM1765j.toString());
@@ -81,7 +81,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
         if (!TextUtils.isEmpty(domain)) {
             c0645a.f1847c.setText(domain);
         }
-        if (!AbstractC1102l9.m2273N(portList)) {
+        if (!MobileSdkPlatformUtilities.m2273N(portList)) {
             if (portList.size() == 1) {
                 TextView textView = c0645a.f1846b;
                 StringBuilder sbM1765j2 = CompilerOutline.m1765j("Port:");
@@ -95,7 +95,7 @@ public class CheckNetworkRecyclerViewAdapter extends RecyclerView.Adapter<C0645a
                 c0645a.f1846b.setText("Port:" + str);
             }
         }
-        if (AbstractC1102l9.m2273N(result)) {
+        if (MobileSdkPlatformUtilities.m2273N(result)) {
             c0645a.f1845a.setVisibility(8);
             return;
         }

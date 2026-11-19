@@ -58,9 +58,9 @@ public final class Handshake {
         } catch (SSLPeerUnverifiedException unused) {
             peerCertificates = null;
         }
-        List listM2760o = peerCertificates != null ? C1314tk.m2760o(peerCertificates) : Collections.emptyList();
+        List listM2760o = peerCertificates != null ? OkHttpCommonUtilities.m2760o(peerCertificates) : Collections.emptyList();
         Certificate[] localCertificates = sSLSession.getLocalCertificates();
-        return new Handshake(enumC1189okForJavaName, c1163njM2414a, listM2760o, localCertificates != null ? C1314tk.m2760o(localCertificates) : Collections.emptyList());
+        return new Handshake(enumC1189okForJavaName, c1163njM2414a, listM2760o, localCertificates != null ? OkHttpCommonUtilities.m2760o(localCertificates) : Collections.emptyList());
     }
 
     /* renamed from: b */

@@ -57,7 +57,7 @@ public final class Hpack {
         public a(int i, Source interfaceC0836ao) {
             this.f4237c = i;
             this.f4238d = i;
-            this.f4236b = C1267rn.m2670b(interfaceC0836ao);
+            this.f4236b = OkioStreamFactory.m2670b(interfaceC0836ao);
         }
 
         /* renamed from: a */

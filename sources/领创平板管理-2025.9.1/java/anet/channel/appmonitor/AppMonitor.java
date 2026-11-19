@@ -7,17 +7,17 @@ import anet.channel.statist.StatObject;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class AppMonitor {
-    public static volatile IAppMonitor appMonitor = new C0310a(null);
+    public static volatile IAppMonitor appMonitor = new AppMonitorDelegate(null);
     public static volatile IAppMonitor apmMonitor = null;
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.appmonitor.AppMonitor$a */
-    public static class C0310a implements IAppMonitor {
+    public static class AppMonitorDelegate implements IAppMonitor {
 
         /* renamed from: a */
         public IAppMonitor f159a;
 
-        public C0310a(IAppMonitor iAppMonitor) {
+        public AppMonitorDelegate(IAppMonitor iAppMonitor) {
             this.f159a = null;
             this.f159a = iAppMonitor;
         }
@@ -69,6 +69,6 @@ public class AppMonitor {
     }
 
     public static void setInstance(IAppMonitor iAppMonitor) {
-        appMonitor = new C0310a(iAppMonitor);
+        appMonitor = new AppMonitorDelegate(iAppMonitor);
     }
 }

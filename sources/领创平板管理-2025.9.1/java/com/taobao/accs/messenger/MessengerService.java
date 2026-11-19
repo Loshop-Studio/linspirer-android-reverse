@@ -14,7 +14,7 @@ public abstract class MessengerService extends Service {
     public ExecutorService f6186a = Executors.newSingleThreadExecutor();
 
     /* renamed from: b */
-    public Messenger f6187b = new Messenger(new HandlerC1933b(this));
+    public Messenger f6187b = new Messenger(new AccsMessengerHandler(this));
 
     /* renamed from: a */
     public static /* synthetic */ void m5609a() {

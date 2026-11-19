@@ -1,7 +1,7 @@
 package com.huawei.hem;
 
 import android.support.annotation.Nullable;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -28,15 +28,15 @@ public class ClassesInfoCache {
     public static class a {
 
         /* renamed from: a */
-        public final Map<AbstractC0992h.a, List<b>> f2580a = new HashMap();
+        public final Map<ArchitectureLifecycle.a, List<b>> f2580a = new HashMap();
 
         /* renamed from: b */
-        public final Map<b, AbstractC0992h.a> f2581b;
+        public final Map<b, ArchitectureLifecycle.a> f2581b;
 
-        public a(Map<b, AbstractC0992h.a> map) {
+        public a(Map<b, ArchitectureLifecycle.a> map) {
             this.f2581b = map;
-            for (Map.Entry<b, AbstractC0992h.a> entry : map.entrySet()) {
-                AbstractC0992h.a value = entry.getValue();
+            for (Map.Entry<b, ArchitectureLifecycle.a> entry : map.entrySet()) {
+                ArchitectureLifecycle.a value = entry.getValue();
                 List<b> arrayList = this.f2580a.get(value);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
@@ -47,7 +47,7 @@ public class ClassesInfoCache {
         }
 
         /* renamed from: a */
-        public static void m1696a(List<b> list, LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar, Object obj) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        public static void m1696a(List<b> list, LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar, Object obj) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
             if (list != null) {
                 for (int size = list.size() - 1; size >= 0; size--) {
                     b bVar = list.get(size);
@@ -115,7 +115,7 @@ public class ClassesInfoCache {
             map.putAll(aVarM1694b.f2581b);
         }
         for (Class cls2 : cls.getInterfaces()) {
-            for (Map.Entry<b, AbstractC0992h.a> entry : m1694b(cls2).f2581b.entrySet()) {
+            for (Map.Entry<b, ArchitectureLifecycle.a> entry : m1694b(cls2).f2581b.entrySet()) {
                 m1695c(map, entry.getKey(), entry.getValue(), cls);
             }
         }
@@ -139,12 +139,12 @@ public class ClassesInfoCache {
                     }
                     i = 1;
                 }
-                AbstractC0992h.a aVarValue = interfaceC1218q.value();
+                ArchitectureLifecycle.a aVarValue = interfaceC1218q.value();
                 if (parameterTypes.length > 1) {
-                    if (!parameterTypes[1].isAssignableFrom(AbstractC0992h.a.class)) {
+                    if (!parameterTypes[1].isAssignableFrom(ArchitectureLifecycle.a.class)) {
                         throw new IllegalArgumentException("invalid parameter type. second arg must be an event");
                     }
-                    if (aVarValue != AbstractC0992h.a.ON_ANY) {
+                    if (aVarValue != ArchitectureLifecycle.a.ON_ANY) {
                         throw new IllegalArgumentException("Second arg is supported only for ON_ANY value");
                     }
                     i = 2;
@@ -169,8 +169,8 @@ public class ClassesInfoCache {
     }
 
     /* renamed from: c */
-    public final void m1695c(Map<b, AbstractC0992h.a> map, b bVar, AbstractC0992h.a aVar, Class cls) {
-        AbstractC0992h.a aVar2 = map.get(bVar);
+    public final void m1695c(Map<b, ArchitectureLifecycle.a> map, b bVar, ArchitectureLifecycle.a aVar, Class cls) {
+        ArchitectureLifecycle.a aVar2 = map.get(bVar);
         if (aVar2 == null || aVar == aVar2) {
             if (aVar2 == null) {
                 map.put(bVar, aVar);

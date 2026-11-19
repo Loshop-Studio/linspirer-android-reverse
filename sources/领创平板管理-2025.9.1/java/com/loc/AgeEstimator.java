@@ -3,7 +3,7 @@ package com.loc;
 import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.huawei.hem.C0994h1;
+import com.huawei.hem.AMapEncryptionUtilities;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -84,7 +84,7 @@ public abstract class AgeEstimator<T> {
         }
         this.f5454e = handler;
         this.f5450a = TextUtils.isEmpty(str) ? "unknow" : str;
-        this.f5455f = C1841ew.m5156m(context);
+        this.f5455f = AMapLocationUtilities.m5156m(context);
         try {
             this.f5451b = new File(context.getFilesDir().getPath(), this.f5450a);
         } catch (Throwable th) {
@@ -129,14 +129,14 @@ public abstract class AgeEstimator<T> {
     private void m4707d() {
         try {
             StringBuilder sb = new StringBuilder("restore from：\n");
-            Iterator<String> it = C1841ew.m5111a(this.f5451b).iterator();
+            Iterator<String> it = AMapLocationUtilities.m5111a(this.f5451b).iterator();
             while (it.hasNext()) {
                 try {
-                    String str = new String(C1823ee.m4877b(C0994h1.m1934e(it.next()), this.f5455f), "UTF-8");
+                    String str = new String(AMapLocationCipher.m4877b(AMapEncryptionUtilities.m1934e(it.next()), this.f5455f), "UTF-8");
                     sb.append(str);
                     sb.append("\n");
                     String[] strArrSplit = str.split(",");
-                    this.f5453d.put(strArrSplit[0], new a(Integer.parseInt(strArrSplit[1]), Long.parseLong(strArrSplit[2]), strArrSplit.length >= 4 ? Long.parseLong(strArrSplit[3]) : C1841ew.m5127b()));
+                    this.f5453d.put(strArrSplit[0], new a(Integer.parseInt(strArrSplit[1]), Long.parseLong(strArrSplit[2]), strArrSplit.length >= 4 ? Long.parseLong(strArrSplit[3]) : AMapLocationUtilities.m5127b()));
                 } catch (Throwable th) {
                     if (this.f5451b.exists()) {
                         this.f5451b.delete();
@@ -155,7 +155,7 @@ public abstract class AgeEstimator<T> {
         if (mo4721c() > 0) {
             this.f5453d.size();
             if (mo4718b() > 0) {
-                long jM5127b = C1841ew.m5127b();
+                long jM5127b = AMapLocationUtilities.m5127b();
                 Iterator<Map.Entry<String, a>> it = this.f5453d.entrySet().iterator();
                 while (it.hasNext()) {
                     if (jM5127b - this.f5453d.get(it.next().getKey()).f5462c > mo4718b()) {
@@ -181,7 +181,7 @@ public abstract class AgeEstimator<T> {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, a> entry : this.f5453d.entrySet()) {
             try {
-                sb.append(C0994h1.m1933d(C1823ee.m4874a((entry.getKey() + "," + entry.getValue().f5460a + "," + entry.getValue().f5461b + "," + entry.getValue().f5462c).getBytes("UTF-8"), this.f5455f)) + "\n");
+                sb.append(AMapEncryptionUtilities.m1933d(AMapLocationCipher.m4874a((entry.getKey() + "," + entry.getValue().f5460a + "," + entry.getValue().f5461b + "," + entry.getValue().f5462c).getBytes("UTF-8"), this.f5455f)) + "\n");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -190,7 +190,7 @@ public abstract class AgeEstimator<T> {
         if (TextUtils.isEmpty(string)) {
             return;
         }
-        C1841ew.m5112a(this.f5451b, string);
+        AMapLocationUtilities.m5112a(this.f5451b, string);
     }
 
     /* renamed from: e */
@@ -211,7 +211,7 @@ public abstract class AgeEstimator<T> {
 
     /* renamed from: a */
     public final void m4714a(T t) {
-        m4704b(t, C1841ew.m5127b());
+        m4704b(t, AMapLocationUtilities.m5127b());
     }
 
     /* renamed from: a */
@@ -219,7 +219,7 @@ public abstract class AgeEstimator<T> {
 
     /* renamed from: a */
     public final void m4716a(List<T> list) {
-        long jM5127b = C1841ew.m5127b();
+        long jM5127b = AMapLocationUtilities.m5127b();
         Iterator<T> it = list.iterator();
         while (it.hasNext()) {
             m4704b(it.next(), jM5127b);
@@ -264,6 +264,6 @@ public abstract class AgeEstimator<T> {
 
     /* renamed from: e */
     public final long m4723e(T t) {
-        return (C1841ew.m5127b() - mo4722d((AgeEstimator<T>) t)) / 1000;
+        return (AMapLocationUtilities.m5127b() - mo4722d((AgeEstimator<T>) t)) / 1000;
     }
 }

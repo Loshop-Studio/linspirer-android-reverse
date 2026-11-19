@@ -34,7 +34,7 @@ import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v4.view.WindowInsetsCompat;
 import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.ActionMode;
 import android.support.v7.view.ContextThemeWrapper;
@@ -155,8 +155,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     };
 
     /* renamed from: android.support.v7.app.AppCompatDelegateImpl$4 */
-    public class C01874 implements FitWindowsViewGroup.OnFitSystemWindowsListener {
-        public C01874() {
+    public class FitSystemWindowInsetsListener implements FitWindowsViewGroup.OnFitSystemWindowsListener {
+        public FitSystemWindowInsetsListener() {
         }
 
         @Override // android.support.v7.widget.FitWindowsViewGroup.OnFitSystemWindowsListener
@@ -176,7 +176,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
         @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
         public Drawable getThemeUpIndicator() {
-            TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{C0200R.attr.homeAsUpIndicator});
+            TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{SupportAppcompatResources.attr.homeAsUpIndicator});
             Drawable drawable = tintTypedArrayObtainStyledAttributes.getDrawable(0);
             tintTypedArrayObtainStyledAttributes.recycle();
             return drawable;
@@ -561,7 +561,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 return null;
             }
             if (this.listMenuPresenter == null) {
-                ListMenuPresenter listMenuPresenter = new ListMenuPresenter(this.listPresenterContext, C0200R.layout.abc_list_menu_item_layout);
+                ListMenuPresenter listMenuPresenter = new ListMenuPresenter(this.listPresenterContext, SupportAppcompatResources.layout.abc_list_menu_item_layout);
                 this.listMenuPresenter = listMenuPresenter;
                 listMenuPresenter.setCallback(callback);
                 this.menu.addMenuPresenter(this.listMenuPresenter);
@@ -617,24 +617,24 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             TypedValue typedValue = new TypedValue();
             Resources.Theme themeNewTheme = context.getResources().newTheme();
             themeNewTheme.setTo(context.getTheme());
-            themeNewTheme.resolveAttribute(C0200R.attr.actionBarPopupTheme, typedValue, true);
+            themeNewTheme.resolveAttribute(SupportAppcompatResources.attr.actionBarPopupTheme, typedValue, true);
             int i = typedValue.resourceId;
             if (i != 0) {
                 themeNewTheme.applyStyle(i, true);
             }
-            themeNewTheme.resolveAttribute(C0200R.attr.panelMenuListTheme, typedValue, true);
+            themeNewTheme.resolveAttribute(SupportAppcompatResources.attr.panelMenuListTheme, typedValue, true);
             int i2 = typedValue.resourceId;
             if (i2 != 0) {
                 themeNewTheme.applyStyle(i2, true);
             } else {
-                themeNewTheme.applyStyle(C0200R.style.Theme_AppCompat_CompactMenu, true);
+                themeNewTheme.applyStyle(SupportAppcompatResources.style.Theme_AppCompat_CompactMenu, true);
             }
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
             contextThemeWrapper.getTheme().setTo(themeNewTheme);
             this.listPresenterContext = contextThemeWrapper;
-            TypedArray typedArrayObtainStyledAttributes = contextThemeWrapper.obtainStyledAttributes(C0200R.styleable.AppCompatTheme);
-            this.background = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTheme_panelBackground, 0);
-            this.windowAnimations = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.AppCompatTheme_android_windowAnimationStyle, 0);
+            TypedArray typedArrayObtainStyledAttributes = contextThemeWrapper.obtainStyledAttributes(SupportAppcompatResources.styleable.AppCompatTheme);
+            this.background = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTheme_panelBackground, 0);
+            this.windowAnimations = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.AppCompatTheme_android_windowAnimationStyle, 0);
             typedArrayObtainStyledAttributes.recycle();
         }
     }
@@ -730,20 +730,20 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         ContentFrameLayout contentFrameLayout = (ContentFrameLayout) this.mSubDecor.findViewById(R.id.content);
         View decorView = this.mWindow.getDecorView();
         contentFrameLayout.setDecorPadding(decorView.getPaddingLeft(), decorView.getPaddingTop(), decorView.getPaddingRight(), decorView.getPaddingBottom());
-        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(C0200R.styleable.AppCompatTheme);
-        typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowMinWidthMajor, contentFrameLayout.getMinWidthMajor());
-        typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowMinWidthMinor, contentFrameLayout.getMinWidthMinor());
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTheme_windowFixedWidthMajor)) {
-            typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowFixedWidthMajor, contentFrameLayout.getFixedWidthMajor());
+        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(SupportAppcompatResources.styleable.AppCompatTheme);
+        typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowMinWidthMajor, contentFrameLayout.getMinWidthMajor());
+        typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowMinWidthMinor, contentFrameLayout.getMinWidthMinor());
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedWidthMajor)) {
+            typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedWidthMajor, contentFrameLayout.getFixedWidthMajor());
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTheme_windowFixedWidthMinor)) {
-            typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowFixedWidthMinor, contentFrameLayout.getFixedWidthMinor());
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedWidthMinor)) {
+            typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedWidthMinor, contentFrameLayout.getFixedWidthMinor());
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTheme_windowFixedHeightMajor)) {
-            typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowFixedHeightMajor, contentFrameLayout.getFixedHeightMajor());
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedHeightMajor)) {
+            typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedHeightMajor, contentFrameLayout.getFixedHeightMajor());
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTheme_windowFixedHeightMinor)) {
-            typedArrayObtainStyledAttributes.getValue(C0200R.styleable.AppCompatTheme_windowFixedHeightMinor, contentFrameLayout.getFixedHeightMinor());
+        if (typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedHeightMinor)) {
+            typedArrayObtainStyledAttributes.getValue(SupportAppcompatResources.styleable.AppCompatTheme_windowFixedHeightMinor, contentFrameLayout.getFixedHeightMinor());
         }
         typedArrayObtainStyledAttributes.recycle();
         contentFrameLayout.requestLayout();
@@ -751,28 +751,28 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     private ViewGroup createSubDecor() throws IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
         ViewGroup viewGroup;
-        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(C0200R.styleable.AppCompatTheme);
-        if (!typedArrayObtainStyledAttributes.hasValue(C0200R.styleable.AppCompatTheme_windowActionBar)) {
+        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(SupportAppcompatResources.styleable.AppCompatTheme);
+        if (!typedArrayObtainStyledAttributes.hasValue(SupportAppcompatResources.styleable.AppCompatTheme_windowActionBar)) {
             typedArrayObtainStyledAttributes.recycle();
             throw new IllegalStateException("You need to use a Theme.AppCompat theme (or descendant) with this activity.");
         }
-        if (typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AppCompatTheme_windowNoTitle, false)) {
+        if (typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AppCompatTheme_windowNoTitle, false)) {
             requestWindowFeature(1);
-        } else if (typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AppCompatTheme_windowActionBar, false)) {
+        } else if (typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AppCompatTheme_windowActionBar, false)) {
             requestWindowFeature(108);
         }
-        if (typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AppCompatTheme_windowActionBarOverlay, false)) {
+        if (typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AppCompatTheme_windowActionBarOverlay, false)) {
             requestWindowFeature(109);
         }
-        if (typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AppCompatTheme_windowActionModeOverlay, false)) {
+        if (typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AppCompatTheme_windowActionModeOverlay, false)) {
             requestWindowFeature(10);
         }
-        this.mIsFloating = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.AppCompatTheme_android_windowIsFloating, false);
+        this.mIsFloating = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.AppCompatTheme_android_windowIsFloating, false);
         typedArrayObtainStyledAttributes.recycle();
         this.mWindow.getDecorView();
         LayoutInflater layoutInflaterFrom = LayoutInflater.from(this.mContext);
         if (this.mWindowNoTitle) {
-            viewGroup = this.mOverlayActionMode ? (ViewGroup) layoutInflaterFrom.inflate(C0200R.layout.abc_screen_simple_overlay_action_mode, (ViewGroup) null) : (ViewGroup) layoutInflaterFrom.inflate(C0200R.layout.abc_screen_simple, (ViewGroup) null);
+            viewGroup = this.mOverlayActionMode ? (ViewGroup) layoutInflaterFrom.inflate(SupportAppcompatResources.layout.abc_screen_simple_overlay_action_mode, (ViewGroup) null) : (ViewGroup) layoutInflaterFrom.inflate(SupportAppcompatResources.layout.abc_screen_simple, (ViewGroup) null);
             ViewCompat.setOnApplyWindowInsetsListener(viewGroup, new OnApplyWindowInsetsListener() { // from class: android.support.v7.app.AppCompatDelegateImpl.3
                 @Override // android.support.v4.view.OnApplyWindowInsetsListener
                 public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
@@ -785,14 +785,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
             });
         } else if (this.mIsFloating) {
-            viewGroup = (ViewGroup) layoutInflaterFrom.inflate(C0200R.layout.abc_dialog_title_material, (ViewGroup) null);
+            viewGroup = (ViewGroup) layoutInflaterFrom.inflate(SupportAppcompatResources.layout.abc_dialog_title_material, (ViewGroup) null);
             this.mOverlayActionBar = false;
             this.mHasActionBar = false;
         } else if (this.mHasActionBar) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(C0200R.attr.actionBarTheme, typedValue, true);
-            viewGroup = (ViewGroup) LayoutInflater.from(typedValue.resourceId != 0 ? new ContextThemeWrapper(this.mContext, typedValue.resourceId) : this.mContext).inflate(C0200R.layout.abc_screen_toolbar, (ViewGroup) null);
-            DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(C0200R.id.decor_content_parent);
+            this.mContext.getTheme().resolveAttribute(SupportAppcompatResources.attr.actionBarTheme, typedValue, true);
+            viewGroup = (ViewGroup) LayoutInflater.from(typedValue.resourceId != 0 ? new ContextThemeWrapper(this.mContext, typedValue.resourceId) : this.mContext).inflate(SupportAppcompatResources.layout.abc_screen_toolbar, (ViewGroup) null);
+            DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(SupportAppcompatResources.id.decor_content_parent);
             this.mDecorContentParent = decorContentParent;
             decorContentParent.setWindowCallback(getWindowCallback());
             if (this.mOverlayActionBar) {
@@ -822,10 +822,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             throw new IllegalArgumentException(sbM1765j.toString());
         }
         if (this.mDecorContentParent == null) {
-            this.mTitleView = (TextView) viewGroup.findViewById(C0200R.id.title);
+            this.mTitleView = (TextView) viewGroup.findViewById(SupportAppcompatResources.id.title);
         }
         ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
-        ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(C0200R.id.action_bar_activity_content);
+        ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(SupportAppcompatResources.id.action_bar_activity_content);
         ViewGroup viewGroup2 = (ViewGroup) this.mWindow.findViewById(R.id.content);
         if (viewGroup2 != null) {
             while (viewGroup2.getChildCount() > 0) {
@@ -941,15 +941,15 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         if ((i == 0 || i == 108) && this.mDecorContentParent != null) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = context.getTheme();
-            theme.resolveAttribute(C0200R.attr.actionBarTheme, typedValue, true);
+            theme.resolveAttribute(SupportAppcompatResources.attr.actionBarTheme, typedValue, true);
             Resources.Theme themeNewTheme = null;
             if (typedValue.resourceId != 0) {
                 themeNewTheme = context.getResources().newTheme();
                 themeNewTheme.setTo(theme);
                 themeNewTheme.applyStyle(typedValue.resourceId, true);
-                themeNewTheme.resolveAttribute(C0200R.attr.actionBarWidgetTheme, typedValue, true);
+                themeNewTheme.resolveAttribute(SupportAppcompatResources.attr.actionBarWidgetTheme, typedValue, true);
             } else {
-                theme.resolveAttribute(C0200R.attr.actionBarWidgetTheme, typedValue, true);
+                theme.resolveAttribute(SupportAppcompatResources.attr.actionBarWidgetTheme, typedValue, true);
             }
             if (typedValue.resourceId != 0) {
                 if (themeNewTheme == null) {
@@ -1384,7 +1384,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     public View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         boolean zShouldInheritContext = false;
         if (this.mAppCompatViewInflater == null) {
-            String string = this.mContext.obtainStyledAttributes(C0200R.styleable.AppCompatTheme).getString(C0200R.styleable.AppCompatTheme_viewInflaterClass);
+            String string = this.mContext.obtainStyledAttributes(SupportAppcompatResources.styleable.AppCompatTheme).getString(SupportAppcompatResources.styleable.AppCompatTheme_viewInflaterClass);
             if (string == null || AppCompatViewInflater.class.getName().equals(string)) {
                 this.mAppCompatViewInflater = new AppCompatViewInflater();
             } else {
@@ -1974,7 +1974,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (this.mIsFloating) {
                     TypedValue typedValue = new TypedValue();
                     Resources.Theme theme = this.mContext.getTheme();
-                    theme.resolveAttribute(C0200R.attr.actionBarTheme, typedValue, true);
+                    theme.resolveAttribute(SupportAppcompatResources.attr.actionBarTheme, typedValue, true);
                     if (typedValue.resourceId != 0) {
                         Resources.Theme themeNewTheme = this.mContext.getResources().newTheme();
                         themeNewTheme.setTo(theme);
@@ -1985,12 +1985,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         contextThemeWrapper = this.mContext;
                     }
                     this.mActionModeView = new ActionBarContextView(contextThemeWrapper);
-                    PopupWindow popupWindow = new PopupWindow(contextThemeWrapper, (AttributeSet) null, C0200R.attr.actionModePopupWindowStyle);
+                    PopupWindow popupWindow = new PopupWindow(contextThemeWrapper, (AttributeSet) null, SupportAppcompatResources.attr.actionModePopupWindowStyle);
                     this.mActionModePopup = popupWindow;
                     PopupWindowCompat.setWindowLayoutType(popupWindow, 2);
                     this.mActionModePopup.setContentView(this.mActionModeView);
                     this.mActionModePopup.setWidth(-1);
-                    contextThemeWrapper.getTheme().resolveAttribute(C0200R.attr.actionBarSize, typedValue, true);
+                    contextThemeWrapper.getTheme().resolveAttribute(SupportAppcompatResources.attr.actionBarSize, typedValue, true);
                     this.mActionModeView.setContentHeight(TypedValue.complexToDimensionPixelSize(typedValue.data, contextThemeWrapper.getResources().getDisplayMetrics()));
                     this.mActionModePopup.setHeight(-2);
                     this.mShowActionModePopup = new Runnable() { // from class: android.support.v7.app.AppCompatDelegateImpl.6
@@ -2023,7 +2023,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         }
                     };
                 } else {
-                    ViewStubCompat viewStubCompat = (ViewStubCompat) this.mSubDecor.findViewById(C0200R.id.action_mode_bar_stub);
+                    ViewStubCompat viewStubCompat = (ViewStubCompat) this.mSubDecor.findViewById(SupportAppcompatResources.id.action_mode_bar_stub);
                     if (viewStubCompat != null) {
                         viewStubCompat.setLayoutInflater(LayoutInflater.from(getActionBarThemedContext()));
                         this.mActionModeView = (ActionBarContextView) viewStubCompat.inflate();
@@ -2105,7 +2105,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     if (view == null) {
                         View view2 = new View(this.mContext);
                         this.mStatusGuard = view2;
-                        view2.setBackgroundColor(this.mContext.getResources().getColor(C0200R.color.abc_input_method_navigation_guard));
+                        view2.setBackgroundColor(this.mContext.getResources().getColor(SupportAppcompatResources.color.abc_input_method_navigation_guard));
                         this.mSubDecor.addView(this.mStatusGuard, -1, new ViewGroup.LayoutParams(-1, i));
                     } else {
                         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();

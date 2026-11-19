@@ -107,7 +107,7 @@ public final class CacheControl {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static com.huawei.hem.CacheControl m2133a(com.huawei.hem.C1438yj r22) {
+    public static com.huawei.hem.CacheControl m2133a(com.huawei.hem.OkHttpHeaderList r22) {
         /*
             Method dump skipped, instructions count: 350
             To view this dump add '--comments-level debug' option

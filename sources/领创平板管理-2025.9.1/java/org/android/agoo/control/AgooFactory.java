@@ -18,7 +18,7 @@ import com.taobao.accs.utl.UtilityImpl;
 import java.util.List;
 import javax.crypto.spec.SecretKeySpec;
 import org.android.agoo.common.AgooConstants;
-import org.android.agoo.common.C2008a;
+import org.android.agoo.common.AgooMessageCrypto;
 import org.android.agoo.common.Config;
 import org.android.agoo.common.MsgDO;
 import org.android.agoo.message.MessageService;
@@ -230,11 +230,11 @@ public class AgooFactory {
     public static String parseEncryptedMsgWithoutAgoo(String str, String str2, String str3, String str4) {
         String str5 = null;
         try {
-            byte[] bArrM5840a = C2008a.m5840a(str3.getBytes("utf-8"), (str2 + str4).getBytes("utf-8"));
+            byte[] bArrM5840a = AgooMessageCrypto.m5840a(str3.getBytes("utf-8"), (str2 + str4).getBytes("utf-8"));
             if (bArrM5840a == null || bArrM5840a.length <= 0) {
                 ALog.m5732w(TAG, "aesDecrypt key is null!", new Object[0]);
             } else {
-                str5 = new String(C2008a.m5839a(Base64.decode(str, 8), new SecretKeySpec(C2008a.m5838a(bArrM5840a), "AES"), C2008a.m5838a(str2.getBytes("utf-8"))), "utf-8");
+                str5 = new String(AgooMessageCrypto.m5839a(Base64.decode(str, 8), new SecretKeySpec(AgooMessageCrypto.m5838a(bArrM5840a), "AES"), AgooMessageCrypto.m5838a(str2.getBytes("utf-8"))), "utf-8");
             }
         } catch (Throwable th) {
             ALog.m5732w(TAG, "parseEncryptedMsg body: ", str);
@@ -284,11 +284,11 @@ public class AgooFactory {
     }
 
     public void clickMessage(Context context, String str, String str2) {
-        ThreadPoolExecutorFactory.execute(new RunnableC2014f(this, str, str2));
+        ThreadPoolExecutorFactory.execute(new ReportNotificationClickTask(this, str, str2));
     }
 
     public void dismissMessage(Context context, String str, String str2) {
-        ThreadPoolExecutorFactory.execute(new RunnableC2015g(this, str, str2));
+        ThreadPoolExecutorFactory.execute(new ReportNotificationDismissTask(this, str, str2));
     }
 
     public MessageService getMessageService() {
@@ -506,7 +506,7 @@ public class AgooFactory {
 
     public void reportCacheMsg() {
         try {
-            ThreadPoolExecutorFactory.execute(new RunnableC2011c(this));
+            ThreadPoolExecutorFactory.execute(new ReportCachedAgooMessagesTask(this));
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("reportCacheMsg fail:");
             sbM1765j.append(th.toString());
@@ -519,7 +519,7 @@ public class AgooFactory {
     }
 
     public void updateMsg(byte[] bArr, boolean z) {
-        ThreadPoolExecutorFactory.execute(new RunnableC2012d(this, bArr, z));
+        ThreadPoolExecutorFactory.execute(new ProcessAgooAcknowledgementTask(this, bArr, z));
     }
 
     public void updateMsgStatus(String str, String str2) {
@@ -542,7 +542,7 @@ public class AgooFactory {
     }
 
     public void updateNotifyMsg(String str, String str2) {
-        ThreadPoolExecutorFactory.execute(new RunnableC2013e(this, str, str2));
+        ThreadPoolExecutorFactory.execute(new PersistNotificationStatusTask(this, str, str2));
     }
 
     public void msgRecevie(byte[] bArr, String str, TaoBaseService.ExtraInfo extraInfo) {
@@ -550,7 +550,7 @@ public class AgooFactory {
             if (ALog.isPrintLog(ALog.Level.I)) {
                 ALog.m5729i(TAG, "into--[AgooFactory,msgRecevie]:messageSource=" + str, new Object[0]);
             }
-            ThreadPoolExecutorFactory.execute(new RunnableC2010b(this, bArr, str, extraInfo));
+            ThreadPoolExecutorFactory.execute(new PrepareAgooMessageDeliveryTask(this, bArr, str, extraInfo));
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("serviceImpl init task fail:");
             sbM1765j.append(th.toString());
@@ -562,6 +562,6 @@ public class AgooFactory {
         if (bArr == null || bArr.length <= 0) {
             return;
         }
-        ThreadPoolExecutorFactory.execute(new RunnableC2009a(this, bArr, str));
+        ThreadPoolExecutorFactory.execute(new SaveAgooMessageTask(this, bArr, str));
     }
 }

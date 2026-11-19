@@ -6,7 +6,7 @@ import com.alibaba.sdk.android.error.ErrorBuilder;
 import com.alibaba.sdk.android.error.ErrorDefine;
 import com.alibaba.sdk.android.error.IntCodeGenerator;
 import com.huawei.hem.CompilerOutline;
-import com.taobao.accs.utl.C1981i;
+import com.taobao.accs.utl.AccsLogConfiguration;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
@@ -136,7 +136,7 @@ public class AccsErrorCode {
         StringBuilder sbM1765j = CompilerOutline.m1765j("[");
         sbM1765j.append(AccsState.getInstance().getState());
         sbM1765j.append("][");
-        sbM1765j.append(C1981i.m5789a().m5793b());
+        sbM1765j.append(AccsLogConfiguration.m5789a().m5793b());
         sbM1765j.append("][");
         sbM1765j.append(GlobalAppRuntimeInfo.isAppBackground());
         sbM1765j.append("]");

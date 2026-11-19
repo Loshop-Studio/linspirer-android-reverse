@@ -31,7 +31,7 @@ public class UploadBuilder extends OkHttpRequestBuilderHasParam<UploadBuilder> {
             if (contentTypeFor == null) {
                 contentTypeFor = "application/octet-stream";
             }
-            aVar.m1538a(C1438yj.m3109f("Content-Disposition", "form-data; name=\"" + str + "\"; filename=\"" + name + "\""), new C1038ik(OkHttpMediaType.m1422b(contentTypeFor), file));
+            aVar.m1538a(OkHttpHeaderList.m3109f("Content-Disposition", "form-data; name=\"" + str + "\"; filename=\"" + name + "\""), new FileRequestBody(OkHttpMediaType.m1422b(contentTypeFor), file));
         }
     }
 

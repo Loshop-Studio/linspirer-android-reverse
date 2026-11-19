@@ -1,0 +1,21 @@
+package com.taobao.accs.client;
+
+import com.taobao.accs.utl.UtilityImpl;
+
+/* compiled from: Taobao */
+/* renamed from: com.taobao.accs.client.d */
+/* loaded from: classes.dex */
+public class InitializeAccsClientInfoTask implements Runnable {
+
+    /* renamed from: a */
+    public final /* synthetic */ GlobalClientInfo f6074a;
+
+    public InitializeAccsClientInfoTask(GlobalClientInfo globalClientInfo) {
+        this.f6074a = globalClientInfo;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        GlobalClientInfo.f6060b = UtilityImpl.m5769j(GlobalClientInfo.f6059a);
+    }
+}

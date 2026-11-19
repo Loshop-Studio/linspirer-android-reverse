@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.ActionMode;
 import android.support.v7.view.menu.MenuBuilder;
 import android.text.TextUtils;
@@ -40,11 +40,11 @@ public class ActionBarContextView extends AbsActionBarView {
 
     private void initTitle() {
         if (this.mTitleLayout == null) {
-            LayoutInflater.from(getContext()).inflate(C0200R.layout.abc_action_bar_title_item, this);
+            LayoutInflater.from(getContext()).inflate(SupportAppcompatResources.layout.abc_action_bar_title_item, this);
             LinearLayout linearLayout = (LinearLayout) getChildAt(getChildCount() - 1);
             this.mTitleLayout = linearLayout;
-            this.mTitleView = (TextView) linearLayout.findViewById(C0200R.id.action_bar_title);
-            this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(C0200R.id.action_bar_subtitle);
+            this.mTitleView = (TextView) linearLayout.findViewById(SupportAppcompatResources.id.action_bar_title);
+            this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(SupportAppcompatResources.id.action_bar_subtitle);
             if (this.mTitleStyleRes != 0) {
                 this.mTitleView.setTextAppearance(getContext(), this.mTitleStyleRes);
             }
@@ -135,7 +135,7 @@ public class ActionBarContextView extends AbsActionBarView {
         } else if (view.getParent() == null) {
             addView(this.mClose);
         }
-        this.mClose.findViewById(C0200R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
+        this.mClose.findViewById(SupportAppcompatResources.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 actionMode.finish();
@@ -393,17 +393,17 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public ActionBarContextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.actionModeStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.actionModeStyle);
     }
 
     public ActionBarContextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, C0200R.styleable.ActionMode, i, 0);
-        ViewCompat.setBackground(this, tintTypedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionMode_background));
-        this.mTitleStyleRes = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionMode_titleTextStyle, 0);
-        this.mSubtitleStyleRes = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionMode_subtitleTextStyle, 0);
-        this.mContentHeight = tintTypedArrayObtainStyledAttributes.getLayoutDimension(C0200R.styleable.ActionMode_height, 0);
-        this.mCloseItemLayout = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionMode_closeItemLayout, C0200R.layout.abc_action_mode_close_item_material);
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, SupportAppcompatResources.styleable.ActionMode, i, 0);
+        ViewCompat.setBackground(this, tintTypedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionMode_background));
+        this.mTitleStyleRes = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionMode_titleTextStyle, 0);
+        this.mSubtitleStyleRes = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionMode_subtitleTextStyle, 0);
+        this.mContentHeight = tintTypedArrayObtainStyledAttributes.getLayoutDimension(SupportAppcompatResources.styleable.ActionMode_height, 0);
+        this.mCloseItemLayout = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionMode_closeItemLayout, SupportAppcompatResources.layout.abc_action_mode_close_item_material);
         tintTypedArrayObtainStyledAttributes.recycle();
     }
 }

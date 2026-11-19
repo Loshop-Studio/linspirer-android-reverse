@@ -21,7 +21,7 @@ public final class Http2Stream {
     public final int f3203c;
 
     /* renamed from: d */
-    public final C0834am f3204d;
+    public final OkHttp2Connection f3204d;
 
     /* renamed from: f */
     public boolean f3206f;
@@ -44,7 +44,7 @@ public final class Http2Stream {
     public long f3201a = 0;
 
     /* renamed from: e */
-    public final Deque<C1438yj> f3205e = new ArrayDeque();
+    public final Deque<OkHttpHeaderList> f3205e = new ArrayDeque();
 
     /* renamed from: i */
     public final c f3209i = new c();
@@ -225,7 +225,7 @@ public final class Http2Stream {
         public final long f3219c;
 
         /* renamed from: d */
-        public C1438yj f3220d;
+        public OkHttpHeaderList f3220d;
 
         /* renamed from: e */
         public boolean f3221e;
@@ -391,7 +391,7 @@ public final class Http2Stream {
 
     /* compiled from: Http2Stream.java */
     /* renamed from: com.huawei.hem.lm$c */
-    public class c extends C0965fn {
+    public class c extends OkioAsyncTimeout {
         public c() {
         }
 
@@ -409,7 +409,7 @@ public final class Http2Stream {
         /* renamed from: m */
         public void mo1841m() {
             Http2Stream.this.m2331e(Http2ErrorCode.CANCEL);
-            C0834am c0834am = Http2Stream.this.f3204d;
+            OkHttp2Connection c0834am = Http2Stream.this.f3204d;
             synchronized (c0834am) {
                 if (c0834am.f2230n < c0834am.f2229m) {
                     return;
@@ -417,7 +417,7 @@ public final class Http2Stream {
                 c0834am.f2229m++;
                 c0834am.f2232p = System.nanoTime() + 1000000000;
                 try {
-                    c0834am.f2224h.execute(new C0860bm(c0834am, "OkHttp %s ping", c0834am.f2220d));
+                    c0834am.f2224h.execute(new Http2ConnectionPingTask(c0834am, "OkHttp %s ping", c0834am.f2220d));
                 } catch (RejectedExecutionException unused) {
                 }
             }
@@ -431,7 +431,7 @@ public final class Http2Stream {
         }
     }
 
-    public Http2Stream(int i, C0834am c0834am, boolean z, boolean z2, @Nullable C1438yj c1438yj) {
+    public Http2Stream(int i, OkHttp2Connection c0834am, boolean z, boolean z2, @Nullable OkHttpHeaderList c1438yj) {
         if (c0834am == null) {
             throw new NullPointerException("connection == null");
         }
@@ -492,7 +492,7 @@ public final class Http2Stream {
     /* renamed from: c */
     public void m2329c(Http2ErrorCode enumC1390wl, @Nullable IOException iOException) {
         if (m2330d(enumC1390wl, iOException)) {
-            C0834am c0834am = this.f3204d;
+            OkHttp2Connection c0834am = this.f3204d;
             c0834am.f2238v.m2402i(this.f3203c, enumC1390wl);
         }
     }
@@ -550,7 +550,7 @@ public final class Http2Stream {
     }
 
     /* renamed from: i */
-    public void m2335i(C1438yj c1438yj, boolean z) {
+    public void m2335i(OkHttpHeaderList c1438yj, boolean z) {
         boolean zM2334h;
         synchronized (this) {
             if (this.f3206f && z) {

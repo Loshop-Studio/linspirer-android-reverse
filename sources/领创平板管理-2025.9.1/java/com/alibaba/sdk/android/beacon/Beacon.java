@@ -23,7 +23,7 @@ public final class Beacon {
     public final HandlerThread f858a;
 
     /* renamed from: a */
-    public final C0510b f859a;
+    public final BeaconRequestCodec f859a;
 
     /* renamed from: a */
     public final List<OnUpdateListener> f860a;
@@ -171,7 +171,7 @@ public final class Beacon {
         this.mExtras = builder.mExtras;
         this.mLoopInterval = builder.mLoopInterval;
         this.isStartPoll = builder.isStartPoll;
-        this.f859a = new C0510b(this);
+        this.f859a = new BeaconRequestCodec(this);
         HandlerThread handlerThread = new HandlerThread("Beacon Daemon");
         this.f858a = handlerThread;
         handlerThread.start();
@@ -273,7 +273,7 @@ public final class Beacon {
     }
 
     public static void setPrepare(boolean z) {
-        C0509a.f862a = z;
+        BeaconRuntimeFlags.f862a = z;
     }
 
     /* renamed from: a */

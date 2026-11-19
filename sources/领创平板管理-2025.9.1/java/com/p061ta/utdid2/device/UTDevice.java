@@ -1,7 +1,7 @@
 package com.p061ta.utdid2.device;
 
 import android.content.Context;
-import com.p061ta.p062a.C1866a;
+import com.p061ta.p062a.UtDeviceApplicationContext;
 
 /* loaded from: classes.dex */
 public class UTDevice {
@@ -10,7 +10,7 @@ public class UTDevice {
         if (context == null) {
             return "ffffffffffffffffffffffff";
         }
-        C1866a.m5365a().m5369a(context);
-        return C1889a.m5422a().getUtdid(context);
+        UtDeviceApplicationContext.m5365a().m5369a(context);
+        return AppUtdidStore.m5422a().getUtdid(context);
     }
 }

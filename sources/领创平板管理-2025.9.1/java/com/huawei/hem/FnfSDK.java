@@ -7,7 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import anetwork.channel.util.RequestConstant;
 import com.huawei.hem.IMyAidlInterface;
-import com.taobao.agoo.p074a.p075a.AbstractC2002b;
+import com.taobao.agoo.p074a.p075a.AgooCommandFields;
 
 /* compiled from: FnfSDK.java */
 /* renamed from: com.huawei.hem.k6 */
@@ -247,7 +247,7 @@ public class FnfSDK {
         if (this.f3035a == null) {
             throw null;
         }
-        context.startService(CompilerOutline.m1751I("com.fnf.iptables.IPTABLE_CMD", "com.fnf.iptables", "com.fnf.iptables.IPTableService", AbstractC2002b.JSON_CMD, str));
+        context.startService(CompilerOutline.m1751I("com.fnf.iptables.IPTABLE_CMD", "com.fnf.iptables", "com.fnf.iptables.IPTableService", AgooCommandFields.JSON_CMD, str));
     }
 
     /* renamed from: v */
@@ -256,7 +256,7 @@ public class FnfSDK {
         interfaceC1125m6.mo2348b(str);
         Intent intent = new Intent("com.fnf.iptables.IPTABLE_CMD");
         intent.setClassName("com.fnf.iptables", "com.fnf.iptables.IPTableService");
-        intent.putExtra(AbstractC2002b.JSON_CMD, str);
+        intent.putExtra(AgooCommandFields.JSON_CMD, str);
         context.startService(intent);
     }
 

@@ -6,7 +6,7 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.annotation.StyleRes;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.view.LayoutInflater;
 
 /* loaded from: classes.dex */
@@ -88,7 +88,7 @@ public class ContextThemeWrapper extends ContextWrapper {
             return theme;
         }
         if (this.mThemeResource == 0) {
-            this.mThemeResource = C0200R.style.Theme_AppCompat_Light;
+            this.mThemeResource = SupportAppcompatResources.style.Theme_AppCompat_Light;
         }
         initializeTheme();
         return this.mTheme;

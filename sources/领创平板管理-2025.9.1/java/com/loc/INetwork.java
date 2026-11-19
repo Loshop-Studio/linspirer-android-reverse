@@ -5,5 +5,5 @@ package com.loc;
 /* loaded from: classes.dex */
 public interface INetwork {
     /* renamed from: a */
-    HttpResponse mo4571a(C1800di c1800di);
+    HttpResponse mo4571a(AMapCollectionHttpRequest c1800di);
 }

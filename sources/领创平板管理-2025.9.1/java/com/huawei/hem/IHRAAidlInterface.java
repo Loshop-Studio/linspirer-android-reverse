@@ -17,12 +17,12 @@ public interface IHRAAidlInterface extends IInterface {
 
         /* compiled from: IHRAAidlInterface.java */
         /* renamed from: com.huawei.hem.d0$a$a, reason: collision with other inner class name */
-        public static class C2069a implements IHRAAidlInterface {
+        public static class HraServiceBinderProxy implements IHRAAidlInterface {
 
             /* renamed from: a */
             public IBinder f2365a;
 
-            public C2069a(IBinder iBinder) {
+            public HraServiceBinderProxy(IBinder iBinder) {
                 this.f2365a = iBinder;
             }
 
@@ -70,7 +70,7 @@ public interface IHRAAidlInterface extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("cn.huaruian.interfaces.IHRAAidlInterface");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IHRAAidlInterface)) ? new C2069a(iBinder) : (IHRAAidlInterface) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IHRAAidlInterface)) ? new HraServiceBinderProxy(iBinder) : (IHRAAidlInterface) iInterfaceQueryLocalInterface;
         }
     }
 

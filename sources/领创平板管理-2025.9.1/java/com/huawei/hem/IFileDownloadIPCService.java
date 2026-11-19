@@ -19,12 +19,12 @@ public interface IFileDownloadIPCService extends IInterface {
 
         /* compiled from: IFileDownloadIPCService.java */
         /* renamed from: com.huawei.hem.gg$a$a, reason: collision with other inner class name */
-        public static class C2074a implements IFileDownloadIPCService {
+        public static class DownloadServiceBinderProxy implements IFileDownloadIPCService {
 
             /* renamed from: a */
             public IBinder f2774a;
 
-            public C2074a(IBinder iBinder) {
+            public DownloadServiceBinderProxy(IBinder iBinder) {
                 this.f2774a = iBinder;
             }
 
@@ -301,7 +301,7 @@ public interface IFileDownloadIPCService extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.liulishuo.filedownloader.i.IFileDownloadIPCService");
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IFileDownloadIPCService)) ? new C2074a(iBinder) : (IFileDownloadIPCService) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IFileDownloadIPCService)) ? new DownloadServiceBinderProxy(iBinder) : (IFileDownloadIPCService) iInterfaceQueryLocalInterface;
         }
 
         @Override // android.os.IInterface

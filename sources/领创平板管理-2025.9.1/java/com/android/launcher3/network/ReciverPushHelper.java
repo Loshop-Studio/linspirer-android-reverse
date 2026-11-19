@@ -17,10 +17,10 @@ import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.p027db.model.PushMsg;
 import com.android.launcher3.p027db.model.PushMsgDao;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import com.huawei.hem.HttpCore;
 import com.huawei.hem.DBController;
 import com.huawei.hem.PostBuilder;
@@ -51,7 +51,7 @@ public class ReciverPushHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void parserPullMsg(List<PushMsg> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1403m("ReciverPushHelper---none device msg or command---");
             return;
         }
@@ -63,7 +63,7 @@ public class ReciverPushHelper {
             } else if (pushMsg.getType() == 1) {
                 String command = pushMsg.getCommand();
                 if ("command_applist".equals(command) || "command_dynamic_device_info".equals(command) || "command_tactics_updated".equals(command)) {
-                    C1219q0.m2521q(this.mContext, command, Integer.parseInt(pushMsg.getActive()));
+                    AgooNotificationHandler.m2521q(this.mContext, command, Integer.parseInt(pushMsg.getActive()));
                 } else {
                     reportServer(command, Integer.parseInt(pushMsg.getActive()), this.mContext);
                 }
@@ -79,7 +79,7 @@ public class ReciverPushHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showMsg(List<PushMsg> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         LTKDateUtil.m1403m("ReciverPushHelper -- 数据解析完毕，执行消息");
@@ -220,7 +220,7 @@ public class ReciverPushHelper {
                 @Override // com.android.launcher3.network.response.LTKResponseListener
                 public void handleResult(Boolean bool) {
                     LTKDateUtil.m1403m(" push command report sucess");
-                    C1219q0.m2521q(context, str, i);
+                    AgooNotificationHandler.m2521q(context, str, i);
                 }
             });
         } catch (Throwable th) {

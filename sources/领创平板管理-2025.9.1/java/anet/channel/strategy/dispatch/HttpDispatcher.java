@@ -23,7 +23,7 @@ public class HttpDispatcher {
     public CopyOnWriteArraySet<IDispatchEventListener> f491a;
 
     /* renamed from: b */
-    public C0395a f492b;
+    public AmdcDispatchQueue f492b;
 
     /* renamed from: c */
     public volatile boolean f493c;
@@ -44,14 +44,14 @@ public class HttpDispatcher {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.strategy.dispatch.HttpDispatcher$a */
-    public static class C0394a {
+    public static class HttpDispatcherHolder {
 
         /* renamed from: a */
         public static HttpDispatcher f497a = new HttpDispatcher();
     }
 
     public static HttpDispatcher getInstance() {
-        return C0394a.f497a;
+        return HttpDispatcherHolder.f497a;
     }
 
     public static void setInitHosts(List<String> list) {
@@ -128,7 +128,7 @@ public class HttpDispatcher {
 
     public HttpDispatcher() {
         this.f491a = new CopyOnWriteArraySet<>();
-        this.f492b = new C0395a();
+        this.f492b = new AmdcDispatchQueue();
         this.f493c = true;
         this.f494d = Collections.newSetFromMap(new ConcurrentHashMap());
         this.f495e = new TreeSet();

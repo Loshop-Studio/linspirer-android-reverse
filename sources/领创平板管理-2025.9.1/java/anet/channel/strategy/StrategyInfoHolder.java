@@ -5,9 +5,9 @@ import anet.channel.AwcnConfig;
 import anet.channel.appmonitor.AppMonitor;
 import anet.channel.statist.StrategyStatObject;
 import anet.channel.status.NetworkStatusHelper;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.strategy.dispatch.AmdcRuntimeInfo;
-import anet.channel.strategy.utils.C0411a;
+import anet.channel.strategy.utils.AmdcScheduledExecutor;
 import anet.channel.strategy.utils.SerialLruCache;
 import anet.channel.util.ALog;
 import anet.channel.util.StringUtils;
@@ -28,7 +28,7 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
     public volatile StrategyConfig f464b = null;
 
     /* renamed from: c */
-    public final C0390a f465c = new C0390a();
+    public final LocalDnsStrategyTable f465c = new LocalDnsStrategyTable();
 
     /* renamed from: d */
     public final StrategyTable f466d = new StrategyTable(DeviceUtils.NETWORK_CLASS_UNKNOWN);
@@ -47,7 +47,7 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
 
         @Override // anet.channel.strategy.utils.SerialLruCache
         public boolean entryRemoved(Map.Entry<String, StrategyTable> entry) {
-            C0411a.m326a(new RunnableC0401f(this, entry));
+            AmdcScheduledExecutor.m326a(new SaveStrategyTablesTask(this, entry));
             return true;
         }
     }
@@ -96,13 +96,13 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
             if (!TextUtils.isEmpty(str)) {
                 m269a(str, true);
             }
-            this.f464b = (StrategyConfig) C0408m.m316a("StrategyConfig", null);
+            this.f464b = (StrategyConfig) StrategyFileStore.m316a("StrategyConfig", null);
             if (this.f464b != null) {
                 this.f464b.m262b();
                 this.f464b.m259a(this);
             }
         }
-        C0411a.m326a(new RunnableC0393d(this, str));
+        AmdcScheduledExecutor.m326a(new LoadStrategyConfigurationTask(this, str));
     }
 
     /* renamed from: b */
@@ -117,11 +117,11 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
                 if (strategyTable.f477d) {
                     StrategyStatObject strategyStatObject = new StrategyStatObject(1);
                     strategyStatObject.writeStrategyFileId = strategyTable.f474a;
-                    C0408m.m319a(strategyTable, strategyTable.f474a, strategyStatObject);
+                    StrategyFileStore.m319a(strategyTable, strategyTable.f474a, strategyStatObject);
                     strategyTable.f477d = false;
                 }
             }
-            C0408m.m319a(this.f464b.m257a(), "StrategyConfig", null);
+            StrategyFileStore.m319a(this.f464b.m257a(), "StrategyConfig", null);
         }
     }
 
@@ -150,7 +150,7 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
         }
         synchronized (this.f463a) {
             if (!this.f463a.containsKey(str)) {
-                C0411a.m326a(new RunnableC0400e(this, str));
+                AmdcScheduledExecutor.m326a(new StrategyTableLoadTask(this, str));
             }
         }
     }
@@ -167,7 +167,7 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
                 strategyStatObject = new StrategyStatObject(0);
                 strategyStatObject.readStrategyFileId = str;
             }
-            StrategyTable strategyTable = (StrategyTable) C0408m.m316a(str, strategyStatObject);
+            StrategyTable strategyTable = (StrategyTable) StrategyFileStore.m316a(str, strategyStatObject);
             if (strategyTable != null) {
                 strategyTable.m282a();
                 synchronized (this.f463a) {
@@ -197,7 +197,7 @@ public class StrategyInfoHolder implements NetworkStatusHelper.INetworkStatusCha
     }
 
     /* renamed from: a */
-    public void m268a(C0407l.d dVar) {
+    public void m268a(AmdcStrategyResultParser.d dVar) {
         int i = dVar.f549g;
         if (i != 0) {
             AmdcRuntimeInfo.updateAmdcLimit(i, dVar.f550h);

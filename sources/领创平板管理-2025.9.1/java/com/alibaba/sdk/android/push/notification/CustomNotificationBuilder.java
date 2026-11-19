@@ -13,9 +13,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
-import com.alibaba.sdk.android.ams.common.p007a.C0494a;
-import com.alibaba.sdk.android.push.common.p018a.C0558b;
-import com.alibaba.sdk.android.push.p024f.C0574a;
+import com.alibaba.sdk.android.ams.common.p007a.PushManifestMetadata;
+import com.alibaba.sdk.android.push.common.p018a.PushNotificationDefaults;
+import com.alibaba.sdk.android.push.p024f.NotificationImageDownload;
 import com.google.zxing.qrcode.encoder.Encoder;
 import com.huawei.hem.CompilerOutline;
 import java.io.ByteArrayInputStream;
@@ -54,12 +54,12 @@ public class CustomNotificationBuilder {
     }
 
     /* renamed from: a */
-    private int m875a(Context context, C0587b c0587b) {
+    private int m875a(Context context, PushNotificationLogger c0587b) {
         int iM901f = c0587b.m901f();
         if (iM901f != 0) {
             return iM901f;
         }
-        int iM754c = C0558b.m754c() != 0 ? C0558b.m754c() : context.getResources().getIdentifier(NOTIFICATION_SMALL_ICON_FILE, NOTIFICATION_ICON_RES_TYPE, context.getPackageName());
+        int iM754c = PushNotificationDefaults.m754c() != 0 ? PushNotificationDefaults.m754c() : context.getResources().getIdentifier(NOTIFICATION_SMALL_ICON_FILE, NOTIFICATION_ICON_RES_TYPE, context.getPackageName());
         int i = R.drawable.stat_notify_chat;
         try {
             i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.icon;
@@ -94,7 +94,7 @@ public class CustomNotificationBuilder {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    private android.app.Notification m877b(android.content.Context r12, com.alibaba.sdk.android.push.notification.C0587b r13, com.alibaba.sdk.android.push.notification.PushData r14, com.alibaba.sdk.android.push.notification.NotificationConfigure r15) {
+    private android.app.Notification m877b(android.content.Context r12, com.alibaba.sdk.android.push.notification.PushNotificationLogger r13, com.alibaba.sdk.android.push.notification.PushData r14, com.alibaba.sdk.android.push.notification.NotificationConfigure r15) {
         /*
             Method dump skipped, instructions count: 333
             To view this dump add '--comments-level debug' option
@@ -103,11 +103,11 @@ public class CustomNotificationBuilder {
     }
 
     /* renamed from: b */
-    private Bitmap m878b(Context context, C0587b c0587b) {
-        Bitmap bitmapM790a = !TextUtils.isEmpty(c0587b.m925r()) ? C0574a.m790a(context, c0587b.m925r()) : null;
+    private Bitmap m878b(Context context, PushNotificationLogger c0587b) {
+        Bitmap bitmapM790a = !TextUtils.isEmpty(c0587b.m925r()) ? NotificationImageDownload.m790a(context, c0587b.m925r()) : null;
         if (bitmapM790a == null) {
-            if (C0558b.m753b() != null) {
-                bitmapM790a = C0558b.m753b();
+            if (PushNotificationDefaults.m753b() != null) {
+                bitmapM790a = PushNotificationDefaults.m753b();
             } else {
                 int identifier = context.getResources().getIdentifier(NOTIFICATION_LARGE_ICON_FILE, NOTIFICATION_ICON_RES_TYPE, context.getPackageName());
                 if (identifier != 0) {
@@ -128,7 +128,7 @@ public class CustomNotificationBuilder {
     }
 
     /* renamed from: c */
-    private Notification m879c(Context context, C0587b c0587b, PushData pushData, NotificationConfigure notificationConfigure) {
+    private Notification m879c(Context context, PushNotificationLogger c0587b, PushData pushData, NotificationConfigure notificationConfigure) {
         int iM916k;
         int iM921n;
         Uri uri;
@@ -154,9 +154,9 @@ public class CustomNotificationBuilder {
         if (Build.VERSION.SDK_INT >= 26 && !TextUtils.isEmpty(c0587b.m924q())) {
             builder.setChannelId(c0587b.m924q());
         }
-        if (C0590e.m955b()) {
+        if (PushNotificationPlatform.m955b()) {
             builder.setGroupSummary(true);
-            builder.setGroup("group" + C0590e.m952a());
+            builder.setGroup("group" + PushNotificationPlatform.m952a());
         } else {
             builder.setGroupSummary(false);
             builder.setGroup("group");
@@ -190,7 +190,7 @@ public class CustomNotificationBuilder {
     }
 
     /* renamed from: a */
-    public Notification m880a(Context context, C0587b c0587b, PushData pushData, NotificationConfigure notificationConfigure) {
+    public Notification m880a(Context context, PushNotificationLogger c0587b, PushData pushData, NotificationConfigure notificationConfigure) {
         if (2 == c0587b.m904g()) {
             return m877b(context, c0587b, pushData, notificationConfigure);
         }
@@ -208,7 +208,7 @@ public class CustomNotificationBuilder {
         }
         f1296a.m498d("do not find custom notification from cache, find it from SharedPreferences");
         BasicCustomPushNotification basicCustomPushNotification = null;
-        String string = C0494a.m474f().getString(BasicCustomPushNotification.CUSTOM_NOTIFICATION_TAG + i, null);
+        String string = PushManifestMetadata.m474f().getString(BasicCustomPushNotification.CUSTOM_NOTIFICATION_TAG + i, null);
         try {
             if (string == null) {
                 f1296a.m501e("no corresponding custom notificaiton");
@@ -289,7 +289,7 @@ public class CustomNotificationBuilder {
             str = "custom notification id must be an integer greater than 0";
         } else {
             if (basicCustomPushNotification != null) {
-                SharedPreferences sharedPreferencesM474f = C0494a.m474f();
+                SharedPreferences sharedPreferencesM474f = PushManifestMetadata.m474f();
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);

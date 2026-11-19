@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -65,12 +65,12 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             View childAt = getChildAt(i3);
             if (childAt.getVisibility() != 8) {
                 int id = childAt.getId();
-                if (id == C0200R.id.topPanel) {
+                if (id == SupportAppcompatResources.id.topPanel) {
                     view = childAt;
-                } else if (id == C0200R.id.buttonPanel) {
+                } else if (id == SupportAppcompatResources.id.buttonPanel) {
                     view2 = childAt;
                 } else {
-                    if ((id != C0200R.id.contentPanel && id != C0200R.id.customPanel) || view3 != null) {
+                    if ((id != SupportAppcompatResources.id.contentPanel && id != SupportAppcompatResources.id.customPanel) || view3 != null) {
                         return false;
                     }
                     view3 = childAt;

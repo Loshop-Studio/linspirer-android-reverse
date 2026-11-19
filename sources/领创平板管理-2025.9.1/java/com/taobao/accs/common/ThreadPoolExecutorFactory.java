@@ -17,12 +17,12 @@ public class ThreadPoolExecutorFactory {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.common.ThreadPoolExecutorFactory$a */
-    public static class ThreadFactoryC1914a implements ThreadFactory {
+    public static class AccsWorkerThreadFactory implements ThreadFactory {
 
         /* renamed from: a */
         public String f6075a;
 
-        public ThreadFactoryC1914a(String str) {
+        public AccsWorkerThreadFactory(String str) {
             this.f6075a = str;
         }
 
@@ -46,7 +46,7 @@ public class ThreadPoolExecutorFactory {
         if (scheduleThreadPoolExecutor == null) {
             synchronized (ThreadPoolExecutorFactory.class) {
                 if (scheduleThreadPoolExecutor == null) {
-                    scheduleThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new ThreadFactoryC1914a("ACCS"));
+                    scheduleThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new AccsWorkerThreadFactory("ACCS"));
                     scheduleThreadPoolExecutor.setKeepAliveTime(60L, TimeUnit.SECONDS);
                     scheduleThreadPoolExecutor.allowCoreThreadTimeOut(true);
                 }
@@ -59,7 +59,7 @@ public class ThreadPoolExecutorFactory {
         if (sendThreadPoolExecutor == null) {
             synchronized (ThreadPoolExecutorFactory.class) {
                 if (sendThreadPoolExecutor == null) {
-                    sendThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new ThreadFactoryC1914a("ACCS-SEND"));
+                    sendThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, new AccsWorkerThreadFactory("ACCS-SEND"));
                     sendThreadPoolExecutor.setKeepAliveTime(60L, TimeUnit.SECONDS);
                     sendThreadPoolExecutor.allowCoreThreadTimeOut(true);
                 }

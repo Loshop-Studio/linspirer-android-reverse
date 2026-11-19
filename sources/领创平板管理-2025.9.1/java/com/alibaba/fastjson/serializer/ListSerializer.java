@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -33,7 +33,7 @@ public final class ListSerializer implements ObjectSerializer {
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         try {
             boolean zIsEnabled = serializeWriter.isEnabled(SerializerFeature.PrettyFormat);
-            char c3 = AbstractC1604b.COMMA;
+            char c3 = UpdateJsonBean.COMMA;
             char c4 = ']';
             if (zIsEnabled) {
                 serializeWriter.append('[');
@@ -58,7 +58,7 @@ public final class ListSerializer implements ObjectSerializer {
                     }
                     i3++;
                     c4 = c2;
-                    c3 = AbstractC1604b.COMMA;
+                    c3 = UpdateJsonBean.COMMA;
                 }
                 jSONSerializer.decrementIdent();
                 jSONSerializer.println();
@@ -72,10 +72,10 @@ public final class ListSerializer implements ObjectSerializer {
             while (i4 < size) {
                 Object obj5 = list.get(i4);
                 if (i4 != 0) {
-                    c = AbstractC1604b.COMMA;
-                    serializeWriter.append(AbstractC1604b.COMMA);
+                    c = UpdateJsonBean.COMMA;
+                    serializeWriter.append(UpdateJsonBean.COMMA);
                 } else {
-                    c = AbstractC1604b.COMMA;
+                    c = UpdateJsonBean.COMMA;
                 }
                 if (obj5 == null) {
                     serializeWriter.append((CharSequence) "null");

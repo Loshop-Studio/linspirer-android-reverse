@@ -47,13 +47,13 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public ArrayList<String> mSharedElementTargetNames;
     public int mTransition;
     public int mTransitionStyle;
-    public ArrayList<C0035Op> mOps = new ArrayList<>();
+    public ArrayList<BackStackOperation> mOps = new ArrayList<>();
     public boolean mAllowAddToBackStack = true;
     public int mIndex = -1;
     public boolean mReorderingAllowed = false;
 
     /* renamed from: android.support.v4.app.BackStackRecord$Op */
-    public static final class C0035Op {
+    public static final class BackStackOperation {
         public int cmd;
         public int enterAnim;
         public int exitAnim;
@@ -61,10 +61,10 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         public int popEnterAnim;
         public int popExitAnim;
 
-        public C0035Op() {
+        public BackStackOperation() {
         }
 
-        public C0035Op(int i, Fragment fragment) {
+        public BackStackOperation(int i, Fragment fragment) {
             this.cmd = i;
             this.fragment = fragment;
         }
@@ -107,10 +107,10 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             fragment.mFragmentId = i;
             fragment.mContainerId = i;
         }
-        addOp(new C0035Op(i2, fragment));
+        addOp(new BackStackOperation(i2, fragment));
     }
 
-    public static boolean isFragmentPostponed(C0035Op c0035Op) {
+    public static boolean isFragmentPostponed(BackStackOperation c0035Op) {
         Fragment fragment = c0035Op.fragment;
         return (fragment == null || !fragment.mAdded || fragment.mView == null || fragment.mDetached || fragment.mHidden || !fragment.isPostponed()) ? false : true;
     }
@@ -121,7 +121,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return this;
     }
 
-    public void addOp(C0035Op c0035Op) {
+    public void addOp(BackStackOperation c0035Op) {
         this.mOps.add(c0035Op);
         c0035Op.enterAnim = this.mEnterAnim;
         c0035Op.exitAnim = this.mExitAnim;
@@ -165,7 +165,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction attach(Fragment fragment) {
-        addOp(new C0035Op(7, fragment));
+        addOp(new BackStackOperation(7, fragment));
         return this;
     }
 
@@ -176,7 +176,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             }
             int size = this.mOps.size();
             for (int i2 = 0; i2 < size; i2++) {
-                C0035Op c0035Op = this.mOps.get(i2);
+                BackStackOperation c0035Op = this.mOps.get(i2);
                 Fragment fragment = c0035Op.fragment;
                 if (fragment != null) {
                     fragment.mBackStackNesting += i;
@@ -236,7 +236,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction detach(Fragment fragment) {
-        addOp(new C0035Op(6, fragment));
+        addOp(new BackStackOperation(6, fragment));
         return this;
     }
 
@@ -256,7 +256,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public void executeOps() {
         int size = this.mOps.size();
         for (int i = 0; i < size; i++) {
-            C0035Op c0035Op = this.mOps.get(i);
+            BackStackOperation c0035Op = this.mOps.get(i);
             Fragment fragment = c0035Op.fragment;
             if (fragment != null) {
                 fragment.setNextTransition(this.mTransition, this.mTransitionStyle);
@@ -311,7 +311,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     public void executePopOps(boolean z) {
         for (int size = this.mOps.size() - 1; size >= 0; size--) {
-            C0035Op c0035Op = this.mOps.get(size);
+            BackStackOperation c0035Op = this.mOps.get(size);
             Fragment fragment = c0035Op.fragment;
             if (fragment != null) {
                 fragment.setNextTransition(FragmentManagerImpl.reverseTransit(this.mTransition), this.mTransitionStyle);
@@ -539,7 +539,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction hide(Fragment fragment) {
-        addOp(new C0035Op(4, fragment));
+        addOp(new BackStackOperation(4, fragment));
         return this;
     }
 
@@ -576,7 +576,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction remove(Fragment fragment) {
-        addOp(new C0035Op(3, fragment));
+        addOp(new BackStackOperation(3, fragment));
         return this;
     }
 
@@ -635,7 +635,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     public void setOnStartPostponedListener(Fragment.OnStartEnterTransitionListener onStartEnterTransitionListener) {
         for (int i = 0; i < this.mOps.size(); i++) {
-            C0035Op c0035Op = this.mOps.get(i);
+            BackStackOperation c0035Op = this.mOps.get(i);
             if (isFragmentPostponed(c0035Op)) {
                 c0035Op.fragment.setOnStartEnterTransitionListener(onStartEnterTransitionListener);
             }
@@ -644,7 +644,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction setPrimaryNavigationFragment(@Nullable Fragment fragment) {
-        addOp(new C0035Op(8, fragment));
+        addOp(new BackStackOperation(8, fragment));
         return this;
     }
 
@@ -668,7 +668,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction show(Fragment fragment) {
-        addOp(new C0035Op(5, fragment));
+        addOp(new BackStackOperation(5, fragment));
         return this;
     }
 
@@ -800,7 +800,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         printWriter.println("Operations:");
         int size = this.mOps.size();
         for (int i = 0; i < size; i++) {
-            C0035Op c0035Op = this.mOps.get(i);
+            BackStackOperation c0035Op = this.mOps.get(i);
             switch (c0035Op.cmd) {
                 case 0:
                     string = "NULL";

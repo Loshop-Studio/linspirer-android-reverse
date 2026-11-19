@@ -1,7 +1,7 @@
 package anet.channel.strategy;
 
-import anet.channel.strategy.C0407l;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.AmdcStrategyResultParser;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.strategy.utils.SerialLruCache;
 import anet.channel.util.ALog;
 import java.io.Serializable;
@@ -113,7 +113,7 @@ public class StrategyList implements Serializable {
         return new ArrayList(this.f469a).toString();
     }
 
-    public void update(C0407l.b bVar) {
+    public void update(AmdcStrategyResultParser.b bVar) {
         Iterator<IPConnStrategy> it = this.f469a.iterator();
         while (it.hasNext()) {
             it.next().f450c = true;
@@ -145,13 +145,13 @@ public class StrategyList implements Serializable {
         }
         if (bVar.f537i != null) {
             while (true) {
-                C0407l.e[] eVarArr = bVar.f537i;
+                AmdcStrategyResultParser.e[] eVarArr = bVar.f537i;
                 if (i >= eVarArr.length) {
                     break;
                 }
-                C0407l.e eVar = eVarArr[i];
+                AmdcStrategyResultParser.e eVar = eVarArr[i];
                 String str = eVar.f551a;
-                m276a(str, C0413c.m333c(str) ? -1 : 1, eVar.f552b);
+                m276a(str, AmdcStringEncoding.m333c(str) ? -1 : 1, eVar.f552b);
                 i++;
             }
         }
@@ -165,8 +165,8 @@ public class StrategyList implements Serializable {
     }
 
     /* renamed from: a */
-    private void m276a(String str, int i, C0407l.a aVar) {
-        int iM273a = m273a(this.f469a, new C0405j(this, aVar, str, ConnProtocol.valueOf(aVar)));
+    private void m276a(String str, int i, AmdcStrategyResultParser.a aVar) {
+        int iM273a = m273a(this.f469a, new IpStrategyEndpointPredicate(this, aVar, str, ConnProtocol.valueOf(aVar)));
         if (iM273a != -1) {
             IPConnStrategy iPConnStrategy = this.f469a.get(iM273a);
             iPConnStrategy.cto = aVar.f523c;
@@ -199,7 +199,7 @@ public class StrategyList implements Serializable {
     /* renamed from: a */
     private Comparator m274a() {
         if (this.f472d == null) {
-            this.f472d = new C0406k(this);
+            this.f472d = new IpStrategyComparator(this);
         }
         return this.f472d;
     }

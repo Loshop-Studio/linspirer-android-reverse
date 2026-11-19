@@ -22,7 +22,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes = new HashMap();
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1 */
-    public static /* synthetic */ class C07561 {
+    public static /* synthetic */ class BitmapPoolConfigSwitch {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 
         static {
@@ -95,7 +95,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     public static Bitmap.Config[] getInConfigs(Bitmap.Config config) {
-        int i = C07561.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+        int i = BitmapPoolConfigSwitch.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
         return i != 1 ? i != 2 ? i != 3 ? i != 4 ? new Bitmap.Config[]{config} : ALPHA_8_IN_CONFIGS : ARGB_4444_IN_CONFIGS : RGB_565_IN_CONFIGS : ARGB_8888_IN_CONFIGS;
     }
 

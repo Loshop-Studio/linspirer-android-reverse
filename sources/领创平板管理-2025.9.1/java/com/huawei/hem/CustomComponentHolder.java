@@ -18,19 +18,19 @@ public class CustomComponentHolder {
     public DownloadMgrInitialParams f3456a;
 
     /* renamed from: b */
-    public InterfaceC0855bh f3457b;
+    public DownloadConnectionCountPolicy f3457b;
 
     /* renamed from: c */
-    public InterfaceC0881ch f3458c;
+    public DownloadConnectionFactory f3458c;
 
     /* renamed from: d */
-    public InterfaceC0933eh f3459d;
+    public DownloadOutputStreamFactory f3459d;
 
     /* renamed from: e */
     public FileDownloadDatabase f3460e;
 
     /* renamed from: f */
-    public InterfaceC0907dh f3461f;
+    public DownloadIdGenerator f3461f;
 
     /* renamed from: g */
     public ForegroundServiceConfig f3462g;
@@ -47,7 +47,7 @@ public class CustomComponentHolder {
     public static void m2478f(FileDownloadDatabase.a aVar) throws IOException {
         boolean z;
         Iterator<FileDownloadModel> it = aVar.iterator();
-        InterfaceC0907dh interfaceC0907dhM2482d = a.f3463a.m2482d();
+        DownloadIdGenerator interfaceC0907dhM2482d = a.f3463a.m2482d();
         System.currentTimeMillis();
         while (it.hasNext()) {
             try {
@@ -90,7 +90,7 @@ public class CustomComponentHolder {
 
     /* renamed from: a */
     public FileDownloadConnection m2479a(String str) {
-        InterfaceC0881ch interfaceC0881ch = this.f3458c;
+        DownloadConnectionFactory interfaceC0881ch = this.f3458c;
         if (interfaceC0881ch == null) {
             synchronized (this) {
                 if (this.f3458c == null) {
@@ -142,8 +142,8 @@ public class CustomComponentHolder {
     }
 
     /* renamed from: d */
-    public InterfaceC0907dh m2482d() {
-        InterfaceC0907dh interfaceC0907dh = this.f3461f;
+    public DownloadIdGenerator m2482d() {
+        DownloadIdGenerator interfaceC0907dh = this.f3461f;
         if (interfaceC0907dh != null) {
             return interfaceC0907dh;
         }
@@ -159,8 +159,8 @@ public class CustomComponentHolder {
     }
 
     /* renamed from: e */
-    public final InterfaceC0933eh m2483e() {
-        InterfaceC0933eh interfaceC0933eh = this.f3459d;
+    public final DownloadOutputStreamFactory m2483e() {
+        DownloadOutputStreamFactory interfaceC0933eh = this.f3459d;
         if (interfaceC0933eh != null) {
             return interfaceC0933eh;
         }

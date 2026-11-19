@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class CacheManager {
 
     /* renamed from: a */
-    public static List<C0442a> f642a = new ArrayList();
+    public static List<OrderedCacheEntry> f642a = new ArrayList();
 
     /* renamed from: b */
     public static final ReentrantReadWriteLock f643b;
@@ -25,7 +25,7 @@ public class CacheManager {
 
     /* compiled from: Taobao */
     /* renamed from: anetwork.channel.cache.CacheManager$a */
-    public static class C0442a implements Comparable<C0442a> {
+    public static class OrderedCacheEntry implements Comparable<OrderedCacheEntry> {
 
         /* renamed from: a */
         public final Cache f646a;
@@ -36,7 +36,7 @@ public class CacheManager {
         /* renamed from: c */
         public final int f648c;
 
-        public C0442a(Cache cache, CachePrediction cachePrediction, int i) {
+        public OrderedCacheEntry(Cache cache, CachePrediction cachePrediction, int i) {
             this.f646a = cache;
             this.f647b = cachePrediction;
             this.f648c = i;
@@ -44,7 +44,7 @@ public class CacheManager {
 
         @Override // java.lang.Comparable
         /* renamed from: a, reason: merged with bridge method [inline-methods] */
-        public int compareTo(C0442a c0442a) {
+        public int compareTo(OrderedCacheEntry c0442a) {
             return this.f648c - c0442a.f648c;
         }
     }
@@ -65,7 +65,7 @@ public class CacheManager {
                 throw new IllegalArgumentException("prediction is null");
             }
             f645d.lock();
-            f642a.add(new C0442a(cache, cachePrediction, i));
+            f642a.add(new OrderedCacheEntry(cache, cachePrediction, i));
             Collections.sort(f642a);
         } finally {
             f645d.unlock();
@@ -74,7 +74,7 @@ public class CacheManager {
 
     public static void clearAllCache() {
         ALog.m342w("anet.CacheManager", "clearAllCache", null, new Object[0]);
-        Iterator<C0442a> it = f642a.iterator();
+        Iterator<OrderedCacheEntry> it = f642a.iterator();
         while (it.hasNext()) {
             try {
                 it.next().f646a.clear();

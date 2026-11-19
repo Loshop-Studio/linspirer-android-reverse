@@ -7,7 +7,7 @@ import anetwork.channel.NetworkEvent;
 import anetwork.channel.aidl.Connection;
 import anetwork.channel.aidl.ParcelableFuture;
 import anetwork.channel.aidl.ParcelableInputStream;
-import anetwork.channel.entity.C0458g;
+import anetwork.channel.entity.UnifiedRequestConfig;
 import anetwork.channel.statist.StatisticData;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class ConnectionDelegate extends Connection.Stub implements NetworkCallBack.FinishListener, NetworkCallBack.InputStreamListener, NetworkCallBack.ResponseCodeListener {
-    public C0458g config;
+    public UnifiedRequestConfig config;
     public String desc;
     public ParcelableFuture future;
     public Map<String, List<String>> header;
@@ -119,7 +119,7 @@ public class ConnectionDelegate extends Connection.Stub implements NetworkCallBa
         this.future = parcelableFuture;
     }
 
-    public ConnectionDelegate(C0458g c0458g) {
+    public ConnectionDelegate(UnifiedRequestConfig c0458g) {
         this.config = c0458g;
     }
 }

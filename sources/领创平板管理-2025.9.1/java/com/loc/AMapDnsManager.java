@@ -196,9 +196,9 @@ public final class AMapDnsManager {
     /* renamed from: d */
     private void m4928d(int i) {
         if (m4922b(i).m4669d()) {
-            SharedPreferences.Editor editorM5090a = C1840ev.m5090a(this.f5639j, "cbG9jaXA");
-            C1840ev.m5094a(editorM5090a, m4927c(i));
-            C1840ev.m5093a(editorM5090a);
+            SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(this.f5639j, "cbG9jaXA");
+            AMapLocationPreferences.m5094a(editorM5090a, m4927c(i));
+            AMapLocationPreferences.m5093a(editorM5090a);
             m4922b(i).m4662a(false);
         }
     }
@@ -243,14 +243,14 @@ public final class AMapDnsManager {
             return;
         }
         this.f5640k = str;
-        SharedPreferences.Editor editorM5090a = C1840ev.m5090a(this.f5639j, "cbG9jaXA");
-        C1840ev.m5097a(editorM5090a, m4927c(i), str);
-        C1840ev.m5093a(editorM5090a);
+        SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(this.f5639j, "cbG9jaXA");
+        AMapLocationPreferences.m5097a(editorM5090a, m4927c(i), str);
+        AMapLocationPreferences.m5093a(editorM5090a);
     }
 
     /* renamed from: g */
     private void m4931g(int i) {
-        String strM5092a = C1840ev.m5092a(this.f5639j, "cbG9jaXA", m4927c(i), (String) null);
+        String strM5092a = AMapLocationPreferences.m5092a(this.f5639j, "cbG9jaXA", m4927c(i), (String) null);
         if (TextUtils.isEmpty(strM5092a) || this.f5635f.contains(strM5092a)) {
             return;
         }
@@ -305,9 +305,9 @@ public final class AMapDnsManager {
             if (TextUtils.isEmpty(strM4665b) || strM4665b.equals(strM4668c)) {
                 return;
             }
-            SharedPreferences.Editor editorM5090a = C1840ev.m5090a(this.f5639j, "cbG9jaXA");
-            C1840ev.m5097a(editorM5090a, m4927c(i), strM4665b);
-            C1840ev.m5093a(editorM5090a);
+            SharedPreferences.Editor editorM5090a = AMapLocationPreferences.m5090a(this.f5639j, "cbG9jaXA");
+            AMapLocationPreferences.m5097a(editorM5090a, m4927c(i), strM4665b);
+            AMapLocationPreferences.m5093a(editorM5090a);
         }
     }
 }

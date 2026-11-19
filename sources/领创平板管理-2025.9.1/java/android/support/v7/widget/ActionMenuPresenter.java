@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ActionProvider;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.ActionBarPolicy;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.view.menu.BaseMenuPresenter;
@@ -55,7 +55,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
     public class ActionButtonSubmenu extends MenuPopupHelper {
         public ActionButtonSubmenu(Context context, SubMenuBuilder subMenuBuilder, View view) {
-            super(context, subMenuBuilder, view, false, C0200R.attr.actionOverflowMenuStyle);
+            super(context, subMenuBuilder, view, false, SupportAppcompatResources.attr.actionOverflowMenuStyle);
             if (!((MenuItemImpl) subMenuBuilder.getItem()).isActionButton()) {
                 View view2 = ActionMenuPresenter.this.mOverflowButton;
                 setAnchorView(view2 == null ? (View) ActionMenuPresenter.this.mMenuView : view2);
@@ -110,7 +110,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         public final float[] mTempPts;
 
         public OverflowMenuButton(Context context) {
-            super(context, null, C0200R.attr.actionOverflowButtonStyle);
+            super(context, null, SupportAppcompatResources.attr.actionOverflowButtonStyle);
             this.mTempPts = new float[2];
             setClickable(true);
             setFocusable(true);
@@ -184,7 +184,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
     public class OverflowPopup extends MenuPopupHelper {
         public OverflowPopup(Context context, MenuBuilder menuBuilder, View view, boolean z) {
-            super(context, menuBuilder, view, z, C0200R.attr.actionOverflowMenuStyle);
+            super(context, menuBuilder, view, z, SupportAppcompatResources.attr.actionOverflowMenuStyle);
             setGravity(8388613);
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
@@ -263,7 +263,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     }
 
     public ActionMenuPresenter(Context context) {
-        super(context, C0200R.layout.abc_action_menu_layout, C0200R.layout.abc_action_menu_item_layout);
+        super(context, SupportAppcompatResources.layout.abc_action_menu_layout, SupportAppcompatResources.layout.abc_action_menu_item_layout);
         this.mActionButtonGroups = new SparseBooleanArray();
         this.mPopupPresenterCallback = new PopupPresenterCallback();
     }

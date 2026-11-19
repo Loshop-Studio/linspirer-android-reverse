@@ -24,7 +24,7 @@ import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.view.DialogUtil;
 import com.gyf.immersionbar.ImmersionBar;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C0876cc;
+import com.huawei.hem.LauncherNetworkUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.ChangePwdActivityResponseListener;
@@ -61,12 +61,12 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
     public HttpCore f1667i;
 
     /* renamed from: com.android.launcher3.activity.ChangePwdActivity$a */
-    public class ViewOnTouchListenerC0628a implements View.OnTouchListener {
+    public class PasswordFieldTouchListener implements View.OnTouchListener {
 
         /* renamed from: a */
         public final /* synthetic */ EditText f1668a;
 
-        public ViewOnTouchListenerC0628a(EditText editText) {
+        public PasswordFieldTouchListener(EditText editText) {
             this.f1668a = editText;
         }
 
@@ -126,7 +126,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
     @SuppressLint({"ClickableViewAccessibility"})
     /* renamed from: f */
     public final void m1177f(EditText editText) {
-        editText.setOnTouchListener(new ViewOnTouchListenerC0628a(editText));
+        editText.setOnTouchListener(new PasswordFieldTouchListener(editText));
     }
 
     /* renamed from: g */
@@ -176,7 +176,7 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
             m1178g(getString(R.string.pwd_not_same));
             return;
         }
-        if (!new C0876cc(this).m1505a()) {
+        if (!new LauncherNetworkUtil(this).m1505a()) {
             m1178g(getString(R.string.network_unable_note));
             return;
         }

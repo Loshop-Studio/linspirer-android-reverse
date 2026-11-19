@@ -67,15 +67,15 @@ public final class ConnectionSpecSelector {
             i2++;
         }
         this.f2358c = z;
-        AbstractC1264rk abstractC1264rk = AbstractC1264rk.f3645a;
+        OkHttpInternalAccess abstractC1264rk = OkHttpInternalAccess.f3645a;
         boolean z2 = this.f2359d;
         if (((OkHttpClient.a) abstractC1264rk) == null) {
             throw null;
         }
-        String[] strArrM2764s = c1213pj.f3472c != null ? C1314tk.m2764s(CipherSuite.f3334b, sSLSocket.getEnabledCipherSuites(), c1213pj.f3472c) : sSLSocket.getEnabledCipherSuites();
-        String[] strArrM2764s2 = c1213pj.f3473d != null ? C1314tk.m2764s(C1314tk.f3823i, sSLSocket.getEnabledProtocols(), c1213pj.f3473d) : sSLSocket.getEnabledProtocols();
+        String[] strArrM2764s = c1213pj.f3472c != null ? OkHttpCommonUtilities.m2764s(CipherSuite.f3334b, sSLSocket.getEnabledCipherSuites(), c1213pj.f3472c) : sSLSocket.getEnabledCipherSuites();
+        String[] strArrM2764s2 = c1213pj.f3473d != null ? OkHttpCommonUtilities.m2764s(OkHttpCommonUtilities.f3823i, sSLSocket.getEnabledProtocols(), c1213pj.f3473d) : sSLSocket.getEnabledProtocols();
         String[] supportedCipherSuites = sSLSocket.getSupportedCipherSuites();
-        int iM2762q = C1314tk.m2762q(CipherSuite.f3334b, supportedCipherSuites, "TLS_FALLBACK_SCSV");
+        int iM2762q = OkHttpCommonUtilities.m2762q(CipherSuite.f3334b, supportedCipherSuites, "TLS_FALLBACK_SCSV");
         if (z2 && iM2762q != -1) {
             String str = supportedCipherSuites[iM2762q];
             int length = strArrM2764s.length + 1;

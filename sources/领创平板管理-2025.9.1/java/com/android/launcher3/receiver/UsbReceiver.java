@@ -11,7 +11,7 @@ import android.support.v7.widget.TooltipCompatHandler;
 import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.android.launcher3.model.PvList;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.CompilerOutline;
@@ -89,7 +89,7 @@ public class UsbReceiver extends BroadcastReceiver {
             int productId = value.getProductId();
             int vendorId = value.getVendorId();
             LTKDateUtil.m1403m("UsbReceiver --pid:" + productId + ",vid:" + vendorId);
-            if (!AbstractC1102l9.m2273N(array)) {
+            if (!MobileSdkPlatformUtilities.m2273N(array)) {
                 for (PvList pvList : array) {
                     if (vendorId == pvList.getVid() && (pvList.getPid() == productId || pvList.getPid() == 0)) {
                         LTKDateUtil.m1403m("UsbReceiver  otg device allowd to used");

@@ -18,14 +18,14 @@ public class SeewoImpl extends AndroidImpl {
     public static Context f2542c;
 
     /* renamed from: d */
-    public static C1361vh f2543d;
+    public static SeewoDeviceManager f2543d;
 
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: F */
     public void mo1306F(String str) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0934ei runnableC0934ei = new RunnableC0934ei(c1361vh, str);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoInstallPackageTask runnableC0934ei = new SeewoInstallPackageTask(c1361vh, str);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0934ei);
             } else {
@@ -49,7 +49,7 @@ public class SeewoImpl extends AndroidImpl {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add("iptables -F app");
-            if (!AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(list)) {
                 Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
                     int iM1396f = LTKDateUtil.m1396f(f2542c, it.next());
@@ -71,7 +71,7 @@ public class SeewoImpl extends AndroidImpl {
         ArrayList arrayList = new ArrayList();
         try {
             List<String> listM2873a = f2543d.m2873a();
-            if (!AbstractC1102l9.m2273N(listM2873a)) {
+            if (!MobileSdkPlatformUtilities.m2273N(listM2873a)) {
                 arrayList.addAll(listM2873a);
             }
             LTKDateUtil.m1403m("SeewoImplread app white list content:" + arrayList.toString());
@@ -85,8 +85,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: N */
     public boolean mo1312N(long j) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1061ji runnableC1061ji = new RunnableC1061ji(c1361vh, j);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoUpdateDeviceTimeTask runnableC1061ji = new SeewoUpdateDeviceTimeTask(c1361vh, j);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1061ji);
             } else {
@@ -103,8 +103,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: O */
     public void mo1313O(String str, String str2) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1036ii runnableC1036ii = new RunnableC1036ii(c1361vh, str);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoActivateAdminTask runnableC1036ii = new SeewoActivateAdminTask(c1361vh, str);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1036ii);
             } else {
@@ -119,8 +119,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: Q */
     public void mo1314Q(String str) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0960fi runnableC0960fi = new RunnableC0960fi(c1361vh, str);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoUninstallPackageTask runnableC0960fi = new SeewoUninstallPackageTask(c1361vh, str);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0960fi);
             } else {
@@ -161,8 +161,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: b0 */
     public void mo1318b0(List<String> list) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0856bi runnableC0856bi = new RunnableC0856bi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoShowWifiAdvancedTask runnableC0856bi = new SeewoShowWifiAdvancedTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0856bi);
             } else {
@@ -177,8 +177,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: c */
     public void mo1319c(boolean z) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1137mi runnableC1137mi = new RunnableC1137mi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableSdCardTask runnableC1137mi = new SeewoEnableSdCardTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1137mi);
             } else {
@@ -192,8 +192,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBack() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1286sh runnableC1286sh = new RunnableC1286sh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableBackTask runnableC1286sh = new SeewoDisableBackTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1286sh);
             } else {
@@ -207,8 +207,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableBluetooth() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1262ri runnableC1262ri = new RunnableC1262ri(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableBluetoothTask runnableC1262ri = new SeewoDisableBluetoothTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1262ri);
             } else {
@@ -222,8 +222,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableCamera() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1312ti runnableC1312ti = new RunnableC1312ti(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableCameraTask runnableC1312ti = new SeewoDisableCameraTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1312ti);
             } else {
@@ -237,8 +237,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableHome() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1236qh runnableC1236qh = new RunnableC1236qh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableHomeTask runnableC1236qh = new SeewoDisableHomeTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1236qh);
             } else {
@@ -252,8 +252,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableLongPressPower() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0908di runnableC0908di = new RunnableC0908di(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableLongPressPowerTask runnableC0908di = new SeewoDisableLongPressPowerTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0908di);
             } else {
@@ -277,8 +277,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableOTG() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1111li runnableC1111li = new RunnableC1111li(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableOtgTask runnableC1111li = new SeewoDisableOtgTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1111li);
             } else {
@@ -292,8 +292,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableRecent() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1336uh runnableC1336uh = new RunnableC1336uh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableRecentTask runnableC1336uh = new SeewoDisableRecentTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1336uh);
             } else {
@@ -307,8 +307,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableShortPressPower() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1461zh runnableC1461zh = new RunnableC1461zh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableShortPressPowerTask runnableC1461zh = new SeewoDisableShortPressPowerTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1461zh);
             } else {
@@ -323,8 +323,8 @@ public class SeewoImpl extends AndroidImpl {
     public void disableUsb() {
         try {
             LTKDateUtil.m1403m("SeewoImpl disable usb");
-            C1361vh c1361vh = f2543d;
-            RunnableC1187oi runnableC1187oi = new RunnableC1187oi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableUsbTask runnableC1187oi = new SeewoDisableUsbTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1187oi);
             } else {
@@ -338,8 +338,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void disableVolume() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1411xh runnableC1411xh = new RunnableC1411xh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableVolumeTask runnableC1411xh = new SeewoDisableVolumeTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1411xh);
             } else {
@@ -354,8 +354,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: e */
     public void mo1320e(String str) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1186oh runnableC1186oh = new RunnableC1186oh(c1361vh, str);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableApplicationTask runnableC1186oh = new SeewoDisableApplicationTask(c1361vh, str);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1186oh);
             } else {
@@ -369,8 +369,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBack() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1261rh runnableC1261rh = new RunnableC1261rh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableBackTask runnableC1261rh = new SeewoEnableBackTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1261rh);
             } else {
@@ -384,8 +384,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableBluetooth() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1237qi runnableC1237qi = new RunnableC1237qi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableBluetoothTask runnableC1237qi = new SeewoEnableBluetoothTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1237qi);
             } else {
@@ -399,8 +399,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableCamera() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1287si runnableC1287si = new RunnableC1287si(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableCameraTask runnableC1287si = new SeewoEnableCameraTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1287si);
             } else {
@@ -414,8 +414,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableHome() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1211ph runnableC1211ph = new RunnableC1211ph(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableHomeTask runnableC1211ph = new SeewoEnableHomeTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1211ph);
             } else {
@@ -429,8 +429,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableLongPressPower() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0882ci runnableC0882ci = new RunnableC0882ci(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableLongPressPowerTask runnableC0882ci = new SeewoEnableLongPressPowerTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0882ci);
             } else {
@@ -454,8 +454,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableOTG() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1086ki runnableC1086ki = new RunnableC1086ki(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableOtgTask runnableC1086ki = new SeewoEnableOtgTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1086ki);
             } else {
@@ -469,8 +469,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableRecent() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1311th runnableC1311th = new RunnableC1311th(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableRecentTask runnableC1311th = new SeewoEnableRecentTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1311th);
             } else {
@@ -484,8 +484,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableShortPressPower() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1436yh runnableC1436yh = new RunnableC1436yh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableShortPressPowerTask runnableC1436yh = new SeewoEnableShortPressPowerTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1436yh);
             } else {
@@ -500,8 +500,8 @@ public class SeewoImpl extends AndroidImpl {
     public void enableUsb() {
         try {
             LTKDateUtil.m1403m("SeewoImpl enable usb");
-            C1361vh c1361vh = f2543d;
-            RunnableC0986gi runnableC0986gi = new RunnableC0986gi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableUsbTask runnableC0986gi = new SeewoEnableUsbTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0986gi);
             } else {
@@ -515,8 +515,8 @@ public class SeewoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void enableVolume() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1386wh runnableC1386wh = new RunnableC1386wh(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableVolumeTask runnableC1386wh = new SeewoEnableVolumeTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1386wh);
             } else {
@@ -536,8 +536,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: h0 */
     public void mo1324h0() {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1212pi runnableC1212pi = new RunnableC1212pi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoShutdownTask runnableC1212pi = new SeewoShutdownTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1212pi);
             } else {
@@ -552,8 +552,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: r */
     public void mo1327r(List<String> list) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC0830ai runnableC0830ai = new RunnableC0830ai(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoHideWifiAdvancedTask runnableC0830ai = new SeewoHideWifiAdvancedTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC0830ai);
             } else {
@@ -580,8 +580,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: t */
     public void mo1329t(boolean z) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1011hi runnableC1011hi = new RunnableC1011hi(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoResetDeviceTask runnableC1011hi = new SeewoResetDeviceTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1011hi);
             } else {
@@ -596,8 +596,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: y0 */
     public void mo1331y0(String str) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1161nh runnableC1161nh = new RunnableC1161nh(c1361vh, str);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoEnableApplicationTask runnableC1161nh = new SeewoEnableApplicationTask(c1361vh, str);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1161nh);
             } else {
@@ -612,8 +612,8 @@ public class SeewoImpl extends AndroidImpl {
     /* renamed from: z0 */
     public void mo1332z0(boolean z) {
         try {
-            C1361vh c1361vh = f2543d;
-            RunnableC1162ni runnableC1162ni = new RunnableC1162ni(c1361vh);
+            SeewoDeviceManager c1361vh = f2543d;
+            SeewoDisableSdCardTask runnableC1162ni = new SeewoDisableSdCardTask(c1361vh);
             if (c1361vh.f3962b == null) {
                 c1361vh.f3963c.add(runnableC1162ni);
             } else {

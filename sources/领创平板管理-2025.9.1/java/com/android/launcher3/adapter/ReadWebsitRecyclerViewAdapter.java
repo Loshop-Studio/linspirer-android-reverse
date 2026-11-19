@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.android.launcher3.R;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class ReadWebsitRecyclerViewAdapter extends RecyclerView.Adapter<C0647a> {
+public class ReadWebsitRecyclerViewAdapter extends RecyclerView.Adapter<WebsiteRowHolder> {
 
     /* renamed from: a */
     public Context f1858a;
@@ -24,12 +24,12 @@ public class ReadWebsitRecyclerViewAdapter extends RecyclerView.Adapter<C0647a> 
     public LayoutInflater f1860c;
 
     /* renamed from: com.android.launcher3.adapter.ReadWebsitRecyclerViewAdapter$a */
-    public class C0647a extends RecyclerView.ViewHolder {
+    public class WebsiteRowHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a */
         public TextView f1861a;
 
-        public C0647a(ReadWebsitRecyclerViewAdapter readWebsitRecyclerViewAdapter, View view) {
+        public WebsiteRowHolder(ReadWebsitRecyclerViewAdapter readWebsitRecyclerViewAdapter, View view) {
             super(view);
             this.f1861a = (TextView) view.findViewById(R.id.website_content);
         }
@@ -43,13 +43,13 @@ public class ReadWebsitRecyclerViewAdapter extends RecyclerView.Adapter<C0647a> 
 
     @NonNull
     /* renamed from: a */
-    public C0647a m1232a(@NonNull ViewGroup viewGroup) {
-        return new C0647a(this, this.f1860c.inflate(R.layout.read_website_list_adapter, viewGroup, false));
+    public WebsiteRowHolder m1232a(@NonNull ViewGroup viewGroup) {
+        return new WebsiteRowHolder(this, this.f1860c.inflate(R.layout.read_website_list_adapter, viewGroup, false));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (AbstractC1102l9.m2273N(this.f1859b)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1859b)) {
             return 0;
         }
         return this.f1859b.size();
@@ -57,7 +57,7 @@ public class ReadWebsitRecyclerViewAdapter extends RecyclerView.Adapter<C0647a> 
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ((C0647a) viewHolder).f1861a.setText(String.format(this.f1858a.getResources().getString(R.string.read_website_part), this.f1859b.get(i)));
+        ((WebsiteRowHolder) viewHolder).f1861a.setText(String.format(this.f1858a.getResources().getString(R.string.read_website_part), this.f1859b.get(i)));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter

@@ -6,8 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-import com.huawei.hem.C0923e7;
-import com.huawei.hem.C1325u6;
+import com.huawei.hem.AgConnectServiceDiscovery;
+import com.huawei.hem.AgConnectInstanceProvider;
 
 /* loaded from: classes.dex */
 public class AGConnectInitializeProvider extends ContentProvider {
@@ -30,15 +30,15 @@ public class AGConnectInitializeProvider extends ContentProvider {
     public boolean onCreate() {
         Log.i("AGConnectProvider", "AGConnectInitializeProvider#onCreate");
         Context context = getContext();
-        synchronized (C0923e7.class) {
+        synchronized (AgConnectServiceDiscovery.class) {
             Log.i("AGConnectInstance", "AGConnectInstance#initialize");
-            C1325u6.m2786a(context);
+            AgConnectInstanceProvider.m2786a(context);
             Context applicationContext = context.getApplicationContext();
             if (applicationContext != null) {
                 context = applicationContext;
             }
-            if (C0923e7.f2515a == null) {
-                C0923e7.f2515a = new C0923e7(context);
+            if (AgConnectServiceDiscovery.f2515a == null) {
+                AgConnectServiceDiscovery.f2515a = new AgConnectServiceDiscovery(context);
             }
         }
         return false;

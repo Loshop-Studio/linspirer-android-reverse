@@ -14,7 +14,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
@@ -32,7 +32,7 @@ import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent {
     public static final int ACTION_BAR_ANIMATE_DELAY = 600;
-    public static final int[] ATTRS = {C0200R.attr.actionBarSize, R.attr.windowContentOverlay};
+    public static final int[] ATTRS = {SupportAppcompatResources.attr.actionBarSize, R.attr.windowContentOverlay};
     public static final String TAG = "ActionBarOverlayLayout";
     public int mActionBarHeight;
     public ActionBarContainer mActionBarTop;
@@ -505,9 +505,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     public void pullChildren() {
         if (this.mContent == null) {
-            this.mContent = (ContentFrameLayout) findViewById(C0200R.id.action_bar_activity_content);
-            this.mActionBarTop = (ActionBarContainer) findViewById(C0200R.id.action_bar_container);
-            this.mDecorToolbar = getDecorToolbar(findViewById(C0200R.id.action_bar));
+            this.mContent = (ContentFrameLayout) findViewById(SupportAppcompatResources.id.action_bar_activity_content);
+            this.mActionBarTop = (ActionBarContainer) findViewById(SupportAppcompatResources.id.action_bar_container);
+            this.mDecorToolbar = getDecorToolbar(findViewById(SupportAppcompatResources.id.action_bar));
         }
     }
 

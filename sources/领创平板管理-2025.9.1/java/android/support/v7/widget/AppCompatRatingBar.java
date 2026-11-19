@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
@@ -25,7 +25,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     public AppCompatRatingBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.ratingBarStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.ratingBarStyle);
     }
 
     public AppCompatRatingBar(Context context, AttributeSet attributeSet, int i) {

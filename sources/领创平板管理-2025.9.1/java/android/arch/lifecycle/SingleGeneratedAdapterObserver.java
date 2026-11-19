@@ -1,7 +1,7 @@
 package android.arch.lifecycle;
 
 import android.support.annotation.RestrictTo;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.GeneratedAdapter;
 import com.huawei.hem.LifecycleOwner;
 
@@ -18,7 +18,7 @@ public class SingleGeneratedAdapterObserver implements GenericLifecycleObserver 
 
     @Override // android.arch.lifecycle.GenericLifecycleObserver
     /* renamed from: d */
-    public void mo0d(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) {
+    public void mo0d(LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar) {
         this.f13a.m1844a(interfaceC1042j, aVar, false, null);
         this.f13a.m1844a(interfaceC1042j, aVar, true, null);
     }

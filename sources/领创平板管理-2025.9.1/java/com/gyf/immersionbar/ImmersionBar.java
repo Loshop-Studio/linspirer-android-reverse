@@ -59,7 +59,7 @@ public final class ImmersionBar implements ImmersionCallback {
     public Window mWindow;
 
     /* renamed from: com.gyf.immersionbar.ImmersionBar$2 */
-    public static /* synthetic */ class C08062 {
+    public static /* synthetic */ class ImmersionBarHideSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$gyf$immersionbar$BarHide;
 
         static {
@@ -564,12 +564,12 @@ public final class ImmersionBar implements ImmersionCallback {
         }
         for (View view : viewArr) {
             if (view != null) {
-                Integer num = (Integer) view.getTag(C0808R.id.immersion_fits_layout_overlap);
+                Integer num = (Integer) view.getTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap);
                 if (num == null) {
                     num = 0;
                 }
                 if (num.intValue() != i) {
-                    view.setTag(C0808R.id.immersion_fits_layout_overlap, Integer.valueOf(i));
+                    view.setTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap, Integer.valueOf(i));
                     ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                     if (layoutParams == null) {
                         layoutParams = new ViewGroup.LayoutParams(-1, 0);
@@ -590,12 +590,12 @@ public final class ImmersionBar implements ImmersionCallback {
         }
         for (final View view : viewArr) {
             if (view != null) {
-                final Integer num = (Integer) view.getTag(C0808R.id.immersion_fits_layout_overlap);
+                final Integer num = (Integer) view.getTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap);
                 if (num == null) {
                     num = 0;
                 }
                 if (num.intValue() != i) {
-                    view.setTag(C0808R.id.immersion_fits_layout_overlap, Integer.valueOf(i));
+                    view.setTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap, Integer.valueOf(i));
                     final ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                     if (layoutParams == null) {
                         layoutParams = new ViewGroup.LayoutParams(-1, -2);
@@ -630,12 +630,12 @@ public final class ImmersionBar implements ImmersionCallback {
         }
         for (View view : viewArr) {
             if (view != null) {
-                Integer num = (Integer) view.getTag(C0808R.id.immersion_fits_layout_overlap);
+                Integer num = (Integer) view.getTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap);
                 if (num == null) {
                     num = 0;
                 }
                 if (num.intValue() != i) {
-                    view.setTag(C0808R.id.immersion_fits_layout_overlap, Integer.valueOf(i));
+                    view.setTag(GyfImmersionbarResources.id.immersion_fits_layout_overlap, Integer.valueOf(i));
                     ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                     if (layoutParams == null) {
                         layoutParams = new ViewGroup.MarginLayoutParams(-1, -2);

@@ -19,7 +19,7 @@ import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.LauncherDeviceUtils;
-import com.huawei.hem.C1395x1;
+import com.huawei.hem.LauncherConstants;
 import com.huawei.hem.LauncherMenuHelper;
 import com.huawei.hem.UserInfoUtil;
 import com.huawei.hem.DeviceManagementInterface;
@@ -49,11 +49,11 @@ public class LockActivity extends BaseActivity {
     public int f1757g = 1;
 
     /* renamed from: h */
-    public BroadcastReceiver f1758h = new C0638a();
+    public BroadcastReceiver f1758h = new LockActivityCloseReceiver();
 
     /* renamed from: com.android.launcher3.activity.LockActivity$a */
-    public class C0638a extends BroadcastReceiver {
-        public C0638a() {
+    public class LockActivityCloseReceiver extends BroadcastReceiver {
+        public LockActivityCloseReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -178,7 +178,7 @@ public class LockActivity extends BaseActivity {
             LTKDateUtil.m1413w(this, getResources().getString(R.string.input_admin_pwd_error), 0);
             return;
         }
-        C1395x1.f4040c = -1;
+        LauncherConstants.f4040c = -1;
         this.f1755e.m3039d0(10000, false);
         m1200f();
         finish();

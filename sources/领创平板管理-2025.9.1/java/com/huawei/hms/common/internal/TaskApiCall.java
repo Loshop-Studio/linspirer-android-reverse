@@ -1,8 +1,8 @@
 package com.huawei.hms.common.internal;
 
 import android.os.Parcelable;
-import com.huawei.hem.AbstractC1326u7;
-import com.huawei.hem.C1401x7;
+import com.huawei.hem.HmsTaskApiCallBase;
+import com.huawei.hem.HmsTaskRegistry;
 import com.huawei.hms.common.internal.AnyClient;
 
 /* loaded from: classes.dex */
@@ -12,7 +12,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
     public final String mRequestJson;
     public final String mUri;
     public Parcelable parcelable;
-    public AbstractC1326u7 token;
+    public HmsTaskApiCallBase token;
     public String transactionId;
 
     @Deprecated
@@ -24,7 +24,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         this.transactionId = null;
     }
 
-    public abstract void doExecute(ClientT clientt, ResponseErrorCode responseErrorCode, String str, C1401x7<ResultT> c1401x7);
+    public abstract void doExecute(ClientT clientt, ResponseErrorCode responseErrorCode, String str, HmsTaskRegistry<ResultT> c1401x7);
 
     public int getApiLevel() {
         return this.apiLevel;
@@ -43,7 +43,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         return this.mRequestJson;
     }
 
-    public AbstractC1326u7 getToken() {
+    public HmsTaskApiCallBase getToken() {
         return null;
     }
 
@@ -55,7 +55,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         return this.mUri;
     }
 
-    public final void onResponse(ClientT clientt, ResponseErrorCode responseErrorCode, String str, C1401x7<ResultT> c1401x7) {
+    public final void onResponse(ClientT clientt, ResponseErrorCode responseErrorCode, String str, HmsTaskRegistry<ResultT> c1401x7) {
         doExecute(clientt, responseErrorCode, str, c1401x7);
     }
 
@@ -67,7 +67,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         this.parcelable = parcelable;
     }
 
-    public void setToken(AbstractC1326u7 abstractC1326u7) {
+    public void setToken(HmsTaskApiCallBase abstractC1326u7) {
         this.token = abstractC1326u7;
     }
 

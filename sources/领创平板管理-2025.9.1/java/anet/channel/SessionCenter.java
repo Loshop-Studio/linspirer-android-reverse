@@ -5,20 +5,20 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.LruCache;
 import anet.channel.Config;
-import anet.channel.detect.C0337n;
-import anet.channel.entity.C0348c;
+import anet.channel.detect.AwcnNetworkDetector;
+import anet.channel.entity.SessionTypeFlags;
 import anet.channel.entity.ConnType;
 import anet.channel.entity.ENV;
-import anet.channel.p006e.C0339a;
+import anet.channel.p006e.ConnectionProtocolDetector;
 import anet.channel.status.NetworkStatusHelper;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import anet.channel.strategy.ConnProtocol;
 import anet.channel.strategy.IStrategyListener;
 import anet.channel.strategy.StrategyCenter;
 import anet.channel.strategy.dispatch.AmdcRuntimeInfo;
 import anet.channel.util.ALog;
 import anet.channel.util.AppLifecycle;
-import anet.channel.util.C0428i;
+import anet.channel.util.SessionSequenceGenerator;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpUrl;
 import anet.channel.util.StringUtils;
@@ -60,16 +60,16 @@ public class SessionCenter {
     public final AccsSessionManager f129h;
 
     /* renamed from: e */
-    public final C0338e f126e = new C0338e();
+    public final SessionPool f126e = new SessionPool();
 
     /* renamed from: f */
     public final LruCache<String, SessionRequest> f127f = new LruCache<>(32);
 
     /* renamed from: g */
-    public final C0318c f128g = new C0318c();
+    public final SessionInfoRegistry f128g = new SessionInfoRegistry();
 
     /* renamed from: i */
-    public final C0303a f130i = new C0303a(this, null);
+    public final SessionCenterEnvironmentListener f130i = new SessionCenterEnvironmentListener(this, null);
 
     /* renamed from: b */
     public Context f123b = GlobalAppRuntimeInfo.getContext();
@@ -82,7 +82,7 @@ public class SessionCenter {
         if (config.getAppkey().equals("[default]")) {
             return;
         }
-        AmdcRuntimeInfo.setSign(new C0321d(this, config.getAppkey(), config.getSecurity()));
+        AmdcRuntimeInfo.setSign(new SessionAmdcSigner(this, config.getAppkey(), config.getSecurity()));
     }
 
     public static void checkAndStartAccsSession() {
@@ -115,8 +115,8 @@ public class SessionCenter {
                 StrategyCenter.getInstance().initialize(GlobalAppRuntimeInfo.getContext());
             }
             if (GlobalAppRuntimeInfo.isTargetProcess()) {
-                C0337n.m106a();
-                C0339a.m116a();
+                AwcnNetworkDetector.m106a();
+                ConnectionProtocolDetector.m116a();
             }
             f122j = true;
         }
@@ -177,7 +177,7 @@ public class SessionCenter {
         objArr[0] = "u";
         objArr[1] = httpUrl.urlString();
         objArr[2] = "sessionType";
-        objArr[3] = i == C0348c.f255a ? "LongLink" : "ShortLink";
+        objArr[3] = i == SessionTypeFlags.f255a ? "LongLink" : "ShortLink";
         objArr[4] = "timeout";
         objArr[5] = Long.valueOf(j);
         ALog.m337d(TAG, "getInternal", str, objArr);
@@ -188,15 +188,15 @@ public class SessionCenter {
             sessionGetCallback.onSessionGetSuccess(sessionM108a);
             return;
         }
-        if (this.f125d == Config.DEFAULT_CONFIG && i != C0348c.f256b) {
+        if (this.f125d == Config.DEFAULT_CONFIG && i != SessionTypeFlags.f256b) {
             sessionGetCallback.onSessionGetFail();
             return;
         }
-        if (GlobalAppRuntimeInfo.isAppBackground() && i == C0348c.f255a && AwcnConfig.isAccsSessionCreateForbiddenInBg() && (sessionInfoM77b = this.f128g.m77b(httpUrl.host())) != null && sessionInfoM77b.isAccs) {
+        if (GlobalAppRuntimeInfo.isAppBackground() && i == SessionTypeFlags.f255a && AwcnConfig.isAccsSessionCreateForbiddenInBg() && (sessionInfoM77b = this.f128g.m77b(httpUrl.host())) != null && sessionInfoM77b.isAccs) {
             ALog.m342w(TAG, "app background, forbid to create accs session", this.f124c, new Object[0]);
             throw new ConnectException("accs session connecting forbidden in background");
         }
-        sessionRequestM35a.m62b(this.f123b, i, C0428i.m364a(this.f124c), sessionGetCallback, j);
+        sessionRequestM35a.m62b(this.f123b, i, SessionSequenceGenerator.m364a(this.f124c), sessionGetCallback, j);
     }
 
     @Deprecated
@@ -214,11 +214,11 @@ public class SessionCenter {
     }
 
     public Session get(String str, long j) {
-        return get(HttpUrl.parse(str), C0348c.f257c, j);
+        return get(HttpUrl.parse(str), SessionTypeFlags.f257c, j);
     }
 
     public Session getThrowsException(String str, long j) {
-        return m41a(HttpUrl.parse(str), C0348c.f257c, j, null);
+        return m41a(HttpUrl.parse(str), SessionTypeFlags.f257c, j, null);
     }
 
     public void registerAccsSessionListener(ISessionListener iSessionListener) {
@@ -255,12 +255,12 @@ public class SessionCenter {
 
     /* compiled from: Taobao */
     /* renamed from: anet.channel.SessionCenter$a */
-    public class C0303a implements NetworkStatusHelper.INetworkStatusChangeListener, IStrategyListener, AppLifecycle.AppLifecycleListener {
+    public class SessionCenterEnvironmentListener implements NetworkStatusHelper.INetworkStatusChangeListener, IStrategyListener, AppLifecycle.AppLifecycleListener {
 
         /* renamed from: a */
         public boolean f131a;
 
-        public C0303a() {
+        public SessionCenterEnvironmentListener() {
             this.f131a = false;
         }
 
@@ -337,24 +337,24 @@ public class SessionCenter {
         }
 
         @Override // anet.channel.strategy.IStrategyListener
-        public void onStrategyUpdated(C0407l.d dVar) {
+        public void onStrategyUpdated(AmdcStrategyResultParser.d dVar) {
             SessionCenter.this.m38a(dVar);
             SessionCenter.this.f129h.checkAndStartSession();
         }
 
-        public /* synthetic */ C0303a(SessionCenter sessionCenter, C0321d c0321d) {
+        public /* synthetic */ SessionCenterEnvironmentListener(SessionCenter sessionCenter, SessionAmdcSigner c0321d) {
             this();
         }
     }
 
     @Deprecated
     public Session get(String str, ConnType.TypeLevel typeLevel, long j) {
-        return get(HttpUrl.parse(str), typeLevel == ConnType.TypeLevel.SPDY ? C0348c.f255a : C0348c.f256b, j);
+        return get(HttpUrl.parse(str), typeLevel == ConnType.TypeLevel.SPDY ? SessionTypeFlags.f255a : SessionTypeFlags.f256b, j);
     }
 
     @Deprecated
     public Session getThrowsException(String str, ConnType.TypeLevel typeLevel, long j) {
-        return m41a(HttpUrl.parse(str), typeLevel == ConnType.TypeLevel.SPDY ? C0348c.f255a : C0348c.f256b, j, null);
+        return m41a(HttpUrl.parse(str), typeLevel == ConnType.TypeLevel.SPDY ? SessionTypeFlags.f255a : SessionTypeFlags.f256b, j, null);
     }
 
     /* renamed from: a */
@@ -372,7 +372,7 @@ public class SessionCenter {
 
     @Deprecated
     public Session get(HttpUrl httpUrl, ConnType.TypeLevel typeLevel, long j) {
-        return get(httpUrl, typeLevel == ConnType.TypeLevel.SPDY ? C0348c.f255a : C0348c.f256b, j);
+        return get(httpUrl, typeLevel == ConnType.TypeLevel.SPDY ? SessionTypeFlags.f255a : SessionTypeFlags.f256b, j);
     }
 
     public Session getThrowsException(HttpUrl httpUrl, int i, long j) {
@@ -424,7 +424,7 @@ public class SessionCenter {
 
     @Deprecated
     public Session getThrowsException(HttpUrl httpUrl, ConnType.TypeLevel typeLevel, long j) {
-        return m41a(httpUrl, typeLevel == ConnType.TypeLevel.SPDY ? C0348c.f255a : C0348c.f256b, j, null);
+        return m41a(httpUrl, typeLevel == ConnType.TypeLevel.SPDY ? SessionTypeFlags.f255a : SessionTypeFlags.f256b, j, null);
     }
 
     /* renamed from: a */
@@ -440,7 +440,7 @@ public class SessionCenter {
             objArr[0] = "u";
             objArr[1] = httpUrl.urlString();
             objArr[2] = "sessionType";
-            objArr[3] = i == C0348c.f255a ? "LongLink" : "ShortLink";
+            objArr[3] = i == SessionTypeFlags.f255a ? "LongLink" : "ShortLink";
             objArr[4] = "timeout";
             objArr[5] = Long.valueOf(j);
             ALog.m337d(TAG, "getInternal", str, objArr);
@@ -449,19 +449,19 @@ public class SessionCenter {
             if (sessionM108a != null) {
                 ALog.m337d(TAG, "get internal hit cache session", this.f124c, "session", sessionM108a);
             } else {
-                if (this.f125d == Config.DEFAULT_CONFIG && i != C0348c.f256b) {
+                if (this.f125d == Config.DEFAULT_CONFIG && i != SessionTypeFlags.f256b) {
                     if (sessionGetCallback == null) {
                         return null;
                     }
                     sessionGetCallback.onSessionGetFail();
                     return null;
                 }
-                if (GlobalAppRuntimeInfo.isAppBackground() && i == C0348c.f255a && AwcnConfig.isAccsSessionCreateForbiddenInBg() && (sessionInfoM77b = this.f128g.m77b(httpUrl.host())) != null && sessionInfoM77b.isAccs) {
+                if (GlobalAppRuntimeInfo.isAppBackground() && i == SessionTypeFlags.f255a && AwcnConfig.isAccsSessionCreateForbiddenInBg() && (sessionInfoM77b = this.f128g.m77b(httpUrl.host())) != null && sessionInfoM77b.isAccs) {
                     ALog.m342w(TAG, "app background, forbid to create accs session", this.f124c, new Object[0]);
                     throw new ConnectException("accs session connecting forbidden in background");
                 }
-                sessionRequestM35a.m55a(this.f123b, i, C0428i.m364a(this.f124c), sessionGetCallback, j);
-                if (sessionGetCallback == null && j > 0 && (i == C0348c.f257c || sessionRequestM35a.m61b() == i)) {
+                sessionRequestM35a.m55a(this.f123b, i, SessionSequenceGenerator.m364a(this.f124c), sessionGetCallback, j);
+                if (sessionGetCallback == null && j > 0 && (i == SessionTypeFlags.f257c || sessionRequestM35a.m61b() == i)) {
                     sessionRequestM35a.m54a(j);
                     sessionM108a = this.f126e.m108a(sessionRequestM35a, i);
                     if (sessionM108a == null) {
@@ -510,11 +510,11 @@ public class SessionCenter {
     }
 
     /* renamed from: b */
-    private void m40b(C0407l.b bVar) {
+    private void m40b(AmdcStrategyResultParser.b bVar) {
         boolean z;
         boolean z2;
         ALog.m340i(TAG, "find effectNow", this.f124c, Constants.KEY_HOST, bVar.f529a);
-        C0407l.a[] aVarArr = bVar.f536h;
+        AmdcStrategyResultParser.a[] aVarArr = bVar.f536h;
         String[] strArr = bVar.f534f;
         for (Session session : this.f126e.m110a(m42a(StringUtils.buildKey(bVar.f531c, bVar.f529a)))) {
             if (!session.getConnType().isHttpType()) {
@@ -579,9 +579,9 @@ public class SessionCenter {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public void m38a(C0407l.d dVar) {
+    public void m38a(AmdcStrategyResultParser.d dVar) {
         try {
-            for (C0407l.b bVar : dVar.f544b) {
+            for (AmdcStrategyResultParser.b bVar : dVar.f544b) {
                 if (bVar.f539k) {
                     m40b(bVar);
                 }
@@ -595,7 +595,7 @@ public class SessionCenter {
     }
 
     /* renamed from: a */
-    private void m37a(C0407l.b bVar) {
+    private void m37a(AmdcStrategyResultParser.b bVar) {
         for (Session session : this.f126e.m110a(m42a(StringUtils.buildKey(bVar.f531c, bVar.f529a)))) {
             if (!StringUtils.isStringEqual(session.f106l, bVar.f533e)) {
                 ALog.m340i(TAG, "unit change", session.f110p, "session unit", session.f106l, "unit", bVar.f533e);

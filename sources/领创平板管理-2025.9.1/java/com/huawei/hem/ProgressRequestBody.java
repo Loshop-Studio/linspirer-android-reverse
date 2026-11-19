@@ -3,13 +3,13 @@ package com.huawei.hem;
 /* compiled from: ProgressRequestBody.java */
 /* renamed from: com.huawei.hem.zb */
 /* loaded from: classes.dex */
-public class ProgressRequestBody extends AbstractC1063jk {
+public class ProgressRequestBody extends OkHttpRequestBody {
 
     /* renamed from: a */
     public IResponseHandler f4294a;
 
     /* renamed from: b */
-    public AbstractC1063jk f4295b;
+    public OkHttpRequestBody f4295b;
 
     /* renamed from: c */
     public a f4296c;
@@ -43,7 +43,7 @@ public class ProgressRequestBody extends AbstractC1063jk {
         }
     }
 
-    public ProgressRequestBody(AbstractC1063jk abstractC1063jk, IResponseHandler interfaceC1430yb) {
+    public ProgressRequestBody(OkHttpRequestBody abstractC1063jk, IResponseHandler interfaceC1430yb) {
         this.f4294a = interfaceC1430yb;
         this.f4295b = abstractC1063jk;
     }
@@ -65,7 +65,7 @@ public class ProgressRequestBody extends AbstractC1063jk {
     public void mo1536e(BufferedSink interfaceC1041in) {
         a aVar = new a(interfaceC1041in);
         this.f4296c = aVar;
-        BufferedSink interfaceC1041inM2669a = C1267rn.m2669a(aVar);
+        BufferedSink interfaceC1041inM2669a = OkioStreamFactory.m2669a(aVar);
         this.f4295b.mo1536e(interfaceC1041inM2669a);
         ((RealBufferedSink) interfaceC1041inM2669a).flush();
     }

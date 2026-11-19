@@ -1,7 +1,7 @@
 package com.huawei.hem;
 
 import anet.channel.request.Request;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import com.huawei.hem.OkHttpUrl;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -20,11 +20,11 @@ public final class OkHttpRequest {
     public final String f2786b;
 
     /* renamed from: c */
-    public final C1438yj f2787c;
+    public final OkHttpHeaderList f2787c;
 
     /* renamed from: d */
     @Nullable
-    public final AbstractC1063jk f2788d;
+    public final OkHttpRequestBody f2788d;
 
     /* renamed from: e */
     public final Map<Class<?>, Object> f2789e;
@@ -36,13 +36,13 @@ public final class OkHttpRequest {
     public OkHttpRequest(a aVar) {
         this.f2785a = aVar.f2791a;
         this.f2786b = aVar.f2792b;
-        C1438yj.a aVar2 = aVar.f2793c;
+        OkHttpHeaderList.a aVar2 = aVar.f2793c;
         if (aVar2 == null) {
             throw null;
         }
-        this.f2787c = new C1438yj(aVar2);
+        this.f2787c = new OkHttpHeaderList(aVar2);
         this.f2788d = aVar.f2794d;
-        this.f2789e = C1314tk.m2761p(aVar.f2795e);
+        this.f2789e = OkHttpCommonUtilities.m2761p(aVar.f2795e);
     }
 
     /* renamed from: a */
@@ -79,11 +79,11 @@ public final class OkHttpRequest {
         public String f2792b;
 
         /* renamed from: c */
-        public C1438yj.a f2793c;
+        public OkHttpHeaderList.a f2793c;
 
         /* renamed from: d */
         @Nullable
-        public AbstractC1063jk f2794d;
+        public OkHttpRequestBody f2794d;
 
         /* renamed from: e */
         public Map<Class<?>, Object> f2795e;
@@ -91,7 +91,7 @@ public final class OkHttpRequest {
         public a() {
             this.f2795e = Collections.emptyMap();
             this.f2792b = "GET";
-            this.f2793c = new C1438yj.a();
+            this.f2793c = new OkHttpHeaderList.a();
         }
 
         /* renamed from: a */
@@ -104,12 +104,12 @@ public final class OkHttpRequest {
 
         /* renamed from: b */
         public a m1878b(String str, String str2) {
-            C1438yj.a aVar = this.f2793c;
+            OkHttpHeaderList.a aVar = this.f2793c;
             if (aVar == null) {
                 throw null;
             }
-            C1438yj.m3107a(str);
-            C1438yj.m3108b(str2, str);
+            OkHttpHeaderList.m3107a(str);
+            OkHttpHeaderList.m3108b(str2, str);
             aVar.m3116b(str);
             aVar.f4230a.add(str);
             aVar.f4230a.add(str2.trim());
@@ -117,11 +117,11 @@ public final class OkHttpRequest {
         }
 
         /* renamed from: c */
-        public a m1879c(String str, @Nullable AbstractC1063jk abstractC1063jk) {
+        public a m1879c(String str, @Nullable OkHttpRequestBody abstractC1063jk) {
             if (str.length() == 0) {
                 throw new IllegalArgumentException("method.length() == 0");
             }
-            if (abstractC1063jk != null && !C1339uk.m2815a(str)) {
+            if (abstractC1063jk != null && !OkHttpVersionInfo.m2815a(str)) {
                 throw new IllegalArgumentException(CompilerOutline.m1761f("method ", str, " must not have a request body."));
             }
             if (abstractC1063jk == null) {

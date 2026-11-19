@@ -18,7 +18,7 @@ public final class Util {
     public static final char[] SHA_1_CHARS = new char[40];
 
     /* renamed from: com.bumptech.glide.util.Util$1 */
-    public static /* synthetic */ class C07781 {
+    public static /* synthetic */ class GlideBitmapSizeConfigSwitch {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 
         static {
@@ -83,7 +83,7 @@ public final class Util {
         if (config == null) {
             config = Bitmap.Config.ARGB_8888;
         }
-        int i = C07781.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+        int i = GlideBitmapSizeConfigSwitch.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
         if (i != 1) {
             return (i == 2 || i == 3) ? 2 : 4;
         }

@@ -2,7 +2,7 @@
 import argparse
 import fcntl
 import os
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 import re
@@ -25,11 +25,12 @@ def read_map(path):
             row = MAP_ROW.fullmatch(line)
             if row is None or old is None:
                 raise ValueError('Invalid class mapping: ' + line)
-            package, _, alias = old.rpartition('.')
-            new_package, _, new = row[1].rpartition('.')
-            if alias in mapping or package != new_package:
-                raise ValueError('Duplicate alias or unexpected package change: ' + old)
-            mapping[alias] = (package, new, row[2])
+            separator = '$' if '$' in row[2] else '.'
+            owner, sep, alias = old.rpartition(separator)
+            new_owner, _, new = row[1].rpartition(separator)
+            if not sep or alias in mapping or owner != new_owner:
+                raise ValueError('Duplicate alias or unexpected owner change: ' + old)
+            mapping[alias] = (owner, new, row[2])
             old = None
     if old is not None or not mapping:
         raise ValueError('Incomplete or empty map')
@@ -60,18 +61,28 @@ def apply_locked(root, app, sources):
     java = sources / 'java'
     mapping = read_map(sources / 'class-names.map')
     names = {old: new for old, (_, new, _) in mapping.items()}
-    reverse = {v: k for k, v in names.items()}
     renamed = {}
-    declarations = {}
+    declarations = defaultdict(list)
+    owners = {}
     for old, (package, new, raw) in mapping.items():
+        if '$' in raw:
+            continue
         directory = java.joinpath(*package.split('.'))
         before, after = directory / (old + '.java'), directory / (new + '.java')
         if before.is_file() == after.is_file():
             raise ValueError('Expected exactly one source for ' + raw)
         current = before if before.is_file() else after
-        declarations[current] = (raw, new)
+        declarations[current].append((raw, new))
+        owners[package + '.' + new] = current
         if current == before:
             renamed[before] = after
+    for owner, new, raw in mapping.values():
+        if '$' in raw:
+            top = owner.split('$', 1)[0]
+            path = owners.get(top, java.joinpath(*top.split('.')).with_suffix('.java'))
+            if not path.is_file():
+                raise ValueError('Missing outer class for ' + raw)
+            declarations[path].append((raw, new))
     report = root / 'reports' / 'apps' / app / 'java-fallbacks.md'
     original_report = report.read_bytes()
     new_report = JAVA_LINK.sub(lambda m: names.get(m[0], m[0]),
@@ -80,15 +91,26 @@ def apply_locked(root, app, sources):
     for path in sorted(java.rglob('*.java')):
         data = path.read_bytes()
         source = data.decode('utf-8')
-        text = rewrite(source, names)
-        if path in declarations:
-            raw, new = declarations[path]
-            if not re.search(r'^/\* renamed from: ' + re.escape(raw) + r'[, *]', text, re.M):
+        # A checkout can already contain aliases from an earlier version of the
+        # map. Reverse only the substitutions made in this compilation unit.
+        applied = {}
+
+        def replace(match):
+            old = match[0]
+            if old not in names:
+                return old
+            new = names[old]
+            applied[new] = old
+            return new
+
+        text = TOKEN.sub(replace, source)
+        for raw, new in declarations.get(path, ()):
+            if not re.search(r'^[ \t]*/\* (?:JADX INFO: )?renamed from: ' + re.escape(raw) + r'[, *]', text, re.M):
                 raise ValueError('Original DEX name differs in ' + str(path))
             if not re.search(r'\b(?:class|interface|enum) ' + re.escape(new) + r'\b', text):
                 raise ValueError('Missing semantic class declaration in ' + str(path))
         if source != text:
-            if rewrite(text, reverse).encode('utf-8') != data:
+            if rewrite(text, applied).encode('utf-8') != data:
                 raise ValueError('Identifier collision in ' + str(path))
             edits.append((path, data, text.encode('utf-8')))
     for path, data, text in edits:

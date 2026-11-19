@@ -3,7 +3,7 @@ package anet.channel;
 import android.text.TextUtils;
 import anet.channel.strategy.ConnProtocol;
 import anet.channel.strategy.StrategyTemplate;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.util.ALog;
 import com.taobao.accs.common.Constants;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -203,7 +203,7 @@ public class AwcnConfig {
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     String string = jSONObject.getString(Constants.KEY_HOST);
-                    if (!C0413c.m333c(string)) {
+                    if (!AmdcStringEncoding.m333c(string)) {
                         return;
                     }
                     StrategyTemplate.getInstance().registerConnProtocol(string, ConnProtocol.valueOf(jSONObject.getString("protocol"), jSONObject.getString("rtt"), jSONObject.getString("publicKey")));

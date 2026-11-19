@@ -18,7 +18,7 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import com.google.zxing.client.android.C0787R;
+import com.google.zxing.client.android.ZxingClientAndroidResources;
 import com.journeyapps.barcodescanner.camera.CameraInstance;
 import com.journeyapps.barcodescanner.camera.CameraSettings;
 import com.journeyapps.barcodescanner.camera.CameraSurface;
@@ -111,12 +111,12 @@ public class CameraPreview extends ViewGroup {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i = message.what;
-                if (i == C0787R.id.zxing_prewiew_size_ready) {
+                if (i == ZxingClientAndroidResources.id.zxing_prewiew_size_ready) {
                     CameraPreview.this.previewSized((Size) message.obj);
                     return true;
                 }
-                if (i != C0787R.id.zxing_camera_error) {
-                    if (i != C0787R.id.zxing_camera_closed) {
+                if (i != ZxingClientAndroidResources.id.zxing_camera_error) {
+                    if (i != ZxingClientAndroidResources.id.zxing_camera_closed) {
                         return false;
                     }
                     CameraPreview.this.fireState.cameraClosed();
@@ -426,14 +426,14 @@ public class CameraPreview extends ViewGroup {
     }
 
     public void initializeAttributes(AttributeSet attributeSet) {
-        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, C0787R.styleable.zxing_camera_preview);
-        int dimension = (int) typedArrayObtainStyledAttributes.getDimension(C0787R.styleable.zxing_camera_preview_zxing_framing_rect_width, -1.0f);
-        int dimension2 = (int) typedArrayObtainStyledAttributes.getDimension(C0787R.styleable.zxing_camera_preview_zxing_framing_rect_height, -1.0f);
+        TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ZxingClientAndroidResources.styleable.zxing_camera_preview);
+        int dimension = (int) typedArrayObtainStyledAttributes.getDimension(ZxingClientAndroidResources.styleable.zxing_camera_preview_zxing_framing_rect_width, -1.0f);
+        int dimension2 = (int) typedArrayObtainStyledAttributes.getDimension(ZxingClientAndroidResources.styleable.zxing_camera_preview_zxing_framing_rect_height, -1.0f);
         if (dimension > 0 && dimension2 > 0) {
             this.framingRectSize = new Size(dimension, dimension2);
         }
-        this.useTextureView = typedArrayObtainStyledAttributes.getBoolean(C0787R.styleable.zxing_camera_preview_zxing_use_texture_view, true);
-        int integer = typedArrayObtainStyledAttributes.getInteger(C0787R.styleable.zxing_camera_preview_zxing_preview_scaling_strategy, -1);
+        this.useTextureView = typedArrayObtainStyledAttributes.getBoolean(ZxingClientAndroidResources.styleable.zxing_camera_preview_zxing_use_texture_view, true);
+        int integer = typedArrayObtainStyledAttributes.getInteger(ZxingClientAndroidResources.styleable.zxing_camera_preview_zxing_preview_scaling_strategy, -1);
         if (integer == 1) {
             this.previewScalingStrategy = new CenterCropStrategy();
         } else if (integer == 2) {
@@ -520,7 +520,7 @@ public class CameraPreview extends ViewGroup {
             this.cameraInstance = null;
             this.previewActive = false;
         } else {
-            this.stateHandler.sendEmptyMessage(C0787R.id.zxing_camera_closed);
+            this.stateHandler.sendEmptyMessage(ZxingClientAndroidResources.id.zxing_camera_closed);
         }
         if (this.currentSurfaceSize == null && (surfaceView = this.surfaceView) != null) {
             surfaceView.getHolder().removeCallback(this.surfaceCallback);
@@ -644,12 +644,12 @@ public class CameraPreview extends ViewGroup {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i = message.what;
-                if (i == C0787R.id.zxing_prewiew_size_ready) {
+                if (i == ZxingClientAndroidResources.id.zxing_prewiew_size_ready) {
                     CameraPreview.this.previewSized((Size) message.obj);
                     return true;
                 }
-                if (i != C0787R.id.zxing_camera_error) {
-                    if (i != C0787R.id.zxing_camera_closed) {
+                if (i != ZxingClientAndroidResources.id.zxing_camera_error) {
+                    if (i != ZxingClientAndroidResources.id.zxing_camera_closed) {
                         return false;
                     }
                     CameraPreview.this.fireState.cameraClosed();
@@ -756,12 +756,12 @@ public class CameraPreview extends ViewGroup {
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i2 = message.what;
-                if (i2 == C0787R.id.zxing_prewiew_size_ready) {
+                if (i2 == ZxingClientAndroidResources.id.zxing_prewiew_size_ready) {
                     CameraPreview.this.previewSized((Size) message.obj);
                     return true;
                 }
-                if (i2 != C0787R.id.zxing_camera_error) {
-                    if (i2 != C0787R.id.zxing_camera_closed) {
+                if (i2 != ZxingClientAndroidResources.id.zxing_camera_error) {
+                    if (i2 != ZxingClientAndroidResources.id.zxing_camera_closed) {
                         return false;
                     }
                     CameraPreview.this.fireState.cameraClosed();

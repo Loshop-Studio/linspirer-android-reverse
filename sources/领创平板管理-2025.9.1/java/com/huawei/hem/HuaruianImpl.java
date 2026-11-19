@@ -33,7 +33,7 @@ public class HuaruianImpl extends AndroidImpl {
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             LTKDateUtil.m1403m("HuaruianImpl  -- actionEnableApp");
@@ -1095,7 +1095,7 @@ public class HuaruianImpl extends AndroidImpl {
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             LTKDateUtil.m1403m("HuaruianImpl disable apps:" + list.toString());

@@ -242,7 +242,7 @@ public final class Exchange {
         try {
             OkHttpResponse.a aVarMo2145g = this.f2470e.mo2145g(z);
             if (aVarMo2145g != null) {
-                if (((OkHttpClient.a) AbstractC1264rk.f3645a) == null) {
+                if (((OkHttpClient.a) OkHttpInternalAccess.f3645a) == null) {
                     throw null;
                 }
                 aVarMo2145g.f3117m = this;

@@ -39,7 +39,7 @@ public class BaseFragmentDialogButtonListener implements CommonDialog.DialogButt
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ItemApp itemApp = (ItemApp) it.next();
-            File file = new File(C1395x1.f4038a + itemApp.getPackagename() + ".apk");
+            File file = new File(LauncherConstants.f4038a + itemApp.getPackagename() + ".apk");
             StringBuilder sb = new StringBuilder();
             sb.append(itemApp.getPath());
             sb.append(LauncherDeviceUtils.m1593j(baseFragment.f1800a));

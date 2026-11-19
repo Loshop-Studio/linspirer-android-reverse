@@ -4,14 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.huawei.hem.C1219q0;
-import com.huawei.hem.InterfaceC1093l0;
-import com.huawei.hem.InterfaceC1119m0;
+import com.huawei.hem.AgooNotificationHandler;
+import com.huawei.hem.AgooMessageCallbacks;
+import com.huawei.hem.AgooNotificationCustomizer;
 import com.taobao.accs.utl.ALog;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
-public abstract class AgooMessageReceiver extends BroadcastReceiver implements InterfaceC1093l0, InterfaceC1119m0 {
+public abstract class AgooMessageReceiver extends BroadcastReceiver implements AgooMessageCallbacks, AgooNotificationCustomizer {
     public static final String EXTRA_MAP = "extraMap";
     public static final String MESSAGE_ID = "messageId";
     public static final String NOTIFICATION_ID = "notificationId";
@@ -31,11 +31,11 @@ public abstract class AgooMessageReceiver extends BroadcastReceiver implements I
         }
         try {
             if (TextUtils.equals("com.alibaba.sdk.android.push.RECEIVE", action)) {
-                C1219q0.m2511g(context, intent, this, this);
+                AgooNotificationHandler.m2511g(context, intent, this, this);
             } else if (TextUtils.equals(NOTIFICATION_OPENED_ACTION, action)) {
-                C1219q0.m2510f(context, intent, this);
+                AgooNotificationHandler.m2510f(context, intent, this);
             } else if (TextUtils.equals(NOTIFICATION_REMOVED_ACTION, action)) {
-                C1219q0.m2518n(context, intent, this);
+                AgooNotificationHandler.m2518n(context, intent, this);
             } else if (TextUtils.equals(action, "android.net.conn.CONNECTIVITY_CHANGE") || TextUtils.equals(action, "android.intent.action.BOOT_COMPLETED") || TextUtils.equals(action, "android.intent.action.PACKAGE_ADDED") || TextUtils.equals(action, "android.intent.action.PACKAGE_REPLACED") || TextUtils.equals(action, "android.intent.action.USER_PRESENT") || TextUtils.equals(action, "android.intent.action.ACTION_POWER_CONNECTED") || TextUtils.equals(action, "android.intent.action.ACTION_POWER_DISCONNECTED")) {
                 ALog.m5726d(TAG, "USER ACTION: " + action, new Object[0]);
             }

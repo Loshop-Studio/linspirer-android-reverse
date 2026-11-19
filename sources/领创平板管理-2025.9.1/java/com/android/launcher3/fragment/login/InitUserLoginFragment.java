@@ -24,11 +24,11 @@ public class InitUserLoginFragment extends BaseLoginFragment {
     public ISVCustomer f2027r;
 
     /* renamed from: s */
-    public BroadcastReceiver f2028s = new C0665a();
+    public BroadcastReceiver f2028s = new UserLoginCompletionReceiver();
 
     /* renamed from: com.android.launcher3.fragment.login.InitUserLoginFragment$a */
-    public class C0665a extends BroadcastReceiver {
-        public C0665a() {
+    public class UserLoginCompletionReceiver extends BroadcastReceiver {
+        public UserLoginCompletionReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver

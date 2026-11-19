@@ -11,7 +11,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.view.TintableBackgroundView;
 import android.support.v4.widget.AutoSizeableTextView;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.accessibility.AccessibilityEvent;
@@ -264,7 +264,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     public AppCompatButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.buttonStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.buttonStyle);
     }
 
     public AppCompatButton(Context context, AttributeSet attributeSet, int i) {

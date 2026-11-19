@@ -1,7 +1,7 @@
 package anet.channel.strategy;
 
 import android.text.TextUtils;
-import anet.channel.strategy.C0407l;
+import anet.channel.strategy.AmdcStrategyResultParser;
 import java.io.Serializable;
 
 /* compiled from: Taobao */
@@ -43,7 +43,7 @@ public class IPConnStrategy implements IConnStrategy, Serializable {
     }
 
     /* renamed from: a */
-    public static IPConnStrategy m256a(String str, C0407l.a aVar) {
+    public static IPConnStrategy m256a(String str, AmdcStrategyResultParser.a aVar) {
         ConnProtocol connProtocolValueOf = ConnProtocol.valueOf(aVar);
         if (connProtocolValueOf == null) {
             return null;

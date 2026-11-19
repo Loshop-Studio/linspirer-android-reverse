@@ -6,8 +6,8 @@ import com.amap.apis.utils.core.DeviceInfo;
 import com.huawei.hem.AMapCoreException;
 import com.huawei.hem.AppInfo;
 import com.huawei.hem.SDKInfo;
-import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapCoreUtilities;
+import com.huawei.hem.AgooNotificationHandler;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,14 +58,14 @@ public class ErrorLogManager {
             }
             if (str.contains("com.amap.api.col")) {
                 try {
-                    return C1094l1.m2232a();
+                    return AMapCoreUtilities.m2232a();
                 } catch (AMapCoreException e) {
                     e.printStackTrace();
                 }
             }
             if (str.contains("com.amap.co") || str.contains("com.amap.opensdk.co") || str.contains("com.amap.location")) {
                 try {
-                    SDKInfo c1069k1M2246o = C1094l1.m2246o();
+                    SDKInfo c1069k1M2246o = AMapCoreUtilities.m2246o();
                     c1069k1M2246o.f3004c = 1;
                     return c1069k1M2246o;
                 } catch (AMapCoreException e2) {
@@ -111,8 +111,8 @@ public class ErrorLogManager {
             public final void mo1093a() {
                 try {
                     synchronized (ErrorLogManager.class) {
-                        LogConfig c1730atM4191a = C1736az.m4191a(ErrorLogManager.f5967a);
-                        C1736az.m4195a(context, c1730atM4191a, str, 1000, 4096000, "1");
+                        LogConfig c1730atM4191a = AMapLogCacheUtilities.m4191a(ErrorLogManager.f5967a);
+                        AMapLogCacheUtilities.m4195a(context, c1730atM4191a, str, 1000, 4096000, "1");
                         c1730atM4191a.f5059f = abstractC1750bm;
                         if (c1730atM4191a.f5060g == null) {
                             c1730atM4191a.f5060g = new LogJsonDataStrategy(new HeaderAddStrategy(context, new ZipUpdateDataStrategy(), new Base64EncryptProcessor(new GZipEncryptProcessor(new RSAAESEncryptProcessor())), "QImtleSI6IiVzIiwicGxhdGZvcm0iOiJhbmRyb2lkIiwiZGl1IjoiJXMiLCJhZGl1IjoiJXMiLCJwa2ciOiIlcyIsIm1vZGVsIjoiJXMiLCJhcHBuYW1lIjoiJXMiLCJhcHB2ZXJzaW9uIjoiJXMiLCJzeXN2ZXJzaW9uIjoiJXMi", AppInfo.m1641g(context), DeviceInfo.m1091y(context), DeviceInfo.m1090x(context), AppInfo.m1638d(context), Build.MODEL, AppInfo.m1636b(context), AppInfo.m1639e(context), Build.VERSION.RELEASE));
@@ -129,7 +129,7 @@ public class ErrorLogManager {
 
     /* renamed from: a */
     public static void m5341a(Context context, Throwable th, int i, String str, String str2) {
-        String strM2235d = C1094l1.m2235d(th);
+        String strM2235d = AMapCoreUtilities.m2235d(th);
         SDKInfo c1069k1M5335a = m5335a(strM2235d);
         if (m5343a(c1069k1M5335a)) {
             String strReplaceAll = strM2235d.replaceAll("\n", "<br/>");
@@ -205,24 +205,24 @@ public class ErrorLogManager {
     public static void m5339a(Context context, SDKInfo c1069k1, int i, String str, String str2) {
         byte[] bArrM2520p;
         String str3;
-        String strM4192a = C1736az.m4192a();
-        String strM4193a = C1736az.m4193a(context, c1069k1);
+        String strM4192a = AMapLogCacheUtilities.m4192a();
+        String strM4193a = AMapLogCacheUtilities.m4193a(context, c1069k1);
         try {
             AppInfo.m1642h(context);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        String strM4194a = C1736az.m4194a(strM4193a, strM4192a, i, str, str2);
+        String strM4194a = AMapLogCacheUtilities.m4194a(strM4193a, strM4192a, i, str, str2);
         if (strM4194a == null || "".equals(strM4194a)) {
             return;
         }
         try {
-            bArrM2520p = C1219q0.m2520p(str2);
+            bArrM2520p = AgooNotificationHandler.m2520p(str2);
         } catch (Throwable th2) {
             th2.printStackTrace();
             bArrM2520p = new byte[0];
         }
-        String strM2228A = C1094l1.m2228A(bArrM2520p);
+        String strM2228A = AMapCoreUtilities.m2228A(bArrM2520p);
         if (i == 1) {
             str3 = AMapLog.f5942b;
         } else if (i == 2) {
@@ -233,13 +233,13 @@ public class ErrorLogManager {
             str3 = AMapLog.f5943c;
         }
         String str4 = str3;
-        LogConfig c1730atM4191a = C1736az.m4191a(f5967a);
-        C1736az.m4195a(context, c1730atM4191a, str4, 1000, 4096000, "1");
+        LogConfig c1730atM4191a = AMapLogCacheUtilities.m4191a(f5967a);
+        AMapLogCacheUtilities.m4195a(context, c1730atM4191a, str4, 1000, 4096000, "1");
         if (c1730atM4191a.f5058e == null) {
             c1730atM4191a.f5058e = new ADDNumEncryptProcessor(new Base64EncryptProcessor(new GZipEncryptProcessor(new RSAAESEncryptProcessor())));
         }
         try {
-            LogEngine.m4168a(strM2228A, C1094l1.m2245n(strM4194a.replaceAll("\n", "<br/>")), c1730atM4191a);
+            LogEngine.m4168a(strM2228A, AMapCoreUtilities.m2245n(strM4194a.replaceAll("\n", "<br/>")), c1730atM4191a);
         } catch (Throwable unused) {
         }
     }

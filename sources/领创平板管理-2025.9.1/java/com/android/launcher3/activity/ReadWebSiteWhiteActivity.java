@@ -10,7 +10,7 @@ import com.android.launcher3.activity.base.BaseActivity;
 import com.android.launcher3.adapter.ReadWebsitRecyclerViewAdapter;
 import com.android.launcher3.network.UrlWhiteHelper;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.UserInfoUtil;
@@ -70,7 +70,7 @@ public class ReadWebSiteWhiteActivity extends BaseActivity implements View.OnCli
         this.f1783f.setAdapter(readWebsitRecyclerViewAdapter2);
         String strM3068s = UserInfoUtil.b.f4202a.m3068s();
         if (!TextUtils.isEmpty(strM3068s)) {
-            this.f1785h = AbstractC1102l9.m2277R(strM3068s, ",");
+            this.f1785h = MobileSdkPlatformUtilities.m2277R(strM3068s, ",");
         }
         ReadWebsitRecyclerViewAdapter readWebsitRecyclerViewAdapter3 = new ReadWebsitRecyclerViewAdapter(this, this.f1785h);
         LinearLayoutManager linearLayoutManager4 = new LinearLayoutManager(this);

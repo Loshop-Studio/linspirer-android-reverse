@@ -4,11 +4,11 @@ import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import anet.channel.util.HttpConstant;
 import com.bumptech.glide.load.model.LazyHeaders;
-import com.huawei.hem.C0834am;
+import com.huawei.hem.OkHttp2Connection;
 import com.huawei.hem.OkHttpRequest;
 import com.huawei.hem.OkHttpResponse;
 import com.huawei.hem.Http1ExchangeCodec;
-import com.huawei.hem.C1438yj;
+import com.huawei.hem.OkHttpHeaderList;
 import com.huawei.hem.OkHttpInterceptor;
 import java.io.IOException;
 import java.lang.ref.Reference;
@@ -31,7 +31,7 @@ import javax.net.ssl.SSLSocketFactory;
 /* compiled from: RealConnection.java */
 /* renamed from: com.huawei.hem.fl */
 /* loaded from: classes.dex */
-public final class RealConnection extends C0834am.e {
+public final class RealConnection extends OkHttp2Connection.e {
 
     /* renamed from: b */
     public final RealConnectionPool f2681b;
@@ -52,7 +52,7 @@ public final class RealConnection extends C0834am.e {
     public Protocol f2686g;
 
     /* renamed from: h */
-    public C0834am f2687h;
+    public OkHttp2Connection f2687h;
 
     /* renamed from: i */
     public BufferedSource f2688i;
@@ -88,7 +88,7 @@ public final class RealConnection extends C0834am.e {
 
     @Override // com.huawei.hem.C0834am.e
     /* renamed from: a */
-    public void mo1377a(C0834am c0834am) {
+    public void mo1377a(OkHttp2Connection c0834am) {
         synchronized (this.f2681b) {
             this.f2694o = c0834am.m1368d();
         }
@@ -131,8 +131,8 @@ public final class RealConnection extends C0834am.e {
         try {
             Platform.f4029a.mo2703h(this.f2683d, this.f2682c.f3355c, i);
             try {
-                this.f2688i = new RealBufferedSource(C1267rn.m2675g(this.f2683d));
-                this.f2689j = new RealBufferedSink(C1267rn.m2672d(this.f2683d));
+                this.f2688i = new RealBufferedSource(OkioStreamFactory.m2675g(this.f2683d));
+                this.f2689j = new RealBufferedSink(OkioStreamFactory.m2672d(this.f2683d));
             } catch (NullPointerException e) {
                 if ("throw with null exception".equals(e.getMessage())) {
                     throw new IOException(e);
@@ -157,7 +157,7 @@ public final class RealConnection extends C0834am.e {
         boolean z = false;
         aVar.m1879c("CONNECT", null);
         boolean z2 = true;
-        aVar.m1878b(HttpConstant.HOST, C1314tk.m2758m(this.f2682c.f3353a.f2662a, true));
+        aVar.m1878b(HttpConstant.HOST, OkHttpCommonUtilities.m2758m(this.f2682c.f3353a.f2662a, true));
         aVar.m1878b("Proxy-Connection", "Keep-Alive");
         aVar.m1878b(LazyHeaders.Builder.USER_AGENT_HEADER, "okhttp/3.14.9");
         OkHttpRequest c0988gkM1877a = aVar.m1877a();
@@ -166,15 +166,15 @@ public final class RealConnection extends C0834am.e {
         aVar2.f3106b = Protocol.HTTP_1_1;
         aVar2.f3107c = 407;
         aVar2.f3108d = "Preemptive Authenticate";
-        aVar2.f3111g = C1314tk.f3818d;
+        aVar2.f3111g = OkHttpCommonUtilities.f3818d;
         aVar2.f3115k = -1L;
         aVar2.f3116l = -1L;
-        C1438yj.a aVar3 = aVar2.f3110f;
+        OkHttpHeaderList.a aVar3 = aVar2.f3110f;
         if (aVar3 == null) {
             throw null;
         }
-        C1438yj.m3107a("Proxy-Authenticate");
-        C1438yj.m3108b("OkHttp-Preemptive", "Proxy-Authenticate");
+        OkHttpHeaderList.m3107a("Proxy-Authenticate");
+        OkHttpHeaderList.m3108b("OkHttp-Preemptive", "Proxy-Authenticate");
         aVar3.m3116b("Proxy-Authenticate");
         aVar3.f4230a.add("Proxy-Authenticate");
         aVar3.f4230a.add("OkHttp-Preemptive");
@@ -188,7 +188,7 @@ public final class RealConnection extends C0834am.e {
         int i4 = 0;
         while (i4 < 21) {
             m1828d(i, i2, interfaceC1087kj, abstractC1363vj);
-            String str = "CONNECT " + C1314tk.m2758m(c1463zj, z2) + " HTTP/1.1";
+            String str = "CONNECT " + OkHttpCommonUtilities.m2758m(c1463zj, z2) + " HTTP/1.1";
             ?? r4 = z;
             while (true) {
                 Http1ExchangeCodec c1340ul = new Http1ExchangeCodec(r4, r4, this.f2688i, this.f2689j);
@@ -202,7 +202,7 @@ public final class RealConnection extends C0834am.e {
                 long jM2491a = OkHttpHeaders.m2491a(c1088kkM2200b2);
                 if (jM2491a != -1) {
                     Source interfaceC0836aoM2818j = c1340ul.m2818j(jM2491a);
-                    C1314tk.m2769x(interfaceC0836aoM2818j, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.MILLISECONDS);
+                    OkHttpCommonUtilities.m2769x(interfaceC0836aoM2818j, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.MILLISECONDS);
                     ((Http1ExchangeCodec.e) interfaceC0836aoM2818j).close();
                 }
                 int i5 = c1088kkM2200b2.f3093c;
@@ -238,7 +238,7 @@ public final class RealConnection extends C0834am.e {
             if (c0988gkM1877a == null) {
                 return;
             }
-            C1314tk.m2750e(this.f2683d);
+            OkHttpCommonUtilities.m2750e(this.f2683d);
             this.f2683d = null;
             this.f2689j = null;
             this.f2688i = null;
@@ -287,8 +287,8 @@ public final class RealConnection extends C0834am.e {
                     c0961fj.f2672k.m2392a(c0961fj.f2662a.f4314d, c1413xjM2947a.f4083c);
                     String strMo2668j = c1213pjM1540a.f3471b ? Platform.f4029a.mo2668j(sSLSocket) : null;
                     this.f2684e = sSLSocket;
-                    this.f2688i = new RealBufferedSource(C1267rn.m2675g(sSLSocket));
-                    this.f2689j = new RealBufferedSink(C1267rn.m2672d(this.f2684e));
+                    this.f2688i = new RealBufferedSource(OkioStreamFactory.m2675g(sSLSocket));
+                    this.f2689j = new RealBufferedSink(OkioStreamFactory.m2672d(this.f2684e));
                     this.f2685f = c1413xjM2947a;
                     this.f2686g = strMo2668j != null ? Protocol.get(strMo2668j) : Protocol.HTTP_1_1;
                     Platform.f4029a.mo2824a(sSLSocket);
@@ -306,7 +306,7 @@ public final class RealConnection extends C0834am.e {
                 throw new SSLPeerUnverifiedException("Hostname " + c0961fj.f2662a.f4314d + " not verified:\n    certificate: " + CertificatePinner.m2391b(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.m1423a(x509Certificate));
             } catch (AssertionError e2) {
                 e = e2;
-                if (!C1314tk.m2765t(e)) {
+                if (!OkHttpCommonUtilities.m2765t(e)) {
                     throw e;
                 }
                 throw new IOException(e);
@@ -315,7 +315,7 @@ public final class RealConnection extends C0834am.e {
                 if (sSLSocket != null) {
                     Platform.f4029a.mo2824a(sSLSocket);
                 }
-                C1314tk.m2750e(sSLSocket);
+                OkHttpCommonUtilities.m2750e(sSLSocket);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -350,7 +350,7 @@ public final class RealConnection extends C0834am.e {
     /* renamed from: j */
     public final void m1834j(int i) throws SocketException {
         this.f2684e.setSoTimeout(0);
-        C0834am.c cVar = new C0834am.c(true);
+        OkHttp2Connection.c cVar = new OkHttp2Connection.c(true);
         Socket socket = this.f2684e;
         String str = this.f2682c.f3353a.f2662a.f4314d;
         BufferedSource interfaceC1066jn = this.f2688i;
@@ -361,7 +361,7 @@ public final class RealConnection extends C0834am.e {
         cVar.f2250d = interfaceC1041in;
         cVar.f2251e = this;
         cVar.f2254h = i;
-        C0834am c0834am = new C0834am(cVar);
+        OkHttp2Connection c0834am = new OkHttp2Connection(cVar);
         this.f2687h = c0834am;
         Http2Writer c1141mm = c0834am.f2238v;
         synchronized (c1141mm) {
@@ -370,7 +370,7 @@ public final class RealConnection extends C0834am.e {
             }
             if (c1141mm.f3278b) {
                 if (Http2Writer.f3276g.isLoggable(Level.FINE)) {
-                    Http2Writer.f3276g.fine(C1314tk.m2756k(">> CONNECTION %s", Http2.f4327a.hex()));
+                    Http2Writer.f3276g.fine(OkHttpCommonUtilities.m2756k(">> CONNECTION %s", Http2.f4327a.hex()));
                 }
                 c1141mm.f3277a.mo1972B(Http2.f4327a.toByteArray());
                 c1141mm.f3277a.flush();

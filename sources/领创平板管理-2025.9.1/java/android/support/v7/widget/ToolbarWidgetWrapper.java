@@ -7,7 +7,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.view.menu.MenuBuilder;
@@ -53,7 +53,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     public Window.Callback mWindowCallback;
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
-        this(toolbar, z, C0200R.string.abc_action_bar_up_description, C0200R.drawable.abc_ic_ab_back_material);
+        this(toolbar, z, SupportAppcompatResources.string.abc_action_bar_up_description, SupportAppcompatResources.drawable.abc_ic_ab_back_material);
     }
 
     private int detectDisplayOptions() {
@@ -66,7 +66,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void ensureSpinner() {
         if (this.mSpinner == null) {
-            this.mSpinner = new AppCompatSpinner(getContext(), null, C0200R.attr.actionDropDownStyle);
+            this.mSpinner = new AppCompatSpinner(getContext(), null, SupportAppcompatResources.attr.actionDropDownStyle);
             this.mSpinner.setLayoutParams(new Toolbar.LayoutParams(-2, -2, 8388627));
         }
     }
@@ -397,7 +397,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         if (this.mActionMenuPresenter == null) {
             ActionMenuPresenter actionMenuPresenter = new ActionMenuPresenter(this.mToolbar.getContext());
             this.mActionMenuPresenter = actionMenuPresenter;
-            actionMenuPresenter.setId(C0200R.id.action_menu_presenter);
+            actionMenuPresenter.setId(SupportAppcompatResources.id.action_menu_presenter);
         }
         this.mActionMenuPresenter.setCallback(callback);
         this.mToolbar.setMenu((MenuBuilder) menu, this.mActionMenuPresenter);
@@ -539,56 +539,56 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         this.mSubtitle = toolbar.getSubtitle();
         this.mTitleSet = this.mTitle != null;
         this.mNavIcon = toolbar.getNavigationIcon();
-        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(toolbar.getContext(), null, C0200R.styleable.ActionBar, C0200R.attr.actionBarStyle, 0);
-        this.mDefaultNavigationIcon = tintTypedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_homeAsUpIndicator);
+        TintTypedArray tintTypedArrayObtainStyledAttributes = TintTypedArray.obtainStyledAttributes(toolbar.getContext(), null, SupportAppcompatResources.styleable.ActionBar, SupportAppcompatResources.attr.actionBarStyle, 0);
+        this.mDefaultNavigationIcon = tintTypedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_homeAsUpIndicator);
         if (z) {
-            CharSequence text = tintTypedArrayObtainStyledAttributes.getText(C0200R.styleable.ActionBar_title);
+            CharSequence text = tintTypedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.ActionBar_title);
             if (!TextUtils.isEmpty(text)) {
                 setTitle(text);
             }
-            CharSequence text2 = tintTypedArrayObtainStyledAttributes.getText(C0200R.styleable.ActionBar_subtitle);
+            CharSequence text2 = tintTypedArrayObtainStyledAttributes.getText(SupportAppcompatResources.styleable.ActionBar_subtitle);
             if (!TextUtils.isEmpty(text2)) {
                 setSubtitle(text2);
             }
-            Drawable drawable2 = tintTypedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_logo);
+            Drawable drawable2 = tintTypedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_logo);
             if (drawable2 != null) {
                 setLogo(drawable2);
             }
-            Drawable drawable3 = tintTypedArrayObtainStyledAttributes.getDrawable(C0200R.styleable.ActionBar_icon);
+            Drawable drawable3 = tintTypedArrayObtainStyledAttributes.getDrawable(SupportAppcompatResources.styleable.ActionBar_icon);
             if (drawable3 != null) {
                 setIcon(drawable3);
             }
             if (this.mNavIcon == null && (drawable = this.mDefaultNavigationIcon) != null) {
                 setNavigationIcon(drawable);
             }
-            setDisplayOptions(tintTypedArrayObtainStyledAttributes.getInt(C0200R.styleable.ActionBar_displayOptions, 0));
-            int resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionBar_customNavigationLayout, 0);
+            setDisplayOptions(tintTypedArrayObtainStyledAttributes.getInt(SupportAppcompatResources.styleable.ActionBar_displayOptions, 0));
+            int resourceId = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionBar_customNavigationLayout, 0);
             if (resourceId != 0) {
                 setCustomView(LayoutInflater.from(this.mToolbar.getContext()).inflate(resourceId, (ViewGroup) this.mToolbar, false));
                 setDisplayOptions(this.mDisplayOpts | 16);
             }
-            int layoutDimension = tintTypedArrayObtainStyledAttributes.getLayoutDimension(C0200R.styleable.ActionBar_height, 0);
+            int layoutDimension = tintTypedArrayObtainStyledAttributes.getLayoutDimension(SupportAppcompatResources.styleable.ActionBar_height, 0);
             if (layoutDimension > 0) {
                 ViewGroup.LayoutParams layoutParams = this.mToolbar.getLayoutParams();
                 layoutParams.height = layoutDimension;
                 this.mToolbar.setLayoutParams(layoutParams);
             }
-            int dimensionPixelOffset = tintTypedArrayObtainStyledAttributes.getDimensionPixelOffset(C0200R.styleable.ActionBar_contentInsetStart, -1);
-            int dimensionPixelOffset2 = tintTypedArrayObtainStyledAttributes.getDimensionPixelOffset(C0200R.styleable.ActionBar_contentInsetEnd, -1);
+            int dimensionPixelOffset = tintTypedArrayObtainStyledAttributes.getDimensionPixelOffset(SupportAppcompatResources.styleable.ActionBar_contentInsetStart, -1);
+            int dimensionPixelOffset2 = tintTypedArrayObtainStyledAttributes.getDimensionPixelOffset(SupportAppcompatResources.styleable.ActionBar_contentInsetEnd, -1);
             if (dimensionPixelOffset >= 0 || dimensionPixelOffset2 >= 0) {
                 this.mToolbar.setContentInsetsRelative(Math.max(dimensionPixelOffset, 0), Math.max(dimensionPixelOffset2, 0));
             }
-            int resourceId2 = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionBar_titleTextStyle, 0);
+            int resourceId2 = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionBar_titleTextStyle, 0);
             if (resourceId2 != 0) {
                 Toolbar toolbar2 = this.mToolbar;
                 toolbar2.setTitleTextAppearance(toolbar2.getContext(), resourceId2);
             }
-            int resourceId3 = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionBar_subtitleTextStyle, 0);
+            int resourceId3 = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionBar_subtitleTextStyle, 0);
             if (resourceId3 != 0) {
                 Toolbar toolbar3 = this.mToolbar;
                 toolbar3.setSubtitleTextAppearance(toolbar3.getContext(), resourceId3);
             }
-            int resourceId4 = tintTypedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ActionBar_popupTheme, 0);
+            int resourceId4 = tintTypedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ActionBar_popupTheme, 0);
             if (resourceId4 != 0) {
                 this.mToolbar.setPopupTheme(resourceId4);
             }

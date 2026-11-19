@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: GZipEncryptProcessor.java */
 /* renamed from: com.loc.ah */
@@ -16,6 +16,6 @@ public final class GZipEncryptProcessor extends EncryptProcessor {
     @Override // com.loc.AbstractC1717ag
     /* renamed from: a */
     public final byte[] mo3997a(byte[] bArr) {
-        return C1094l1.m2256y(bArr);
+        return AMapCoreUtilities.m2256y(bArr);
     }
 }

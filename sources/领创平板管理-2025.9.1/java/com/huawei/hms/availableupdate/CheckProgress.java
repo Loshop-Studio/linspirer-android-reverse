@@ -7,7 +7,7 @@ import com.huawei.hms.utils.ResourceLoaderUtil;
 /* compiled from: CheckProgress.java */
 /* renamed from: com.huawei.hms.availableupdate.q */
 /* loaded from: classes.dex */
-public class CheckProgress extends AbstractC1510o {
+public class CheckProgress extends UpdateAlertDialog {
     @Override // com.huawei.hms.availableupdate.AbstractC1510o
     /* renamed from: g */
     public AlertDialog mo3269g() {

@@ -8,12 +8,12 @@ import android.util.Log;
 public class HmsHiAnalyticsUtils {
     /* renamed from: a */
     public static void m1783a() {
-        C1429ya c1429ya = C1404xa.f4061a;
+        HiAnalyticsLogState c1429ya = HiAnalyticsSdkState.f4061a;
         StringBuilder sb = new StringBuilder();
         sb.append('\n');
         sb.append("=======================================\n ");
         StringBuilder sbM1765j = CompilerOutline.m1765j("HiAnalyticsSDK_2.2.0.308");
-        sbM1765j.append(C1428y9.f4211a.booleanValue() ? "-dev" : "");
+        sbM1765j.append(AnalyticsAvailabilityState.f4211a.booleanValue() ? "-dev" : "");
         sb.append(sbM1765j.toString());
         sb.append("");
         sb.append("\n=======================================");
@@ -24,7 +24,7 @@ public class HmsHiAnalyticsUtils {
 
     /* renamed from: b */
     public static boolean m1784b() {
-        return C1028ia.f2907b.f2908a != null;
+        return AnalyticsInstanceHolder.f2907b.f2908a != null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b8  */
@@ -45,22 +45,22 @@ public class HmsHiAnalyticsUtils {
 
     /* renamed from: d */
     public static void m1786d() {
-        if (AbstractC1102l9.m2279b() == null || !C1229qa.f3513c.m2584a()) {
+        if (MobileSdkPlatformUtilities.m2279b() == null || !AnalyticsUserUnlockState.f3513c.m2584a()) {
             return;
         }
-        C1378w9 c1378w9 = AbstractC1102l9.f3158a;
-        C1404xa.m2935b("hmsSdk", "HiAnalyticsInstance.onReport() is execute.TAG: %s,TYPE: %d", c1378w9.f4012a, -1);
-        C1328u9 c1328u9M2787a = C1328u9.m2787a();
+        HmsAnalyticsInstance c1378w9 = MobileSdkPlatformUtilities.f3158a;
+        HiAnalyticsSdkState.m2935b("hmsSdk", "HiAnalyticsInstance.onReport() is execute.TAG: %s,TYPE: %d", c1378w9.f4012a, -1);
+        AnalyticsReportingContext c1328u9M2787a = AnalyticsReportingContext.m2787a();
         String str = c1378w9.f4012a;
         if (c1328u9M2787a == null) {
             throw null;
         }
-        C1353v9 c1353v9M2861a = C1353v9.m2861a();
+        HmsAnalyticsEventManager c1353v9M2861a = HmsAnalyticsEventManager.m2861a();
         if (c1353v9M2861a.f3942a == null) {
-            C1404xa.m2939f("hmsSdk", "onReport() null context or SDK was not init.");
+            HiAnalyticsSdkState.m2939f("hmsSdk", "onReport() null context or SDK was not init.");
         } else {
-            C1404xa.m2937d("hmsSdk", "onReport: Before calling runtaskhandler()");
-            c1353v9M2861a.m2865e(str, AbstractC1102l9.m2282e(-1), LauncherMenuHelper.m2997r());
+            HiAnalyticsSdkState.m2937d("hmsSdk", "onReport: Before calling runtaskhandler()");
+            c1353v9M2861a.m2865e(str, MobileSdkPlatformUtilities.m2282e(-1), LauncherMenuHelper.m2997r());
         }
     }
 }

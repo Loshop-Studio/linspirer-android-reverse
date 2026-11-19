@@ -1,43 +1,43 @@
 package com.alibaba.sdk.android.logger;
 
-import com.alibaba.sdk.android.logger.interceptor.C0543a;
-import com.alibaba.sdk.android.logger.interceptor.C0544b;
+import com.alibaba.sdk.android.logger.interceptor.LogOutputInterceptor;
+import com.alibaba.sdk.android.logger.interceptor.LogPrintAdapter;
 import com.alibaba.sdk.android.logger.interceptor.InterceptorManager;
-import com.alibaba.sdk.android.logger.p013a.C0534a;
-import com.alibaba.sdk.android.logger.p014b.C0535a;
-import com.alibaba.sdk.android.logger.p014b.C0536b;
-import com.alibaba.sdk.android.logger.p014b.C0537c;
-import com.alibaba.sdk.android.logger.p014b.C0539e;
-import com.alibaba.sdk.android.logger.p014b.C0540f;
-import com.alibaba.sdk.android.logger.p014b.C0541g;
-import com.alibaba.sdk.android.logger.p014b.C0542h;
+import com.alibaba.sdk.android.logger.p013a.SdkObjectLogFormatter;
+import com.alibaba.sdk.android.logger.p014b.LogCallerLocationFormatter;
+import com.alibaba.sdk.android.logger.p014b.SdkLogLevelControl;
+import com.alibaba.sdk.android.logger.p014b.SdkForwardingLogInterceptor;
+import com.alibaba.sdk.android.logger.p014b.ControlledLoggerDispatcher;
+import com.alibaba.sdk.android.logger.p014b.SdkTaggedLogger;
+import com.alibaba.sdk.android.logger.p014b.SdkLogTagFormatter;
+import com.alibaba.sdk.android.logger.p014b.SdkLoggerOutput;
 
 /* loaded from: classes.dex */
 public class BaseSdkLogApi {
 
     /* renamed from: a */
-    public C0541g f962a;
+    public SdkLogTagFormatter f962a;
 
     /* renamed from: d */
     public InterceptorManager f965d;
 
     /* renamed from: c */
-    public C0534a f964c = new C0534a();
+    public SdkObjectLogFormatter f964c = new SdkObjectLogFormatter();
 
     /* renamed from: e */
-    public C0536b f966e = new C0536b();
+    public SdkLogLevelControl f966e = new SdkLogLevelControl();
 
     /* renamed from: b */
-    public C0539e f963b = new C0539e(this.f966e);
+    public ControlledLoggerDispatcher f963b = new ControlledLoggerDispatcher(this.f966e);
 
     public BaseSdkLogApi(String str, boolean z) {
-        this.f962a = new C0541g(str);
-        InterceptorManager interceptorManager = new InterceptorManager(new C0543a(new C0542h(this.f964c)), new C0544b(this.f963b));
+        this.f962a = new SdkLogTagFormatter(str);
+        InterceptorManager interceptorManager = new InterceptorManager(new LogOutputInterceptor(new SdkLoggerOutput(this.f964c)), new LogPrintAdapter(this.f963b));
         this.f965d = interceptorManager;
-        interceptorManager.m692a(new C0537c(this.f963b));
+        interceptorManager.m692a(new SdkForwardingLogInterceptor(this.f963b));
         if (z) {
             this.f966e.m678a(LogLevel.DEBUG);
-            this.f965d.m693a(new C0535a());
+            this.f965d.m693a(new LogCallerLocationFormatter());
         }
     }
 
@@ -58,7 +58,7 @@ public class BaseSdkLogApi {
     }
 
     public ILog getLogger(Object obj) {
-        return new C0540f(this.f962a.m686a(obj), this.f965d);
+        return new SdkTaggedLogger(this.f962a.m686a(obj), this.f965d);
     }
 
     public void removeILogger(ILogger iLogger) {

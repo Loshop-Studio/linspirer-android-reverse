@@ -9,7 +9,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.KeyEventDispatcher;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.view.ActionMode;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -30,7 +30,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
             return i;
         }
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(C0200R.attr.dialogTheme, typedValue, true);
+        context.getTheme().resolveAttribute(SupportAppcompatResources.attr.dialogTheme, typedValue, true);
         return typedValue.resourceId;
     }
 

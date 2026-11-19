@@ -12,7 +12,7 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.io.File;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -243,7 +243,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                 serializeWriter.write(123);
                 serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
                 jSONSerializer.write(obj.getClass().getName());
-                serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "val", string);
+                serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "val", string);
                 serializeWriter.write(125);
                 return;
             }

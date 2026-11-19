@@ -3,7 +3,7 @@ package android.arch.lifecycle;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.ArchTaskExecutor;
 import com.huawei.hem.SafeIterableMap;
 import com.huawei.hem.LifecycleRegistry;
@@ -19,14 +19,14 @@ public abstract class LiveData<T> {
     public boolean mDispatchInvalidated;
     public boolean mDispatchingValue;
     public final Object mDataLock = new Object();
-    public SafeIterableMap<Observer<T>, LiveData<T>.AbstractC0002c> mObservers = new SafeIterableMap<>();
+    public SafeIterableMap<Observer<T>, LiveData<T>.LiveDataObserverWrapper> mObservers = new SafeIterableMap<>();
     public int mActiveCount = 0;
     public volatile Object mData = NOT_SET;
     public volatile Object mPendingData = NOT_SET;
     public int mVersion = -1;
-    public final Runnable mPostValueRunnable = new RunnableC0000a();
+    public final Runnable mPostValueRunnable = new PostLiveDataValueTask();
 
-    public class LifecycleBoundObserver extends LiveData<T>.AbstractC0002c implements GenericLifecycleObserver {
+    public class LifecycleBoundObserver extends LiveData<T>.LiveDataObserverWrapper implements GenericLifecycleObserver {
 
         /* renamed from: e */
         @NonNull
@@ -39,11 +39,11 @@ public abstract class LiveData<T> {
 
         @Override // android.arch.lifecycle.GenericLifecycleObserver
         /* renamed from: d */
-        public void mo0d(LifecycleOwner interfaceC1042j, AbstractC0992h.a aVar) {
-            if (((LifecycleRegistry) this.f3e.getLifecycle()).f2994b == AbstractC0992h.b.DESTROYED) {
+        public void mo0d(LifecycleOwner interfaceC1042j, ArchitectureLifecycle.a aVar) {
+            if (((LifecycleRegistry) this.f3e.getLifecycle()).f2994b == ArchitectureLifecycle.b.DESTROYED) {
                 LiveData.this.removeObserver(this.f6a);
             } else {
-                m10h(((LifecycleRegistry) this.f3e.getLifecycle()).f2994b.isAtLeast(AbstractC0992h.b.STARTED));
+                m10h(((LifecycleRegistry) this.f3e.getLifecycle()).f2994b.isAtLeast(ArchitectureLifecycle.b.STARTED));
             }
         }
 
@@ -62,13 +62,13 @@ public abstract class LiveData<T> {
         @Override // android.arch.lifecycle.LiveData.AbstractC0002c
         /* renamed from: k */
         public boolean mo9k() {
-            return ((LifecycleRegistry) this.f3e.getLifecycle()).f2994b.isAtLeast(AbstractC0992h.b.STARTED);
+            return ((LifecycleRegistry) this.f3e.getLifecycle()).f2994b.isAtLeast(ArchitectureLifecycle.b.STARTED);
         }
     }
 
     /* renamed from: android.arch.lifecycle.LiveData$a */
-    public class RunnableC0000a implements Runnable {
-        public RunnableC0000a() {
+    public class PostLiveDataValueTask implements Runnable {
+        public PostLiveDataValueTask() {
         }
 
         /* JADX WARN: Multi-variable type inference failed */
@@ -84,8 +84,8 @@ public abstract class LiveData<T> {
     }
 
     /* renamed from: android.arch.lifecycle.LiveData$b */
-    public class C0001b extends LiveData<T>.AbstractC0002c {
-        public C0001b(LiveData liveData, Observer<T> interfaceC1193p) {
+    public class AlwaysActiveLiveDataObserver extends LiveData<T>.LiveDataObserverWrapper {
+        public AlwaysActiveLiveDataObserver(LiveData liveData, Observer<T> interfaceC1193p) {
             super(interfaceC1193p);
         }
 
@@ -97,7 +97,7 @@ public abstract class LiveData<T> {
     }
 
     /* renamed from: android.arch.lifecycle.LiveData$c */
-    public abstract class AbstractC0002c {
+    public abstract class LiveDataObserverWrapper {
 
         /* renamed from: a */
         public final Observer<T> f6a;
@@ -108,7 +108,7 @@ public abstract class LiveData<T> {
         /* renamed from: c */
         public int f8c = -1;
 
-        public AbstractC0002c(Observer<T> interfaceC1193p) {
+        public LiveDataObserverWrapper(Observer<T> interfaceC1193p) {
             this.f6a = interfaceC1193p;
         }
 
@@ -152,7 +152,7 @@ public abstract class LiveData<T> {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    private void considerNotify(LiveData<T>.AbstractC0002c abstractC0002c) {
+    private void considerNotify(LiveData<T>.LiveDataObserverWrapper abstractC0002c) {
         if (abstractC0002c.f7b) {
             if (!abstractC0002c.mo9k()) {
                 abstractC0002c.m10h(false);
@@ -169,7 +169,7 @@ public abstract class LiveData<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dispatchingValue(@Nullable LiveData<T>.AbstractC0002c abstractC0002c) {
+    public void dispatchingValue(@Nullable LiveData<T>.LiveDataObserverWrapper abstractC0002c) {
         if (this.mDispatchingValue) {
             this.mDispatchInvalidated = true;
             return;
@@ -181,11 +181,11 @@ public abstract class LiveData<T> {
                 considerNotify(abstractC0002c);
                 abstractC0002c = null;
             } else {
-                SafeIterableMap<Observer<T>, LiveData<T>.AbstractC0002c> c0915e = this.mObservers;
+                SafeIterableMap<Observer<T>, LiveData<T>.LiveDataObserverWrapper> c0915e = this.mObservers;
                 SafeIterableMap.e eVar = new SafeIterableMap.e(null);
                 c0915e.f2491c.put(eVar, Boolean.FALSE);
                 while (eVar.hasNext()) {
-                    considerNotify((AbstractC0002c) ((Map.Entry) eVar.next()).getValue());
+                    considerNotify((LiveDataObserverWrapper) ((Map.Entry) eVar.next()).getValue());
                     if (this.mDispatchInvalidated) {
                         break;
                     }
@@ -219,11 +219,11 @@ public abstract class LiveData<T> {
     @MainThread
     public void observe(@NonNull LifecycleOwner interfaceC1042j, @NonNull Observer<T> interfaceC1193p) {
         LifecycleOwner interfaceC1042j2;
-        if (((LifecycleRegistry) interfaceC1042j.getLifecycle()).f2994b == AbstractC0992h.b.DESTROYED) {
+        if (((LifecycleRegistry) interfaceC1042j.getLifecycle()).f2994b == ArchitectureLifecycle.b.DESTROYED) {
             return;
         }
         LifecycleBoundObserver lifecycleBoundObserver = new LifecycleBoundObserver(interfaceC1042j, interfaceC1193p);
-        LiveData<T>.AbstractC0002c abstractC0002cMo1548g = this.mObservers.mo1548g(interfaceC1193p, lifecycleBoundObserver);
+        LiveData<T>.LiveDataObserverWrapper abstractC0002cMo1548g = this.mObservers.mo1548g(interfaceC1193p, lifecycleBoundObserver);
         if (abstractC0002cMo1548g != null && !abstractC0002cMo1548g.mo8j(interfaceC1042j)) {
             throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
         }
@@ -231,16 +231,16 @@ public abstract class LiveData<T> {
             return;
         }
         LifecycleRegistry c1067k = (LifecycleRegistry) interfaceC1042j.getLifecycle();
-        AbstractC0992h.b bVar = c1067k.f2994b;
-        AbstractC0992h.b bVar2 = AbstractC0992h.b.DESTROYED;
+        ArchitectureLifecycle.b bVar = c1067k.f2994b;
+        ArchitectureLifecycle.b bVar2 = ArchitectureLifecycle.b.DESTROYED;
         if (bVar != bVar2) {
-            bVar2 = AbstractC0992h.b.INITIALIZED;
+            bVar2 = ArchitectureLifecycle.b.INITIALIZED;
         }
         LifecycleRegistry.a aVar = new LifecycleRegistry.a(lifecycleBoundObserver, bVar2);
         if (c1067k.f2993a.mo1548g(lifecycleBoundObserver, aVar) == null && (interfaceC1042j2 = c1067k.f2995c.get()) != null) {
             boolean z = c1067k.f2996d != 0 || c1067k.f2997e;
             c1067k.f2996d++;
-            for (AbstractC0992h.b bVarM2150a = c1067k.m2150a(lifecycleBoundObserver); aVar.f3000a.compareTo(bVarM2150a) < 0 && c1067k.f2993a.f2364e.containsKey(lifecycleBoundObserver); bVarM2150a = c1067k.m2150a(lifecycleBoundObserver)) {
+            for (ArchitectureLifecycle.b bVarM2150a = c1067k.m2150a(lifecycleBoundObserver); aVar.f3000a.compareTo(bVarM2150a) < 0 && c1067k.f2993a.f2364e.containsKey(lifecycleBoundObserver); bVarM2150a = c1067k.m2150a(lifecycleBoundObserver)) {
                 c1067k.f2999g.add(aVar.f3000a);
                 aVar.m2155a(interfaceC1042j2, LifecycleRegistry.m2149h(aVar.f3000a));
                 c1067k.m2153f();
@@ -254,8 +254,8 @@ public abstract class LiveData<T> {
 
     @MainThread
     public void observeForever(@NonNull Observer<T> interfaceC1193p) {
-        C0001b c0001b = new C0001b(this, interfaceC1193p);
-        LiveData<T>.AbstractC0002c abstractC0002cMo1548g = this.mObservers.mo1548g(interfaceC1193p, c0001b);
+        AlwaysActiveLiveDataObserver c0001b = new AlwaysActiveLiveDataObserver(this, interfaceC1193p);
+        LiveData<T>.LiveDataObserverWrapper abstractC0002cMo1548g = this.mObservers.mo1548g(interfaceC1193p, c0001b);
         if (abstractC0002cMo1548g != null && (abstractC0002cMo1548g instanceof LifecycleBoundObserver)) {
             throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
         }
@@ -285,7 +285,7 @@ public abstract class LiveData<T> {
     @MainThread
     public void removeObserver(@NonNull Observer<T> interfaceC1193p) {
         assertMainThread("removeObserver");
-        LiveData<T>.AbstractC0002c abstractC0002cMo1549h = this.mObservers.mo1549h(interfaceC1193p);
+        LiveData<T>.LiveDataObserverWrapper abstractC0002cMo1549h = this.mObservers.mo1549h(interfaceC1193p);
         if (abstractC0002cMo1549h == null) {
             return;
         }
@@ -296,14 +296,14 @@ public abstract class LiveData<T> {
     @MainThread
     public void removeObservers(@NonNull LifecycleOwner interfaceC1042j) {
         assertMainThread("removeObservers");
-        Iterator<Map.Entry<Observer<T>, LiveData<T>.AbstractC0002c>> it = this.mObservers.iterator();
+        Iterator<Map.Entry<Observer<T>, LiveData<T>.LiveDataObserverWrapper>> it = this.mObservers.iterator();
         while (true) {
             SafeIterableMap.f fVar = (SafeIterableMap.f) it;
             if (!fVar.hasNext()) {
                 return;
             }
             Map.Entry entry = (Map.Entry) fVar.next();
-            if (((AbstractC0002c) entry.getValue()).mo8j(interfaceC1042j)) {
+            if (((LiveDataObserverWrapper) entry.getValue()).mo8j(interfaceC1042j)) {
                 removeObserver((Observer) entry.getKey());
             }
         }

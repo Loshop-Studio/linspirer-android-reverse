@@ -31,7 +31,7 @@ public class PostBuilder extends OkHttpRequestBuilderHasParam<PostBuilder> {
                 aVar.m1880d(this.f3778b);
             }
             if (this.f3947e.length() > 0) {
-                aVar.m1879c("POST", AbstractC1063jk.m2134c(OkHttpMediaType.m1422b("application/json; charset=utf-8"), this.f3947e));
+                aVar.m1879c("POST", OkHttpRequestBody.m2134c(OkHttpMediaType.m1422b("application/json; charset=utf-8"), this.f3947e));
             } else {
                 aVar.m1879c("POST", new FormBody(new ArrayList(), new ArrayList()));
             }

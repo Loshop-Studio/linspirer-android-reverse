@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1344v0;
+import com.huawei.hem.AgooRegistrationPreferences;
 import com.taobao.accs.dispatch.IntentDispatch;
 import com.taobao.accs.utl.ALog;
 import com.taobao.agoo.TaobaoBaseIntentService;
@@ -79,7 +79,7 @@ public class AgooInnerService extends TaobaoBaseIntentService {
         intent2.setAction("com.alibaba.sdk.android.push.RECEIVE");
         intent2.setPackage(context.getPackageName());
         try {
-            Class<?> cls = C1344v0.f3912c;
+            Class<?> cls = AgooRegistrationPreferences.f3912c;
             if (cls == null) {
                 ALog.m5726d("AgooInnerService", "Send broadcast", new Object[0]);
                 context.sendBroadcast(intent2, context.getPackageName() + ".AGOO");

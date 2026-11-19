@@ -67,7 +67,7 @@ public final class AppInfo {
                 }
                 FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                 try {
-                    fileOutputStream2.write(C1094l1.m2245n(this.f2509b));
+                    fileOutputStream2.write(AMapCoreUtilities.m2245n(this.f2509b));
                     try {
                         fileOutputStream2.close();
                     } catch (Throwable th) {
@@ -151,7 +151,7 @@ public final class AppInfo {
         for (char c : str.toCharArray()) {
             if (('A' > c || c > 'z') && (('0' > c || c > ':') && c != '.')) {
                 try {
-                    SDKLogHandler.m5332b(C1094l1.m2232a(), str, "errorPackage");
+                    SDKLogHandler.m5332b(AMapCoreUtilities.m2232a(), str, "errorPackage");
                 } catch (Throwable unused) {
                 }
                 return false;
@@ -195,7 +195,7 @@ public final class AppInfo {
     public static String m1640f(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            byte[] bArrDigest = MessageDigest.getInstance(C1094l1.m2251t("IU0hBMQ")).digest(packageInfo.signatures[0].toByteArray());
+            byte[] bArrDigest = MessageDigest.getInstance(AMapCoreUtilities.m2251t("IU0hBMQ")).digest(packageInfo.signatures[0].toByteArray());
             StringBuffer stringBuffer = new StringBuffer();
             for (byte b : bArrDigest) {
                 String upperCase = Integer.toHexString(b & Base64.EQUALS_SIGN_ENC).toUpperCase(Locale.US);
@@ -261,7 +261,7 @@ public final class AppInfo {
                             try {
                                 byte[] bArr = new byte[fileInputStream.available()];
                                 fileInputStream.read(bArr);
-                                String strM2236e = C1094l1.m2236e(bArr);
+                                String strM2236e = AMapCoreUtilities.m2236e(bArr);
                                 str = strM2236e.length() == 32 ? strM2236e : "";
                                 fileInputStream.close();
                             } catch (Throwable th2) {

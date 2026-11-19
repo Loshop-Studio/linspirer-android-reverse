@@ -13,7 +13,7 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import com.taobao.accs.utl.BaseMonitor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -227,7 +227,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             if (i >= length) {
                 break;
             }
-            char c = i == length + (-1) ? ']' : AbstractC1604b.COMMA;
+            char c = i == length + (-1) ? ']' : UpdateJsonBean.COMMA;
             FieldDeserializer fieldDeserializer = this.sortedFieldDeserializers[i];
             Class<?> cls = fieldDeserializer.fieldInfo.fieldClass;
             if (cls == Integer.TYPE) {

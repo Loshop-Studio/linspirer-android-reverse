@@ -8,7 +8,7 @@ import com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import com.taobao.accs.common.Constants;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -160,7 +160,7 @@ public class DateCodec extends AbstractDateDeserializer implements ObjectSeriali
                 serializeWriter.write(123);
                 serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
                 jSONSerializer.write(cls.getName());
-                serializeWriter.writeFieldValue(AbstractC1604b.COMMA, "val", ((Date) obj).getTime());
+                serializeWriter.writeFieldValue(UpdateJsonBean.COMMA, "val", ((Date) obj).getTime());
                 serializeWriter.write(125);
                 return;
             }

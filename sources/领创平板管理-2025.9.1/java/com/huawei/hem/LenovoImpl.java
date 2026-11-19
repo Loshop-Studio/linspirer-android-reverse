@@ -243,7 +243,7 @@ public class LenovoImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: V */
     public boolean mo1316V(List<String> list) {
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1403m("LenovoImpl enable firewall because firewall is loss efficacy");
             enableFireWall();
         }
@@ -740,7 +740,7 @@ public class LenovoImpl extends AndroidImpl {
     public boolean mo1350l(List<String> list) {
         LTKDateUtil.m1403m("LenovoImpl  -- setAppWhiteWithHash ");
         try {
-            return AbstractC1102l9.m2273N(list) ? f2301c.setAppWhiteList(null) : f2301c.setAppWhiteList(list);
+            return MobileSdkPlatformUtilities.m2273N(list) ? f2301c.setAppWhiteList(null) : f2301c.setAppWhiteList(list);
         } catch (Throwable th) {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("LenovoImpl  -- set app white with hash exception:"));
             return false;

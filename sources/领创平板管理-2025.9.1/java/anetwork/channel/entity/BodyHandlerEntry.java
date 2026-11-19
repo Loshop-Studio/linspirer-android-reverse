@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import anet.channel.bytes.ByteArray;
-import anet.channel.bytes.C0317a;
+import anet.channel.bytes.AwcnByteArrayPool;
 import anet.channel.request.BodyEntry;
 import anetwork.channel.IBodyHandler;
 import anetwork.channel.aidl.ParcelableBodyHandler;
@@ -45,7 +45,7 @@ public class BodyHandlerEntry implements BodyEntry {
     @Override // anet.channel.request.BodyEntry
     public int writeTo(OutputStream outputStream) throws IOException {
         try {
-            ByteArray byteArrayM70a = C0317a.a.f177a.m70a(2048);
+            ByteArray byteArrayM70a = AwcnByteArrayPool.a.f177a.m70a(2048);
             int i = 0;
             while (!this.bodyHandler.isCompleted()) {
                 int i2 = this.bodyHandler.read(byteArrayM70a.getBuffer());

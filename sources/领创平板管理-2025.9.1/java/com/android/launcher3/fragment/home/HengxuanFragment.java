@@ -65,8 +65,8 @@ public class HengxuanFragment extends BaseHomeFragment {
     public final long[] f1956H = new long[5];
 
     /* renamed from: com.android.launcher3.fragment.home.HengxuanFragment$a */
-    public class ViewOnClickListenerC0658a implements View.OnClickListener {
-        public ViewOnClickListenerC0658a() {
+    public class HengxuanPageClickListener implements View.OnClickListener {
+        public HengxuanPageClickListener() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -76,8 +76,8 @@ public class HengxuanFragment extends BaseHomeFragment {
     }
 
     /* renamed from: com.android.launcher3.fragment.home.HengxuanFragment$b */
-    public class C0659b implements ViewPager.OnPageChangeListener {
-        public C0659b() {
+    public class HengxuanPageListener implements ViewPager.OnPageChangeListener {
+        public HengxuanPageListener() {
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -134,11 +134,11 @@ public class HengxuanFragment extends BaseHomeFragment {
         this.f1960x.setAdapter(mainFragmentPagerAdapter);
         this.f1960x.setCurrentItem(this.f1951C);
         this.f1960x.setOffscreenPageLimit(5);
-        this.f1960x.setOnPageChangeListener(new C0659b());
+        this.f1960x.setOnPageChangeListener(new HengxuanPageListener());
         String strM3074v = this.f1802c.m3074v();
         this.f1950B = strM3074v;
         this.f1949A.setText(strM3074v);
-        this.f1949A.setOnClickListener(new ViewOnClickListenerC0658a());
+        this.f1949A.setOnClickListener(new HengxuanPageClickListener());
         this.f1957I = HengxuanAppList.b.f3490a;
     }
 

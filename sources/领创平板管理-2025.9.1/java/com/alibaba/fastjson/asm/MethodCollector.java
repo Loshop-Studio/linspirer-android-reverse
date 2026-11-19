@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.asm;
 
 import com.huawei.hem.CompilerOutline;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 
 /* loaded from: classes.dex */
 public class MethodCollector {
@@ -31,7 +31,7 @@ public class MethodCollector {
         if (!str.equals(sbM1765j.toString())) {
             this.debugInfoPresent = true;
         }
-        this.result.append(AbstractC1604b.COMMA);
+        this.result.append(UpdateJsonBean.COMMA);
         this.result.append(str);
         this.currentParameter++;
     }

@@ -12,7 +12,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -46,15 +46,15 @@ public class DrawerArrowDrawable extends Drawable {
         this.mPaint.setStrokeJoin(Paint.Join.MITER);
         this.mPaint.setStrokeCap(Paint.Cap.BUTT);
         this.mPaint.setAntiAlias(true);
-        TypedArray typedArrayObtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, C0200R.styleable.DrawerArrowToggle, C0200R.attr.drawerArrowStyle, C0200R.style.Base_Widget_AppCompat_DrawerArrowToggle);
-        setColor(typedArrayObtainStyledAttributes.getColor(C0200R.styleable.DrawerArrowToggle_color, 0));
-        setBarThickness(typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.DrawerArrowToggle_thickness, 0.0f));
-        setSpinEnabled(typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.DrawerArrowToggle_spinBars, true));
-        setGapSize(Math.round(typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.DrawerArrowToggle_gapBetweenBars, 0.0f)));
-        this.mSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C0200R.styleable.DrawerArrowToggle_drawableSize, 0);
-        this.mBarLength = Math.round(typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.DrawerArrowToggle_barLength, 0.0f));
-        this.mArrowHeadLength = Math.round(typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.DrawerArrowToggle_arrowHeadLength, 0.0f));
-        this.mArrowShaftLength = typedArrayObtainStyledAttributes.getDimension(C0200R.styleable.DrawerArrowToggle_arrowShaftLength, 0.0f);
+        TypedArray typedArrayObtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, SupportAppcompatResources.styleable.DrawerArrowToggle, SupportAppcompatResources.attr.drawerArrowStyle, SupportAppcompatResources.style.Base_Widget_AppCompat_DrawerArrowToggle);
+        setColor(typedArrayObtainStyledAttributes.getColor(SupportAppcompatResources.styleable.DrawerArrowToggle_color, 0));
+        setBarThickness(typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.DrawerArrowToggle_thickness, 0.0f));
+        setSpinEnabled(typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.DrawerArrowToggle_spinBars, true));
+        setGapSize(Math.round(typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.DrawerArrowToggle_gapBetweenBars, 0.0f)));
+        this.mSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(SupportAppcompatResources.styleable.DrawerArrowToggle_drawableSize, 0);
+        this.mBarLength = Math.round(typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.DrawerArrowToggle_barLength, 0.0f));
+        this.mArrowHeadLength = Math.round(typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.DrawerArrowToggle_arrowHeadLength, 0.0f));
+        this.mArrowShaftLength = typedArrayObtainStyledAttributes.getDimension(SupportAppcompatResources.styleable.DrawerArrowToggle_arrowShaftLength, 0.0f);
         typedArrayObtainStyledAttributes.recycle();
     }
 

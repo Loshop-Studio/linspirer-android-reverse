@@ -51,7 +51,7 @@ public class FileConfig {
         public final ThreadLocal<SimpleDateFormat> f2654b = new b(this);
 
         /* renamed from: c */
-        public final ThreadLocal<Date> f2655c = new C2071c(this);
+        public final ThreadLocal<Date> f2655c = new FileConfigThreadLocal(this);
 
         /* compiled from: FileConfig.java */
         /* renamed from: com.huawei.hem.fc$c$a */
@@ -79,8 +79,8 @@ public class FileConfig {
 
         /* compiled from: FileConfig.java */
         /* renamed from: com.huawei.hem.fc$c$c, reason: collision with other inner class name */
-        public class C2071c extends ThreadLocal<Date> {
-            public C2071c(c cVar) {
+        public class FileConfigThreadLocal extends ThreadLocal<Date> {
+            public FileConfigThreadLocal(c cVar) {
             }
 
             @Override // java.lang.ThreadLocal

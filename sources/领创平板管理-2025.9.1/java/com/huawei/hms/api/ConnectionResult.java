@@ -15,7 +15,7 @@ public final class ConnectionResult implements Parcelable {
     public static final int BINDFAIL_RESOLUTION_BACKGROUND = 7;
     public static final int BINDFAIL_RESOLUTION_REQUIRED = 6;
     public static final int CANCELED = 13;
-    public static final Parcelable.Creator<ConnectionResult> CREATOR = new C1479a();
+    public static final Parcelable.Creator<ConnectionResult> CREATOR = new HmsConnectionResultCreator();
     public static final int DEVELOPER_ERROR = 10;
     public static final int DRIVE_EXTERNAL_STORAGE_REQUIRED = 9002;
     public static final int INTERNAL_ERROR = 8;
@@ -50,11 +50,11 @@ public final class ConnectionResult implements Parcelable {
     public int f4369d;
 
     /* renamed from: com.huawei.hms.api.ConnectionResult$a */
-    public static class C1479a implements Parcelable.Creator<ConnectionResult> {
+    public static class HmsConnectionResultCreator implements Parcelable.Creator<ConnectionResult> {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ConnectionResult createFromParcel(Parcel parcel) {
-            return new ConnectionResult(parcel, (C1479a) null);
+            return new ConnectionResult(parcel, (HmsConnectionResultCreator) null);
         }
 
         /* JADX WARN: Can't rename method to resolve collision */
@@ -64,7 +64,7 @@ public final class ConnectionResult implements Parcelable {
         }
     }
 
-    public /* synthetic */ ConnectionResult(Parcel parcel, C1479a c1479a) {
+    public /* synthetic */ ConnectionResult(Parcel parcel, HmsConnectionResultCreator c1479a) {
         this(parcel);
     }
 

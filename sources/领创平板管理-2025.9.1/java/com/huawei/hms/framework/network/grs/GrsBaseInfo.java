@@ -2,10 +2,10 @@ package com.huawei.hms.framework.network.grs;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.C0847b9;
-import com.huawei.hem.C0872c8;
-import com.huawei.hem.C0924e8;
-import com.huawei.hem.C1402x8;
+import com.huawei.hem.GrsLocalApplication;
+import com.huawei.hem.GrsPreferencesStore;
+import com.huawei.hem.GrsLocalManagerProxy;
+import com.huawei.hem.GrsStringUtilities;
 import com.huawei.hms.framework.common.ContainerUtils;
 import com.huawei.hms.framework.common.Logger;
 import java.io.UnsupportedEncodingException;
@@ -69,7 +69,7 @@ public class GrsBaseInfo implements Cloneable {
             stringBuffer.append(ContainerUtils.KEY_VALUE_DELIMITER);
             stringBuffer.append(deviceModel);
         }
-        String string = new C0872c8(context, "share_pre_grs_conf_").f2329a.getString("cp", "");
+        String string = new GrsPreferencesStore(context, "share_pre_grs_conf_").f2329a.getString("cp", "");
         if (!TextUtils.isEmpty(string) && !z) {
             try {
                 String strEncode = URLEncoder.encode(string, "UTF-8");
@@ -151,8 +151,8 @@ public class GrsBaseInfo implements Cloneable {
 
     public String getGrsParasKey(boolean z, boolean z2, Context context) throws UnsupportedEncodingException {
         StringBuffer stringBuffer = new StringBuffer();
-        C0924e8 c0924e8M1669a = C0924e8.m1669a(context.getPackageName(), this);
-        C0847b9 c0847b9 = c0924e8M1669a != null ? c0924e8M1669a.f2517a.f2387a : null;
+        GrsLocalManagerProxy c0924e8M1669a = GrsLocalManagerProxy.m1669a(context.getPackageName(), this);
+        GrsLocalApplication c0847b9 = c0924e8M1669a != null ? c0924e8M1669a.f2517a.f2387a : null;
         String str = c0847b9 != null ? c0847b9.f2284a : "";
         String appName = getAppName();
         if (!TextUtils.isEmpty(appName) && TextUtils.isEmpty(str)) {
@@ -207,9 +207,9 @@ public class GrsBaseInfo implements Cloneable {
             stringBuffer.append("uid");
             stringBuffer.append(ContainerUtils.KEY_VALUE_DELIMITER);
             if (z) {
-                strM2932a = C1402x8.m2933b(uid);
+                strM2932a = GrsStringUtilities.m2933b(uid);
             } else if (z2) {
-                strM2932a = C1402x8.m2932a(uid);
+                strM2932a = GrsStringUtilities.m2932a(uid);
             } else {
                 stringBuffer.append(uid);
             }

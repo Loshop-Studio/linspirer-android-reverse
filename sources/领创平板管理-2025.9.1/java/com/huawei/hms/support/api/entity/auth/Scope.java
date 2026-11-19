@@ -7,11 +7,11 @@ import com.huawei.hms.core.aidl.IMessageEntity;
 
 /* loaded from: classes.dex */
 public class Scope implements IMessageEntity, Parcelable {
-    public static final Parcelable.Creator<Scope> CREATOR = new C1570a();
+    public static final Parcelable.Creator<Scope> CREATOR = new HmsScopeCreator();
     public String mScopeUri;
 
     /* renamed from: com.huawei.hms.support.api.entity.auth.Scope$a */
-    public static class C1570a implements Parcelable.Creator<Scope> {
+    public static class HmsScopeCreator implements Parcelable.Creator<Scope> {
         @Override // android.os.Parcelable.Creator
         public Scope createFromParcel(Parcel parcel) {
             return new Scope(parcel);

@@ -47,7 +47,7 @@ public class ComponentHelper {
             String jSONString = JSON.toJSONString(list);
             String strM3046h = c1249r5.f3600b.m3046h();
             List<ComponentInfo> array = JSON.parseArray(strM3046h, ComponentInfo.class);
-            if (!AbstractC1102l9.m2273N(array) && !AbstractC1102l9.m2273N(list)) {
+            if (!MobileSdkPlatformUtilities.m2273N(array) && !MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("ComponentHelper--new component and old component are not empty");
                 if (LTKDateUtil.m1401k(strM3046h).equals(LTKDateUtil.m1401k(jSONString))) {
                     LTKDateUtil.m1403m("ComponentHelper--new component and old component are same");
@@ -56,10 +56,10 @@ public class ComponentHelper {
                     c1249r5.m2654c(array, true);
                     c1249r5.m2654c(list, false);
                 }
-            } else if (AbstractC1102l9.m2273N(array) && !AbstractC1102l9.m2273N(list)) {
+            } else if (MobileSdkPlatformUtilities.m2273N(array) && !MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("ComponentHelperold component are empty but new component are not empty");
                 c1249r5.m2654c(list, false);
-            } else if (!AbstractC1102l9.m2273N(array) && AbstractC1102l9.m2273N(list)) {
+            } else if (!MobileSdkPlatformUtilities.m2273N(array) && MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("ComponentHelperold component are not empty but new component empty");
                 c1249r5.m2654c(array, true);
             }

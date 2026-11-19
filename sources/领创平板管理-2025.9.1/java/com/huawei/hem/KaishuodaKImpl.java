@@ -128,7 +128,7 @@ public class KaishuodaKImpl extends AndroidImpl {
         if (this.f2296b == null) {
             return null;
         }
-        if (!AbstractC1102l9.m2273N(this.f2296b.urlWhiteExceptListRead())) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.f2296b.urlWhiteExceptListRead())) {
             arrayList.addAll(this.f2296b.urlWhiteExceptListRead());
         }
         return arrayList;
@@ -157,7 +157,7 @@ public class KaishuodaKImpl extends AndroidImpl {
         if (this.f2296b == null) {
             return null;
         }
-        if (!AbstractC1102l9.m2273N(this.f2296b.appWhiteListRead())) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.f2296b.appWhiteListRead())) {
             arrayList.addAll(this.f2296b.appWhiteListRead());
         }
         return arrayList;
@@ -684,7 +684,7 @@ public class KaishuodaKImpl extends AndroidImpl {
         if (this.f2296b == null) {
             return null;
         }
-        if (!AbstractC1102l9.m2273N(this.f2296b.urlWhiteListRead())) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.f2296b.urlWhiteListRead())) {
             arrayList.addAll(this.f2296b.urlWhiteListRead());
         }
         return arrayList;

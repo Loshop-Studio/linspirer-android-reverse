@@ -141,7 +141,7 @@ public class LenovoCSDKImpl extends AndroidImpl {
     /* renamed from: I0 */
     public void mo1308I0(List<String> list) {
         LTKDateUtil.m1403m("LenovoCSDKImpl -- setNetworkAccessAppWhiteList ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         mo1323h();
@@ -1018,7 +1018,7 @@ public class LenovoCSDKImpl extends AndroidImpl {
     /* renamed from: j0 */
     public void mo1349j0(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("LenovoCSDKImpl removeSSIDFromWhiteList");
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             return;
         }
         try {
@@ -1032,12 +1032,12 @@ public class LenovoCSDKImpl extends AndroidImpl {
     /* renamed from: l */
     public boolean mo1350l(List<String> list) {
         LTKDateUtil.m1403m("LenovoCSDKImpl --  setAppWhiteWithHash");
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1403m("LenovoCSDKImplenable firewall because firewall is loss efficacy");
             enableFireWall();
         }
         try {
-            f2206c.disableInstallation(!AbstractC1102l9.m2273N(list));
+            f2206c.disableInstallation(!MobileSdkPlatformUtilities.m2273N(list));
         } catch (Throwable th) {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("LenovoCSDKImpl -- disableInstallation:"));
         }
@@ -1100,7 +1100,7 @@ public class LenovoCSDKImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     public void removePersistentApp(List<String> list) {
         LTKDateUtil.m1403m("LenovoCSDKImpl -- removePersistentApp ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -1114,24 +1114,24 @@ public class LenovoCSDKImpl extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("LenovoCSDKImpl -- setAppWhiteList ");
-        if (!AbstractC1102l9.m2273N(list)) {
+        if (!MobileSdkPlatformUtilities.m2273N(list)) {
             LTKDateUtil.m1403m("LenovoCSDKImplenable firewall because firewall is loss efficacy");
             enableFireWall();
         }
         try {
-            f2206c.disableInstallation(!AbstractC1102l9.m2273N(list));
+            f2206c.disableInstallation(!MobileSdkPlatformUtilities.m2273N(list));
         } catch (Throwable th) {
             CompilerOutline.m1744B(th, CompilerOutline.m1765j("LenovoCSDKImpl -- disableInstallation:"));
         }
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 f2206c.removeInstallPackageWhiteList(mo1311M0());
             }
         } catch (Throwable th2) {
             CompilerOutline.m1744B(th2, CompilerOutline.m1765j("LenovoCSDKImpl -- removeInstallPackageWhiteList -error:"));
         }
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 f2206c.addInstallPackageWhiteList(null);
             } else {
                 f2206c.addInstallPackageWhiteList(list);
@@ -1171,7 +1171,7 @@ public class LenovoCSDKImpl extends AndroidImpl {
     /* renamed from: x */
     public void mo1354x(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("LenovoCSDKImpl addSSIDToWhiteList  ");
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             return;
         }
         try {

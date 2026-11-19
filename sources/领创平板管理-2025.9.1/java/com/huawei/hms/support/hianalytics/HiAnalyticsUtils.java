@@ -2,13 +2,13 @@ package com.huawei.hms.support.hianalytics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.HmsHiAnalyticsUtils;
-import com.huawei.hem.C1328u9;
-import com.huawei.hem.C1353v9;
-import com.huawei.hem.C1378w9;
-import com.huawei.hem.C1404xa;
+import com.huawei.hem.AnalyticsReportingContext;
+import com.huawei.hem.HmsAnalyticsEventManager;
+import com.huawei.hem.HmsAnalyticsInstance;
+import com.huawei.hem.HiAnalyticsSdkState;
 import com.huawei.hianalytics.process.HiAnalyticsManager;
 import com.huawei.hianalytics.util.HiAnalyticTools;
 import com.huawei.hms.stats.AnalyticsSwitchHolder;
@@ -115,27 +115,27 @@ public class HiAnalyticsUtils {
             HiAnalyticsOfCpUtils.m3447a(context, str, str2);
             return;
         }
-        if (AbstractC1102l9.m2279b() != null) {
-            C1378w9 c1378w9 = AbstractC1102l9.f3158a;
+        if (MobileSdkPlatformUtilities.m2279b() != null) {
+            HmsAnalyticsInstance c1378w9 = MobileSdkPlatformUtilities.f3158a;
             if (c1378w9 == null) {
                 throw null;
             }
             StringBuilder sbM1765j = CompilerOutline.m1765j("HiAnalyticsInstance.onEvent(eventId, mapValue) is execute.TAG : ");
             sbM1765j.append(c1378w9.f4012a);
-            C1404xa.m2937d("hmsSdk", sbM1765j.toString());
-            if ((!AbstractC1102l9.m2298u("eventId", str, 256)) || !c1378w9.m2903a(0)) {
+            HiAnalyticsSdkState.m2937d("hmsSdk", sbM1765j.toString());
+            if ((!MobileSdkPlatformUtilities.m2298u("eventId", str, 256)) || !c1378w9.m2903a(0)) {
                 StringBuilder sbM1765j2 = CompilerOutline.m1765j("onEvent() parameters check fail. Nothing will be recorded.TAG: ");
                 sbM1765j2.append(c1378w9.f4012a);
-                C1404xa.m2939f("hmsSdk", sbM1765j2.toString());
+                HiAnalyticsSdkState.m2939f("hmsSdk", sbM1765j2.toString());
                 return;
             }
-            if (!AbstractC1102l9.m2298u("value", str2, 65536)) {
+            if (!MobileSdkPlatformUtilities.m2298u("value", str2, 65536)) {
                 StringBuilder sbM1765j3 = CompilerOutline.m1765j("onEvent() parameter VALUE is overlong, content will be cleared.TAG: ");
                 sbM1765j3.append(c1378w9.f4012a);
-                C1404xa.m2939f("hmsSdk", sbM1765j3.toString());
+                HiAnalyticsSdkState.m2939f("hmsSdk", sbM1765j3.toString());
                 str2 = "";
             }
-            C1328u9 c1328u9M2787a = C1328u9.m2787a();
+            AnalyticsReportingContext c1328u9M2787a = AnalyticsReportingContext.m2787a();
             String str3 = c1378w9.f4012a;
             if (c1328u9M2787a == null) {
                 throw null;
@@ -143,9 +143,9 @@ public class HiAnalyticsUtils {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("_constants", str2);
-                C1353v9.m2861a().m2863c(str3, 0, str, jSONObject);
+                HmsAnalyticsEventManager.m2861a().m2863c(str3, 0, str, jSONObject);
             } catch (JSONException unused) {
-                C1404xa.m2940g("hmsSdk", "onEvent():JSON structure Exception!");
+                HiAnalyticsSdkState.m2940g("hmsSdk", "onEvent():JSON structure Exception!");
             }
         }
     }

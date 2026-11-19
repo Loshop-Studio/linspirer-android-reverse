@@ -9,7 +9,7 @@ import com.android.launcher3.adapter.RubbishRecyclerViewAdapter;
 public class RubbishRecyclerViewAdapterCheckedChangeListener implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a */
-    public final /* synthetic */ RubbishRecyclerViewAdapter.C0649a f2318a;
+    public final /* synthetic */ RubbishRecyclerViewAdapter.RubbishRowHolder f2318a;
 
     /* renamed from: b */
     public final /* synthetic */ int f2319b;
@@ -17,7 +17,7 @@ public class RubbishRecyclerViewAdapterCheckedChangeListener implements Compound
     /* renamed from: c */
     public final /* synthetic */ RubbishRecyclerViewAdapter f2320c;
 
-    public RubbishRecyclerViewAdapterCheckedChangeListener(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, RubbishRecyclerViewAdapter.C0649a c0649a, int i) {
+    public RubbishRecyclerViewAdapterCheckedChangeListener(RubbishRecyclerViewAdapter rubbishRecyclerViewAdapter, RubbishRecyclerViewAdapter.RubbishRowHolder c0649a, int i) {
         this.f2320c = rubbishRecyclerViewAdapter;
         this.f2318a = c0649a;
         this.f2319b = i;

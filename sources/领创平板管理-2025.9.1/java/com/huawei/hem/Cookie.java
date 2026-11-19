@@ -96,7 +96,7 @@ public final class Cookie {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static java.util.List<com.huawei.hem.Cookie> m2643b(com.huawei.hem.OkHttpUrl r33, com.huawei.hem.C1438yj r34) throws java.lang.InterruptedException, java.lang.NumberFormatException {
+    public static java.util.List<com.huawei.hem.Cookie> m2643b(com.huawei.hem.OkHttpUrl r33, com.huawei.hem.OkHttpHeaderList r34) throws java.lang.InterruptedException, java.lang.NumberFormatException {
         /*
             Method dump skipped, instructions count: 874
             To view this dump add '--comments-level debug' option
@@ -154,7 +154,7 @@ public final class Cookie {
         if (i7 < 0 || i7 > 59) {
             throw new IllegalArgumentException();
         }
-        GregorianCalendar gregorianCalendar = new GregorianCalendar(C1314tk.f3822h);
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(OkHttpCommonUtilities.f3822h);
         gregorianCalendar.setLenient(false);
         gregorianCalendar.set(1, i3);
         gregorianCalendar.set(2, iIndexOf - 1);

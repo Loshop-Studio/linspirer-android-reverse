@@ -19,7 +19,7 @@ public class ProcessUtils {
             declaredMethod.setAccessible(true);
             return (String) declaredMethod.invoke(null, new Object[0]);
         } catch (Exception e) {
-            C0610b.m1021a(Utils.TAG, "getProcessNameByActivityThread error: " + e);
+            SdkToolLogger.m1021a(Utils.TAG, "getProcessNameByActivityThread error: " + e);
             return null;
         }
     }

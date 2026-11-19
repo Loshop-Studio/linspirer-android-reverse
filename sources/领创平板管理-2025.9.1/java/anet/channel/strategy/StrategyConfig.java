@@ -1,8 +1,8 @@
 package anet.channel.strategy;
 
 import android.text.TextUtils;
-import anet.channel.strategy.C0407l;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.AmdcStrategyResultParser;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.strategy.utils.SerialLruCache;
 import anet.channel.util.ALog;
 import anet.channel.util.HttpConstant;
@@ -64,14 +64,14 @@ public class StrategyConfig implements Serializable {
     }
 
     /* renamed from: a */
-    public void m260a(C0407l.d dVar) {
+    public void m260a(AmdcStrategyResultParser.d dVar) {
         if (dVar.f544b == null) {
             return;
         }
         synchronized (this) {
             TreeMap treeMap = null;
             for (int i = 0; i < dVar.f544b.length; i++) {
-                C0407l.b bVar = dVar.f544b[i];
+                AmdcStrategyResultParser.b bVar = dVar.f544b[i];
                 if (bVar.f538j) {
                     this.f460a.remove(bVar.f529a);
                 } else if (bVar.f532d != null) {
@@ -112,7 +112,7 @@ public class StrategyConfig implements Serializable {
     /* renamed from: a */
     public String m258a(String str) {
         String str2;
-        if (TextUtils.isEmpty(str) || !C0413c.m333c(str)) {
+        if (TextUtils.isEmpty(str) || !AmdcStringEncoding.m333c(str)) {
             return null;
         }
         synchronized (this) {

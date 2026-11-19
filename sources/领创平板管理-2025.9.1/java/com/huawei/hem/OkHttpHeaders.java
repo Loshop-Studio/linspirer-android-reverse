@@ -62,7 +62,7 @@ public final class OkHttpHeaders {
     }
 
     /* renamed from: d */
-    public static void m2494d(CookieJar interfaceC1263rj, OkHttpUrl c1463zj, C1438yj c1438yj) {
+    public static void m2494d(CookieJar interfaceC1263rj, OkHttpUrl c1463zj, OkHttpHeaderList c1438yj) {
         if (interfaceC1263rj != CookieJar.f3644a && !Cookie.m2643b(c1463zj, c1438yj).isEmpty() && ((CookieJar.a) interfaceC1263rj) == null) {
             throw null;
         }

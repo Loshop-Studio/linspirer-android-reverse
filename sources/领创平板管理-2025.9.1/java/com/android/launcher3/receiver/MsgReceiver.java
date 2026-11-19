@@ -10,7 +10,7 @@ import com.alibaba.sdk.android.push.notification.CPushMessage;
 import com.android.launcher3.model.CommandInfo;
 import com.android.launcher3.network.ReciverPushHelper;
 import com.huawei.hem.LTKDateUtil;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import java.util.Map;
 
 /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class MsgReceiver extends MessageReceiver {
         }
         String command = commandInfo.getCommand();
         if ("command_applist".equals(command) || "command_dynamic_device_info".equals(command) || "command_tactics_updated".equals(command)) {
-            C1219q0.m2521q(context, command, commandInfo.getActive());
+            AgooNotificationHandler.m2521q(context, command, commandInfo.getActive());
         } else {
             ReciverPushHelper.getInstance().reportServer(command, commandInfo.getActive(), context);
         }

@@ -117,7 +117,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: B0 */
     public void mo1304B0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -307,7 +307,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
         LTKDateUtil.m1403m("HuaweiBaseImpl  -- getDisallowedUninstallPackageList");
         try {
             List<String> disallowedUninstallPackageList = f3524e.getDisallowedUninstallPackageList(f3522c);
-            return AbstractC1102l9.m2273N(disallowedUninstallPackageList) ? new ArrayList() : disallowedUninstallPackageList;
+            return MobileSdkPlatformUtilities.m2273N(disallowedUninstallPackageList) ? new ArrayList() : disallowedUninstallPackageList;
         } catch (Throwable th) {
             return CompilerOutline.m1773r(th, CompilerOutline.m1765j("HuaweiBaseImpl  --- getDisallowedUninstallPackageList-error:"));
         }
@@ -423,7 +423,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     public void mo2055P0(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HuaweiBaseImpl  -- removeSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 arrayList.remove("com.android.launcher3");
                 arrayList.remove("com.ndwill.swd.appstore");
             }
@@ -449,7 +449,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     public void mo1342Q0(List<String> list) {
         LTKDateUtil.m1403m("HuaweiBaseImpl  -- removeDisallowedUninstallPackages");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f3524e.removeDisallowedUninstallPackages(f3522c, list);
@@ -585,7 +585,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
         LTKDateUtil.m1403m("HuaweiBaseImpl  -- getAllowNotificationApps");
         try {
             ArrayList<String> allowNotificationApps = f3524e.getAllowNotificationApps(f3522c);
-            if (!AbstractC1102l9.m2273N(allowNotificationApps)) {
+            if (!MobileSdkPlatformUtilities.m2273N(allowNotificationApps)) {
                 return allowNotificationApps;
             }
         } catch (Throwable th) {
@@ -599,7 +599,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     public void mo1506d(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HuaweiBaseImpl  -- setSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 LTKDateUtil.m1403m("HuaweiBaseImpl  -- 设置可信任应用:" + arrayList);
                 f3531l.setSuperWhiteListForHwSystemManger(f3522c, arrayList);
             }
@@ -1002,7 +1002,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     /* renamed from: j0 */
     public void mo1349j0(ArrayList<String> arrayList) {
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             f3532m.removeSSIDFromWhiteList(f3522c, arrayList);
@@ -1031,7 +1031,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: k0 */
     public void mo1326k0(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -1128,7 +1128,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     public void removePersistentApp(List<String> list) {
         try {
             LTKDateUtil.m1403m("HuaweiBaseImpl  -- removePersistentApp == " + list.toString());
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f3527h.removePersistentApp(f3522c, list);
@@ -1249,7 +1249,7 @@ public class HuaweiBaseImpl extends AndroidImpl {
     /* renamed from: x */
     public void mo1354x(ArrayList<String> arrayList) {
         try {
-            if (AbstractC1102l9.m2272M(arrayList)) {
+            if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 return;
             }
             f3532m.addSSIDToWhiteList(f3522c, arrayList);

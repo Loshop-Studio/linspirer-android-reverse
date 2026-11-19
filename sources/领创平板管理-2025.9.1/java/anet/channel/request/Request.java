@@ -3,7 +3,7 @@ package anet.channel.request;
 import android.text.TextUtils;
 import anet.channel.AwcnConfig;
 import anet.channel.statist.RequestStatistic;
-import anet.channel.strategy.utils.C0413c;
+import anet.channel.strategy.utils.AmdcStringEncoding;
 import anet.channel.util.ALog;
 import anet.channel.util.HttpConstant;
 import anet.channel.util.HttpUrl;
@@ -310,7 +310,7 @@ public class Request {
 
     /* renamed from: b */
     private void m166b() {
-        String strM330a = C0413c.m330a(this.f335h, getContentEncoding());
+        String strM330a = AmdcStringEncoding.m330a(this.f335h, getContentEncoding());
         if (!TextUtils.isEmpty(strM330a)) {
             if (Method.m201a(this.f333f) && this.f337j == null) {
                 try {

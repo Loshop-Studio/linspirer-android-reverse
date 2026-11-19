@@ -14,7 +14,7 @@ import com.android.launcher3.p027db.model.PushMsg;
 import com.android.launcher3.p027db.model.PushMsgDao;
 import com.android.launcher3.view.SwipeSideslipListView;
 import com.gyf.immersionbar.ImmersionBar;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.MesssageCenterAdapter;
 import com.huawei.hem.ViewControlUtil;
 import com.huawei.hem.DBController;
@@ -48,11 +48,11 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
     public MesssageCenterAdapter f1767h;
 
     /* renamed from: i */
-    public Handler f1768i = new HandlerC0639a();
+    public Handler f1768i = new MessageCenterUiHandler();
 
     /* renamed from: com.android.launcher3.activity.MessageCenterActivity$a */
-    public class HandlerC0639a extends Handler {
-        public HandlerC0639a() {
+    public class MessageCenterUiHandler extends Handler {
+        public MessageCenterUiHandler() {
         }
 
         @Override // android.os.Handler
@@ -75,7 +75,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
         this.f1763d = pushMsgDao;
         List<PushMsg> list = pushMsgDao.queryBuilder().where(PushMsgDao.Properties.UserId.m5870eq(UserInfoUtil.b.f4202a.m3052k()), new WhereCondition[0]).list();
         this.f1762c = list;
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             m1205g();
             return;
         }
@@ -87,7 +87,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
         }
         this.f1762c.removeAll(arrayList);
         this.f1763d.deleteInTx(arrayList);
-        if (AbstractC1102l9.m2273N(this.f1762c)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1762c)) {
             m1205g();
             return;
         }
@@ -146,7 +146,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
             return;
         }
         int iIntValue = ((Integer) view.getTag(R.id.msg_delete_item)).intValue();
-        if (!AbstractC1102l9.m2273N(this.f1762c) && this.f1762c.size() > iIntValue) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.f1762c) && this.f1762c.size() > iIntValue) {
             PushMsg pushMsg = this.f1762c.get(iIntValue);
             this.f1762c.remove(pushMsg);
             this.f1763d.deleteByKey(pushMsg.getId());
@@ -154,7 +154,7 @@ public class MessageCenterActivity extends BaseActivity implements View.OnClickL
             this.f1767h.notifyDataSetChanged();
             this.f1763d.deleteByKey(pushMsg.getId());
         }
-        if (AbstractC1102l9.m2273N(this.f1762c)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1762c)) {
             this.f1768i.sendEmptyMessageDelayed(1, 500L);
         }
     }

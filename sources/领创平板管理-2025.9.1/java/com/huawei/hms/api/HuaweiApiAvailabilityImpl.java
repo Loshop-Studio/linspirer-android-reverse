@@ -10,10 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
-import com.huawei.hem.AbstractC1376w7;
+import com.huawei.hem.HmsResultTaskBase;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1401x7;
-import com.huawei.hem.C1426y7;
+import com.huawei.hem.HmsTaskRegistry;
+import com.huawei.hem.HmsTaskResultState;
 import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.activity.EnableServiceActivity;
 import com.huawei.hms.activity.ForegroundIntentBuilder;
@@ -50,9 +50,9 @@ public final class HuaweiApiAvailabilityImpl extends HuaweiApiAvailability {
     public class a implements BusResponseCallback {
 
         /* renamed from: a */
-        public final /* synthetic */ C1401x7[] f4433a;
+        public final /* synthetic */ HmsTaskRegistry[] f4433a;
 
-        public a(HuaweiApiAvailabilityImpl c1489b, C1401x7[] c1401x7Arr) {
+        public a(HuaweiApiAvailabilityImpl c1489b, HmsTaskRegistry[] c1401x7Arr) {
             this.f4433a = c1401x7Arr;
         }
 
@@ -90,8 +90,8 @@ public final class HuaweiApiAvailabilityImpl extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public AbstractC1376w7<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr) {
-        C1426y7 c1426y7 = new C1426y7();
+    public HmsResultTaskBase<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr) {
+        HmsTaskResultState c1426y7 = new HmsTaskResultState();
         if (huaweiApi != null) {
             try {
                 m3259a(huaweiApi);
@@ -130,10 +130,10 @@ public final class HuaweiApiAvailabilityImpl extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public AbstractC1376w7<Void> getHuaweiServicesReady(Activity activity) {
+    public HmsResultTaskBase<Void> getHuaweiServicesReady(Activity activity) {
         Preconditions.checkNotNull(activity);
-        C1401x7[] c1401x7Arr = {new C1401x7()};
-        AbstractC1376w7 abstractC1376w7 = c1401x7Arr[0].f4053a;
+        HmsTaskRegistry[] c1401x7Arr = {new HmsTaskRegistry()};
+        HmsResultTaskBase abstractC1376w7 = c1401x7Arr[0].f4053a;
         int iIsHuaweiMobileServicesAvailable = isHuaweiMobileServicesAvailable(activity.getApplicationContext(), 30000000);
         Intent resolveErrorIntent = getResolveErrorIntent(activity, iIsHuaweiMobileServicesAvailable);
         Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, ResolutionDelegate.class.getName());
@@ -331,8 +331,8 @@ public final class HuaweiApiAvailabilityImpl extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public AbstractC1376w7<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr) {
-        C1426y7 c1426y7 = new C1426y7();
+    public HmsResultTaskBase<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr) {
+        HmsTaskResultState c1426y7 = new HmsTaskResultState();
         if (huaweiApiCallable != null) {
             try {
                 m3259a(huaweiApiCallable);

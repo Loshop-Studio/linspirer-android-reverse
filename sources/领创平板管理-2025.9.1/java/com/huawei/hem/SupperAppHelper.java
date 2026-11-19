@@ -26,7 +26,7 @@ public class SupperAppHelper {
         this.f2173a.add("com.ndwill.swd.appstore");
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add("com.zykj.manage");
-        if (AbstractC1102l9.m2273N(arrayList2)) {
+        if (MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             return;
         }
         this.f2173a.addAll(arrayList2);
@@ -43,10 +43,10 @@ public class SupperAppHelper {
         }
         List<String> listMo1507u = LTKDateUtil.f2294f.mo1507u();
         StringBuilder sbM1765j2 = CompilerOutline.m1765j("SupperAppHelper read already set super:");
-        sbM1765j2.append(AbstractC1102l9.m2273N(listMo1507u) ? null : listMo1507u.toString());
+        sbM1765j2.append(MobileSdkPlatformUtilities.m2273N(listMo1507u) ? null : listMo1507u.toString());
         LTKDateUtil.m1403m(sbM1765j2.toString());
         ArrayList arrayList2 = new ArrayList();
-        if (!AbstractC1102l9.m2273N(listMo1507u)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listMo1507u)) {
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (String str : listMo1507u) {
                 if (arrayList.contains(str)) {
@@ -62,7 +62,7 @@ public class SupperAppHelper {
         sbM1765j3.append(arrayList2.toString());
         LTKDateUtil.m1403m(sbM1765j3.toString());
         arrayList.removeAll(arrayList2);
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             LTKDateUtil.m1403m("SupperAppHelper  have same app data no need set");
             return;
         }

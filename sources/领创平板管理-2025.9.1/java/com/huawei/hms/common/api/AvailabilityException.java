@@ -6,7 +6,7 @@ import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
 import com.huawei.hms.common.HuaweiApi;
 import com.huawei.hms.support.log.HMSLog;
-import com.taobao.agoo.p074a.p075a.AbstractC2002b;
+import com.taobao.agoo.p074a.p075a.AgooCommandFields;
 
 /* loaded from: classes.dex */
 public class AvailabilityException extends Exception {
@@ -25,7 +25,7 @@ public class AvailabilityException extends Exception {
             return;
         }
         if (i == 0) {
-            this.message = AbstractC2002b.JSON_SUCCESS;
+            this.message = AgooCommandFields.JSON_SUCCESS;
             return;
         }
         if (i == 1) {

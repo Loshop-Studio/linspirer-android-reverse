@@ -68,7 +68,7 @@ public class GenericRequestBuilder<ModelType, DataType, ResourceType, TranscodeT
     public Transformation<ResourceType> transformation;
 
     /* renamed from: com.bumptech.glide.GenericRequestBuilder$2 */
-    public static /* synthetic */ class C07452 {
+    public static /* synthetic */ class GlideScaleTypeSwitch {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 
         static {
@@ -405,7 +405,7 @@ public class GenericRequestBuilder<ModelType, DataType, ResourceType, TranscodeT
         Util.assertMainThread();
         if (imageView != null) {
             if (!this.isTransformationSet && imageView.getScaleType() != null) {
-                int i = C07452.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+                int i = GlideScaleTypeSwitch.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
                 if (i == 1) {
                     applyCenterCrop();
                 } else if (i == 2 || i == 3 || i == 4) {

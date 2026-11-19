@@ -44,7 +44,7 @@ public final class BackStackState implements Parcelable {
         }
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            BackStackRecord.C0035Op c0035Op = backStackRecord.mOps.get(i2);
+            BackStackRecord.BackStackOperation c0035Op = backStackRecord.mOps.get(i2);
             int[] iArr = this.mOps;
             int i3 = i + 1;
             iArr[i] = c0035Op.cmd;
@@ -84,7 +84,7 @@ public final class BackStackState implements Parcelable {
         int i = 0;
         int i2 = 0;
         while (i < this.mOps.length) {
-            BackStackRecord.C0035Op c0035Op = new BackStackRecord.C0035Op();
+            BackStackRecord.BackStackOperation c0035Op = new BackStackRecord.BackStackOperation();
             int i3 = i + 1;
             c0035Op.cmd = this.mOps[i];
             if (FragmentManagerImpl.DEBUG) {

@@ -11,7 +11,7 @@ import com.android.launcher3.network.params.V2Params;
 import com.android.launcher3.network.response.ExceptionHandler;
 import com.android.launcher3.network.response.LTKListResponseListener;
 import com.android.launcher3.network.response.Response;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.DeviceTypeUtil;
@@ -100,7 +100,7 @@ public class UrlWhiteHelper {
         if (c1424y5.f4135I == null) {
             c1424y5.f4135I = c1424y5.f4130D.f2199a.getString("server_url_white_list", "");
         }
-        prepareToWriteUrls(AbstractC1102l9.m2277R(c1424y5.f4135I, ","));
+        prepareToWriteUrls(MobileSdkPlatformUtilities.m2277R(c1424y5.f4135I, ","));
     }
 
     private void initDefaultUrls() {
@@ -153,14 +153,14 @@ public class UrlWhiteHelper {
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add("zyyx.cc");
         arrayList2.add("zykj.org");
-        if (!AbstractC1102l9.m2273N(arrayList2)) {
+        if (!MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             arrayList.addAll(arrayList2);
         }
         arrayList.addAll(this.defaultUrls);
         arrayList.addAll(list);
         String strM3068s = this.userInfoUtil.m3068s();
         if (!TextUtils.isEmpty(strM3068s)) {
-            arrayList.addAll(AbstractC1102l9.m2277R(strM3068s, ","));
+            arrayList.addAll(MobileSdkPlatformUtilities.m2277R(strM3068s, ","));
         }
         String strM1401k = LTKDateUtil.m1401k(arrayList.toString());
         UserInfoUtil c1424y5 = this.userInfoUtil;
@@ -190,14 +190,14 @@ public class UrlWhiteHelper {
 
     private void writeUrls(List<String> list) {
         StringBuilder sbM1765j = CompilerOutline.m1765j("UrlWhiteHelper  需要关注的日志，网址白名单是否包含空格和特殊符号：");
-        sbM1765j.append(AbstractC1102l9.m2273N(list) ? null : list.toString());
+        sbM1765j.append(MobileSdkPlatformUtilities.m2273N(list) ? null : list.toString());
         LTKDateUtil.m1393c(sbM1765j.toString());
         LTKDateUtil.f2294f.mo1316V(list);
     }
 
     public List<String> getLspDefaultUrl() {
         ArrayList arrayList = new ArrayList();
-        if (!AbstractC1102l9.m2273N(this.defaultUrls)) {
+        if (!MobileSdkPlatformUtilities.m2273N(this.defaultUrls)) {
             arrayList.addAll(this.defaultUrls);
         }
         return arrayList;

@@ -24,7 +24,7 @@ public class TCLImpl extends AndroidImpl {
     public void mo1304B0(List<String> list) {
         LTKDateUtil.m1403m("TCLImpl -- actionEnableApps ");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f2912c.setAppEnable(list);
@@ -71,7 +71,7 @@ public class TCLImpl extends AndroidImpl {
     /* renamed from: I0 */
     public void mo1308I0(List<String> list) {
         LTKDateUtil.m1403m("TCLImpl -- setNetworkAccessAppWhiteList ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         try {
@@ -186,7 +186,7 @@ public class TCLImpl extends AndroidImpl {
     public boolean mo1316V(List<String> list) {
         LTKDateUtil.m1403m("TCLImpl -- setUrlWhiteList ");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 LTKDateUtil.m1403m("TCLImpl -- setUrlWhiteList ，urlWhiteList is null，not need to add");
                 return false;
             }
@@ -247,7 +247,7 @@ public class TCLImpl extends AndroidImpl {
     @Override // com.huawei.hem.C1055jc, com.huawei.hem.InterfaceC1030ic
     /* renamed from: d */
     public void mo1506d(ArrayList<String> arrayList) {
-        if (AbstractC1102l9.m2272M(arrayList)) {
+        if (MobileSdkPlatformUtilities.m2272M(arrayList)) {
             return;
         }
         LTKDateUtil.m1403m("TCLImpl -- setSuperWhiteListForSys ");
@@ -617,7 +617,7 @@ public class TCLImpl extends AndroidImpl {
     public void mo1326k0(List<String> list) {
         LTKDateUtil.m1403m("TCLImpl -- actionDisableApp ");
         try {
-            if (AbstractC1102l9.m2273N(list)) {
+            if (MobileSdkPlatformUtilities.m2273N(list)) {
                 return;
             }
             f2912c.setAppDisable(list);
@@ -641,7 +641,7 @@ public class TCLImpl extends AndroidImpl {
     /* renamed from: s */
     public boolean mo1328s(List<String> list) {
         LTKDateUtil.m1403m("TCLImpl -- setAppWhiteList ");
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return false;
         }
         try {
@@ -672,11 +672,11 @@ public class TCLImpl extends AndroidImpl {
         ArrayList arrayList = new ArrayList();
         try {
             List<String> webWhiteList = f2912c.getWebWhiteList(1);
-            if (!AbstractC1102l9.m2273N(webWhiteList)) {
+            if (!MobileSdkPlatformUtilities.m2273N(webWhiteList)) {
                 arrayList.addAll(webWhiteList);
             }
             List<String> webWhiteList2 = f2912c.getWebWhiteList(2);
-            if (!AbstractC1102l9.m2273N(webWhiteList2)) {
+            if (!MobileSdkPlatformUtilities.m2273N(webWhiteList2)) {
                 arrayList.addAll(webWhiteList2);
             }
             return arrayList;

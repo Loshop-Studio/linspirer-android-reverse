@@ -5,7 +5,7 @@ import anet.channel.util.HttpConstant;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.huawei.hem.AppInfo;
 import com.huawei.hem.HttpsDecisionUtil;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AgooNotificationHandler;
 import com.loc.AMapNetworkRequest;
 import java.util.HashMap;
 import java.util.Locale;
@@ -75,8 +75,8 @@ public final class LocNetManager {
                 map.put(LazyHeaders.Builder.USER_AGENT_HEADER, "AMAP_Location_SDK_Android 5.5.1");
                 map.put("KEY", AppInfo.m1641g(context));
                 map.put("enginever", CoreUtil.f5754a);
-                String strM2505a = C1219q0.m2505a();
-                String strM2506b = C1219q0.m2506b(context, strM2505a, "key=" + AppInfo.m1641g(context));
+                String strM2505a = AgooNotificationHandler.m2505a();
+                String strM2506b = AgooNotificationHandler.m2506b(context, strM2505a, "key=" + AppInfo.m1641g(context));
                 map.put("ts", strM2505a);
                 map.put("scode", strM2506b);
                 if (Double.valueOf(CoreUtil.f5754a).doubleValue() >= 5.3d) {
@@ -90,8 +90,8 @@ public final class LocNetManager {
                 c1830el.m4948b(z);
                 c1830el.m4950c(str);
                 c1830el.m4953d(str2);
-                c1830el.m4952c(C1841ew.m5123a(bArr));
-                c1830el.m4140a(C1219q0.m2509e(context));
+                c1830el.m4952c(AMapLocationUtilities.m5123a(bArr));
+                c1830el.m4140a(AgooNotificationHandler.m2509e(context));
                 HashMap map2 = new HashMap(16);
                 map2.put("output", "bin");
                 map2.put("policy", "3103");

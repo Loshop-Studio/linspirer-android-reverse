@@ -13,7 +13,7 @@ import com.android.launcher3.network.response.LTKResponseListener;
 import com.android.launcher3.network.response.Response;
 import com.android.launcher3.p027db.model.ScreenPartSettings;
 import com.android.launcher3.p027db.model.ScreenPartSettingsDao;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
 import com.huawei.hem.BaseRequestHelper;
@@ -47,7 +47,7 @@ public class HiScreenHelper extends BaseRequestHelper {
         ScreenPartSettingsDao screenPartSettingsDao = DBController.m2715a().f3751c.getScreenPartSettingsDao();
         List<ScreenPartSettings> module_setting = hiBoardScreen.getModule_setting();
         this.mScreenPartSettings.clear();
-        if (AbstractC1102l9.m2273N(module_setting)) {
+        if (MobileSdkPlatformUtilities.m2273N(module_setting)) {
             screenPartSettingsDao.deleteAll();
             this.mLogoPath = null;
             updateView(module_setting, null);

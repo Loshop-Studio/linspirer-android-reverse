@@ -35,8 +35,8 @@ public abstract class BaseGesturePwdActivity extends BaseActivity {
     public String f1817f = "";
 
     /* renamed from: com.android.launcher3.activity.gestrue.BaseGesturePwdActivity$a */
-    public class C0644a extends AnimatorListenerAdapter {
-        public C0644a(BaseGesturePwdActivity baseGesturePwdActivity) {
+    public class GestureAnimationEndListener extends AnimatorListenerAdapter {
+        public GestureAnimationEndListener(BaseGesturePwdActivity baseGesturePwdActivity) {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -60,7 +60,7 @@ public abstract class BaseGesturePwdActivity extends BaseActivity {
         ObjectAnimator objectAnimatorOfFloat = ObjectAnimator.ofFloat(view, "translationX", -20.0f, 20.0f, -20.0f, 0.0f);
         objectAnimatorOfFloat.setDuration(300L);
         objectAnimatorOfFloat.setInterpolator(new LinearInterpolator());
-        objectAnimatorOfFloat.addListener(new C0644a(this));
+        objectAnimatorOfFloat.addListener(new GestureAnimationEndListener(this));
         objectAnimatorOfFloat.start();
     }
 

@@ -264,7 +264,7 @@ public final class AuthConfigManager {
             String string;
             String strM1090x = DeviceInfo.m1090x(((BinaryRequest) this).f4939a);
             if (!TextUtils.isEmpty(strM1090x)) {
-                strM1090x = C1219q0.m2507c(new StringBuilder(strM1090x).reverse().toString());
+                strM1090x = AgooNotificationHandler.m2507c(new StringBuilder(strM1090x).reverse().toString());
             }
             HashMap map = new HashMap();
             map.put("authkey", TextUtils.isEmpty(this.f2619m) ? "" : this.f2619m);
@@ -281,7 +281,7 @@ public final class AuthConfigManager {
             if (map2 != null && !map2.isEmpty()) {
                 map.putAll(this.f2620n);
             }
-            map.put("abitype", C1094l1.m2234c(((BinaryRequest) this).f4939a));
+            map.put("abitype", AMapCoreUtilities.m2234c(((BinaryRequest) this).f4939a));
             map.put("ext", ((BinaryRequest) this).f4940b.m2158c());
             if (map.size() == 0) {
                 string = null;
@@ -306,7 +306,7 @@ public final class AuthConfigManager {
                 }
                 string = stringBuffer.toString();
             }
-            return C1094l1.m2245n(string);
+            return AMapCoreUtilities.m2245n(string);
         }
 
         @Override // com.huawei.hem.AbstractC1044j1, com.loc.AbstractC1728ar
@@ -402,14 +402,14 @@ public final class AuthConfigManager {
 
     /* renamed from: A */
     public static void m1698A(Context context) {
-        f2598o = C1170o1.m2424f(context, "open_common", "a13", true);
-        f2601r = C1170o1.m2424f(context, "open_common", "a6", true);
-        f2599p = C1170o1.m2424f(context, "open_common", "a7", false);
-        f2597n = C1170o1.m2419a(context, "open_common", "a8", 5000);
-        f2600q = C1170o1.m2419a(context, "open_common", "a9", 3);
-        f2602s = C1170o1.m2424f(context, "open_common", "a10", false);
-        f2603t = C1170o1.m2419a(context, "open_common", "a11", 3);
-        f2604u = C1170o1.m2424f(context, "open_common", "a12", false);
+        f2598o = AMapSharedPreferences.m2424f(context, "open_common", "a13", true);
+        f2601r = AMapSharedPreferences.m2424f(context, "open_common", "a6", true);
+        f2599p = AMapSharedPreferences.m2424f(context, "open_common", "a7", false);
+        f2597n = AMapSharedPreferences.m2419a(context, "open_common", "a8", 5000);
+        f2600q = AMapSharedPreferences.m2419a(context, "open_common", "a9", 3);
+        f2602s = AMapSharedPreferences.m2424f(context, "open_common", "a10", false);
+        f2603t = AMapSharedPreferences.m2419a(context, "open_common", "a11", 3);
+        f2604u = AMapSharedPreferences.m2424f(context, "open_common", "a12", false);
     }
 
     /* renamed from: B */
@@ -437,7 +437,7 @@ public final class AuthConfigManager {
     public static void m1701D() {
         try {
             f fVarM1707a = m1707a(f2586c, "IPV6_CONFIG_NAME", "open_common");
-            String strM2233b = C1094l1.m2233b(System.currentTimeMillis(), "yyyyMMdd");
+            String strM2233b = AMapCoreUtilities.m2233b(System.currentTimeMillis(), "yyyyMMdd");
             if (!strM2233b.equals(fVarM1707a.f2628b)) {
                 fVarM1707a.f2628b = strM2233b;
                 fVarM1707a.f2629c.set(0);
@@ -454,8 +454,8 @@ public final class AuthConfigManager {
             if (f2596m) {
                 return;
             }
-            ConstConfig.f3231d = C1170o1.m2424f(context, "open_common", "a4", true);
-            ConstConfig.f3232e = C1170o1.m2424f(context, "open_common", "a5", true);
+            ConstConfig.f3231d = AMapSharedPreferences.m2424f(context, "open_common", "a4", true);
+            ConstConfig.f3232e = AMapSharedPreferences.m2424f(context, "open_common", "a5", true);
             f2596m = true;
         } catch (Throwable unused) {
         }
@@ -495,14 +495,14 @@ public final class AuthConfigManager {
             }
             f2592i = true;
             HttpsDecisionUtil.a.f2886a.m2020a(context);
-            f2587d = C1170o1.m2424f(context, "open_common", "a2", true);
+            f2587d = AMapSharedPreferences.m2424f(context, "open_common", "a2", true);
             m1698A(context);
-            g.f2630a = C1170o1.m2424f(context, "open_common", "ucf", g.f2630a);
-            g.f2631b = C1170o1.m2424f(context, "open_common", "fsv2", g.f2631b);
-            g.f2632c = C1170o1.m2424f(context, "open_common", "usc", g.f2632c);
-            g.f2633d = C1170o1.m2419a(context, "open_common", "umv", g.f2633d);
-            g.f2634e = C1170o1.m2424f(context, "open_common", "ust", g.f2634e);
-            g.f2635f = C1170o1.m2419a(context, "open_common", "ustv", g.f2635f);
+            g.f2630a = AMapSharedPreferences.m2424f(context, "open_common", "ucf", g.f2630a);
+            g.f2631b = AMapSharedPreferences.m2424f(context, "open_common", "fsv2", g.f2631b);
+            g.f2632c = AMapSharedPreferences.m2424f(context, "open_common", "usc", g.f2632c);
+            g.f2633d = AMapSharedPreferences.m2419a(context, "open_common", "umv", g.f2633d);
+            g.f2634e = AMapSharedPreferences.m2424f(context, "open_common", "ust", g.f2634e);
+            g.f2635f = AMapSharedPreferences.m2419a(context, "open_common", "ustv", g.f2635f);
         } catch (Throwable unused) {
         }
     }
@@ -744,9 +744,9 @@ public final class AuthConfigManager {
         if (TextUtils.isEmpty(string) || context == null) {
             return;
         }
-        SharedPreferences.Editor editorM2420b = C1170o1.m2420b(context, str2);
+        SharedPreferences.Editor editorM2420b = AMapSharedPreferences.m2420b(context, str2);
         editorM2420b.putString(str, string);
-        C1170o1.m2421c(editorM2420b);
+        AMapSharedPreferences.m2421c(editorM2420b);
     }
 
     /* renamed from: h */
@@ -772,7 +772,7 @@ public final class AuthConfigManager {
     /* renamed from: i */
     public static void m1715i(String str, String str2) {
         f fVarM1707a = m1707a(f2586c, str, str2);
-        String strM2233b = C1094l1.m2233b(System.currentTimeMillis(), "yyyyMMdd");
+        String strM2233b = AMapCoreUtilities.m2233b(System.currentTimeMillis(), "yyyyMMdd");
         if (!strM2233b.equals(fVarM1707a.f2628b)) {
             fVarM1707a.f2628b = strM2233b;
             fVarM1707a.f2629c.set(0);
@@ -1030,7 +1030,7 @@ public final class AuthConfigManager {
 
     /* renamed from: s */
     public static String m1725s(String str, String str2) {
-        return CompilerOutline.m1761f(str2, "_", C1219q0.m2508d(str.getBytes()));
+        return CompilerOutline.m1761f(str2, "_", AgooNotificationHandler.m2508d(str.getBytes()));
     }
 
     /* renamed from: t */
@@ -1038,7 +1038,7 @@ public final class AuthConfigManager {
         if (context == null) {
             return;
         }
-        f2587d = C1170o1.m2424f(context, "open_common", "a2", true);
+        f2587d = AMapSharedPreferences.m2424f(context, "open_common", "a2", true);
     }
 
     /* renamed from: u */
@@ -1081,7 +1081,7 @@ public final class AuthConfigManager {
                 }
                 f2593j.put(str, Long.valueOf(j));
                 if (f2586c != null) {
-                    SharedPreferences.Editor editorM2420b = C1170o1.m2420b(f2586c, "open_common");
+                    SharedPreferences.Editor editorM2420b = AMapSharedPreferences.m2420b(f2586c, "open_common");
                     if (editorM2420b != null && !TextUtils.isEmpty(str)) {
                         try {
                             editorM2420b.putLong(str, j);
@@ -1089,7 +1089,7 @@ public final class AuthConfigManager {
                             SDKLogHandler.m5333b(th, "csp", "plv");
                         }
                     }
-                    C1170o1.m2421c(editorM2420b);
+                    AMapSharedPreferences.m2421c(editorM2420b);
                 }
             }
         } catch (Throwable th2) {

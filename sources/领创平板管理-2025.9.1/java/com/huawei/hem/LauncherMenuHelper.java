@@ -89,7 +89,7 @@ public class LauncherMenuHelper {
     public static ICtEmmManager f4125c;
 
     /* renamed from: d */
-    public static C1177o8 f4126d;
+    public static GrsServerConfig f4126d;
 
     /* renamed from: A */
     public static boolean m2954A(Intent intent) {
@@ -176,7 +176,7 @@ public class LauncherMenuHelper {
     public static void m2958E(Activity activity, String str, String str2, DownLoadBrowserListener interfaceC0971g3) {
         DialogUtil.showDialog(activity, activity.getString(R.string.text_downloading));
         m3001v(activity, true);
-        File file = new File(CompilerOutline.m1763h(new StringBuilder(), C1395x1.f4038a, str, ".apk"));
+        File file = new File(CompilerOutline.m1763h(new StringBuilder(), LauncherConstants.f4038a, str, ".apk"));
         f4124b = file;
         if (file.exists()) {
             Log.i("DownLoadUtil", "dest.exists() install");
@@ -194,7 +194,7 @@ public class LauncherMenuHelper {
         }
         DownloadTask c1007he = new DownloadTask(str2);
         c1007he.m1947z(absolutePath, false);
-        c1007he.f2853h = new C1324u5(activity, interfaceC0971g3, absolutePath, file2);
+        c1007he.f2853h = new LauncherDownloadListener(activity, interfaceC0971g3, absolutePath, file2);
         c1007he.start();
     }
 
@@ -212,13 +212,13 @@ public class LauncherMenuHelper {
             if ("-1".equals(str)) {
                 return;
             }
-            m2961H(context, AbstractC1102l9.m2277R(str, ","));
+            m2961H(context, MobileSdkPlatformUtilities.m2277R(str, ","));
         }
     }
 
     /* renamed from: H */
     public static void m2961H(Context context, List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             list = new ArrayList<>();
         }
         StringBuilder sbM1765j = CompilerOutline.m1765j("read wifi ssid");
@@ -470,7 +470,7 @@ public class LauncherMenuHelper {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static java.net.HttpURLConnection m2982c(java.lang.String r4, int r5, java.util.Map<java.lang.String, java.lang.String> r6, java.lang.String r7) throws java.net.ProtocolException, com.huawei.hem.C0977g9 {
+    public static java.net.HttpURLConnection m2982c(java.lang.String r4, int r5, java.util.Map<java.lang.String, java.lang.String> r6, java.lang.String r7) throws java.net.ProtocolException, com.huawei.hem.LauncherHelperException {
         /*
             boolean r0 = android.text.TextUtils.isEmpty(r4)
             r1 = 0
@@ -565,7 +565,7 @@ public class LauncherMenuHelper {
     }
 
     /* renamed from: d */
-    public static LinkedHashMap m2983d(C1252r8 c1252r8) {
+    public static LinkedHashMap m2983d(GrsHttpResponse c1252r8) {
         LinkedHashMapPack linkedHashMapPack = new LinkedHashMapPack();
         Exception exc = c1252r8.f3614l;
         if (exc != null) {
@@ -595,7 +595,7 @@ public class LauncherMenuHelper {
         m2989j(bArr, -4);
         byte[] bArrM2990k = m2990k(bArr, bArr2);
         m2989j(bArrM2990k, 6);
-        return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(C1425y6.m3080a(m2990k(bArrM2990k, bArr3)).toCharArray(), bArr4, 5000, 128)).getEncoded(), "AES");
+        return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(AgConnectHexCodec.m3080a(m2990k(bArrM2990k, bArr3)).toCharArray(), bArr4, 5000, 128)).getEncoded(), "AES");
     }
 
     /* renamed from: f */
@@ -613,8 +613,8 @@ public class LauncherMenuHelper {
         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) uRLConnectionOpenConnection;
         try {
             try {
-                httpsURLConnection.setSSLSocketFactory(new C0979gb(new C1029ib(context.getAssets().open("grs_sp.bks"), "")));
-                httpsURLConnection.setHostnameVerifier(new C1054jb());
+                httpsURLConnection.setSSLSocketFactory(new SecureSocketFactoryAdapter(new SdkCertificateTrustManager(context.getAssets().open("grs_sp.bks"), "")));
+                httpsURLConnection.setHostnameVerifier(new SdkHostnameVerifier());
             } catch (IllegalArgumentException unused) {
                 Logger.m3438w("URLConnectionHelper", "init https ssl socket failed.");
             }
@@ -779,14 +779,14 @@ public class LauncherMenuHelper {
         try {
             try {
                 inputStream = httpURLConnection.getInputStream();
-                return AbstractC1102l9.m2284g(inputStream);
+                return MobileSdkPlatformUtilities.m2284g(inputStream);
             } catch (IOException unused) {
-                C1404xa.m2940g("hmsSdk", "When Response Content From Connection inputStream operation exception! " + httpURLConnection.getResponseCode());
-                AbstractC1102l9.m2292o(inputStream);
+                HiAnalyticsSdkState.m2940g("hmsSdk", "When Response Content From Connection inputStream operation exception! " + httpURLConnection.getResponseCode());
+                MobileSdkPlatformUtilities.m2292o(inputStream);
                 return "";
             }
         } finally {
-            AbstractC1102l9.m2292o(inputStream);
+            MobileSdkPlatformUtilities.m2292o(inputStream);
         }
     }
 
@@ -807,9 +807,9 @@ public class LauncherMenuHelper {
     }
 
     /* renamed from: o */
-    public static C0848ba m2994o(String str, String str2) {
-        C0926ea c0926eaM2126a;
-        C1053ja c1053jaM3145a = C1453z9.m3144b().m3145a(str);
+    public static AnalyticsIdentifierFlags m2994o(String str, String str2) {
+        AnalyticsInstanceConfig c0926eaM2126a;
+        HiAnalyticsTaggedInstanceData c1053jaM3145a = HmsAnalyticsConfiguration.m3144b().m3145a(str);
         if (c1053jaM3145a == null || (c0926eaM2126a = c1053jaM3145a.m2126a(str2)) == null) {
             return null;
         }
@@ -818,7 +818,7 @@ public class LauncherMenuHelper {
 
     /* renamed from: p */
     public static String m2995p() {
-        C0978ga c0978ga = C1453z9.m3144b().f4293a;
+        AnalyticsDeviceContext c0978ga = HmsAnalyticsConfiguration.m3144b().f4293a;
         return TextUtils.isEmpty(c0978ga.f2752f) ? c0978ga.f2751e : c0978ga.f2752f;
     }
 
@@ -830,12 +830,12 @@ public class LauncherMenuHelper {
 
     /* renamed from: r */
     public static String m2997r() {
-        return C1453z9.m3144b().f4293a.f2754h;
+        return HmsAnalyticsConfiguration.m3144b().f4293a.f2754h;
     }
 
     /* renamed from: s */
     public static Context m2998s() {
-        return C1453z9.m3144b().f4293a.f2759m;
+        return HmsAnalyticsConfiguration.m3144b().f4293a.f2759m;
     }
 
     /* renamed from: t */
@@ -885,7 +885,7 @@ public class LauncherMenuHelper {
         } else {
             c1045j2 = new CheckGrantedPermission(GuardSecureApplication.f1640b);
         }
-        if (!AbstractC1102l9.m2273N(c1045j2.f2931b) && (c1045j2.f2931b.contains("android.permission.READ_EXTERNAL_STORAGE") || c1045j2.f2931b.contains("android.permission.WRITE_EXTERNAL_STORAGE"))) {
+        if (!MobileSdkPlatformUtilities.m2273N(c1045j2.f2931b) && (c1045j2.f2931b.contains("android.permission.READ_EXTERNAL_STORAGE") || c1045j2.f2931b.contains("android.permission.WRITE_EXTERNAL_STORAGE"))) {
             LTKDateUtil.m1403m("check has no storage permission ");
             z2 = false;
         }
@@ -898,23 +898,23 @@ public class LauncherMenuHelper {
                 return;
             }
         }
-        if (TextUtils.isEmpty(C1395x1.f4038a)) {
+        if (TextUtils.isEmpty(LauncherConstants.f4038a)) {
             if (Build.VERSION.SDK_INT >= 29 && (DeviceTypeUtil.m1521n() || DeviceTypeUtil.m1519l())) {
-                C1395x1.f4038a = C0930ee.m1676a(GuardSecureApplication.f1640b.getFilesDir() + File.separator + "GuardSecure" + File.separator);
+                LauncherConstants.f4038a = LauncherFileUtil.m1676a(GuardSecureApplication.f1640b.getFilesDir() + File.separator + "GuardSecure" + File.separator);
             } else if (Build.VERSION.SDK_INT >= 30) {
                 StringBuilder sbM1765j = CompilerOutline.m1765j("/storage/emulated/0/Download");
                 sbM1765j.append(File.separator);
                 sbM1765j.append("GuardSecure");
                 sbM1765j.append(File.separator);
-                C1395x1.f4038a = C0930ee.m1676a(sbM1765j.toString());
+                LauncherConstants.f4038a = LauncherFileUtil.m1676a(sbM1765j.toString());
             } else {
                 StringBuilder sbM1765j2 = CompilerOutline.m1765j(Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory().getPath() : "/sdcard");
                 sbM1765j2.append(File.separator);
                 sbM1765j2.append("GuardSecure");
                 sbM1765j2.append(File.separator);
-                C1395x1.f4038a = C0930ee.m1676a(sbM1765j2.toString());
+                LauncherConstants.f4038a = LauncherFileUtil.m1676a(sbM1765j2.toString());
             }
-            File file = new File(C1395x1.f4038a);
+            File file = new File(LauncherConstants.f4038a);
             if (file.exists()) {
                 return;
             }
@@ -931,7 +931,7 @@ public class LauncherMenuHelper {
         }
         Log.i("DownLoadUtil", " startTimer ");
         LTKDateUtil.m1411u("DownLoadUtil", " startTimer ");
-        f4123a.schedule(new C1349v5(interfaceC0971g3), 60000L);
+        f4123a.schedule(new DownloadDialogTimeoutTask(interfaceC0971g3), 60000L);
         if (m3003x()) {
             Uri uriForFile = FileProvider.getUriForFile(context, "com.android.launcher3.myfileprovider", new File(str));
             context.grantUriPermission(DispatchConstants.ANDROID, uriForFile, 1);

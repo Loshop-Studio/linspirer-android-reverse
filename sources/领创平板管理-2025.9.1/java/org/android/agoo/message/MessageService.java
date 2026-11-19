@@ -40,8 +40,8 @@ public class MessageService {
 
     /* compiled from: Taobao */
     /* renamed from: org.android.agoo.message.MessageService$a */
-    public static class C2022a extends SQLiteOpenHelper {
-        public C2022a(Context context) {
+    public static class AgooMessageDatabaseHelper extends SQLiteOpenHelper {
+        public AgooMessageDatabaseHelper(Context context) {
             super(context, "emas_message_accs_db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 
@@ -139,7 +139,7 @@ public class MessageService {
     public void m5847a(Context context) {
         f6497c = new HashMap();
         f6496a = context;
-        this.f6498b = new C2022a(context);
+        this.f6498b = new AgooMessageDatabaseHelper(context);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:61:0x0144 A[Catch: all -> 0x0187, TRY_LEAVE, TryCatch #4 {all -> 0x0187, blocks: (B:59:0x013c, B:61:0x0144), top: B:94:0x013c }] */

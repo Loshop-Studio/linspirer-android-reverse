@@ -7,7 +7,7 @@ import anet.channel.statist.Dimension;
 import anet.channel.statist.Measure;
 import anet.channel.statist.Monitor;
 import com.huawei.hem.CompilerOutline;
-import com.taobao.accs.p070a.C1899a;
+import com.taobao.accs.p070a.AccsTrafficDatabase;
 import com.taobao.accs.utl.ALog;
 import com.taobao.accs.utl.BaseMonitor;
 import com.taobao.accs.utl.UtilityImpl;
@@ -26,7 +26,7 @@ public class TrafficsMonitor {
     public Context f6369d;
 
     /* renamed from: a */
-    public Map<String, List<C1971a>> f6366a = new HashMap();
+    public Map<String, List<TrafficSampleRecord>> f6366a = new HashMap();
 
     /* renamed from: b */
     public Map<String, String> f6367b = new HashMap<String, String>() { // from class: com.taobao.accs.ut.monitor.TrafficsMonitor.1
@@ -89,9 +89,9 @@ public class TrafficsMonitor {
             }
             Iterator<String> it = this.f6366a.keySet().iterator();
             while (it.hasNext()) {
-                for (C1971a c1971a : this.f6366a.get(it.next())) {
+                for (TrafficSampleRecord c1971a : this.f6366a.get(it.next())) {
                     if (c1971a != null) {
-                        C1899a.m5463a(this.f6369d).m5468a(c1971a.f6376e, c1971a.f6374c, this.f6367b.get(c1971a.f6374c), c1971a.f6375d, c1971a.f6377f, str);
+                        AccsTrafficDatabase.m5463a(this.f6369d).m5468a(c1971a.f6376e, c1971a.f6374c, this.f6367b.get(c1971a.f6374c), c1971a.f6375d, c1971a.f6377f, str);
                     }
                 }
             }
@@ -111,12 +111,12 @@ public class TrafficsMonitor {
 
     /* renamed from: c */
     private void m5723c() {
-        List<C1971a> listM5466a = C1899a.m5463a(this.f6369d).m5466a(false);
+        List<TrafficSampleRecord> listM5466a = AccsTrafficDatabase.m5463a(this.f6369d).m5466a(false);
         if (listM5466a == null) {
             return;
         }
         try {
-            for (C1971a c1971a : listM5466a) {
+            for (TrafficSampleRecord c1971a : listM5466a) {
                 if (c1971a != null) {
                     StatTrafficMonitor statTrafficMonitor = new StatTrafficMonitor();
                     statTrafficMonitor.bizId = c1971a.f6373b;
@@ -127,7 +127,7 @@ public class TrafficsMonitor {
                     AppMonitor.getInstance().commitStat(statTrafficMonitor);
                 }
             }
-            C1899a.m5463a(this.f6369d).m5467a();
+            AccsTrafficDatabase.m5463a(this.f6369d).m5467a();
         } catch (Throwable th) {
             ALog.m5728e("", th.toString(), new Object[0]);
             th.printStackTrace();
@@ -139,7 +139,7 @@ public class TrafficsMonitor {
     /* JADX WARN: Type inference failed for: r2v7, types: [java.util.ArrayList] */
     /* JADX WARN: Type inference failed for: r2v8, types: [java.lang.Object] */
     /* renamed from: a */
-    public void m5725a(C1971a c1971a) {
+    public void m5725a(TrafficSampleRecord c1971a) {
         boolean z;
         if (c1971a == null || c1971a.f6376e == null || c1971a.f6377f <= 0) {
             return;
@@ -160,7 +160,7 @@ public class TrafficsMonitor {
                         z = true;
                         break;
                     }
-                    C1971a c1971a2 = (C1971a) it.next();
+                    TrafficSampleRecord c1971a2 = (TrafficSampleRecord) it.next();
                     if (c1971a2.f6375d == c1971a.f6375d && c1971a2.f6376e != null && c1971a2.f6376e.equals(c1971a.f6376e)) {
                         c1971a2.f6377f += c1971a.f6377f;
                         z = false;
@@ -185,7 +185,7 @@ public class TrafficsMonitor {
 
     /* compiled from: Taobao */
     /* renamed from: com.taobao.accs.ut.monitor.TrafficsMonitor$a */
-    public static class C1971a {
+    public static class TrafficSampleRecord {
 
         /* renamed from: a */
         public String f6372a;
@@ -205,7 +205,7 @@ public class TrafficsMonitor {
         /* renamed from: f */
         public long f6377f;
 
-        public C1971a(String str, boolean z, String str2, long j) {
+        public TrafficSampleRecord(String str, boolean z, String str2, long j) {
             this.f6374c = str;
             this.f6375d = z;
             this.f6376e = str2;
@@ -230,7 +230,7 @@ public class TrafficsMonitor {
             return sb.toString();
         }
 
-        public C1971a(String str, String str2, String str3, boolean z, String str4, long j) {
+        public TrafficSampleRecord(String str, String str2, String str3, boolean z, String str4, long j) {
             this.f6372a = str;
             this.f6373b = str2;
             this.f6374c = str3;
@@ -246,11 +246,11 @@ public class TrafficsMonitor {
             synchronized (this.f6366a) {
                 this.f6366a.clear();
             }
-            List<C1971a> listM5466a = C1899a.m5463a(this.f6369d).m5466a(true);
+            List<TrafficSampleRecord> listM5466a = AccsTrafficDatabase.m5463a(this.f6369d).m5466a(true);
             if (listM5466a == null) {
                 return;
             }
-            Iterator<C1971a> it = listM5466a.iterator();
+            Iterator<TrafficSampleRecord> it = listM5466a.iterator();
             while (it.hasNext()) {
                 m5725a(it.next());
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -21,8 +21,8 @@ public class ButtonBarLayout extends LinearLayout {
         super(context, attributeSet);
         this.mLastWidthSize = -1;
         this.mMinimumHeight = 0;
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0200R.styleable.ButtonBarLayout);
-        this.mAllowStacking = typedArrayObtainStyledAttributes.getBoolean(C0200R.styleable.ButtonBarLayout_allowStacking, true);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.ButtonBarLayout);
+        this.mAllowStacking = typedArrayObtainStyledAttributes.getBoolean(SupportAppcompatResources.styleable.ButtonBarLayout_allowStacking, true);
         typedArrayObtainStyledAttributes.recycle();
     }
 
@@ -44,7 +44,7 @@ public class ButtonBarLayout extends LinearLayout {
     private void setStacked(boolean z) {
         setOrientation(z ? 1 : 0);
         setGravity(z ? 5 : 80);
-        View viewFindViewById = findViewById(C0200R.id.spacer);
+        View viewFindViewById = findViewById(SupportAppcompatResources.id.spacer);
         if (viewFindViewById != null) {
             viewFindViewById.setVisibility(z ? 8 : 4);
         }

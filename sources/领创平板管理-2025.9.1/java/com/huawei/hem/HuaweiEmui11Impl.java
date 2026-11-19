@@ -127,7 +127,7 @@ public class HuaweiEmui11Impl extends HuaweiEmui10Impl {
     public void mo2055P0(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HuaweiEmui11Impl  -- removeSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 arrayList.remove("com.android.launcher3");
                 arrayList.remove("com.ndwill.swd.appstore");
             }
@@ -165,7 +165,7 @@ public class HuaweiEmui11Impl extends HuaweiEmui10Impl {
     public void mo1506d(ArrayList<String> arrayList) {
         LTKDateUtil.m1403m("HuaweiEmui11Impl  -- setSuperWhiteListForSys");
         try {
-            if (!AbstractC1102l9.m2272M(arrayList)) {
+            if (!MobileSdkPlatformUtilities.m2272M(arrayList)) {
                 LTKDateUtil.m1403m("HuaweiEmui11Impl  -- 设置可信任应用:" + arrayList);
                 HuaweiBaseImpl.f3531l.setSuperTrustListForHwSystemManger(HuaweiBaseImpl.f3522c, arrayList);
             }
@@ -220,7 +220,7 @@ public class HuaweiEmui11Impl extends HuaweiEmui10Impl {
 
     /* renamed from: e1 */
     public List<String> m2684e1(List<String> list) {
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return new ArrayList();
         }
         ArrayList arrayList = new ArrayList();

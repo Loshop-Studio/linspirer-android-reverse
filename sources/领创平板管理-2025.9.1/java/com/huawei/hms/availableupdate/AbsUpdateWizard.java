@@ -34,7 +34,7 @@ public abstract class AbsUpdateWizard implements IBridgeActivityDelegate {
     public UpdateBean f4490c = null;
 
     /* renamed from: d */
-    public AbstractC1510o f4491d = null;
+    public UpdateAlertDialog f4491d = null;
 
     /* renamed from: e */
     public boolean f4492e = false;
@@ -57,11 +57,11 @@ public abstract class AbsUpdateWizard implements IBridgeActivityDelegate {
     }
 
     /* renamed from: a */
-    public void mo3307a(AbstractC1510o abstractC1510o) {
+    public void mo3307a(UpdateAlertDialog abstractC1510o) {
     }
 
     /* renamed from: a */
-    public abstract void mo3293a(Class<? extends AbstractC1510o> cls);
+    public abstract void mo3293a(Class<? extends UpdateAlertDialog> cls);
 
     /* renamed from: b */
     public Activity m3338b() {
@@ -73,7 +73,7 @@ public abstract class AbsUpdateWizard implements IBridgeActivityDelegate {
     }
 
     /* renamed from: b */
-    public void mo3310b(AbstractC1510o abstractC1510o) {
+    public void mo3310b(UpdateAlertDialog abstractC1510o) {
     }
 
     /* renamed from: c */
@@ -132,14 +132,14 @@ public abstract class AbsUpdateWizard implements IBridgeActivityDelegate {
             iBridgeActivityDelegate.onBridgeConfigurationChanged();
             return;
         }
-        AbstractC1510o abstractC1510o = this.f4491d;
+        UpdateAlertDialog abstractC1510o = this.f4491d;
         if (abstractC1510o == null) {
             return;
         }
         Class<?> cls = abstractC1510o.getClass();
         this.f4491d.m3344b();
         this.f4491d = null;
-        mo3293a((Class<? extends AbstractC1510o>) cls);
+        mo3293a((Class<? extends UpdateAlertDialog>) cls);
     }
 
     @Override // com.huawei.hms.activity.IBridgeActivityDelegate
@@ -165,7 +165,7 @@ public abstract class AbsUpdateWizard implements IBridgeActivityDelegate {
 
     /* renamed from: a */
     public void m3332a() {
-        AbstractC1510o abstractC1510o = this.f4491d;
+        UpdateAlertDialog abstractC1510o = this.f4491d;
         if (abstractC1510o == null) {
             return;
         }

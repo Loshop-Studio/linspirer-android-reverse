@@ -20,13 +20,13 @@ public final class OkHttpAddress {
     public final OkHttpUrl f2662a;
 
     /* renamed from: b */
-    public final InterfaceC1338uj f2663b;
+    public final OkHttpDnsResolver f2663b;
 
     /* renamed from: c */
     public final SocketFactory f2664c;
 
     /* renamed from: d */
-    public final InterfaceC1012hj f2665d;
+    public final OkHttpAuthenticator f2665d;
 
     /* renamed from: e */
     public final List<Protocol> f2666e;
@@ -53,7 +53,7 @@ public final class OkHttpAddress {
     @Nullable
     public final CertificatePinner f2672k;
 
-    public OkHttpAddress(String str, int i, InterfaceC1338uj interfaceC1338uj, SocketFactory socketFactory, @Nullable SSLSocketFactory sSLSocketFactory, @Nullable HostnameVerifier hostnameVerifier, @Nullable CertificatePinner c1138mj, InterfaceC1012hj interfaceC1012hj, @Nullable Proxy proxy, List<Protocol> list, List<ConnectionSpec> list2, ProxySelector proxySelector) {
+    public OkHttpAddress(String str, int i, OkHttpDnsResolver interfaceC1338uj, SocketFactory socketFactory, @Nullable SSLSocketFactory sSLSocketFactory, @Nullable HostnameVerifier hostnameVerifier, @Nullable CertificatePinner c1138mj, OkHttpAuthenticator interfaceC1012hj, @Nullable Proxy proxy, List<Protocol> list, List<ConnectionSpec> list2, ProxySelector proxySelector) {
         OkHttpUrl.a aVar = new OkHttpUrl.a();
         String str2 = sSLSocketFactory != null ? HttpConstant.HTTPS : HttpConstant.HTTP;
         if (str2.equalsIgnoreCase(HttpConstant.HTTP)) {
@@ -92,11 +92,11 @@ public final class OkHttpAddress {
         if (list == null) {
             throw new NullPointerException("protocols == null");
         }
-        this.f2666e = C1314tk.m2759n(list);
+        this.f2666e = OkHttpCommonUtilities.m2759n(list);
         if (list2 == null) {
             throw new NullPointerException("connectionSpecs == null");
         }
-        this.f2667f = C1314tk.m2759n(list2);
+        this.f2667f = OkHttpCommonUtilities.m2759n(list2);
         if (proxySelector == null) {
             throw new NullPointerException("proxySelector == null");
         }

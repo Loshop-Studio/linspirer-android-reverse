@@ -2,7 +2,7 @@ package com.loc;
 
 import android.content.Context;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: AdiuManager.java */
 /* renamed from: com.loc.j */
@@ -16,7 +16,7 @@ public class AdiuManager {
     public final Context f5882b;
 
     /* renamed from: c */
-    public final String f5883c = SecurityUtil.m5283a(C1094l1.m2251t("RYW1hcF9kZXZpY2VfYWRpdQ"));
+    public final String f5883c = SecurityUtil.m5283a(AMapCoreUtilities.m2251t("RYW1hcF9kZXZpY2VfYWRpdQ"));
 
     public AdiuManager(Context context) {
         this.f5882b = context.getApplicationContext();
@@ -38,7 +38,7 @@ public class AdiuManager {
     public final synchronized void m5253a() {
         try {
             if (DeviceInfo.f1608e == null) {
-                DeviceInfo.InterfaceC0623c interfaceC0623cM5270a = NetReuestParam.m5270a();
+                DeviceInfo.DeviceInfoProviderContract interfaceC0623cM5270a = NetReuestParam.m5270a();
                 if (DeviceInfo.f1608e == null) {
                     DeviceInfo.f1608e = interfaceC0623cM5270a;
                 }

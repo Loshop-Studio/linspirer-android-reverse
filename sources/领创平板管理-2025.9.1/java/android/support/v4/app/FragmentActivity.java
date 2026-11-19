@@ -22,7 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import com.huawei.hem.AbstractC0992h;
+import com.huawei.hem.ArchitectureLifecycle;
 import com.huawei.hem.LifecycleRegistry;
 import com.huawei.hem.ViewModelStore;
 import com.huawei.hem.ViewModelStoreOwner;
@@ -174,15 +174,15 @@ public class FragmentActivity extends SupportActivity implements ViewModelStoreO
     }
 
     private void markFragmentsCreated() {
-        while (markState(getSupportFragmentManager(), AbstractC0992h.b.CREATED)) {
+        while (markState(getSupportFragmentManager(), ArchitectureLifecycle.b.CREATED)) {
         }
     }
 
-    public static boolean markState(FragmentManager fragmentManager, AbstractC0992h.b bVar) {
+    public static boolean markState(FragmentManager fragmentManager, ArchitectureLifecycle.b bVar) {
         boolean zMarkState = false;
         for (Fragment fragment : fragmentManager.getFragments()) {
             if (fragment != null) {
-                if (((LifecycleRegistry) fragment.getLifecycle()).f2994b.isAtLeast(AbstractC0992h.b.STARTED)) {
+                if (((LifecycleRegistry) fragment.getLifecycle()).f2994b.isAtLeast(ArchitectureLifecycle.b.STARTED)) {
                     fragment.mLifecycleRegistry.m2152e(bVar);
                     zMarkState = true;
                 }
@@ -229,7 +229,7 @@ public class FragmentActivity extends SupportActivity implements ViewModelStoreO
     }
 
     @Override // android.support.v4.app.SupportActivity, com.huawei.hem.InterfaceC1042j
-    public AbstractC0992h getLifecycle() {
+    public ArchitectureLifecycle getLifecycle() {
         return super.getLifecycle();
     }
 

@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.huawei.hem.C0813a1;
+import com.huawei.hem.AgooNotificationIntentBridge;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1344v0;
+import com.huawei.hem.AgooRegistrationPreferences;
 import com.taobao.accs.utl.ALog;
 
 /* compiled from: Taobao */
@@ -15,7 +15,7 @@ import com.taobao.accs.utl.ALog;
 public class NotificationActivity extends Activity {
 
     /* renamed from: a */
-    public C0813a1 f1446a = new C0813a1();
+    public AgooNotificationIntentBridge f1446a = new AgooNotificationIntentBridge();
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -24,7 +24,7 @@ public class NotificationActivity extends Activity {
         if (intent != null) {
             String action = intent.getAction();
             ALog.m5726d("MPS:NotificationActivity", CompilerOutline.m1760e("MsgService onStartCommand begin...action=", action), new Object[0]);
-            if (TextUtils.equals(action, C1344v0.f3911b)) {
+            if (TextUtils.equals(action, AgooRegistrationPreferences.f3911b)) {
                 this.f1446a.m1295a(intent, getApplicationContext(), 1);
             }
         }

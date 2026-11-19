@@ -3,8 +3,8 @@ package com.huawei.hem;
 import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.sdk.android.tbrest.request.BizRequest;
 import com.alibaba.sdk.android.tbrest.utils.Base64;
-import com.huawei.hem.C0834am;
-import com.huawei.hem.C0834am.f;
+import com.huawei.hem.OkHttp2Connection;
+import com.huawei.hem.OkHttp2Connection.f;
 import com.huawei.hem.Http2Stream;
 import com.huawei.hem.Hpack;
 import java.io.Closeable;
@@ -179,9 +179,9 @@ public final class Http2Reader implements Closeable {
                     short s = (b3 & 8) != 0 ? (short) (this.f3136a.readByte() & Base64.EQUALS_SIGN_ENC) : (short) 0;
                     int iM2212a = m2212a(iM2213h, b3, s);
                     BufferedSource interfaceC1066jn = this.f3136a;
-                    C0834am.g gVar = (C0834am.g) bVar;
-                    if (C0834am.this.m1370g(i)) {
-                        C0834am c0834am = C0834am.this;
+                    OkHttp2Connection.g gVar = (OkHttp2Connection.g) bVar;
+                    if (OkHttp2Connection.this.m1370g(i)) {
+                        OkHttp2Connection c0834am = OkHttp2Connection.this;
                         if (c0834am == null) {
                             throw null;
                         }
@@ -192,13 +192,13 @@ public final class Http2Reader implements Closeable {
                         if (c1016hn.f2884b != j2) {
                             throw new IOException(c1016hn.f2884b + " != " + iM2212a);
                         }
-                        c0834am.m1369f(new C0938em(c0834am, "OkHttp %s Push Data[%s]", new Object[]{c0834am.f2220d, Integer.valueOf(i)}, i, c1016hn, iM2212a, z4));
+                        c0834am.m1369f(new Http2PushDataTask(c0834am, "OkHttp %s Push Data[%s]", new Object[]{c0834am.f2220d, Integer.valueOf(i)}, i, c1016hn, iM2212a, z4));
                     } else {
-                        Http2Stream c1116lmM1367c = C0834am.this.m1367c(i);
+                        Http2Stream c1116lmM1367c = OkHttp2Connection.this.m1367c(i);
                         if (c1116lmM1367c == null) {
-                            C0834am.this.m1364N(i, Http2ErrorCode.PROTOCOL_ERROR);
+                            OkHttp2Connection.this.m1364N(i, Http2ErrorCode.PROTOCOL_ERROR);
                             long j3 = iM2212a;
-                            C0834am.this.m1373j(j3);
+                            OkHttp2Connection.this.m1373j(j3);
                             interfaceC1066jn.skip(j3);
                         } else {
                             Http2Stream.b bVar2 = c1116lmM1367c.f3207g;
@@ -243,7 +243,7 @@ public final class Http2Reader implements Closeable {
                                 }
                             }
                             if (z4) {
-                                c1116lmM1367c.m2335i(C1314tk.f3817c, true);
+                                c1116lmM1367c.m2335i(OkHttpCommonUtilities.f3817c, true);
                             }
                         }
                     }
@@ -261,26 +261,26 @@ public final class Http2Reader implements Closeable {
                         iM2213h -= 5;
                     }
                     List<Http2Header> listM2217g = m2217g(m2212a(iM2213h, b3, s2), s2, b3, i);
-                    C0834am.g gVar2 = (C0834am.g) bVar;
-                    if (C0834am.this.m1370g(i)) {
-                        C0834am c0834am2 = C0834am.this;
+                    OkHttp2Connection.g gVar2 = (OkHttp2Connection.g) bVar;
+                    if (OkHttp2Connection.this.m1370g(i)) {
+                        OkHttp2Connection c0834am2 = OkHttp2Connection.this;
                         if (c0834am2 == null) {
                             throw null;
                         }
-                        c0834am2.m1369f(new C0912dm(c0834am2, "OkHttp %s Push Headers[%s]", new Object[]{c0834am2.f2220d, Integer.valueOf(i)}, i, listM2217g, z6));
+                        c0834am2.m1369f(new Http2PushHeadersTask(c0834am2, "OkHttp %s Push Headers[%s]", new Object[]{c0834am2.f2220d, Integer.valueOf(i)}, i, listM2217g, z6));
                         return true;
                     }
-                    synchronized (C0834am.this) {
-                        Http2Stream c1116lmM1367c2 = C0834am.this.m1367c(i);
+                    synchronized (OkHttp2Connection.this) {
+                        Http2Stream c1116lmM1367c2 = OkHttp2Connection.this.m1367c(i);
                         if (c1116lmM1367c2 != null) {
-                            c1116lmM1367c2.m2335i(C1314tk.m2744B(listM2217g), z6);
-                        } else if (!C0834am.this.f2223g) {
-                            if (i > C0834am.this.f2221e) {
-                                if (i % 2 != C0834am.this.f2222f % 2) {
-                                    Http2Stream c1116lm = new Http2Stream(i, C0834am.this, false, z6, C1314tk.m2744B(listM2217g));
-                                    C0834am.this.f2221e = i;
-                                    C0834am.this.f2219c.put(Integer.valueOf(i), c1116lm);
-                                    C0834am.f2216y.execute(new C0990gm(gVar2, "OkHttp %s stream %d", new Object[]{C0834am.this.f2220d, Integer.valueOf(i)}, c1116lm));
+                            c1116lmM1367c2.m2335i(OkHttpCommonUtilities.m2744B(listM2217g), z6);
+                        } else if (!OkHttp2Connection.this.f2223g) {
+                            if (i > OkHttp2Connection.this.f2221e) {
+                                if (i % 2 != OkHttp2Connection.this.f2222f % 2) {
+                                    Http2Stream c1116lm = new Http2Stream(i, OkHttp2Connection.this, false, z6, OkHttpCommonUtilities.m2744B(listM2217g));
+                                    OkHttp2Connection.this.f2221e = i;
+                                    OkHttp2Connection.this.f2219c.put(Integer.valueOf(i), c1116lm);
+                                    OkHttp2Connection.f2216y.execute(new Http2StreamListenerTask(gVar2, "OkHttp %s stream %d", new Object[]{OkHttp2Connection.this.f2220d, Integer.valueOf(i)}, c1116lm));
                                 }
                             }
                         }
@@ -312,12 +312,12 @@ public final class Http2Reader implements Closeable {
                         Http2.m3177c("TYPE_RST_STREAM unexpected error code: %d", Integer.valueOf(i2));
                         throw null;
                     }
-                    C0834am.g gVar3 = (C0834am.g) bVar;
-                    if (C0834am.this.m1370g(i)) {
-                        C0834am c0834am3 = C0834am.this;
-                        c0834am3.m1369f(new C0964fm(c0834am3, "OkHttp %s Push Reset[%s]", new Object[]{c0834am3.f2220d, Integer.valueOf(i)}, i, enumC1390wlFromHttp2));
+                    OkHttp2Connection.g gVar3 = (OkHttp2Connection.g) bVar;
+                    if (OkHttp2Connection.this.m1370g(i)) {
+                        OkHttp2Connection c0834am3 = OkHttp2Connection.this;
+                        c0834am3.m1369f(new Http2PushResetTask(c0834am3, "OkHttp %s Push Reset[%s]", new Object[]{c0834am3.f2220d, Integer.valueOf(i)}, i, enumC1390wlFromHttp2));
                     } else {
-                        Http2Stream c1116lmM1371h = C0834am.this.m1371h(i);
+                        Http2Stream c1116lmM1371h = OkHttp2Connection.this.m1371h(i);
                         if (c1116lmM1371h != null) {
                             synchronized (c1116lmM1371h) {
                                 if (c1116lmM1371h.f3211k == null) {
@@ -338,7 +338,7 @@ public final class Http2Reader implements Closeable {
                             Http2.m3177c("FRAME_SIZE_ERROR ack frame should be empty!", new Object[0]);
                             throw null;
                         }
-                        if (((C0834am.g) bVar) == null) {
+                        if (((OkHttp2Connection.g) bVar) == null) {
                             throw null;
                         }
                         return true;
@@ -370,11 +370,11 @@ public final class Http2Reader implements Closeable {
                         }
                         c1216pm.m2497b(i4, i5);
                     }
-                    C0834am.g gVar4 = (C0834am.g) bVar;
+                    OkHttp2Connection.g gVar4 = (OkHttp2Connection.g) bVar;
                     if (gVar4 == null) {
                         throw null;
                     }
-                    C0834am.this.f2224h.execute(new C1015hm(gVar4, "OkHttp %s ACK Settings", new Object[]{C0834am.this.f2220d}, false, c1216pm));
+                    OkHttp2Connection.this.f2224h.execute(new Http2ApplySettingsTask(gVar4, "OkHttp %s ACK Settings", new Object[]{OkHttp2Connection.this.f2220d}, false, c1216pm));
                     return true;
                 case 5:
                     m2220k(bVar, iM2213h, b3, i);
@@ -413,7 +413,7 @@ public final class Http2Reader implements Closeable {
         }
         ByteString c1091knMo1997b = this.f3136a.mo1997b(Http2.f4327a.size());
         if (f3135e.isLoggable(Level.FINE)) {
-            f3135e.fine(C1314tk.m2756k("<< CONNECTION %s", c1091knMo1997b.hex()));
+            f3135e.fine(OkHttpCommonUtilities.m2756k("<< CONNECTION %s", c1091knMo1997b.hex()));
         }
         if (Http2.f4327a.equals(c1091knMo1997b)) {
             return;
@@ -444,14 +444,14 @@ public final class Http2Reader implements Closeable {
         if (i5 > 0) {
             c1091knMo1997b = this.f3136a.mo1997b(i5);
         }
-        C0834am.g gVar = (C0834am.g) bVar;
+        OkHttp2Connection.g gVar = (OkHttp2Connection.g) bVar;
         if (gVar == null) {
             throw null;
         }
         c1091knMo1997b.size();
-        synchronized (C0834am.this) {
-            c1116lmArr = (Http2Stream[]) C0834am.this.f2219c.values().toArray(new Http2Stream[C0834am.this.f2219c.size()]);
-            C0834am.this.f2223g = true;
+        synchronized (OkHttp2Connection.this) {
+            c1116lmArr = (Http2Stream[]) OkHttp2Connection.this.f2219c.values().toArray(new Http2Stream[OkHttp2Connection.this.f2219c.size()]);
+            OkHttp2Connection.this.f2223g = true;
         }
         for (Http2Stream c1116lm : c1116lmArr) {
             if (c1116lm.f3203c > i3 && c1116lm.m2333g()) {
@@ -462,7 +462,7 @@ public final class Http2Reader implements Closeable {
                         c1116lm.notifyAll();
                     }
                 }
-                C0834am.this.m1371h(c1116lm.f3203c);
+                OkHttp2Connection.this.m1371h(c1116lm.f3203c);
             }
         }
     }
@@ -548,27 +548,27 @@ public final class Http2Reader implements Closeable {
         int i3 = this.f3136a.readInt();
         int i4 = this.f3136a.readInt();
         boolean z = (b2 & 1) != 0;
-        C0834am.g gVar = (C0834am.g) bVar;
+        OkHttp2Connection.g gVar = (OkHttp2Connection.g) bVar;
         if (gVar == null) {
             throw null;
         }
         if (!z) {
             try {
-                C0834am.this.f2224h.execute(C0834am.this.new f(true, i3, i4));
+                OkHttp2Connection.this.f2224h.execute(OkHttp2Connection.this.new f(true, i3, i4));
                 return;
             } catch (RejectedExecutionException unused) {
                 return;
             }
         }
-        synchronized (C0834am.this) {
+        synchronized (OkHttp2Connection.this) {
             try {
                 if (i3 == 1) {
-                    C0834am.this.f2228l++;
+                    OkHttp2Connection.this.f2228l++;
                 } else if (i3 == 2) {
-                    C0834am.this.f2230n++;
+                    OkHttp2Connection.this.f2230n++;
                 } else if (i3 == 3) {
-                    C0834am.this.f2231o++;
-                    C0834am.this.notifyAll();
+                    OkHttp2Connection.this.f2231o++;
+                    OkHttp2Connection.this.notifyAll();
                 }
             } finally {
             }
@@ -579,7 +579,7 @@ public final class Http2Reader implements Closeable {
     public final void m2219j(b bVar, int i) {
         int i2 = this.f3136a.readInt() & Integer.MIN_VALUE;
         this.f3136a.readByte();
-        if (((C0834am.g) bVar) == null) {
+        if (((OkHttp2Connection.g) bVar) == null) {
             throw null;
         }
     }
@@ -593,7 +593,7 @@ public final class Http2Reader implements Closeable {
         short s = (b2 & 8) != 0 ? (short) (this.f3136a.readByte() & Base64.EQUALS_SIGN_ENC) : (short) 0;
         int i3 = this.f3136a.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         List<Http2Header> listM2217g = m2217g(m2212a(i - 4, b2, s), s, b2, i2);
-        C0834am c0834am = C0834am.this;
+        OkHttp2Connection c0834am = OkHttp2Connection.this;
         synchronized (c0834am) {
             if (c0834am.f2240x.contains(Integer.valueOf(i3))) {
                 c0834am.m1364N(i3, Http2ErrorCode.PROTOCOL_ERROR);
@@ -601,7 +601,7 @@ public final class Http2Reader implements Closeable {
             }
             c0834am.f2240x.add(Integer.valueOf(i3));
             try {
-                c0834am.m1369f(new C0886cm(c0834am, "OkHttp %s Push Request[%s]", new Object[]{c0834am.f2220d, Integer.valueOf(i3)}, i3, listM2217g));
+                c0834am.m1369f(new Http2PushPromiseTask(c0834am, "OkHttp %s Push Request[%s]", new Object[]{c0834am.f2220d, Integer.valueOf(i3)}, i3, listM2217g));
             } catch (RejectedExecutionException unused) {
             }
         }
@@ -618,15 +618,15 @@ public final class Http2Reader implements Closeable {
             Http2.m3177c("windowSizeIncrement was 0", Long.valueOf(j));
             throw null;
         }
-        C0834am.g gVar = (C0834am.g) bVar;
+        OkHttp2Connection.g gVar = (OkHttp2Connection.g) bVar;
         if (i2 == 0) {
-            synchronized (C0834am.this) {
-                C0834am.this.f2234r += j;
-                C0834am.this.notifyAll();
+            synchronized (OkHttp2Connection.this) {
+                OkHttp2Connection.this.f2234r += j;
+                OkHttp2Connection.this.notifyAll();
             }
             return;
         }
-        Http2Stream c1116lmM1367c = C0834am.this.m1367c(i2);
+        Http2Stream c1116lmM1367c = OkHttp2Connection.this.m1367c(i2);
         if (c1116lmM1367c != null) {
             synchronized (c1116lmM1367c) {
                 c1116lmM1367c.f3202b += j;

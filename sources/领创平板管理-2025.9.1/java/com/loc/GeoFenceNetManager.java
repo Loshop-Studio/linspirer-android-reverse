@@ -7,8 +7,8 @@ import anet.channel.util.HttpConstant;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.huawei.hem.AppInfo;
 import com.huawei.hem.HttpsDecisionUtil;
-import com.huawei.hem.C1094l1;
-import com.huawei.hem.C1219q0;
+import com.huawei.hem.AMapCoreUtilities;
+import com.huawei.hem.AgooNotificationHandler;
 import com.taobao.accs.AccsState;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,19 +35,19 @@ public final class GeoFenceNetManager {
     private String m4197a(Context context, String str, Map<String, String> map) {
         try {
             HashMap map2 = new HashMap(16);
-            C1828ej c1828ej = new C1828ej();
+            AMapIpv6HttpRequest c1828ej = new AMapIpv6HttpRequest();
             map2.clear();
             map2.put(HttpConstant.CONTENT_TYPE, "application/x-www-form-urlencoded");
             map2.put("Connection", "Keep-Alive");
             map2.put(LazyHeaders.Builder.USER_AGENT_HEADER, "AMAP_Location_SDK_Android 5.5.1");
-            String strM2505a = C1219q0.m2505a();
-            String strM2506b = C1219q0.m2506b(context, strM2505a, C1094l1.m2248q(map));
+            String strM2505a = AgooNotificationHandler.m2505a();
+            String strM2506b = AgooNotificationHandler.m2506b(context, strM2505a, AMapCoreUtilities.m2248q(map));
             map.put("ts", strM2505a);
             map.put("scode", strM2506b);
             c1828ej.m4938b(map);
             c1828ej.m4935a((Map<String, String>) map2);
             c1828ej.m4937b(str);
-            c1828ej.m4140a(C1219q0.m2509e(context));
+            c1828ej.m4140a(AgooNotificationHandler.m2509e(context));
             c1828ej.m4135a(CoreUtil.f5762i);
             c1828ej.m4142b(CoreUtil.f5762i);
             try {

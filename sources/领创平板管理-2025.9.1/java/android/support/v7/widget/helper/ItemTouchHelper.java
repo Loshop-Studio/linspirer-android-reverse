@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.recyclerview.C0203R;
+import android.support.v7.recyclerview.SupportRecyclerviewResources;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -199,8 +199,8 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     };
 
     /* renamed from: android.support.v7.widget.helper.ItemTouchHelper$5 */
-    public class C02975 implements RecyclerView.ChildDrawingOrderCallback {
-        public C02975() {
+    public class DragChildDrawingOrderCallback implements RecyclerView.ChildDrawingOrderCallback {
+        public DragChildDrawingOrderCallback() {
         }
 
         @Override // android.support.v7.widget.RecyclerView.ChildDrawingOrderCallback
@@ -264,7 +264,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
 
         private int getMaxDragScroll(RecyclerView recyclerView) {
             if (this.mCachedMaxScrollSpeed == -1) {
-                this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(C0203R.dimen.item_touch_helper_max_drag_scroll_per_frame);
+                this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(SupportRecyclerviewResources.dimen.item_touch_helper_max_drag_scroll_per_frame);
             }
             return this.mCachedMaxScrollSpeed;
         }
@@ -882,8 +882,8 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         this.mRecyclerView = recyclerView;
         if (recyclerView != null) {
             Resources resources = recyclerView.getResources();
-            this.mSwipeEscapeVelocity = resources.getDimension(C0203R.dimen.item_touch_helper_swipe_escape_velocity);
-            this.mMaxSwipeVelocity = resources.getDimension(C0203R.dimen.item_touch_helper_swipe_escape_max_velocity);
+            this.mSwipeEscapeVelocity = resources.getDimension(SupportRecyclerviewResources.dimen.item_touch_helper_swipe_escape_velocity);
+            this.mMaxSwipeVelocity = resources.getDimension(SupportRecyclerviewResources.dimen.item_touch_helper_swipe_escape_max_velocity);
             setupCallbacks();
         }
     }

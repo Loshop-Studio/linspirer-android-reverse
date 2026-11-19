@@ -13,14 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.launcher3.R;
 import com.android.launcher3.model.DataCleanCategoryInfo;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DataCleanRecyclerViewAdapterCheckedChangeListener;
 import com.huawei.hem.LauncherOnClickListener;
 import com.huawei.hem.DataCleanRecyclerViewAdapterClickListener;
 import java.util.List;
 
 /* loaded from: classes.dex */
-public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
+public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<DataCleanRowHolder> {
 
     /* renamed from: a */
     public Context f1848a;
@@ -35,7 +35,7 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
     public LauncherOnClickListener f1851d;
 
     /* renamed from: com.android.launcher3.adapter.DataCleanRecyclerViewAdapter$a */
-    public class C0646a extends RecyclerView.ViewHolder {
+    public class DataCleanRowHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a */
         public CheckBox f1852a;
@@ -49,7 +49,7 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
         /* renamed from: d */
         public LinearLayout f1855d;
 
-        public C0646a(DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter, View view) {
+        public DataCleanRowHolder(DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter, View view) {
             super(view);
             this.f1852a = (CheckBox) view.findViewById(R.id.clean_checkbox);
             this.f1853b = (TextView) view.findViewById(R.id.desc_text);
@@ -66,13 +66,13 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
 
     @NonNull
     /* renamed from: a */
-    public C0646a m1231a(@NonNull ViewGroup viewGroup) {
-        return new C0646a(this, this.f1850c.inflate(R.layout.fragment_dataclean_category_item_adapter, viewGroup, false));
+    public DataCleanRowHolder m1231a(@NonNull ViewGroup viewGroup) {
+        return new DataCleanRowHolder(this, this.f1850c.inflate(R.layout.fragment_dataclean_category_item_adapter, viewGroup, false));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (AbstractC1102l9.m2273N(this.f1849b)) {
+        if (MobileSdkPlatformUtilities.m2273N(this.f1849b)) {
             return 0;
         }
         return this.f1849b.size();
@@ -80,7 +80,7 @@ public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, @SuppressLint({RecyclerView.TAG}) int i) {
-        C0646a c0646a = (C0646a) viewHolder;
+        DataCleanRowHolder c0646a = (DataCleanRowHolder) viewHolder;
         DataCleanCategoryInfo dataCleanCategoryInfo = this.f1849b.get(i);
         String desc = dataCleanCategoryInfo.getDesc();
         int number = dataCleanCategoryInfo.getNumber();

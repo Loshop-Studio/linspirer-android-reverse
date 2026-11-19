@@ -6,9 +6,9 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import anet.channel.strategy.dispatch.DispatchConstants;
 import com.loc.CoreUtil;
-import com.loc.C1841ew;
+import com.loc.AMapLocationUtilities;
 import com.taobao.accs.common.Constants;
-import com.taobao.agoo.p074a.p075a.AbstractC2002b;
+import com.taobao.agoo.p074a.p075a.AgooCommandFields;
 import org.json.JSONObject;
 
 /* loaded from: classes.dex */
@@ -208,7 +208,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
         this.f1504n = "";
         this.f1505o = true;
         this.f1506p = 0;
-        this.f1507q = AbstractC2002b.JSON_SUCCESS;
+        this.f1507q = AgooCommandFields.JSON_SUCCESS;
         this.f1508r = "";
         this.f1509s = 0;
         this.f1510t = 0.0d;
@@ -243,7 +243,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
         this.f1504n = "";
         this.f1505o = true;
         this.f1506p = 0;
-        this.f1507q = AbstractC2002b.JSON_SUCCESS;
+        this.f1507q = AgooCommandFields.JSON_SUCCESS;
         this.f1508r = "";
         this.f1509s = 0;
         this.f1510t = 0.0d;
@@ -515,7 +515,7 @@ public class AMapLocation extends Location implements Parcelable, Cloneable {
         if (this.f1506p != 0) {
             return;
         }
-        this.f1507q = C1841ew.m5109a(i);
+        this.f1507q = AMapLocationUtilities.m5109a(i);
         this.f1506p = i;
     }
 

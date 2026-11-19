@@ -35,12 +35,12 @@ public class BridgeActivity extends Activity {
     public IBridgeActivityDelegate f4334a;
 
     /* renamed from: com.huawei.hms.activity.BridgeActivity$a */
-    public class ViewOnApplyWindowInsetsListenerC1469a implements View.OnApplyWindowInsetsListener {
+    public class DisplayInsetsListener implements View.OnApplyWindowInsetsListener {
 
         /* renamed from: a */
         public final /* synthetic */ ViewGroup f4335a;
 
-        public ViewOnApplyWindowInsetsListenerC1469a(BridgeActivity bridgeActivity, ViewGroup viewGroup) {
+        public DisplayInsetsListener(BridgeActivity bridgeActivity, ViewGroup viewGroup) {
             this.f4335a = viewGroup;
         }
 
@@ -221,7 +221,7 @@ public class BridgeActivity extends Activity {
             sbM1765j.append(e.getMessage());
             HMSLog.m3461e("BridgeActivity", sbM1765j.toString());
         }
-        getWindow().getDecorView().setOnApplyWindowInsetsListener(new ViewOnApplyWindowInsetsListenerC1469a(this, viewGroup));
+        getWindow().getDecorView().setOnApplyWindowInsetsListener(new DisplayInsetsListener(this, viewGroup));
     }
 
     /* renamed from: a */

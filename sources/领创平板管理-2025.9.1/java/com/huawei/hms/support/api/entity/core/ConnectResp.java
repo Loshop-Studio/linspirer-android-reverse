@@ -2,7 +2,7 @@ package com.huawei.hms.support.api.entity.core;
 
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
-import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.UpdateJsonBean;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -21,7 +21,7 @@ public class ConnectResp implements IMessageEntity {
         Iterator<Integer> it = this.protocolVersion.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
-            sb.append(AbstractC1604b.COMMA);
+            sb.append(UpdateJsonBean.COMMA);
         }
         return sb.toString();
     }

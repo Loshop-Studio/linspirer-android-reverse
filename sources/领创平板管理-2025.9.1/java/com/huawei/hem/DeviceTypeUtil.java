@@ -12,8 +12,8 @@ import anet.channel.strategy.dispatch.DispatchConstants;
 public class DeviceTypeUtil {
     /* renamed from: a */
     public static int m1508a() {
-        String[] strArrM2276Q = AbstractC1102l9.m2276Q(LauncherDeviceUtils.m1587d(), "\\.");
-        if (AbstractC1102l9.m2274O(strArrM2276Q) || strArrM2276Q.length < 1) {
+        String[] strArrM2276Q = MobileSdkPlatformUtilities.m2276Q(LauncherDeviceUtils.m1587d(), "\\.");
+        if (MobileSdkPlatformUtilities.m2274O(strArrM2276Q) || strArrM2276Q.length < 1) {
             return -1;
         }
         return Integer.valueOf(strArrM2276Q[0]).intValue();
@@ -24,13 +24,13 @@ public class DeviceTypeUtil {
         String strM1595l = LauncherDeviceUtils.m1595l("ro.build.version.magic");
         if (!TextUtils.isEmpty(strM1595l) && strM1595l.startsWith("Magic")) {
             String[] strArrSplit = strM1595l.split("_");
-            if (AbstractC1102l9.m2274O(strArrSplit) || strArrSplit.length != 2) {
+            if (MobileSdkPlatformUtilities.m2274O(strArrSplit) || strArrSplit.length != 2) {
                 return -1;
             }
             strM1595l = strArrSplit[1];
         }
-        String[] strArrM2276Q = AbstractC1102l9.m2276Q(strM1595l, "\\.");
-        if (AbstractC1102l9.m2274O(strArrM2276Q) || strArrM2276Q.length < 1) {
+        String[] strArrM2276Q = MobileSdkPlatformUtilities.m2276Q(strM1595l, "\\.");
+        if (MobileSdkPlatformUtilities.m2274O(strArrM2276Q) || strArrM2276Q.length < 1) {
             return -1;
         }
         return Integer.valueOf(strArrM2276Q[0]).intValue();

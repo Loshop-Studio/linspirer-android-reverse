@@ -12,7 +12,7 @@ import com.android.launcher3.network.TacticsHelper;
 import com.android.launcher3.network.UrlWhiteHelper;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.ComponentHelper;
-import com.huawei.hem.C1323u4;
+import com.huawei.hem.SogouInputSettingsHelper;
 import java.security.NoSuchAlgorithmException;
 
 /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class PullNewsActivity extends Activity {
             HiScreenHelper.getInstance().updateScreenSettings();
             GreenBrowWebHelper.getInstances().getBrowUrlFromServer();
             ComponentHelper.m2652a().m2653b();
-            C1323u4.m2784c(this).m2785d();
+            SogouInputSettingsHelper.m2784c(this).m2785d();
             LTKDateUtil.m1413w(this, getResources().getString(R.string.tactics_sucess), 0);
         } else {
             LTKDateUtil.m1413w(this, getResources().getString(R.string.tactics_update_to_fast), 0);

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.support.annotation.RestrictTo;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -126,10 +126,10 @@ public final class ViewStubCompat extends View {
     public ViewStubCompat(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mLayoutResource = 0;
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0200R.styleable.ViewStubCompat, i, 0);
-        this.mInflatedId = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ViewStubCompat_android_inflatedId, -1);
-        this.mLayoutResource = typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ViewStubCompat_android_layout, 0);
-        setId(typedArrayObtainStyledAttributes.getResourceId(C0200R.styleable.ViewStubCompat_android_id, -1));
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, SupportAppcompatResources.styleable.ViewStubCompat, i, 0);
+        this.mInflatedId = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ViewStubCompat_android_inflatedId, -1);
+        this.mLayoutResource = typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ViewStubCompat_android_layout, 0);
+        setId(typedArrayObtainStyledAttributes.getResourceId(SupportAppcompatResources.styleable.ViewStubCompat_android_id, -1));
         typedArrayObtainStyledAttributes.recycle();
         setVisibility(8);
         setWillNotDraw(true);

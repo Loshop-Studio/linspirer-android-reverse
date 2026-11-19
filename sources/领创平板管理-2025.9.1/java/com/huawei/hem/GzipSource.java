@@ -31,7 +31,7 @@ public final class GzipSource implements Source {
             throw new IllegalArgumentException("source == null");
         }
         this.f3418c = new Inflater(true);
-        BufferedSource interfaceC1066jnM2670b = C1267rn.m2670b(interfaceC0836ao);
+        BufferedSource interfaceC1066jnM2670b = OkioStreamFactory.m2670b(interfaceC0836ao);
         this.f3417b = interfaceC1066jnM2670b;
         this.f3419d = new InflaterSource(interfaceC1066jnM2670b, this.f3418c);
     }

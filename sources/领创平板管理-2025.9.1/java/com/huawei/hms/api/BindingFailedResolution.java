@@ -31,7 +31,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     public Activity f4358a;
 
     /* renamed from: c */
-    public C1478d f4360c;
+    public HmsBindingFailurePrompt f4360c;
 
     /* renamed from: b */
     public boolean f4359b = true;
@@ -43,8 +43,8 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     public Handler f4362e = null;
 
     /* renamed from: com.huawei.hms.api.BindingFailedResolution$a */
-    public class C1475a implements Handler.Callback {
-        public C1475a() {
+    public class BindingResolutionMessageHandler implements Handler.Callback {
+        public BindingResolutionMessageHandler() {
         }
 
         @Override // android.os.Handler.Callback
@@ -58,8 +58,8 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     }
 
     /* renamed from: com.huawei.hms.api.BindingFailedResolution$b */
-    public class C1476b implements Handler.Callback {
-        public C1476b() {
+    public class BindingFailureMessageHandler implements Handler.Callback {
+        public BindingFailureMessageHandler() {
         }
 
         @Override // android.os.Handler.Callback
@@ -74,8 +74,8 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     }
 
     /* renamed from: com.huawei.hms.api.BindingFailedResolution$c */
-    public class C1477c implements AbstractDialog.Callback {
-        public C1477c() {
+    public class HmsBindPromptCallback implements AbstractDialog.Callback {
+        public HmsBindPromptCallback() {
         }
 
         @Override // com.huawei.hms.ui.AbstractDialog.Callback
@@ -94,8 +94,8 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
     }
 
     /* renamed from: com.huawei.hms.api.BindingFailedResolution$d */
-    public static class C1478d extends AbstractPromptDialog {
-        public C1478d() {
+    public static class HmsBindingFailurePrompt extends AbstractPromptDialog {
+        public HmsBindingFailurePrompt() {
         }
 
         @Override // com.huawei.hms.p032ui.AbstractDialog
@@ -108,7 +108,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
             return ResourceLoaderUtil.getString("hms_confirm");
         }
 
-        public /* synthetic */ C1478d(C1475a c1475a) {
+        public /* synthetic */ HmsBindingFailurePrompt(BindingResolutionMessageHandler c1475a) {
             this();
         }
     }
@@ -129,7 +129,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         if (handler != null) {
             handler.removeMessages(2);
         } else {
-            this.f4361d = new Handler(Looper.getMainLooper(), new C1476b());
+            this.f4361d = new Handler(Looper.getMainLooper(), new BindingFailureMessageHandler());
         }
         this.f4361d.sendEmptyMessageDelayed(2, 5000L);
     }
@@ -140,7 +140,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         if (handler != null) {
             handler.removeMessages(3);
         } else {
-            this.f4362e = new Handler(Looper.getMainLooper(), new C1475a());
+            this.f4362e = new Handler(Looper.getMainLooper(), new BindingResolutionMessageHandler());
         }
         this.f4362e.sendEmptyMessageDelayed(3, 4000L);
     }
@@ -151,14 +151,14 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         if (activity == null || activity.isFinishing()) {
             return;
         }
-        C1478d c1478d = this.f4360c;
+        HmsBindingFailurePrompt c1478d = this.f4360c;
         if (c1478d == null) {
-            this.f4360c = new C1478d(null);
+            this.f4360c = new HmsBindingFailurePrompt(null);
         } else {
             c1478d.dismiss();
         }
         HMSLog.m3463i("BindingFailedResolution", "showPromptdlg to resolve conn error");
-        this.f4360c.show(activity, new C1477c());
+        this.f4360c.show(activity, new HmsBindPromptCallback());
     }
 
     public Activity getActivity() {

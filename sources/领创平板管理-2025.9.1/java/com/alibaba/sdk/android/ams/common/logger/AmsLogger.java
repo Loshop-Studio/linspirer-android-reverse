@@ -20,7 +20,7 @@ public class AmsLogger {
     public static final AmsLogger importantLogger = getLogger(IMPORTANT_LOG_TAG);
 
     /* renamed from: com.alibaba.sdk.android.ams.common.logger.AmsLogger$2 */
-    public static /* synthetic */ class C05042 {
+    public static /* synthetic */ class AmsLoggerLevelSwitch {
 
         /* renamed from: a */
         public static final /* synthetic */ int[] f847a;
@@ -59,7 +59,7 @@ public class AmsLogger {
         AccsLogger.addILogger(new ILogger() { // from class: com.alibaba.sdk.android.ams.common.logger.AmsLogger.1
             @Override // com.alibaba.sdk.android.logger.ILogger
             public void print(LogLevel logLevel, String str, String str2) {
-                int i = C05042.f847a[logLevel.ordinal()];
+                int i = AmsLoggerLevelSwitch.f847a[logLevel.ordinal()];
                 if (i == 1) {
                     loggerListener.m512e(str, str2, null, 0);
                     return;

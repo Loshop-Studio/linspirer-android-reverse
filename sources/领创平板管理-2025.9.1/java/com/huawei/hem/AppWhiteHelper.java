@@ -84,7 +84,7 @@ public class AppWhiteHelper {
         List<ItemApp> listLoadAll = this.f4049d.loadAll();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        if (!AbstractC1102l9.m2273N(listLoadAll)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listLoadAll)) {
             for (ItemApp itemApp : listLoadAll) {
                 AppHashInfo appHashInfo = new AppHashInfo();
                 appHashInfo.setPackName(itemApp.getPackagename());
@@ -112,17 +112,17 @@ public class AppWhiteHelper {
         StringBuilder sbM1765j = CompilerOutline.m1765j("AppWhiteHelper read isv set white apps:");
         sbM1765j.append(strM3064q.toString());
         LTKDateUtil.m1403m(sbM1765j.toString());
-        List<String> listM2277R = AbstractC1102l9.m2277R(strM3064q, ",");
+        List<String> listM2277R = MobileSdkPlatformUtilities.m2277R(strM3064q, ",");
         ArrayList arrayList = new ArrayList();
         arrayList.add("com.android.launcher3");
         arrayList.add("com.ndwill.swd.appstore");
         arrayList.add("com.linspirer.exclusivebrowser");
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add("com.zykj.manage");
-        if (!AbstractC1102l9.m2273N(arrayList2)) {
+        if (!MobileSdkPlatformUtilities.m2273N(arrayList2)) {
             arrayList.addAll(arrayList2);
         }
-        if (!AbstractC1102l9.m2273N(listM2277R)) {
+        if (!MobileSdkPlatformUtilities.m2273N(listM2277R)) {
             arrayList.addAll(listM2277R);
         }
         ArrayList arrayList3 = new ArrayList();

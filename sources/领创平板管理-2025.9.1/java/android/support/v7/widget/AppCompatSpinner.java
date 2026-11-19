@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.TintableBackgroundView;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -513,7 +513,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     public AppCompatSpinner(Context context, int i) {
-        this(context, null, C0200R.attr.spinnerStyle, i);
+        this(context, null, SupportAppcompatResources.attr.spinnerStyle, i);
     }
 
     @Override // android.widget.AdapterView
@@ -533,7 +533,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     public AppCompatSpinner(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C0200R.attr.spinnerStyle);
+        this(context, attributeSet, SupportAppcompatResources.attr.spinnerStyle);
     }
 
     public AppCompatSpinner(Context context, AttributeSet attributeSet, int i) {

@@ -11,12 +11,12 @@ import android.text.TextUtils;
 import com.android.launcher3.activity.gestrue.CheckPwdGestureActivity;
 import com.android.launcher3.network.AppTimeLimitHelper;
 import com.android.launcher3.p027db.model.GesturePasswordDao;
-import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.MobileSdkPlatformUtilities;
 import com.huawei.hem.DeskSPF;
 import com.huawei.hem.LTKDateUtil;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1073k5;
-import com.huawei.hem.C1073k5.a;
+import com.huawei.hem.AppUsageCollector;
+import com.huawei.hem.AppUsageCollector.a;
 import com.huawei.hem.EyeProtectedHelper;
 import com.huawei.hem.DBController;
 import com.huawei.hem.WorkspaceTacticsHelper;
@@ -79,15 +79,15 @@ public class ScreenStateReceiver extends BroadcastReceiver {
                 c0824ac2.f2200b.putInt("unlock_screen_number", 0);
                 c0824ac2.f2200b.commit();
             }
-            if (C1073k5.f3023j == null) {
-                C1073k5.f3023j = new C1073k5();
+            if (AppUsageCollector.f3023j == null) {
+                AppUsageCollector.f3023j = new AppUsageCollector();
             }
-            C1073k5 c1073k5 = C1073k5.f3023j;
+            AppUsageCollector c1073k5 = AppUsageCollector.f3023j;
             if (c1073k5 == null) {
                 throw null;
             }
             List<UsageStats> listQueryUsageStats = c1073k5.f3028e.queryUsageStats(2, 0L, System.currentTimeMillis());
-            if (c1073k5.f3029f.checkOpNoThrow("android:get_usage_stats", Process.myUid(), "com.android.launcher3") == 0 || !AbstractC1102l9.m2273N(listQueryUsageStats)) {
+            if (c1073k5.f3029f.checkOpNoThrow("android:get_usage_stats", Process.myUid(), "com.android.launcher3") == 0 || !MobileSdkPlatformUtilities.m2273N(listQueryUsageStats)) {
                 String strM3052k = c1073k5.f3026c.m3052k();
                 LTKDateUtil.m1403m("AppUsageHelper -- has app usage permission .");
                 if (!TextUtils.isEmpty(strM3052k)) {

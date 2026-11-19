@@ -52,7 +52,7 @@ public class Platform {
                 c1391wmM2879p = c1291sm;
             }
         } else {
-            if ((!("conscrypt".equals(C1314tk.m2757l("okhttp.platform", null)) ? true : "Conscrypt".equals(Security.getProviders()[0].getName())) || (c1391wmM2879p = ConscryptPlatform.m2773p()) == null) && (c1391wmM2879p = Jdk9Platform.m2879p()) == null && (c1391wmM2879p = Jdk8WithJettyBootPlatform.m2823p()) == null) {
+            if ((!("conscrypt".equals(OkHttpCommonUtilities.m2757l("okhttp.platform", null)) ? true : "Conscrypt".equals(Security.getProviders()[0].getName())) || (c1391wmM2879p = ConscryptPlatform.m2773p()) == null) && (c1391wmM2879p = Jdk9Platform.m2879p()) == null && (c1391wmM2879p = Jdk8WithJettyBootPlatform.m2823p()) == null) {
                 c1391wmM2879p = new Platform();
             }
         }

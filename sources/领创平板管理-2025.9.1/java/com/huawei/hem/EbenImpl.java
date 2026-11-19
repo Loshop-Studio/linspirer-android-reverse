@@ -34,8 +34,8 @@ public class EbenImpl extends AndroidImpl {
     public void mo1304B0(List<String> list) {
         try {
             LTKDateUtil.m1403m("EbenImpl actionDisableApp");
-            String[] strArrM2275P = AbstractC1102l9.m2275P(list);
-            if (AbstractC1102l9.m2274O(strArrM2275P)) {
+            String[] strArrM2275P = MobileSdkPlatformUtilities.m2275P(list);
+            if (MobileSdkPlatformUtilities.m2274O(strArrM2275P)) {
                 return;
             }
             ConnectionProfile.b.m2446i(f3450b, strArrM2275P);
@@ -63,7 +63,7 @@ public class EbenImpl extends AndroidImpl {
             Context context = f3450b;
             Log.i("ebenmdm", "GetAppInstallWhiteList");
             String string = Settings.System.getString(context.getContentResolver(), "appwhitelist");
-            return TextUtils.isEmpty(string) ? new ArrayList() : AbstractC1102l9.m2277R(string, ",");
+            return TextUtils.isEmpty(string) ? new ArrayList() : MobileSdkPlatformUtilities.m2277R(string, ",");
         } catch (Throwable th) {
             StringBuilder sbM1765j = CompilerOutline.m1765j("EbenImpl getAppWhiteList exception:");
             sbM1765j.append(th.getMessage());
@@ -451,8 +451,8 @@ public class EbenImpl extends AndroidImpl {
     public void mo1326k0(List<String> list) {
         try {
             LTKDateUtil.m1403m("EbenImpl actionDisableApp");
-            String[] strArrM2275P = AbstractC1102l9.m2275P(list);
-            if (AbstractC1102l9.m2274O(strArrM2275P)) {
+            String[] strArrM2275P = MobileSdkPlatformUtilities.m2275P(list);
+            if (MobileSdkPlatformUtilities.m2274O(strArrM2275P)) {
                 return;
             }
             ConnectionProfile.b.m2445h(f3450b, strArrM2275P);
@@ -467,7 +467,7 @@ public class EbenImpl extends AndroidImpl {
         try {
             LTKDateUtil.m1403m("EbenImpl setAppWhiteList");
             Context context = f3450b;
-            String[] strArrM2275P = AbstractC1102l9.m2275P(list);
+            String[] strArrM2275P = MobileSdkPlatformUtilities.m2275P(list);
             Log.i("ebenmdm", "AddAppInstallWhiteList");
             Intent intent = new Intent();
             intent.setAction("com.eben.mdm.action.set.install.white.list");

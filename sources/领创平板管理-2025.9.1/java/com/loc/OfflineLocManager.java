@@ -62,8 +62,8 @@ public class OfflineLocManager {
                 try {
                     synchronized (OfflineLocManager.class) {
                         String string = Long.toString(System.currentTimeMillis());
-                        LogConfig c1730atM4191a = C1736az.m4191a(OfflineLocManager.f5070e);
-                        C1736az.m4195a(this.f5073b, c1730atM4191a, AMapLog.f5949i, OfflineLocManager.f5066a, 2097152, "6");
+                        LogConfig c1730atM4191a = AMapLogCacheUtilities.m4191a(OfflineLocManager.f5070e);
+                        AMapLogCacheUtilities.m4195a(this.f5073b, c1730atM4191a, AMapLog.f5949i, OfflineLocManager.f5066a, 2097152, "6");
                         if (c1730atM4191a.f5058e == null) {
                             c1730atM4191a.f5058e = new Base64EncryptProcessor(new GZipEncryptProcessor(new RSAAESEncryptProcessor(new GZipEncryptProcessor())));
                         }
@@ -77,8 +77,8 @@ public class OfflineLocManager {
             }
             if (i == 2) {
                 try {
-                    LogConfig c1730atM4191a2 = C1736az.m4191a(OfflineLocManager.f5070e);
-                    C1736az.m4195a(this.f5073b, c1730atM4191a2, AMapLog.f5949i, OfflineLocManager.f5066a, 2097152, "6");
+                    LogConfig c1730atM4191a2 = AMapLogCacheUtilities.m4191a(OfflineLocManager.f5070e);
+                    AMapLogCacheUtilities.m4195a(this.f5073b, c1730atM4191a2, AMapLog.f5949i, OfflineLocManager.f5066a, 2097152, "6");
                     c1730atM4191a2.f5061h = 14400000;
                     if (c1730atM4191a2.f5060g == null) {
                         c1730atM4191a2.f5060g = new LogJsonDataStrategy(new HeaderAddStrategy(this.f5073b, new ZipUpdateDataStrategy(), new Base64EncryptProcessor(new GZipEncryptProcessor(new RSAAESEncryptProcessor())), new String(ConstConfig.m2346c(10)), AppInfo.m1641g(this.f5073b), DeviceInfo.m1091y(this.f5073b), DeviceInfo.m1086t(this.f5073b), DeviceInfo.m1083q(this.f5073b), DeviceInfo.f1607d, Build.MANUFACTURER, Build.DEVICE, DeviceInfo.m1092z(this.f5073b), AppInfo.m1638d(this.f5073b), Build.MODEL, AppInfo.m1639e(this.f5073b), AppInfo.m1636b(this.f5073b), DeviceInfo.m1081o(this.f5073b), DeviceInfo.m1078l(this.f5073b), String.valueOf(Build.VERSION.SDK_INT)));

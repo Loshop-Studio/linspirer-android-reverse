@@ -12,7 +12,7 @@ import java.util.Map;
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
 public class NetworkResponse implements Parcelable, Response {
-    public static final Parcelable.Creator<NetworkResponse> CREATOR = new C0439c();
+    public static final Parcelable.Creator<NetworkResponse> CREATOR = new NetworkResponseParcelCreator();
 
     /* renamed from: a */
     public int f616a;

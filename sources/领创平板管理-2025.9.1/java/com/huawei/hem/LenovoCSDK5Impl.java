@@ -82,7 +82,7 @@ public class LenovoCSDK5Impl extends LenovoCSDKImpl {
     public void mo1308I0(List<String> list) {
         LTKDateUtil.m1403m("LenovoCSDK5Impl --setNetworkAccessAppWhiteList ");
         m3146X0();
-        if (AbstractC1102l9.m2273N(list)) {
+        if (MobileSdkPlatformUtilities.m2273N(list)) {
             return;
         }
         mo1323h();

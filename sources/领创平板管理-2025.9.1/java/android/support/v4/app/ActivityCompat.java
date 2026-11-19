@@ -32,12 +32,12 @@ public class ActivityCompat extends ContextCompat {
     public static PermissionCompatDelegate sDelegate;
 
     /* renamed from: android.support.v4.app.ActivityCompat$1 */
-    public static class RunnableC00331 implements Runnable {
+    public static class LegacyPermissionResultTask implements Runnable {
         public final /* synthetic */ Activity val$activity;
         public final /* synthetic */ String[] val$permissions;
         public final /* synthetic */ int val$requestCode;
 
-        public RunnableC00331(String[] strArr, Activity activity, int i) {
+        public LegacyPermissionResultTask(String[] strArr, Activity activity, int i) {
             this.val$permissions = strArr;
             this.val$activity = activity;
             this.val$requestCode = i;

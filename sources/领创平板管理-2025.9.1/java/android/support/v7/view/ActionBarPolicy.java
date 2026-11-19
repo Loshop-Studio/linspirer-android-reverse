@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.annotation.RestrictTo;
-import android.support.v7.appcompat.C0200R;
+import android.support.v7.appcompat.SupportAppcompatResources;
 
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
@@ -54,22 +54,22 @@ public class ActionBarPolicy {
     }
 
     public int getStackedTabMaxWidth() {
-        return this.mContext.getResources().getDimensionPixelSize(C0200R.dimen.abc_action_bar_stacked_tab_max_width);
+        return this.mContext.getResources().getDimensionPixelSize(SupportAppcompatResources.dimen.abc_action_bar_stacked_tab_max_width);
     }
 
     public int getTabContainerHeight() {
-        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(null, C0200R.styleable.ActionBar, C0200R.attr.actionBarStyle, 0);
-        int layoutDimension = typedArrayObtainStyledAttributes.getLayoutDimension(C0200R.styleable.ActionBar_height, 0);
+        TypedArray typedArrayObtainStyledAttributes = this.mContext.obtainStyledAttributes(null, SupportAppcompatResources.styleable.ActionBar, SupportAppcompatResources.attr.actionBarStyle, 0);
+        int layoutDimension = typedArrayObtainStyledAttributes.getLayoutDimension(SupportAppcompatResources.styleable.ActionBar_height, 0);
         Resources resources = this.mContext.getResources();
         if (!hasEmbeddedTabs()) {
-            layoutDimension = Math.min(layoutDimension, resources.getDimensionPixelSize(C0200R.dimen.abc_action_bar_stacked_max_height));
+            layoutDimension = Math.min(layoutDimension, resources.getDimensionPixelSize(SupportAppcompatResources.dimen.abc_action_bar_stacked_max_height));
         }
         typedArrayObtainStyledAttributes.recycle();
         return layoutDimension;
     }
 
     public boolean hasEmbeddedTabs() {
-        return this.mContext.getResources().getBoolean(C0200R.bool.abc_action_bar_embed_tabs);
+        return this.mContext.getResources().getBoolean(SupportAppcompatResources.bool.abc_action_bar_embed_tabs);
     }
 
     public boolean showsOverflowMenuButton() {

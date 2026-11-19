@@ -24,7 +24,7 @@ public final class Decoder {
     public static final String[] DIGIT_TABLE = {"CTRL_PS", " ", MessageService.MSG_DB_READY_REPORT, "1", MessageService.MSG_DB_NOTIFY_CLICK, MessageService.MSG_DB_NOTIFY_DISMISS, "4", "5", "6", "7", MessageService.MSG_ACCS_NOTIFY_CLICK, MessageService.MSG_ACCS_NOTIFY_DISMISS, ",", ".", "CTRL_UL", "CTRL_US"};
 
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1 */
-    public static /* synthetic */ class C07801 {
+    public static /* synthetic */ class AztecDecodeTableSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
 
         static {

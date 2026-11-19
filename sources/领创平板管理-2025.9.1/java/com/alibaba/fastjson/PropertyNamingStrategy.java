@@ -10,7 +10,7 @@ public enum PropertyNamingStrategy {
     NeverUseThisValueExceptDefaultValue;
 
     /* renamed from: com.alibaba.fastjson.PropertyNamingStrategy$1 */
-    public static /* synthetic */ class C04781 {
+    public static /* synthetic */ class JsonPropertyNamingSwitch {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy;
 
         static {

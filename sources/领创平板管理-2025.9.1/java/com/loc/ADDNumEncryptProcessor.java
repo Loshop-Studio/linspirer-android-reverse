@@ -1,6 +1,6 @@
 package com.loc;
 
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapCoreUtilities;
 
 /* compiled from: ADDNumEncryptProcessor.java */
 /* renamed from: com.loc.ae */
@@ -16,6 +16,6 @@ public final class ADDNumEncryptProcessor extends EncryptProcessor {
     @Override // com.loc.AbstractC1717ag
     /* renamed from: a */
     public final byte[] mo3997a(byte[] bArr) {
-        return C1094l1.m2245n(C1094l1.m2236e(bArr) + "||1");
+        return AMapCoreUtilities.m2245n(AMapCoreUtilities.m2236e(bArr) + "||1");
     }
 }

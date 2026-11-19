@@ -32,14 +32,14 @@ public class CookieManager {
     public static boolean f677c = true;
 
     /* renamed from: d */
-    public static C0444a f678d;
+    public static CookieMonitorRecord f678d;
 
     /* renamed from: e */
     public static SharedPreferences f679e;
 
     /* compiled from: Taobao */
     /* renamed from: anetwork.channel.cookie.CookieManager$a */
-    public static class C0444a {
+    public static class CookieMonitorRecord {
 
         /* renamed from: a */
         public String f680a;
@@ -56,7 +56,7 @@ public class CookieManager {
         /* renamed from: e */
         public long f684e;
 
-        public C0444a(String str) {
+        public CookieMonitorRecord(String str) {
             this.f680a = str;
             String string = CookieManager.f679e.getString("networksdk_cookie_monitor", null);
             if (TextUtils.isEmpty(string)) {
@@ -108,7 +108,7 @@ public class CookieManager {
 
     /* renamed from: e */
     public static void m396e() {
-        ThreadPoolExecutorFactory.submitCookieMonitor(new RunnableC0445a());
+        ThreadPoolExecutorFactory.submitCookieMonitor(new InitializeNetworkCookiesTask());
     }
 
     /* renamed from: f */
@@ -181,12 +181,12 @@ public class CookieManager {
 
     /* renamed from: a */
     public static void m391a(String str) {
-        ThreadPoolExecutorFactory.submitCookieMonitor(new RunnableC0446b(str));
+        ThreadPoolExecutorFactory.submitCookieMonitor(new ParseResponseCookiesTask(str));
     }
 
     /* renamed from: a */
     public static void m392a(String str, String str2) {
-        ThreadPoolExecutorFactory.submitCookieMonitor(new RunnableC0447c(str, str2));
+        ThreadPoolExecutorFactory.submitCookieMonitor(new ReportRequestCookiesTask(str, str2));
     }
 
     public static void setCookie(String str, Map<String, List<String>> map) {

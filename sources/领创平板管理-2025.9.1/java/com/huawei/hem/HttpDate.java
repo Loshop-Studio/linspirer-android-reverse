@@ -27,7 +27,7 @@ public final class HttpDate {
         public DateFormat initialValue() {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setLenient(false);
-            simpleDateFormat.setTimeZone(C1314tk.f3822h);
+            simpleDateFormat.setTimeZone(OkHttpCommonUtilities.f3822h);
             return simpleDateFormat;
         }
     }
@@ -54,7 +54,7 @@ public final class HttpDate {
                 DateFormat simpleDateFormat = f3414c[i];
                 if (simpleDateFormat == null) {
                     simpleDateFormat = new SimpleDateFormat(f3413b[i], Locale.US);
-                    simpleDateFormat.setTimeZone(C1314tk.f3822h);
+                    simpleDateFormat.setTimeZone(OkHttpCommonUtilities.f3822h);
                     f3414c[i] = simpleDateFormat;
                 }
                 parsePosition.setIndex(0);

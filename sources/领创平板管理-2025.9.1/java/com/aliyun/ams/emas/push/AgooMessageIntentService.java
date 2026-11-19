@@ -6,17 +6,17 @@ import android.os.IBinder;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1219q0;
-import com.huawei.hem.HandlerC1194p0;
-import com.huawei.hem.InterfaceC1093l0;
-import com.huawei.hem.InterfaceC1119m0;
+import com.huawei.hem.AgooNotificationHandler;
+import com.huawei.hem.AgooIntentHandler;
+import com.huawei.hem.AgooMessageCallbacks;
+import com.huawei.hem.AgooNotificationCustomizer;
 import com.taobao.accs.utl.ALog;
 
 /* compiled from: Taobao */
 /* loaded from: classes.dex */
-public abstract class AgooMessageIntentService extends Service implements InterfaceC1093l0, InterfaceC1119m0 {
+public abstract class AgooMessageIntentService extends Service implements AgooMessageCallbacks, AgooNotificationCustomizer {
     public static final String TAG = "MPS:AliyunMessageIntentService";
-    public Messenger messenger = new Messenger(new HandlerC1194p0(this));
+    public Messenger messenger = new Messenger(new AgooIntentHandler(this));
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -31,13 +31,13 @@ public abstract class AgooMessageIntentService extends Service implements Interf
         }
         ALog.m5726d(TAG, CompilerOutline.m1760e("check_notif action: ", action), new Object[0]);
         if ("com.alibaba.sdk.android.push.RECEIVE".equals(action)) {
-            C1219q0.m2511g(getApplicationContext(), intent, this, this);
+            AgooNotificationHandler.m2511g(getApplicationContext(), intent, this, this);
             return;
         }
         if (AgooMessageReceiver.NOTIFICATION_OPENED_ACTION.equals(action)) {
-            C1219q0.m2510f(getApplicationContext(), intent, this);
+            AgooNotificationHandler.m2510f(getApplicationContext(), intent, this);
         } else if (AgooMessageReceiver.NOTIFICATION_REMOVED_ACTION.equals(action)) {
-            C1219q0.m2518n(getApplicationContext(), intent, this);
+            AgooNotificationHandler.m2518n(getApplicationContext(), intent, this);
         } else {
             ALog.m5728e(TAG, "Invalid action", new Object[0]);
         }

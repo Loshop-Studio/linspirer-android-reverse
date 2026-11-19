@@ -3,8 +3,8 @@ package com.loc;
 import android.content.Context;
 import android.text.TextUtils;
 import com.amap.apis.utils.core.DeviceInfo;
-import com.huawei.hem.C0994h1;
-import com.huawei.hem.C1094l1;
+import com.huawei.hem.AMapEncryptionUtilities;
+import com.huawei.hem.AMapCoreUtilities;
 import com.huawei.hem.XXTEA;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -19,19 +19,19 @@ import org.json.JSONObject;
 public final class NetReuestParam {
 
     /* renamed from: a */
-    public static final String f5904a = C1094l1.m2251t("SRFZHZUVZT3BOa0ZiemZRQQ");
+    public static final String f5904a = AMapCoreUtilities.m2251t("SRFZHZUVZT3BOa0ZiemZRQQ");
 
     /* renamed from: b */
-    public static final String f5905b = C1094l1.m2251t("FbGJzX3Nkaw");
+    public static final String f5905b = AMapCoreUtilities.m2251t("FbGJzX3Nkaw");
 
     /* renamed from: c */
-    public static final String f5906c = C1094l1.m2251t("SWjJuYVh2eEMwSzVmNklFSmh0UXpVb2xtOVM4eU9Ua3E");
+    public static final String f5906c = AMapCoreUtilities.m2251t("SWjJuYVh2eEMwSzVmNklFSmh0UXpVb2xtOVM4eU9Ua3E");
 
     /* renamed from: d */
-    public static final String f5907d = C1094l1.m2251t("FQU5EU0RLMTA");
+    public static final String f5907d = AMapCoreUtilities.m2251t("FQU5EU0RLMTA");
 
     /* renamed from: e */
-    public static final String f5908e = C1094l1.m2251t("FMTAw");
+    public static final String f5908e = AMapCoreUtilities.m2251t("FMTAw");
 
     /* renamed from: f */
     public static boolean f5909f = false;
@@ -40,8 +40,8 @@ public final class NetReuestParam {
     public String f5910g = "";
 
     /* renamed from: a */
-    public static DeviceInfo.InterfaceC0623c m5270a() {
-        return new DeviceInfo.InterfaceC0623c() { // from class: com.loc.n.1
+    public static DeviceInfo.DeviceInfoProviderContract m5270a() {
+        return new DeviceInfo.DeviceInfoProviderContract() { // from class: com.loc.n.1
 
             /* renamed from: a */
             public NetReuestParam f5911a = new NetReuestParam();
@@ -82,10 +82,10 @@ public final class NetReuestParam {
     public static String m5271a(Context context, String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.optInt(C1094l1.m2251t("UY29kZQ")) != 1) {
+            if (jSONObject.optInt(AMapCoreUtilities.m2251t("UY29kZQ")) != 1) {
                 return "";
             }
-            String strOptString = new JSONObject(jSONObject.optString(C1094l1.m2251t("FZGF0YQ"))).optString(C1094l1.m2251t("FYWRpdQ"));
+            String strOptString = new JSONObject(jSONObject.optString(AMapCoreUtilities.m2251t("FZGF0YQ"))).optString(AMapCoreUtilities.m2251t("FYWRpdQ"));
             if (TextUtils.isEmpty(strOptString)) {
                 return "";
             }
@@ -108,7 +108,7 @@ public final class NetReuestParam {
         if (!TextUtils.isEmpty(this.f5910g)) {
             return this.f5910g;
         }
-        String strM2236e = C1094l1.m2236e(C0994h1.m1934e("TUpJaVFGNk5LXHtSX1ZwQlRiV1VVZmtYWU1haV1hYWHCiXJtZcKLdmp8wpFewo1/wphwwoFzZmR8aWp6X2k6XsKDwoF+WGbChGdAScKLwoVXfmNxYEvCjcKLSG7CjGNvwoZtVFZ7WMKXYMKfwo5dZcKHfzZXUG85X0hNOVJrb2U8ZlJGW8KCe8KOV8KQWllrcGrCjcKIT25lUHPCicKGVsKKeG5fwp56XsKbc8KJbUVYR0pqU09gfE5/WT5YeHNAwoDCh1Z4V8KQT3JQYmxQbcKYwpFxdG/Ci3rCmMKQwop+YVbCmWFxwpxBdW07Zjp/ODlAbcKEY1pQwoJowohbV1VmV1laWmtcYGbClXfCk2NvesKdwohdWFnCol/CjWTCmMKicG1ENnAvPFtpcXtfclhfXsKAwolgRWNbS29OwpFafV3CkMKLTcKCwolrU3DCmGnCmX9wdsKPcXDCg3LCnFpGcDVTeTxNWW07bXJePVRfQn3ChGNraFhbwpNcwpXChMKNaFVjeVF8wojChm9YbmvChGDCmHvChGVQWjo0Z3o9djleOztWcVxSfWE9woLChkZdcGTCgVzCjMKUVE12wpV5bcKVwprCnntZworCgsKfwpHCksKnwpHClURURW9YaDtwXU1bck5YX3hSVFZUYlxKWFlua1xeYm9jU8KDa3ZrwpZ5am9Za3jCknR3fA"));
+        String strM2236e = AMapCoreUtilities.m2236e(AMapEncryptionUtilities.m1934e("TUpJaVFGNk5LXHtSX1ZwQlRiV1VVZmtYWU1haV1hYWHCiXJtZcKLdmp8wpFewo1/wphwwoFzZmR8aWp6X2k6XsKDwoF+WGbChGdAScKLwoVXfmNxYEvCjcKLSG7CjGNvwoZtVFZ7WMKXYMKfwo5dZcKHfzZXUG85X0hNOVJrb2U8ZlJGW8KCe8KOV8KQWllrcGrCjcKIT25lUHPCicKGVsKKeG5fwp56XsKbc8KJbUVYR0pqU09gfE5/WT5YeHNAwoDCh1Z4V8KQT3JQYmxQbcKYwpFxdG/Ci3rCmMKQwop+YVbCmWFxwpxBdW07Zjp/ODlAbcKEY1pQwoJowohbV1VmV1laWmtcYGbClXfCk2NvesKdwohdWFnCol/CjWTCmMKicG1ENnAvPFtpcXtfclhfXsKAwolgRWNbS29OwpFafV3CkMKLTcKCwolrU3DCmGnCmX9wdsKPcXDCg3LCnFpGcDVTeTxNWW07bXJePVRfQn3ChGNraFhbwpNcwpXChMKNaFVjeVF8wojChm9YbmvChGDCmHvChGVQWjo0Z3o9djleOztWcVxSfWE9woLChkZdcGTCgVzCjMKUVE12wpV5bcKVwprCnntZworCgsKfwpHCksKnwpHClURURW9YaDtwXU1bck5YX3hSVFZUYlxKWFlua1xeYm9jU8KDa3ZrwpZ5am9Za3jCknR3fA"));
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < strM2236e.length(); i++) {
             stringBuffer.append((char) (strM2236e.charAt(i) - (i % 48)));
@@ -127,10 +127,10 @@ public final class NetReuestParam {
     public final String m5274a(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(C1094l1.m2251t("LdGlk"), str);
-            jSONObject.put(C1094l1.m2251t("FZGl1"), str2);
-            jSONObject.put(C1094l1.m2251t("AZGl1Mg"), str3);
-            jSONObject.put(C1094l1.m2251t("EZGl1Mw"), str4);
+            jSONObject.put(AMapCoreUtilities.m2251t("LdGlk"), str);
+            jSONObject.put(AMapCoreUtilities.m2251t("FZGl1"), str2);
+            jSONObject.put(AMapCoreUtilities.m2251t("AZGl1Mg"), str3);
+            jSONObject.put(AMapCoreUtilities.m2251t("EZGl1Mw"), str4);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -143,7 +143,7 @@ public final class NetReuestParam {
             String strM5262a = Base64Util.m5262a(XXTEA.m2454a((string + "\u0000").getBytes(), strM5281a.getBytes()));
             if (!TextUtils.isEmpty(strM5262a)) {
                 try {
-                    return C1094l1.m2251t("Fa2V5PQ") + URLEncoder.encode(Base64Util.m5262a(RSAUtil.m5279a(strM5281a.getBytes("utf-8"), RSAUtil.m5278a(m5273d())))) + C1094l1.m2251t("SJmRhdGE9") + URLEncoder.encode(strM5262a);
+                    return AMapCoreUtilities.m2251t("Fa2V5PQ") + URLEncoder.encode(Base64Util.m5262a(RSAUtil.m5279a(strM5281a.getBytes("utf-8"), RSAUtil.m5278a(m5273d())))) + AMapCoreUtilities.m2251t("SJmRhdGE9") + URLEncoder.encode(strM5262a);
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
@@ -159,23 +159,23 @@ public final class NetReuestParam {
         }
         f5909f = true;
         HashMap map = new HashMap();
-        map.put(C1094l1.m2251t("FZW50"), C1094l1.m2251t("FMg"));
+        map.put(AMapCoreUtilities.m2251t("FZW50"), AMapCoreUtilities.m2251t("FMg"));
         StringBuilder sb = new StringBuilder();
-        sb.append(C1094l1.m2251t("SY2hhbm5lbD0"));
+        sb.append(AMapCoreUtilities.m2251t("SY2hhbm5lbD0"));
         sb.append(f5905b);
-        sb.append(C1094l1.m2251t("SJmRpdj0"));
+        sb.append(AMapCoreUtilities.m2251t("SJmRpdj0"));
         sb.append(f5907d);
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(f5905b);
         stringBuffer.append(f5907d);
-        stringBuffer.append(C1094l1.m2251t("FQA"));
+        stringBuffer.append(AMapCoreUtilities.m2251t("FQA"));
         stringBuffer.append(f5906c);
         String strM5283a = SecurityUtil.m5283a(stringBuffer.toString());
-        sb.append(C1094l1.m2251t("FJnNpZ249"));
+        sb.append(AMapCoreUtilities.m2251t("FJnNpZ249"));
         sb.append(strM5283a.toUpperCase(Locale.US));
-        sb.append(C1094l1.m2251t("SJm91dHB1dD1qc29u") + "\u0000");
-        map.put(C1094l1.m2251t("FaW4"), Base64Util.m5262a(XXTEA.m2454a(sb.toString().getBytes(), f5904a.getBytes())));
-        map.put(C1094l1.m2251t("Sa2V5dA"), f5908e);
+        sb.append(AMapCoreUtilities.m2251t("SJm91dHB1dD1qc29u") + "\u0000");
+        map.put(AMapCoreUtilities.m2251t("FaW4"), Base64Util.m5262a(XXTEA.m2454a(sb.toString().getBytes(), f5904a.getBytes())));
+        map.put(AMapCoreUtilities.m2251t("Sa2V5dA"), f5908e);
         return map;
     }
 }

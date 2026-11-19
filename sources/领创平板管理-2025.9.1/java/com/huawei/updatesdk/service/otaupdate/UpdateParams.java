@@ -19,7 +19,7 @@ public class UpdateParams {
         public boolean mustBtnOne;
         public List<String> packageList;
         public List<Param> paramList;
-        public String serviceZone = C1676f.m3889f().m3892b();
+        public String serviceZone = MarketStoreOptions.m3889f().m3892b();
         public String targetPkgName;
 
         public UpdateParams build() {

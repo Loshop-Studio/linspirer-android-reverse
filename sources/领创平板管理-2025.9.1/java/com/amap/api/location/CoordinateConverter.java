@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.loc.CoreUtil;
 import com.loc.OffsetUtil;
 import com.loc.ReportUtil;
-import com.loc.C1841ew;
+import com.loc.AMapLocationUtilities;
 import org.json.JSONObject;
 
 /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class CoordinateConverter {
     public DPoint f1577a = null;
 
     /* renamed from: com.amap.api.location.CoordinateConverter$1 */
-    public static /* synthetic */ class C06171 {
+    public static /* synthetic */ class CoordinateTypeSwitch {
 
         /* renamed from: a */
         public static final /* synthetic */ int[] f1581a;
@@ -116,7 +116,7 @@ public class CoordinateConverter {
 
     public static float calculateLineDistance(DPoint dPoint, DPoint dPoint2) {
         try {
-            return C1841ew.m5104a(dPoint, dPoint2);
+            return AMapLocationUtilities.m5104a(dPoint, dPoint2);
         } catch (Throwable unused) {
             return 0.0f;
         }
@@ -144,7 +144,7 @@ public class CoordinateConverter {
         }
         boolean z = false;
         String str = null;
-        switch (C06171.f1581a[this.f1579k.ordinal()]) {
+        switch (CoordinateTypeSwitch.f1581a[this.f1579k.ordinal()]) {
             case 1:
                 this.f1577a = OffsetUtil.m5036a(this.f1580l);
                 if ((f1569b & f1570c) == 0) {

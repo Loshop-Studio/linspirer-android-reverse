@@ -347,7 +347,7 @@ public final class GeoFenceManager {
             DPoint dPoint = new DPoint(aMapLocation.getLatitude(), aMapLocation.getLongitude());
             for (GeoFence geoFence : list) {
                 if (geoFence.isAble()) {
-                    float fM5104a = C1841ew.m5104a(dPoint, geoFence.getCenter());
+                    float fM5104a = AMapLocationUtilities.m5104a(dPoint, geoFence.getCenter());
                     if (fM5104a > geoFence.getMinDis2Center() && fM5104a < geoFence.getMaxDis2Center()) {
                         return 0.0f;
                     }
@@ -369,7 +369,7 @@ public final class GeoFenceManager {
         if (dPoint != null && list != null && !list.isEmpty()) {
             Iterator<DPoint> it = list.iterator();
             while (it.hasNext()) {
-                fMin = Math.min(fMin, C1841ew.m5104a(dPoint, it.next()));
+                fMin = Math.min(fMin, AMapLocationUtilities.m5104a(dPoint, it.next()));
             }
         }
         return fMin;
@@ -604,7 +604,7 @@ public final class GeoFenceManager {
 
     /* renamed from: a */
     public static boolean m3942a(AMapLocation aMapLocation, DPoint dPoint, float f) {
-        return C1841ew.m5105a(new double[]{dPoint.getLatitude(), dPoint.getLongitude(), aMapLocation.getLatitude(), aMapLocation.getLongitude()}) <= f;
+        return AMapLocationUtilities.m5105a(new double[]{dPoint.getLatitude(), dPoint.getLongitude(), aMapLocation.getLatitude(), aMapLocation.getLongitude()}) <= f;
     }
 
     /* renamed from: b */
@@ -613,7 +613,7 @@ public final class GeoFenceManager {
         if (dPoint != null && list != null && !list.isEmpty()) {
             Iterator<DPoint> it = list.iterator();
             while (it.hasNext()) {
-                fMax = Math.max(fMax, C1841ew.m5104a(dPoint, it.next()));
+                fMax = Math.max(fMax, AMapLocationUtilities.m5104a(dPoint, it.next()));
             }
         }
         return fMax;
@@ -632,7 +632,7 @@ public final class GeoFenceManager {
                 latitude += dPoint2.getLatitude();
                 longitude += dPoint2.getLongitude();
             }
-            return new DPoint(C1841ew.m5125b(latitude / list.size()), C1841ew.m5125b(longitude / list.size()));
+            return new DPoint(AMapLocationUtilities.m5125b(latitude / list.size()), AMapLocationUtilities.m5125b(longitude / list.size()));
         } catch (Throwable th) {
             CoreUtil.m5014a(th, "GeoFenceUtil", "getPolygonCenter");
             return dPoint;
@@ -678,8 +678,8 @@ public final class GeoFenceManager {
                         } else if (i != 2) {
                             strM4200a = i != 3 ? null : this.f4867p.m4199a(this.f4853b, "http://restsdk.amap.com/v3/config/district?", string2);
                         } else {
-                            double dM5125b = C1841ew.m5125b(dPoint.getLatitude());
-                            double dM5125b2 = C1841ew.m5125b(dPoint.getLongitude());
+                            double dM5125b = AMapLocationUtilities.m5125b(dPoint.getLatitude());
+                            double dM5125b2 = AMapLocationUtilities.m5125b(dPoint.getLongitude());
                             int iIntValue = Float.valueOf(f).intValue();
                             bundle3.putFloat("fenceRadius", 200.0f);
                             strM4200a = this.f4867p.m4201a(this.f4853b, "http://restsdk.amap.com/v3/place/around?", string2, string4, String.valueOf(i3), String.valueOf(dM5125b), String.valueOf(dM5125b2), String.valueOf(iIntValue));
@@ -1012,7 +1012,7 @@ public final class GeoFenceManager {
 
     /* renamed from: p */
     private boolean m3957p() {
-        return this.f4870s != null && C1841ew.m5116a(this.f4870s) && C1841ew.m5127b() - this.f4871t < 10000;
+        return this.f4870s != null && AMapLocationUtilities.m5116a(this.f4870s) && AMapLocationUtilities.m5127b() - this.f4871t < 10000;
     }
 
     /* renamed from: a */
@@ -1464,7 +1464,7 @@ public final class GeoFenceManager {
     /* renamed from: e */
     public final void m3982e() {
         try {
-            if (!this.f4876y && C1841ew.m5116a(this.f4870s)) {
+            if (!this.f4876y && AMapLocationUtilities.m5116a(this.f4870s)) {
                 float fM3933a = m3933a(this.f4870s, this.f4858g);
                 if (fM3933a == Float.MAX_VALUE) {
                     return;

@@ -134,12 +134,12 @@ public final class WifiManagerWrapper {
 
     /* renamed from: a */
     public static boolean m4836a(WifiInfo wifiInfo) {
-        return (wifiInfo == null || TextUtils.isEmpty(wifiInfo.getSSID()) || !C1841ew.m5118a(wifiInfo.getBSSID())) ? false : true;
+        return (wifiInfo == null || TextUtils.isEmpty(wifiInfo.getSSID()) || !AMapLocationUtilities.m5118a(wifiInfo.getBSSID())) ? false : true;
     }
 
     /* renamed from: b */
     public static long m4837b() {
-        return ((C1841ew.m5127b() - f5582w) / 1000) + 1;
+        return ((AMapLocationUtilities.m5127b() - f5582w) / 1000) + 1;
     }
 
     /* renamed from: d */
@@ -149,7 +149,7 @@ public final class WifiManagerWrapper {
         if (arrayList == null || arrayList.isEmpty()) {
             return;
         }
-        if (C1841ew.m5127b() - f5579g > 3600000) {
+        if (AMapLocationUtilities.m5127b() - f5579g > 3600000) {
             m4861g();
         }
         if (this.f5599p == null) {
@@ -169,7 +169,7 @@ public final class WifiManagerWrapper {
             if (c1796de.f5302h) {
                 this.f5604u = c1796de.f5300f;
             }
-            if (C1841ew.m5118a(AmapWifi.m4516a(c1796de.f5295a)) && (size <= 20 || m4835a(c1796de.f5297c))) {
+            if (AMapLocationUtilities.m5118a(AmapWifi.m4516a(c1796de.f5295a)) && (size <= 20 || m4835a(c1796de.f5297c))) {
                 if (this.f5601r && z) {
                     this.f5591c.add(c1796de);
                 }
@@ -191,7 +191,7 @@ public final class WifiManagerWrapper {
 
     /* renamed from: o */
     public static String m4839o() {
-        return String.valueOf(C1841ew.m5127b() - f5579g);
+        return String.valueOf(AMapLocationUtilities.m5127b() - f5579g);
     }
 
     /* renamed from: q */
@@ -208,7 +208,7 @@ public final class WifiManagerWrapper {
                 }
                 if (f5581v.isEmpty() || !f5581v.equals(map)) {
                     f5581v = map;
-                    f5582w = C1841ew.m5127b();
+                    f5582w = AMapLocationUtilities.m5127b();
                 }
                 this.f5598o = null;
                 ArrayList arrayList = new ArrayList();
@@ -231,7 +231,7 @@ public final class WifiManagerWrapper {
                     if (sElapsedRealtime < 0) {
                         c1796de.f5301g = (short) 0;
                     }
-                    c1796de.f5300f = C1841ew.m5127b();
+                    c1796de.f5300f = AMapLocationUtilities.m5127b();
                     arrayList.add(c1796de);
                 }
                 this.f5602s.m4716a((List) arrayList);
@@ -257,7 +257,7 @@ public final class WifiManagerWrapper {
 
     /* renamed from: s */
     private boolean m4842s() {
-        long jM5127b = C1841ew.m5127b() - f5576d;
+        long jM5127b = AMapLocationUtilities.m5127b() - f5576d;
         if (jM5127b < 4900) {
             return false;
         }
@@ -276,7 +276,7 @@ public final class WifiManagerWrapper {
         if (this.f5589a == null) {
             return false;
         }
-        f5576d = C1841ew.m5127b();
+        f5576d = AMapLocationUtilities.m5127b();
         int i = f5583x;
         if (i < 2) {
             f5583x = i + 1;
@@ -287,7 +287,7 @@ public final class WifiManagerWrapper {
     /* renamed from: t */
     private boolean m4843t() {
         if (this.f5605y == null) {
-            this.f5605y = (ConnectivityManager) C1841ew.m5108a(this.f5592i, "connectivity");
+            this.f5605y = (ConnectivityManager) AMapLocationUtilities.m5108a(this.f5592i, "connectivity");
         }
         return m4854a(this.f5605y);
     }
@@ -297,13 +297,13 @@ public final class WifiManagerWrapper {
         if (this.f5589a == null) {
             return false;
         }
-        return C1841ew.m5151h(this.f5592i);
+        return AMapLocationUtilities.m5151h(this.f5592i);
     }
 
     /* renamed from: v */
     private void m4845v() {
         if (m4849z()) {
-            long jM5127b = C1841ew.m5127b();
+            long jM5127b = AMapLocationUtilities.m5127b();
             if (jM5127b - f5577e >= 10000) {
                 this.f5590b.clear();
                 f5580h = f5579g;
@@ -325,7 +325,7 @@ public final class WifiManagerWrapper {
         if (m4849z()) {
             try {
                 if (m4842s()) {
-                    f5578f = C1841ew.m5127b();
+                    f5578f = AMapLocationUtilities.m5127b();
                 }
             } catch (Throwable th) {
                 CoreUtil.m5014a(th, "WifiManager", "wifiScan");
@@ -383,8 +383,8 @@ public final class WifiManagerWrapper {
             if (f5578f == 0) {
                 return true;
             }
-            if (C1841ew.m5127b() - f5578f >= 4900 && C1841ew.m5127b() - f5579g >= 1500) {
-                int i = ((C1841ew.m5127b() - f5579g) > 4900L ? 1 : ((C1841ew.m5127b() - f5579g) == 4900L ? 0 : -1));
+            if (AMapLocationUtilities.m5127b() - f5578f >= 4900 && AMapLocationUtilities.m5127b() - f5579g >= 1500) {
+                int i = ((AMapLocationUtilities.m5127b() - f5579g) > 4900L ? 1 : ((AMapLocationUtilities.m5127b() - f5579g) == 4900L ? 0 : -1));
                 return true;
             }
         }
@@ -408,7 +408,7 @@ public final class WifiManagerWrapper {
     /* renamed from: a */
     public final void m4852a(boolean z) {
         Context context = this.f5592i;
-        if (!AuthUtil.m4999m() || !this.f5597n || this.f5589a == null || context == null || !z || C1841ew.m5137c() <= 17) {
+        if (!AuthUtil.m4999m() || !this.f5597n || this.f5589a == null || context == null || !z || AMapLocationUtilities.m5137c() <= 17) {
             return;
         }
         ContentResolver contentResolver = context.getContentResolver();
@@ -440,7 +440,7 @@ public final class WifiManagerWrapper {
             return false;
         }
         try {
-            if (C1841ew.m5106a(connectivityManager.getActiveNetworkInfo()) == 1) {
+            if (AMapLocationUtilities.m5106a(connectivityManager.getActiveNetworkInfo()) == 1) {
                 return m4836a(wifiManager.getConnectionInfo());
             }
             return false;
@@ -463,12 +463,12 @@ public final class WifiManagerWrapper {
             m4848y();
         }
         m4847x();
-        if (C1841ew.m5127b() - f5579g > 20000) {
+        if (AMapLocationUtilities.m5127b() - f5579g > 20000) {
             this.f5590b.clear();
         }
-        f5577e = C1841ew.m5127b();
+        f5577e = AMapLocationUtilities.m5127b();
         if (this.f5590b.isEmpty()) {
-            f5579g = C1841ew.m5127b();
+            f5579g = AMapLocationUtilities.m5127b();
             List<AmapWifi> listM4840q = m4840q();
             if (listM4840q != null) {
                 this.f5590b.addAll(listM4840q);
@@ -546,8 +546,8 @@ public final class WifiManagerWrapper {
 
     /* renamed from: i */
     public final void m4863i() {
-        if (this.f5589a != null && C1841ew.m5127b() - f5579g > 4900) {
-            f5579g = C1841ew.m5127b();
+        if (this.f5589a != null && AMapLocationUtilities.m5127b() - f5579g > 4900) {
+            f5579g = AMapLocationUtilities.m5127b();
         }
     }
 

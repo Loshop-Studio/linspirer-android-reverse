@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.huawei.hem.AbstractC1376w7;
+import com.huawei.hem.HmsResultTaskBase;
 import com.huawei.hem.CompilerOutline;
-import com.huawei.hem.C1401x7;
-import com.huawei.hem.C1426y7;
+import com.huawei.hem.HmsTaskRegistry;
+import com.huawei.hem.HmsTaskResultState;
 import com.huawei.hem.HiAnalyticsBase;
 import com.huawei.hms.api.Api;
 import com.huawei.hms.api.Api.ApiOptions;
@@ -85,28 +85,28 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
         HMSBIInitializer.getInstance(context).initBI();
     }
 
-    private <TResult, TClient extends AnyClient> AbstractC1376w7<TResult> sendRequest(TaskApiCall<TClient, TResult> taskApiCall) {
+    private <TResult, TClient extends AnyClient> HmsResultTaskBase<TResult> sendRequest(TaskApiCall<TClient, TResult> taskApiCall) {
         if (taskApiCall.getToken() == null) {
-            C1401x7<TResult> c1401x7 = new C1401x7<>();
+            HmsTaskRegistry<TResult> c1401x7 = new HmsTaskRegistry<>();
             this.mHuaweiApiManager.sendRequest(this, taskApiCall, c1401x7);
             return c1401x7.f4053a;
         }
         taskApiCall.getToken();
-        new C1426y7();
+        new HmsTaskResultState();
         throw null;
     }
 
-    public AbstractC1376w7<Boolean> disconnectService() {
-        C1401x7<Boolean> c1401x7 = new C1401x7<>();
+    public HmsResultTaskBase<Boolean> disconnectService() {
+        HmsTaskRegistry<Boolean> c1401x7 = new HmsTaskRegistry<>();
         this.mHuaweiApiManager.disconnectService(this, c1401x7);
         return c1401x7.f4053a;
     }
 
-    public <TResult, TClient extends AnyClient> AbstractC1376w7<TResult> doWrite(TaskApiCall<TClient, TResult> taskApiCall) {
+    public <TResult, TClient extends AnyClient> HmsResultTaskBase<TResult> doWrite(TaskApiCall<TClient, TResult> taskApiCall) {
         this.isFirstReqSent = true;
         if (taskApiCall == null) {
             HMSLog.m3461e(TAG, "in doWrite:taskApiCall is null");
-            C1426y7 c1426y7 = new C1426y7();
+            HmsTaskResultState c1426y7 = new HmsTaskResultState();
             new ApiException(Status.FAILURE);
             synchronized (c1426y7.f4204a) {
                 if (!c1426y7.f4205b) {

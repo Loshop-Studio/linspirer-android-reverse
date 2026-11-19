@@ -45,7 +45,7 @@ public class ParcelableNetworkListenerWrapper extends ParcelableNetworkListener.
         if (handler == null) {
             dispatchCallback(b, obj);
         } else {
-            handler.post(new RunnableC0434c(this, b, obj));
+            handler.post(new RemoteNetworkListenerTask(this, b, obj));
         }
     }
 

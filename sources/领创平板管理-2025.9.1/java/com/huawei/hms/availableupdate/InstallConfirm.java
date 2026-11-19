@@ -7,7 +7,7 @@ import com.huawei.hms.utils.ResourceLoaderUtil;
 /* compiled from: InstallConfirm.java */
 /* renamed from: com.huawei.hms.availableupdate.y */
 /* loaded from: classes.dex */
-public class InstallConfirm extends AbstractC1510o {
+public class InstallConfirm extends UpdateAlertDialog {
 
     /* renamed from: c */
     public String f4506c = ResourceLoaderUtil.getString("hms_update_title");

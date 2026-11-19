@@ -45,7 +45,7 @@ public class FragmentTransition {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static void addToFirstInLastOut(android.support.v4.app.BackStackRecord r16, android.support.v4.app.BackStackRecord.C0035Op r17, android.util.SparseArray<android.support.v4.app.FragmentTransition.FragmentContainerTransition> r18, boolean r19, boolean r20) throws java.lang.NoSuchFieldException, android.content.res.Resources.NotFoundException {
+    public static void addToFirstInLastOut(android.support.v4.app.BackStackRecord r16, android.support.v4.app.BackStackRecord.BackStackOperation r17, android.util.SparseArray<android.support.v4.app.FragmentTransition.FragmentContainerTransition> r18, boolean r19, boolean r20) throws java.lang.NoSuchFieldException, android.content.res.Resources.NotFoundException {
         /*
             Method dump skipped, instructions count: 244
             To view this dump add '--comments-level debug' option
