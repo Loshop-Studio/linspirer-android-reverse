@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/login_center_bg" android:padding="@dimen/dp_30" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/radiogroup" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RadioButton android:textSize="@dimen/sp_16" android:textColor="@drawable/login_text_select" android:gravity="center_horizontal" android:id="@id/account_select" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:button="@null" android:text="@string/account_login" android:layout_weight="1.0" />
+        <RadioButton android:textSize="@dimen/sp_16" android:textColor="@drawable/login_text_select" android:gravity="center_horizontal" android:id="@id/sn_select" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@null" android:text="@string/sn_login" android:layout_weight="1.0" />
+    </RadioGroup>
+    <LinearLayout android:orientation="horizontal" android:id="@id/indicator" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_25">
+        <LinearLayout android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:id="@id/account_indicator" android:background="@drawable/line_bg" android:layout_width="@dimen/dp_24" android:layout_height="@dimen/dp_3" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:id="@id/sn_indicator" android:background="@drawable/line_bg" android:visibility="gone" android:layout_width="@dimen/dp_24" android:layout_height="@dimen/dp_3" />
+        </LinearLayout>
+    </LinearLayout>
+    <include android:id="@id/account_include" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/account_login_include" />
+    <include android:id="@id/sn_include" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/sn_login_include" />
+    <CheckBox android:textSize="@dimen/sp_12" android:textColor="@android:color/white" android:id="@id/check_agreement" android:paddingLeft="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_15" android:checked="false" android:button="@drawable/account_is_checked" android:shadowColor="@color/white" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/rubbish_layout" android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/all_RelativeLayout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <CheckBox android:id="@id/rubbish_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@drawable/checkbox_bg" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:id="@id/rubbishImageRelativeLayout" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_12">
+            <ImageView android:id="@id/rubbish_imageView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:nestedScrollingEnabled="false" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_8">
+            <TextView android:enabled="false" android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:id="@id/rubbish_textView" android:layout_width="match_parent" android:layout_height="wrap_content" android:lines="1" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

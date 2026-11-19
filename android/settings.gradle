@@ -1,0 +1,4 @@
+rootProject.name = 'LinspirerRecovered'
+fileTree(rootDir) { include '*/apktool.yml' }.files.sort().each { metadata ->
+    include(metadata.parentFile.name)
+}

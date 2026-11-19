@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/logout_dialog_bg" android:layout_width="@dimen/dp_422" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/dialog_title_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_46" android:layout_marginTop="@dimen/dp_50" android:layout_marginRight="@dimen/dp_46">
+            <TextView android:textSize="@dimen/sp_17" android:textColor="@color/text_general_color" android:id="@id/dialog_text_content" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.android.launcher3.view.LTKEditText android:textColor="@android:color/black" android:textColorHint="@color/color_text_gestrue_pwd" android:id="@id/edit_pwd" android:background="@drawable/edit_gesturepwd_background" android:padding="8.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_20" android:hint="@string/please_enter_dynamic_password" android:maxLines="1" android:maxLength="8" android:layout_below="@id/dialog_text_content" android:inputType="numberPassword" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/btn_content" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_40" android:layout_marginTop="@dimen/dp_45" android:layout_marginRight="@dimen/dp_40" android:layout_marginBottom="@dimen/dp_20" android:layout_below="@id/dialog_title_layout">
+            <Button android:textSize="@dimen/sp_17" android:textColor="@color/text_general_color" android:id="@id/btn_negative" android:background="@drawable/nagetive_bt_background" android:layout_width="0.0dp" android:layout_height="@dimen/dp_42" android:layout_marginRight="10.0dp" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/sp_17" android:textColor="@color/white" android:id="@id/btn_positive" android:background="@drawable/general_bt_background" android:layout_width="0.0dp" android:layout_height="@dimen/dp_42" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

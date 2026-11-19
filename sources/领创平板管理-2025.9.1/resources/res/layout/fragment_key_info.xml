@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="false">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_45" android:layout_marginRight="@dimen/dp_45">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/rom_version" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/rom_version" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/desk_version" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/guard_secure_version" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/appstore_version" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/app_store_version" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/current_wifi" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/wifi_name" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/device_mac" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/device_mac" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/device_sn" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/device_sn" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/intranet_ip" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/local_ip_address" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60">
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/extranet_ip" />
+                <TextView android:textSize="@dimen/sp_15" android:textColor="@color/network_text2_color" android:gravity="center" android:id="@id/net_ip_address" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/unknown" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <View android:background="@color/network_underline_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

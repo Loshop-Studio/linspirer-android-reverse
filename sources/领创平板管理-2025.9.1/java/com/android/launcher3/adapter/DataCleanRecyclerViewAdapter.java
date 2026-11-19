@@ -1,0 +1,102 @@
+package com.android.launcher3.adapter;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.android.launcher3.R;
+import com.android.launcher3.model.DataCleanCategoryInfo;
+import com.huawei.hem.AbstractC1102l9;
+import com.huawei.hem.C1396x2;
+import com.huawei.hem.InterfaceC1071k3;
+import com.huawei.hem.ViewOnClickListenerC1421y2;
+import java.util.List;
+
+/* loaded from: classes.dex */
+public class DataCleanRecyclerViewAdapter extends RecyclerView.Adapter<C0646a> {
+
+    /* renamed from: a */
+    public Context f1848a;
+
+    /* renamed from: b */
+    public List<DataCleanCategoryInfo> f1849b;
+
+    /* renamed from: c */
+    public LayoutInflater f1850c;
+
+    /* renamed from: d */
+    public InterfaceC1071k3 f1851d;
+
+    /* renamed from: com.android.launcher3.adapter.DataCleanRecyclerViewAdapter$a */
+    public class C0646a extends RecyclerView.ViewHolder {
+
+        /* renamed from: a */
+        public CheckBox f1852a;
+
+        /* renamed from: b */
+        public TextView f1853b;
+
+        /* renamed from: c */
+        public TextView f1854c;
+
+        /* renamed from: d */
+        public LinearLayout f1855d;
+
+        public C0646a(DataCleanRecyclerViewAdapter dataCleanRecyclerViewAdapter, View view) {
+            super(view);
+            this.f1852a = (CheckBox) view.findViewById(R.id.clean_checkbox);
+            this.f1853b = (TextView) view.findViewById(R.id.desc_text);
+            this.f1854c = (TextView) view.findViewById(R.id.number_text);
+            this.f1855d = (LinearLayout) view.findViewById(R.id.categoryLayout);
+        }
+    }
+
+    public DataCleanRecyclerViewAdapter(Context context, List<DataCleanCategoryInfo> list) {
+        this.f1848a = context;
+        this.f1849b = list;
+        this.f1850c = LayoutInflater.from(context);
+    }
+
+    @NonNull
+    /* renamed from: a */
+    public C0646a m1231a(@NonNull ViewGroup viewGroup) {
+        return new C0646a(this, this.f1850c.inflate(R.layout.fragment_dataclean_category_item_adapter, viewGroup, false));
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        if (AbstractC1102l9.m2273N(this.f1849b)) {
+            return 0;
+        }
+        return this.f1849b.size();
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, @SuppressLint({RecyclerView.TAG}) int i) {
+        C0646a c0646a = (C0646a) viewHolder;
+        DataCleanCategoryInfo dataCleanCategoryInfo = this.f1849b.get(i);
+        String desc = dataCleanCategoryInfo.getDesc();
+        int number = dataCleanCategoryInfo.getNumber();
+        if (!TextUtils.isEmpty(desc)) {
+            c0646a.f1853b.setText(desc);
+        }
+        c0646a.f1854c.setText(number + this.f1848a.getString(R.string.individual));
+        c0646a.f1852a.setOnCheckedChangeListener(null);
+        c0646a.f1852a.setChecked(dataCleanCategoryInfo.isSelect());
+        c0646a.f1852a.setOnCheckedChangeListener(new C1396x2(this, c0646a, i));
+        c0646a.f1855d.setOnClickListener(new ViewOnClickListenerC1421y2(this, i));
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    @NonNull
+    public /* bridge */ /* synthetic */ RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return m1231a(viewGroup);
+    }
+}

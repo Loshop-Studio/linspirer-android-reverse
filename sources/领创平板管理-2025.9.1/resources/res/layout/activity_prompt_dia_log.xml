@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/factory_prompt_background" android:layout_width="@dimen/dp_410" android:layout_height="@dimen/dp_180"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_19" android:textColor="@color/bt_cancel_text_color" android:id="@id/msg_content" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_45" android:layout_centerHorizontal="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_40" android:layout_marginTop="@dimen/dp_45" android:layout_marginRight="@dimen/dp_40" android:layout_marginBottom="@dimen/dp_20" android:layout_below="@id/msg_content">
+        <Button android:textSize="@dimen/sp_15" android:textColor="@color/bt_cancel_text_color" android:id="@id/cancel" android:background="@drawable/cancel_bt_background" android:layout_width="wrap_content" android:layout_height="@dimen/dp_42" android:layout_marginRight="@dimen/dp_4" android:text="@string/bt_cancel" android:layout_weight="1.0" />
+        <Button android:textSize="@dimen/sp_15" android:textColor="@color/white" android:id="@id/defini" android:background="@drawable/defin_bt_background" android:layout_width="wrap_content" android:layout_height="@dimen/dp_42" android:layout_marginLeft="@dimen/dp_4" android:text="@string/bt_define" android:layout_weight="1.0" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/sn_container" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@color/white" android:textColorHint="@color/alpha_40_white" android:gravity="center_vertical" android:id="@id/sn_text" android:background="@drawable/account_password_bg" android:paddingLeft="@dimen/dp_16" android:layout_width="@dimen/dp_355" android:layout_height="@dimen/dp_42" android:singleLine="true" android:drawableLeft="@mipmap/sn_icon" android:drawablePadding="@dimen/dp_15" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="@color/alpha_40_white" android:id="@id/tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sn_login_tip" android:layout_below="@id/sn_text" android:layout_centerHorizontal="true" />
+    <Button android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/sn_btn_login" android:background="@color/btn_login_color" android:layout_width="@dimen/dp_355" android:layout_height="@dimen/dp_42" android:layout_marginTop="@dimen/dp_32" android:text="@string/sn_login_btn" android:layout_below="@id/tip" android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,18 @@
+version: 3.0.2
+apkFileName: 领创平板管理-2025.9.1.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 23
+  targetSdkVersion: 30
+versionInfo:
+  versionCode: 6100046
+  versionName: zhongyukejiao_hem_6.10.004.6
+resourcesInfo:
+  packageId: 127
+doNotCompress:
+- arsc
+- ogg
+- png
+- so

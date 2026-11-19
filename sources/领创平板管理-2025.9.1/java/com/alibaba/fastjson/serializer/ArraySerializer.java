@@ -1,0 +1,51 @@
+package com.alibaba.fastjson.serializer;
+
+import com.huawei.updatesdk.p034a.p043b.p046c.p047c.AbstractC1604b;
+import java.lang.reflect.Type;
+
+/* loaded from: classes.dex */
+public class ArraySerializer implements ObjectSerializer {
+    public final ObjectSerializer compObjectSerializer;
+    public final Class<?> componentType;
+
+    public ArraySerializer(Class<?> cls, ObjectSerializer objectSerializer) {
+        this.componentType = cls;
+        this.compObjectSerializer = objectSerializer;
+    }
+
+    @Override // com.alibaba.fastjson.serializer.ObjectSerializer
+    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) {
+        SerializeWriter serializeWriter = jSONSerializer.out;
+        if (obj == null) {
+            serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
+            return;
+        }
+        Object[] objArr = (Object[]) obj;
+        int length = objArr.length;
+        SerialContext serialContext = jSONSerializer.context;
+        jSONSerializer.setContext(serialContext, obj, obj2, 0);
+        try {
+            serializeWriter.append('[');
+            for (int i2 = 0; i2 < length; i2++) {
+                if (i2 != 0) {
+                    serializeWriter.append(AbstractC1604b.COMMA);
+                }
+                Object obj3 = objArr[i2];
+                if (obj3 == null) {
+                    if (serializeWriter.isEnabled(SerializerFeature.WriteNullStringAsEmpty) && (obj instanceof String[])) {
+                        serializeWriter.writeString("");
+                    } else {
+                        serializeWriter.append((CharSequence) "null");
+                    }
+                } else if (obj3.getClass() == this.componentType) {
+                    this.compObjectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i2), null, 0);
+                } else {
+                    jSONSerializer.getObjectWriter(obj3.getClass()).write(jSONSerializer, obj3, Integer.valueOf(i2), null, 0);
+                }
+            }
+            serializeWriter.append(']');
+        } finally {
+            jSONSerializer.context = serialContext;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+package com.huawei.hem;
+
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+
+/* renamed from: com.huawei.hem.f0 */
+/* loaded from: classes.dex */
+public abstract class AbstractBinderC0942f0 extends Binder implements InterfaceC0916e0 {
+    /* renamed from: J */
+    public static InterfaceC0916e0 m1697J(IBinder iBinder) {
+        if (iBinder == null) {
+            return null;
+        }
+        IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.samsung.customee.ICustomif");
+        return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof InterfaceC0916e0)) ? new C0968g0(iBinder) : (InterfaceC0916e0) iInterfaceQueryLocalInterface;
+    }
+}

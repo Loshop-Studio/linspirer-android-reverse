@@ -1,0 +1,9 @@
+version: 3.0.2
+apkFileName: 领创平板管理-2025.9.1.apk
+sdkInfo:
+  minSdkVersion: 23
+doNotCompress:
+- arsc
+- ogg
+- png
+- so

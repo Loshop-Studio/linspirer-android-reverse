@@ -1,0 +1,40 @@
+package anet.channel.p006e;
+
+import anet.channel.GlobalAppRuntimeInfo;
+import anet.channel.entity.C0346a;
+import anet.channel.session.TnetSpdySession;
+import anet.channel.status.NetworkStatusHelper;
+import anet.channel.strategy.IConnStrategy;
+import com.huawei.hem.C0948f6;
+import java.util.List;
+
+/* compiled from: Taobao */
+/* renamed from: anet.channel.e.e */
+/* loaded from: classes.dex */
+public final class RunnableC0343e implements Runnable {
+
+    /* renamed from: a */
+    public final /* synthetic */ List f242a;
+
+    /* renamed from: b */
+    public final /* synthetic */ NetworkStatusHelper.NetworkStatus f243b;
+
+    public RunnableC0343e(List list, NetworkStatusHelper.NetworkStatus networkStatus) {
+        this.f242a = list;
+        this.f243b = networkStatus;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        IConnStrategy iConnStrategy = (IConnStrategy) this.f242a.get(0);
+        StringBuilder sbM1765j = C0948f6.m1765j("https://");
+        sbM1765j.append(C0339a.f230b);
+        String string = sbM1765j.toString();
+        StringBuilder sbM1765j2 = C0948f6.m1765j("Http3Detect");
+        sbM1765j2.append(C0339a.f236h.getAndIncrement());
+        TnetSpdySession tnetSpdySession = new TnetSpdySession(GlobalAppRuntimeInfo.getContext(), new C0346a(string, sbM1765j2.toString(), C0339a.m120b(iConnStrategy)));
+        tnetSpdySession.registerEventcb(257, new C0344f(this, iConnStrategy));
+        tnetSpdySession.f111q.isCommitted = true;
+        tnetSpdySession.connect();
+    }
+}

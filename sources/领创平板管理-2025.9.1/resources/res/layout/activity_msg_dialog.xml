@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/relativeLayout" android:background="@drawable/factory_prompt_background" android:paddingLeft="@dimen/dp_20" android:paddingRight="@dimen/dp_20" android:layout_width="@dimen/dp_410" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/msg_title_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_20" android:text="@string/title" android:maxLines="1" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/msg_content_tv" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_30" android:maxHeight="@dimen/dp_100" android:layout_below="@id/msg_title_tv" android:layout_centerHorizontal="true" />
+    <Button android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/msg_ok_btn" android:background="@drawable/btn_round_corner2_bg" android:layout_width="@dimen/dp_150" android:layout_height="@dimen/dp_42" android:layout_marginTop="@dimen/dp_45" android:layout_marginBottom="@dimen/dp_20" android:text="@string/sure" android:layout_below="@id/msg_content_tv" android:layout_centerHorizontal="true" />
+</RelativeLayout>

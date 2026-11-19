@@ -1,0 +1,2683 @@
+{
+  "project": 8895319,
+  "module": 8662279,
+  "title": "中育工具箱 API",
+  "openapi": "3.1.0",
+  "methods": {
+    "GET": 131,
+    "POST": 173,
+    "DELETE": 2
+  },
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/api/discovery/{code}",
+      "summary": "学校发现",
+      "tags": [
+        "认证与账户"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/Login",
+      "summary": "登录",
+      "tags": [
+        "认证与账户",
+        "优课畅学"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetInfoAsync",
+      "summary": "获取用户信息（含加密学生信息）",
+      "tags": [
+        "认证与账户"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/RefreshToken",
+      "summary": "刷新令牌",
+      "tags": [
+        "认证与账户"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/WebWhiteList/GetAllWhiteUrlAsync",
+      "summary": "获取网址白名单",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/GetTopicSpecialAsync",
+      "summary": "获取专栏列表与学科",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/appWebSite/SearchMyPagesByColIdAsync",
+      "summary": "查看/搜索专栏文章",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Message/SetMessageReadAsync",
+      "summary": "标记消息已读",
+      "tags": [
+        "在线专栏",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/GetPageAsync",
+      "summary": "获取文章详情",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Message/GetMyMessageListAsync",
+      "summary": "获取我的消息列表",
+      "tags": [
+        "在线专栏",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/HitAsync",
+      "summary": "标记文章已读（命中）",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppWebSite/GetSpecialCatalogAsync",
+      "summary": "查看我的收藏夹",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppWebSite/GetMyCatalogPagesAsync",
+      "summary": "查看收藏夹里的文章",
+      "tags": [
+        "在线专栏"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/GetStudentTaskListAsync",
+      "summary": "学生任务列表",
+      "tags": [
+        "测评",
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetExamTaskAsync",
+      "summary": "测评任务详情",
+      "tags": [
+        "测评",
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Question/View/{qstId}",
+      "summary": "单题 HTML（含解析）",
+      "tags": [
+        "测评"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/LearningSituations/GetExamOverviewAsync",
+      "summary": "考试概览",
+      "tags": [
+        "测评"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/LearningSituations/GetQuestionAnalysisAsync",
+      "summary": "题目分析",
+      "tags": [
+        "测评"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/ExportObjectiveAnswersAsync",
+      "summary": "导出客观题答案 xlsx（返回 Blob）",
+      "tags": [
+        "测评"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/SelfStudy/api/Learn/LearningCourses",
+      "summary": "分页拉取全部在学课程",
+      "tags": [
+        "优客畅学"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/SelfStudy/api/Learn/CourseDetail",
+      "summary": "课程章节目录",
+      "tags": [
+        "优客畅学"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/SelfStudy/api/learn/readContent",
+      "summary": "读取章节内容（HTML）",
+      "tags": [
+        "优客畅学"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/SetNoteAsync",
+      "summary": "设置文字笔记",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetMistakeRelatedGroupItemDetailInfoAsync",
+      "summary": "获取关联题组错题详情",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/MultiRemoveMistakeItemsAsync",
+      "summary": "批量移出错题本",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/SearchMistakeQstItemsAsync",
+      "summary": "搜索错题列表",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/RemovePictureNoteAsync",
+      "summary": "删除图片笔记",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/UpdateMistakeQstItemAsync",
+      "summary": "更新题库错题",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetCustomMistakeQstItemDetailInfoAsync",
+      "summary": "获取自建错题详情",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/AddCustomMistakeQstItemAsync",
+      "summary": "新增自建错题",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/UpdatePictureNoteAsync",
+      "summary": "更新图片笔记",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetMyMistakeBooksAsync",
+      "summary": "获取我的错题本列表",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/AddPictureNoteAsync",
+      "summary": "添加图片笔记",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetMistakeQstItemDetailInfoAsync",
+      "summary": "获取题库错题详情",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/UpdateCustomMistakeQstItemAsync",
+      "summary": "编辑自建错题",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/SetMistakeQstItemPracticeResultAsync",
+      "summary": "设置练习结果",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetMistakeBookFilterOptionsAsync",
+      "summary": "获取错题本筛选项",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/SetMistakeQstItemDraftAsync",
+      "summary": "设置草稿状态",
+      "tags": [
+        "错题本"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/CloudNotes/api/Notes/GetByParentId",
+      "summary": "按父目录获取笔记/子目录",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/CloudNotes/api/Notes/GetAll",
+      "summary": "获取全部笔记节点",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/CanIOpenScreenShotAsync?packageName={packageName}",
+      "summary": "截屏是否可用",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/CloudNotes/api/Notes/Delete",
+      "summary": "删除回收站笔记",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/CloudNotes/api/Notes/MoveToRecycleBin",
+      "summary": "移动笔记到回收站",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/CanIOpenAlbumAsync?packageName={packageName}",
+      "summary": "相册是否可用",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/CloudNotes/api/Notes/Update",
+      "summary": "更新/重命名/移动笔记节点",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/CloudNotes/api/Notes/Search",
+      "summary": "关键词搜索笔记",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/NewSendSmsCode",
+      "summary": "发送短信验证码",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/CloudNotes/api/Resources/GetByFileId",
+      "summary": "按 fileId 获取图片资源列表",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/CloudNotes/api/Resources/AddOrUpdate",
+      "summary": "保存笔记资源列表",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/CloudNotes/api/Notes/AddOrUpdate",
+      "summary": "保存笔记",
+      "tags": [
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/CanIOpenCameraAsync",
+      "summary": "摄像头是否可用",
+      "tags": [
+        "云笔记",
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/PictureLibrary/GetAllPicturesFromLibrary",
+      "summary": "获取图库全部图片",
+      "tags": [
+        "图库",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/PictureLibrary/AddPictureAsync",
+      "summary": "上传图片",
+      "tags": [
+        "图库",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/AlterQuoraCatalogSortAsync",
+      "summary": "修改领域排序",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/UpdateCatalog",
+      "summary": "更新领域",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetSessionById",
+      "summary": "获取会话详情",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/DeleteCatalog",
+      "summary": "删除领域",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/ResetReadState",
+      "summary": "重置已读状态",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/MultiChangeCatalog",
+      "summary": "批量移动领域",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/GetSessions",
+      "summary": "获取会话列表",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetCatalogs",
+      "summary": "获取领域列表",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/CreateSession",
+      "summary": "创建会话（提问）",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/AddMessage",
+      "summary": "发送回复消息",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/AddCatalog",
+      "summary": "新建领域",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/SetQuoraCollectAsync",
+      "summary": "收藏/取消收藏会话",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/GetMessages",
+      "summary": "获取会话消息",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Setting/GetSystemSettingsAsync",
+      "summary": "获取系统设置",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/SetSessionState",
+      "summary": "设置会话状态",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StudentUser/CoursesSubscribed",
+      "summary": "订阅课程",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/GetCollectSessions",
+      "summary": "获取收藏的会话",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/SearchQuora",
+      "summary": "搜索问答",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetQuoraStudentTopicsAsync",
+      "summary": "获取学科话题（学生）",
+      "tags": [
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/public-interface.php",
+      "summary": "领创·统一 JSON-RPC 接口",
+      "tags": [
+        "领创 Linspirer（第三方）"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeBook/GetMyTags",
+      "summary": "获取我的错题标签",
+      "tags": [
+        "错题标签"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/CreateOrUpdateTagAsync",
+      "summary": "新建/重命名标签",
+      "tags": [
+        "错题标签"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeBook/MultiSetTagsAsync",
+      "summary": "批量打标签",
+      "tags": [
+        "错题标签"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/SyncItemsToCollectionsAsync",
+      "summary": "同步错题到错题集",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/CreateOrUpdateAsync",
+      "summary": "新建/更新错题集",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/AppendItemsToCollectionAsync",
+      "summary": "错题加入错题集",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/SearchMistakeCollectionItemIdsAsync",
+      "summary": "搜索错题集内错题 id",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeCollection/GetMyCollectionsAsync",
+      "summary": "获取我的错题集列表",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/GetCollectionItemsAsync",
+      "summary": "获取错题集内容",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/SearchMistakeCollectionItemsAsync",
+      "summary": "搜索错题集内错题",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/DeleteAsync",
+      "summary": "删除微课",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeCollection/RemoveItemsFromCollectionAsync",
+      "summary": "从错题集移出错题",
+      "tags": [
+        "错题集"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeReview/GetNextReviewQuestionAsync",
+      "summary": "获取下一道复习题",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeReview/FinishReviewSessionAsync",
+      "summary": "结束复习会话",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeReview/AddMistakeQstReviewStateAsync",
+      "summary": "记录复习状态",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/MistakeReview/GetReviewHomeAsync",
+      "summary": "获取复习首页",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeReview/SubmitReviewResultAsync",
+      "summary": "提交复习结果",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MistakeReview/StartReviewSessionAsync",
+      "summary": "开始复习会话",
+      "tags": [
+        "错题复习"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/SetQstMicroClassReadAsync",
+      "summary": "标记题目微课已读",
+      "tags": [
+        "周边"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/CanIOpenCameraAsync?packageName={packageName}",
+      "summary": "摄像头是否可用",
+      "tags": [
+        "周边",
+        "云笔记"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetMyTopics",
+      "summary": "获取我的学科",
+      "tags": [
+        "周边"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/ObjectStorage/GenerateTokenV2Async",
+      "summary": "获取 OSS STS 临时凭证",
+      "tags": [
+        "周边",
+        "随身答"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StoreAppControl/RecordPicturesAsync",
+      "summary": "上报图片监控",
+      "tags": [
+        "周边",
+        "随身答"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppStore/CheckUpdateAsync",
+      "summary": "检查应用更新",
+      "tags": [
+        "新测评",
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppStore/GetTeacherAppsAsync",
+      "summary": "获取教师端应用列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/DistributeTaskToStudentsAsync",
+      "summary": "分发任务 / 退回订正（实测）",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetByIdAsync",
+      "summary": "按 id 获取考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/LearningSituations/SearchMobilePagedExamsAsync",
+      "summary": "分页搜索学情考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/DistributeRevisedToStudentsAsync",
+      "summary": "向学生分发订正",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CancelAsync",
+      "summary": "取消考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/LearningSituations/GetSearchConditionsAsync",
+      "summary": "获取学情筛选条件",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/StopAsync",
+      "summary": "停止考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetSessionMembers",
+      "summary": "获取会话成员",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RecoverAsync",
+      "summary": "恢复考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetCourseGroupsAsync",
+      "summary": "获取课程分组",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetCourseStudentsByExamIdAsync",
+      "summary": "按考试获取课程学生",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Message/GetMyUnreadMessageCountAsync",
+      "summary": "获取未读消息数",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/SetQuoraClosed",
+      "summary": "关闭问答",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/ModifyByIdAsync",
+      "summary": "按 id 修改考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Notice/GetNoticeAsync",
+      "summary": "获取公告",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/SetMessagePrimary",
+      "summary": "设为精华回复",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/BatchStopAsync",
+      "summary": "批量停止考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Setting/GetSettingByNameAsync",
+      "summary": "按名称获取设置项",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetQuoraArtTagListAsync",
+      "summary": "获取问答标签列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/BatchRecoverAsync",
+      "summary": "批量恢复考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Setting/GetSchoolInfoSettingsAsync",
+      "summary": "获取学校信息设置",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/AlterSessionUser",
+      "summary": "修改会话参与人",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/ObjectStorage/GeneratorTokenAsync",
+      "summary": "获取 OSS 令牌（旧版）",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/UpdateSummaryAsync",
+      "summary": "更新会话摘要",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/CreateOrUpdateQuoraArtTag",
+      "summary": "新建/更新问答标签",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/MultiResetAnswerForStudentAsync",
+      "summary": "批量重置学生作答",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/discovery/{school}",
+      "summary": "学校发现（查询学校接口地址）",
+      "tags": [
+        "教师端",
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/ChangeSearchScope",
+      "summary": "修改搜索范围",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetCourseGroupStudentsAsync",
+      "summary": "获取课程分组成员",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/GetSessionIds",
+      "summary": "获取会话 id 列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/UpdateArtTagForMessage",
+      "summary": "更新消息标签",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/RemoveSessionMessageAsync",
+      "summary": "删除会话消息",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/MultiRemoveSessionAsync",
+      "summary": "批量删除会话",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Quora/GetQuoraTeacherTopicsAsync",
+      "summary": "获取学科话题（教师）",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Message/GetMyLastMessageListAsync",
+      "summary": "获取最新消息列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/ChangePageCommentVisibleStateAsync",
+      "summary": "修改文章评论可见性",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/GetPagedCommentsAndRepliesAsync",
+      "summary": "分页获取评论与回复",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StoreAppControl/AuditStudentsPicturesAsync",
+      "summary": "审核学生图片",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/GetCommentsAndRepliesByCommentIdAsync",
+      "summary": "按评论 id 获取评论与回复",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeacherUser/GetMyClassAndStudentsAsync",
+      "summary": "获取我的班级与学生",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/ChangeReplyVisibleStateAsync",
+      "summary": "修改回复可见性",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/AddStarAsync",
+      "summary": "收藏文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppWebSite/GetPageAsync",
+      "summary": "获取文章详情",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/RemoveStarAsync",
+      "summary": "取消收藏",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/RemovePageReplyAsync",
+      "summary": "删除文章回复",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/AlterAllowReplyAsync",
+      "summary": "设置是否允许回复",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/RemovePageCommentAsync",
+      "summary": "删除文章评论",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StoreAppControl/SetPicturesCheckAsync",
+      "summary": "设置图片审核开关",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StoreAppControl/DeletePicturesAsync",
+      "summary": "删除学生图片",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/CreateCommentAsync",
+      "summary": "发表评论",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/ReplyCommentAsync",
+      "summary": "回复评论",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetMyCorrectProgressAsync",
+      "summary": "获取我的批改进度",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/MultiExtendCorrectingQuestionAsync",
+      "summary": "批量延长批改锁",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetGroupAnswersAsync",
+      "summary": "获取小组批改答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/ExtendCorrectingQuestionAsync",
+      "summary": "延长批改锁",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetArbitrateAnswersAsync",
+      "summary": "获取仲裁答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SubmitArbitrateResultAsync",
+      "summary": "提交仲裁结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/UnLockCorrectingQuestionAsync",
+      "summary": "解锁批改题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SearchMyReportedOnlineExamsAsync",
+      "summary": "搜索我上报的在线考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetAnswersAsync",
+      "summary": "获取答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetGroupNextAnswersAsync",
+      "summary": "获取小组下一批答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SubmitCorrectResultAsync",
+      "summary": "提交批改结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetNextArbitrateAnswersAsync",
+      "summary": "获取下一批仲裁答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/MultiUnLockCorrectingQuestionAsync",
+      "summary": "批量解锁批改题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SubmitGroupAbnormalResultAsync",
+      "summary": "提交小组异常卷处理结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SubmitGroupCorrectResultAsync",
+      "summary": "提交小组批改结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/MultiSubmitCorrectResultAsync",
+      "summary": "批量提交批改结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetMyArbitratedAnswerListAsync",
+      "summary": "我已仲裁的答卷列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetMyGroupCorrectedAnswerListAsync",
+      "summary": "我已批改的小组答卷列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetStudentTaskOriginPaper",
+      "summary": "获取学生任务原卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetTestQuestionAsync",
+      "summary": "获取待批改试题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetMyCorrectedAnswerListAsync",
+      "summary": "我已批改的答卷列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetNextSeveralAnswersAsync",
+      "summary": "获取下一批答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SetGroupAbnormalAsync",
+      "summary": "标记小组异常卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SubmitAbnormalResultAsync",
+      "summary": "提交异常卷处理结果",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CorrectOnlineExam/SetAbnormalAsync",
+      "summary": "标记异常卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetMyCorrectingOnlineExamsAsync",
+      "summary": "待我批改的在线考试列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CorrectOnlineExam/GetNextAnswersAsync",
+      "summary": "获取下一批答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StoreAppControl/SetStoreAppControlAsync",
+      "summary": "设置应用管控",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/User/SetStudentUserUnLockAsync",
+      "summary": "解锁学生账号",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/User/ModifyPasswordAsync",
+      "summary": "修改密码（教师端）",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeacherUser/GetMyClassAsync",
+      "summary": "获取我的班级",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/GetStoreAppControlByStudentIdAsync",
+      "summary": "按学生获取管控配置",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/User/SetStudentUserLockAsync",
+      "summary": "锁定学生账号",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StoreAppControl/GetStoreAppControlsByClassIdAsync",
+      "summary": "按班级获取管控配置",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetStudentLockMessageAsync",
+      "summary": "获取学生锁定信息",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Course/SetRepresentativesAsync",
+      "summary": "设置课代表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Group/CreateOrEditAsync",
+      "summary": "新建/编辑分组",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetMyCourseWithGroupsAsync",
+      "summary": "获取我的课程与分组",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Group/RemoveAsync",
+      "summary": "删除分组",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Course/SetCourseQuoraSearchScopeAsync",
+      "summary": "设置课程答疑搜索范围",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetMyPermissionListAsync",
+      "summary": "获取我的权限列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeacherUser/GetMyCoursesAsync",
+      "summary": "获取我的课程",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetMyCurriculumWithCoursesAsync",
+      "summary": "获取我的课表与课程",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/GetSpecialPageForEditAsync",
+      "summary": "获取置顶文章（编辑）",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/CreateOrEditColAsync",
+      "summary": "新建/编辑专栏",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Grade/GetAllInCurrentStageAsync",
+      "summary": "获取当前学段全部年级",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppWebSite/RemoveColAsync",
+      "summary": "删除专栏",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/SetSpecialPageIsTopAsync",
+      "summary": "设为置顶文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppWebSite/GetAllColListAsync",
+      "summary": "获取专栏列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Quora/GetArtTagedStudentsDataAsync",
+      "summary": "按标签获取学生数据",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/MovePageAsync",
+      "summary": "移动文章到其他专栏",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CommonType/GetListAsync?name={name}",
+      "summary": "获取学科类型列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/SearchMyPagesByColIdAsync",
+      "summary": "按专栏搜索我的文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/RemovePageAsync",
+      "summary": "删除文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/appWebSite/CreateOrEditPageAsync",
+      "summary": "新建/编辑文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/CopyPageAsync",
+      "summary": "复制文章",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/AppWebSite/ColSortAsync",
+      "summary": "专栏排序",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/appWebSite/GetSubscribeListAsync",
+      "summary": "获取订阅列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CorrectObjectiveQuestionAsync",
+      "summary": "批改客观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CorrectSubjectiveAsync",
+      "summary": "批改主观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RevisingSubjectiveAsync",
+      "summary": "订正主观题批改",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/SetExamTaskLabelAsync",
+      "summary": "设置任务标签",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetSingleAnswerByRelatedQstGroupAsync",
+      "summary": "按题组获取单份答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetAllAnswerByQuestionAsync",
+      "summary": "按题目获取全部答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/GetAskForHelpStudentListAsync",
+      "summary": "获取求助学生列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RevisingQuestionAsync",
+      "summary": "订正批改",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RevisingObjectiveRelatedQstGroupAsync",
+      "summary": "订正相关题组客观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Test/GetAsync",
+      "summary": "获取测试配置",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RevisingObjectiveQuestionAsync",
+      "summary": "订正客观题批改",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetQuickAndCompositionStemAsync",
+      "summary": "获取速练/作文题干",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/RevisingSubjectForAllStudentsAsync",
+      "summary": "全体学生订正主观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CorrectSubjectiveForAllStudentsAsync",
+      "summary": "全体学生批改主观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/SetAnswerLevelAsync",
+      "summary": "设置作答等级",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CorrectQuestionAsync",
+      "summary": "批改题目",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CorrectObjectiveRelatedQstGroupAsync",
+      "summary": "批正相关题组客观题",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetSignleAnswerByQuestionAsync",
+      "summary": "按题目获取单份答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/AlterQuickAndCompositionStemAsync",
+      "summary": "修改速练/作文题干",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetCorrectingStudentsAsync",
+      "summary": "获取待批改学生列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetQuestionDraftByStudentAsync",
+      "summary": "按学生获取题目草稿",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetStudentTaskDetailsAsync",
+      "summary": "获取学生任务详情",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetStudentCorrectStructureAsync",
+      "summary": "获取学生批改结构",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetStudentAnswerDetailAsync",
+      "summary": "获取学生作答详情",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/AddWaitReviseToRevising",
+      "summary": "待订正加入订正中",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/StartExamCorrectAsync",
+      "summary": "开始考试批改",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/StartRevisingCorrectAsync",
+      "summary": "开始订正批改",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/ChangeAnswersAndScoreAsync",
+      "summary": "修改答案与得分",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/AddWaitCorrectToCorrecting",
+      "summary": "待批改加入批改中",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetQuestionDraftByQuestionAsync",
+      "summary": "按题目获取草稿",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/MyExamAsync",
+      "summary": "我的考试列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/LearningSituations/GetStudentTestPaperDetailAsync",
+      "summary": "获取学生试卷详情",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/LearningSituations/GetStudentGradeDetailAsync",
+      "summary": "获取学生成绩详情",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/AlterExamTaskExemptAsync",
+      "summary": "设置任务免做",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/UrgeRevisingStudentAsync",
+      "summary": "催促学生订正",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetTaskFinishedStudentsListAsync",
+      "summary": "获取已完成任务的学生列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/PublishExamToStudentsAsync",
+      "summary": "发布考试给学生",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/UrgeAnsweringStudentAsync",
+      "summary": "催促学生作答",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/GetMyExamIdsAsync",
+      "summary": "获取我的考试 id 列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeacherUser/GetMyTopics",
+      "summary": "获取我的学科",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Test/GetMicroClassesByQuestionIdAsync",
+      "summary": "按题目获取微课列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetMicroClassWithQuestionAsync",
+      "summary": "获取题目关联微课",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/AddMicroClassToQuestionAsync",
+      "summary": "给题目挂微课",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/GetSpecialAnswersAsync",
+      "summary": "获取特殊答卷",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MicroClass/DeleteAsync",
+      "summary": "删除微课",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/MicroClass/SetIsPrivateAsync",
+      "summary": "设置微课为私有",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Exam/GetMicroClassAnswerListAsync",
+      "summary": "获取微课作答列表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CreateExamWithTeachingMaterialAsync",
+      "summary": "按教材创建考试",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Test/GetDefaultScoreForQuestionTypesAsync",
+      "summary": "获取题型默认分值",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetTeacherAllCourseWithGroupsAsync",
+      "summary": "获取教师全部课程与分组",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CreateCompositionTrainingAsync",
+      "summary": "创建作文训练",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CreateNoQstStemAsync",
+      "summary": "新建拍照题干",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeachingMaterial/GetMaterialCatalogAllListAsync",
+      "summary": "获取教材目录",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Exam/CreateQuickHomeworkAsync",
+      "summary": "创建速练作业",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetTeacherAllCoursesWithStudentsAsync",
+      "summary": "获取教师全部课程与学生",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Course/GetByCurriculumIdAsync",
+      "summary": "按课表获取课程",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeachingMaterial/GetAllActiveMaterialsAsync",
+      "summary": "获取启用中的教材",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/TeachingMaterial/GetMaterialQuestionByPagedAsync",
+      "summary": "分页获取教材题目",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/TeacherUser/GetTeacherAllCoursesAsync",
+      "summary": "获取教师全部课程",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Curriculum/GetTeacherAllCurriculumAsync",
+      "summary": "获取教师全部课表",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Test/SetDefaultScoreForQuestionTypesAsync",
+      "summary": "设置题型默认分值",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Statistics/GetSidebarMsgCountAsync",
+      "summary": "获取侧栏消息计数",
+      "tags": [
+        "教师端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/User/ChangePasswordAsync",
+      "summary": "修改密码",
+      "tags": [
+        "优课畅学"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/SendNewDeviceSmsVerificationCode",
+      "summary": "新设备短信验证码",
+      "tags": [
+        "优课畅学"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/PictureLibrary/MoveToRecycleBinAsync",
+      "summary": "图片移入回收站",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/PictureLibrary/RecoverPictureFromRecycleBinAsync",
+      "summary": "从回收站恢复图片",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CrackRecord/AuthorizedAsync",
+      "summary": "授权校验",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CrackRecord/GetDeviceStateAsync",
+      "summary": "获取设备状态",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/WebWhiteList/GetAllWhiteIpsAsync",
+      "summary": "获取网址白名单 IP",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/AppStore/GetWhiteListAsync",
+      "summary": "获取应用白名单",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/CrackRecord/ReportAsync",
+      "summary": "上报记录",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetAllProfilesAsync",
+      "summary": "获取全部用户档案",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Huiwei/GetDisableAppsAsync",
+      "summary": "获取被禁用应用列表",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/dn/GetDnUrl",
+      "summary": "获取下载加速地址",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/services/app/PictureLibrary/EmptyRecycleBinAsync",
+      "summary": "清空回收站",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Setting/GetAllSettings",
+      "summary": "获取全部设置",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/services/app/PictureLibrary/DeletePicture",
+      "summary": "删除图片",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StudentUser/GetStudentUserTodoAsync",
+      "summary": "获取学生待办",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/GetStudentTaskListWithUrgeCountAsync",
+      "summary": "获取任务列表（含催交数量）",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Weather/GetQWeatherAsync",
+      "summary": "获取天气信息",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/WebWhiteList/GetAllCommonWebSiteAsync",
+      "summary": "获取常用网站列表",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/StudentUser/SetPictureAsync",
+      "summary": "设置头像",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/User/ForceChangePasswordAsync",
+      "summary": "强制修改密码",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/CtrlStrategy/GetControlPolicyByDeviceNumberAsync",
+      "summary": "按设备号获取管控策略",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/StudentUser/GetMyInfoAsync",
+      "summary": "获取我的信息",
+      "tags": [
+        "中育桌面"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetRevisingTaskAsync",
+      "summary": "取订正任务",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetQuestionViewAsync",
+      "summary": "题目视图",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/RevisingAnswerAsync",
+      "summary": "提交订正答案",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/ExamAnswerAsync",
+      "summary": "保存作答 / 提交答案",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/CompleteAsync",
+      "summary": "交卷 / 完成测评",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/SubmitSelfCorrectResultAsync",
+      "summary": "提交自批结果",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetNoQstExamTaskAsync",
+      "summary": "无题干测评任务",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetRelatedQstViewAsync",
+      "summary": "关联题视图",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/AskForHelpAsync",
+      "summary": "求讲解/求助",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/SetExamTaskCollectAsync",
+      "summary": "收藏/取消收藏任务",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/ExamRelatedAnswerAsync",
+      "summary": "关联题作答",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/NoQstExamAnswerAsync",
+      "summary": "无题干作答",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/services/app/Task/FinishSelfCorrectWithSelfAsync",
+      "summary": "完成自批",
+      "tags": [
+        "新测评·学生端"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/Task/GetExamAnswerProgressAsync",
+      "summary": "作答进度（需 examTaskId，课代表权限）",
+      "tags": [
+        "新测评·学生端"
+      ]
+    }
+  ],
+  "auth_and_linspirer": [
+    {
+      "method": "GET",
+      "path": "/api/discovery/{code}",
+      "summary": "学校发现",
+      "tags": [
+        "认证与账户"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "code",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "request_required": false,
+      "request": {},
+      "responses": {
+        "200": {
+          "application/json": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "security": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/Login",
+      "summary": "登录",
+      "tags": [
+        "认证与账户",
+        "优课畅学"
+      ],
+      "parameters": [
+        {
+          "in": "query",
+          "name": "AppName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "AppVersion",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "request_required": true,
+      "request": {
+        "application/json": {
+          "$ref": "#/components/schemas/LoginRequest",
+          "schema": {
+            "type": "object",
+            "required": [
+              "userName",
+              "password"
+            ],
+            "properties": {
+              "userName": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "application/json": {
+            "$ref": "#/components/schemas/LoginResult",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accessToken": {
+                  "type": "string"
+                },
+                "expireInSeconds": {
+                  "type": "integer"
+                },
+                "refreshToken": {
+                  "type": "string"
+                },
+                "refreshExpireInSeconds": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "integer"
+                },
+                "roleType": {
+                  "type": "integer"
+                },
+                "mobile": {
+                  "type": "string"
+                },
+                "clientCode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "rongCloudToken": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "needChangePwd": {
+                  "type": "boolean"
+                },
+                "passwordStrength": {
+                  "type": "integer"
+                },
+                "needSmsVerification": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "security": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/services/app/User/GetInfoAsync",
+      "summary": "获取用户信息（含加密学生信息）",
+      "tags": [
+        "认证与账户"
+      ],
+      "parameters": [],
+      "request_required": false,
+      "request": {},
+      "responses": {
+        "200": {
+          "application/json": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "security": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/TokenAuth/RefreshToken",
+      "summary": "刷新令牌",
+      "tags": [
+        "认证与账户"
+      ],
+      "parameters": [],
+      "request_required": true,
+      "request": {
+        "application/json": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "responses": {
+        "200": {
+          "application/json": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "security": []
+    },
+    {
+      "method": "POST",
+      "path": "/public-interface.php",
+      "summary": "领创·统一 JSON-RPC 接口",
+      "tags": [
+        "领创 Linspirer（第三方）"
+      ],
+      "parameters": [],
+      "request_required": true,
+      "request": {
+        "application/json": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "responses": {
+        "200": {
+          "application/json": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "security": []
+    }
+  ]
+}

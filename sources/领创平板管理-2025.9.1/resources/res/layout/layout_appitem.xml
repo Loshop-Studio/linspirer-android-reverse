@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/layout_frame_appicon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <ImageView android:id="@id/appitem_icon" android:layout_width="@dimen/dp_57" android:layout_height="@dimen/dp_57" android:layout_marginTop="@dimen/dp_6" android:layout_marginRight="@dimen/dp_6" />
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white" android:gravity="center" android:layout_gravity="end" android:id="@id/app_tips" android:background="@drawable/redtips_point_drawable" android:visibility="gone" android:layout_width="@dimen/dp_15" android:layout_height="@dimen/dp_15" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@color/white" android:ellipsize="end" android:id="@id/appitem_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="App" android:maxLines="1" android:maxEms="10" android:layout_below="@id/layout_frame_appicon" android:layout_centerHorizontal="true" />
+</RelativeLayout>

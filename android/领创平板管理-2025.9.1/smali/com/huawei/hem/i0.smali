@@ -1,0 +1,41 @@
+.class public abstract Lcom/huawei/hem/i0;
+.super Landroid/os/Binder;
+
+# interfaces
+.implements Lcom/huawei/hem/h0;
+
+
+# direct methods
+.method public static J(Landroid/os/IBinder;)Lcom/huawei/hem/h0;
+    .locals 2
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    const-string v0, "com.samsung.knoxinterfaceagent.IRemoteKnoxInterface"
+
+    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    instance-of v1, v0, Lcom/huawei/hem/h0;
+
+    if-eqz v1, :cond_1
+
+    check-cast v0, Lcom/huawei/hem/h0;
+
+    return-object v0
+
+    :cond_1
+    new-instance v0, Lcom/huawei/hem/j0;
+
+    invoke-direct {v0, p0}, Lcom/huawei/hem/j0;-><init>(Landroid/os/IBinder;)V
+
+    return-object v0
+.end method

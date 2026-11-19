@@ -1,0 +1,51 @@
+package com.huawei.hms.common.internal;
+
+import android.app.Activity;
+import com.huawei.hms.support.log.HMSLog;
+import com.huawei.hms.utils.ResourceLoaderUtil;
+import java.util.HashMap;
+import java.util.Map;
+
+/* loaded from: classes.dex */
+public class ConnectionErrorMessages {
+    public static final Map<String, String> map = new HashMap();
+
+    public static String getErrorDialogButtonMessage(Activity activity, int i) {
+        if (ResourceLoaderUtil.getmContext() == null) {
+            ResourceLoaderUtil.setmContext(activity.getApplicationContext());
+        }
+        return i != 1 ? i != 2 ? ResourceLoaderUtil.getString("hms_confirm") : ResourceLoaderUtil.getString("hms_update") : ResourceLoaderUtil.getString("hms_install");
+    }
+
+    public static String getErrorMessage(Activity activity, int i) {
+        if (ResourceLoaderUtil.getmContext() == null) {
+            ResourceLoaderUtil.setmContext(activity.getApplicationContext());
+        }
+        String string = ResourceLoaderUtil.getString("hms_update_title");
+        if (i == 1 || i == 2) {
+            return string;
+        }
+        return null;
+    }
+
+    public static String getErrorTitle(Activity activity, int i) {
+        if (ResourceLoaderUtil.getmContext() == null) {
+            ResourceLoaderUtil.setmContext(activity.getApplicationContext());
+        }
+        if (i == 1) {
+            return ResourceLoaderUtil.getString("hms_install_message");
+        }
+        if (i == 2) {
+            return ResourceLoaderUtil.getString("hms_update_message");
+        }
+        if (i == 3) {
+            return ResourceLoaderUtil.getString("hms_bindfaildlg_message");
+        }
+        if (i == 9) {
+            HMSLog.m3461e("HuaweiApiAvailability", "Huawei Mobile Services is invalid. Cannot recover.");
+            return null;
+        }
+        HMSLog.m3461e("HuaweiApiAvailability", "Unexpected error code " + i);
+        return null;
+    }
+}

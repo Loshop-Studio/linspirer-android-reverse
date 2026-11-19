@@ -1,0 +1,14 @@
+package com.huawei.hem;
+
+/* renamed from: com.huawei.hem.s7 */
+/* loaded from: classes.dex */
+public abstract class AbstractC1276s7 {
+
+    /* renamed from: a */
+    public static C1301t7 f3669a = new C1301t7();
+
+    /* renamed from: a */
+    public static void m2682a(String str, String str2) {
+        f3669a.m2723a(5, str, str2);
+    }
+}

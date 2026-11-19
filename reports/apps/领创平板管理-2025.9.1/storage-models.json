@@ -1,0 +1,1209 @@
+{
+  "com.android.launcher3.db.model.AppTimeLimitInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/AppTimeLimitInfo.smali",
+    "fields": [
+      {
+        "field": "friday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "monday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "packageNames",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "pkgs",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      },
+      {
+        "field": "saturday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "sunday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "thursday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "tuesday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "wednesday",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.DaoSession": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/DaoSession.smali",
+    "fields": [
+      {
+        "field": "appTimeLimitInfoDao",
+        "type": "com.android.launcher3.db.model.AppTimeLimitInfoDao"
+      },
+      {
+        "field": "appTimeLimitInfoDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "gesturePasswordDao",
+        "type": "com.android.launcher3.db.model.GesturePasswordDao"
+      },
+      {
+        "field": "gesturePasswordDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "illegalDao",
+        "type": "com.android.launcher3.db.model.IllegalDao"
+      },
+      {
+        "field": "illegalDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "illegalEventDao",
+        "type": "com.android.launcher3.db.model.IllegalEventDao"
+      },
+      {
+        "field": "illegalEventDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "itemAppDao",
+        "type": "com.android.launcher3.db.model.ItemAppDao"
+      },
+      {
+        "field": "itemAppDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "locationInfoDao",
+        "type": "com.android.launcher3.db.model.LocationInfoDao"
+      },
+      {
+        "field": "locationInfoDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "manageDeviceDao",
+        "type": "com.android.launcher3.db.model.ManageDeviceDao"
+      },
+      {
+        "field": "manageDeviceDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "pushMsgDao",
+        "type": "com.android.launcher3.db.model.PushMsgDao"
+      },
+      {
+        "field": "pushMsgDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "screenPartSettingsDao",
+        "type": "com.android.launcher3.db.model.ScreenPartSettingsDao"
+      },
+      {
+        "field": "screenPartSettingsDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "userEventDao",
+        "type": "com.android.launcher3.db.model.UserEventDao"
+      },
+      {
+        "field": "userEventDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      },
+      {
+        "field": "weekTacticsDao",
+        "type": "com.android.launcher3.db.model.WeekTacticsDao"
+      },
+      {
+        "field": "weekTacticsDaoConfig",
+        "type": "org.greenrobot.greendao.internal.DaoConfig"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.GesturePassword": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/GesturePassword.smali",
+    "fields": [
+      {
+        "field": "_id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "gesture_password",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "user_name",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.Illegal": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/Illegal.smali",
+    "fields": [
+      {
+        "field": "eliminate_data",
+        "type": "boolean"
+      },
+      {
+        "field": "enable",
+        "type": "boolean"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "lock_workspace",
+        "type": "boolean"
+      },
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "notify_admin",
+        "type": "boolean"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.IllegalEvent": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/IllegalEvent.smali",
+    "fields": [
+      {
+        "field": "clienttime",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "description",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "email",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "event",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "lock",
+        "type": "int"
+      },
+      {
+        "field": "notify",
+        "type": "int"
+      },
+      {
+        "field": "reset",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.ItemApp": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/ItemApp.smali",
+    "fields": [
+      {
+        "field": "canuninstall",
+        "type": "boolean"
+      },
+      {
+        "field": "exception_white_url",
+        "type": "int"
+      },
+      {
+        "field": "hide_icon_status",
+        "type": "int"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "index",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "isForceApps",
+        "type": "int"
+      },
+      {
+        "field": "isNew",
+        "type": "int"
+      },
+      {
+        "field": "isTrust",
+        "type": "int"
+      },
+      {
+        "field": "isWhite",
+        "type": "int"
+      },
+      {
+        "field": "is_trust",
+        "type": "boolean"
+      },
+      {
+        "field": "isforce",
+        "type": "boolean"
+      },
+      {
+        "field": "isnew",
+        "type": "boolean"
+      },
+      {
+        "field": "md5sum",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "packagename",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "path",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "sha1",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "sort_weight",
+        "type": "int"
+      },
+      {
+        "field": "status",
+        "type": "int"
+      },
+      {
+        "field": "updated_at",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "userName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "versioncode",
+        "type": "int"
+      },
+      {
+        "field": "versionname",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.LocationInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/LocationInfo.smali",
+    "fields": [
+      {
+        "field": "address",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "email",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "lat",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "lng",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "location_time",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "username",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.ManageDevice": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/ManageDevice.smali",
+    "fields": [
+      {
+        "field": "command_bluetooth",
+        "type": "boolean"
+      },
+      {
+        "field": "command_camera",
+        "type": "boolean"
+      },
+      {
+        "field": "command_connect_usb",
+        "type": "boolean"
+      },
+      {
+        "field": "command_recording",
+        "type": "boolean"
+      },
+      {
+        "field": "command_wifi_switch",
+        "type": "boolean"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.PushMsg": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/PushMsg.smali",
+    "fields": [
+      {
+        "field": "active",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "command",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "sendtime",
+        "type": "long"
+      },
+      {
+        "field": "type",
+        "type": "int"
+      },
+      {
+        "field": "userId",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.ScreenPartSettings": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/ScreenPartSettings.smali",
+    "fields": [
+      {
+        "field": "b_img_path",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "component",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "description",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "package_name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "position",
+        "type": "int"
+      },
+      {
+        "field": "title",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "type",
+        "type": "int"
+      },
+      {
+        "field": "url",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.SougouSetting": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/SougouSetting.smali",
+    "fields": [
+      {
+        "field": "inputMethodSet",
+        "type": "com.android.launcher3.db.model.SougouSetting$InputMethodSetBean"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.UserEvent": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/UserEvent.smali",
+    "fields": [
+      {
+        "field": "description",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "eventName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "eventResult",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "eventTime",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "isIllegal",
+        "type": "int"
+      },
+      {
+        "field": "userName",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.db.model.WeekTactics": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/db/model/WeekTactics.smali",
+    "fields": [
+      {
+        "field": "friday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "java.lang.Long"
+      },
+      {
+        "field": "monday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "saturday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "sunday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "thursday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "tuesday",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "wednesday",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.AppHashInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/AppHashInfo.smali",
+    "fields": [
+      {
+        "field": "appName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "hash",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "packName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "packWithHash",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.AppInfoLimit": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/AppInfoLimit.smali",
+    "fields": [
+      {
+        "field": "packagename",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.AppItem": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/AppItem.smali",
+    "fields": [
+      {
+        "field": "activityName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "icon",
+        "type": "java.lang.Object"
+      },
+      {
+        "field": "isForce",
+        "type": "int"
+      },
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "pkgName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "resolveInfo",
+        "type": "android.content.pm.ResolveInfo"
+      },
+      {
+        "field": "tipCount",
+        "type": "int"
+      },
+      {
+        "field": "weight",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.AppTimeLimit": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/AppTimeLimit.smali",
+    "fields": [
+      {
+        "field": "app_list",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/model/AppInfoLimit;>;"
+      },
+      {
+        "field": "callsms",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      },
+      {
+        "field": "time_limit",
+        "type": "com.android.launcher3.db.model.WeekTactics"
+      }
+    ]
+  },
+  "com.android.launcher3.model.CommandInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/CommandInfo.smali",
+    "fields": [
+      {
+        "field": "active",
+        "type": "int"
+      },
+      {
+        "field": "command",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "sendtime",
+        "type": "long"
+      },
+      {
+        "field": "type",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.ComponentInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/ComponentInfo.smali",
+    "fields": [
+      {
+        "field": "component",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "package_name",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.ControlAppInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/ControlAppInfo.smali",
+    "fields": [
+      {
+        "field": "disable_apps",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      },
+      {
+        "field": "enable_apps",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      }
+    ]
+  },
+  "com.android.launcher3.model.DataCleanCategoryInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/DataCleanCategoryInfo.smali",
+    "fields": [
+      {
+        "field": "desc",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "number",
+        "type": "int"
+      },
+      {
+        "field": "select",
+        "type": "boolean"
+      }
+    ]
+  },
+  "com.android.launcher3.model.DeviceInfoParams": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/DeviceInfoParams.smali",
+    "fields": [
+      {
+        "field": "android_id",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "brand",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "deviceid",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "romavailablesize",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "romtotalsize",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "romversion",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "simserialnumber",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "systemversion",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "token",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "wifimacaddress",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.DeviceSetting": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/DeviceSetting.smali",
+    "fields": [
+      {
+        "field": "alarm_clock_status",
+        "type": "int"
+      },
+      {
+        "field": "allow_change_password_status",
+        "type": "int"
+      },
+      {
+        "field": "calendar_status",
+        "type": "int"
+      },
+      {
+        "field": "camera_status",
+        "type": "int"
+      },
+      {
+        "field": "data_flow_status",
+        "type": "int"
+      },
+      {
+        "field": "disable_reinstall_system_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_client_admin_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_gesture_pwd_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_gps_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_screenshots_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_system_upgrade_status",
+        "type": "int"
+      },
+      {
+        "field": "enable_wifi_advanced_status",
+        "type": "int"
+      },
+      {
+        "field": "gallery_status",
+        "type": "int"
+      },
+      {
+        "field": "hide_accelerate_status",
+        "type": "int"
+      },
+      {
+        "field": "hide_cleanup_status",
+        "type": "int"
+      },
+      {
+        "field": "keep_alive_package",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "launch_app",
+        "type": "com.android.launcher3.model.LauncherApp"
+      },
+      {
+        "field": "logout_status",
+        "type": "int"
+      },
+      {
+        "field": "only_install_store_app_status",
+        "type": "int"
+      },
+      {
+        "field": "otg_set",
+        "type": "com.android.launcher3.model.OtgSet"
+      },
+      {
+        "field": "protected_eyes_status",
+        "type": "com.android.launcher3.model.ProtectEye"
+      },
+      {
+        "field": "remind_duration",
+        "type": "com.android.launcher3.model.DeviceUse"
+      },
+      {
+        "field": "rotate_setting_status",
+        "type": "int"
+      },
+      {
+        "field": "school_class_display_status",
+        "type": "int"
+      },
+      {
+        "field": "sdcard_and_otg",
+        "type": "int"
+      },
+      {
+        "field": "show_privacy_statement_status",
+        "type": "int"
+      },
+      {
+        "field": "simcard",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.DeviceUse": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/DeviceUse.smali",
+    "fields": [
+      {
+        "field": "duration",
+        "type": "int"
+      },
+      {
+        "field": "remind_status",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.FileUpload": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/FileUpload.smali",
+    "fields": [
+      {
+        "field": "fileName",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "fileNewPath",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.GroupInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/GroupInfo.smali",
+    "fields": [
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.HiBoardScreen": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/HiBoardScreen.smali",
+    "fields": [
+      {
+        "field": "logo_path",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "module_setting",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/db/model/ScreenPartSettings;>;"
+      }
+    ]
+  },
+  "com.android.launcher3.model.LTKTactics": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/LTKTactics.smali",
+    "fields": [
+      {
+        "field": "app_status",
+        "type": "boolean"
+      },
+      {
+        "field": "app_tactics",
+        "type": "com.android.launcher3.model.TacticApp"
+      },
+      {
+        "field": "device_setting",
+        "type": "com.android.launcher3.model.DeviceSetting"
+      },
+      {
+        "field": "device_status",
+        "type": "boolean"
+      },
+      {
+        "field": "device_tactics",
+        "type": "com.android.launcher3.model.TacticDevice"
+      },
+      {
+        "field": "id",
+        "type": "int"
+      },
+      {
+        "field": "illegal_status",
+        "type": "boolean"
+      },
+      {
+        "field": "illegal_tactics",
+        "type": "com.android.launcher3.model.TacticsIllegal"
+      },
+      {
+        "field": "interest_applist",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/db/model/ItemApp;>;"
+      },
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "release_control",
+        "type": "int"
+      },
+      {
+        "field": "totalApps",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/db/model/ItemApp;>;"
+      },
+      {
+        "field": "wifi_status",
+        "type": "boolean"
+      },
+      {
+        "field": "wifi_tactics",
+        "type": "java.util.ArrayList",
+        "generic_descriptor": "Ljava/util/ArrayList<Ljava/lang/String;>;"
+      },
+      {
+        "field": "workspace_status",
+        "type": "boolean"
+      },
+      {
+        "field": "workspace_tactics",
+        "type": "com.android.launcher3.model.WorkTimeTactics"
+      }
+    ]
+  },
+  "com.android.launcher3.model.LauncherApp": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/LauncherApp.smali",
+    "fields": [
+      {
+        "field": "launch_mode",
+        "type": "int"
+      },
+      {
+        "field": "launch_package",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.NetworkInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/NetworkInfo.smali",
+    "fields": [
+      {
+        "field": "domain",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "portList",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/Integer;>;"
+      },
+      {
+        "field": "result",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      }
+    ]
+  },
+  "com.android.launcher3.model.OtgSet": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/OtgSet.smali",
+    "fields": [
+      {
+        "field": "pv_list",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/model/PvList;>;"
+      },
+      {
+        "field": "status",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.ProtectEye": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/ProtectEye.smali",
+    "fields": [
+      {
+        "field": "distance_status",
+        "type": "int"
+      },
+      {
+        "field": "sensitive_status",
+        "type": "int"
+      },
+      {
+        "field": "sitting_position_status",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.PvList": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/PvList.smali",
+    "fields": [
+      {
+        "field": "pid",
+        "type": "int"
+      },
+      {
+        "field": "vid",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.RubbishFileInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/RubbishFileInfo.smali",
+    "fields": [
+      {
+        "field": "filePath",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "selected",
+        "type": "boolean"
+      }
+    ]
+  },
+  "com.android.launcher3.model.SchoolInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/SchoolInfo.smali",
+    "fields": [
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "school_id",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.SynchronizeTimeInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/SynchronizeTimeInfo.smali",
+    "fields": [
+      {
+        "field": "data",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.TacticApp": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/TacticApp.smali",
+    "fields": [
+      {
+        "field": "applist",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/db/model/ItemApp;>;"
+      }
+    ]
+  },
+  "com.android.launcher3.model.TacticDevice": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/TacticDevice.smali",
+    "fields": [
+      {
+        "field": "deviceManage",
+        "type": "com.android.launcher3.db.model.ManageDevice"
+      }
+    ]
+  },
+  "com.android.launcher3.model.TacticsIllegal": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/TacticsIllegal.smali",
+    "fields": [
+      {
+        "field": "already_root",
+        "type": "com.android.launcher3.db.model.Illegal"
+      },
+      {
+        "field": "change_simcard",
+        "type": "com.android.launcher3.db.model.Illegal"
+      },
+      {
+        "field": "prohibited_app",
+        "type": "com.android.launcher3.db.model.Illegal"
+      },
+      {
+        "field": "usb_to_pc",
+        "type": "com.android.launcher3.db.model.Illegal"
+      }
+    ]
+  },
+  "com.android.launcher3.model.UpdatedUserInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/UpdatedUserInfo.smali",
+    "fields": [
+      {
+        "field": "class_name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "email",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "id",
+        "type": "int"
+      },
+      {
+        "field": "interestclassinfo",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Ljava/lang/String;>;"
+      },
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "release_control",
+        "type": "int"
+      },
+      {
+        "field": "school_name",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.UrlInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/UrlInfo.smali",
+    "fields": [
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "url",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.UserInfo": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/UserInfo.smali",
+    "fields": [
+      {
+        "field": "email",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "groupInfo",
+        "type": "java.util.List",
+        "generic_descriptor": "Ljava/util/List<Lcom/android/launcher3/model/GroupInfo;>;"
+      },
+      {
+        "field": "id",
+        "type": "long"
+      },
+      {
+        "field": "name",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "schoolinfo",
+        "type": "com.android.launcher3.model.SchoolInfo"
+      },
+      {
+        "field": "status",
+        "type": "int"
+      }
+    ]
+  },
+  "com.android.launcher3.model.WorkTime": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/WorkTime.smali",
+    "fields": [
+      {
+        "field": "end",
+        "type": "java.lang.String"
+      },
+      {
+        "field": "start",
+        "type": "java.lang.String"
+      }
+    ]
+  },
+  "com.android.launcher3.model.WorkTimeTactics": {
+    "smali": "android/领创平板管理-2025.9.1/smali/com/android/launcher3/model/WorkTimeTactics.smali",
+    "fields": [
+      {
+        "field": "worktime",
+        "type": "com.android.launcher3.db.model.WeekTactics"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "apk_sha256": "cd7482fdff9ebcb75b775cd846e25700f9d6f1c5adee49b06cd23f62d7252fef",
+  "input": "Synthetic decoded callback values, memory only",
+  "observed": {
+    "object": "user=17,Local example,Example School",
+    "boolean": "boolean=false",
+    "string": "string=fixture",
+    "business": "application-error=7301,synthetic business error",
+    "missing-type": "application-error=-200,",
+    "transport": "network-error=synthetic transport error",
+    "array": "user-list=17,29,",
+    "empty-array": "user-list=",
+    "invalid-array": "list-error=-200"
+  }
+}

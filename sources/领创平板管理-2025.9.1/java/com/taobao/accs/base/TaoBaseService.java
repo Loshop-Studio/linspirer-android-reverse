@@ -1,0 +1,224 @@
+package com.taobao.accs.base;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.support.v4.app.NotificationCompat;
+import com.huawei.hem.C0948f6;
+import com.taobao.accs.utl.ALog;
+import java.io.Serializable;
+import java.util.Map;
+
+/* compiled from: Taobao */
+/* loaded from: classes.dex */
+public abstract class TaoBaseService extends Service implements AccsDataListenerV2 {
+    public static final String TAG = "TaoBaseService";
+    public AccsAbstractDataListener mDefaultDataListener = new AccsAbstractDataListener() { // from class: com.taobao.accs.base.TaoBaseService.1
+        @Override // com.taobao.accs.base.AccsAbstractDataListener, com.taobao.accs.base.AccsDataListener
+        public void onBind(String str, int i, ExtraInfo extraInfo) {
+        }
+
+        @Override // com.taobao.accs.base.AccsDataListener
+        public void onData(String str, String str2, String str3, byte[] bArr, ExtraInfo extraInfo) {
+        }
+
+        @Override // com.taobao.accs.base.AccsAbstractDataListener, com.taobao.accs.base.AccsDataListener
+        public void onResponse(String str, String str2, int i, byte[] bArr, ExtraInfo extraInfo) {
+        }
+
+        @Override // com.taobao.accs.base.AccsAbstractDataListener, com.taobao.accs.base.AccsDataListener
+        public void onSendData(String str, String str2, int i, ExtraInfo extraInfo) {
+        }
+
+        @Override // com.taobao.accs.base.AccsAbstractDataListener, com.taobao.accs.base.AccsDataListener
+        public void onUnbind(String str, int i, ExtraInfo extraInfo) {
+        }
+    };
+    public Messenger messenger = new Messenger(new Handler() { // from class: com.taobao.accs.base.TaoBaseService.2
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message != null) {
+                ALog.m5729i(TaoBaseService.TAG, "handleMessage on receive msg", NotificationCompat.CATEGORY_MESSAGE, message.toString());
+                Intent intent = (Intent) message.getData().getParcelable("intent");
+                if (intent != null) {
+                    ALog.m5729i(TaoBaseService.TAG, "handleMessage get intent success", "intent", intent.toString());
+                    TaoBaseService.this.onStartCommand(intent, 0, 0);
+                }
+            }
+        }
+    });
+
+    /* compiled from: Taobao */
+    public enum ExtHeaderType {
+        TYPE_BUSINESS,
+        TYPE_SID,
+        TYPE_USERID,
+        TYPE_COOKIE,
+        TYPE_TAG,
+        TYPE_STATUS,
+        TYPE_DELAY,
+        TYPE_EXPIRE,
+        TYPE_LOCATION,
+        TYPE_UNIT,
+        TYPE_NEED_BUSINESS_ACK;
+
+        public static ExtHeaderType valueOf(int i) {
+            switch (i) {
+                case 0:
+                    return TYPE_BUSINESS;
+                case 1:
+                    return TYPE_SID;
+                case 2:
+                    return TYPE_USERID;
+                case 3:
+                    return TYPE_COOKIE;
+                case 4:
+                    return TYPE_TAG;
+                case 5:
+                    return TYPE_STATUS;
+                case 6:
+                    return TYPE_DELAY;
+                case 7:
+                    return TYPE_EXPIRE;
+                case 8:
+                    return TYPE_LOCATION;
+                case 9:
+                    return TYPE_UNIT;
+                case 10:
+                    return TYPE_NEED_BUSINESS_ACK;
+                default:
+                    return null;
+            }
+        }
+    }
+
+    /* compiled from: Taobao */
+    public static class ExtraInfo implements Serializable {
+        public static final String EXT_HEADER = "ext_header";
+        public int connType;
+        public Map<ExtHeaderType, String> extHeader;
+        public String fromHost;
+        public String fromPackage;
+        public Map<Integer, String> oriExtHeader;
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onAntiBrush(boolean z, ExtraInfo extraInfo) {
+        this.mDefaultDataListener.onAntiBrush(z, extraInfo);
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return this.messenger.getBinder();
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onBind(String str, int i, ExtraInfo extraInfo) {
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onConnected(ConnectInfo connectInfo) {
+        this.mDefaultDataListener.onConnected(connectInfo);
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onDisconnected(ConnectInfo connectInfo) {
+        this.mDefaultDataListener.onDisconnected(connectInfo);
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListenerV2
+    public void onResponse(String str, String str2, int i, String str3, byte[] bArr, ExtraInfo extraInfo) {
+        onResponse(str, str2, i, bArr, extraInfo);
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onResponse(String str, String str2, int i, byte[] bArr, ExtraInfo extraInfo) {
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onSendData(String str, String str2, int i, ExtraInfo extraInfo) {
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListenerV2
+    public void onSendData(String str, String str2, int i, String str3, ExtraInfo extraInfo) {
+        onSendData(str, str2, i, extraInfo);
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (ALog.isPrintLog(ALog.Level.D)) {
+            ALog.m5726d(TAG, "onStartCommand", "className", getClass().getSimpleName());
+        }
+        return AccsAbstractDataListener.onReceiveData(this, intent, this);
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListener
+    public void onUnbind(String str, int i, ExtraInfo extraInfo) {
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListenerV2
+    public void onUnbind(String str, int i, String str2, ExtraInfo extraInfo) {
+        onUnbind(str, i, extraInfo);
+    }
+
+    @Override // com.taobao.accs.base.AccsDataListenerV2
+    public void onBind(String str, int i, String str2, ExtraInfo extraInfo) {
+        onBind(str, i, extraInfo);
+    }
+
+    /* compiled from: Taobao */
+    public static class ConnectInfo implements Serializable {
+        public static final long serialVersionUID = 8974674111758240362L;
+        public boolean connected;
+        public int errorCode;
+        public String errordetail;
+        public String host;
+        public boolean isCenterHost;
+        public boolean isInapp;
+
+        public ConnectInfo(String str, boolean z, boolean z2) {
+            this.host = str;
+            this.isInapp = z;
+            this.isCenterHost = z2;
+        }
+
+        public String toString() {
+            StringBuilder sb = new StringBuilder("ConnectInfo{");
+            sb.append("host='");
+            C0948f6.m1781z(sb, this.host, '\'', ", isInapp=");
+            sb.append(this.isInapp);
+            sb.append(", isCenterHost=");
+            sb.append(this.isCenterHost);
+            sb.append(", connected=");
+            sb.append(this.connected);
+            sb.append(", errorCode=");
+            sb.append(this.errorCode);
+            sb.append(", errorDetail='");
+            sb.append(this.errordetail);
+            sb.append('\'');
+            sb.append('}');
+            return sb.toString();
+        }
+
+        public ConnectInfo(String str, boolean z, boolean z2, int i, String str2) {
+            this.host = str;
+            this.isInapp = z;
+            this.isCenterHost = z2;
+            this.errorCode = i;
+            this.errordetail = str2;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+package com.bumptech.glide.module;
+
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import com.huawei.hem.C0948f6;
+import java.util.ArrayList;
+import java.util.List;
+
+/* loaded from: classes.dex */
+public final class ManifestParser {
+    public static final String GLIDE_MODULE_VALUE = "GlideModule";
+    public final Context context;
+
+    public ManifestParser(Context context) {
+        this.context = context;
+    }
+
+    public static GlideModule parseModule(String str) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        try {
+            Class<?> cls = Class.forName(str);
+            try {
+                Object objNewInstance = cls.newInstance();
+                if (objNewInstance instanceof GlideModule) {
+                    return (GlideModule) objNewInstance;
+                }
+                throw new RuntimeException(C0948f6.m1759d("Expected instanceof GlideModule, but found: ", objNewInstance));
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException("Unable to instantiate GlideModule implementation for " + cls, e);
+            } catch (InstantiationException e2) {
+                throw new RuntimeException("Unable to instantiate GlideModule implementation for " + cls, e2);
+            }
+        } catch (ClassNotFoundException e3) {
+            throw new IllegalArgumentException("Unable to find GlideModule implementation", e3);
+        }
+    }
+
+    public List<GlideModule> parse() throws PackageManager.NameNotFoundException {
+        ArrayList arrayList = new ArrayList();
+        try {
+            ApplicationInfo applicationInfo = this.context.getPackageManager().getApplicationInfo(this.context.getPackageName(), 128);
+            if (applicationInfo.metaData != null) {
+                for (String str : applicationInfo.metaData.keySet()) {
+                    if (GLIDE_MODULE_VALUE.equals(applicationInfo.metaData.get(str))) {
+                        arrayList.add(parseModule(str));
+                    }
+                }
+            }
+            return arrayList;
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException("Unable to find metadata to parse GlideModules", e);
+        }
+    }
+}

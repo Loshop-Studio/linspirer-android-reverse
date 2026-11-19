@@ -1,0 +1,25 @@
+package com.huawei.hms.activity.internal;
+
+import android.content.Intent;
+
+/* loaded from: classes.dex */
+public class BusResponseResult {
+    public int code;
+    public Intent intent;
+
+    public int getCode() {
+        return this.code;
+    }
+
+    public Intent getIntent() {
+        return this.intent;
+    }
+
+    public void setCode(int i) {
+        this.code = i;
+    }
+
+    public void setIntent(Intent intent) {
+        this.intent = intent;
+    }
+}

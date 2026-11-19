@@ -1,0 +1,117 @@
+{
+  "project": 8895319,
+  "module": 8662279,
+  "title": "中育工具箱 API",
+  "paths": 306,
+  "methods": {
+    "get": 131,
+    "post": 173,
+    "delete": 2
+  },
+  "tags": {
+    "认证与账户": 4,
+    "优课畅学": 3,
+    "在线专栏": 9,
+    "中育桌面": 31,
+    "测评": 6,
+    "新测评·学生端": 17,
+    "优客畅学": 3,
+    "错题本": 16,
+    "云笔记": 14,
+    "随身答": 22,
+    "图库": 2,
+    "领创 Linspirer（第三方）": 1,
+    "错题标签": 3,
+    "错题集": 9,
+    "错题复习": 6,
+    "周边": 5,
+    "新测评": 1,
+    "教师端": 172
+  },
+  "headers": {},
+  "security": {
+    "[]": 306
+  },
+  "securitySchemes": {},
+  "selected_operations": [
+    {
+      "method": "get",
+      "summary": "学校发现",
+      "group": [
+        "认证与账户"
+      ],
+      "description_mentions": [
+        "登录"
+      ],
+      "parameter_names": [
+        "code"
+      ],
+      "body_types": []
+    },
+    {
+      "method": "post",
+      "summary": "登录",
+      "group": [
+        "认证与账户",
+        "优课畅学"
+      ],
+      "description_mentions": [
+        "token",
+        "登录"
+      ],
+      "parameter_names": [
+        "AppName",
+        "AppVersion"
+      ],
+      "body_types": [
+        "application/json"
+      ]
+    },
+    {
+      "method": "get",
+      "summary": "获取用户信息（含加密学生信息）",
+      "group": [
+        "认证与账户"
+      ],
+      "description_mentions": [
+        "用户",
+        "登录"
+      ],
+      "parameter_names": [],
+      "body_types": []
+    },
+    {
+      "method": "post",
+      "summary": "刷新令牌",
+      "group": [
+        "认证与账户"
+      ],
+      "description_mentions": [
+        "token",
+        "登录"
+      ],
+      "parameter_names": [],
+      "body_types": [
+        "application/json"
+      ]
+    },
+    {
+      "method": "post",
+      "summary": "领创·统一 JSON-RPC 接口",
+      "group": [
+        "领创 Linspirer（第三方）"
+      ],
+      "description_mentions": [
+        "用户",
+        "密码",
+        "设备",
+        "加密",
+        "领创"
+      ],
+      "parameter_names": [],
+      "body_types": [
+        "application/json"
+      ]
+    }
+  ]
+}

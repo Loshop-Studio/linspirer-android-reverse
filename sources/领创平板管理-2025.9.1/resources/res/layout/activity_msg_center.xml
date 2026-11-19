@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/white" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@color/general_theme_bg_color" android:layout_width="match_parent" android:layout_height="@dimen/dp_48">
+        <LinearLayout android:orientation="horizontal" android:id="@id/message_back" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_45" android:onClick="onClick">
+            <ImageView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/icon_back_key" />
+            <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_8" android:text="@string/text_back" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/sp_19" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/msg_activity_title" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/text_msg_center" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <com.android.launcher3.view.SwipeSideslipListView android:id="@id/msg_list" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/empty_iv" android:background="@drawable/empty_logo" android:visibility="gone" android:layout_width="@dimen/dp_120" android:layout_height="@dimen/dp_90" android:layout_marginTop="@dimen/dp_167" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/color_adadad" android:id="@id/empty_tv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="19.0dp" android:layout_marginTop="@dimen/dp_8" android:text="@string/empty_message" />
+</LinearLayout>

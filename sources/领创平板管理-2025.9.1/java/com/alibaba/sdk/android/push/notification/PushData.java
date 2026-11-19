@@ -1,0 +1,259 @@
+package com.alibaba.sdk.android.push.notification;
+
+import android.content.Context;
+import com.alibaba.sdk.android.ams.common.logger.AmsLogger;
+import com.alibaba.sdk.android.ams.common.util.StringUtil;
+import com.alibaba.sdk.android.push.common.util.JSONUtils;
+import com.huawei.hem.C0948f6;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/* loaded from: classes.dex */
+public class PushData {
+    public static final String KEY_BIG_BODY = "big_body";
+    public static final String KEY_BIG_PICTURE = "big_picture";
+    public static final String KEY_BIG_TITLE = "big_title";
+    public static final String KEY_CHANNEL = "notification_channel";
+    public static final String KEY_CONTENT = "content";
+    public static final String KEY_CUSTOM_NOTIFICAITON_ID = "custom_notification_id";
+    public static final String KEY_EXT = "ext";
+    public static final String KEY_IMAGE = "image";
+    public static final String KEY_INBOX_CONTENT = "inbox_content";
+    public static final String KEY_MSG_ID = "msg_id";
+    public static final String KEY_MUSIC = "music";
+    public static final String KEY_NOTIFICATION_PRIORITY = "_ALIYUN_NOTIFICATION_PRIORITY_";
+    public static final String KEY_NOTIFY_ID = "notify_id";
+    public static final String KEY_NOTIFY_TYPE = "remind";
+    public static final String KEY_STYLE = "style";
+    public static final String KEY_TITLE = "title";
+    public static final int NOTIFY_TYPE_SILENT = 0;
+    public static final int NOTIFY_TYPE_SOUND = 2;
+    public static final int NOTIFY_TYPE_VIBRATE = 1;
+    public static final int NOTIFY_TYPE_VIBRATE_SOUND = 3;
+    public static final int NO_CUSTOM_NOTIFICATION = 0;
+    public static final String TAG = "MPS:PushData";
+    public static AmsLogger logger = AmsLogger.getLogger(TAG);
+    public String bigBody;
+    public String bigPicture;
+    public String bigTitle;
+    public String contentText;
+    public Map<String, String> extraMap;
+    public String image;
+    public String inboxContent;
+    public String msgId;
+    public String notificationChannel;
+    public int notifyId;
+    public int notifyType;
+    public String sound;
+    public String style;
+    public String title;
+    public int priority = 0;
+    public int customNotificationId = 0;
+
+    public static PushData parse(Context context, Map<String, String> map) {
+        String str = map.get("title");
+        String str2 = map.get("content");
+        if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
+            logger.m501e("title or content of notify is empty: " + map);
+            return null;
+        }
+        PushData pushData = new PushData();
+        String strValueOf = map.get("remind");
+        if (StringUtil.isEmpty(strValueOf)) {
+            strValueOf = String.valueOf(2);
+        }
+        String str3 = map.get("music");
+        String str4 = map.get("ext");
+        String str5 = map.get("notification_channel");
+        pushData.setTitle(str);
+        pushData.setContentText(str2);
+        pushData.setNotifyType(Integer.parseInt(strValueOf));
+        pushData.setNotificationChannel(str5);
+        pushData.setImage(map.get("image"));
+        pushData.setStyle(map.get("style"));
+        pushData.setBigTitle(map.get("big_title"));
+        pushData.setBigBody(map.get("big_body"));
+        pushData.setBigPicture(map.get("big_picture"));
+        pushData.setInboxContent(map.get("inbox_content"));
+        pushData.setMsgId(map.get("msg_id"));
+        try {
+            pushData.setNotifyId(Integer.parseInt(map.get("notify_id")));
+        } catch (Throwable unused) {
+        }
+        pushData.setSound(StringUtil.isEmpty(str3) ? null : str3);
+        if (!StringUtil.isEmpty(str4)) {
+            try {
+                Map<String, String> map2 = JSONUtils.toMap(new JSONObject(str4));
+                pushData.setPriority(map2.containsKey("_ALIYUN_NOTIFICATION_PRIORITY_") ? map2.get("_ALIYUN_NOTIFICATION_PRIORITY_") : String.valueOf(0));
+                pushData.setExtraMap(map2);
+            } catch (JSONException e) {
+                logger.m502e("Parse inner json(ext) error:", e);
+            }
+        }
+        if (map.containsKey(KEY_CUSTOM_NOTIFICAITON_ID)) {
+            pushData.setCustomNotificationId(Integer.parseInt(map.get(KEY_CUSTOM_NOTIFICAITON_ID)));
+        }
+        return pushData;
+    }
+
+    private void setBigBody(String str) {
+        this.bigBody = str;
+    }
+
+    private void setBigPicture(String str) {
+        this.bigPicture = str;
+    }
+
+    private void setBigTitle(String str) {
+        this.bigTitle = str;
+    }
+
+    private void setContentText(String str) {
+        this.contentText = str;
+    }
+
+    private void setCustomNotificationId(int i) {
+        this.customNotificationId = i;
+    }
+
+    private void setExtraMap(Map<String, String> map) {
+        this.extraMap = map;
+    }
+
+    private void setInboxContent(String str) {
+        this.inboxContent = str;
+    }
+
+    private void setMsgId(String str) {
+        this.msgId = str;
+    }
+
+    private void setNotificationChannel(String str) {
+        this.notificationChannel = str;
+    }
+
+    private void setNotifyId(int i) {
+        this.notifyId = i;
+    }
+
+    private void setNotifyType(int i) {
+        this.notifyType = i;
+    }
+
+    private void setPriority(String str) {
+        try {
+            this.priority = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            logger.m502e("formar error:数字格式错误", e);
+        }
+    }
+
+    private void setSound(String str) {
+        this.sound = str;
+    }
+
+    private void setStyle(String str) {
+        this.style = str;
+    }
+
+    private void setTitle(String str) {
+        this.title = str;
+    }
+
+    public String getBigBody() {
+        return this.bigBody;
+    }
+
+    public String getBigPicture() {
+        return this.bigPicture;
+    }
+
+    public String getBigTitle() {
+        return this.bigTitle;
+    }
+
+    public String getContentText() {
+        return this.contentText;
+    }
+
+    public int getCustomNotificationId() {
+        return this.customNotificationId;
+    }
+
+    public Map<String, String> getExtraMap() {
+        return this.extraMap;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public String getInboxContent() {
+        return this.inboxContent;
+    }
+
+    public String getMsgId() {
+        return this.msgId;
+    }
+
+    public String getNotificationChannel() {
+        return this.notificationChannel;
+    }
+
+    public int getNotifyId() {
+        return this.notifyId;
+    }
+
+    public int getNotifyType() {
+        return this.notifyType;
+    }
+
+    public int getPriority() {
+        return this.priority;
+    }
+
+    public String getSound() {
+        return this.sound;
+    }
+
+    public String getStyle() {
+        return this.style;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setImage(String str) {
+        this.image = str;
+    }
+
+    public String toString() {
+        StringBuilder sbM1765j = C0948f6.m1765j("PushData{title='");
+        C0948f6.m1781z(sbM1765j, this.title, '\'', ", contentText='");
+        C0948f6.m1781z(sbM1765j, this.contentText, '\'', ", image='");
+        C0948f6.m1781z(sbM1765j, this.image, '\'', ", notifyType=");
+        sbM1765j.append(this.notifyType);
+        sbM1765j.append(", sound='");
+        C0948f6.m1781z(sbM1765j, this.sound, '\'', ", notificationChannel='");
+        C0948f6.m1781z(sbM1765j, this.notificationChannel, '\'', ", priority=");
+        sbM1765j.append(this.priority);
+        sbM1765j.append(", customNotificationId=");
+        sbM1765j.append(this.customNotificationId);
+        sbM1765j.append(", extraMap=");
+        sbM1765j.append(this.extraMap);
+        sbM1765j.append(", style='");
+        C0948f6.m1781z(sbM1765j, this.style, '\'', ", bigTitle='");
+        C0948f6.m1781z(sbM1765j, this.bigTitle, '\'', ", bigPicture='");
+        C0948f6.m1781z(sbM1765j, this.bigPicture, '\'', ", bigBody='");
+        C0948f6.m1781z(sbM1765j, this.bigBody, '\'', ", inboxContent='");
+        C0948f6.m1781z(sbM1765j, this.inboxContent, '\'', ", notifyId=");
+        sbM1765j.append(this.notifyId);
+        sbM1765j.append(", msgId='");
+        sbM1765j.append(this.msgId);
+        sbM1765j.append('\'');
+        sbM1765j.append('}');
+        return sbM1765j.toString();
+    }
+}

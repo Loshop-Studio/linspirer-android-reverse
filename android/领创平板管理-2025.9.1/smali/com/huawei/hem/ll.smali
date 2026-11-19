@@ -1,0 +1,452 @@
+.class public final Lcom/huawei/hem/ll;
+.super Ljava/lang/Object;
+.source "BridgeInterceptor.java"
+
+# interfaces
+.implements Lcom/huawei/hem/ak;
+
+
+# instance fields
+.field public final a:Lcom/huawei/hem/rj;
+
+
+# direct methods
+.method public constructor <init>(Lcom/huawei/hem/rj;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    iput-object p1, p0, Lcom/huawei/hem/ll;->a:Lcom/huawei/hem/rj;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Lcom/huawei/hem/ak$a;)Lcom/huawei/hem/kk;
+    .locals 16
+
+    move-object/from16 v0, p0
+
+    .line 1
+    move-object/from16 v1, p1
+
+    check-cast v1, Lcom/huawei/hem/ql;
+
+    .line 2
+    iget-object v2, v1, Lcom/huawei/hem/ql;->e:Lcom/huawei/hem/gk;
+
+    if-eqz v2, :cond_e
+
+    .line 3
+    new-instance v4, Lcom/huawei/hem/gk$a;
+
+    invoke-direct {v4, v2}, Lcom/huawei/hem/gk$a;-><init>(Lcom/huawei/hem/gk;)V
+
+    .line 4
+    iget-object v5, v2, Lcom/huawei/hem/gk;->d:Lcom/huawei/hem/jk;
+
+    const-string v6, "Content-Type"
+
+    const-wide/16 v7, -0x1
+
+    const-string v9, "Content-Length"
+
+    if-eqz v5, :cond_2
+
+    .line 5
+    invoke-virtual {v5}, Lcom/huawei/hem/jk;->b()Lcom/huawei/hem/bk;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_0
+
+    .line 6
+    iget-object v10, v10, Lcom/huawei/hem/bk;->a:Ljava/lang/String;
+
+    .line 7
+    invoke-virtual {v4, v6, v10}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 8
+    :cond_0
+    invoke-virtual {v5}, Lcom/huawei/hem/jk;->a()J
+
+    move-result-wide v10
+
+    cmp-long v5, v10, v7
+
+    const-string v12, "Transfer-Encoding"
+
+    if-eqz v5, :cond_1
+
+    .line 9
+    invoke-static {v10, v11}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v9, v5}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 10
+    iget-object v5, v4, Lcom/huawei/hem/gk$a;->c:Lcom/huawei/hem/yj$a;
+
+    invoke-virtual {v5, v12}, Lcom/huawei/hem/yj$a;->b(Ljava/lang/String;)Lcom/huawei/hem/yj$a;
+
+    goto :goto_0
+
+    :cond_1
+    const-string v5, "chunked"
+
+    .line 11
+    invoke-virtual {v4, v12, v5}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 12
+    iget-object v5, v4, Lcom/huawei/hem/gk$a;->c:Lcom/huawei/hem/yj$a;
+
+    invoke-virtual {v5, v9}, Lcom/huawei/hem/yj$a;->b(Ljava/lang/String;)Lcom/huawei/hem/yj$a;
+
+    .line 13
+    :cond_2
+    :goto_0
+    iget-object v5, v2, Lcom/huawei/hem/gk;->c:Lcom/huawei/hem/yj;
+
+    const-string v10, "Host"
+
+    invoke-virtual {v5, v10}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v11, 0x0
+
+    if-nez v5, :cond_3
+
+    .line 14
+    iget-object v5, v2, Lcom/huawei/hem/gk;->a:Lcom/huawei/hem/zj;
+
+    .line 15
+    invoke-static {v5, v11}, Lcom/huawei/hem/tk;->m(Lcom/huawei/hem/zj;Z)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v10, v5}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 16
+    :cond_3
+    iget-object v5, v2, Lcom/huawei/hem/gk;->c:Lcom/huawei/hem/yj;
+
+    const-string v10, "Connection"
+
+    invoke-virtual {v5, v10}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    if-nez v5, :cond_4
+
+    const-string v5, "Keep-Alive"
+
+    .line 17
+    invoke-virtual {v4, v10, v5}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 18
+    :cond_4
+    iget-object v5, v2, Lcom/huawei/hem/gk;->c:Lcom/huawei/hem/yj;
+
+    const-string v10, "Accept-Encoding"
+
+    invoke-virtual {v5, v10}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v12, "gzip"
+
+    if-nez v5, :cond_5
+
+    iget-object v5, v2, Lcom/huawei/hem/gk;->c:Lcom/huawei/hem/yj;
+
+    const-string v13, "Range"
+
+    invoke-virtual {v5, v13}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    if-nez v5, :cond_5
+
+    .line 19
+    invoke-virtual {v4, v10, v12}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    const/4 v5, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    move v5, v11
+
+    .line 20
+    :goto_1
+    iget-object v10, v0, Lcom/huawei/hem/ll;->a:Lcom/huawei/hem/rj;
+
+    check-cast v10, Lcom/huawei/hem/rj$a;
+
+    if-eqz v10, :cond_d
+
+    .line 21
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v10
+
+    .line 22
+    invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
+
+    move-result v13
+
+    if-nez v13, :cond_8
+
+    .line 23
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 24
+    invoke-interface {v10}, Ljava/util/List;->size()I
+
+    move-result v14
+
+    :goto_2
+    if-ge v11, v14, :cond_7
+
+    if-lez v11, :cond_6
+
+    const-string v15, "; "
+
+    .line 25
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 26
+    :cond_6
+    invoke-interface {v10, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Lcom/huawei/hem/qj;
+
+    .line 27
+    iget-object v3, v15, Lcom/huawei/hem/qj;->a:Ljava/lang/String;
+
+    .line 28
+    invoke-virtual {v13, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v3, 0x3d
+
+    invoke-virtual {v13, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 29
+    iget-object v3, v15, Lcom/huawei/hem/qj;->b:Ljava/lang/String;
+
+    .line 30
+    invoke-virtual {v13, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_2
+
+    .line 31
+    :cond_7
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v10, "Cookie"
+
+    .line 32
+    invoke-virtual {v4, v10, v3}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 33
+    :cond_8
+    iget-object v3, v2, Lcom/huawei/hem/gk;->c:Lcom/huawei/hem/yj;
+
+    const-string v10, "User-Agent"
+
+    invoke-virtual {v3, v10}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_9
+
+    const-string v3, "okhttp/3.14.9"
+
+    .line 34
+    invoke-virtual {v4, v10, v3}, Lcom/huawei/hem/gk$a;->b(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hem/gk$a;
+
+    .line 35
+    :cond_9
+    invoke-virtual {v4}, Lcom/huawei/hem/gk$a;->a()Lcom/huawei/hem/gk;
+
+    move-result-object v3
+
+    .line 36
+    iget-object v4, v1, Lcom/huawei/hem/ql;->b:Lcom/huawei/hem/kl;
+
+    iget-object v10, v1, Lcom/huawei/hem/ql;->c:Lcom/huawei/hem/dl;
+
+    invoke-virtual {v1, v3, v4, v10}, Lcom/huawei/hem/ql;->b(Lcom/huawei/hem/gk;Lcom/huawei/hem/kl;Lcom/huawei/hem/dl;)Lcom/huawei/hem/kk;
+
+    move-result-object v1
+
+    .line 37
+    iget-object v3, v0, Lcom/huawei/hem/ll;->a:Lcom/huawei/hem/rj;
+
+    .line 38
+    iget-object v4, v2, Lcom/huawei/hem/gk;->a:Lcom/huawei/hem/zj;
+
+    .line 39
+    iget-object v10, v1, Lcom/huawei/hem/kk;->f:Lcom/huawei/hem/yj;
+
+    .line 40
+    invoke-static {v3, v4, v10}, Lcom/huawei/hem/pl;->d(Lcom/huawei/hem/rj;Lcom/huawei/hem/zj;Lcom/huawei/hem/yj;)V
+
+    .line 41
+    new-instance v3, Lcom/huawei/hem/kk$a;
+
+    invoke-direct {v3, v1}, Lcom/huawei/hem/kk$a;-><init>(Lcom/huawei/hem/kk;)V
+
+    .line 42
+    iput-object v2, v3, Lcom/huawei/hem/kk$a;->a:Lcom/huawei/hem/gk;
+
+    if-eqz v5, :cond_c
+
+    .line 43
+    iget-object v2, v1, Lcom/huawei/hem/kk;->f:Lcom/huawei/hem/yj;
+
+    const-string v4, "Content-Encoding"
+
+    invoke-virtual {v2, v4}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_a
+
+    goto :goto_3
+
+    :cond_a
+    const/4 v2, 0x0
+
+    .line 44
+    :goto_3
+    invoke-virtual {v12, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    .line 45
+    invoke-static {v1}, Lcom/huawei/hem/pl;->b(Lcom/huawei/hem/kk;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    .line 46
+    new-instance v2, Lcom/huawei/hem/on;
+
+    .line 47
+    iget-object v5, v1, Lcom/huawei/hem/kk;->g:Lcom/huawei/hem/mk;
+
+    .line 48
+    invoke-virtual {v5}, Lcom/huawei/hem/mk;->g()Lcom/huawei/hem/jn;
+
+    move-result-object v5
+
+    invoke-direct {v2, v5}, Lcom/huawei/hem/on;-><init>(Lcom/huawei/hem/ao;)V
+
+    .line 49
+    iget-object v5, v1, Lcom/huawei/hem/kk;->f:Lcom/huawei/hem/yj;
+
+    .line 50
+    invoke-virtual {v5}, Lcom/huawei/hem/yj;->e()Lcom/huawei/hem/yj$a;
+
+    move-result-object v5
+
+    .line 51
+    invoke-virtual {v5, v4}, Lcom/huawei/hem/yj$a;->b(Ljava/lang/String;)Lcom/huawei/hem/yj$a;
+
+    .line 52
+    invoke-virtual {v5, v9}, Lcom/huawei/hem/yj$a;->b(Ljava/lang/String;)Lcom/huawei/hem/yj$a;
+
+    .line 53
+    iget-object v4, v5, Lcom/huawei/hem/yj$a;->a:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    new-array v5, v5, [Ljava/lang/String;
+
+    invoke-interface {v4, v5}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [Ljava/lang/String;
+
+    .line 54
+    new-instance v5, Lcom/huawei/hem/yj$a;
+
+    invoke-direct {v5}, Lcom/huawei/hem/yj$a;-><init>()V
+
+    .line 55
+    iget-object v9, v5, Lcom/huawei/hem/yj$a;->a:Ljava/util/List;
+
+    invoke-static {v9, v4}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
+
+    .line 56
+    iput-object v5, v3, Lcom/huawei/hem/kk$a;->f:Lcom/huawei/hem/yj$a;
+
+    .line 57
+    iget-object v1, v1, Lcom/huawei/hem/kk;->f:Lcom/huawei/hem/yj;
+
+    invoke-virtual {v1, v6}, Lcom/huawei/hem/yj;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_b
+
+    goto :goto_4
+
+    :cond_b
+    const/4 v1, 0x0
+
+    .line 58
+    :goto_4
+    new-instance v4, Lcom/huawei/hem/rl;
+
+    .line 59
+    new-instance v5, Lcom/huawei/hem/vn;
+
+    invoke-direct {v5, v2}, Lcom/huawei/hem/vn;-><init>(Lcom/huawei/hem/ao;)V
+
+    .line 60
+    invoke-direct {v4, v1, v7, v8, v5}, Lcom/huawei/hem/rl;-><init>(Ljava/lang/String;JLcom/huawei/hem/jn;)V
+
+    .line 61
+    iput-object v4, v3, Lcom/huawei/hem/kk$a;->g:Lcom/huawei/hem/mk;
+
+    .line 62
+    :cond_c
+    invoke-virtual {v3}, Lcom/huawei/hem/kk$a;->b()Lcom/huawei/hem/kk;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_d
+    const/4 v1, 0x0
+
+    .line 63
+    throw v1
+
+    :cond_e
+    const/4 v1, 0x0
+
+    .line 64
+    throw v1
+.end method

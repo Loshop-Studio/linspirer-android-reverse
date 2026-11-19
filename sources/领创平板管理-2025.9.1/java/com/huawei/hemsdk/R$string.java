@@ -1,0 +1,51 @@
+package com.huawei.hemsdk;
+
+/* loaded from: classes.dex */
+public final class R$string {
+    public static final int app_name = 2131492927;
+    public static final int hms_abort = 2131493019;
+    public static final int hms_abort_message = 2131493020;
+    public static final int hms_bindfaildlg_message = 2131493021;
+    public static final int hms_bindfaildlg_title = 2131493022;
+    public static final int hms_cancel = 2131493023;
+    public static final int hms_check_failure = 2131493024;
+    public static final int hms_checking = 2131493025;
+    public static final int hms_confirm = 2131493026;
+    public static final int hms_download_failure = 2131493027;
+    public static final int hms_download_no_space = 2131493028;
+    public static final int hms_download_retry = 2131493029;
+    public static final int hms_downloading_loading = 2131493030;
+    public static final int hms_install = 2131493031;
+    public static final int hms_install_message = 2131493032;
+    public static final int hms_retry = 2131493033;
+    public static final int hms_update = 2131493034;
+    public static final int hms_update_continue = 2131493035;
+    public static final int hms_update_message = 2131493036;
+    public static final int hms_update_message_new = 2131493037;
+    public static final int hms_update_nettype = 2131493038;
+    public static final int hms_update_title = 2131493039;
+    public static final int upsdk_app_download_info_new = 2131493224;
+    public static final int upsdk_app_download_installing = 2131493225;
+    public static final int upsdk_app_size = 2131493226;
+    public static final int upsdk_app_version = 2131493227;
+    public static final int upsdk_appstore_install = 2131493228;
+    public static final int upsdk_apptouch_store_url = 2131493229;
+    public static final int upsdk_cancel = 2131493230;
+    public static final int upsdk_checking_update_prompt = 2131493231;
+    public static final int upsdk_choice_update = 2131493232;
+    public static final int upsdk_detail = 2131493233;
+    public static final int upsdk_getting_message_fail_prompt_toast = 2131493234;
+    public static final int upsdk_mobile_dld_warn = 2131493235;
+    public static final int upsdk_no_available_network_prompt_toast = 2131493236;
+    public static final int upsdk_ota_app_name = 2131493237;
+    public static final int upsdk_ota_cancel = 2131493238;
+    public static final int upsdk_ota_force_cancel_new = 2131493239;
+    public static final int upsdk_ota_notify_updatebtn = 2131493240;
+    public static final int upsdk_ota_title = 2131493241;
+    public static final int upsdk_storage_utils = 2131493242;
+    public static final int upsdk_store_url = 2131493243;
+    public static final int upsdk_third_app_dl_cancel_download_prompt_ex = 2131493244;
+    public static final int upsdk_third_app_dl_install_failed = 2131493245;
+    public static final int upsdk_third_app_dl_sure_cancel_download = 2131493246;
+    public static final int upsdk_update_check_no_new_version = 2131493247;
+}

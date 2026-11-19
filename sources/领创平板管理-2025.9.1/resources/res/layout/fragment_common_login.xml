@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/root_view" android:background="@drawable/login_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_50">
+        <ImageView android:id="@id/logo" android:layout_width="@dimen/dp_260" android:layout_height="@dimen/dp_80" android:src="@drawable/login_logo" android:layout_centerHorizontal="true" />
+        <include android:id="@id/login_container" android:layout_width="@dimen/dp_355" android:layout_height="@dimen/dp_370" android:layout_marginTop="@dimen/dp_30" android:layout_below="@id/logo" android:layout_centerHorizontal="true" layout="@layout/login_include" />
+    </RelativeLayout>
+    <ImageView android:id="@id/function_items" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_29" android:layout_marginBottom="@dimen/dp_49" android:src="@drawable/icon_function_items" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_49" android:layout_alignParentBottom="true">
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@android:color/white" android:id="@id/app_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_25" android:text="linspirer_5.0.1" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="@dimen/sp_12" android:textColor="#e7e8ef" android:id="@id/copyright" android:background="@drawable/copy_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

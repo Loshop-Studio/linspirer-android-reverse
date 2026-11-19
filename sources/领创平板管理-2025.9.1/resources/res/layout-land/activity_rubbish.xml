@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@color/blue" android:layout_width="match_parent" android:layout_height="@dimen/dp_48">
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:gravity="center" android:id="@id/back_textview" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_45" android:text="@string/back" android:drawableLeft="@drawable/nav_return" android:drawablePadding="@dimen/dp_8" />
+        <TextView android:textSize="@dimen/sp_19" android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/specify_directory" android:layout_centerInParent="true" />
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:gravity="center" android:id="@id/select_text" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/cancel_choice_all" android:layout_toLeftOf="@id/delete_text" android:layout_centerInParent="true" />
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:gravity="center" android:id="@id/delete_text" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_28" android:layout_marginRight="@dimen/dp_25" android:text="@string/delete" android:layout_alignParentRight="true" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView android:id="@id/rubbish_recyclerView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_45" android:layout_marginTop="@dimen/dp_40" android:layout_marginRight="@dimen/dp_45" android:layout_marginBottom="@dimen/dp_40" android:overScrollMode="never" />
+</LinearLayout>

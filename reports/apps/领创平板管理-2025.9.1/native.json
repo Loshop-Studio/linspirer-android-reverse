@@ -1,0 +1,107 @@
+[
+ {
+  "member": "lib/arm64-v8a/libtnet-3.1.14.so",
+  "size": 362872,
+  "format": "ELF",
+  "sha256": "26f8dec6ea2ec28a7a95d92bd5edb474f9d8a2b70534d7832c48aa768a4c31ad",
+  "role": null,
+  "machine": "AArch64",
+  "build_id": "2510ff56a9673370b9d664c21a3dcb04a541d939",
+  "needed": [
+   "libz.so",
+   "liblog.so",
+   "libstdc++.so",
+   "libm.so",
+   "libc.so",
+   "libdl.so"
+  ],
+  "symbols": 22,
+  "static_jni_exports": 0,
+  "jni_onload": true,
+  "has_debug_info": false
+ },
+ {
+  "member": "lib/armeabi-v7a/libtnet-3.1.14.so",
+  "size": 250244,
+  "format": "ELF",
+  "sha256": "de9f3f460bd8e1911f5a896185a89e9969379cab4cce8497581dbcf754bf3732",
+  "role": null,
+  "machine": "ARM",
+  "build_id": "7771e90b6fd86c315de60b69d7345b51ea069a3b",
+  "needed": [
+   "libz.so",
+   "liblog.so",
+   "libstdc++.so",
+   "libm.so",
+   "libc.so",
+   "libdl.so"
+  ],
+  "symbols": 122,
+  "static_jni_exports": 0,
+  "jni_onload": true,
+  "has_debug_info": false
+ },
+ {
+  "member": "lib/armeabi/libtnet-3.1.14.so",
+  "size": 270724,
+  "format": "ELF",
+  "sha256": "4afad2ff05b5d7b0a43e20131637ce1995da1783683c9bdd6c224a7d14fecbf2",
+  "role": null,
+  "machine": "ARM",
+  "build_id": "6fa013a95c2fe262295d0c71d91c29532ecc8dbc",
+  "needed": [
+   "libz.so",
+   "liblog.so",
+   "libstdc++.so",
+   "libm.so",
+   "libc.so",
+   "libdl.so"
+  ],
+  "symbols": 130,
+  "static_jni_exports": 0,
+  "jni_onload": true,
+  "has_debug_info": false
+ },
+ {
+  "member": "lib/x86/libtnet-3.1.14.so",
+  "size": 397748,
+  "format": "ELF",
+  "sha256": "8ae5008859dcfeb82d3babc2e7bc219ce18ad7b8955d8c767d1eceae1cb7239d",
+  "role": null,
+  "machine": "Intel 80386",
+  "build_id": "a2c43bc3f9e891cddc1d29dcace01433134063af",
+  "needed": [
+   "libz.so",
+   "liblog.so",
+   "libstdc++.so",
+   "libm.so",
+   "libc.so",
+   "libdl.so"
+  ],
+  "symbols": 25,
+  "static_jni_exports": 0,
+  "jni_onload": true,
+  "has_debug_info": false
+ },
+ {
+  "member": "lib/x86_64/libtnet-3.1.14.so",
+  "size": 375696,
+  "format": "ELF",
+  "sha256": "4a96be3189e0fb817800d5f7092034ebfa4e42bf6e9158e577ed74e1557c9c4e",
+  "role": null,
+  "machine": "Advanced Micro Devices X86-64",
+  "build_id": "b97061068198f3a0437c2e2b23e0ebcfdb84be13",
+  "needed": [
+   "libz.so",
+   "liblog.so",
+   "libstdc++.so",
+   "libm.so",
+   "libc.so",
+   "libdl.so"
+  ],
+  "symbols": 22,
+  "static_jni_exports": 0,
+  "jni_onload": true,
+  "has_debug_info": false
+ }
+]

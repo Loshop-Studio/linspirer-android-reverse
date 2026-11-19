@@ -1,0 +1,54 @@
+package com.huawei.hem;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Nullable;
+
+/* compiled from: Okio.java */
+/* renamed from: com.huawei.hem.sn */
+/* loaded from: classes.dex */
+public final class C1292sn extends C0965fn {
+
+    /* renamed from: k */
+    public final /* synthetic */ Socket f3736k;
+
+    public C1292sn(Socket socket) {
+        this.f3736k = socket;
+    }
+
+    @Override // com.huawei.hem.C0965fn
+    /* renamed from: l */
+    public IOException mo1840l(@Nullable IOException iOException) {
+        SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
+        if (iOException != null) {
+            socketTimeoutException.initCause(iOException);
+        }
+        return socketTimeoutException;
+    }
+
+    @Override // com.huawei.hem.C0965fn
+    /* renamed from: m */
+    public void mo1841m() throws IOException {
+        try {
+            this.f3736k.close();
+        } catch (AssertionError e) {
+            if (!C1267rn.m2671c(e)) {
+                throw e;
+            }
+            Logger logger = C1267rn.f3649a;
+            Level level = Level.WARNING;
+            StringBuilder sbM1765j = C0948f6.m1765j("Failed to close timed out socket ");
+            sbM1765j.append(this.f3736k);
+            logger.log(level, sbM1765j.toString(), (Throwable) e);
+        } catch (Exception e2) {
+            Logger logger2 = C1267rn.f3649a;
+            Level level2 = Level.WARNING;
+            StringBuilder sbM1765j2 = C0948f6.m1765j("Failed to close timed out socket ");
+            sbM1765j2.append(this.f3736k);
+            logger2.log(level2, sbM1765j2.toString(), (Throwable) e2);
+        }
+    }
+}

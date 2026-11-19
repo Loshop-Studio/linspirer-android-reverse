@@ -1,0 +1,49 @@
+package android.support.v4.util;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import com.huawei.hem.C0948f6;
+
+/* loaded from: classes.dex */
+public class Pair<F, S> {
+
+    @Nullable
+    public final F first;
+
+    @Nullable
+    public final S second;
+
+    public Pair(@Nullable F f, @Nullable S s) {
+        this.first = f;
+        this.second = s;
+    }
+
+    @NonNull
+    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b) {
+        return new Pair<>(a, b);
+    }
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Pair)) {
+            return false;
+        }
+        Pair pair = (Pair) obj;
+        return ObjectsCompat.equals(pair.first, this.first) && ObjectsCompat.equals(pair.second, this.second);
+    }
+
+    public int hashCode() {
+        F f = this.first;
+        int iHashCode = f == null ? 0 : f.hashCode();
+        S s = this.second;
+        return iHashCode ^ (s != null ? s.hashCode() : 0);
+    }
+
+    public String toString() {
+        StringBuilder sbM1765j = C0948f6.m1765j("Pair{");
+        sbM1765j.append(String.valueOf(this.first));
+        sbM1765j.append(" ");
+        sbM1765j.append(String.valueOf(this.second));
+        sbM1765j.append("}");
+        return sbM1765j.toString();
+    }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "app": "领创平板管理-2025.9.1",
+    "original_sha256": "cd7482fdff9ebcb75b775cd846e25700f9d6f1c5adee49b06cd23f62d7252fef",
+    "rebuilt_sha256": "526c031a245d0f1f58a22daa3fca81d2b7f3ddb4000e79fd22fa679e1c2fc7aa",
+    "missing": [],
+    "extra": [],
+    "changed_non_dex_payloads": [],
+    "classes": {
+      "classes.dex": {
+        "original": 6137,
+        "rebuilt": 6137,
+        "different_descriptors": 0
+      }
+    },
+    "signature_status": 0,
+    "schemes": [
+      "Verified using v1 scheme (JAR signing): true",
+      "Verified using v2 scheme (APK Signature Scheme v2): true",
+      "Verified using v3 scheme (APK Signature Scheme v3): true"
+    ]
+  }
+]

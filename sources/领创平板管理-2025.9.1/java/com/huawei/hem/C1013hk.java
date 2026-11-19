@@ -1,0 +1,47 @@
+package com.huawei.hem;
+
+import javax.annotation.Nullable;
+
+/* compiled from: RequestBody.java */
+/* renamed from: com.huawei.hem.hk */
+/* loaded from: classes.dex */
+public class C1013hk extends AbstractC1063jk {
+
+    /* renamed from: a */
+    public final /* synthetic */ C0858bk f2874a;
+
+    /* renamed from: b */
+    public final /* synthetic */ int f2875b;
+
+    /* renamed from: c */
+    public final /* synthetic */ byte[] f2876c;
+
+    /* renamed from: d */
+    public final /* synthetic */ int f2877d;
+
+    public C1013hk(C0858bk c0858bk, int i, byte[] bArr, int i2) {
+        this.f2874a = c0858bk;
+        this.f2875b = i;
+        this.f2876c = bArr;
+        this.f2877d = i2;
+    }
+
+    @Override // com.huawei.hem.AbstractC1063jk
+    /* renamed from: a */
+    public long mo1534a() {
+        return this.f2875b;
+    }
+
+    @Override // com.huawei.hem.AbstractC1063jk
+    @Nullable
+    /* renamed from: b */
+    public C0858bk mo1535b() {
+        return this.f2874a;
+    }
+
+    @Override // com.huawei.hem.AbstractC1063jk
+    /* renamed from: e */
+    public void mo1536e(InterfaceC1041in interfaceC1041in) {
+        interfaceC1041in.mo2008o(this.f2876c, this.f2877d, this.f2875b);
+    }
+}

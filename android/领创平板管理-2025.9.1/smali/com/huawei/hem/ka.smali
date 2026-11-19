@@ -1,0 +1,136 @@
+.class public Lcom/huawei/hem/ka;
+.super Ljava/lang/Object;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/huawei/hem/ka$a;
+    }
+.end annotation
+
+
+# static fields
+.field public static b:Lcom/huawei/hem/ka;
+
+.field public static c:Lcom/huawei/hem/ka;
+
+
+# instance fields
+.field public a:Ljava/util/concurrent/ThreadPoolExecutor;
+
+
+# direct methods
+.method public static constructor <clinit>()V
+    .locals 15
+
+    .line 1
+    new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
+
+    const/16 v7, 0x1388
+
+    invoke-direct {v6, v7}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
+
+    new-instance v0, Ljava/util/concurrent/ThreadPoolExecutor;
+
+    sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    const-wide/32 v3, 0xea60
+
+    invoke-direct/range {v0 .. v6}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V
+
+    new-instance v14, Ljava/util/concurrent/LinkedBlockingQueue;
+
+    invoke-direct {v14, v7}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
+
+    new-instance v8, Ljava/util/concurrent/ThreadPoolExecutor;
+
+    sget-object v13, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x1
+
+    const-wide/32 v11, 0xea60
+
+    invoke-direct/range {v8 .. v14}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V
+
+    .line 2
+    new-instance v0, Lcom/huawei/hem/ka;
+
+    invoke-direct {v0}, Lcom/huawei/hem/ka;-><init>()V
+
+    sput-object v0, Lcom/huawei/hem/ka;->b:Lcom/huawei/hem/ka;
+
+    new-instance v0, Lcom/huawei/hem/ka;
+
+    invoke-direct {v0}, Lcom/huawei/hem/ka;-><init>()V
+
+    sput-object v0, Lcom/huawei/hem/ka;->c:Lcom/huawei/hem/ka;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 8
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
+
+    const/16 v0, 0x1388
+
+    invoke-direct {v6, v0}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
+
+    new-instance v7, Ljava/util/concurrent/ThreadPoolExecutor;
+
+    sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    const-wide/32 v3, 0xea60
+
+    move-object v0, v7
+
+    invoke-direct/range {v0 .. v6}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V
+
+    iput-object v7, p0, Lcom/huawei/hem/ka;->a:Ljava/util/concurrent/ThreadPoolExecutor;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Lcom/huawei/hem/ha;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/huawei/hem/ka;->a:Ljava/util/concurrent/ThreadPoolExecutor;
+
+    new-instance v1, Lcom/huawei/hem/ka$a;
+
+    invoke-direct {v1, p1}, Lcom/huawei/hem/ka$a;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ThreadPoolExecutor;->execute(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    const-string p1, "hmsSdk"
+
+    const-string v0, "addToQueue() Exception has happened!Form rejected execution"
+
+    invoke-static {p1, v0}, Lcom/huawei/hem/xa;->f(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+.end method

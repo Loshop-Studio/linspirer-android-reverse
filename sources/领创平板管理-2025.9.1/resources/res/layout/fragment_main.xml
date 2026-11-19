@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root_view" android:background="@drawable/launcher_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:id="@id/top_layout" android:layout_width="match_parent" android:layout_height="@dimen/dp_52" android:layout_marginLeft="@dimen/dp_30" android:layout_marginTop="@dimen/dp_47" android:layout_marginRight="@dimen/dp_30">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/logo_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <ImageView android:id="@id/linspirer_logo" android:layout_width="@dimen/dp_189" android:layout_height="@dimen/dp_50" android:scaleType="fitXY" />
+            <View android:id="@id/dividing_line" android:background="@color/dividing_linedp2_color" android:layout_width="@dimen/dp_2" android:layout_height="@dimen/dp_50" android:layout_marginLeft="@dimen/dp_40" />
+            <TextClock android:textSize="@dimen/sp_42" android:textColor="@android:color/white" android:id="@id/current_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_36" android:format24Hour="HH:mm" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_4" android:text="领创科技" android:layout_toLeftOf="@id/user_avatar" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/user_avatar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_user_profile" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager android:id="@id/viewpager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/dp_11" android:layout_above="@id/allApp2Dot" android:layout_below="@id/top_layout" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/allApp2Dot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_40" android:layout_alignParentBottom="true" />
+    <RelativeLayout android:id="@id/launcher_shade" android:background="@drawable/shade_bg_launcher" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textColor="@color/white" android:id="@id/wifi_setting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_29" android:layout_marginBottom="@dimen/dp_49" android:text="@string/text_network_settings" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

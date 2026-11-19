@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/center_layout" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_30" android:layout_marginRight="@dimen/dp_30" android:layout_marginBottom="@dimen/dp_9" android:layout_above="@id/device_msg_layout">
+        <TextView android:textColor="@android:color/white" android:id="@id/layout_model_one" android:padding="@dimen/dp_20" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="模块1" android:layout_weight="11.0" />
+        <TextView android:textColor="@android:color/white" android:id="@id/layout_model_two" android:padding="@dimen/dp_20" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_20" android:text="模块2" android:layout_weight="11.0" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_20" android:layout_weight="14.0">
+            <TextView android:textColor="@android:color/white" android:id="@id/layout_model_three" android:padding="@dimen/dp_20" android:layout_width="match_parent" android:layout_height="@dimen/dp_179" android:text="模块3" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/dp_20">
+                <TextView android:textColor="@android:color/white" android:id="@id/layout_model_four" android:padding="@dimen/dp_20" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="模块4" android:layout_weight="1.0" />
+                <TextView android:textColor="@android:color/white" android:id="@id/layout_model_five" android:padding="@dimen/dp_20" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_20" android:text="模块5" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/device_msg_layout" android:layout_width="match_parent" android:layout_height="@dimen/dp_18" android:layout_marginLeft="@dimen/dp_30" android:layout_marginRight="@dimen/dp_30" android:layout_marginBottom="@dimen/dp_9" android:layout_alignParentBottom="true">
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@color/alpha_40_white" android:gravity="center_vertical" android:id="@id/text_device_msg" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Wi-Fi名称：lingchuang_888_5G    |    版本：lingchuang2.0    |    SN：lingchuang_888_5G" />
+    </LinearLayout>
+</RelativeLayout>

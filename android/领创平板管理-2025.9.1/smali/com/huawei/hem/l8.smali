@@ -1,0 +1,25 @@
+.class public Lcom/huawei/hem/l8;
+.super Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
+.source ""
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;-><init>()V
+
+    const-string v0, "sdk_version"
+
+    const-string v1, "4.0.20.301"
+
+    invoke-virtual {p0, v0, v1}, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->put(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
+
+    const-string v0, "if_name"
+
+    const-string v1, "NetworkKit-grs"
+
+    invoke-virtual {p0, v0, v1}, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->put(Ljava/lang/String;Ljava/lang/String;)Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
+
+    return-void
+.end method

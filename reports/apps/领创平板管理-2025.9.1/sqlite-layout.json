@@ -1,0 +1,545 @@
+{
+  "tables": {
+    "accs_message": [
+      {
+        "table": "accs_message",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT",
+            "not_null": true,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "state",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "message",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "create_time",
+            "type": "date",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "create table accs_message(id text UNIQUE not null,state text,message text,create_time date);",
+        "owners": [
+          "org/android/agoo/message/MessageService$a"
+        ]
+      }
+    ],
+    "c": [
+      {
+        "table": "c",
+        "columns": [
+          {
+            "name": "_id",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "a2",
+            "type": "varchar(100)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "a4",
+            "type": "varchar(2000)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "a3",
+            "type": "LONG",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE IF NOT EXISTS c (_id integer primary key autoincrement, a2 varchar(100), a4 varchar(2000), a3 LONG );",
+        "owners": [
+          "com/loc/eh"
+        ]
+      }
+    ],
+    "common_login_user_table": [
+      {
+        "table": "common_login_user_table",
+        "columns": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "user_id",
+            "type": "VARCHAR(100)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "user_name",
+            "type": "VARCHAR(100)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "school_id",
+            "type": "VARCHAR(100)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "swdid",
+            "type": "VARCHAR(100)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE common_login_user_table (id INTEGER PRIMARY KEY,user_id VARCHAR(100),user_name VARCHAR(100),school_id VARCHAR(100),swdid VARCHAR(100));",
+        "owners": [
+          "com/huawei/hem/v3"
+        ]
+      }
+    ],
+    "filedownloader": [
+      {
+        "table": "filedownloader",
+        "columns": [
+          {
+            "name": "_id",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "url",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "path",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "status",
+            "type": "TINYINT(7)",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "sofar",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "total",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "errMsg",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "etag",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "pathAsDirectory",
+            "type": "TINYINT(1)",
+            "not_null": false,
+            "default": "0",
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "filename",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "connectionCount",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": "1",
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE IF NOT EXISTS filedownloader( _id INTEGER PRIMARY KEY, url VARCHAR, path VARCHAR, status TINYINT(7), sofar INTEGER, total INTEGER, errMsg VARCHAR, etag VARCHAR, pathAsDirectory TINYINT(1) DEFAULT 0, filename VARCHAR, connectionCount INTEGER DEFAULT 1)",
+        "owners": [
+          "com/huawei/hem/mf"
+        ]
+      }
+    ],
+    "filedownloaderConnection": [
+      {
+        "table": "filedownloaderConnection",
+        "columns": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "connectionIndex",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 2,
+            "hidden": 0
+          },
+          {
+            "name": "startOffset",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "currentOffset",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "endOffset",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE IF NOT EXISTS filedownloaderConnection( id INTEGER, connectionIndex INTEGER, startOffset INTEGER, currentOffset INTEGER, endOffset INTEGER, PRIMARY KEY ( id, connectionIndex ))",
+        "owners": [
+          "com/huawei/hem/mf"
+        ]
+      }
+    ],
+    "hist20201501131131": [
+      {
+        "table": "hist20201501131131",
+        "columns": [
+          {
+            "name": "feature",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "nb",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "loc",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "time",
+            "type": "VARCHAR",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE hist20201501131131 (feature VARCHAR PRIMARY KEY, nb VARCHAR, loc VARCHAR, time VARCHAR)",
+        "owners": [
+          "com/loc/ef"
+        ]
+      }
+    ],
+    "message": [
+      {
+        "table": "message",
+        "columns": [
+          {
+            "name": "id",
+            "type": "TEXT",
+            "not_null": true,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "state",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "body_code",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "report",
+            "type": "long",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "target_time",
+            "type": "long",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "interval",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "type",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "message",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "notify",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "create_time",
+            "type": "date",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "create table message(id text UNIQUE not null,state integer,body_code integer,report long,target_time long,interval integer,type text,message text,notify integer,create_time date);",
+        "owners": [
+          "org/android/agoo/message/MessageService$a"
+        ]
+      }
+    ],
+    "traffic": [
+      {
+        "table": "traffic",
+        "columns": [
+          {
+            "name": "_id",
+            "type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 1,
+            "hidden": 0
+          },
+          {
+            "name": "date",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "host",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "serviceid",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "bid",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "isbackground",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          },
+          {
+            "name": "size",
+            "type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key_order": 0,
+            "hidden": 0
+          }
+        ],
+        "foreign_keys": [],
+        "sql": "CREATE TABLE IF NOT EXISTS traffic(_id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, host TEXT,serviceid TEXT, bid TEXT, isbackground TEXT, size TEXT)",
+        "owners": [
+          "com/taobao/accs/a/a"
+        ]
+      }
+    ]
+  },
+  "indexes": [
+    {
+      "index": "id_index",
+      "table": "message",
+      "keys": [
+        {
+          "column": "id",
+          "descending": false,
+          "collation": "BINARY"
+        }
+      ],
+      "sql": "CREATE INDEX id_index ON message(id)",
+      "owners": [
+        "org/android/agoo/message/MessageService$a"
+      ]
+    },
+    {
+      "index": "body_code_index",
+      "table": "message",
+      "keys": [
+        {
+          "column": "body_code",
+          "descending": false,
+          "collation": "BINARY"
+        }
+      ],
+      "sql": "CREATE INDEX body_code_index ON message(body_code)",
+      "owners": [
+        "org/android/agoo/message/MessageService$a"
+      ]
+    }
+  ],
+  "unresolved": [],
+  "android_schema_evidence": {
+    "file": "../../evidence/sqlite-dynamic.json",
+    "apk_sha256": "cd7482fdff9ebcb75b775cd846e25700f9d6f1c5adee49b06cd23f62d7252fef",
+    "cases": [
+      {
+        "case": "history",
+        "tables": [
+          "hist20201501131131"
+        ]
+      }
+    ]
+  }
+}
